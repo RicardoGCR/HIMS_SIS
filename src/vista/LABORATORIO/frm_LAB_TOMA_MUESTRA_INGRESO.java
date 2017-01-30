@@ -1098,16 +1098,16 @@ public void buscar_examenes(){
         try{
            
             int filaselec=tb_Pacientes.getSelectedRow();
-              frm_LAB_TOMA_MUESTRA_ vr=new frm_LAB_TOMA_MUESTRA_();
+              frm_LAB_TOMA_MUESTRA_CABECERA vr=new frm_LAB_TOMA_MUESTRA_CABECERA();
                     vr.setVisible(true);
-                    frm_LAB_TOMA_MUESTRA_.txtHc.setText(tb_Pacientes.getValueAt(filaselec, 1).toString());
-                    frm_LAB_TOMA_MUESTRA_.txtPacientes.setText(tb_Pacientes.getValueAt(filaselec, 2).toString());
-                    frm_LAB_TOMA_MUESTRA_.txtDni.setText(tb_Pacientes.getValueAt(filaselec, 3).toString());
-                    frm_LAB_TOMA_MUESTRA_.txtFecha.setText(tb_Pacientes.getValueAt(filaselec, 4).toString());
-                    frm_LAB_TOMA_MUESTRA_.txtEdad.setText(tb_Pacientes.getValueAt(filaselec, 5).toString());
-                    frm_LAB_TOMA_MUESTRA_.txtSexo.setText(tb_Pacientes.getValueAt(filaselec, 6).toString());
+                    frm_LAB_TOMA_MUESTRA_CABECERA.txtHc.setText(tb_Pacientes.getValueAt(filaselec, 1).toString());
+                    frm_LAB_TOMA_MUESTRA_CABECERA.txtPacientes.setText(tb_Pacientes.getValueAt(filaselec, 2).toString());
+                    frm_LAB_TOMA_MUESTRA_CABECERA.txtDni.setText(tb_Pacientes.getValueAt(filaselec, 3).toString());
+                    frm_LAB_TOMA_MUESTRA_CABECERA.txtFecha.setText(tb_Pacientes.getValueAt(filaselec, 4).toString());
+                    frm_LAB_TOMA_MUESTRA_CABECERA.txtEdad.setText(tb_Pacientes.getValueAt(filaselec, 5).toString());
+                    frm_LAB_TOMA_MUESTRA_CABECERA.txtSexo.setText(tb_Pacientes.getValueAt(filaselec, 6).toString());
                      String u=lblUsu.getText();
-                             frm_LAB_TOMA_MUESTRA_.lblUsu.setText(u);
+                             frm_LAB_TOMA_MUESTRA_CABECERA.lblUsu.setText(u);
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage());
         }}

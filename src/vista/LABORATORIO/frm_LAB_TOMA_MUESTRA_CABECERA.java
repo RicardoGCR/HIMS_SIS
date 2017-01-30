@@ -41,7 +41,7 @@ import vista.frmlaboratorioClinico;
  *
  * @author PC-SISTEMA
  */
-public class frm_LAB_TOMA_MUESTRA_ extends javax.swing.JFrame implements Runnable{
+public class frm_LAB_TOMA_MUESTRA_CABECERA extends javax.swing.JFrame implements Runnable{
 String hora, minutos, segundos, ampm;
     Calendar calendario;
     Thread h1;
@@ -51,7 +51,7 @@ DefaultTableModel m,n,muestra;
     /**
      * Creates new form LAB_MUESTRA_EXAMEN
      */
-    public frm_LAB_TOMA_MUESTRA_() {
+    public frm_LAB_TOMA_MUESTRA_CABECERA() {
         initComponents();
         c.conectar();
      
@@ -1072,14 +1072,78 @@ Buscar_Unidad_Organica.setVisible(true);
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_LAB_TOMA_MUESTRA_.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_LAB_TOMA_MUESTRA_CABECERA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_LAB_TOMA_MUESTRA_.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_LAB_TOMA_MUESTRA_CABECERA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_LAB_TOMA_MUESTRA_.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_LAB_TOMA_MUESTRA_CABECERA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_LAB_TOMA_MUESTRA_.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_LAB_TOMA_MUESTRA_CABECERA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1148,7 +1212,7 @@ Buscar_Unidad_Organica.setVisible(true);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_LAB_TOMA_MUESTRA_().setVisible(true);
+                new frm_LAB_TOMA_MUESTRA_CABECERA().setVisible(true);
             }
         });
     }

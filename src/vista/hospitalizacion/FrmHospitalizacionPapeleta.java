@@ -658,9 +658,9 @@ public class FrmHospitalizacionPapeleta extends javax.swing.JFrame {
         jPanel8.add(jLabel15);
         jLabel15.setBounds(420, 60, 30, 14);
 
-        jLabel16.setText("jLabel16");
+        jLabel16.setText("Martha");
         jPanel8.add(jLabel16);
-        jLabel16.setBounds(410, 100, 40, 14);
+        jLabel16.setBounds(410, 100, 34, 14);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));

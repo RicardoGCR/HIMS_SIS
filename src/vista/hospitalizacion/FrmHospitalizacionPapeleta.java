@@ -287,6 +287,7 @@ public class FrmHospitalizacionPapeleta extends javax.swing.JFrame {
         lblGenero = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
         lblMant = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -646,6 +647,10 @@ public class FrmHospitalizacionPapeleta extends javax.swing.JFrame {
         lblMant.setText("jLabel14");
         jPanel8.add(lblMant);
         lblMant.setBounds(330, 100, 40, 14);
+
+        jLabel14.setText("jLabel14");
+        jPanel8.add(jLabel14);
+        jLabel14.setBounds(360, 60, 40, 14);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -1312,6 +1317,7 @@ public class FrmHospitalizacionPapeleta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

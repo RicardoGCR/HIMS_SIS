@@ -3391,7 +3391,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_bc1ActionPerformed
 
     private void bc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bc2ActionPerformed
-     p1.setVisible(false);
+         p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(false);        // TODO add your handling code here:
          p9.setVisible(false);

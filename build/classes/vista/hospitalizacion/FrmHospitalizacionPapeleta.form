@@ -574,6 +574,8 @@
             </Constraint>
           </Constraints>
         </Component>
+<<<<<<< HEAD
+=======
         <Component class="javax.swing.JLabel" name="jLabel14">
           <Properties>
             <Property name="text" type="java.lang.String" value="jLabel14"/>
@@ -604,6 +606,7 @@
             </Constraint>
           </Constraints>
         </Component>
+>>>>>>> c98a35c29e5c0f4f5bb7b54ba31efd31f3f7b292
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel1">

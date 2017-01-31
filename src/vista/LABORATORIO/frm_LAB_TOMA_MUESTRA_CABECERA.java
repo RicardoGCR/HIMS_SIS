@@ -54,7 +54,8 @@ DefaultTableModel m,n,muestra;
     public frm_LAB_TOMA_MUESTRA_CABECERA() {
         initComponents();
         c.conectar();
-     
+        this.setExtendedState(MAXIMIZED_BOTH);
+                
         h1 = new Thread(this);
         h1.start();
         buscar_HC.getContentPane().setBackground(Color.white); 
@@ -65,13 +66,11 @@ DefaultTableModel m,n,muestra;
         panelCabecera.setBackground(Color.white); 
         this.getContentPane().setBackground(Color.white); 
        
-      
-            btnPacientes.setVisible(false);
-            
-            btnAreas.setVisible(false);
+   
+  
       
         setLocationRelativeTo(null);//en el centro
-        setResizable(false);//para que no funcione el boton maximizar
+//        setResizable(false);//para que no funcione el boton maximizar
         buscar_HC.setResizable(false);
        
         //fecha
@@ -261,8 +260,6 @@ public void calcula() {
                         }}};
                         btnGuardar = new javax.swing.JButton();
                         panelCabecera = new javax.swing.JPanel();
-                        btnPacientes = new javax.swing.JButton();
-                        btnAreas = new javax.swing.JButton();
                         panelPaciente = new javax.swing.JPanel();
                         jLabel23 = new javax.swing.JLabel();
                         txtDni = new javax.swing.JTextField();
@@ -495,7 +492,7 @@ public void calcula() {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
                                 .addComponent(titulo5)
-                                .addGap(240, 240, 240)
+                                .addGap(444, 444, 444)
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jpanelLayout.createSequentialGroup()
                                         .addComponent(jLabel15)
@@ -608,44 +605,15 @@ public void calcula() {
                             }
                         });
 
-                        btnPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
-                        btnPacientes.setBorder(null);
-                        btnPacientes.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnPacientesActionPerformed(evt);
-                            }
-                        });
-
-                        btnAreas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
-                        btnAreas.setBorder(null);
-                        btnAreas.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnAreasActionPerformed(evt);
-                            }
-                        });
-
                         javax.swing.GroupLayout panelCabeceraLayout = new javax.swing.GroupLayout(panelCabecera);
                         panelCabecera.setLayout(panelCabeceraLayout);
                         panelCabeceraLayout.setHorizontalGroup(
                             panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCabeceraLayout.createSequentialGroup()
-                                .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(panelCabeceraLayout.createSequentialGroup()
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panelCabeceraLayout.createSequentialGroup()
-                                        .addGap(183, 658, Short.MAX_VALUE)
-                                        .addComponent(btnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap())
+                            .addGap(0, 738, Short.MAX_VALUE)
                         );
                         panelCabeceraLayout.setVerticalGroup(
                             panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCabeceraLayout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(btnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(3, 3, 3))
+                            .addGap(0, 67, Short.MAX_VALUE)
                         );
 
                         panelPaciente.setBorder(javax.swing.BorderFactory.createTitledBorder("Análisis"));
@@ -689,7 +657,7 @@ public void calcula() {
                             .addGroup(panelPacienteLayout.createSequentialGroup()
                                 .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelPacienteLayout.createSequentialGroup()
-                                        .addGap(53, 53, 53)
+                                        .addGap(83, 83, 83)
                                         .addComponent(jLabel22))
                                     .addGroup(panelPacienteLayout.createSequentialGroup()
                                         .addGap(22, 22, 22)
@@ -701,15 +669,15 @@ public void calcula() {
                                 .addGap(49, 49, 49)
                                 .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelPacienteLayout.createSequentialGroup()
-                                        .addGap(55, 55, 55)
+                                        .addGap(82, 82, 82)
                                         .addComponent(jLabel7)
-                                        .addGap(212, 212, 212)
+                                        .addGap(185, 185, 185)
                                         .addComponent(jLabel23))
                                     .addGroup(panelPacienteLayout.createSequentialGroup()
                                         .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(panelPacienteLayout.createSequentialGroup()
-                                                .addGap(57, 57, 57)
+                                                .addGap(78, 78, 78)
                                                 .addComponent(jLabel24))
                                             .addComponent(txtPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
@@ -719,7 +687,7 @@ public void calcula() {
                                                 .addGap(78, 78, 78)
                                                 .addComponent(jLabel18))
                                             .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(72, 214, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         );
                         panelPacienteLayout.setVerticalGroup(
                             panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -748,7 +716,7 @@ public void calcula() {
                                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(31, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         );
 
                         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -890,18 +858,6 @@ public void calcula() {
     private void tb_PacientesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_PacientesKeyTyped
 
     }//GEN-LAST:event_tb_PacientesKeyTyped
-
-    private void btnAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreasActionPerformed
-Buscar_Unidad_Organica.setVisible(true);
-    LAB_Unidad_Organica_cargar();
-    LAB_Unidad_Organica_formato();
-    }//GEN-LAST:event_btnAreasActionPerformed
-
-    private void btnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacientesActionPerformed
-          buscar_HC.setVisible(true);
-        LAB_HC_cargar();
-        LAB_HC_formato();
-    }//GEN-LAST:event_btnPacientesActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
  
@@ -1171,11 +1127,9 @@ Buscar_Unidad_Organica.setVisible(true);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Buscar_Unidad_Organica;
-    public static javax.swing.JButton btnAreas;
     private javax.swing.JButton btnBuscar1;
     private javax.swing.JButton btnBuscar2;
     private javax.swing.JButton btnGuardar;
-    public static javax.swing.JButton btnPacientes;
     private javax.swing.JDialog buscar_HC;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

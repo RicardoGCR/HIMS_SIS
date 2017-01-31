@@ -6,6 +6,7 @@
 package modelos.hospitalizacion;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 
@@ -24,6 +25,36 @@ public class HospitalizacionDestinoAltas {
     private String nom_pc;
     private String cod_usu;
 
+    public boolean mantenimientoHospitalizacionDestinoAltas(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "HOSPITALIZACION_DESTINO_ALTAs_MANTENIMIENTO ?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getDa_descripcion());
+            cmd.setString(2, getCod_usu());
+            cmd.setInt(3, getDa_id());
+            cmd.setString(4, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoHospitalizacionDestinoAltas: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public HospitalizacionDestinoAltas()
+    {
+        Conexion con = new Conexion();
+        cn = con.conectar();
+    }
+    
     /**
      * @return the cn
      */

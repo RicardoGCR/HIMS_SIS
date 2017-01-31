@@ -655,7 +655,11 @@
                           <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                           <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtBuscar" min="-2" pref="125" max="-2" attributes="0"/>
+=======
+                          <Component id="txtBuscarHC" min="-2" pref="125" max="-2" attributes="0"/>
+>>>>>>> d796497970a17a93a0de096f453594caeea1958d
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="btnBuscarHC" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
@@ -680,7 +684,11 @@
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="txtBuscar" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                      <Component id="txtBuscarHC" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> d796497970a17a93a0de096f453594caeea1958d
                       <Component id="btnBuscarHC" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -696,7 +704,11 @@
             <Property name="text" type="java.lang.String" value="N&#xba; H.C :"/>
           </Properties>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JTextField" name="txtBuscar">
+=======
+        <Component class="javax.swing.JTextField" name="txtBuscarHC">
+>>>>>>> d796497970a17a93a0de096f453594caeea1958d
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -707,8 +719,13 @@
             </Property>
           </Properties>
           <Events>
+<<<<<<< HEAD
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarKeyPressed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarKeyTyped"/>
+=======
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarHCKeyPressed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarHCKeyTyped"/>
+>>>>>>> d796497970a17a93a0de096f453594caeea1958d
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnBuscarHC">
@@ -2664,9 +2681,12 @@
                         </Property>
                         <Property name="autoResizeMode" type="int" value="0"/>
                       </Properties>
+<<<<<<< HEAD
                       <Events>
                         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbListaSolicitudKeyPressed"/>
                       </Events>
+=======
+>>>>>>> d796497970a17a93a0de096f453594caeea1958d
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tbListaSolicitud = new javax.swing.JTable(){&#xa;    public boolean isCellEditable(int rowIndex, int colIndex) {&#xa;        return false; //Disallow the editing of any cell&#xa;    }&#xa;};"/>
                       </AuxValues>

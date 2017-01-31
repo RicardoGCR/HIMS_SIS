@@ -27,6 +27,8 @@ public class HospitalizacionAltasPacientes {
     private String nom_pc;
     private String cod_usu;
 
+    
+    
     /**
      * @return the cn
      */

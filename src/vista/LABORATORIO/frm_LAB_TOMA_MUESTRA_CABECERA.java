@@ -69,8 +69,8 @@ DefaultTableModel m,n,muestra;
    
   
       
-   //     setLocationRelativeTo(null);//en el centro
-        setResizable(false);//para que no funcione el boton maximizar
+        setLocationRelativeTo(null);//en el centro
+//        setResizable(false);//para que no funcione el boton maximizar
         buscar_HC.setResizable(false);
        
         //fecha

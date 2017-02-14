@@ -1500,31 +1500,6 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 				</textElement>
 				<text><![CDATA[ESTADO DEL COSTO REAL:     S/.]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="63" y="0" width="100" height="20" uuid="b97cab5e-7497-44dd-9d38-66b5ed36ebab"/>
-				<textFieldExpression><![CDATA[$F{nombre_grupo_nomen}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="731" y="0" width="17" height="20" uuid="1b069621-1814-405b-bddf-487eb6758496"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{tiempo_hora}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="759" y="0" width="17" height="20" uuid="abc91165-2758-4538-a579-1e8d91794759"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{tiempo_min}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="166" y="23" width="35" height="20" uuid="2473b67b-988a-4887-9b42-f34d4db6815c"/>
-				<textFieldExpression><![CDATA[$F{gananciaPerdida}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="213" y="23" width="72" height="20" uuid="7bbf1be1-e0e8-4276-96e1-5011e89513a0"/>
-				<textElement textAlignment="Center">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[(($F{TOTAL}<$F{precio})? "GANANCIA" : "PÉRDIDA")]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="201" y="23" width="12" height="20" uuid="5569dd0d-5a5f-44ee-9af4-43fb61f094a3"/>
 				<textElement textAlignment="Right">
@@ -1539,10 +1514,6 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 				</textElement>
 				<text><![CDATA[)]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="385" y="0" width="100" height="20" uuid="7586e9bb-3e64-42e7-b82b-f26b64f195af"/>
-				<textFieldExpression><![CDATA[$F{AR_DESC}]]></textFieldExpression>
-			</textField>
 		</band>
 	</detail>
 	<pageFooter>

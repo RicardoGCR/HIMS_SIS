@@ -786,14 +786,13 @@
 	<subDataset name="COSTOS" uuid="9d2b2f29-48b0-45e3-a335-96ec4c1afc6a">
 		<parameter name="cod_sustentoCosto" class="java.lang.String"/>
 		<queryString>
-			<![CDATA[select cs.cod_sustento_costo,a.cod_precio,b.nomen_caja,c.nombre_grupo_nomen,d.nom_uni_organica_jerar,
+			<![CDATA[select cs.cod_sustento_costo,a.cod_precio,b.nomen_caja,c.nombre_grupo_nomen,d.AR_DESC,
 e.nom_forma_pago,LEFT(a.precio,LEN(A.PRECIO)) as precio,cs.tiempo_hora,cs.tiempo_min,LEFT(cs.saldo_ganancia_perdida_total
-,LEN(cs.saldo_ganancia_perdida_total)) as gananciaPerdida,b.descripcion_nomen_tipo,
-LEFT(a.precio-cs.saldo_ganancia_perdida_total,LEN(a.precio-cs.saldo_ganancia_perdida_total)) AS TOTAL
+,LEN(cs.saldo_ganancia_perdida_total)) as gananciaPerdida,b.descripcion_nomen_tipo
 from COSTOS_SUSTENTACION cs,CAJA_PRECIOS a, CAJA_NOMENCLATURA_CAJA b, CAJA_GRUPO_NOMENCLATURA_ATENCION c,
- SISTEMA_UNIDAD_ORGANICA d,CAJA_JERARQUIA_FORMA_PAGO e
+ SISTEMA_AREAS d,CAJA_JERARQUIA_FORMA_PAGO e
 where cs.cod_precio=a.cod_precio and a.cod_nomen_caja = b.cod_nomen_caja and
-b.cod_grupo_nomen_aten=c.cod_grupo_nomen_aten and b.cod_uni_organica_jerar=d.cod_uni_organica_jerar and
+b.cod_grupo_nomen_aten=c.cod_grupo_nomen_aten and b.AR_ID=d.AR_ID and
 e.cod_jerar_forma_pago=a.cod_jerar_forma_pago and b.estado_nomen_caja='A' and a.estado_precios = 'A'
 and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{cod_sustentoCosto}]]>
 		</queryString>
@@ -801,14 +800,13 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{cod_sustentoCosto}]]
 		<field name="cod_precio" class="java.lang.String"/>
 		<field name="nomen_caja" class="java.lang.String"/>
 		<field name="nombre_grupo_nomen" class="java.lang.String"/>
-		<field name="nom_uni_organica_jerar" class="java.lang.String"/>
+		<field name="AR_DESC" class="java.lang.String"/>
 		<field name="nom_forma_pago" class="java.lang.String"/>
 		<field name="precio" class="java.lang.String"/>
 		<field name="tiempo_hora" class="java.lang.Integer"/>
 		<field name="tiempo_min" class="java.lang.Integer"/>
 		<field name="gananciaPerdida" class="java.lang.String"/>
 		<field name="descripcion_nomen_tipo" class="java.lang.String"/>
-		<field name="TOTAL" class="java.lang.String"/>
 		<group name="nomen_caja">
 			<groupExpression><![CDATA[$F{nomen_caja}]]></groupExpression>
 		</group>
@@ -1036,15 +1034,15 @@ and cts.nombre_tipo_susten='SERVICIOS INTERMEDIOS' and cs.cod_sustento_costo=$P{
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select cs.cod_sustento_costo,a.cod_precio,b.nomen_caja,c.nombre_grupo_nomen,d.nom_uni_organica_jerar,
+		<![CDATA[select cs.cod_sustento_costo,a.cod_precio,b.nomen_caja,c.nombre_grupo_nomen,d.AR_DESC,
 e.nom_forma_pago,cast(LEFT(a.precio,LEN(A.PRECIO)) as smallmoney)as precio,
 cs.tiempo_hora,cs.tiempo_min,LEFT(cs.saldo_ganancia_perdida_total
 ,LEN(cs.saldo_ganancia_perdida_total)) as gananciaPerdida,b.descripcion_nomen_tipo,
 CAST(LEFT(cs.saldo_ganancia_perdida_total,LEN(cs.saldo_ganancia_perdida_total)) AS smallmoney) AS NOMBRE,CAST(LEFT(a.precio-cs.saldo_ganancia_perdida_total,LEN(a.precio-cs.saldo_ganancia_perdida_total))AS smallmoney) AS TOTAL
 from COSTOS_SUSTENTACION cs,CAJA_PRECIOS a, CAJA_NOMENCLATURA_CAJA b, CAJA_GRUPO_NOMENCLATURA_ATENCION c,
- SISTEMA_UNIDAD_ORGANICA d,CAJA_JERARQUIA_FORMA_PAGO e
+ SISTEMA_AREAS d,CAJA_JERARQUIA_FORMA_PAGO e
 where cs.cod_precio=a.cod_precio and a.cod_nomen_caja = b.cod_nomen_caja and
-b.cod_grupo_nomen_aten=c.cod_grupo_nomen_aten and b.cod_uni_organica_jerar=d.cod_uni_organica_jerar and
+b.cod_grupo_nomen_aten=c.cod_grupo_nomen_aten and b.AR_ID=d.AR_ID and
 e.cod_jerar_forma_pago=a.cod_jerar_forma_pago and b.estado_nomen_caja='A' and a.estado_precios = 'A'
 and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 	</queryString>
@@ -1052,7 +1050,7 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 	<field name="cod_precio" class="java.lang.String"/>
 	<field name="nomen_caja" class="java.lang.String"/>
 	<field name="nombre_grupo_nomen" class="java.lang.String"/>
-	<field name="nom_uni_organica_jerar" class="java.lang.String"/>
+	<field name="AR_DESC" class="java.lang.String"/>
 	<field name="nom_forma_pago" class="java.lang.String"/>
 	<field name="precio" class="java.math.BigDecimal"/>
 	<field name="tiempo_hora" class="java.lang.Integer"/>
@@ -2946,10 +2944,6 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 				<textFieldExpression><![CDATA[$F{nombre_grupo_nomen}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="385" y="0" width="100" height="20" uuid="b2445115-5bab-4112-9df1-d7d9e1227b22"/>
-				<textFieldExpression><![CDATA[$F{nom_uni_organica_jerar}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="731" y="0" width="17" height="20" uuid="1b069621-1814-405b-bddf-487eb6758496"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{tiempo_hora}]]></textFieldExpression>
@@ -2983,6 +2977,10 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 			<textField>
 				<reportElement x="163" y="23" width="38" height="20" uuid="6617f952-d608-40f8-a056-afa308c3822f"/>
 				<textFieldExpression><![CDATA[$F{gananciaPerdida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="385" y="0" width="100" height="20" uuid="4d86deb4-c872-4755-902e-d689a43ebf07"/>
+				<textFieldExpression><![CDATA[$F{AR_DESC}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

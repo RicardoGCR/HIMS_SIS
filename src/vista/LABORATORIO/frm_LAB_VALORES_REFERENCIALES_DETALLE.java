@@ -72,7 +72,7 @@ DefaultTableModel m,n,muestra;
         LAB_Fabricante_cargar();
         LAB_Fabricante_formato();
         //color al text field
-        jLabel41.setBackground(Color.BLACK);
+        lblF.setBackground(Color.red);
        
         //fecha
        Calendar cal=Calendar.getInstance(); 
@@ -325,7 +325,7 @@ public void calcula() {
             jLabel38 = new javax.swing.JLabel();
             jLabel37 = new javax.swing.JLabel();
             jLabel40 = new javax.swing.JLabel();
-            jLabel41 = new javax.swing.JLabel();
+            lblF = new javax.swing.JLabel();
             jScrollPane6 = new javax.swing.JScrollPane();
             tb_ValoresRef = new javax.swing.JTable(){
                 public boolean isCellEditable(int rowIndex, int colIndex){
@@ -1073,13 +1073,13 @@ public void calcula() {
                 jPanel2.add(jLabel40);
                 jLabel40.setBounds(352, 0, 150, 22);
 
-                jLabel41.setBackground(new java.awt.Color(102, 102, 102));
-                jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                jLabel41.setText("Fabricante");
-                jLabel41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-                jLabel41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                jPanel2.add(jLabel41);
-                jLabel41.setBounds(2, 0, 200, 22);
+                lblF.setBackground(new java.awt.Color(255, 0, 204));
+                lblF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                lblF.setText("Fabricante");
+                lblF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+                lblF.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                jPanel2.add(lblF);
+                lblF.setBounds(2, 0, 200, 22);
 
                 tb_ValoresRef.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
@@ -1909,7 +1909,6 @@ valor_minimo,valor_maximo,valor_texto_referencia};
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1921,6 +1920,7 @@ valor_minimo,valor_maximo,valor_texto_referencia};
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPanel jpanel;
     private javax.swing.JLabel lblCodFabr;
+    private javax.swing.JLabel lblF;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;
     public static javax.swing.JLabel lblUsu;

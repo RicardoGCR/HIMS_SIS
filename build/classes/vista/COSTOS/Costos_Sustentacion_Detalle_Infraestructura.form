@@ -290,13 +290,6 @@
               <Component id="txtCodServicio" min="-2" pref="160" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
-<<<<<<< HEAD
-=======
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-          </Group>
->>>>>>> 4077ed1ea014a19e192239d045d99725fd50ef5c
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -317,10 +310,7 @@
               <Component id="jButton6" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="293" max="-2" attributes="0"/>
           </Group>
-<<<<<<< HEAD
           <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
-=======
->>>>>>> 4077ed1ea014a19e192239d045d99725fd50ef5c
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">

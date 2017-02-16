@@ -317,9 +317,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             tbHistoriaC.getColumnModel().getColumn(25).setPreferredWidth(90);
             tbHistoriaC.getColumnModel().getColumn(26).setPreferredWidth(90);
             tbHistoriaC.getColumnModel().getColumn(27).setPreferredWidth(90);
-            tbHistoriaC.getColumnModel().getColumn(28).setPreferredWidth(140);
-            tbHistoriaC.getColumnModel().getColumn(29).setPreferredWidth(60);
-            tbHistoriaC.getColumnModel().getColumn(30).setPreferredWidth(90);
+            tbHistoriaC.getColumnModel().getColumn(28).setPreferredWidth(90);
             tbHistoriaC.setRowHeight(30);
     }
     
@@ -334,10 +332,10 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                               "Provincia Nac","Departmento Nac","Ocupación","Estado civil","Grupo de Sangre",
                               "Religión","Teléfono","Celular","Grado de Instrucción",
                               "Nacionalidad","Fecha de creación","Hora de creación","Usuario","PC de creación",
-                              "Estado","Última atención","Estado de HC","Edad","Riesgo"};
+                              "Estado","Edad","Riesgo"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[40];
+            String fila[]=new String[38];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC SP_HC_METODO_BUSQUEDA ?,?,?";
             PreparedStatement cmd = hC.getCn().prepareStatement(consulta);
@@ -361,11 +359,11 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 fila[11]=r.getString(12); // nombre provincia actual
                 fila[12]=r.getString(13); // nombre provincia actual
                 fila[13]=r.getString(14); // codigo distrito actual
-                fila[14]=r.getString(37); //sector
+                fila[14]=r.getString(35); //sector
                 fila[15]=r.getString(15); // tipo dir
                 fila[16]=r.getString(16); // direccion
-                fila[17]=r.getString(38); // num o manzana
-                fila[18]=r.getString(39); // lote
+                fila[17]=r.getString(36); // num o manzana
+                fila[18]=r.getString(37); // lote
                 fila[19]=r.getString(17); // codigo distrito nacimiento
                 fila[20]=r.getString(18); // distrito nacimiento
                 fila[21]=r.getString(19); //provincia nacimiento
@@ -384,9 +382,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 fila[34]=r.getString(32); // nombre de la pc donde se registro
                 fila[35]=r.getString(33); //estado de la hc activo, pasivo, pendiente
                 fila[36]=r.getString(34); //ultima atencion
-                fila[37]=r.getString(35); // activo o desactivo de HC
-                fila[38]=r.getString(36); // activo o desactivo de HC
-                fila[39]=r.getString(40); // riesgo
+                fila[37]=r.getString(38); // riesgo
                     m.addRow(fila);
                     c++;
             }
@@ -2537,9 +2533,10 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         cabecera();
         cbxTipoBusqueda.setSelectedIndex(0);
         txtBuscar.setEnabled(false);
-        chkA.setSelected(false);
+        chkA.setSelected(true);
         chkD.setSelected(false);
         chkT.setSelected(false);
+        buscar_HC(1, "A", "");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

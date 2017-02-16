@@ -5,7 +5,15 @@
  */
 package vista.hospitalizacion;
 
+import java.awt.Color;
+import java.sql.Connection;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
+import modelos.hospitalizacion.HospitalizacionMotivoAltas;
 import modelos.hospitalizacion.HospitalizacionPapeletas;
+import servicios.Conexion;
 
 /**
  *
@@ -13,11 +21,14 @@ import modelos.hospitalizacion.HospitalizacionPapeletas;
  */
 public class FrmHospitalizacionMotivoAltas extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmHospitalizacionMotivoAltas
-     */
+    DefaultTableModel m;
+    Connection conexion=null;
+    Conexion c = new Conexion();
     public FrmHospitalizacionMotivoAltas() {
         initComponents();
+        this.setLocationRelativeTo(null);//en el centro
+        this.setResizable(false);//deshabilita boton maximizar
+        this.getContentPane().setBackground(Color.WHITE);//color blanco del formulario
     }
 
     /**
@@ -38,6 +49,11 @@ public class FrmHospitalizacionMotivoAltas extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
+        lblMant = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtDescripcion = new javax.swing.JEditorPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,11 +65,11 @@ public class FrmHospitalizacionMotivoAltas extends javax.swing.JFrame {
         titulo5.setFont(new java.awt.Font("Segoe UI Light", 0, 22)); // NOI18N
         titulo5.setForeground(new java.awt.Color(255, 255, 255));
         titulo5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        titulo5.setText("Papeleta de Hospitalización");
+        titulo5.setText("Motivo de Altas");
         titulo5.setToolTipText("");
         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel8.add(titulo5);
-        titulo5.setBounds(0, 11, 275, 30);
+        titulo5.setBounds(10, 10, 160, 30);
 
         lblUsuUsuario.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
         lblUsuUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -159,32 +175,82 @@ public class FrmHospitalizacionMotivoAltas extends javax.swing.JFrame {
         jPanel8.add(btnBuscar);
         btnBuscar.setBounds(140, 70, 38, 32);
 
+        lblMant.setText("jLabel2");
+        jPanel8.add(lblMant);
+        lblMant.setBounds(230, 80, 34, 14);
+
+        lblID.setText("jLabel2");
+        jPanel8.add(lblID);
+        lblID.setBounds(280, 80, 34, 14);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 13)); // NOI18N
+        jLabel1.setText("Descripción:");
+
+        txtDescripcion.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        txtDescripcion.setEnabled(false);
+        jScrollPane2.setViewportView(txtDescripcion);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 180, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-
+        txtDescripcion.setEnabled(true);
+        lblMant.setText("I");
+        btnGuardar.setEnabled(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-
+        lblMant.setText("U");
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-       
+        try {
+            AdmisionEmergenciaCabecera ademer = new AdmisionEmergenciaCabecera();
+            String descripcion = txtDescripcion.getText();
+            String codigo = ademer.codUsuario(lblUsuUsuario.getText());
+            ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+            if(txtDescripcion.getText().equals(""))
+                JOptionPane.showMessageDialog(this, "Debe completar los datos");
+            else{
+                int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                if(guardar == 0){
+                    HospitalizacionMotivoAltas hpM = new HospitalizacionMotivoAltas();
+                    hpM.setMa_descripcion(descripcion);
+                    hpM.setCod_usu(codigo);
+                    if(hpM.mantenimientoHospitalizacionMotivoAltas(lblMant.getText()))
+                        JOptionPane.showMessageDialog(this, "Registro guardado");
+                    else
+                        JOptionPane.showMessageDialog(this, "Error al guardar registro");
+                }
+            }    
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -236,9 +302,14 @@ public class FrmHospitalizacionMotivoAltas extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblUsuUsuario;
     private javax.swing.JLabel titulo5;
+    private javax.swing.JEditorPane txtDescripcion;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
-        <file>
-            <url>src/vista/hospitalizacion/FrmHospitalizacionMotivoAltas.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>222</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-<<<<<<< HEAD
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_CABECERA.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_INGRESO.java</file>
-=======
-            <file>file:/D:/pry/SISGESH/src/tablas/FormatoTablaMovHC.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/admisionCentral/FrmMovimientoHC.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/admisionCentral/HistoriaClinica.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/admisionEmergencia/AdmisionEmergenciaCabecera.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/admisionCentral/MovimientoHistoriaClinica.java</file>
->>>>>>> c410b8b47ca4a355625112a6338cca75e03611cd
-        </group>
+        <group/>
     </open-files>
 </project-private>

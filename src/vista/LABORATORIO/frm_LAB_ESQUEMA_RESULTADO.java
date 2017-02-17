@@ -275,6 +275,7 @@ public void calcula() {
                 btnGuardar = new javax.swing.JButton();
                 jButton2 = new javax.swing.JButton();
 
+                buscar_unidad.setTitle("SISGESH .::. Búsqueda de Unidad de Medida");
                 buscar_unidad.setMinimumSize(new java.awt.Dimension(380, 452));
 
                 txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
@@ -550,27 +551,33 @@ public void calcula() {
                     tb_Esquema.getColumnModel().getColumn(7).setResizable(false);
                 }
 
-                panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder("Análisis"));
+                panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Análisis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
 
+                jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                 jLabel23.setText("Análisis");
 
+                txtAnalisis.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                 txtAnalisis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtAnalisis.setEnabled(false);
 
+                jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                 jLabel19.setText("Nombre de la Unidad");
 
-                txtUnidadOrganica.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+                txtUnidadOrganica.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                 txtUnidadOrganica.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtUnidadOrganica.setEnabled(false);
 
-                txtClasificacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+                txtClasificacion.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                 txtClasificacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtClasificacion.setEnabled(false);
 
+                jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                 jLabel7.setText("Clasificación");
 
+                jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                 jLabel17.setText("Abrev. Análisis");
 
+                txtAbreviatura.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                 txtAbreviatura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtAbreviatura.setEnabled(false);
 
@@ -622,13 +629,19 @@ public void calcula() {
                                 .addComponent(txtUnidadOrganica, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 );
 
-                panelEsquema.setBorder(javax.swing.BorderFactory.createTitledBorder("Esquema"));
+                panelEsquema.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Esquema", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
 
+                jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 jLabel21.setText("Nombre del Resultado");
 
+                txtNombreResultado.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+
+                jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 jLabel22.setText("Resultado por Defecto");
 
-                chTitulo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                txtResultadoDefec.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+
+                chTitulo.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 chTitulo.setText("Título");
                 chTitulo.addItemListener(new java.awt.event.ItemListener() {
                     public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -650,6 +663,7 @@ public void calcula() {
                     }
                 });
 
+                txtUnidadMedida.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 txtUnidadMedida.setEnabled(false);
                 txtUnidadMedida.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -657,6 +671,7 @@ public void calcula() {
                     }
                 });
 
+                jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 jLabel20.setText("Unidad de Medida");
 
                 btnBuscarUnidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
@@ -795,7 +810,7 @@ public void calcula() {
                             .addComponent(jButton2)
                             .addComponent(btnGuardar))
                         .addGap(6, 6, 6)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 );

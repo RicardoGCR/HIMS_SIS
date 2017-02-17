@@ -494,10 +494,10 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
 
     private void DETALLE_PDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DETALLE_PDFActionPerformed
          try {
-               int filaselec=tb_Buscar_Estimacion.getSelectedRow();
-           if(filaselec<0){
+            int filaselec=tb_Buscar_Estimacion.getSelectedRow();
+            if(filaselec<0){
                JOptionPane.showMessageDialog(rootPane, "Seleccione un Registro");
-           }else{
+            }else{
         Reportes re = new Reportes();
         String ruta = "/Reportes/COSTOS/SUSTENTACION/COSTOS_SUSTENTACION.jasper";
         

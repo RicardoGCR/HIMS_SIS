@@ -102,24 +102,24 @@ String hora, minutos, segundos, ampm;
     
     public void LAB_Clasificacion_Examen_cargar(){
     try {
-             String titulos[]={"Código","Nombre de la Unidad","Cod_uni_org","Clasificación","Observacion"};
-            m=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(m);
-            String fila[]=new String[6];
+        String titulos[]={"Código","Nombre de la Unidad","Cod_uni_org","Clasificación","Observacion"};
+        m=new DefaultTableModel(null,titulos);
+        JTable p=new JTable(m);
+        String fila[]=new String[6];
 
-            Conexion obj=new Conexion();
+        Conexion obj=new Conexion();
         String consulta="exec sp_LAB_CLASIFICACION_EXAMEN_listar";
         ResultSet r;
         r=obj.Listar(consulta);
         int c=1;
         while(r.next()){
-            fila[0]=r.getString(1);
-            fila[1]=r.getString(4);
-            fila[2]=r.getString(3);
-            fila[3]=r.getString(2);
-            fila[4]=r.getString(5);
-                m.addRow(fila);
-                c++;
+        fila[0]=r.getString(1);
+        fila[1]=r.getString(4);
+        fila[2]=r.getString(3);
+        fila[3]=r.getString(2);
+        fila[4]=r.getString(5);
+        m.addRow(fila);
+            c++;
             }
             tb_Clasificacion_Examen.setModel(m);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);

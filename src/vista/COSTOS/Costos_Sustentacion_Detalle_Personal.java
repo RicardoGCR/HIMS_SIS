@@ -8,7 +8,6 @@ package vista.COSTOS;
 
 
 import vista.COSTOS.BUSCAR_PERSONAL;
-import com.sun.xml.internal.fastinfoset.EncodingConstants;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;

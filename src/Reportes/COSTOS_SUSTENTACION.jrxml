@@ -566,7 +566,7 @@
 	<subDataset name="COSTOS" uuid="9d2b2f29-48b0-45e3-a335-96ec4c1afc6a">
 		<parameter name="cod_sustentoCosto" class="java.lang.String"/>
 		<queryString>
-			<![CDATA[select cs.cod_sustento_costo,a.cod_precio,b.nomen_caja,c.nombre_grupo_nomen,d.AR_DESC,
+			<![CDATA[select cs.cod_sustento_costo,a.cod_precio,b.nomen_caja,c.nombre_grupo_nomen,d.AR_DESC as nom_uni_organica_jerar,
 e.nom_forma_pago,LEFT(a.precio,LEN(A.PRECIO)) as precio,cs.tiempo_hora,cs.tiempo_min,LEFT(cs.saldo_ganancia_perdida_total
 ,LEN(cs.saldo_ganancia_perdida_total)) as gananciaPerdida,b.descripcion_nomen_tipo
 from COSTOS_SUSTENTACION cs,CAJA_PRECIOS a, CAJA_NOMENCLATURA_CAJA b, CAJA_GRUPO_NOMENCLATURA_ATENCION c,
@@ -580,7 +580,7 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{cod_sustentoCosto}]]
 		<field name="cod_precio" class="java.lang.String"/>
 		<field name="nomen_caja" class="java.lang.String"/>
 		<field name="nombre_grupo_nomen" class="java.lang.String"/>
-		<field name="AR_DESC" class="java.lang.String"/>
+		<field name="nom_uni_organica_jerar" class="java.lang.String"/>
 		<field name="nom_forma_pago" class="java.lang.String"/>
 		<field name="precio" class="java.lang.String"/>
 		<field name="tiempo_hora" class="java.lang.Integer"/>
@@ -733,7 +733,7 @@ and cts.nombre_tipo_susten='SERVICIOS INTERMEDIOS'  and cs.cod_sustento_costo=$P
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select cs.cod_sustento_costo,a.cod_precio,b.nomen_caja,c.nombre_grupo_nomen,d.AR_DESC,
+		<![CDATA[select cs.cod_sustento_costo,a.cod_precio,b.nomen_caja,c.nombre_grupo_nomen,d.AR_DESC as nom_uni_organica_jerar,
 e.nom_forma_pago,cast(LEFT(a.precio,LEN(A.PRECIO)) as smallmoney)as precio,
 cs.tiempo_hora,cs.tiempo_min,LEFT(cs.saldo_ganancia_perdida_total
 ,LEN(cs.saldo_ganancia_perdida_total)) as gananciaPerdida,b.descripcion_nomen_tipo,
@@ -749,7 +749,7 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 	<field name="cod_precio" class="java.lang.String"/>
 	<field name="nomen_caja" class="java.lang.String"/>
 	<field name="nombre_grupo_nomen" class="java.lang.String"/>
-	<field name="AR_DESC" class="java.lang.String"/>
+	<field name="nom_uni_organica_jerar" class="java.lang.String"/>
 	<field name="nom_forma_pago" class="java.lang.String"/>
 	<field name="precio" class="java.math.BigDecimal"/>
 	<field name="tiempo_hora" class="java.lang.Integer"/>
@@ -784,7 +784,7 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 			<componentElement>
 				<reportElement key="table" style="table" x="0" y="43" width="802" height="230" uuid="27c21931-dc91-4f37-b31b-59a823306e3a"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="COSTOS" uuid="97d76934-49b3-439e-8d6d-c097d1faf6de">
+					<datasetRun subDataset="COSTOS" uuid="7e86a5d4-fbb6-4bff-961b-2f0d0fb5873c">
 						<datasetParameter name="cod_sustentoCosto">
 							<datasetParameterExpression><![CDATA[$P{COD_SUSTENTO}]]></datasetParameterExpression>
 						</datasetParameter>
@@ -1417,13 +1417,7 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 														</jr:detailCell>
 													</jr:column>
 													<jr:column width="101" uuid="69cfcfe6-604a-42cf-9e4f-0ecc7ffe2de2">
-														<jr:detailCell style="table 27_TD" height="30" rowSpan="1">
-															<textField>
-																<reportElement x="0" y="0" width="101" height="30" uuid="234d9163-ab2d-4839-93d7-e844d3ae5d55"/>
-																<textElement textAlignment="Center" verticalAlignment="Middle"/>
-																<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
-															</textField>
-														</jr:detailCell>
+														<jr:detailCell style="table 27_TD" height="30" rowSpan="1"/>
 													</jr:column>
 												</jr:table>
 											</componentElement>

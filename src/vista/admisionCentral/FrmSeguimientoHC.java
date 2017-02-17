@@ -108,23 +108,23 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
                 lblConsultorio.setText(r.getString(11)); 
                 lblTurno.setText(r.getString(12)); 
                 lblNAtencion.setText(r.getString(13)); 
-                lblTipoEdad.setText(r.getString(14)); 
-                lblMedico.setText(r.getString(15)); 
-                lblFechaPen.setText(r.getString(16)); 
-                lblHoraPen.setText(r.getString(17)); 
-                lblUsuarioPen.setText(r.getString(18)); 
-                lblPcPen.setText(r.getString(19)); 
-                lblFechaSal.setText(r.getString(20)); 
-                lblHoraSal.setText(r.getString(21)); 
-                lblUsuarioSal.setText(r.getString(22)); 
-                lblPcSal.setText(r.getString(23)); 
-                lblFechaRet.setText(r.getString(24)); 
-                lblHorraRet.setText(r.getString(25)); 
-                lblUsuarioRet.setText(r.getString(26)); 
-                lblPcRet.setText(r.getString(27)); 
-                lblEstado.setText(r.getString(28));
-                lblFechaSG.setText(r.getString(29)); 
-                lblHoraSG.setText(r.getString(30));
+                //lblTipoEdad.setText(r.getString(14)); 
+                lblMedico.setText(r.getString(14)); 
+                lblFechaPen.setText(r.getString(15)); 
+                lblHoraPen.setText(r.getString(16)); 
+                lblUsuarioPen.setText(r.getString(17)); 
+                lblPcPen.setText(r.getString(18)); 
+                lblFechaSal.setText(r.getString(19)); 
+                lblHoraSal.setText(r.getString(20)); 
+                lblUsuarioSal.setText(r.getString(21)); 
+                lblPcSal.setText(r.getString(22)); 
+                lblFechaRet.setText(r.getString(23)); 
+                lblHorraRet.setText(r.getString(24)); 
+                lblUsuarioRet.setText(r.getString(25)); 
+                lblPcRet.setText(r.getString(26)); 
+                lblEstado.setText(r.getString(27));
+                lblFechaSG.setText(r.getString(28)); 
+                lblHoraSG.setText(r.getString(29));
             }
             //
         } catch (Exception e) {
@@ -157,23 +157,22 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
                 lblConsultorio.setText(r.getString(11)); 
                 lblTurno.setText(r.getString(12)); 
                 lblNAtencion.setText(r.getString(13)); 
-                lblTipoEdad.setText(r.getString(14)); 
-                lblMedico.setText(r.getString(15)); 
-                lblFechaPen.setText(r.getString(16)); 
-                lblHoraPen.setText(r.getString(17)); 
-                lblUsuarioPen.setText(r.getString(18)); 
-                lblPcPen.setText(r.getString(19)); 
-                lblFechaSal.setText(r.getString(20)); 
-                lblHoraSal.setText(r.getString(21)); 
-                lblUsuarioSal.setText(r.getString(22)); 
-                lblPcSal.setText(r.getString(23)); 
-                lblFechaRet.setText(r.getString(24)); 
-                lblHorraRet.setText(r.getString(25)); 
-                lblUsuarioRet.setText(r.getString(26)); 
-                lblPcRet.setText(r.getString(27)); 
-                lblEstado.setText(r.getString(28));
-                lblFechaSG.setText(r.getString(29)); 
-                lblHoraSG.setText(r.getString(30));
+                lblMedico.setText(r.getString(14)); 
+                lblFechaPen.setText(r.getString(15)); 
+                lblHoraPen.setText(r.getString(16)); 
+                lblUsuarioPen.setText(r.getString(17)); 
+                lblPcPen.setText(r.getString(18)); 
+                lblFechaSal.setText(r.getString(19)); 
+                lblHoraSal.setText(r.getString(20)); 
+                lblUsuarioSal.setText(r.getString(21)); 
+                lblPcSal.setText(r.getString(22)); 
+                lblFechaRet.setText(r.getString(23)); 
+                lblHorraRet.setText(r.getString(24)); 
+                lblUsuarioRet.setText(r.getString(25)); 
+                lblPcRet.setText(r.getString(26)); 
+                lblEstado.setText(r.getString(27));
+                lblFechaSG.setText(r.getString(28)); 
+                lblHoraSG.setText(r.getString(29));
             }
             //
         } catch (Exception e) {
@@ -243,7 +242,7 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
             cbxActoMedico.removeAllItems();
             cbxActoMedico.addItem("Acto Médico");
             while(rs.next()){
-                cbxActoMedico.addItem(rs.getInt("ACTO_MEDICO"));
+                cbxActoMedico.addItem(rs.getInt("NUM_ACTOMEDICO"));
             }
 
             } catch (SQLException e) {
@@ -293,7 +292,6 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
         lblDNI = new javax.swing.JLabel();
         lblFecNac = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         lblGenero = new javax.swing.JLabel();
         lblTipoEdad = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
@@ -443,8 +441,7 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblUsuUsuario)
-                    .addComponent(jLabel37))
-                .addGap(0, 0, 0))
+                    .addComponent(jLabel37)))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -584,10 +581,6 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
         jLabel9.setForeground(new java.awt.Color(0, 102, 102));
         jLabel9.setText("Género:");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel10.setText("Tipo edad:");
-
         lblGenero.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblGenero.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
@@ -637,14 +630,13 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
                                 .addGap(35, 35, 35)
                                 .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
+                                .addGap(82, 82, 82)
                                 .addComponent(lblTipoEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblEdad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -672,7 +664,6 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
                                     .addComponent(lblPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel4)
-                                        .addComponent(jLabel10)
                                         .addComponent(lblTipoEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -771,20 +762,20 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
                             .addComponent(lblNAtencion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(31, 31, 31)
-                                .addComponent(lblConsultorio, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel17)
                                     .addComponent(jLabel18))
-                                .addGap(59, 59, 59)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblTurno, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                                    .addComponent(lblEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(21, 21, 21)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(31, 31, 31)
+                                .addComponent(lblConsultorio, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
@@ -803,22 +794,6 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
                                 .addComponent(lblConsultorio, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jLabel17))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(14, 14, 14)
-                                        .addComponent(lblTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel18)
-                                            .addComponent(lblEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -830,7 +805,24 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
                                         .addGap(1, 1, 1)
                                         .addComponent(jLabel13)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel16)))))))
+                                        .addComponent(jLabel16))))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(25, 25, 25)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel17)
+                                            .addComponent(lblTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(14, 14, 14)
+                                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(jLabel18))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1269,7 +1261,7 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
         cbxActoMedico.setVisible(true);
         if(cbxBuscar.getSelectedIndex()==1)
             restringirCampos(7,txtBuscar);
-        else
+        else if(cbxBuscar.getSelectedIndex()==2)
             restringirCampos(8,txtBuscar);
         if(txtBuscar.getText().length()==7 || txtBuscar.getText().length()==8)
             mostrarActoMedico();
@@ -1319,6 +1311,14 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
             dni = buscar;
         }
         detalleMovimiento(fecha,buscar,acto_medico,"A");
+        if(cbxBuscar.getSelectedIndex()==1){
+            String busq = lblNHC.getText();
+            txtBuscar.setText(busq);
+        } else
+        if(cbxBuscar.getSelectedIndex()==2){
+            String busq = lblDNI.getText();
+            txtBuscar.setText(busq);
+        }
         int acto_medico2 = Integer.parseInt(lblActoMedico.getText());
         cbxActoMedico.setSelectedItem(acto_medico2);
         if(acto_medico == acto_medico2)
@@ -1345,6 +1345,14 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
             dni = buscar;
         }
         detalleMovimiento(fecha,buscar,acto_medico,"S");
+        if(cbxBuscar.getSelectedIndex()==1){
+            String busq = lblNHC.getText();
+            txtBuscar.setText(busq);
+        } else
+        if(cbxBuscar.getSelectedIndex()==2){
+            String busq = lblDNI.getText();
+            txtBuscar.setText(busq);
+        }
         int acto_medico2 = Integer.parseInt(lblActoMedico.getText());
         cbxActoMedico.setSelectedItem(acto_medico2);
         if(acto_medico == acto_medico2)
@@ -1407,7 +1415,6 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
     private javax.swing.JComboBox cbxActoMedico;
     private javax.swing.JComboBox cbxBuscar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

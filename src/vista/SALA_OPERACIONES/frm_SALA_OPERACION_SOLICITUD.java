@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -29,7 +30,10 @@ import javax.swing.table.TableRowSorter;
 import modelos.SALA_OPERACIONES.SDO_SOLICITUD;
 import modelos.SALA_OPERACIONES.SDO_SOLICITUD_DETALLE_DIAGNOSTICO;
 import modelos.Usuario;
+import modelos.admisionEmergencia.AdmisionEmergenciaTopico;
 import servicios.Conexion;
+import static vista.admisionEmergencia.FrmListFormatoEmergencia.tbTopico;
+import static vista.admisionEmergencia.FrmListFormatoEmergencia.txtBuscar;
 
 /**
  *
@@ -89,7 +93,7 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
 
         this.cbxAnestesia.setModel(anestesia());
         
-        cargarPacientes();
+        //cargarPacientes();
         cargarProcedimientos();
         cargarPersonalRol();
         cargarDiagnostico();
@@ -160,7 +164,7 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
         btnCancelarColoides = new javax.swing.JButton();
         BUSCARHC = new javax.swing.JDialog();
         jLabel39 = new javax.swing.JLabel();
-        txtBuscarHC = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         btnBuscarHC = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbHC = new javax.swing.JTable();
@@ -616,13 +620,13 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
 
         jLabel39.setText("Nº H.C :");
 
-        txtBuscarHC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        txtBuscarHC.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtBuscarHCKeyPressed(evt);
+                txtBuscarKeyPressed(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtBuscarHCKeyTyped(evt);
+                txtBuscarKeyTyped(evt);
             }
         });
 
@@ -672,7 +676,7 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
                         .addGap(103, 103, 103)
                         .addComponent(jLabel39)
                         .addGap(18, 18, 18)
-                        .addComponent(txtBuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(btnBuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(BUSCARHCLayout.createSequentialGroup()
@@ -691,7 +695,7 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
                 .addGap(26, 26, 26)
                 .addGroup(BUSCARHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
-                    .addComponent(txtBuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1641,6 +1645,11 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
             }
         ));
         tbListaSolicitud.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbListaSolicitud.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbListaSolicitudKeyPressed(evt);
+            }
+        });
         jScrollPane4.setViewportView(tbListaSolicitud);
 
         txtBuscarSolicitud.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -1841,7 +1850,7 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
     }
     
     
-    public void cargarPacientes(){
+     public void cargarPacientesEmergencia(){
        
     try{
        DefaultTableModel tabla= new DefaultTableModel();
@@ -1854,13 +1863,15 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
        tabla.addColumn("Fecha Nac.");
        tabla.addColumn("Edad");
        tabla.addColumn("Id_HC");
+       tabla.addColumn("ACTO MEDICO");
+       tabla.addColumn("Triaje_FV_Peso");
  
        
-       cst=con.prepareCall("{call PACIENTES_LISTAR}");
+       cst=con.prepareCall("{call PACIENTES_LISTAR_EMERGENCIA}");
        r=cst.executeQuery();
        while (r.next()){
-       Object dato[]=new  Object[8];
-       for (int i=0; i<8; i++){
+       Object dato[]=new  Object[10];
+       for (int i=0; i<10; i++){
            dato[i]=r.getString(i+1);
        }
        tabla.addRow(dato);
@@ -1871,6 +1882,40 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
        }catch (Exception e){
        }
     }
+    
+    public void cargarPacientesHospitalizacion(){
+       
+    try{
+       DefaultTableModel tabla= new DefaultTableModel();
+      
+       tabla.addColumn("Codigo");
+       tabla.addColumn("Paciente");
+       tabla.addColumn("Dirección");
+       tabla.addColumn("DNI");
+       tabla.addColumn("Sexo");
+       tabla.addColumn("Fecha Nac.");
+       tabla.addColumn("Edad");
+       tabla.addColumn("Id_HC");
+       tabla.addColumn("ACTO MEDICO");
+       tabla.addColumn("CAMA");
+ 
+       
+       cst=con.prepareCall("{call PACIENTES_LISTAR_HOSPITALIZACION}");
+       r=cst.executeQuery();
+       while (r.next()){
+       Object dato[]=new  Object[10];
+       for (int i=0; i<10; i++){
+           dato[i]=r.getString(i+1);
+       }
+       tabla.addRow(dato);
+       }
+       this.tbHC.setModel(tabla);
+       formatoPacienteHC();
+       
+       }catch (Exception e){
+       }
+    }
+    
     
     public void cargarProcedimientos(){
        
@@ -1964,11 +2009,7 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
        tabla.addColumn("ID_SOLICITUD");
        tabla.addColumn("ID_HC");
        tabla.addColumn("COD_HC");
-       tabla.addColumn("APE_PATERNO");
-       tabla.addColumn("APE_MATERNO");
-       tabla.addColumn("PRIMER_NOM");
-       tabla.addColumn("SEGUNDO_NOM");
-       tabla.addColumn("TERCER_NOM");
+       tabla.addColumn("APELLIDOS Y NOMBRES");
        tabla.addColumn("DNI");
        tabla.addColumn("EDAD");
        tabla.addColumn("FECHA_SOLICITUD");
@@ -1986,13 +2027,14 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
        tabla.addColumn("CIRUJANO_2");
        tabla.addColumn("COD_JEFE");
        tabla.addColumn("NOM_JEFE");
+       tabla.addColumn("CAMA NRO");
         
        
        cst=con.prepareCall("{call SALA_OPERACION_SOLICITUD_LISTAR}");
        r=cst.executeQuery();
        while (r.next()){
-       Object dato[]=new  Object[25];
-       for (int i=0; i<25; i++){
+       Object dato[]=new  Object[22];
+       for (int i=0; i<22; i++){
            dato[i]=r.getString(i+1);
        }
        tabla.addRow(dato);
@@ -2107,13 +2149,15 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
              txtEdad.setText(String.valueOf(tbHC.getValueAt(fila, 6)));  
              txtDNI.setText(String.valueOf(tbHC.getValueAt(fila, 3)));
              txt_idhc.setText(String.valueOf(tbHC.getValueAt(fila, 7)));
+             txtAutogenerado.setText(String.valueOf(tbHC.getValueAt(fila, 8)));
+             txtCama.setText(String.valueOf(tbHC.getValueAt(fila, 9)));
         
        }
     }//GEN-LAST:event_tbHCKeyPressed
 
     private void btnBuscarHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHCActionPerformed
             try{  
-    String tipo_anestesia =txtBuscarHC.getText().toString();              
+    String tipo_anestesia =txtBuscar.getText().toString();              
         
     DefaultTableModel tabla= new DefaultTableModel();
        
@@ -2140,26 +2184,26 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
        this.tbHC.setModel(tabla);
        
        formatoPacienteHC();
-       txtBuscarHC.setText("");
+       txtBuscar.setText("");
        tbHC.getSelectionModel().setSelectionInterval(0, 0);
        tbHC.requestFocus();
        }catch (Exception e){}
         
     }//GEN-LAST:event_btnBuscarHCActionPerformed
 
-    private void txtBuscarHCKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarHCKeyPressed
+    private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
         if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
             tbHC.getSelectionModel().setSelectionInterval(0, 0);
             tbHC.requestFocus();
         }
-    }//GEN-LAST:event_txtBuscarHCKeyPressed
+    }//GEN-LAST:event_txtBuscarKeyPressed
 
-    private void txtBuscarHCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarHCKeyTyped
+    private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
         char tecla= evt.getKeyChar();
         if(tecla==KeyEvent.VK_ENTER){
             btnBuscarHC.doClick();
         }
-    }//GEN-LAST:event_txtBuscarHCKeyTyped
+    }//GEN-LAST:event_txtBuscarKeyTyped
 
     private void btnBuscarProcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProcActionPerformed
       try{
@@ -2261,26 +2305,28 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
         try {
             if(btnNuevo.getText().equals("Nuevo")){
                 cbxServicio.removeAllItems();
-                String[] opciones = {"Consulta Externa","Hospitalización","Emergencia"};
+                String[] opciones = {"Hospitalización","Emergencia","Consulta Externa"};
                 ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Documento-32.png")); 
                 String resp = (String) JOptionPane.showInputDialog(this,"Seleccione una opción:", "Opciones",JOptionPane.DEFAULT_OPTION, i, opciones, opciones[0]);
-                if(resp.equals("Consulta Externa")){
+                if(resp.equals("Hospitalización")){
+                    cargarPacientesHospitalizacion();
+                    this.cbxServicio.setModel(ServicioHospitalizacion());
                     
-                    this.cbxServicio.setModel(ServicioConsultaExterna());
                     //habilitarOpciones(true);
                     //btnGuardar.setEnabled(true);
                     //btnEliminar.setEnabled(false);
                     btnModificar.setEnabled(false);
-                    limpiar();
+                    //limpiar();
                     //txtCodigo.setText(hC.codHistoriaClinica());
                     //txtCodigo.setEnabled(false);
                     //mostrarNumHC();
                     
-                } else
-                if(resp.equals("Hospitalización")){
-                    //JOptionPane.showMessageDialog(this, resp);
+                } else{
+                if(resp.equals("Emergencia")){
+                    //JOptionPane.showMessageDialog(this, resp);  
+                    cargarPacientesEmergencia();
+                    this.cbxServicio.setModel(ServicioConsultaExterna());
                     
-                    this.cbxServicio.setModel(ServicioHospitalizacion());
                     //habilitarOpciones(true);
                     btnGuardar.setEnabled(true);
                     //btnEliminar.setEnabled(false);
@@ -2288,7 +2334,8 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
                     //txtCodigo.setText("");
                     //txtCodigo.setEnabled(true);
                     //txtCodigo.setEditable(true);
-                    limpiar();
+                    ///limpiar();
+                }
                 } //else
                     //ReasignarHC.setVisible(true);
                     //ReasignarHC.setLocationRelativeTo(null);//en el centro
@@ -2296,14 +2343,17 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
                     //ReasignarHC.getContentPane().setBackground(Color.WHITE);
                     //mostrarCodHC("");
             }
+            
+            txtGM.setText("G");
         } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
         
-        //deshabilitar();
-        ///limpiar();
-        //btnguardar.setEnabled(true);
-        //btnBuscarHC1.setEnabled(true);
-        //btnBuscarHC1.requestFocus();
+        deshabilitar();
+        //limpiar();
+        btnGuardar.setEnabled(true);
+        btnBuscarHC1.setEnabled(true);
+        btnBuscarHC1.requestFocus();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnCirujano1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCirujano1ActionPerformed
@@ -2626,6 +2676,22 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
         cargarSolicitud();
     }//GEN-LAST:event_tabSolicitudStateChanged
 
+    private void tbListaSolicitudKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbListaSolicitudKeyPressed
+                try {
+            m4 = (DefaultTableModel) tbListaSolicitud.getModel();
+        char tecla= evt.getKeyChar();
+        
+        if(tecla==KeyEvent.VK_ENTER ){
+            
+            mostrarCabecerayDetalle();
+            btnModificar.setEnabled(true);
+        
+        }
+        } catch (Exception e) {
+        }                       
+
+    }//GEN-LAST:event_tbListaSolicitudKeyPressed
+
     public void mostrarDiagnostico(){
         
         try {
@@ -2661,7 +2727,7 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
     }
     
 
-        public void mostrarCabecerayDetalle(){
+    public void mostrarCabecerayDetalle(){
         try {
             int filaselec=tbListaSolicitud.getSelectedRow();
             //Diagnostico
@@ -2670,14 +2736,14 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
             String titulos[]={"ID_CIE10","COD_ENF","DESCRIPCION"};
             m3=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m3);
-            String fila[]=new String[9];
+            String fila[]=new String[3];
             Usuario obj=new Usuario();
             consulta="exec SALA_OPERACION_SOLICITUD_DETALLE_BUSCAR ?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, tbListaSolicitud.getValueAt(filaselec, 0).toString());
             ResultSet r= cmd.executeQuery();
             while(r.next()){
-            for (int i=0; i<9; i++){
+            for (int i=0; i<3; i++){
            fila[i]=r.getString(i+1);
        }
                 m3.addRow(fila);
@@ -2686,37 +2752,46 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
             tbDiagnostico.setRowSorter(elQueOrdena);
             tbDiagnostico.setModel(m3);
-            /*
-            //Todo
-            String codigo=tbListaSolicitud.getValueAt(filaselec, 0).toString();
-            txtCodigoSustento.setText(codigo);
-            txtCodigo6.setText(codigo.substring(14, 20));
-            txtCodigoPrecio.setText(tb_Buscar_Estimacion.getValueAt(filaselec, 1).toString());
-            txtCodigoCPT.setText(tb_Buscar_Estimacion.getValueAt(filaselec, 2).toString());
-            txtServicio.setText(tb_Buscar_Estimacion.getValueAt(filaselec, 3).toString());
-            txtSubServicio.setText(tb_Buscar_Estimacion.getValueAt(filaselec,4).toString());
-            txtFormadePago.setText(tb_Buscar_Estimacion.getValueAt(filaselec,5).toString());
-            txtPrecio.setText(tb_Buscar_Estimacion.getValueAt(filaselec,6).toString());
-            txtPrecio1.setText(tb_Buscar_Estimacion.getValueAt(filaselec,6).toString());
-            spHora.setValue(Integer.parseInt(tb_Buscar_Estimacion.getValueAt(filaselec,7).toString()));
-            spMin.setValue(Integer.parseInt(tb_Buscar_Estimacion.getValueAt(filaselec,8).toString()));
-            txtGanancia.setText(tb_Buscar_Estimacion.getValueAt(filaselec,9).toString());
-            if(Double.parseDouble(tb_Buscar_Estimacion.getValueAt(filaselec,9).toString())>0){
-                lblGananciaPer.setForeground(Color.black);
-                txtGananciaPerdida.setForeground(Color.black);
-                lblGananciaPer.setText("Ganancia Total");
-            txtGananciaPerdida.setText(tbCostoSusten.getValueAt(filaselec,9).toString());
-            }else{
-                lblGananciaPer.setText("Pérdida Total");
-                double ganper=-Double.parseDouble(tb_Buscar_Estimacion.getValueAt(filaselec,9).toString());
-                lblGananciaPer.setForeground(Color.red);
-                txtGananciaPerdida.setForeground(Color.red);
-            txtGananciaPerdida.setText(String.valueOf(ganper));
+            
+            txthc.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 2).toString()));
+             txt_idhc.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 1).toString())); 
+             txtSolicitud.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 0).toString()));
+             txtApellidosNombres.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 3).toString()));
+             txtDNI.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 4).toString()));
+             txtEdad.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 5).toString()));
+             
+            String fechaSeleccionada = (String) tbListaSolicitud.getModel().getValueAt(filaselec, 6);
+             try {
+       
+             DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+             java.util.Date fecha = dfo.parse(fechaSeleccionada);
+             
+             dateCFechaSolicitud.setDate(fecha);
+             
+            } catch (Exception e) {
             }
-            txtNomenclatura.setText(tb_Buscar_Estimacion.getValueAt(filaselec,10).toString());*/
+             
+             spHora.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 7).toString()));
+             txtAutogenerado.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 8).toString()));
+             cbxServicio.setSelectedItem(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 9).toString()));
+             txtOperacion.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 10).toString()));
+             txtCod_Nomen.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 11).toString()));
+             txtHora.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 12).toString()));
+             txtMin.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 13).toString()));
+             cbxAnestesia.setSelectedItem(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 14).toString()));
+             txtc11.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 15).toString()));
+             txtCirujano1.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 16).toString()));
+             txtc22.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 17).toString()));
+             txtCirujano2.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 18).toString()));
+             txtc33.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 19).toString()));
+             txtJefeServ.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 20).toString()));
+             txtCama.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 21).toString()));
+             
+             
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
+        tabSolicitud.setSelectedIndex(0);
     }
     
     
@@ -2733,6 +2808,7 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
     public void deshabilitar(){
     //txtTipo_Anestesia.setEnabled(true);
     }
+
     public void limpiar()
     {
         SDO_SOLICITUD s=new SDO_SOLICITUD();
@@ -2740,10 +2816,29 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
         if(txtSolicitud.getText().equalsIgnoreCase("")){
         txtSolicitud.setText("SL000000000000000001");
         }
-        //txtTipo_Anestesia.setText("");
-        //txtGM.setText("G");
+        txthc.setText("");
+        txt_idhc.setText("");
+        txtEdad.setText("");
+        txtDNI.setText("");
+        txtAutogenerado.setText("");
+        dateCFechaSolicitud.setDate(null);
+        txtHora.setText("");
+        spHora.setText("");
+        txtMin.setText("");
+        txtOperacion.setText("");
+        txtApellidosNombres.setText("");
+        txtCama.setText("");
+        txtc11.setText("");
+        txtCirujano1.setText("");
+        txtc22.setText("");
+        txtCirujano2.setText("");
+        txtc33.setText("");
+        txtJefeServ.setText("");
+        tbDiagnostico.setModel(new DefaultTableModel());
+        txtGM.setText("G");
    
     }
+   
    
     
     
@@ -2927,8 +3022,8 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
     private javax.swing.JTextField txtAyuno;
     private javax.swing.JTextField txtBalance2;
     private javax.swing.JTextField txtBalance3;
+    private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtBuscarCIE10;
-    private javax.swing.JTextField txtBuscarHC;
     private javax.swing.JTextField txtBuscarProc;
     private javax.swing.JTextField txtBuscarProc1;
     private javax.swing.JTextField txtBuscarSolicitud;

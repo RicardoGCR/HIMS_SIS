@@ -314,10 +314,11 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             tbHistoriaC.getColumnModel().getColumn(22).setPreferredWidth(90);
             tbHistoriaC.getColumnModel().getColumn(23).setPreferredWidth(90);
             tbHistoriaC.getColumnModel().getColumn(24).setPreferredWidth(140);
-            tbHistoriaC.getColumnModel().getColumn(25).setPreferredWidth(90);
-            tbHistoriaC.getColumnModel().getColumn(26).setPreferredWidth(90);
-            tbHistoriaC.getColumnModel().getColumn(27).setPreferredWidth(90);
-            tbHistoriaC.getColumnModel().getColumn(28).setPreferredWidth(90);
+            tbHistoriaC.getColumnModel().getColumn(25).setPreferredWidth(100);
+            tbHistoriaC.getColumnModel().getColumn(26).setPreferredWidth(100);
+            tbHistoriaC.getColumnModel().getColumn(27).setPreferredWidth(100);
+            tbHistoriaC.getColumnModel().getColumn(28).setPreferredWidth(100);
+            tbHistoriaC.getColumnModel().getColumn(29).setPreferredWidth(100);
             tbHistoriaC.setRowHeight(30);
     }
     
@@ -332,10 +333,10 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                               "Provincia Nac","Departmento Nac","Ocupación","Estado civil","Grupo de Sangre",
                               "Religión","Teléfono","Celular","Grado de Instrucción",
                               "Nacionalidad","Fecha de creación","Hora de creación","Usuario","PC de creación",
-                              "Estado","Edad","Riesgo"};
+                              "Estado","Edad","Riesgo","Ultima atención"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[38];
+            String fila[]=new String[39];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC SP_HC_METODO_BUSQUEDA ?,?,?";
             PreparedStatement cmd = hC.getCn().prepareStatement(consulta);
@@ -383,6 +384,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 fila[35]=r.getString(33); //estado de la hc activo, pasivo, pendiente
                 fila[36]=r.getString(34); //ultima atencion
                 fila[37]=r.getString(38); // riesgo
+                fila[38]=r.getString(39); // riesgo
                     m.addRow(fila);
                     c++;
             }
@@ -494,17 +496,20 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                             String codigo3 = String.valueOf(cod_hc.charAt(0)) + String.valueOf(cod_hc.charAt(1)) + 
                                              String.valueOf(cod_hc.charAt(2)) + String.valueOf(cod_hc.charAt(3)) +
                                              String.valueOf(cod_hc.charAt(5)) + String.valueOf(cod_hc.charAt(6));
-                            String rutaInforme = "src\\reportes\\admisionCentral\\historiaClinica.jasper";
+                            String rutaInforme = "src\\Reportes\\admisionCentral\\historiaClinica.jasper";
                             Map parametros = new HashMap();
                             parametros.put("cod_hc", codigo3);
                             JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
-                            String datos = codigo3 + "_" + txtApellidoPat.getText() + txtApellidoMat.getText() + txtNombre1.getText(); 
-                            JasperExportManager.exportReportToPdfFile(informe,"D:\\Historias-Clinicas\\"+datos+".pdf");
+                            JasperViewer ventanavisor = new JasperViewer(informe, false);
+                            ventanavisor.setTitle("Historia Clínica");
+                            ventanavisor.setVisible(true);
+                            //String datos = codigo3 + "_" + txtApellidoPat.getText() + txtApellidoMat.getText() + txtNombre1.getText(); 
+                            /*JasperExportManager.exportReportToPdfFile(informe,"D:\\Historias-Clinicas\\"+datos+".pdf");
                             String file = new String("D:\\Historias-Clinicas\\"+datos+".pdf");
                             //definiendo la ruta en la propiedad file
                             //Visualizar el PDF
                             JOptionPane.showMessageDialog(this, "Exportando...");
-                            Runtime.getRuntime().exec("cmd /c start "+file);    
+                            Runtime.getRuntime().exec("cmd /c start "+file);    */
                             limpiar();
                             habilitarBotones(true);
                             habilitarOpciones(false);
@@ -611,6 +616,64 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             JOptionPane.showMessageDialog(null, e);
           }
         return existe;
+    }
+    
+    public void enviarDatos(){
+        int fila = tbHistoriaC.getSelectedRow();
+            FrmNuevaHistoriaC nuevaHC = new FrmNuevaHistoriaC();
+            nuevaHC.setVisible(true);
+            BuscarHC.setVisible(false);
+            dispose();
+            FrmNuevaHistoriaC.txtID.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 1)));  
+            FrmNuevaHistoriaC.txtCodigo.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 0))); 
+            FrmNuevaHistoriaC.txtDni.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 2)));     
+            FrmNuevaHistoriaC.txtApellidoPat.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 3)));   
+            FrmNuevaHistoriaC.txtApellidoMat.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 4)));   
+            FrmNuevaHistoriaC.txtNombre1.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 5)));   
+            FrmNuevaHistoriaC.txtNombre2.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 6)));   
+            FrmNuevaHistoriaC.txtNombre3.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 7)));   
+            FrmNuevaHistoriaC.txtFechaNac.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 8)));   
+            //FrmNuevaHistoriaC.txtEstado.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 37)));  
+            FrmNuevaHistoriaC.cbxDepartamentoNac.setSelectedItem(tbHistoriaC.getValueAt(fila, 22));
+            FrmNuevaHistoriaC.cbxProvinciaNac.setSelectedItem(String.valueOf(tbHistoriaC.getValueAt(fila, 21)));
+            FrmNuevaHistoriaC.cbxDistritoNac.setSelectedItem(String.valueOf(tbHistoriaC.getValueAt(fila, 20)));
+            FrmNuevaHistoriaC.cbxDepartamento.setSelectedItem(tbHistoriaC.getValueAt(fila, 10));
+            FrmNuevaHistoriaC.cbxProvincia.setSelectedItem(tbHistoriaC.getValueAt(fila, 11));
+            FrmNuevaHistoriaC.cbxDistrito.setSelectedItem(tbHistoriaC.getValueAt(fila, 12));
+            FrmNuevaHistoriaC.txtNacionalidad.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 27))); 
+            FrmNuevaHistoriaC.cbxSector.addItem(tbHistoriaC.getValueAt(fila, 14).toString()); 
+            cbxTipoDireccion.removeAllItems();
+            FrmNuevaHistoriaC.cbxTipoDireccion.addItem(tbHistoriaC.getValueAt(fila, 15).toString());
+            cbxDireccion.removeAllItems();
+            FrmNuevaHistoriaC.cbxDireccion.addItem(tbHistoriaC.getValueAt(fila, 16).toString()); 
+            FrmNuevaHistoriaC.txtNumero.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 17)));   
+            FrmNuevaHistoriaC.txtLote.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 18)));   
+            FrmNuevaHistoriaC.txtRiesgo.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 37))); 
+            if(tbHistoriaC.getValueAt(fila, 9).equals("F")){
+                rbtFemenino.setSelected(true);
+            } else {
+                rbtMasculino.setSelected(true);
+            }
+            FrmNuevaHistoriaC.cbxEstadoCivil.setSelectedItem(tbHistoriaC.getValueAt(fila, 21));
+            FrmNuevaHistoriaC.txtReligion.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 26))); 
+            FrmNuevaHistoriaC.txtGrupoSan.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 25))); 
+            FrmNuevaHistoriaC.txtGradoIns.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 26))); 
+            FrmNuevaHistoriaC.txtOcupacion.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 23))); 
+            FrmNuevaHistoriaC.txtTelefono.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 27))); 
+            FrmNuevaHistoriaC.txtCelular.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 25))); 
+            
+            if(String.valueOf(tbHistoriaC.getValueAt(fila, 35)).equals("D")){
+                btnEliminar.setText("Restaurar");
+                btnModificar.setEnabled(false);
+                btnEliminar.setToolTipText("Restaurar (Alt + R)");
+                btnEliminar.setMnemonic(KeyEvent.VK_R);
+                ImageIcon iRestaurar=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Restaurar-32.png")); 
+                btnEliminar.setIcon(iRestaurar);
+            } else {
+                btnModificar.setEnabled(true);
+            }
+            habilitarOpciones(false);
+            btnEliminar.setEnabled(true);
     }
     
     /**
@@ -2258,7 +2321,6 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     mostrarNumHC();
                 } else
                 if(resp.equals("Continuador")){
-                    JOptionPane.showMessageDialog(this, resp);
                     habilitarOpciones(true);
                     btnGuardar.setEnabled(true);
                     btnEliminar.setEnabled(false);
@@ -2537,6 +2599,9 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         chkD.setSelected(false);
         chkT.setSelected(false);
         buscar_HC(1, "A", "");
+        cbxTipoBusqueda.setSelectedIndex(1);
+        tbHistoriaC.getSelectionModel().setSelectionInterval(0,0);
+        tbHistoriaC.requestFocus();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -2631,7 +2696,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             }
             else{
                 txtBuscar.setEnabled(false);
-                btnImprimir.setEnabled(false);
+                //btnImprimir.setEnabled(false);
             }}
         catch(Exception ex){
             System.out.println("Error: " + ex.getMessage());
@@ -2661,61 +2726,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     private void tbHistoriaCKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbHistoriaCKeyPressed
        char teclaPresionada = evt.getKeyChar();
        if(teclaPresionada==KeyEvent.VK_ENTER){
-            int fila = tbHistoriaC.getSelectedRow();
-            FrmNuevaHistoriaC nuevaHC = new FrmNuevaHistoriaC();
-            nuevaHC.setVisible(true);
-            BuscarHC.setVisible(false);
-            dispose();
-            FrmNuevaHistoriaC.txtID.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 1)));  
-            FrmNuevaHistoriaC.txtCodigo.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 0))); 
-            FrmNuevaHistoriaC.txtDni.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 2)));     
-            FrmNuevaHistoriaC.txtApellidoPat.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 3)));   
-            FrmNuevaHistoriaC.txtApellidoMat.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 4)));   
-            FrmNuevaHistoriaC.txtNombre1.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 5)));   
-            FrmNuevaHistoriaC.txtNombre2.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 6)));   
-            FrmNuevaHistoriaC.txtNombre3.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 7)));   
-            FrmNuevaHistoriaC.txtFechaNac.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 8)));   
-            FrmNuevaHistoriaC.txtEstado.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 37)));  
-            FrmNuevaHistoriaC.cbxDepartamentoNac.setSelectedItem(tbHistoriaC.getValueAt(fila, 22));
-            FrmNuevaHistoriaC.cbxProvinciaNac.setSelectedItem(String.valueOf(tbHistoriaC.getValueAt(fila, 21)));
-            FrmNuevaHistoriaC.cbxDistritoNac.setSelectedItem(String.valueOf(tbHistoriaC.getValueAt(fila, 20)));
-            FrmNuevaHistoriaC.cbxDepartamento.setSelectedItem(tbHistoriaC.getValueAt(fila, 10));
-            FrmNuevaHistoriaC.cbxProvincia.setSelectedItem(tbHistoriaC.getValueAt(fila, 11));
-            FrmNuevaHistoriaC.cbxDistrito.setSelectedItem(tbHistoriaC.getValueAt(fila, 12));
-            FrmNuevaHistoriaC.txtNacionalidad.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 27))); 
-            FrmNuevaHistoriaC.cbxSector.addItem(tbHistoriaC.getValueAt(fila, 14).toString()); 
-            cbxTipoDireccion.removeAllItems();
-            FrmNuevaHistoriaC.cbxTipoDireccion.addItem(tbHistoriaC.getValueAt(fila, 15).toString());
-            cbxDireccion.removeAllItems();
-            FrmNuevaHistoriaC.cbxDireccion.addItem(tbHistoriaC.getValueAt(fila, 16).toString()); 
-            FrmNuevaHistoriaC.txtNumero.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 17)));   
-            FrmNuevaHistoriaC.txtLote.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 18)));   
-            FrmNuevaHistoriaC.txtRiesgo.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 39))); 
-            if(tbHistoriaC.getValueAt(fila, 9).equals("F")){
-                rbtFemenino.setSelected(true);
-            } else {
-                rbtMasculino.setSelected(true);
-            }
-            FrmNuevaHistoriaC.cbxEstadoCivil.setSelectedItem(tbHistoriaC.getValueAt(fila, 21));
-            FrmNuevaHistoriaC.txtReligion.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 26))); 
-            FrmNuevaHistoriaC.txtGrupoSan.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 25))); 
-            FrmNuevaHistoriaC.txtGradoIns.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 26))); 
-            FrmNuevaHistoriaC.txtOcupacion.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 23))); 
-            FrmNuevaHistoriaC.txtTelefono.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 27))); 
-            FrmNuevaHistoriaC.txtCelular.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 25))); 
-            
-            if(String.valueOf(tbHistoriaC.getValueAt(fila, 37)).equals("D")){
-                btnEliminar.setText("Restaurar");
-                btnModificar.setEnabled(false);
-                btnEliminar.setToolTipText("Restaurar (Alt + R)");
-                btnEliminar.setMnemonic(KeyEvent.VK_R);
-                ImageIcon iRestaurar=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Restaurar-32.png")); 
-                btnEliminar.setIcon(iRestaurar);
-            } else {
-                btnModificar.setEnabled(true);
-            }
-            habilitarOpciones(false);
-            btnEliminar.setEnabled(true);
+            enviarDatos();
        }
     }//GEN-LAST:event_tbHistoriaCKeyPressed
 
@@ -2892,7 +2903,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_btnBuscarMouseClicked
 
     private void tbHistoriaCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbHistoriaCMouseClicked
-        
+        if(evt.getClickCount()==2)
+            enviarDatos();
     }//GEN-LAST:event_tbHistoriaCMouseClicked
 
     private void tbHistoriaCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbHistoriaCMousePressed
@@ -3242,24 +3254,25 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                         String codigo = String.valueOf(cod_hc.charAt(0)) + String.valueOf(cod_hc.charAt(1)) + 
                                         String.valueOf(cod_hc.charAt(2)) + String.valueOf(cod_hc.charAt(3)) +
                                         String.valueOf(cod_hc.charAt(5)) + String.valueOf(cod_hc.charAt(6));
-                        String rutaInforme = "src\\reportes\\admisionCentral\\historiaClinica.jasper";
+                        String rutaInforme = "src\\Reportes\\admisionCentral\\historiaClinica.jasper";
                         Map parametros = new HashMap();
                         parametros.put("cod_hc", codigo);
                         JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
                         // VER EN EL JASPERREPORT
-                        /*JasperViewer ventanavisor = new JasperViewer(informe, false);
+                        JasperViewer ventanavisor = new JasperViewer(informe, false);
                         ventanavisor.setTitle("Historia Clínica");
-                        ventanavisor.setVisible(true);*/
-                        String datos = String.valueOf(tbHistoriaC.getValueAt(fila, 0))+ 
+                        ventanavisor.setVisible(true);
+                        /*String datos = String.valueOf(tbHistoriaC.getValueAt(fila, 0))+ 
                                        String.valueOf(tbHistoriaC.getValueAt(fila, 3)) + 
                                        String.valueOf(tbHistoriaC.getValueAt(fila, 4))+ 
-                                       String.valueOf(tbHistoriaC.getValueAt(fila, 5))+fecha;
-                        JasperExportManager.exportReportToPdfFile(informe,"D:\\Historias-Clinicas\\"+datos+".pdf");
+                                       String.valueOf(tbHistoriaC.getValueAt(fila, 5))+fecha;*/
+                        //EN PDF
+                        /*JasperExportManager.exportReportToPdfFile(informe,"D:\\Historias-Clinicas\\"+datos+".pdf");
                         String file = new String("D:\\Historias-Clinicas\\"+datos+".pdf");
                         //definiendo la ruta en la propiedad file
                         //Visualizar el PDF
                         JOptionPane.showMessageDialog(this,"Exportando a PDF ... ");
-                        Runtime.getRuntime().exec("cmd /c start "+file);
+                        Runtime.getRuntime().exec("cmd /c start "+file);*/
                 }
             } else 
             // IMPRESION (SECTORIZACION)
@@ -3274,19 +3287,19 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                             JOptionPane.showMessageDialog(BuscarHC,"Debe ingresar el sector");
                             txtBuscar.requestFocus();
                         } else {
-                            String rutaInforme = "src\\reportes\\sectorizacion\\sectorizacion.jasper";
+                            String rutaInforme = "src\\Reportes\\sectorizacion\\sectorizacion.jasper";
                             Map parametros = new HashMap();
                             parametros.put("SE_COD", sector);
                             JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
-                            //JasperViewer ventanavisor = new JasperViewer(informe, false);
-                            //ventanavisor.setTitle("Sectorización");
-                            //ventanavisor.setVisible(true);
-                            String sector2 = String.valueOf("Sector-"+txtBuscar.getText())+fecha;
+                            JasperViewer ventanavisor = new JasperViewer(informe, false);
+                            ventanavisor.setTitle("Sectorización");
+                            ventanavisor.setVisible(true);
+                            /*String sector2 = String.valueOf("Sector-"+txtBuscar.getText())+fecha;
                             JasperExportManager.exportReportToPdfFile(informe,"D:\\Sectorizacion\\"+sector2+".pdf");
                             String file = new String("D:\\Sectorizacion\\"+sector2+".pdf");
                             //definiendo la ruta en la propiedad file
                             JOptionPane.showMessageDialog(this,"Exportando a PDF ... ");
-                            Runtime.getRuntime().exec("cmd /c start "+file);
+                            Runtime.getRuntime().exec("cmd /c start "+file);*/
                         }
                 }
         } catch (Exception e) {

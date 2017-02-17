@@ -103,22 +103,7 @@ public class MovimientoHistoriaClinica {
     //Combobox JTable
     String [] datos = {"Pendiente","Salida","Retorno"};
     JComboBox jcbx = new JComboBox(datos);
-    //
-    public ResultSet Listar(String cad){
-        Connection conexion=null;
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url="jdbc:sqlserver://"+"MYS-INGENIEROS"+":"+1433+";"+"databaseName="+"SISGESH_NET"
-                    +";user="+"sa"+";password="+"sistemas";
-            conexion=DriverManager.getConnection(url);
-            
-            PreparedStatement da=conexion.prepareStatement(cad);
-            ResultSet tbl=da.executeQuery();
-            return tbl;
-        } catch (Exception e) {
-            return null;
-        }
-    }
+
     
     public void cabecera(JTable tabla){
         String titulos[]={"Acto Médico","Fecha","Hora","N° H.C","Datos del Paciente","Servicio/Area/Departamento",
@@ -133,22 +118,26 @@ public class MovimientoHistoriaClinica {
     }
     
     public void formatoMovHistoriaClinica(JTable tabla){
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(30);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(90);
-            tabla.getColumnModel().getColumn(2).setPreferredWidth(70);
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tabla.getColumnModel().getColumn(2).setPreferredWidth(90);
             tabla.getColumnModel().getColumn(3).setPreferredWidth(70);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(210);
-            tabla.getColumnModel().getColumn(5).setPreferredWidth(170);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(40);
-            tabla.getColumnModel().getColumn(7).setPreferredWidth(70);
-            tabla.getColumnModel().getColumn(8).setPreferredWidth(210);
-            tabla.getColumnModel().getColumn(9).setPreferredWidth(60);
-            tabla.getColumnModel().getColumn(10).setPreferredWidth(70);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(70);
+            tabla.getColumnModel().getColumn(5).setPreferredWidth(210);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(280);
+            tabla.getColumnModel().getColumn(7).setPreferredWidth(120);
+            tabla.getColumnModel().getColumn(8).setPreferredWidth(70);
+            tabla.getColumnModel().getColumn(9).setPreferredWidth(210);
+            tabla.getColumnModel().getColumn(10).setPreferredWidth(60);
+            tabla.getColumnModel().getColumn(11).setPreferredWidth(70);
             //Ocultar columna 11 Pendiente (P) (S) (R)
-            TableColumn columna = tabla.getColumnModel().getColumn(12);
-            columna.setMaxWidth(12);
-            columna.setMinWidth(12);
-            columna.setPreferredWidth(12);
+            TableColumn columna = tabla.getColumnModel().getColumn(13);
+            columna.setMaxWidth(0);
+            columna.setMinWidth(0);
+            columna.setPreferredWidth(0);
+            TableColumn columna2 = tabla.getColumnModel().getColumn(0);
+            columna2.setMaxWidth(0);
+            columna2.setMinWidth(0);
+            columna2.setPreferredWidth(0);
             tabla.setRowHeight(28);
             tabla.doLayout();
     }
@@ -158,11 +147,11 @@ public class MovimientoHistoriaClinica {
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Acto Médico","Fecha","Hora","N° H.C","Datos del Paciente","Servicio/Area/Departamento",
-                              "Consultorio","Turno","Médico","Num A","Tipo Edad","Estado","   E"};
+            String titulos[]={"id","Acto Médico","Fecha","Hora","N° H.C","Datos del Paciente","Area/Servicio/UPSS",
+                              "Consultorio","Turno","Médico","Nº At","Edad","Estado","   E"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[13];
+            String fila[]=new String[14];
             consulta="EXEC SP_ADMISION_MOVIMIENTO_HC_LISTADO_MOVIMIENTO ?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setInt(1, tipo);
@@ -176,19 +165,20 @@ public class MovimientoHistoriaClinica {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                fila[0]=r.getString(13); //acto médico
-                fila[1]=r.getString(1); // fecha creacion
-                fila[2]=r.getString(2); // hora creacion
-                fila[3]=r.getString(3); // num historia clinica
-                fila[4]=r.getString(4); // datos del paciente
-                fila[5]=r.getString(5); // descripcion unidad organica jerarquica (Servicio/area/dpto)
-                fila[6]=r.getString(6); // codigo consultorio
-                fila[7]=r.getString(7); // turno
-                fila[8]=r.getString(8); // medico
-                fila[9]=r.getString(9); // numero de atencion
-                fila[10]=r.getString(10); // edad mayor menor
-                fila[11]=r.getString(11); //estado 
-                fila[12]=r.getString(12); //estado oculto
+                fila[0]=r.getString(1); //ID
+                fila[1]=r.getString(2); //acto médico
+                fila[2]=r.getString(3); // fecha creacion
+                fila[3]=r.getString(4); // hora creacion
+                fila[4]=r.getString(5); // num historia clinica
+                fila[5]=r.getString(6); // datos del paciente
+                fila[6]=r.getString(7); // descripcion unidad organica jerarquica (Servicio/area/dpto)
+                fila[7]=r.getString(8); // codigo consultorio
+                fila[8]=r.getString(9); // turno
+                fila[9]=r.getString(10); // medico
+                fila[10]=r.getString(11); // numero de atencion
+                fila[11]=r.getString(12); // edad mayor menor
+                fila[12]=r.getString(13); //estado 
+                fila[13]=r.getString(14); //estado oculto
                     m.addRow(fila);
                     c++;
             }
@@ -198,7 +188,7 @@ public class MovimientoHistoriaClinica {
             tabla.setModel(m);
             formatoMovHistoriaClinica(tabla);
             //combobox en jTable
-            TableColumn tc = tabla.getColumnModel().getColumn(11);
+            TableColumn tc = tabla.getColumnModel().getColumn(12);
             TableCellEditor tce = new DefaultCellEditor(jcbx);
             tc.setCellEditor(tce);
             //
@@ -207,18 +197,16 @@ public class MovimientoHistoriaClinica {
         }
     }
     
-    public boolean actualizarEstadoMovHC(String estadoM, String codigo,String usuario,int acto_medico,String fecha)
+    public boolean actualizarEstadoMovHC(String estadoM,int id,String usuario)
     {
         boolean resp = false;
         try
         {
-            String sql = "EXEC SP_ADMISION_MOVIMIENTO_HC_ACTUALIZAR_ESTADO ?,?,?,?,?";
+            String sql = "EXEC SP_ADMISION_MOVIMIENTO_HC_ACTUALIZAR_ESTADO ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, estadoM);
-            cmd.setString(2, codigo);
+            cmd.setInt(2, id);
             cmd.setString(3, usuario);
-            cmd.setInt(4, acto_medico);
-            cmd.setString(5, fecha);
             if(!cmd.execute())
             {
                 resp = true;

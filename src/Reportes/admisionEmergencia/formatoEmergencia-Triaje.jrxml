@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
-	<property name="ireport.zoom" value="1.6105100000000032"/>
+	<property name="ireport.zoom" value="1.3310000000000026"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="249"/>
+	<property name="ireport.y" value="145"/>
 	<parameter name="id_triaje" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -10,18 +10,19 @@
 		<![CDATA[EXEC ADMISION_EMERGENCIA_TRIAJE_REPORTE $P{id_triaje}]]>
 	</queryString>
 	<field name="id_hc" class="java.lang.String"/>
-	<field name="EMERCAB_ID" class="java.lang.String"/>
+	<field name="Id_Preventa" class="java.lang.Long"/>
 	<field name="TRIAJE_ID" class="java.lang.String"/>
-	<field name="EMERCAB_FECHA_ING" class="java.lang.String"/>
-	<field name="EMERCAB_HORAING" class="java.lang.String"/>
-	<field name="EMERCAB_TRAIDOPOR" class="java.lang.String"/>
-	<field name="EMERCAB_PARENTESCO" class="java.lang.String"/>
+	<field name="fecha_actu" class="java.lang.String"/>
+	<field name="hora_actu" class="java.lang.String"/>
+	<field name="EMER_TRAIDOPOR" class="java.lang.String"/>
+	<field name="EMER_PARENTESCO" class="java.lang.String"/>
 	<field name="TRIAJE_FV_FC" class="java.lang.String"/>
 	<field name="TRIAJE_FV_FR" class="java.lang.String"/>
 	<field name="TRIAJE_FV_PA" class="java.lang.String"/>
 	<field name="TRIAJE_FV_PESO" class="java.lang.String"/>
 	<field name="TRIAJE_FV_T" class="java.lang.String"/>
 	<field name="TRIAJE_ESTADO" class="java.lang.String"/>
+	<field name="TRIAJE_TALLA" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -38,43 +39,43 @@
 				<text><![CDATA[FUNCIONES VITALES:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="173" y="180" width="27" height="20" uuid="33ff2b71-edb0-49ee-aac9-dc88597b7f33"/>
+				<reportElement x="150" y="181" width="27" height="20" uuid="33ff2b71-edb0-49ee-aac9-dc88597b7f33"/>
 				<text><![CDATA[PA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="324" y="180" width="25" height="20" uuid="f045acc1-856b-4160-8a92-b0fe4836d374"/>
+				<reportElement x="288" y="181" width="25" height="20" uuid="f045acc1-856b-4160-8a92-b0fe4836d374"/>
 				<text><![CDATA[FR:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="397" y="180" width="16" height="20" uuid="50efdc1c-bbfc-456e-9958-f6e47c9c2596"/>
+				<reportElement x="350" y="181" width="16" height="20" uuid="50efdc1c-bbfc-456e-9958-f6e47c9c2596"/>
 				<text><![CDATA[Tº:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="460" y="180" width="36" height="20" uuid="f7f69e75-f530-4514-a748-40e6bce5d6e9"/>
+				<reportElement x="410" y="181" width="36" height="20" uuid="f7f69e75-f530-4514-a748-40e6bce5d6e9"/>
 				<text><![CDATA[Peso:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="273" y="180" width="49" height="20" uuid="150ca8bf-63e1-4bac-9973-e1c6caf4aa6d"/>
+				<reportElement x="239" y="181" width="49" height="20" uuid="150ca8bf-63e1-4bac-9973-e1c6caf4aa6d"/>
 				<textFieldExpression><![CDATA[$F{TRIAJE_FV_FC}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="343" y="180" width="53" height="20" uuid="1699feb8-559b-40cb-af6d-80ea8dc66dff"/>
+				<reportElement x="307" y="181" width="44" height="20" uuid="1699feb8-559b-40cb-af6d-80ea8dc66dff"/>
 				<textFieldExpression><![CDATA[$F{TRIAJE_FV_FR}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="194" y="180" width="59" height="20" uuid="1930993e-57bd-45b5-806b-73ff6fceaf7f"/>
+				<reportElement x="171" y="181" width="46" height="20" uuid="1930993e-57bd-45b5-806b-73ff6fceaf7f"/>
 				<textFieldExpression><![CDATA[$F{TRIAJE_FV_PA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="488" y="180" width="55" height="20" uuid="2d8f3370-9bb8-4ee5-8748-f4734d82d4a9"/>
+				<reportElement x="438" y="181" width="46" height="20" uuid="2d8f3370-9bb8-4ee5-8748-f4734d82d4a9"/>
 				<textFieldExpression><![CDATA[$F{TRIAJE_FV_PESO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="411" y="180" width="45" height="20" uuid="21e42d7f-36b5-4fae-84d1-4cbfec438601"/>
+				<reportElement x="364" y="181" width="45" height="20" uuid="21e42d7f-36b5-4fae-84d1-4cbfec438601"/>
 				<textFieldExpression><![CDATA[$F{TRIAJE_FV_T}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="253" y="180" width="22" height="20" uuid="4c6730f0-f651-4bb7-9ef2-f815fe4cf40f"/>
+				<reportElement x="217" y="181" width="22" height="20" uuid="4c6730f0-f651-4bb7-9ef2-f815fe4cf40f"/>
 				<text><![CDATA[FC:]]></text>
 			</staticText>
 			<line>
@@ -90,6 +91,14 @@
 			<line>
 				<reportElement x="0" y="200" width="555" height="1" forecolor="#C0C0C0" uuid="9be47285-6e1d-4a9a-9c93-433fe912165c"/>
 			</line>
+			<staticText>
+				<reportElement x="484" y="181" width="27" height="20" uuid="66ccef48-2401-4837-81c0-331887840bd1"/>
+				<text><![CDATA[Talla:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="511" y="181" width="44" height="20" uuid="c5bca0c9-70e1-4389-9c59-15691783aee6"/>
+				<textFieldExpression><![CDATA[$F{TRIAJE_TALLA}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>

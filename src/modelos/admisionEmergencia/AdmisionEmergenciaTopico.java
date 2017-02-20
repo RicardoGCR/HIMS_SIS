@@ -29,7 +29,7 @@ public class AdmisionEmergenciaTopico {
     Conexion con = new Conexion();
     private Connection cn;
     private String topico_id;
-    private String emercab_id;
+    private int preventa_id;
     private String triaje_id;
     private String fb_apetito;
     private String fb_sed;
@@ -53,17 +53,17 @@ public class AdmisionEmergenciaTopico {
     private String hora_actu;
     private String prioridad;
     
-    public boolean insertarModificarAdmisionEmergenciaTopico(String tipo)
+    public boolean mantenimientoAdmisionEmergenciaTopico(String tipo)
         {
         boolean resp = false;
         try{
-            String sql = "EXEC ADMISION_EMERGENCIA_TOPICO_INSERTAR_MODIFICAR ?,?,?,\n" +
+            String sql = "EXEC ADMISION_EMERGENCIA_TOPICO_MANTENIMIENTO ?,?,?,\n" +
                          "?,?,?,?,?,?,?,?,?,\n" +
                          "?,?,?,?,?,?,?,?,\n" +
                          "?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getTopico_id());
-            cmd.setString(2, getEmercab_id());
+            cmd.setInt(2, getPreventa_id());
             cmd.setString(3, getFb_apetito());
             cmd.setString(4, getFb_sed());
             cmd.setString(5, getFb_deposi());
@@ -93,30 +93,7 @@ public class AdmisionEmergenciaTopico {
         }
         catch(Exception ex)
         {
-            System.out.println("Error_insertarModificarAdmisionEmergenciaTopico: " + ex.getMessage());
-        }
-        return resp;
-    }
-    
-    public boolean eliminarAdmisionemergenciaTopico()
-    {
-        boolean resp = false;
-        try
-        {
-            String sql = "EXEC ADMISION_EMERGENCIA_TOPICO_ELIMINAR ?";
-            PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getTopico_id());
-            if(!cmd.execute())
-            {
-                resp = true;
-            }
-            cmd.close();
-            getCn().close();
-          
-        }
-        catch(Exception ex)
-        {
-            System.out.println("Error_eliminarAdmisionemergenciaTopico: " + ex.getMessage());
+            System.out.println("Error: mantenimientoAdmisionEmergenciaTopico: " + ex.getMessage());
         }
         return resp;
     }
@@ -208,7 +185,7 @@ public class AdmisionEmergenciaTopico {
         try {
             tabla.setModel(new DefaultTableModel());
             String titulos[]={"Fecha de ing","Hora de ing","Traído por",
-                "Parentesco","ID Cabecera","ID Triaje"};
+                "Parentesco","ID Preventa","ID Triaje"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[6];
@@ -544,15 +521,15 @@ public class AdmisionEmergenciaTopico {
     /**
      * @return the emercab_id
      */
-    public String getEmercab_id() {
-        return emercab_id;
+    public int getPreventa_id() {
+        return preventa_id;
     }
 
     /**
      * @param emercab_id the emercab_id to set
      */
-    public void setEmercab_id(String emercab_id) {
-        this.emercab_id = emercab_id;
+    public void setPreventa(int preventa_id) {
+        this.preventa_id = preventa_id;
     }
 
     /**

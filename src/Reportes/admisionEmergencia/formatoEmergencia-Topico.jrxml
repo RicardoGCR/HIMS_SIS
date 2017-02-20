@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
-	<property name="ireport.zoom" value="1.2100000000000057"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="288"/>
+	<property name="ireport.zoom" value="1.7715610000000088"/>
+	<property name="ireport.x" value="366"/>
+	<property name="ireport.y" value="2257"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -179,11 +179,13 @@
 	<field name="TOPICO_ANOT_ENFER" class="java.lang.String"/>
 	<field name="TOPICO_EVAL_PACIENTE" class="java.lang.String"/>
 	<field name="TOPICO_UBIC_EGRESO" class="java.lang.String"/>
-	<field name="EMERCAB_FECHA_ING" class="java.lang.String"/>
-	<field name="EMERCAB_HORAING" class="java.lang.String"/>
+	<field name="fecha_actu" class="java.lang.String"/>
+	<field name="hora_actu" class="java.lang.String"/>
 	<field name="TOPICO_HORA_ACTU" class="java.lang.String"/>
 	<field name="TOPICO_FECHA_ACTU" class="java.lang.String"/>
+	<field name="EMER_TRAIDOPOR" class="java.lang.String"/>
 	<field name="PRIORIDAD" class="java.lang.String"/>
+	<field name="MEDICO" class="java.lang.String"/>
 	<group name="admisionEmergenciaTopico2">
 		<groupExpression><![CDATA[$F{TOPICO_ID}]]></groupExpression>
 		<groupFooter>
@@ -251,16 +253,6 @@
 					<reportElement x="403" y="552" width="135" height="20" uuid="9511eb7e-9e7c-41bb-be0e-10cbe671e918"/>
 					<textFieldExpression><![CDATA[$F{TOPICO_UBIC_EGRESO}]]></textFieldExpression>
 				</textField>
-				<staticText>
-					<reportElement x="337" y="686" width="186" height="15" uuid="fc789e13-cf51-4232-8fb9-c331d329a39f"/>
-					<textElement textAlignment="Center">
-						<font size="9"/>
-					</textElement>
-					<text><![CDATA[FIRMA Y SELLO DEL MÉDICO TRATANTE]]></text>
-				</staticText>
-				<line>
-					<reportElement x="314" y="685" width="234" height="1" uuid="93dfc330-8599-40c3-a3d8-dfc30f3a09ae"/>
-				</line>
 				<staticText>
 					<reportElement x="0" y="567" width="100" height="20" uuid="71479b01-9cda-4c1a-9cee-a1e484f766ab"/>
 					<textElement>
@@ -591,6 +583,23 @@
 				</textElement>
 				<text><![CDATA[*Norma Técnica de los Servicios de Emergencia. - Sector Salud.]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="325" y="16" width="223" height="13" uuid="6a03282c-9184-4619-8f15-417ad5c263e4"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MEDICO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="337" y="0" width="186" height="15" uuid="fc789e13-cf51-4232-8fb9-c331d329a39f"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[FIRMA Y SELLO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="314" y="0" width="234" height="1" uuid="93dfc330-8599-40c3-a3d8-dfc30f3a09ae"/>
+			</line>
 		</band>
 	</pageFooter>
 	<summary>

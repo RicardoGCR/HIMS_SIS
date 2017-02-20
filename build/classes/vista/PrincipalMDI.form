@@ -550,7 +550,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="647" max="32767" attributes="0"/>
+                      <EmptySpace pref="622" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1572,7 +1572,7 @@
                           <Component id="jPanel24" max="32767" attributes="0"/>
                           <Component id="jPanel33" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="589" max="32767" attributes="0"/>
+                      <EmptySpace pref="564" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -4523,7 +4523,7 @@
                       <Component id="jPanel57" min="-2" pref="131" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel58" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="691" max="32767" attributes="0"/>
+                      <EmptySpace pref="666" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

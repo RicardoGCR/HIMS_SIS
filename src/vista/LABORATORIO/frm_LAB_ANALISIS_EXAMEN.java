@@ -32,7 +32,6 @@ import modelos.LABORATORIO.LAB_Clasificacion_Examen;
 import modelos.LABORATORIO.LAB_Muestra_Examen;
 import modelos.LABORATORIO.Render_Checkbox;
 import servicios.Conexion;
-import sun.security.util.Length;
 import static vista.Principal.fechaActual;
 import vista.frmlaboratorioClinico;
 
@@ -1242,15 +1241,14 @@ public void calcula() {
                   meGuardar.setNom_usu(lblUsu.getText());
   
                   if(meGuardar.LAB_Analisis_Examen_guardar()){
-                      JOptionPane.showMessageDialog(null, "Datos Guardados");
-                      guardarDetalle();
-                      limpiar();
-                      enableDatos();
-                      txtGuarModif.setText("G");
+                    JOptionPane.showMessageDialog(null, "Datos Guardados");
+                    guardarDetalle();
+                    limpiar();
+                    enableDatos();
+                    txtGuarModif.setText("G");
                   }
                   else{
-                      JOptionPane.showMessageDialog(this, "El Registro ya ha sido ingresado\nIntente nuevamente");
-                      
+                    JOptionPane.showMessageDialog(this, "El Registro ya ha sido ingresado\nIntente nuevamente");
                   }}
           }}else{
              if(txtClasificacion.getText().equalsIgnoreCase("")||txtCodClasificacion.getText().equalsIgnoreCase("")){

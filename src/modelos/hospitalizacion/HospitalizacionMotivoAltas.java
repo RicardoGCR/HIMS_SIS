@@ -33,8 +33,8 @@ public class HospitalizacionMotivoAltas {
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getMa_descripcion());
             cmd.setString(2, getCod_usu());
-            cmd.setInt(3, getMa_id());
-            cmd.setString(4, tipo);
+            cmd.setString(3, tipo);
+            cmd.setInt(4, getMa_id());
             if(!cmd.execute())
             {
                 resp = true;

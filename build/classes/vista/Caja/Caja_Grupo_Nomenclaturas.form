@@ -152,7 +152,7 @@
                   <Color blue="f0" green="f0" red="f0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/Icon/Buscar-32.png"/>
+                  <Image iconType="3" name="/imagenes/iconos/Buscar-32.png"/>
                 </Property>
                 <Property name="mnemonic" type="int" value="78"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>

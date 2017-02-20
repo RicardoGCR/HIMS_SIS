@@ -113,7 +113,7 @@ public class HistoriaClinica {
         try
         {
             String sql = "EXEC SP_ADMISION_HISTORIACLINICA_MODIFICAR ?,?,?,?,?,\n" +
-"			 ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+"			 ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_hc());
             cmd.setString(2, getDni());
@@ -143,11 +143,10 @@ public class HistoriaClinica {
             cmd.setString(26, getGrado_inst());
             cmd.setString(27, getNacionalidad());
             cmd.setString(28, getNom_usu());
-            cmd.setString(29, getEstado_hc_uso());
-            cmd.setString(30, getSe_cod());
-            cmd.setString(31, getNum());
-            cmd.setString(32, getLote());
-            cmd.setString(33, getRiesgo());
+            cmd.setString(29, getSe_cod());
+            cmd.setString(30, getNum());
+            cmd.setString(31, getLote());
+            cmd.setString(32, getRiesgo());
             if(!cmd.execute())
             {
                 resp = true;

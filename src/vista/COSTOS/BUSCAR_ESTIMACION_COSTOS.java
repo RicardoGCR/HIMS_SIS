@@ -150,13 +150,14 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
         DETALLE_REPORTE = new javax.swing.JMenuItem();
         DETALLE_PDF = new javax.swing.JMenuItem();
         DETALLE_EXCEL = new javax.swing.JMenuItem();
-        jLabel5 = new javax.swing.JLabel();
         txtBuscarEstimacion = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         cbxBuscarEstimacion = new javax.swing.JComboBox();
         btnBuscarEstimacion = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_Buscar_Estimacion = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/reporte16x16.png"))); // NOI18N
         jMenuItem5.setText("REPORTES");
@@ -170,7 +171,7 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
 
         jMenu1.setText("ESTIMACIÓN DE COSTOS");
 
-        TODO_REPORTE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/visualizar.png"))); // NOI18N
+        TODO_REPORTE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Visualizar-16.png"))); // NOI18N
         TODO_REPORTE.setText("VISUALIZAR");
         TODO_REPORTE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,7 +202,7 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
 
         jMenu2.setText("SUSTENTACIÓN DEL COSTO");
 
-        DETALLE_REPORTE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/visualizar.png"))); // NOI18N
+        DETALLE_REPORTE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Visualizar-16.png"))); // NOI18N
         DETALLE_REPORTE.setText("VISUALIZAR");
         DETALLE_REPORTE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,9 +233,6 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SISGESH .::. Búsqueda de CPT");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel5.setText("Búsqueda de CPT");
 
         txtBuscarEstimacion.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -295,36 +293,53 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tb_Buscar_Estimacion);
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 30)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Búsqueda y Reporte de CPT");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(jLabel2)
+                .addGap(6, 6, 6))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(cbxBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(94, 94, 94)
-                                .addComponent(txtBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(jLabel5)))
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbxBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(94, 94, 94)
+                        .addComponent(txtBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(13, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addGap(31, 31, 31)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnBuscarEstimacion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -479,10 +494,10 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
 
     private void DETALLE_PDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DETALLE_PDFActionPerformed
          try {
-               int filaselec=tb_Buscar_Estimacion.getSelectedRow();
-           if(filaselec<0){
+            int filaselec=tb_Buscar_Estimacion.getSelectedRow();
+            if(filaselec<0){
                JOptionPane.showMessageDialog(rootPane, "Seleccione un Registro");
-           }else{
+            }else{
         Reportes re = new Reportes();
         String ruta = "/Reportes/COSTOS/SUSTENTACION/COSTOS_SUSTENTACION.jasper";
         
@@ -542,7 +557,7 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
                 ventana.setVisible(true);
            }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Error al Cargar el reporte del Personal"+e.getMessage());
+                JOptionPane.showMessageDialog(null, "Error al Cargar el reporte"+e.getMessage());
             }
     }//GEN-LAST:event_TODO_REPORTEActionPerformed
 
@@ -606,7 +621,7 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
                 ventana.setVisible(true);
            }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Error al Cargar el reporte del Personal"+e.getMessage());
+                JOptionPane.showMessageDialog(null, "Error al Cargar el reporte"+e.getMessage());
             }
     }//GEN-LAST:event_DETALLE_REPORTEActionPerformed
 
@@ -1186,10 +1201,11 @@ JOptionPane.showMessageDialog(null, "Documento Exportado Exitosamente!", "Guarda
     private javax.swing.JButton btnBuscarEstimacion;
     private javax.swing.JComboBox cbxBuscarEstimacion;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     public static javax.swing.JTable tb_Buscar_Estimacion;

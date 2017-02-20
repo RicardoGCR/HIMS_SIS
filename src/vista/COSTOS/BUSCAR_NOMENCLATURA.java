@@ -22,7 +22,7 @@ import javax.swing.table.TableRowSorter;
 import modelos.Usuario;
 import servicios.Conexion;
 import static vista.COSTOS.Costos_Sustentacion.tbNomenclatura;
-import static vista.frmCostos.lblUsu;
+import static vista.PrincipalMDI.lblUsu;
 
 /**
  *
@@ -97,7 +97,7 @@ Conexion conectar=new Conexion();
        tbNomenclatura.getColumnModel().getColumn(2).setPreferredWidth(100);
        tbNomenclatura.getColumnModel().getColumn(3).setPreferredWidth(150);
        tbNomenclatura.getColumnModel().getColumn(4).setPreferredWidth(150);
-       tbNomenclatura.getColumnModel().getColumn(5).setPreferredWidth(200);
+       tbNomenclatura.getColumnModel().getColumn(5).setPreferredWidth(150);
        tbNomenclatura.getColumnModel().getColumn(6).setPreferredWidth(200);
     }
     /**
@@ -110,10 +110,11 @@ Conexion conectar=new Conexion();
     private void initComponents() {
 
         btnBuscar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbNomenclatura = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SISGESH .::. Búsqueda de Nomenclatura");
@@ -125,9 +126,6 @@ Conexion conectar=new Conexion();
                 btnBuscarActionPerformed(evt);
             }
         });
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel4.setText("NOMENCLATURA");
 
         txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
         txtBuscar.setText("Ingresar Nomenclatura ");
@@ -162,6 +160,7 @@ Conexion conectar=new Conexion();
             }
         ));
         tbNomenclatura.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbNomenclatura.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tbNomenclatura.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbNomenclaturaKeyPressed(evt);
@@ -169,40 +168,55 @@ Conexion conectar=new Conexion();
         });
         jScrollPane3.setViewportView(tbNomenclatura);
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Palatino Linotype", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("NOMENCLATURA");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(jLabel1)
+                .addGap(6, 6, 6))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel4)
-                                .addGap(100, 100, 100))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(199, 199, 199)
+                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(176, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane3)
+                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
         getAccessibleContext().setAccessibleName("BÚSQUEDA DE NOMENCLATURA");
@@ -263,11 +277,11 @@ Conexion conectar=new Conexion();
             int fila = tbNomenclatura.getSelectedRow();
             /*TipoSustentacion TS = new TipoSustentacion();
             TS.setVisible(true);*/
+            dispose();
             Costos_Sustentacion cs=new Costos_Sustentacion();
             cs.setVisible(true);
             String u=lblUsu.getText();
             Costos_Sustentacion.lblUsu.setText(u);
-            dispose();
             Costos_Sustentacion.txtCodigoPrecio.setText(String.valueOf(tbNomenclatura.getValueAt(fila, 0)));
             Costos_Sustentacion.txtCodigoCPT.setText(String.valueOf(tbNomenclatura.getValueAt(fila, 3)));
             Costos_Sustentacion.txtServicio.setText(String.valueOf(tbNomenclatura.getValueAt(fila, 4)));
@@ -326,7 +340,8 @@ Conexion conectar=new Conexion();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JTable tbNomenclatura;
     private javax.swing.JTextField txtBuscar;

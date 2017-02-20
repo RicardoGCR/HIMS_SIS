@@ -17,10 +17,10 @@ public class FormatoTablaMovHC extends DefaultTableCellRenderer{
         //if(table.getValueAt(row, 6).equals("Salida")){
             //componente.setBackground(new Color(255,85,64));
         //}
-        if(table.getValueAt(row, 12).equals("S")){
+        if(table.getValueAt(row, 13).equals("S")){
             componente.setBackground(new Color(248,151,131));
         } else
-        if(table.getValueAt(row, 12).equals("R")){
+        if(table.getValueAt(row, 13).equals("R")){
             componente.setBackground(new Color(168,217,232));
         } else 
             componente.setBackground(new Color(201,213,161));

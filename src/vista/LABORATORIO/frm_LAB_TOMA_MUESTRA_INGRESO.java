@@ -107,6 +107,8 @@ DefaultTableModel m,n,muestra;
             //Ocultar    
     tb_Pacientes.getColumnModel().getColumn(0).setMinWidth(0);
     tb_Pacientes.getColumnModel().getColumn(0).setMaxWidth(0);
+    tb_Pacientes.getColumnModel().getColumn(8).setMinWidth(0);
+    tb_Pacientes.getColumnModel().getColumn(8).setMaxWidth(0);
     tb_Pacientes.getSelectionModel().setSelectionInterval(0, 0);
             tb_Pacientes.requestFocus();
 }
@@ -453,7 +455,6 @@ public void calcula() {
 
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                         setTitle("SISGESH .::. Análisis Examen");
-                        setMinimumSize(new java.awt.Dimension(735, 656));
 
                         jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
@@ -504,7 +505,7 @@ public void calcula() {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblFecha))
                                     .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(20, Short.MAX_VALUE))
                         );
                         jpanelLayout.setVerticalGroup(
                             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -540,7 +541,7 @@ public void calcula() {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(559, 559, 559)
                                 .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel3)
                                 .addGap(8, 8, 8))
                         );
@@ -577,11 +578,11 @@ public void calcula() {
 
                             },
                             new String [] {
-                                "Código", "N° de H.C", "Datos del Paciente", "DNI", "Fecha de Nacimiento", "Edad", "Sexo", "Cantidad de Exámenes"
+                                "Código", "N° de H.C", "Datos del Paciente", "DNI", "Fecha de Nacimiento", "Edad", "Sexo", "Cantidad de Exámenes", "Documento"
                             }
                         ) {
                             boolean[] canEdit = new boolean [] {
-                                false, false, true, false, false, false, true, true
+                                false, false, true, false, false, false, true, true, true
                             };
 
                             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -707,7 +708,6 @@ public void calcula() {
                         getContentPane().setLayout(layout);
                         layout.setHorizontalGroup(
                             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
@@ -738,6 +738,7 @@ public void calcula() {
                                 .addGap(13, 13, 13)
                                 .addComponent(jScrollPane5)
                                 .addContainerGap())
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         );
                         layout.setVerticalGroup(
                             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -760,8 +761,9 @@ public void calcula() {
                                         .addComponent(jLabel21)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24))
                         );
 
                         pack();
@@ -937,10 +939,10 @@ public void buscar_examenes(){
     String consulta="";
         try {
             tb_Pacientes.setModel(new DefaultTableModel());
-            String titulos[]={"Código","N° de H.C.","Datos del Paciente","DNI","Fecha de Nacimiento","Edad","Sexo","Cantidad de Exámenes"};
+            String titulos[]={"Código","N° de H.C.","Datos del Paciente","DNI","Fecha de Nacimiento","Edad","Sexo","Cantidad de Exámenes","Documento"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[8];
+            String fila[]=new String[9];
 
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
                     consulta="exec sp_LAB_TOMA_MUESTRA_CAJA ?,?,?,?";
@@ -960,6 +962,7 @@ public void buscar_examenes(){
                 fila[5]=r.getString(6);
                 fila[6]=r.getString(7);
                 fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
                 m.addRow(fila);
                 c++;
             }
@@ -1107,7 +1110,12 @@ public void buscar_examenes(){
                     frm_LAB_TOMA_MUESTRA_CABECERA.txtFecha.setText(tb_Pacientes.getValueAt(filaselec, 4).toString());
                     frm_LAB_TOMA_MUESTRA_CABECERA.txtEdad.setText(tb_Pacientes.getValueAt(filaselec, 5).toString());
                     frm_LAB_TOMA_MUESTRA_CABECERA.txtSexo.setText(tb_Pacientes.getValueAt(filaselec, 6).toString());
-                     String u=lblUsu.getText();
+                    frm_LAB_TOMA_MUESTRA_CABECERA.lblCantidad.setText(tb_Pacientes.getValueAt(filaselec, 7).toString());
+                    frm_LAB_TOMA_MUESTRA_CABECERA.lblCantidad1.setText(tb_Pacientes.getValueAt(filaselec, 7).toString());
+                    
+                    frm_LAB_TOMA_MUESTRA_CABECERA.lblDocumento.setText(tb_Pacientes.getValueAt(filaselec, 8).toString());
+                    
+                    String u=lblUsu.getText();
                              frm_LAB_TOMA_MUESTRA_CABECERA.lblUsu.setText(u);
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage());

@@ -67,6 +67,8 @@ DefaultTableModel m,n,muestra;
         this.getContentPane().setBackground(Color.white); 
         nomenclatura.getContentPane().setBackground(Color.white);
         nomenclatura.setLocationRelativeTo(null);
+        personal.getContentPane().setBackground(Color.white);
+        personal.setLocationRelativeTo(null);
         setLocationRelativeTo(null);//en el centro
 //      setResizable(false);//para que no funcione el boton maximizar
        
@@ -170,6 +172,51 @@ DefaultTableModel m,n,muestra;
     tb_Nomenclatura.getColumnModel().getColumn(2).setMaxWidth(0);
     tb_Nomenclatura.getSelectionModel().setSelectionInterval(0, 0);
             tb_Nomenclatura.requestFocus();
+}
+    
+     public void Personal_cargar(){
+    try {
+             String titulos[]={"N°","Código","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio","Área"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[8];
+            Conexion obj=new Conexion();
+            
+        String consulta="exec sp_LAB_TOMA_MUESTRA_CAB_ROL";
+        ResultSet r;
+        r=obj.Listar(consulta);
+        int c=1;
+        while(r.next()){
+            fila[0]=String.valueOf(c)+"º";
+            fila[1]=r.getString(1);
+            fila[2]=r.getString(2);
+            fila[3]=r.getString(3);
+            fila[4]=r.getString(4);
+            fila[5]=r.getString(5);
+            fila[6]=r.getString(6);
+            fila[7]=r.getString(7);
+                m.addRow(fila);
+                c++;
+            }
+            tbPersonal.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tbPersonal.setRowSorter(elQueOrdena);
+            this.tbPersonal.setModel(m);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(rootPane, "Error en la tabla");
+    }
+}
+    public void Personal_formato(){
+    tbPersonal.getColumnModel().getColumn(0).setPreferredWidth(40);
+    tbPersonal.getColumnModel().getColumn(1).setPreferredWidth(100);
+    tbPersonal.getColumnModel().getColumn(2).setPreferredWidth(110);
+    tbPersonal.getColumnModel().getColumn(3).setPreferredWidth(110);
+    tbPersonal.getColumnModel().getColumn(4).setPreferredWidth(220);
+    tbPersonal.getColumnModel().getColumn(5).setPreferredWidth(240);
+    tbPersonal.getColumnModel().getColumn(6).setPreferredWidth(120);
+    tbPersonal.getColumnModel().getColumn(7).setPreferredWidth(120);
+    tbPersonal.getSelectionModel().setSelectionInterval(0, 0);
+            tbPersonal.requestFocus();
 }
    public static String fechaActual(){
         Date now = new Date(System.currentTimeMillis());
@@ -311,6 +358,8 @@ public void calcula() {
                             .addGap(19, 19, 19))
                     );
 
+                    personal.setMinimumSize(new java.awt.Dimension(924, 474));
+
                     txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
                     txtBuscar.setText("Buscar ");
                     txtBuscar.setEnabled(false);
@@ -350,6 +399,7 @@ public void calcula() {
                             "Title 1", "Title 2", "Title 3", "Title 4"
                         }
                     ));
+                    tbPersonal.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                     tbPersonal.setRowHeight(25);
                     tbPersonal.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -412,8 +462,8 @@ public void calcula() {
                                     .addComponent(cbxBuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2)))
                             .addGap(28, 28, 28)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                            .addContainerGap())
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(19, Short.MAX_VALUE))
                     );
 
                     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -575,6 +625,15 @@ public void calcula() {
                     jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                     jLabel26.setText("Personal - Registra Toma de Muestra");
 
+                    txtPersonalTomaMuestra.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyPressed(java.awt.event.KeyEvent evt) {
+                            txtPersonalTomaMuestraKeyPressed(evt);
+                        }
+                        public void keyReleased(java.awt.event.KeyEvent evt) {
+                            txtPersonalTomaMuestraKeyReleased(evt);
+                        }
+                    });
+
                     jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                     jLabel27.setText("Fecha Toma Muestra");
 
@@ -664,14 +723,13 @@ public void calcula() {
                                     .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(13, 13, 13)))
                             .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panelCabeceraLayout.createSequentialGroup()
-                                    .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblFecha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblHora1))
-                                    .addContainerGap())
+                                .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblFecha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblHora1))
                                 .addGroup(panelCabeceraLayout.createSequentialGroup()
                                     .addComponent(lblCantidad)
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addGap(0, 0, Short.MAX_VALUE)))
+                            .addContainerGap())
                     );
 
                     panelPaciente.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos del Paciente"));
@@ -1002,8 +1060,7 @@ public void calcula() {
                     frm_LAB_TOMA_MUESTRA_DETALLE.txtNomenclatura.setText(tb_Nomenclatura.getValueAt(filaselec, 3).toString());
                     frm_LAB_TOMA_MUESTRA_DETALLE.txtCodigoCPT.setText(tb_Nomenclatura.getValueAt(filaselec, 4).toString());
                     
-                    DefaultTableModel modelo = (DefaultTableModel)tb_Nomenclatura.getModel(); 
-                    modelo.removeRow(filaselec);
+                   
                     String u=lblUsu.getText();
                              frm_LAB_TOMA_MUESTRA_DETALLE.lblUsu.setText(u);
         }catch(Exception e){
@@ -1037,13 +1094,13 @@ public void calcula() {
             String fila[]=new String[12];
 
             Usuario obj=new Usuario();
-            if(cbxBuscar.getSelectedItem()=="Nombres"){
+            if(cbxBuscar2.getSelectedItem()=="Nombres"){
                 consulta="exec SP_USUARIO_PERSONAL_BuscarNombre ?";
             }
-            else if(cbxBuscar.getSelectedItem()=="Apellido Paterno"){
+            else if(cbxBuscar2.getSelectedItem()=="Apellido Paterno"){
                 consulta="exec SP_USUARIO_PERSONAL_BuscarApePat ?";
             }
-            else if(cbxBuscar.getSelectedItem()=="Apellido Materno"){
+            else if(cbxBuscar2.getSelectedItem()=="Apellido Materno"){
                 consulta="exec SP_USUARIO_PERSONAL_BuscarApeMat ?";
             }
             else {
@@ -1090,15 +1147,12 @@ public void calcula() {
         char tecla= evt.getKeyChar();
         if(tecla==KeyEvent.VK_ENTER){
             try{
-                dispose();
+                personal.setVisible(false);
                 int filaselec=tbPersonal.getSelectedRow();
                 String nombreCompleto=tbPersonal.getValueAt(filaselec, 7).toString()+" "+
                 tbPersonal.getValueAt(filaselec, 5).toString()
                 +" "+tbPersonal.getValueAt(filaselec, 6).toString();
 //                txtPersonal.setText(nombreCompleto);
-//                RegistroUsuario.btnguardar.setEnabled(true);
-//                RegistroUsuario.btnmodificar.setEnabled(false);
-//                RegistroUsuario.btneliminar.setEnabled(false);
 
             }
             catch(Exception ex)
@@ -1117,7 +1171,7 @@ public void calcula() {
         try
         {
             if(evt.getStateChange()==ItemEvent.SELECTED){
-                if(this.cbxBuscar.getSelectedIndex()>0){
+                if(cbxBuscar2.getSelectedIndex()>0){
                     txtBuscar.setEnabled(true);
                     btnBuscar.setEnabled(true);
                 }
@@ -1132,6 +1186,19 @@ public void calcula() {
                 System.out.println("Error: " + ex.getMessage());
             }
     }//GEN-LAST:event_cbxBuscar2ItemStateChanged
+
+    private void txtPersonalTomaMuestraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalTomaMuestraKeyPressed
+       char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){
+                    personal.setVisible(true);
+                    Personal_cargar();
+                    Personal_formato();
+                }
+    }//GEN-LAST:event_txtPersonalTomaMuestraKeyPressed
+
+    private void txtPersonalTomaMuestraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalTomaMuestraKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPersonalTomaMuestraKeyReleased
     public void enableDatos(){
     tb_Detalle.setEnabled(true);
     tb_Detalle.setBackground(Color.white);
@@ -1330,8 +1397,6 @@ public void calcula() {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnGenerar;
     private javax.swing.JButton btnQuitar;
-    private javax.swing.JComboBox cbxBuscar;
-    private javax.swing.JComboBox cbxBuscar1;
     private javax.swing.JComboBox cbxBuscar2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

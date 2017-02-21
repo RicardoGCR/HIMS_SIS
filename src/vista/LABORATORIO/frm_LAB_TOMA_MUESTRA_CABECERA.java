@@ -122,18 +122,28 @@ DefaultTableModel m,n,muestra;
             tb_Detalle.requestFocus();
 }
 
-    public void Nomenclatura_cargar(){
+    public void Nomenclatura_cargar(String cod){
     try {
+        int filaselec=tb_Nomenclatura.getSelectedRow();
              String titulos[]={"N°","codigo venta detalle","Codigo caja","Código CPT","Nomenclatura","Servicio/Área Solicita","Nº de Documento","Fecha de Emitido"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
 
             LAB_Clasificacion_Examen obj=new LAB_Clasificacion_Examen();
-        String consulta="exec sp_LAB_TOMA_MUESTRA_NOMENCLATURA ?";
+        String consulta="exec sp_LAB_TOMA_MUESTRA_NOMENCLATURA ?,?,?";
         
         PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1, lblDocumento.getText());
+            cmd.setString(1, cod);
+            if(lblArea.getText().isEmpty()){
+                cmd.setString(2, lblServicio.getText());
+                cmd.setString(3, "1");
+            }
+            else if(lblArea.getText().equalsIgnoreCase("")==false){
+                cmd.setString(2, lblArea.getText());
+                cmd.setString(3, "2");
+            }
+            
         ResultSet r=cmd.executeQuery();
         int c=1;
         while(r.next()){
@@ -171,7 +181,7 @@ DefaultTableModel m,n,muestra;
     tb_Nomenclatura.getColumnModel().getColumn(2).setMinWidth(0);
     tb_Nomenclatura.getColumnModel().getColumn(2).setMaxWidth(0);
     tb_Nomenclatura.getSelectionModel().setSelectionInterval(0, 0);
-            tb_Nomenclatura.requestFocus();
+    tb_Nomenclatura.requestFocus();
 }
     
      public void Personal_cargar(){
@@ -182,7 +192,7 @@ DefaultTableModel m,n,muestra;
             String fila[]=new String[8];
             Conexion obj=new Conexion();
             
-        String consulta="exec sp_LAB_TOMA_MUESTRA_CAB_ROL";
+        String consulta="exec sp_LAB_TOMA_MUESTRA_CAB_ROL 1";
         ResultSet r;
         r=obj.Listar(consulta);
         int c=1;
@@ -248,9 +258,6 @@ public void calcula() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        nomenclatura = new javax.swing.JDialog();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tb_Nomenclatura = new javax.swing.JTable();
         personal = new javax.swing.JDialog();
         txtBuscar = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -260,8 +267,18 @@ public void calcula() {
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false; //Disallow the editing of any cell
             }};
-            jLabel1 = new javax.swing.JLabel();
             cbxBuscar2 = new javax.swing.JComboBox();
+            jpanel2 = new javax.swing.JPanel();
+            titulo7 = new javax.swing.JLabel();
+            nomenclatura = new javax.swing.JDialog();
+            jScrollPane3 = new javax.swing.JScrollPane();
+            tb_Nomenclatura = new javax.swing.JTable();
+            txthc = new javax.swing.JLabel();
+            jLabel5 = new javax.swing.JLabel();
+            txtNombres = new javax.swing.JLabel();
+            jLabel4 = new javax.swing.JLabel();
+            jpanel1 = new javax.swing.JPanel();
+            titulo6 = new javax.swing.JLabel();
             jpanel = new javax.swing.JPanel();
             titulo5 = new javax.swing.JLabel();
             jLabel14 = new javax.swing.JLabel();
@@ -319,46 +336,10 @@ public void calcula() {
                     lblContador = new javax.swing.JLabel();
                     lblCodPerToma = new javax.swing.JLabel();
                     lblCodPerRegistra = new javax.swing.JLabel();
+                    lblServicio = new javax.swing.JLabel();
+                    lblArea = new javax.swing.JLabel();
 
-                    nomenclatura.setMinimumSize(new java.awt.Dimension(518, 344));
-
-                    tb_Nomenclatura.setModel(new javax.swing.table.DefaultTableModel(
-                        new Object [][] {
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null}
-                        },
-                        new String [] {
-                            "Title 1", "Title 2", "Title 3", "Title 4"
-                        }
-                    ));
-                    tb_Nomenclatura.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-                    tb_Nomenclatura.addKeyListener(new java.awt.event.KeyAdapter() {
-                        public void keyPressed(java.awt.event.KeyEvent evt) {
-                            tb_NomenclaturaKeyPressed(evt);
-                        }
-                    });
-                    jScrollPane1.setViewportView(tb_Nomenclatura);
-
-                    javax.swing.GroupLayout nomenclaturaLayout = new javax.swing.GroupLayout(nomenclatura.getContentPane());
-                    nomenclatura.getContentPane().setLayout(nomenclaturaLayout);
-                    nomenclaturaLayout.setHorizontalGroup(
-                        nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(nomenclaturaLayout.createSequentialGroup()
-                            .addGap(21, 21, 21)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
-                            .addGap(22, 22, 22))
-                    );
-                    nomenclaturaLayout.setVerticalGroup(
-                        nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nomenclaturaLayout.createSequentialGroup()
-                            .addContainerGap(58, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(19, 19, 19))
-                    );
-
-                    personal.setMinimumSize(new java.awt.Dimension(924, 474));
+                    personal.setMinimumSize(new java.awt.Dimension(840, 495));
 
                     txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
                     txtBuscar.setText("Buscar ");
@@ -416,15 +397,33 @@ public void calcula() {
                     });
                     jScrollPane2.setViewportView(tbPersonal);
 
-                    jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-                    jLabel1.setText("Personal");
-
                     cbxBuscar2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Nombres", "Apellido Paterno", "Apellido Materno", "Cargo" }));
                     cbxBuscar2.addItemListener(new java.awt.event.ItemListener() {
                         public void itemStateChanged(java.awt.event.ItemEvent evt) {
                             cbxBuscar2ItemStateChanged(evt);
                         }
                     });
+
+                    jpanel2.setBackground(new java.awt.Color(2, 67, 115));
+
+                    titulo7.setBackground(new java.awt.Color(0, 102, 102));
+                    titulo7.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+                    titulo7.setForeground(new java.awt.Color(255, 255, 255));
+                    titulo7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                    titulo7.setText("Personal");
+                    titulo7.setToolTipText("");
+                    titulo7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+                    javax.swing.GroupLayout jpanel2Layout = new javax.swing.GroupLayout(jpanel2);
+                    jpanel2.setLayout(jpanel2Layout);
+                    jpanel2Layout.setHorizontalGroup(
+                        jpanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(titulo7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    );
+                    jpanel2Layout.setVerticalGroup(
+                        jpanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(titulo7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    );
 
                     javax.swing.GroupLayout personalLayout = new javax.swing.GroupLayout(personal.getContentPane());
                     personal.getContentPane().setLayout(personalLayout);
@@ -433,37 +432,130 @@ public void calcula() {
                         .addGroup(personalLayout.createSequentialGroup()
                             .addGroup(personalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(personalLayout.createSequentialGroup()
-                                    .addGap(414, 414, 414)
-                                    .addComponent(jLabel1))
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(personalLayout.createSequentialGroup()
-                                    .addGap(133, 133, 133)
+                                    .addGap(97, 97, 97)
                                     .addComponent(jLabel2)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(cbxBuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(158, 158, 158)
                                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(personalLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 904, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(jpanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     );
                     personalLayout.setVerticalGroup(
                         personalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personalLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel1)
-                            .addGap(18, 18, 18)
+                            .addComponent(jpanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(personalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(cbxBuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2)))
-                            .addGap(28, 28, 28)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(19, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(38, Short.MAX_VALUE))
+                    );
+
+                    nomenclatura.setMinimumSize(new java.awt.Dimension(710, 435));
+
+                    tb_Nomenclatura.setModel(new javax.swing.table.DefaultTableModel(
+                        new Object [][] {
+                            {null, null, null, null},
+                            {null, null, null, null},
+                            {null, null, null, null},
+                            {null, null, null, null}
+                        },
+                        new String [] {
+                            "Title 1", "Title 2", "Title 3", "Title 4"
+                        }
+                    ));
+                    tb_Nomenclatura.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+                    tb_Nomenclatura.setRowHeight(21);
+                    tb_Nomenclatura.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyPressed(java.awt.event.KeyEvent evt) {
+                            tb_NomenclaturaKeyPressed(evt);
+                        }
+                    });
+                    jScrollPane3.setViewportView(tb_Nomenclatura);
+
+                    txthc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+                    txthc.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+                    txthc.setText("N° de H.C.");
+
+                    jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+                    jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+                    jLabel5.setText("N° de H.C.");
+
+                    txtNombres.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+                    txtNombres.setText("jLabel4");
+
+                    jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+                    jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+                    jLabel4.setText("Paciente:");
+
+                    jpanel1.setBackground(new java.awt.Color(2, 67, 115));
+
+                    titulo6.setBackground(new java.awt.Color(0, 102, 102));
+                    titulo6.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+                    titulo6.setForeground(new java.awt.Color(255, 255, 255));
+                    titulo6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                    titulo6.setText("Exámenes Pendientes");
+                    titulo6.setToolTipText("");
+                    titulo6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+                    javax.swing.GroupLayout jpanel1Layout = new javax.swing.GroupLayout(jpanel1);
+                    jpanel1.setLayout(jpanel1Layout);
+                    jpanel1Layout.setHorizontalGroup(
+                        jpanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(titulo6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    );
+                    jpanel1Layout.setVerticalGroup(
+                        jpanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpanel1Layout.createSequentialGroup()
+                            .addComponent(titulo6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE))
+                    );
+
+                    javax.swing.GroupLayout nomenclaturaLayout = new javax.swing.GroupLayout(nomenclatura.getContentPane());
+                    nomenclatura.getContentPane().setLayout(nomenclaturaLayout);
+                    nomenclaturaLayout.setHorizontalGroup(
+                        nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jpanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(nomenclaturaLayout.createSequentialGroup()
+                            .addGroup(nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(nomenclaturaLayout.createSequentialGroup()
+                                    .addGap(33, 33, 33)
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(81, 81, 81)
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txthc))
+                                .addGroup(nomenclaturaLayout.createSequentialGroup()
+                                    .addGap(16, 16, 16)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addContainerGap(28, Short.MAX_VALUE))
+                    );
+                    nomenclaturaLayout.setVerticalGroup(
+                        nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nomenclaturaLayout.createSequentialGroup()
+                            .addComponent(jpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addGroup(nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel4)
+                                .addComponent(txtNombres)
+                                .addComponent(jLabel5)
+                                .addComponent(txthc))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(46, 46, 46))
                     );
 
                     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -892,6 +984,10 @@ public void calcula() {
 
                     lblCodPerRegistra.setText("lblPerRegistraTomaMuestra");
 
+                    lblServicio.setText("Servicio");
+
+                    lblArea.setText("area");
+
                     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                     getContentPane().setLayout(layout);
                     layout.setHorizontalGroup(
@@ -920,6 +1016,10 @@ public void calcula() {
                                     .addComponent(lblCodPerToma, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(82, 82, 82)
                                     .addComponent(lblCodPerRegistra, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(29, 29, 29)
+                                    .addComponent(lblServicio)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lblArea)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(35, 35, 35)
@@ -943,7 +1043,9 @@ public void calcula() {
                                 .addComponent(lblCodigo)
                                 .addComponent(lblContador)
                                 .addComponent(lblCodPerToma)
-                                .addComponent(lblCodPerRegistra))
+                                .addComponent(lblCodPerRegistra)
+                                .addComponent(lblServicio)
+                                .addComponent(lblArea))
                             .addGap(1, 1, 1)
                             .addComponent(panelCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(19, 19, 19)
@@ -983,7 +1085,7 @@ public void calcula() {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         nomenclatura.setVisible(true);
-        Nomenclatura_cargar();
+        Nomenclatura_cargar(lblDocumento.getText());
         Nomenclatura_formato();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -999,7 +1101,7 @@ public void calcula() {
         btnAgregar.setEnabled(true);
         btnQuitar.setEnabled(true);
         
-       Lab_guardar_cabecera();
+//       Lab_guardar_cabecera();
         
         }
         else{
@@ -1044,30 +1146,6 @@ public void calcula() {
               
           }
     }
-    private void tb_NomenclaturaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_NomenclaturaKeyPressed
-      char tecla= evt.getKeyChar();
-                if(tecla==KeyEvent.VK_ENTER){  
-        try{
-           
-            int filaselec=tb_Nomenclatura.getSelectedRow();
-                nomenclatura.setVisible(false);
-            
-              frm_LAB_TOMA_MUESTRA_DETALLE vr=new frm_LAB_TOMA_MUESTRA_DETALLE();
-                    vr.setVisible(true);
-                    frm_LAB_TOMA_MUESTRA_DETALLE.txtidDocumen.setText(lblDocumento.getText());
-                    frm_LAB_TOMA_MUESTRA_DETALLE.lblId_cod_doc_det.setText(tb_Nomenclatura.getValueAt(filaselec, 1).toString());
-                    
-                    frm_LAB_TOMA_MUESTRA_DETALLE.txtNomenclatura.setText(tb_Nomenclatura.getValueAt(filaselec, 3).toString());
-                    frm_LAB_TOMA_MUESTRA_DETALLE.txtCodigoCPT.setText(tb_Nomenclatura.getValueAt(filaselec, 4).toString());
-                    
-                   
-                    String u=lblUsu.getText();
-                             frm_LAB_TOMA_MUESTRA_DETALLE.lblUsu.setText(u);
-        }catch(Exception e){
-           JOptionPane.showMessageDialog(this, e.getMessage());
-        }}
-    }//GEN-LAST:event_tb_NomenclaturaKeyPressed
-
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarActionPerformed
@@ -1199,6 +1277,29 @@ public void calcula() {
     private void txtPersonalTomaMuestraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalTomaMuestraKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPersonalTomaMuestraKeyReleased
+
+    private void tb_NomenclaturaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_NomenclaturaKeyPressed
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            try{
+
+                int filaselec=tb_Nomenclatura.getSelectedRow();
+                nomenclatura.setVisible(false);
+
+                frm_LAB_TOMA_MUESTRA_DETALLE vr=new frm_LAB_TOMA_MUESTRA_DETALLE();
+                vr.setVisible(true);
+                frm_LAB_TOMA_MUESTRA_DETALLE.txtidDocumen.setText(lblDocumento.getText());
+                frm_LAB_TOMA_MUESTRA_DETALLE.lblId_cod_doc_det.setText(tb_Nomenclatura.getValueAt(filaselec, 1).toString());
+
+                frm_LAB_TOMA_MUESTRA_DETALLE.txtNomenclatura.setText(tb_Nomenclatura.getValueAt(filaselec, 3).toString());
+                frm_LAB_TOMA_MUESTRA_DETALLE.txtCodigoCPT.setText(tb_Nomenclatura.getValueAt(filaselec, 4).toString());
+
+                String u=lblUsu.getText();
+                frm_LAB_TOMA_MUESTRA_DETALLE.lblUsu.setText(u);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this, e.getMessage());
+            }}
+    }//GEN-LAST:event_tb_NomenclaturaKeyPressed
     public void enableDatos(){
     tb_Detalle.setEnabled(true);
     tb_Detalle.setBackground(Color.white);
@@ -1398,7 +1499,6 @@ public void calcula() {
     private javax.swing.JButton btnGenerar;
     private javax.swing.JButton btnQuitar;
     private javax.swing.JComboBox cbxBuscar2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1414,13 +1514,18 @@ public void calcula() {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPanel jpanel;
+    private javax.swing.JPanel jpanel1;
+    private javax.swing.JPanel jpanel2;
+    public static javax.swing.JLabel lblArea;
     public static javax.swing.JLabel lblCantidad;
     public static javax.swing.JLabel lblCantidad1;
     public static javax.swing.JLabel lblCantidad2;
@@ -1437,6 +1542,7 @@ public void calcula() {
     private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblHora1;
     private javax.swing.JLabel lblNum_toma_mu_exa;
+    public static javax.swing.JLabel lblServicio;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JDialog nomenclatura;
     private javax.swing.JPanel panelCabecera;
@@ -1446,14 +1552,18 @@ public void calcula() {
     public static javax.swing.JTable tb_Detalle;
     private javax.swing.JTable tb_Nomenclatura;
     private javax.swing.JLabel titulo5;
+    private javax.swing.JLabel titulo6;
+    private javax.swing.JLabel titulo7;
     private javax.swing.JTextField txtBuscar;
     public static javax.swing.JTextField txtDni;
     public static javax.swing.JTextField txtEdad;
     public static javax.swing.JTextField txtFecha;
     public static javax.swing.JTextField txtHc;
+    private javax.swing.JLabel txtNombres;
     public static javax.swing.JTextField txtPacientes;
     private javax.swing.JTextField txtPersonalRegistraToma;
     private javax.swing.JTextField txtPersonalTomaMuestra;
     public static javax.swing.JTextField txtSexo;
+    private javax.swing.JLabel txthc;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,32 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group>
-<<<<<<< HEAD
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_INGRESO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_DETALLE.java</file>
-        </group>
-=======
-<<<<<<< HEAD
-        <group>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_REGISTRO_ANESTESIA.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_SOLICITUD.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_CONDICION.java</file>
-            <file>file:/D:/pry/SISGESH/src/servicios/Conexion.java</file>
-=======
->>>>>>> 5e8f45f83796b99ba9d31c88425e426d63f6f8c6
-            <file>file:/D:/pry/SISGESH/src/modelos/admisionCentral/HistoriaClinica.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/admisionEmergencia/AdmisionEmergenciaCabecera.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/Caja/Caja_Preventa.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/admisionEmergencia/FrmFormatoEmergencia.java</file>
->>>>>>> 578356042ed9b93a1638d705617f6d258fd3789e
-        </group>
-=======
         <group/>
->>>>>>> 2500d19606847145c1d3b6123ebf4baf91ed274b
->>>>>>> 578356042ed9b93a1638d705617f6d258fd3789e
     </open-files>
 </project-private>

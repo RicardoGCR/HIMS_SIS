@@ -152,13 +152,13 @@ public class AdmisionEmergenciaCabecera {
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID","Fecha de ing","Hora de ing","Traído por",
-                "Parentesco","Observación","Forma de llegada"};
+            String titulos[]={"ID","Traído por","Parentesco","ID FL","Forma de Llegada",
+                "Observación","Fecha de ing","Hora de ing"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC ADMISION_EMERGENCIA_CABECERA_MODIF_MOSTRAR_LISTASEMER ?,?";
+            consulta="EXEC CAJA_PREVENTA_LISTAR_MOSTRAR_MODIF ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, id_hc);
             cmd.setString(2, fecha);
@@ -172,6 +172,7 @@ public class AdmisionEmergenciaCabecera {
                 fila[4]=r.getString(5);
                 fila[5]=r.getString(6);
                 fila[6]=r.getString(7); // dni
+                fila[7]=r.getString(8);
                 //fila[4]=r.getString(1); // codigo de hc
                     m.addRow(fila);
                     c++;

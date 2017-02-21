@@ -104,7 +104,7 @@ DefaultTableModel m,n,muestra;
     tb_Pacientes.getColumnModel().getColumn(5).setPreferredWidth(50);
     tb_Pacientes.getColumnModel().getColumn(6).setPreferredWidth(50);
     tb_Pacientes.getColumnModel().getColumn(7).setPreferredWidth(145);
-            //Ocultar    
+    //Ocultar    
     tb_Pacientes.getColumnModel().getColumn(0).setMinWidth(0);
     tb_Pacientes.getColumnModel().getColumn(0).setMaxWidth(0);
     tb_Pacientes.getColumnModel().getColumn(8).setMinWidth(0);
@@ -1098,9 +1098,9 @@ public void buscar_examenes(){
         char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){  
         try{
-           
+           dispose();
             int filaselec=tb_Pacientes.getSelectedRow();
-            dispose();
+            
               frm_LAB_TOMA_MUESTRA_CABECERA vr=new frm_LAB_TOMA_MUESTRA_CABECERA();
                     vr.setVisible(true);
                     frm_LAB_TOMA_MUESTRA_CABECERA.lblHc.setText(tb_Pacientes.getValueAt(filaselec, 0).toString());
@@ -1118,7 +1118,7 @@ public void buscar_examenes(){
                     String u=lblUsu.getText();
                              frm_LAB_TOMA_MUESTRA_CABECERA.lblUsu.setText(u);
         }catch(Exception e){
-            JOptionPane.showMessageDialog(this, e.getMessage());
+            JOptionPane.showMessageDialog(this, "ingreso"+e.getMessage());
         }}
     }//GEN-LAST:event_tb_PacientesKeyPressed
     public void enableDatos(){

@@ -30,10 +30,12 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 import modelos.*;
+import modelos.Caja.Caja_DetallePreventa;
 import modelos.Caja.Caja_Preventa;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.admisionEmergencia.AdmisionEmergenciaTopico;
@@ -49,6 +51,7 @@ import static vista.admisionCentral.FrmNuevaHistoriaC.txtDni;
 import static vista.admisionCentral.FrmNuevaHistoriaC.txtID;
 import static vista.admisionCentral.FrmNuevaHistoriaC.txtNombre1;
 import static vista.Principal.fechaActual;
+import vista.PrincipalMDI;
 /**
  *
  * @author PC02
@@ -229,6 +232,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         lblFechaNac.setText("");
         txtTraidopor.setText("");
         txtParentesco.setText("");
+        pnlEObservación.setText("");
     }
     
     public void limpiarDatosTriaje(){
@@ -572,6 +576,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
     public void formatotbExamenAux(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(200);//nombre
         tabla.getColumnModel().getColumn(1).setPreferredWidth(140);//CODIGO
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(140);//CODIGO
         tabla.setRowHeight(25);
     }
     
@@ -582,7 +587,9 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             dlgListaExamnAux.dispose();
             //PASAR DATOS A TABLA
             String examenes[] = {
-            String.valueOf(tbDatosLab.getValueAt(fila, 2)),String.valueOf(tbDatosLab.getValueAt(fila, 0))};
+            String.valueOf(tbDatosLab.getValueAt(fila, 2)),
+            String.valueOf(tbDatosLab.getValueAt(fila, 0)),
+            String.valueOf(tbDatosLab.getValueAt(fila, 3))};
             m.addRow(examenes);
             formatotbExamenAux(tbExamAux);
             btnQuitarExam.setEnabled(true);
@@ -593,7 +600,9 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             dlgListaExamnAux.dispose();
             //PASAR DATOS A TABLA
             String examenes[] = {
-            String.valueOf(tbDatosLab.getValueAt(fila, 2)),String.valueOf(tbDatosLab.getValueAt(fila, 0))};
+            String.valueOf(tbDatosLab.getValueAt(fila, 2)),
+            String.valueOf(tbDatosLab.getValueAt(fila, 0)),
+            String.valueOf(tbDatosLab.getValueAt(fila, 3))};
             m.addRow(examenes);
             formatotbExamenAux(tbExamAux);
             btnQuitarExam.setEnabled(true);
@@ -607,9 +616,9 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             dlgListaExamnAux.dispose();
             //PASAR DATOS A TABLA
             String examenes[] = {
-            String.valueOf(tbDatosLab.getValueAt(fila, 1)),
             String.valueOf(tbDatosLab.getValueAt(fila, 2)),
-            String.valueOf(tbDatosLab.getValueAt(fila, 0))};
+            String.valueOf(tbDatosLab.getValueAt(fila, 0)),
+            String.valueOf(tbDatosLab.getValueAt(fila, 3))};
             m.addRow(examenes);
             //formatotbExamenAux();
             btnQuitarExam.setEnabled(true);
@@ -620,7 +629,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                     adEmerTop2.setId_topico(String.valueOf(tbDatosTopico.getValueAt(filas, 0)));
                     adEmerTop2.setCod_exa_ana(tbExamenes.getValueAt(i, 2).toString());
                     adEmerTop2.setUsu_cod(adEmer2.codUsuario(lblUsuario.getText()));
-                    adEmerTop2.insertarDetalleExamen();
+                    //adEmerTop2.insertarDetalleExamen();
             }
         } else 
         if(repitedlgExamen()==true)
@@ -629,9 +638,9 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             dlgListaExamnAux.dispose();
             //PASAR DATOS A TABLA
             String examenes[] = {
-            String.valueOf(tbDatosLab.getValueAt(fila, 1)),
             String.valueOf(tbDatosLab.getValueAt(fila, 2)),
-            String.valueOf(tbDatosLab.getValueAt(fila, 0))};
+            String.valueOf(tbDatosLab.getValueAt(fila, 0)),
+            String.valueOf(tbDatosLab.getValueAt(fila, 3))};
             m.addRow(examenes);
             btnQuitarExam.setEnabled(true);
             int filas = tbDatosTopico.getSelectedRow();
@@ -651,7 +660,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                     adEmerTop2.setId_topico(String.valueOf(tbDatosTopico.getValueAt(filas, 0)));
                     adEmerTop2.setCod_exa_ana(tbExamenes.getValueAt(i, 2).toString());
                     adEmerTop2.setUsu_cod(adEmer2.codUsuario(lblUsuario.getText()));
-                    adEmerTop2.insertarDetalleExamen();
+                    //adEmerTop2.insertarDetalleExamen();
                     insertar = true;
                 }
             }
@@ -1005,6 +1014,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                     if(adEmertopico.mantenimientoAdmisionEmergenciaTopico("I")==true){
                         retorna = true;
                     }
+                }else{
+                    JOptionPane.showMessageDialog(this, "No se realizó ningun movimiento");
                 }
                 return retorna;
     }
@@ -1014,13 +1025,14 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         if(guardarDatosTopico()==true){
             AdmisionEmergenciaCabecera adEmer2 =  new AdmisionEmergenciaCabecera();
             for (int i = 0; i < tbExamAux.getRowCount(); i++){      
-                AdmisionEmergenciaTopicoDetalleExamen adEmerTop1=new AdmisionEmergenciaTopicoDetalleExamen();
-                adEmerTop1.setId_topico(txtIDTopico.getText());
-                adEmerTop1.setCod_exa_ana(tbExamAux.getValueAt(i, 1).toString());
-                adEmerTop1.setUsu_cod(adEmer2.codUsuario(lblUsuUsuario.getText()));
-                if(adEmerTop1.insertarDetalleExamen()==true)
+                Caja_DetallePreventa cdp = new Caja_DetallePreventa();
+                cdp.setId_topico(txtIDTopico.getText());
+                cdp.setCod_precio(tbExamAux.getValueAt(i,2).toString());
+                cdp.setCod_usu(adEmer2.codUsuario(lblUsuUsuario.getText()));
+                cdp.setId_Preventa(Integer.parseInt(lblCabpT.getText()));
+                if(cdp.cajaDetallePreventaInsertar()==true)
                     retorna = true;
-                //JOptionPane.showMessageDialog(this, tbExamAux.getValueAt(i, 1).toString());
+                //JOptionPane.showMessageDialog(this, tbExamAux.getValueAt(i, 2).toString());
                 //adEmerTop2.guardarReferencialDetalle();
             }
             for (int i = 0; i < tbDxAlta.getRowCount(); i++){      
@@ -1216,10 +1228,11 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         tbDatosLab = new javax.swing.JTable();
         jPanel17 = new javax.swing.JPanel();
         jLabel73 = new javax.swing.JLabel();
-        jLabel74 = new javax.swing.JLabel();
+        lblTipo = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
         txtBusquedaTo = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        lblTipo = new javax.swing.JLabel();
         dlgMostrarDatosTriajeT = new javax.swing.JDialog();
         jScrollPane5 = new javax.swing.JScrollPane();
         tbMostrarTriajepT = new javax.swing.JTable();
@@ -1933,7 +1946,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         );
 
         dlgListaExamnAux.setAlwaysOnTop(true);
-        dlgListaExamnAux.setMinimumSize(new java.awt.Dimension(400, 550));
+        dlgListaExamnAux.setMinimumSize(new java.awt.Dimension(681, 405));
 
         tbDatosLab = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -1974,6 +1987,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         jLabel73.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/buscar.png"))); // NOI18N
         jLabel73.setText("Buscar (Alt + B)");
 
+        lblTipo.setText("jLabel71");
+
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
@@ -1981,17 +1996,25 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel73)
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTipo)
+                .addGap(132, 132, 132))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel73)
-                .addContainerGap())
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel73)
+                    .addComponent(lblTipo))
+                .addGap(15, 15, 15))
         );
 
-        jLabel74.setText("Buscar por nombre de examen:");
+        jPanel2.setBackground(new java.awt.Color(0, 118, 168));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 26)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Exámenes Auxiliares");
 
         txtBusquedaTo.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -2004,48 +2027,53 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/buscar.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Buscar-32.png"))); // NOI18N
         jButton2.setMnemonic('B');
         jButton2.setToolTipText("");
         jButton2.setContentAreaFilled(false);
 
-        lblTipo.setText("jLabel71");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtBusquedaTo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtBusquedaTo, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout dlgListaExamnAuxLayout = new javax.swing.GroupLayout(dlgListaExamnAux.getContentPane());
         dlgListaExamnAux.getContentPane().setLayout(dlgListaExamnAuxLayout);
         dlgListaExamnAuxLayout.setHorizontalGroup(
             dlgListaExamnAuxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgListaExamnAuxLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(dlgListaExamnAuxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTipo)
-                    .addGroup(dlgListaExamnAuxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(dlgListaExamnAuxLayout.createSequentialGroup()
-                            .addComponent(jLabel74)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtBusquedaTo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(2, 2, 2)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)
+            .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         dlgListaExamnAuxLayout.setVerticalGroup(
             dlgListaExamnAuxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgListaExamnAuxLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTipo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(dlgListaExamnAuxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(dlgListaExamnAuxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel74)
-                        .addComponent(txtBusquedaTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6))
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
         dlgMostrarDatosTriajeT.setAlwaysOnTop(true);
@@ -2196,11 +2224,11 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
 
             },
             new String [] {
-                "Exámenes", "Código"
+                "Exámenes", "Código", "Precio"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -2208,6 +2236,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             }
         });
         tbExamenes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbExamenes.getTableHeader().setReorderingAllowed(false);
         tbExamenes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbExamenesKeyPressed(evt);
@@ -2237,6 +2266,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             }
         });
         tbDiagPresun.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbDiagPresun.getTableHeader().setReorderingAllowed(false);
         tbDiagPresun.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbDiagPresunKeyPressed(evt);
@@ -2597,30 +2627,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblNewMod)
-                                .addGap(177, 177, 177))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addComponent(lblCabpT, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2635,6 +2643,25 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblUsuUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(lblNewMod)
+                        .addGap(177, 177, 177))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(lblCabpT, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2650,23 +2677,24 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                                 .addGap(1, 1, 1))
                             .addComponent(titulo5))
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblUsuUsuario))
+                            .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel8Layout.createSequentialGroup()
-                                        .addComponent(lblNewMod)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblCabpT, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnModificar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap())))
+                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblUsuUsuario))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblCabpT))
+                                    .addComponent(lblNewMod))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel15)
@@ -2822,6 +2850,11 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         jLabel31.setText("Traído por:");
 
         txtTraidopor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTraidopor.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtTraidoporCaretUpdate(evt);
+            }
+        });
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel32.setText("Parentesco:");
@@ -3058,8 +3091,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtNroRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)))
+                        .addComponent(txtNroRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -3067,12 +3100,12 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(txtNroRegistro))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel4)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel21)
+                        .addComponent(txtNroRegistro)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3301,16 +3334,17 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                         .addGroup(pnlTriajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator4)
                             .addGroup(pnlTriajeLayout.createSequentialGroup()
-                                .addComponent(jLabel24)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addComponent(lblIDPreventa, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 142, Short.MAX_VALUE))
-                            .addGroup(pnlTriajeLayout.createSequentialGroup()
-                                .addComponent(jLabel33)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblTraidoporTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(pnlTriajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlTriajeLayout.createSequentialGroup()
+                                        .addComponent(jLabel24)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(29, 29, 29)
+                                        .addComponent(lblIDPreventa, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnlTriajeLayout.createSequentialGroup()
+                                        .addComponent(jLabel33)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblTraidoporTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTriajeLayout.createSequentialGroup()
@@ -3374,7 +3408,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel37)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtIDTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3596,11 +3630,11 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
 
             },
             new String [] {
-                "Código", "Exámenes"
+                "Código", "Exámenes", "Precio"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -4148,12 +4182,13 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                             caja1.setEMER_PARENTESCO(txtParentesco.getText());
                             caja1.setEMER_FORMA_LLEGADA_ID(caja1.codFormaLlegada(cbxFormaLlegada.getSelectedItem().toString()));
                             caja1.setCod_usu(caja1.codUsuario(lblUsuUsuario.getText()));
+                            caja1.setId_preventa(Integer.parseInt(txtNroRegistro.getText()));
                             if(caja1.mantanimientoCajaPreventaEmergencia("I")==true){
                                 String nroregistro = txtNroRegistro.getText();
                                 //VISUALIZAR EL REPORTE
                                 String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Cabecera.jasper";
                                 JOptionPane.showMessageDialog(this, "Datos guardados");
-                                adEmerCab.reporteCabecera(ruta, txtNroRegistro.getText());
+                                adEmerCab.reporteCabecera(ruta, Integer.parseInt(txtNroRegistro.getText()));
                                 pnlDatosCabecera.setVisible(false);
                                 limpiar();
                                 txtNHC.setText("");
@@ -4426,27 +4461,27 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             FrmListFormatoEmergencia frmEmerList = new FrmListFormatoEmergencia();
             frmEmerList.setVisible(true);
             this.dispose();
-            String u=Principal.lblUsu.getText();
+            String u=PrincipalMDI.lblUsu.getText();
             frmEmerList.lblUsuUsuario.setText(u);
         } else
         if(tbPaneles.getSelectedIndex()==1){
             FrmListFormatoEmergencia frmEmerList = new FrmListFormatoEmergencia();
             frmEmerList.setVisible(true);
             this.dispose();
-            String u=Principal.lblUsu.getText();
+            String u=PrincipalMDI.lblUsu.getText();
             frmEmerList.lblUsuUsuario.setText(u);
             FrmListFormatoEmergencia.tbpReporteEmergencia.setSelectedIndex(1);
             AdmisionEmergenciaTriaje a = new AdmisionEmergenciaTriaje();
-            a.admisionEmergenciaTriajeListarReporte(FrmListFormatoEmergencia.txtBuscar.getText(), FrmListFormatoEmergencia.tbTriaje, "A");
+            a.admisionEmergenciaTriajeListarReporte(FrmListFormatoEmergencia.txtBuscar.getText(), FrmListFormatoEmergencia.tbTriaje, "","");
         } else
         if(tbPaneles.getSelectedIndex()==2){
             FrmListFormatoEmergencia frmEmerList = new FrmListFormatoEmergencia();
             frmEmerList.setVisible(true);
             this.dispose();
-            String u=Principal.lblUsu.getText();
+            String u=PrincipalMDI.lblUsu.getText();
             frmEmerList.lblUsuUsuario.setText(u);
             FrmListFormatoEmergencia.tbpReporteEmergencia.setSelectedIndex(2);
-            adEmerTo.admisionEmergenciaTopicoReporteFinal(FrmListFormatoEmergencia.txtBuscar.getText(), FrmListFormatoEmergencia.tbTopico, "A");
+            adEmerTo.admisionEmergenciaTopicoReporteFinal(FrmListFormatoEmergencia.txtBuscar.getText(), FrmListFormatoEmergencia.tbTopico, "","");
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -4504,7 +4539,9 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                         //if(txtNroRegistro.getText().equals(""))
                         //    txtNroRegistro.setText("EC000000000000000001");
                         //else
-                        //txtNroRegistro.setText(adEmerCab.idAdmisionEmergenciaCabecera());
+                        Caja_Preventa cp = new Caja_Preventa();
+                        int id = cp.idCajaPreventa();
+                        txtNroRegistro.setText(String.valueOf(id));
                     }
                 } else {
                     ImageIcon iT=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
@@ -4523,7 +4560,9 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                                 //if(txtNroRegistro.getText().equals(""))
                                 //    txtNroRegistro.setText("EC000000000000000001");
                                 //else
-                                    txtNroRegistro.setText(adEmerCab.idAdmisionEmergenciaCabecera());
+                                Caja_Preventa cp = new Caja_Preventa();
+                                int id = cp.idCajaPreventa();
+                                txtNroRegistro.setText(String.valueOf(id));
                                 buscar_HC(1,"A","");
                             }
                         }
@@ -4707,6 +4746,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                 lblPacienteTo.setText("");
                 txtIDTopico.setText("");
                 pnlTopicoP.setVisible(false);
+                btnGuardar.setEnabled(false);
+                btnEliminar.setEnabled(false);
             }
         } else {//MODIFICAR TOPICO
             if(txtNHCTo.getText().length()==7){
@@ -4925,8 +4966,10 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
     }//GEN-LAST:event_formKeyPressed
 
     private void txtBusquedaToKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaToKeyPressed
-        tbDatosLab.getSelectionModel().setSelectionInterval(0, 0);
-        tbDatosLab.requestFocus();
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_UP && tbDatosLab.getSelectedRow()==0){
+            tbDatosLab.getSelectionModel().setSelectionInterval(0, 0);
+            tbDatosLab.requestFocus();
+        }
     }//GEN-LAST:event_txtBusquedaToKeyPressed
 
     private void txtBuscarDiagnosticoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarDiagnosticoKeyPressed
@@ -5111,6 +5154,12 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             adEmerTo.cargarDatosTopico(tbDatosTopico, lblIDHCTo.getText(), "");
         }
     }//GEN-LAST:event_btnBuscarToActionPerformed
+
+    private void txtTraidoporCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtTraidoporCaretUpdate
+        btnEliminar.setEnabled(true);
+        btnGuardar.setEnabled(true);
+        habilitarPestanas(1, false);
+    }//GEN-LAST:event_txtTraidoporCaretUpdate
     
     public void run() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.       
@@ -5211,6 +5260,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -5278,7 +5328,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
@@ -5293,6 +5342,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel19;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;

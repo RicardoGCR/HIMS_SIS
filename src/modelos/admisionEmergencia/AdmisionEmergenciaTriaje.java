@@ -150,18 +150,20 @@ public class AdmisionEmergenciaTriaje {
     
     public void formatoTablaTriajeReporte(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(0);//id triaje
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//nhc
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(90);//dni
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(240);//paciente
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(80);//fecha de ingreso
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(80);//hora de ingreso 
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(240);//traido por
-        tabla.getColumnModel().getColumn(7).setPreferredWidth(100);//parentesco
-        tabla.getColumnModel().getColumn(8).setPreferredWidth(60);//fc
-        tabla.getColumnModel().getColumn(9).setPreferredWidth(60);//fr  
-        tabla.getColumnModel().getColumn(10).setPreferredWidth(60);//pa
-        tabla.getColumnModel().getColumn(11).setPreferredWidth(60);//peso
-        tabla.getColumnModel().getColumn(12).setPreferredWidth(60);//Tº
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(70);//nhc
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);//nhc
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(90);//dni
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(240);//paciente
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(80);//fecha de ingreso
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(80);//hora de ingreso 
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(240);//traido por
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(100);//parentesco
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(60);//fc
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(60);//fr  
+        tabla.getColumnModel().getColumn(11).setPreferredWidth(60);//pa
+        tabla.getColumnModel().getColumn(12).setPreferredWidth(60);//peso
+        tabla.getColumnModel().getColumn(13).setPreferredWidth(60);//Tº
+        tabla.getColumnModel().getColumn(14).setPreferredWidth(60);//Talla
         TableColumn columna = tabla.getColumnModel().getColumn(0);//
             columna.setMaxWidth(1);
             columna.setMinWidth(1);
@@ -170,21 +172,22 @@ public class AdmisionEmergenciaTriaje {
         tabla.setRowHeight(30);
     }
     
-    public void admisionEmergenciaTriajeListarReporte(String nhc,JTable tabla, String estado){
+    public void admisionEmergenciaTriajeListarReporte(String nhc,JTable tabla, String fechai,String fechaf){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID","N° H.C.","DNI","Paciente",
+            String titulos[]={"ID","Acto Médico","N° H.C.","DNI","Paciente",
                 "Fecha de ingreso","Hora de ingreso","Traído por",
-                "Parenteso","FC","FR","PA","Peso","T°"};
+                "Parenteso","FC","FR","PA","Peso","T°","Talla"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[13];
+            String fila[]=new String[15];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="exec ADMISION_EMERGENCIA_TRIAJE_LISTAR ?,?";
+            consulta="exec ADMISION_EMERGENCIA_TRIAJE_LISTAR ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, nhc);
-            cmd.setString(2, estado);
+            cmd.setString(2, fechai);
+            cmd.setString(3, fechaf);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -201,6 +204,8 @@ public class AdmisionEmergenciaTriaje {
                 fila[10]=r.getString(11); // 
                 fila[11]=r.getString(12); // 
                 fila[12]=r.getString(13); // 
+                fila[13]=r.getString(14); // 
+                fila[14]=r.getString(15); // 
                     m.addRow(fila);
                     c++;
             }

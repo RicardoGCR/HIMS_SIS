@@ -7,7 +7,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[EXEC CAJA_PREVENTA_EMERGENCIA_REPORTE ]]>
+		<![CDATA[EXEC CAJA_PREVENTA_EMERGENCIA_REPORTE $P{id}]]>
 	</queryString>
 	<field name="ID_PREVENTA" class="java.lang.Long"/>
 	<field name="COD_HC" class="java.lang.String"/>
@@ -27,20 +27,21 @@
 	<field name="EMER_TRAIDOPOR" class="java.lang.String"/>
 	<field name="EMER_PARENTESCO" class="java.lang.String"/>
 	<field name="RIESGO" class="java.lang.String"/>
+	<field name="UE_LOGO" class="java.io.InputStream"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="72" splitType="Stretch">
 			<staticText>
-				<reportElement x="144" y="12" width="277" height="27" uuid="781bff6d-4885-405b-9ae5-8aad14973990"/>
+				<reportElement x="144" y="1" width="277" height="27" uuid="781bff6d-4885-405b-9ae5-8aad14973990"/>
 				<textElement>
 					<font fontName="Arial" size="20" isBold="true"/>
 				</textElement>
 				<text><![CDATA[FORMATO DE EMERGENCIA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="184" y="39" width="194" height="30" uuid="4193fe26-7a82-418a-828d-6e42398d395a"/>
+				<reportElement x="184" y="27" width="194" height="30" uuid="4193fe26-7a82-418a-828d-6e42398d395a"/>
 				<textElement>
 					<font fontName="Arial" size="20" isBold="true"/>
 				</textElement>
@@ -61,12 +62,12 @@
 				<text><![CDATA[Personas que atendemos personas]]></text>
 			</staticText>
 			<image>
-				<reportElement x="14" y="12" width="81" height="52" uuid="043832bc-61c2-4960-8fa6-9f55a42db986"/>
-				<imageExpression><![CDATA["D:\\pry\\SISGESH\\src\\imagenes\\logo_nuevo_opt.png"]]></imageExpression>
-			</image>
-			<image>
 				<reportElement x="470" y="0" width="64" height="35" uuid="a1ba0707-a5bc-4556-bfe7-472fe908d465"/>
 				<imageExpression><![CDATA["D:\\pry\\SISGESH\\src\\imagenes\\logominsa.gif"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="4" y="1" width="116" height="62" uuid="484060a8-2dc5-4081-b542-108b166e6bb6"/>
+				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
 			</image>
 		</band>
 	</title>

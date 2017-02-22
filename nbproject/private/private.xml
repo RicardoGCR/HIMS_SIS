@@ -3,17 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_REGISTRO_ANESTESIA.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS.java</file>
             <file>file:/D:/pry/SISGESH/src/modelos/SIS/SIS.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_SOLICITUD.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_CONDICION.java</file>
-            <file>file:/D:/pry/SISGESH/src/servicios/Conexion.java</file>
-=======
-            <file>file:/D:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_DETALLE.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_CABECERA.java</file>
->>>>>>> b0b8b3151fee75fb0a7345eb990d0147e54a27a1
+            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_ACTIVIDADES_PREVENTIVAS_VACUNAS.java</file>
         </group>
     </open-files>
 </project-private>

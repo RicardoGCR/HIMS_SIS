@@ -5,7 +5,7 @@
     <Container class="javax.swing.JDialog" name="personal">
       <Properties>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[840, 495]"/>
+          <Dimension value="[846, 504]"/>
         </Property>
       </Properties>
 
@@ -27,9 +27,11 @@
                           <Component id="txtBuscar" min="-2" pref="217" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnBuscar" min="-2" pref="32" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lbltipo" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
               </Group>
               <Component id="jpanel2" alignment="1" max="32767" attributes="0"/>
           </Group>
@@ -40,16 +42,19 @@
                   <Component id="jpanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtBuscar" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="btnBuscar" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                          <Component id="cbxBuscar2" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtBuscar" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="btnBuscar" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="cbxBuscar2" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
+                      <Component id="lbltipo" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="358" max="-2" attributes="0"/>
-                  <EmptySpace pref="38" max="32767" attributes="0"/>
+                  <EmptySpace pref="47" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -60,7 +65,6 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Buscar "/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -123,12 +127,10 @@
         <Component class="javax.swing.JComboBox" name="cbxBuscar2">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
+              <StringArray count="3">
                 <StringItem index="0" value="Seleccionar..."/>
-                <StringItem index="1" value="Nombres"/>
-                <StringItem index="2" value="Apellido Paterno"/>
-                <StringItem index="3" value="Apellido Materno"/>
-                <StringItem index="4" value="Cargo"/>
+                <StringItem index="1" value="Cargo"/>
+                <StringItem index="2" value="Apellidos y Nombres"/>
               </StringArray>
             </Property>
           </Properties>
@@ -177,6 +179,11 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="lbltipo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel1"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="nomenclatura">
@@ -392,13 +399,15 @@
                       <Component id="lblCodPerToma" min="-2" pref="123" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                       <Component id="lblCodPerRegistra" min="-2" pref="123" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                       <Component id="lblServicio" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lblArea" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                      <Component id="txtCodigo" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtNum" min="-2" pref="51" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="lblCodigo" min="-2" pref="173" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="lblDocumento" min="-2" pref="173" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="lblHc" min="-2" max="-2" attributes="0"/>
@@ -420,12 +429,13 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblHc" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblDocumento" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblContador" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblCodPerToma" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblCodPerRegistra" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblCodPerToma" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                  <Component id="lblCodPerRegistra" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="lblServicio" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblArea" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNum" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Component id="panelCabecera" min="-2" max="-2" attributes="0"/>
@@ -731,30 +741,30 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="lblNum_toma_mu_exa" max="32767" attributes="0"/>
                       <Component id="jLabel29" alignment="1" pref="206" max="32767" attributes="0"/>
                       <Component id="jLabel27" alignment="0" max="32767" attributes="0"/>
                       <Component id="lblFecha1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel25" alignment="0" pref="206" max="32767" attributes="0"/>
-                      <Component id="txtPersonalTomaMuestra" alignment="0" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel25" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel28" alignment="0" max="32767" attributes="0"/>
                       <Component id="lblHora1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtPersonalTomaMuestra" alignment="1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel26" alignment="0" pref="206" max="32767" attributes="0"/>
-                      <Component id="txtPersonalRegistraToma" alignment="0" pref="206" max="32767" attributes="0"/>
+                      <Component id="txtPersonalRegistraToma" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblCantidad" max="32767" attributes="0"/>
                       <Component id="lblHc1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblCantidad" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel26" alignment="1" pref="309" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="btnGenerar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -767,12 +777,22 @@
                       <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnGenerar" min="-2" pref="35" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblFecha1" alignment="3" max="32767" attributes="0"/>
+                              <Component id="lblHora1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblNum_toma_mu_exa" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtPersonalTomaMuestra" alignment="3" pref="21" max="32767" attributes="0"/>
+                              <Component id="txtPersonalTomaMuestra" alignment="3" max="32767" attributes="0"/>
                               <Component id="txtPersonalRegistraToma" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -782,24 +802,10 @@
                               <Component id="lblHc1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnGenerar" min="-2" pref="35" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblFecha1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="lblHora1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <Component id="lblCantidad" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -818,12 +824,27 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtPersonalTomaMuestra">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="11" style="0"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonalTomaMuestraKeyPressed"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonalTomaMuestraKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtPersonalRegistraToma">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="11" style="0"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonalRegistraTomaKeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel27">
           <Properties>
@@ -1200,28 +1221,14 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="lblCodigo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="lblCodigo"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblContador">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCodPerToma">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="lblPerTomaMuestra"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCodPerRegistra">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="lblPerRegistraTomaMuestra"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblServicio">
       <Properties>
@@ -1238,6 +1245,10 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCodigo">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNum">
     </Component>
   </SubComponents>
 </Form>

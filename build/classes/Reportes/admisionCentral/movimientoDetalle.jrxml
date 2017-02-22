@@ -38,6 +38,10 @@
 	<field name="estado_movi" class="java.lang.String"/>
 	<field name="fecha_detalle" class="java.lang.String"/>
 	<field name="hora_detalle" class="java.lang.String"/>
+<<<<<<< HEAD
+	<field name="UE_LOGO" class="java.io.InputStream"/>
+=======
+>>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 	<title>
 		<band height="171" splitType="Stretch">
 			<rectangle>
@@ -172,6 +176,13 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{FEC_NAC}]]></textFieldExpression>
 			</textField>
+<<<<<<< HEAD
+			<image>
+				<reportElement x="474" y="0" width="109" height="47" uuid="e02f3d78-b452-4a3a-9dd0-6b9230b833b3"/>
+				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
+			</image>
+=======
+>>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 		</band>
 	</title>
 	<detail>

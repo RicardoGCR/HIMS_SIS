@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sectorizacion" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="877b8323-8dbf-4a3f-a05d-1980ac0a5101">
 	<property name="template.type" value="columnar"/>
-	<property name="ireport.zoom" value="3.797498335832459"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="450"/>
+	<property name="ireport.zoom" value="1.0000000000000124"/>
+	<property name="ireport.x" value="122"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -53,6 +53,7 @@
 	<field name="EDAD" class="java.lang.Integer"/>
 	<field name="estado_movi" class="java.lang.String"/>
 	<field name="EST_ABREV" class="java.lang.String"/>
+	<field name="UE_LOGO" class="java.io.InputStream"/>
 	<group name="Group1">
 		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
 		<groupHeader>
@@ -70,9 +71,6 @@
 	</background>
 	<title>
 		<band height="44" splitType="Stretch">
-			<rectangle>
-				<reportElement x="-21" y="-20" width="843" height="56" forecolor="#FFEAB9" backcolor="#FFEAB9" uuid="590a28de-f439-4a16-8255-509c3e03603c"/>
-			</rectangle>
 			<staticText>
 				<reportElement x="8" y="-5" width="475" height="41" forecolor="#333333" uuid="4b1add76-473c-4e97-80cd-8a95a54cbced"/>
 				<textElement>
@@ -81,12 +79,19 @@
 				<text><![CDATA[Movimiento Historias Clínicas]]></text>
 			</staticText>
 			<elementGroup/>
+			<image>
+				<reportElement x="736" y="0" width="88" height="44" uuid="0d3ccc83-6364-4749-8737-dbda678885c6"/>
+				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="81" splitType="Stretch">
 			<staticText>
-				<reportElement x="-15" y="59" width="50" height="20" uuid="3a5d7539-095b-4d63-b3f2-d0cba0950aa6"/>
+				<reportElement x="-4" y="59" width="39" height="20" uuid="3a5d7539-095b-4d63-b3f2-d0cba0950aa6"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
 				<text><![CDATA[Acto Med]]></text>
 			</staticText>
 			<line>
@@ -197,9 +202,9 @@
 				<reportElement positionType="FixRelativeToBottom" x="-15" y="17" width="826" height="1" uuid="331514ca-70ef-41ac-a831-daf6b067cd24"/>
 			</line>
 			<textField>
-				<reportElement x="-15" y="2" width="50" height="15" uuid="dcc8ada0-f6c0-4571-9986-e697d2f87486"/>
+				<reportElement x="-4" y="2" width="39" height="15" uuid="dcc8ada0-f6c0-4571-9986-e697d2f87486"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NUM_ACTOMEDICO}]]></textFieldExpression>
 			</textField>

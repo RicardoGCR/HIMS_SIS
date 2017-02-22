@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/vista/hospitalizacion/FrmHospitalizacionMotivoAltas.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>222</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group>
+            <file>file:/D:/pry/SISGESH/src/modelos/Caja/Caja_DetallePreventa.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/admisionEmergencia/AdmisionEmergenciaTopicoDetalleExamen.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/admisionEmergencia/AdmisionEmergenciaTopico.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/admisionEmergencia/FrmFormatoEmergencia.java</file>
+        </group>
+=======
         <group/>
+>>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
     </open-files>
 </project-private>

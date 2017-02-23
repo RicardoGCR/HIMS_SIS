@@ -51,6 +51,28 @@ public class Caja_DetallePreventa {
         return resp;
     }
     
+    public boolean cajaDetallePreventaModificar()
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_PREVENTA_DETALLE_EXAMEN_MODIFICAR ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_topico());
+            cmd.setString(2, getCod_precio());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: modificarDetalleExamen: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public Caja_DetallePreventa()
     {
         Conexion con = new Conexion();

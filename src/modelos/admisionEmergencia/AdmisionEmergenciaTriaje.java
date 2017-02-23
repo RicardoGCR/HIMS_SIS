@@ -94,13 +94,13 @@ public class AdmisionEmergenciaTriaje {
         tabla.getColumnModel().getColumn(9).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(10).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(11).setPreferredWidth(50);
+        tabla.setRowHeight(25);
         TableColumn columna = tabla.getColumnModel().getColumn(0);
             columna.setMaxWidth(1);
             columna.setMinWidth(1);
             columna.setPreferredWidth(1);
             tabla.setRowHeight(0);
             tabla.doLayout();
-        tabla.setRowHeight(25);
     }
     
     public void admisionEmergenciaTriajeListar(String idhc,String fecha,JTable tabla, String estado){

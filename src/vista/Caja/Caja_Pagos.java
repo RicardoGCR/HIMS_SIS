@@ -924,14 +924,14 @@ Caja_NuevaVenta cnn = new Caja_NuevaVenta();
                                 .addGroup(jPanel13Layout.createSequentialGroup()
                                     .addGap(95, 95, 95)
                                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addContainerGap(71, Short.MAX_VALUE))
+                                    .addContainerGap(61, Short.MAX_VALUE))
                             );
                             jPanel13Layout.setVerticalGroup(
                                 jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel13Layout.createSequentialGroup()
                                     .addGap(55, 55, 55)
                                     .addComponent(jLabel22)
-                                    .addContainerGap(74, Short.MAX_VALUE))
+                                    .addContainerGap(47, Short.MAX_VALUE))
                             );
 
                             jTabbedPane3.addTab("tab2", jPanel13);
@@ -976,9 +976,9 @@ Caja_NuevaVenta cnn = new Caja_NuevaVenta();
                             );
                             jPanel14Layout.setVerticalGroup(
                                 jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGap(0, 229, Short.MAX_VALUE)
+                                .addGap(0, 202, Short.MAX_VALUE)
                                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
                             );
 
                             jTabbedPane3.addTab("tab2", jPanel14);
@@ -1048,7 +1048,7 @@ Caja_NuevaVenta cnn = new Caja_NuevaVenta();
                                     .addComponent(jLabel24)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jLabel23)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                                     .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             );
                             jPanel15Layout.setVerticalGroup(

@@ -34,6 +34,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 import modelos.*;
+import modelos.Caja.Caja_Preventa;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.admisionEmergencia.AdmisionEmergenciaTopico;
 import modelos.admisionEmergencia.AdmisionEmergenciaTopicoDetalleDiagFinal;
@@ -1262,12 +1263,10 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         lblNewMod = new javax.swing.JLabel();
         tbPaneles = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         txtNHC = new javax.swing.JTextField();
         btnFiltrar = new javax.swing.JButton();
-        txtNroRegistro = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         pnlDatosCabecera = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -1309,6 +1308,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         lblHoraIM = new javax.swing.JLabel();
         lblHoraIng = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        txtNroRegistro = new javax.swing.JLabel();
         plTriaje = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtIDTriaje = new javax.swing.JTextField();
@@ -2635,13 +2635,10 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                                 .addGap(1, 1, 1))
                             .addComponent(titulo5))
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNewMod)
-                                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblUsuUsuario))))
+                            .addComponent(lblNewMod)
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblUsuUsuario))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2676,9 +2673,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel1.setText("Nro de Registro:");
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel4.setText("Nº H.C.");
 
@@ -2692,6 +2686,11 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         txtNHC.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtNHCCaretUpdate(evt);
+            }
+        });
+        txtNHC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNHCActionPerformed(evt);
             }
         });
         txtNHC.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2732,14 +2731,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                     .addComponent(txtNHC, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        txtNroRegistro.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtNroRegistro.setEnabled(false);
-        txtNroRegistro.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtNroRegistroCaretUpdate(evt);
-            }
-        });
 
         pnlDatosCabecera.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2827,10 +2818,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel3.setText("Observación:");
 
-        lblEstado.setForeground(new java.awt.Color(255, 255, 255));
         lblEstado.setText("A");
 
-        lblIDHC.setForeground(new java.awt.Color(255, 255, 255));
         lblIDHC.setText("jLabel12");
 
         cbxFormaLlegada.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Caminando" }));
@@ -3037,6 +3026,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
 
         jLabel21.setText("Alt + B");
 
+        txtNroRegistro.setText("jLabel1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -3054,9 +3045,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNroRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtNroRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -3064,13 +3054,12 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel4)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel21))
-                    .addComponent(txtNroRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(txtNroRegistro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4118,28 +4107,25 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         try {
             ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
             if(tbPaneles.getSelectedIndex()==0){
-                if(txtNroRegistro.getText().equals(adEmerCab.idAdmisionEmergenciaCabecera()) || txtNroRegistro.getText().equals("EC000000000000000001")){//NUEVO REGISTRO 
+                if(lblNewMod.getText().equals("N")){//NUEVO REGISTRO 
                     if(txtTraidopor.getText().equals("") || txtParentesco.getText().equals("") || cbxFormaLlegada.getSelectedIndex()==0){
                         JOptionPane.showMessageDialog(this, "Ingrese todos los campos");
                         txtTraidopor.setBackground(new Color(153,204,205));
                         txtParentesco.setBackground(new Color(153,204,205));
                         cbxFormaLlegada.setForeground(Color.red);
                         habilitarPestanas(1, false);
-                    } else {
+                    } else {//INSERTAR CAJA_PREVENTA COMO EMERGENCIA
                         int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
                                     "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
                         if(guardar == 0){
-                            AdmisionEmergenciaCabecera adEmer1 = new AdmisionEmergenciaCabecera();
-                            adEmer1.setEmercab_id(txtNroRegistro.getText());
-                            adEmer1.setId_hc(lblIDHC.getText());
-                            adEmer1.setEmer_observacion(pnlEObservación.getText());
-                            adEmer1.setEmercab_traidopor(txtTraidopor.getText());
-                            adEmer1.setEmercab_parentesco(txtParentesco.getText());
-                            adEmer1.setEmer_forma_llegada_id(adEmer1.codFormaLlegada(cbxFormaLlegada.getSelectedItem().toString()));
-                            adEmer1.setCod_usu(adEmer1.codUsuario(lblUsuUsuario.getText()));
-                            adEmer1.setCod_jerar_forma_pago("P0002");// preguntar forma de pago
-                            adEmer1.setEmer_estado_egreso("NO");
-                            if(adEmer1.insertarAdmisionemergenciaCabecera()==true){
+                            Caja_Preventa caja1 = new Caja_Preventa();
+                            caja1.setId_hc(lblIDHC.getText());
+                            caja1.setEMER_OBSERVACION(pnlEObservación.getText());
+                            caja1.setEMER_TRAIDOPOR(txtTraidopor.getText());
+                            caja1.setEMER_PARENTESCO(txtParentesco.getText());
+                            caja1.setEMER_FORMA_LLEGADA_ID(caja1.codFormaLlegada(cbxFormaLlegada.getSelectedItem().toString()));
+                            caja1.setCod_usu(caja1.codUsuario(lblUsuUsuario.getText()));
+                            if(caja1.mantanimientoCajaPreventaEmergencia("I")==true){
                                 String nroregistro = txtNroRegistro.getText();
                                 //VISUALIZAR EL REPORTE
                                 String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Cabecera.jasper";
@@ -4156,7 +4142,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                             }
                         }
                     }
-                } else { //MODIFICAR CABECERA
+                } else { //MODIFICAR CAJA_PREVENTA COMO EMERGENCIA
                     if(txtTraidopor.getText().equals("") || txtParentesco.getText().equals("")){ //VALIDAR CAJAS VACIAS
                         JOptionPane.showMessageDialog(this, "Ingrese todos los campos");
                         txtTraidopor.setBackground(new Color(153,204,205));
@@ -4493,7 +4479,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                         //if(txtNroRegistro.getText().equals(""))
                         //    txtNroRegistro.setText("EC000000000000000001");
                         //else
-                            txtNroRegistro.setText(adEmerCab.idAdmisionEmergenciaCabecera());
+                        //txtNroRegistro.setText(adEmerCab.idAdmisionEmergenciaCabecera());
                     }
                 } else {
                     ImageIcon iT=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
@@ -4544,6 +4530,16 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                 }
             }
         }
+        
+        if(txtNHC.getText().equals("")){
+            btnEliminar.setEnabled(false);
+            btnGuardar.setEnabled(false);
+            habilitarPestanas(4, true);
+        }else{ 
+            btnEliminar.setEnabled(true);
+            btnGuardar.setEnabled(true);
+            habilitarPestanas(1, false);
+        }
     }//GEN-LAST:event_txtNHCCaretUpdate
 
     private void txtNHCTriCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtNHCTriCaretUpdate
@@ -4593,18 +4589,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             }
         }
     }//GEN-LAST:event_txtNHCTriCaretUpdate
-
-    private void txtNroRegistroCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtNroRegistroCaretUpdate
-        if(txtNroRegistro.getText().equals("")){
-            btnEliminar.setEnabled(false);
-            btnGuardar.setEnabled(false);
-            habilitarPestanas(4, true);
-        }else{ 
-            btnEliminar.setEnabled(true);
-            btnGuardar.setEnabled(true);
-            habilitarPestanas(1, false);
-        }
-    }//GEN-LAST:event_txtNroRegistroCaretUpdate
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(jdcBusquedaFecha.getCalendar() != null){
@@ -5099,6 +5083,10 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             adEmerTo.cargarDatosTopico(tbDatosTopico, lblIDHCTo.getText(), "");
         }
     }//GEN-LAST:event_btnBuscarToActionPerformed
+
+    private void txtNHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNHCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNHCActionPerformed
     
     public void run() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.       
@@ -5196,7 +5184,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
     private javax.swing.JDialog dlgMostrarDatosTriajeT;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -5396,7 +5383,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
     public static javax.swing.JTextField txtNHC;
     public static javax.swing.JTextField txtNHCTo;
     public static javax.swing.JTextField txtNHCTri;
-    public static javax.swing.JTextField txtNroRegistro;
+    public static javax.swing.JLabel txtNroRegistro;
     public static javax.swing.JTextField txtNutricion;
     public static javax.swing.JTextField txtOrinas;
     public static javax.swing.JTextField txtPA;

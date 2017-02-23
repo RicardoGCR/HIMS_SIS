@@ -514,25 +514,31 @@ public void calcula() {
 
                 panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder("Análisis"));
 
+                jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 jLabel23.setText("Análisis");
 
+                txtAnalisis.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                 txtAnalisis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtAnalisis.setEnabled(false);
 
+                jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 jLabel19.setText("Nombre de la Unidad");
 
-                txtUnidadOrganica.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+                txtUnidadOrganica.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                 txtUnidadOrganica.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtUnidadOrganica.setEnabled(false);
 
-                txtClasificacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+                txtClasificacion.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                 txtClasificacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtClasificacion.setEnabled(false);
 
+                jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 jLabel7.setText("Clasificación");
 
+                jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 jLabel17.setText("Abrev. Análisis");
 
+                txtAbreviatura.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                 txtAbreviatura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtAbreviatura.setEnabled(false);
 
@@ -599,7 +605,7 @@ public void calcula() {
                     }
                 });
 
-                jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+                jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
                 jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel24.setText("   Seleccione un Esquema ");
 

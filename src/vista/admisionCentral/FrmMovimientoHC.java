@@ -177,9 +177,10 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
     
     public void actualizarEstadoMov(){
         int fila = tbMovimientoHC.getSelectedRow();
-        String estadoAnt = String.valueOf(tbMovimientoHC.getValueAt(fila, 12));
-        int acto_medico = Integer.parseInt(String.valueOf(tbMovimientoHC.getValueAt(fila, 0)));
-        String fechai = String.valueOf(tbMovimientoHC.getValueAt(fila, 1));
+        String estadoAnt = String.valueOf(tbMovimientoHC.getValueAt(fila, 13));
+        int id = Integer.parseInt(String.valueOf(tbMovimientoHC.getValueAt(fila, 0)));
+//        int acto_medico = Integer.parseInt(String.valueOf(tbMovimientoHC.getValueAt(fila, 1)));
+//        String fechai = String.valueOf(tbMovimientoHC.getValueAt(fila, 1));
         if(estadoAnt.equals("P"))
             estadoAnt = "Pendiente";
         else if(estadoAnt.equals("S"))
@@ -188,23 +189,23 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
             estadoAnt = "Retorno";
         String estMovimiento = cbxMovimiento.getSelectedItem().toString();
         MovimientoHistoriaClinica movH = new MovimientoHistoriaClinica();
-        String estadoM = String.valueOf(tbMovimientoHC.getValueAt(fila, 11));
-        String codigo = String.valueOf(tbMovimientoHC.getValueAt(fila, 3));
-        String codigo2 = String.valueOf(codigo.charAt(0)) + String.valueOf(codigo.charAt(1)) + 
-                String.valueOf(codigo.charAt(2)) + String.valueOf(codigo.charAt(3)) + 
-                String.valueOf(codigo.charAt(5)) + String.valueOf(codigo.charAt(6));
+        String estadoM = String.valueOf(tbMovimientoHC.getValueAt(fila, 12));
+        String codigo = String.valueOf(tbMovimientoHC.getValueAt(fila, 4));
+//        String codigo2 = String.valueOf(codigo.charAt(0)) + String.valueOf(codigo.charAt(1)) + 
+//                String.valueOf(codigo.charAt(2)) + String.valueOf(codigo.charAt(3)) + 
+//                String.valueOf(codigo.charAt(5)) + String.valueOf(codigo.charAt(6));
         String usuario = lblUsuUsuario.getText();
         int actualizarEst = JOptionPane.showConfirmDialog(this, "¿Desea realizar el cambio de estado?",
             "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(actualizarEst==0){
-            if(movH.actualizarEstadoMovHC(estadoM,codigo2,usuario,acto_medico,fechai)==true)
+            if(movH.actualizarEstadoMovHC(estadoM,id,usuario)==true)
                 JOptionPane.showMessageDialog(this, "N° H.C. " + codigo + "\n" + "Estado: " + estadoAnt + " --> " + estadoM);
             else 
                 JOptionPane.showMessageDialog(this, "N° H.C. " + codigo + "\n" + "Estado: " + estadoAnt + " --> " + estadoM);
             if(cbxMovimiento.getSelectedIndex()==4)
-                movHC.mostrar_MovHC(1,tbMovimientoHC,estMovimiento,"","","","","","");
+                movHC.mostrar_MovHC(1,tbMovimientoHC,estMovimiento,determinarFecha(dtFechI),determinarFecha(dtFechaFinal1),"","","","");
             else
-                movHC.mostrar_MovHC(2,tbMovimientoHC,estMovimiento,"","","","","","");
+                movHC.mostrar_MovHC(2,tbMovimientoHC,estMovimiento,determinarFecha(dtFechI),determinarFecha(dtFechaFinal1),"","","","");
             tbMovimientoHC.setDefaultRenderer(Object.class,new FormatoTablaMovHC()); 
         }
     }
@@ -225,7 +226,6 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         jMenuItem1 = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         btnVisualizarI = new javax.swing.JMenuItem();
-        btnImprimirI = new javax.swing.JMenuItem();
         jPanel8 = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         lblHora = new javax.swing.JLabel();
@@ -235,7 +235,6 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         btnDetener = new javax.swing.JButton();
         btnActualizarTabla = new javax.swing.JButton();
         btnActualizarEstado = new javax.swing.JButton();
-        btnImprimir = new javax.swing.JButton();
         btnVisualizar = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         lblUsuUsuario = new javax.swing.JLabel();
@@ -391,24 +390,14 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         jPopupMenu1.add(jSeparator2);
 
         btnVisualizarI.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnVisualizarI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/visualizar.png"))); // NOI18N
-        btnVisualizarI.setText("Visualizar");
+        btnVisualizarI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/imprimir16x16.png"))); // NOI18N
+        btnVisualizarI.setText("Imprimir");
         btnVisualizarI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVisualizarIActionPerformed(evt);
             }
         });
         jPopupMenu1.add(btnVisualizarI);
-
-        btnImprimirI.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnImprimirI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/pdf.png"))); // NOI18N
-        btnImprimirI.setText("Exportar a PDF");
-        btnImprimirI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimirIActionPerformed(evt);
-            }
-        });
-        jPopupMenu1.add(btnImprimirI);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Admisión - Movimiento Historia Clínica");
@@ -499,27 +488,8 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        btnImprimir.setBackground(new java.awt.Color(255, 255, 255));
-        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/PDF-32.png"))); // NOI18N
-        btnImprimir.setMnemonic('P');
-        btnImprimir.setBorderPainted(false);
-        btnImprimir.setContentAreaFilled(false);
-        btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnImprimir.setFocusPainted(false);
-        btnImprimir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnImprimir.setMaximumSize(new java.awt.Dimension(49, 25));
-        btnImprimir.setMinimumSize(new java.awt.Dimension(49, 25));
-        btnImprimir.setPreferredSize(new java.awt.Dimension(49, 25));
-        btnImprimir.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnImprimir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimirActionPerformed(evt);
-            }
-        });
-
         btnVisualizar.setBackground(new java.awt.Color(255, 255, 255));
-        btnVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/visualizar.png"))); // NOI18N
+        btnVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/PDF-32.png"))); // NOI18N
         btnVisualizar.setMnemonic('V');
         btnVisualizar.setBorderPainted(false);
         btnVisualizar.setContentAreaFilled(false);
@@ -559,15 +529,13 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnActualizarEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel19))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 563, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14)
                             .addComponent(jLabel15))))
@@ -583,7 +551,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                         .addComponent(lblUsuUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
-        jPanel8Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnActualizarEstado, btnActualizarTabla, btnImprimir});
+        jPanel8Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnActualizarEstado, btnActualizarTabla});
 
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -600,19 +568,6 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                             .addComponent(lblFecha))))
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(btnActualizarTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnActualizarEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnImprimir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                                    .addComponent(btnVisualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(44, 44, 44))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
@@ -622,7 +577,19 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
                                 .addComponent(btnDetener, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                                .addComponent(btnActualizarTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnActualizarEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(44, 44, 44))))
         );
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salir.png"))); // NOI18N
@@ -683,7 +650,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
 
         tbMovimientoHC = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
-                if(colIndex==11)
+                if(colIndex==12)
                 return true;
                 else
                 return false;
@@ -744,12 +711,12 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         jLabel4.setText("Fecha Final");
 
         dtFechI.setBackground(new java.awt.Color(255, 255, 255));
-        dtFechI.setDateFormatString("dd/MM/yyyy");
+        dtFechI.setDateFormatString("dd-MM-yyyy");
         dtFechI.setEnabled(false);
         dtFechI.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("Servicio/Area/Dpto");
+        jLabel5.setText("Area/Servicio/Dpto");
 
         chkTodosArea.setBackground(new java.awt.Color(255, 255, 255));
         chkTodosArea.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -857,7 +824,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         });
 
         dtFechaFinal1.setBackground(new java.awt.Color(255, 255, 255));
-        dtFechaFinal1.setDateFormatString("dd/MM/yyyy");
+        dtFechaFinal1.setDateFormatString("dd-MM-yyyy");
         dtFechaFinal1.setEnabled(false);
         dtFechaFinal1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
 
@@ -920,7 +887,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(chkTodosEstado)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addGap(64, 64, 64)
                 .addComponent(btnAtajoII)
@@ -967,14 +934,14 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 1099, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 922, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1051,7 +1018,6 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         if(evt.getSource() == btnDetener && lblD.getText().equals("D")){
             lblD.setText("C");
             btnDetener.setIcon(continuar);
-            btnImprimir.setEnabled(false);
             btnVisualizar.setEnabled(false);
             habilitarOpciones(true);
             tbMovimientoHC.removeAll();
@@ -1077,8 +1043,8 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 txtTurno.setEnabled(false);
         } else 
             //Continuar
-        if(lblD.getText().equals("C")){if(cbxMovimiento.getSelectedIndex() == 0){
-                JOptionPane.showMessageDialog(this, "Debe seleccionar un estado de Movimiento");
+        if(lblD.getText().equals("C")){if(cbxMovimiento.getSelectedIndex() == 0 || dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
+                JOptionPane.showMessageDialog(this, "Debe seleccionar un estado de Movimiento \ne ingresar un rango de fechas");
             } else 
             if(cbxMovimiento.getSelectedIndex() > 0){
                 if(chkTodosArea.isSelected()==false && txtServicio.getText().equals("") || 
@@ -1121,7 +1087,6 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                     btnDetener.setMnemonic(KeyEvent.VK_D);
                     lblD.setText("D");
                     btnDetener.setIcon(detener);
-                    btnImprimir.setEnabled(true);
                     btnVisualizar.setEnabled(true);
                     habilitarOpciones(false);
                     btnActualizarTabla.setEnabled(true);
@@ -1136,124 +1101,6 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         tbMovimientoHC.requestFocus();
         }
     }//GEN-LAST:event_btnDetenerActionPerformed
-
-    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        String estadoM = cbxMovimiento.getSelectedItem().toString();
-        String servicio = txtServicio.getText();
-        String consultorio = txtConsultorio.getText();
-        String turno = txtTurno.getText();
-        String estado = "";
-        String fechI = "";
-        String fechF = "";
-        //
-        int tipo=0;
-        if(chkTodosEstado.isSelected()==false){
-            if(cbxEstadoM.getSelectedIndex()==0){
-                estado = "A";
-            } else {
-                estado = "D";
-            }
-        } else {
-            estado = "";
-        }
-        if(dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
-            fechI = "";
-            fechF = "";
-        } else {
-            fechI = determinarFecha(dtFechI);
-            fechF = determinarFecha(dtFechaFinal1);
-        }
-        if(chkTodosEstado.isSelected()){
-            estado = "";
-        }
-        if(cbxMovimiento.getSelectedIndex()==4)
-            tipo = 1;
-        else
-            tipo = 2;
-        //Reportes2 re2 = new Reportes2();
-        String ruta = "/reportes/admisionCentral/mov.jasper";
-        String file = "";
-        //ABRIR CUADRO DE DIALOGO PARA GUARDAR EL ARCHIVO         
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("todos los archivos *.PDF", "pdf", "PDF"));//filtro para ver solo archivos .pdf
-        int seleccion = fileChooser.showSaveDialog(null);
-        try {
-            if (seleccion == JFileChooser.APPROVE_OPTION) {//comprueba si ha presionado el boton de aceptar
-                File JFC = fileChooser.getSelectedFile();
-                String PATH = JFC.getAbsolutePath();//obtenemos la direccion del archivo + el nombre a guardar
-                try (PrintWriter printwriter = new PrintWriter(JFC)) {
-                    
-                    printwriter.print(ruta);
-                }
-                 String rutaInforme = ruta;
-                movHC.reportesPDFlista(ruta, PATH, tipo,estadoM, fechI, fechF, servicio, estado);//mandamos como parametros la ruta del archivo a compilar y el nombre y ruta donde se guardaran    
-                //comprobamos si a la hora de guardar obtuvo la extension y si no se la asignamos
-                if (!(PATH.endsWith(".pdf"))) {
-                    File temp = new File(PATH + ".pdf");
-                    JFC.renameTo(temp);//renombramos el archivo
-                    
-                }
-                JOptionPane.showMessageDialog(null, "Esto puede tardar unos segundos,espere porfavor", "Estamos Generando el Reporte", JOptionPane.WARNING_MESSAGE);
-                JOptionPane.showMessageDialog(null, "Documento Exportado Exitosamente!", "Guardado exitoso!", JOptionPane.INFORMATION_MESSAGE);
-
-                Runtime.getRuntime().exec("cmd /c start "+PATH + ".pdf");
-    
-            }
-        } catch (FileNotFoundException | HeadlessException e) {//por alguna excepcion salta un mensaje de error
-          JOptionPane.showMessageDialog(null, "Error al Exportar el archivo!"+e.getMessage(), "Oops! Error", JOptionPane.ERROR_MESSAGE);
-        } catch (IOException ex) {
-        Logger.getLogger(MovimientoHistoriaClinica.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // IMPRIMIR MOVIMIENTO DE HISTORIA CLÍNICA LISTADO E INDIVIDUAL
-        /*int fila = tbMovimientoHC.getSelectedRow();
-        try {
-            // IMPRESION DE HISTORIA CLINICA
-                if(fila == -1){
-                    JOptionPane.showMessageDialog(this, "Debe seleccionar una Historia Clínica");
-                } else {
-                    String estadoM = cbxMovimiento.getSelectedItem().toString();
-                    String servicio = txtServicio.getText();
-                    String estado = "";
-                    String fechI = "";
-                    String fechF = "";
-                    if(chkTodosEstado.isSelected()==false){
-                        if(cbxEstadoM.getSelectedIndex()==0){
-                            estado = "A";
-                        } else {
-                            estado = "D";
-                        }
-                    } else {
-                        estado = "";
-                    }
-                    if(dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
-                        fechI = "";
-                        fechF = "";
-                    } else {
-                        fechI = determinarFecha(dtFechI);
-                        fechF = determinarFecha(dtFechaFinal1);
-                    }
-                    if(chkTodosEstado.isSelected()){
-                        estado = "";
-                    }
-                        Map parametros = new HashMap();
-                        if(cbxMovimiento.getSelectedIndex()==4)
-                            parametros.put("tipo", 1);
-                        else
-                            parametros.put("tipo", 2);
-                        parametros.put("estadomov", estadoM);
-                        parametros.put("fechaI", fechI);
-                        parametros.put("fechaF", fechF);
-                        parametros.put("estado", estado);
-                        parametros.put("area", servicio);
-                        JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
-                        JasperViewer ventanavisor = new JasperViewer(informe, false);
-                        ventanavisor.setTitle("Historia Clínica");
-                        ventanavisor.setVisible(true);
-                }
-        } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Error: _reporteHC" + e.toString());
-        }*/
-    }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void chkTodosAreaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chkTodosAreaItemStateChanged
         if(chkTodosArea.isSelected()){
@@ -1377,10 +1224,10 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
     private void btnVisualizarIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarIActionPerformed
         int fila = tbMovimientoHC.getSelectedRow();
         try {
-            int acto_medico = Integer.parseInt(String.valueOf(tbMovimientoHC.getValueAt(fila, 0)));
-            String rutaInforme = "src\\reportes\\admisionCentral\\movimientoDetalle.jasper";
+            int id = Integer.parseInt(String.valueOf(tbMovimientoHC.getValueAt(fila, 0)));
+            String rutaInforme = "src\\Reportes\\admisionCentral\\movimientoDetalle.jasper";
             Map parametros = new HashMap();
-            parametros.put("acto_medico", acto_medico);
+            parametros.put("id", id);
             JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
             JasperViewer ventanavisor = new JasperViewer(informe, false);
             ventanavisor.setTitle("Movimiento Historia Clínica a Detalle");
@@ -1472,44 +1319,6 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 chkTodosTurno.setEnabled(false);
         }
     }//GEN-LAST:event_txtTurnoCaretUpdate
-
-    private void btnImprimirIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirIActionPerformed
-        int fila = tbMovimientoHC.getSelectedRow();
-        int acto_medico = Integer.parseInt(String.valueOf(tbMovimientoHC.getValueAt(fila, 0)));
-        String ruta = "/reportes/admisionCentral/movimientoDetalle.jasper";
-        String file = "";
-        //ABRIR CUADRO DE DIALOGO PARA GUARDAR EL ARCHIVO         
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("todos los archivos *.PDF", "pdf", "PDF"));//filtro para ver solo archivos .pdf
-        int seleccion = fileChooser.showSaveDialog(null);
-        try {
-            if (seleccion == JFileChooser.APPROVE_OPTION) {//comprueba si ha presionado el boton de aceptar
-                File JFC = fileChooser.getSelectedFile();
-                String PATH = JFC.getAbsolutePath();//obtenemos la direccion del archivo + el nombre a guardar
-                try (PrintWriter printwriter = new PrintWriter(JFC)) {
-                    
-                    printwriter.print(ruta);
-                }
-                 String rutaInforme = ruta;
-                movHC.reportesPDFDetalle(ruta, PATH, acto_medico);//mandamos como parametros la ruta del archivo a compilar y el nombre y ruta donde se guardaran    
-                //comprobamos si a la hora de guardar obtuvo la extension y si no se la asignamos
-                if (!(PATH.endsWith(".pdf"))) {
-                    File temp = new File(PATH + ".pdf");
-                    JFC.renameTo(temp);//renombramos el archivo
-                    
-                }
-                JOptionPane.showMessageDialog(null, "Esto puede tardar unos segundos,espere porfavor", "Estamos Generando el Reporte", JOptionPane.WARNING_MESSAGE);
-                JOptionPane.showMessageDialog(null, "Documento Exportado Exitosamente!", "Guardado exitoso!", JOptionPane.INFORMATION_MESSAGE);
-
-                Runtime.getRuntime().exec("cmd /c start "+PATH + ".pdf");
-    
-            }
-        } catch (FileNotFoundException | HeadlessException e) {//por alguna excepcion salta un mensaje de error
-          JOptionPane.showMessageDialog(null, "Error al Exportar el archivo!"+e.getMessage(), "Oops! Error", JOptionPane.ERROR_MESSAGE);
-        } catch (IOException ex) {
-        Logger.getLogger(MovimientoHistoriaClinica.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnImprimirIActionPerformed
 
     private void btnAtajoIIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtajoIIActionPerformed
         int fila = tbMovimientoHC.getSelectedRow();
@@ -1629,8 +1438,6 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
     private javax.swing.JButton btnAtajoII;
     private javax.swing.JButton btnAtajoVI;
     private javax.swing.JButton btnDetener;
-    private javax.swing.JButton btnImprimir;
-    private javax.swing.JMenuItem btnImprimirI;
     private javax.swing.JButton btnVisualizar;
     private javax.swing.JMenuItem btnVisualizarI;
     private javax.swing.JComboBox cbxEstadoM;

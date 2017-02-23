@@ -480,7 +480,7 @@ public void calcula() {
                             .addComponent(titulo5))
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpanelLayout.createSequentialGroup()
-                                .addGap(684, 684, 684)
+                                .addGap(696, 696, 696)
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jpanelLayout.createSequentialGroup()
                                         .addComponent(jLabel15)
@@ -490,11 +490,11 @@ public void calcula() {
                                         .addComponent(jLabel14)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblFecha)))
-                                .addContainerGap(27, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 688, Short.MAX_VALUE)
                                 .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22))))
+                                .addGap(34, 34, 34))))
                 );
                 jpanelLayout.setVerticalGroup(
                     jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -538,11 +538,11 @@ public void calcula() {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(784, 784, 784)
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(8, 8, 8))
                 );
@@ -554,8 +554,7 @@ public void calcula() {
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 );
 
                 panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder("Análisis"));
@@ -563,6 +562,7 @@ public void calcula() {
                 jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel23.setText("Análisis");
 
+                txtAnalisis.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
                 txtAnalisis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtAnalisis.setEnabled(false);
 
@@ -583,6 +583,7 @@ public void calcula() {
                 jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel17.setText("Abrev. Análisis");
 
+                txtAbreviatura.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
                 txtAbreviatura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtAbreviatura.setEnabled(false);
 
@@ -632,6 +633,7 @@ public void calcula() {
                 jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel21.setText("Nombre del Resultado");
 
+                txtNombreResultado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
                 txtNombreResultado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtNombreResultado.setEnabled(false);
                 txtNombreResultado.addActionListener(new java.awt.event.ActionListener() {
@@ -643,6 +645,7 @@ public void calcula() {
                 jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel22.setText("Resultado por Defecto");
 
+                txtResultadoDefec.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
                 txtResultadoDefec.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtResultadoDefec.setEnabled(false);
                 txtResultadoDefec.addActionListener(new java.awt.event.ActionListener() {
@@ -651,6 +654,7 @@ public void calcula() {
                     }
                 });
 
+                txtUnidadMedida.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
                 txtUnidadMedida.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtUnidadMedida.setEnabled(false);
                 txtUnidadMedida.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1115,7 +1119,7 @@ public void calcula() {
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panelAnalisis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panelEsquema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1133,7 +1137,7 @@ public void calcula() {
                                 .addComponent(jButton2)
                                 .addGap(34, 34, 34))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 944, Short.MAX_VALUE)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 949, Short.MAX_VALUE)
                                 .addContainerGap())
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(panelValores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1161,8 +1165,9 @@ public void calcula() {
                                     .addComponent(btnGuardar))
                                 .addGap(3, 3, 3)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, 0)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, 0))
                 );
 
                 pack();

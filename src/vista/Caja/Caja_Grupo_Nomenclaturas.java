@@ -215,7 +215,7 @@ Caja_Grupo cnn = new Caja_Grupo();
             jLabel8.setText("Busqueda Grupos");
 
             btnbuscar1.setForeground(new java.awt.Color(240, 240, 240));
-            btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
+            btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Buscar-32.png"))); // NOI18N
             btnbuscar1.setMnemonic('N');
             btnbuscar1.setToolTipText("");
             btnbuscar1.setContentAreaFilled(false);

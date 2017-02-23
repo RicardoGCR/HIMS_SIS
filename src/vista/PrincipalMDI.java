@@ -11,6 +11,12 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import vista.COSTOS.BUSCAR_ESTIMACION_COSTOS;
+import vista.COSTOS.BUSCAR_NOMENCLATURA;
+import vista.COSTOS.COSTOS_PRODUCTO_REFERENCIAL;
+import vista.COSTOS.COSTOS_SERVICIOS_VARIOS;
+import vista.COSTOS.Costos_Depreciacion;
+import vista.COSTOS.TipoSustentacion;
 import vista.LABORATORIO.frm_LAB_ESQUEMA_RESULTADO_INGRESO;
 import vista.LABORATORIO.frm_LAB_MUESTRA_EXAMEN;
 import vista.LABORATORIO.frm_LAB_VALORES_REFERENCIALES_INGRESO;
@@ -3484,15 +3490,24 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_bc1MouseEntered
 
     private void btneditar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar5ActionPerformed
-        // TODO add your handling code here:
+        Costos_Depreciacion frm = new Costos_Depreciacion();
+        frm.setVisible(true);
+        String u=PrincipalMDI.lblUsu.getText();
+        frm.lblUsu.setText(u);
     }//GEN-LAST:event_btneditar5ActionPerformed
 
     private void btneditar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar4ActionPerformed
-        // TODO add your handling code here:
+        COSTOS_PRODUCTO_REFERENCIAL frm = new COSTOS_PRODUCTO_REFERENCIAL();
+        frm.setVisible(true);
+        String u=PrincipalMDI.lblUsu.getText();
+        frm.lblUsu.setText(u);
     }//GEN-LAST:event_btneditar4ActionPerformed
 
     private void btneditar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar6ActionPerformed
-        // TODO add your handling code here:
+        COSTOS_SERVICIOS_VARIOS frm = new COSTOS_SERVICIOS_VARIOS();
+        frm.setVisible(true);
+        String u=PrincipalMDI.lblUsu.getText();
+        frm.lblUsu.setText(u);
     }//GEN-LAST:event_btneditar6ActionPerformed
 
     private void btneditar8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar8ActionPerformed
@@ -3500,15 +3515,23 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_btneditar8ActionPerformed
 
     private void btnguardar8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar8ActionPerformed
-        // TODO add your handling code here:
+        BUSCAR_ESTIMACION_COSTOS frm = new BUSCAR_ESTIMACION_COSTOS();
+        frm.setVisible(true);
+        BUSCAR_ESTIMACION_COSTOS.tb_Buscar_Estimacion.getSelectionModel().setSelectionInterval(0, 0);
+        BUSCAR_ESTIMACION_COSTOS.tb_Buscar_Estimacion.requestFocus();
     }//GEN-LAST:event_btnguardar8ActionPerformed
 
     private void btnguardar9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar9ActionPerformed
-        // TODO add your handling code here:
+        BUSCAR_NOMENCLATURA frm = new BUSCAR_NOMENCLATURA();
+        frm.setVisible(true);
+        
     }//GEN-LAST:event_btnguardar9ActionPerformed
 
     private void btneditar9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar9ActionPerformed
-        // TODO add your handling code here:
+        TipoSustentacion frm = new TipoSustentacion();
+        frm.setVisible(true);
+        String u=PrincipalMDI.lblUsu.getText();
+        frm.lblUsu.setText(u);
     }//GEN-LAST:event_btneditar9ActionPerformed
 
     private void btnSectorizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSectorizacionActionPerformed

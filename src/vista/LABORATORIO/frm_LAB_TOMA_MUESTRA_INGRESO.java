@@ -33,7 +33,6 @@ import modelos.LABORATORIO.LAB_Clasificacion_Examen;
 import modelos.LABORATORIO.LAB_Muestra_Examen;
 import modelos.LABORATORIO.Render_Checkbox;
 import servicios.Conexion;
-import sun.security.util.Length;
 import static vista.Principal.fechaActual;
 import vista.frmlaboratorioClinico;
 
@@ -454,6 +453,7 @@ public void calcula() {
 
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                         setTitle("SISGESH .::. Análisis Examen");
+                        setMinimumSize(new java.awt.Dimension(735, 656));
 
                         jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
@@ -550,8 +550,7 @@ public void calcula() {
                                 .addGap(5, 5, 5)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel3)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(5, 5, 5))
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         );
 
                         dateDesde.setDateFormatString("dd-MM-yyyy");
@@ -578,7 +577,7 @@ public void calcula() {
 
                             },
                             new String [] {
-                                "Código", "N° de H.C", "Datos del Paciente", "DNI", "Fecha de Nac.", "Edad", "Sexo", "Cantidad de Exámenes"
+                                "Código", "N° de H.C", "Datos del Paciente", "DNI", "Fecha de Nacimiento", "Edad", "Sexo", "Cantidad de Exámenes"
                             }
                         ) {
                             boolean[] canEdit = new boolean [] {
@@ -695,7 +694,7 @@ public void calcula() {
                                         .addComponent(txtPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(chPacientes))
                                     .addComponent(btnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(txtAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -759,9 +758,9 @@ public void calcula() {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel21)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         );
 
@@ -938,7 +937,7 @@ public void buscar_examenes(){
     String consulta="";
         try {
             tb_Pacientes.setModel(new DefaultTableModel());
-            String titulos[]={"Código","N° de H.C.","Paciente","Dni","Fecha de Nacimiento","Edad","Sexo","Cantidad de Exámenes"};
+            String titulos[]={"Código","N° de H.C.","Datos del Paciente","DNI","Fecha de Nacimiento","Edad","Sexo","Cantidad de Exámenes"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -1098,8 +1097,10 @@ public void buscar_examenes(){
         try{
            
             int filaselec=tb_Pacientes.getSelectedRow();
+            dispose();
               frm_LAB_TOMA_MUESTRA_CABECERA vr=new frm_LAB_TOMA_MUESTRA_CABECERA();
                     vr.setVisible(true);
+                    frm_LAB_TOMA_MUESTRA_CABECERA.lblHc.setText(tb_Pacientes.getValueAt(filaselec, 0).toString());
                     frm_LAB_TOMA_MUESTRA_CABECERA.txtHc.setText(tb_Pacientes.getValueAt(filaselec, 1).toString());
                     frm_LAB_TOMA_MUESTRA_CABECERA.txtPacientes.setText(tb_Pacientes.getValueAt(filaselec, 2).toString());
                     frm_LAB_TOMA_MUESTRA_CABECERA.txtDni.setText(tb_Pacientes.getValueAt(filaselec, 3).toString());

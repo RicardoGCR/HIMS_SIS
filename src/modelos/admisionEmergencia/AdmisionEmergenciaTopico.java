@@ -145,6 +145,7 @@ public class AdmisionEmergenciaTopico {
         tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//CODIGO
         tabla.getColumnModel().getColumn(1).setPreferredWidth(50);//CODIGO
         tabla.getColumnModel().getColumn(2).setPreferredWidth(500);//CODIGO
+        tabla.setRowHeight(25);
     }
     
     public void cargarDatosCie10(String descripcion,JTable tabla){
@@ -260,10 +261,10 @@ public class AdmisionEmergenciaTopico {
                               "Relato","Conciencia","Hidratación","Nutrición",
                               "Examen Físico","Plan de Trabajo","Anotaciones Médicas",
                               "Anotaciones de Enfermería","Evaluación del Paciente",
-                              "Ubicación al egreso","Prioridad"};
+                              "Ubicación al egreso","Prioridad","ID"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[23];
+            String fila[]=new String[24];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC ADMISION_EMERGENCIA_TOPICO_LISTAR_Y_REPORTE ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -295,6 +296,7 @@ public class AdmisionEmergenciaTopico {
                 fila[20]=r.getString(19);//eval paciente
                 fila[21]=r.getString(20);//ubic egreso
                 fila[22]=r.getString(26);//ubic egreso
+                fila[23]=r.getString(27);//ubic egreso
                     m.addRow(fila);
                     c++;
             }

@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
-<<<<<<< HEAD
 	<property name="ireport.zoom" value="1.0000000000000018"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-=======
-	<property name="ireport.zoom" value="1.3310000000000026"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="145"/>
->>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 	<parameter name="id_triaje" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -29,15 +23,11 @@
 	<field name="TRIAJE_FV_T" class="java.lang.String"/>
 	<field name="TRIAJE_ESTADO" class="java.lang.String"/>
 	<field name="TRIAJE_TALLA" class="java.lang.String"/>
-<<<<<<< HEAD
 	<field name="AR_DESC" class="java.lang.String"/>
-=======
->>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-<<<<<<< HEAD
 		<band height="72" splitType="Stretch">
 			<textField>
 				<reportElement x="195" y="50" width="193" height="21" uuid="1f11d5c6-40e6-4855-8e1b-53c8a461d40c"/>
@@ -47,9 +37,6 @@
 				<textFieldExpression><![CDATA[$F{AR_DESC}]]></textFieldExpression>
 			</textField>
 		</band>
-=======
-		<band height="72" splitType="Stretch"/>
->>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 	</title>
 	<detail>
 		<band height="287" splitType="Stretch">

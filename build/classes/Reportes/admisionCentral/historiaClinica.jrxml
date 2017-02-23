@@ -1,36 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="historiaClinica" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2104a8e6-0b76-417a-8833-0f6880491806">
-<<<<<<< HEAD
 	<property name="ireport.zoom" value="1.6105100000000099"/>
 	<property name="ireport.x" value="267"/>
 	<property name="ireport.y" value="0"/>
-=======
-	<property name="ireport.zoom" value="1.1000000000000063"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="40"/>
->>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 	<parameter name="cod_hc" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-<<<<<<< HEAD
 		<![CDATA[EXEC SP_ADMISION_HISTORIA_CLINICA_REPORTE '000004']]>
-=======
-		<![CDATA[SELECT CONCAT(SUBSTRING(COD_HC, 1, 4) , '-', SUBSTRING(COD_HC, 5,2)) AS 'COD_HC',
-       APE_PAT + ' ' + APE_MAT + ' ' + PRIMER_NOMBRE + ' ' + SEGUNDO_NOMBRE + ' ' +  TERCER_NOMBRE AS PACIENTE, SEXO, FEC_NAC, OCUPACION,
-       ESTADO_CIVIL, (cast(datediff(dd,CONVERT(date,FEC_NAC,103),GETDATE()) / 365.25 as int)) AS EDAD, PRO_ACT, DIS_ACT, TIPO_DIR_NOM, NOM_DIR, NUM, LOT, ID_HC, SE_COD, DNI, RIESGO
-FROM ADMISION_HISTORIA_CLINICA
-WHERE COD_HC = $P{cod_hc}]]>
->>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 	</queryString>
 	<field name="COD_HC" class="java.lang.String"/>
 	<field name="PACIENTE" class="java.lang.String"/>
 	<field name="SEXO" class="java.lang.String"/>
-<<<<<<< HEAD
 	<field name="FEC_NAC" class="java.sql.Date"/>
-=======
-	<field name="FEC_NAC" class="java.lang.String"/>
->>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 	<field name="OCUPACION" class="java.lang.String"/>
 	<field name="ESTADO_CIVIL" class="java.lang.String"/>
 	<field name="EDAD" class="java.lang.Integer"/>
@@ -44,10 +26,7 @@ WHERE COD_HC = $P{cod_hc}]]>
 	<field name="SE_COD" class="java.lang.String"/>
 	<field name="DNI" class="java.lang.String"/>
 	<field name="RIESGO" class="java.lang.String"/>
-<<<<<<< HEAD
 	<field name="UE_LOGO" class="java.io.InputStream"/>
-=======
->>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -57,81 +36,29 @@ WHERE COD_HC = $P{cod_hc}]]>
 				<reportElement x="318" y="33" width="100" height="20" forecolor="#FFFFFF" uuid="789b76f3-5d65-44f8-88a7-505c2fbabf5d"/>
 				<textFieldExpression><![CDATA[$P{cod_hc}]]></textFieldExpression>
 			</textField>
-<<<<<<< HEAD
 			<staticText>
 				<reportElement x="344" y="3" width="59" height="20" uuid="cc505071-edfe-4279-864a-80e3b0756fec"/>
-=======
-			<rectangle>
-				<reportElement x="342" y="0" width="208" height="35" uuid="135112da-d92b-4624-8b38-02b61a503f7e"/>
-			</rectangle>
-			<staticText>
-				<reportElement x="344" y="8" width="59" height="20" uuid="cc505071-edfe-4279-864a-80e3b0756fec"/>
->>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[H.C N°]]></text>
 			</staticText>
 			<staticText>
-<<<<<<< HEAD
 				<reportElement x="453" y="3" width="29" height="20" uuid="52f50835-4d40-4d91-b541-063969d2136b"/>
-=======
-				<reportElement x="453" y="8" width="29" height="20" uuid="52f50835-4d40-4d91-b541-063969d2136b"/>
->>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[DNI:]]></text>
 			</staticText>
-<<<<<<< HEAD
 			<textField>
 				<reportElement x="392" y="3" width="60" height="20" uuid="150c1adb-ff35-4f8b-ab9f-bdb347a9bd6e"/>
-=======
-			<rectangle radius="10">
-				<reportElement x="6" y="0" width="223" height="53" uuid="8c556a97-fe99-464d-8298-87b848c8d7f0"/>
-				<graphicElement>
-					<pen lineWidth="1.75"/>
-				</graphicElement>
-			</rectangle>
-			<staticText>
-				<reportElement x="69" y="0" width="148" height="20" uuid="400b0ed6-5ce6-48a5-a562-9c38f77d988f"/>
-				<textElement>
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[MINISTERIO DE SALUD]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="47" y="16" width="195" height="20" uuid="6fb72c84-c2af-4107-9cdf-46ab70d991d3"/>
-				<textElement>
-					<font size="7" isBold="true"/>
-				</textElement>
-				<text><![CDATA[UNIDAD EJECUTORA 401 - SALUD CHINCHA PISCO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="69" y="25" width="136" height="20" uuid="5d4d938d-528c-4374-8492-7187c6fd6619"/>
-				<textElement>
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[Hospital de Apoyo "San José"]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="112" y="39" width="55" height="14" uuid="062051cf-d86d-4355-89bb-cbe65c52edf4"/>
-				<text><![CDATA[CHINCHA]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="392" y="8" width="60" height="20" uuid="150c1adb-ff35-4f8b-ab9f-bdb347a9bd6e"/>
->>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{COD_HC}]]></textFieldExpression>
 			</textField>
 			<textField>
-<<<<<<< HEAD
 				<reportElement x="482" y="3" width="67" height="20" uuid="c815f1b2-14a5-42a1-b1d8-f6b46147ec4b"/>
-=======
-				<reportElement x="482" y="8" width="67" height="20" uuid="c815f1b2-14a5-42a1-b1d8-f6b46147ec4b"/>
->>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -141,13 +68,6 @@ WHERE COD_HC = $P{cod_hc}]]>
 				<reportElement x="250" y="20" width="11" height="20" forecolor="#FFFFFF" uuid="f44a1ff6-fe65-4409-8e41-92808bf3165c"/>
 				<textFieldExpression><![CDATA[$P{cod_hc}]]></textFieldExpression>
 			</textField>
-<<<<<<< HEAD
-=======
-			<image>
-				<reportElement x="10" y="8" width="53" height="37" uuid="36289ed5-8657-4e5e-b8bd-7792a28849b0"/>
-				<imageExpression><![CDATA["D:\\SISGESH\\SISGESH\\src\\imagenes\\logominsa.gif"]]></imageExpression>
-			</image>
->>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 			<textField>
 				<reportElement x="392" y="34" width="158" height="20" uuid="892c36ec-5f7b-4582-b63e-b457e30c2718"/>
 				<textElement>
@@ -162,13 +82,10 @@ WHERE COD_HC = $P{cod_hc}]]>
 				</textElement>
 				<text><![CDATA[Riesgo:]]></text>
 			</staticText>
-<<<<<<< HEAD
 			<image>
 				<reportElement x="33" y="3" width="121" height="50" uuid="4cbafd8f-b43b-4aa3-a0ec-cdc3d8482f01"/>
 				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
 			</image>
-=======
->>>>>>> 57366860f7a85a593b5cb70b6c672532f1a42484
 		</band>
 	</title>
 	<pageHeader>

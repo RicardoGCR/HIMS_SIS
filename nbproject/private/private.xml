@@ -4,8 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/pry/SISGESH/src/modelos/SIS/SIS.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_SOLICITUD.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_CONDICION.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_DX_MEDICAMENTO_INSUMO_PROCEDIMIENTO.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Servicio_Basicos.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_ACTIVIDADES_PREVENTIVAS_VACUNAS.java</file>
         </group>
     </open-files>

@@ -621,6 +621,11 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
         jLabel39.setText("Nº H.C :");
 
         txtBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarActionPerformed(evt);
+            }
+        });
         txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscarKeyPressed(evt);
@@ -937,6 +942,11 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
         btnBuscarCIE10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
         btnBuscarCIE10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         btnBuscarCIE10.setContentAreaFilled(false);
+        btnBuscarCIE10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCIE10ActionPerformed(evt);
+            }
+        });
 
         jLabel31.setText("Diagnostico:");
 
@@ -1261,6 +1271,11 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
         txthc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txthc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txthc.setEnabled(false);
+        txthc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txthcActionPerformed(evt);
+            }
+        });
 
         btnBuscarHC1.setBackground(new java.awt.Color(255, 255, 255));
         btnBuscarHC1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
@@ -1850,7 +1865,7 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
     }
     
     
-     public void cargarPacientesEmergencia(){
+    public void cargarPacientesEmergencia(){
        
     try{
        DefaultTableModel tabla= new DefaultTableModel();
@@ -2691,6 +2706,18 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
         }                       
 
     }//GEN-LAST:event_tbListaSolicitudKeyPressed
+
+    private void txthcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txthcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txthcActionPerformed
+
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarActionPerformed
+
+    private void btnBuscarCIE10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCIE10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarCIE10ActionPerformed
 
     public void mostrarDiagnostico(){
         

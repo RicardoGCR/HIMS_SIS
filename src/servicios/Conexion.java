@@ -34,7 +34,7 @@ public class Conexion {
             String url="jdbc:sqlserver://"+servidor+":"+puerto+";"+"databaseName="+baseDatos
                     +";user="+user+";password="+password;
             conexion=DriverManager.getConnection(url);
-        //     System.out.println("Conexión exitosa");
+             //System.out.println("Conexión exitosa");
         }
         catch(Exception ex)
         {
@@ -56,11 +56,11 @@ public class Conexion {
             return null;
         }
     }
-/*
+
      
-        public static void main(String[] args) throws SQLException {
+        /*public static void main(String[] args) throws SQLException {
         Conexion conexion = new Conexion();
         Connection con = conexion.conectar();
-        }
-*/
+        }*/
+
      }

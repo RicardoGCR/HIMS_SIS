@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
 	<property name="ireport.zoom" value="1.2100000000000057"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="288"/>
+	<property name="ireport.x" value="10"/>
+	<property name="ireport.y" value="1416"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -142,13 +142,14 @@
 	<subDataset name="tbExamenes" uuid="fd9c2b6e-33ac-4cd5-9aa1-e3415680f847">
 		<parameter name="idTop" class="java.lang.String"/>
 		<queryString>
-			<![CDATA[SELECT lae.cod_exa_ana, lae.nombre_ana_exa
-	FROM LABORATORIO_ANALISIS_EXAMEN lae, ADMISION_EMERGENCIA_TOPICO_DETALLE_EXAMEN AETDP
-	WHERE lae.cod_exa_ana = AETDP.COD_EXA_ANA
-	AND AETDP.ID_TOPICO = $P{idTop}]]>
+			<![CDATA[SELECT CN.cod_nomen_caja, CN.descripcion_nomen_tipo
+FROM CAJA_DETALLE_PREVENTA CD, CAJA_PRECIOS CP, CAJA_NOMENCLATURA_CAJA CN
+WHERE CD.cod_precio = CP.cod_precio
+AND CN.cod_nomen_caja = CP.cod_nomen_caja
+AND CD.ID_TOPICO = $P{idTop}]]>
 		</queryString>
-		<field name="cod_exa_ana" class="java.lang.String"/>
-		<field name="nombre_ana_exa" class="java.lang.String"/>
+		<field name="cod_nomen_caja" class="java.lang.String"/>
+		<field name="descripcion_nomen_tipo" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="topico_id" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -179,11 +180,13 @@
 	<field name="TOPICO_ANOT_ENFER" class="java.lang.String"/>
 	<field name="TOPICO_EVAL_PACIENTE" class="java.lang.String"/>
 	<field name="TOPICO_UBIC_EGRESO" class="java.lang.String"/>
-	<field name="EMERCAB_FECHA_ING" class="java.lang.String"/>
-	<field name="EMERCAB_HORAING" class="java.lang.String"/>
+	<field name="fecha_actu" class="java.lang.String"/>
+	<field name="hora_actu" class="java.lang.String"/>
 	<field name="TOPICO_HORA_ACTU" class="java.lang.String"/>
 	<field name="TOPICO_FECHA_ACTU" class="java.lang.String"/>
+	<field name="EMER_TRAIDOPOR" class="java.lang.String"/>
 	<field name="PRIORIDAD" class="java.lang.String"/>
+	<field name="MEDICO" class="java.lang.String"/>
 	<group name="admisionEmergenciaTopico2">
 		<groupExpression><![CDATA[$F{TOPICO_ID}]]></groupExpression>
 		<groupFooter>
@@ -251,16 +254,6 @@
 					<reportElement x="403" y="552" width="135" height="20" uuid="9511eb7e-9e7c-41bb-be0e-10cbe671e918"/>
 					<textFieldExpression><![CDATA[$F{TOPICO_UBIC_EGRESO}]]></textFieldExpression>
 				</textField>
-				<staticText>
-					<reportElement x="337" y="686" width="186" height="15" uuid="fc789e13-cf51-4232-8fb9-c331d329a39f"/>
-					<textElement textAlignment="Center">
-						<font size="9"/>
-					</textElement>
-					<text><![CDATA[FIRMA Y SELLO DEL MÉDICO TRATANTE]]></text>
-				</staticText>
-				<line>
-					<reportElement x="314" y="685" width="234" height="1" uuid="93dfc330-8599-40c3-a3d8-dfc30f3a09ae"/>
-				</line>
 				<staticText>
 					<reportElement x="0" y="567" width="100" height="20" uuid="71479b01-9cda-4c1a-9cee-a1e484f766ab"/>
 					<textElement>
@@ -347,17 +340,14 @@
 								<staticText>
 									<reportElement x="0" y="0" width="90" height="15" uuid="310243f1-0aa2-43de-b421-4629820b6d36"/>
 									<textElement textAlignment="Center"/>
-									<text><![CDATA[Código]]></text>
+									<text><![CDATA[Nomenclatura]]></text>
 								</staticText>
 							</jr:columnHeader>
 							<jr:columnFooter style="table 4_CH" height="0" rowSpan="1"/>
 							<jr:detailCell style="table 4_TD" height="13" rowSpan="1">
 								<textField>
-									<reportElement x="0" y="0" width="90" height="13" uuid="13eb1b6e-aba8-46fc-9ad3-2945f58591c5"/>
-									<textElement textAlignment="Center">
-										<font size="9"/>
-									</textElement>
-									<textFieldExpression><![CDATA[$F{cod_exa_ana}]]></textFieldExpression>
+									<reportElement x="2" y="0" width="88" height="13" uuid="57ca9e2c-9e29-40c5-944a-2642c3cc8746"/>
+									<textFieldExpression><![CDATA[$F{cod_nomen_caja}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
@@ -372,11 +362,8 @@
 							<jr:columnFooter style="table 4_CH" height="0" rowSpan="1"/>
 							<jr:detailCell style="table 4_TD" height="13" rowSpan="1">
 								<textField>
-									<reportElement x="1" y="0" width="465" height="13" uuid="371cd57c-1929-4a43-9ddc-17b55ba8e30b"/>
-									<textElement>
-										<font size="9"/>
-									</textElement>
-									<textFieldExpression><![CDATA[$F{nombre_ana_exa}]]></textFieldExpression>
+									<reportElement x="2" y="0" width="463" height="13" uuid="ad0d2e36-4568-4d87-bea8-c4681990a933"/>
+									<textFieldExpression><![CDATA[$F{descripcion_nomen_tipo}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
@@ -591,6 +578,23 @@
 				</textElement>
 				<text><![CDATA[*Norma Técnica de los Servicios de Emergencia. - Sector Salud.]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="325" y="16" width="223" height="13" uuid="6a03282c-9184-4619-8f15-417ad5c263e4"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MEDICO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="337" y="0" width="186" height="15" uuid="fc789e13-cf51-4232-8fb9-c331d329a39f"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[FIRMA Y SELLO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="314" y="0" width="234" height="1" uuid="93dfc330-8599-40c3-a3d8-dfc30f3a09ae"/>
+			</line>
 		</band>
 	</pageFooter>
 	<summary>

@@ -141,10 +141,14 @@ public class AdmisionEmergenciaCabecera {
     }
     
     public void formatoTablaCargarFormatEmer(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(160);//cod emergencia
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//apellidos
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//cod emergencia
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(160);//apellidos
         tabla.getColumnModel().getColumn(2).setPreferredWidth(80);//nombres
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(180);//dni
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(80);//dni
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(90);//cod emergencia
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(160);//apellidos
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);//nombres
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(100);//dni
         tabla.setRowHeight(25);
     }
     
@@ -152,13 +156,13 @@ public class AdmisionEmergenciaCabecera {
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID","Fecha de ing","Hora de ing","Traído por",
-                "Parentesco","Observación","Forma de llegada"};
+            String titulos[]={"ID","Traído por","Parentesco","ID FL","Forma de Llegada",
+                "Observación","Fecha de ing","Hora de ing"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC ADMISION_EMERGENCIA_CABECERA_MODIF_MOSTRAR_LISTASEMER ?,?";
+            consulta="EXEC CAJA_PREVENTA_LISTAR_MOSTRAR_MODIF ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, id_hc);
             cmd.setString(2, fecha);
@@ -172,6 +176,7 @@ public class AdmisionEmergenciaCabecera {
                 fila[4]=r.getString(5);
                 fila[5]=r.getString(6);
                 fila[6]=r.getString(7); // dni
+                fila[7]=r.getString(8);
                 //fila[4]=r.getString(1); // codigo de hc
                     m.addRow(fila);
                     c++;
@@ -371,10 +376,10 @@ public class AdmisionEmergenciaCabecera {
         return fecha;
     }
     
-    public void reporteCabecera(String ruta, String nro_registro) {
+    public void reporteCabecera(String ruta, int id) {
         try {
             Map parametros = new HashMap();
-            //parametros.put("NROREGISTRO", nro_registro);
+            parametros.put("id", id);
             String rutaInforme = ruta;
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream(rutaInforme), parametros, cn);          
             JasperViewer ventanavisor = new JasperViewer(informe, false);

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelos.admisionEmergencia;
+package modelos.Caja;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,31 +12,31 @@ import servicios.Conexion;
 
 /**
  *
- * @author Yamila Rocca Ruiz
+ * @author PC02
  */
-public class AdmisionEmergenciaTopicoDetalleExamen {
+public class Caja_DetallePreventa {
     static DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
-    private String dettop_id;
-    private String id_topico;
-    private String cod_exa_ana;
+    private int IdDetalle_Preventa;	
+    private int Id_Preventa;	
+    private String cod_precio;		
     private String fecha_actu;
     private String hora_actu;
     private String nom_pc;
-    private String usu_cod;
-    
-    public boolean insertarDetalleExamen(int id_preventa)
+    private String cod_usu;
+    private String id_topico;	
+
+    public boolean cajaDetallePreventaInsertar()
         {
         boolean resp = false;
         try{
             String sql = "EXEC CAJA_PREVENTA_DETALLE_INSERTAR_EXAMEN ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_topico());
-            cmd.setString(2, getCod_exa_ana());
-            cmd.setString(3, getUsu_cod());
-            cmd.setInt(4,id_preventa);
-            //cmd.setInt(4,id_preventa);
+            cmd.setString(2, getCod_precio());
+            cmd.setString(3, getCod_usu());
+            cmd.setInt(4, getId_Preventa());
             if(!cmd.execute())
             {
                 resp = true;
@@ -46,19 +46,19 @@ public class AdmisionEmergenciaTopicoDetalleExamen {
         }
         catch(Exception ex)
         {
-            System.out.println("insertarDetalleExamen: " + ex.getMessage());
+            System.out.println("Error: cajaDetallePreventaInsertar: " + ex.getMessage());
         }
         return resp;
     }
     
-    public boolean modificarDetalleExamen()
+    public boolean cajaDetallePreventaModificar()
         {
         boolean resp = false;
         try{
-            String sql = "EXEC ADMISION_EMERGENCIA_TOPICO_DETALLE_EXAMEN_MODIFICAR ?,?";
+            String sql = "EXEC CAJA_PREVENTA_DETALLE_EXAMEN_MODIFICAR ?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_topico());
-            cmd.setString(2, getCod_exa_ana());
+            cmd.setString(2, getCod_precio());
             if(!cmd.execute())
             {
                 resp = true;
@@ -73,12 +73,11 @@ public class AdmisionEmergenciaTopicoDetalleExamen {
         return resp;
     }
     
-    public AdmisionEmergenciaTopicoDetalleExamen()
+    public Caja_DetallePreventa()
     {
         Conexion con = new Conexion();
         cn = con.conectar();
     }
-    
     /**
      * @return the cn
      */
@@ -94,100 +93,115 @@ public class AdmisionEmergenciaTopicoDetalleExamen {
     }
 
     /**
-     * @return the dettop_id
+     * @return the IdDetalle_Preventa
      */
-    public String getDettop_id() {
-        return dettop_id;
+    public int getIdDetalle_Preventa() {
+        return IdDetalle_Preventa;
     }
 
     /**
-     * @param dettop_id the dettop_id to set
+     * @param IdDetalle_Preventa the IdDetalle_Preventa to set
      */
-    public void setDettop_id(String dettop_id) {
-        this.dettop_id = dettop_id;
+    public void setIdDetalle_Preventa(int IdDetalle_Preventa) {
+        this.IdDetalle_Preventa = IdDetalle_Preventa;
     }
 
     /**
-     * @return the id_topico
+     * @return the Id_Preventa
      */
-    public String getId_topico() {
-        return id_topico;
+    public int getId_Preventa() {
+        return Id_Preventa;
     }
 
     /**
-     * @param id_topico the id_topico to set
+     * @param Id_Preventa the Id_Preventa to set
      */
-    public void setId_topico(String id_topico) {
-        this.id_topico = id_topico;
+    public void setId_Preventa(int Id_Preventa) {
+        this.Id_Preventa = Id_Preventa;
     }
 
     /**
-     * @return the cod_exa_ana
+     * @return the cod_precio
      */
-    public String getCod_exa_ana() {
-        return cod_exa_ana;
+    public String getCod_precio() {
+        return cod_precio;
     }
 
     /**
-     * @param cod_exa_ana the cod_exa_ana to set
+     * @param cod_precio the cod_precio to set
      */
-    public void setCod_exa_ana(String cod_exa_ana) {
-        this.cod_exa_ana = cod_exa_ana;
+    public void setCod_precio(String cod_precio) {
+        this.cod_precio = cod_precio;
     }
 
     /**
-     * @return the fecha_actu
+     * @return the FECHA_ACTU
      */
     public String getFecha_actu() {
         return fecha_actu;
     }
 
     /**
-     * @param fecha_actu the fecha_actu to set
+     * @param FECHA_ACTU the FECHA_ACTU to set
      */
     public void setFecha_actu(String fecha_actu) {
         this.fecha_actu = fecha_actu;
     }
 
     /**
-     * @return the hora_actu
+     * @return the HORA_aCTU
      */
     public String getHora_actu() {
         return hora_actu;
     }
 
     /**
-     * @param hora_actu the hora_actu to set
+     * @param HORA_aCTU the HORA_aCTU to set
      */
     public void setHora_actu(String hora_actu) {
         this.hora_actu = hora_actu;
     }
 
     /**
-     * @return the nom_pc
+     * @return the NOM_PC
      */
     public String getNom_pc() {
         return nom_pc;
     }
 
     /**
-     * @param nom_pc the nom_pc to set
+     * @param NOM_PC the NOM_PC to set
      */
     public void setNom_pc(String nom_pc) {
         this.nom_pc = nom_pc;
     }
 
     /**
-     * @return the usu_cod
+     * @return the COD_USU
      */
-    public String getUsu_cod() {
-        return usu_cod;
+    public String getCod_usu() {
+        return cod_usu;
     }
 
     /**
-     * @param usu_cod the usu_cod to set
+     * @param COD_USU the COD_USU to set
      */
-    public void setUsu_cod(String usu_cod) {
-        this.usu_cod = usu_cod;
+    public void setCod_usu(String cod_usu) {
+        this.cod_usu = cod_usu;
     }
+
+    /**
+     * @return the ID_TOPICO
+     */
+    public String getId_topico() {
+        return id_topico;
+    }
+
+    /**
+     * @param ID_TOPICO the ID_TOPICO to set
+     */
+    public void setId_topico(String id_topico) {
+        this.id_topico = id_topico;
+    }
+		
 }

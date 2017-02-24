@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
-	<property name="ireport.zoom" value="1.1000000000000052"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="240"/>
+	<property name="ireport.zoom" value="2.1435888100000238"/>
+	<property name="ireport.x" value="501"/>
+	<property name="ireport.y" value="386"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -142,13 +142,14 @@
 	<subDataset name="tbExamenes" uuid="fd9c2b6e-33ac-4cd5-9aa1-e3415680f847">
 		<parameter name="idTop" class="java.lang.String"/>
 		<queryString>
-			<![CDATA[SELECT lae.cod_exa_ana, lae.nombre_ana_exa
-	FROM LABORATORIO_ANALISIS_EXAMEN lae, ADMISION_EMERGENCIA_TOPICO_DETALLE_EXAMEN AETDP
-	WHERE lae.cod_exa_ana = AETDP.COD_EXA_ANA
-	AND AETDP.ID_TOPICO = $P{idTop}]]>
+			<![CDATA[SELECT CN.cod_nomen_caja, CN.descripcion_nomen_tipo
+FROM CAJA_DETALLE_PREVENTA CD, CAJA_PRECIOS CP, CAJA_NOMENCLATURA_CAJA CN
+WHERE CD.cod_precio = CP.cod_precio
+AND CN.cod_nomen_caja = CP.cod_nomen_caja
+AND CD.ID_TOPICO = $P{idTop}]]>
 		</queryString>
-		<field name="cod_exa_ana" class="java.lang.String"/>
-		<field name="nombre_ana_exa" class="java.lang.String"/>
+		<field name="cod_nomen_caja" class="java.lang.String"/>
+		<field name="descripcion_nomen_tipo" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="topico_id" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -159,8 +160,8 @@
 	<queryString>
 		<![CDATA[EXEC ADMISION_EMERGENCIA_TOPICO_REPORTE_TOTAL $P{topico_id}]]>
 	</queryString>
-	<field name="EMERCAB_ID" class="java.lang.String"/>
-	<field name="ACTO_MEDICO" class="java.lang.String"/>
+	<field name="ID_PREVENTA" class="java.lang.Long"/>
+	<field name="ACTO_MEDICO" class="java.lang.Long"/>
 	<field name="TOPICO_ID" class="java.lang.String"/>
 	<field name="CODIGO" class="java.lang.String"/>
 	<field name="dni" class="java.lang.String"/>
@@ -181,11 +182,11 @@
 	<field name="TOPICO_ANOT_ENFER" class="java.lang.String"/>
 	<field name="TOPICO_EVAL_PACIENTE" class="java.lang.String"/>
 	<field name="TOPICO_UBIC_EGRESO" class="java.lang.String"/>
-	<field name="EMERCAB_FECHA_ING" class="java.lang.String"/>
-	<field name="EMERCAB_HORAING" class="java.lang.String"/>
+	<field name="fecha_actu" class="java.lang.String"/>
+	<field name="hora_actu" class="java.lang.String"/>
 	<field name="TOPICO_HORA_ACTU" class="java.lang.String"/>
 	<field name="TOPICO_FECHA_ACTU" class="java.lang.String"/>
-	<field name="EMERCAB_TRAIDOPOR" class="java.lang.String"/>
+	<field name="EMER_TRAIDOPOR" class="java.lang.String"/>
 	<field name="TRIAJE_FV_PA" class="java.lang.String"/>
 	<field name="TRIAJE_FV_FC" class="java.lang.String"/>
 	<field name="TRIAJE_FV_FR" class="java.lang.String"/>
@@ -202,6 +203,10 @@
 	<field name="DEP_ACT" class="java.lang.String"/>
 	<field name="RIESGO" class="java.lang.String"/>
 	<field name="PRIORIDAD" class="java.lang.String"/>
+	<field name="EMER_PARENTESCO" class="java.lang.String"/>
+	<field name="UE_LOGO" class="java.io.InputStream"/>
+	<field name="AR_DESC" class="java.lang.String"/>
+	<field name="MEDICO" class="java.lang.String"/>
 	<group name="admisionEmergenciaTopico2">
 		<groupExpression><![CDATA[$F{TOPICO_ID}]]></groupExpression>
 		<groupFooter>
@@ -270,16 +275,6 @@
 					<textFieldExpression><![CDATA[$F{TOPICO_UBIC_EGRESO}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="337" y="686" width="186" height="15" uuid="fc789e13-cf51-4232-8fb9-c331d329a39f"/>
-					<textElement textAlignment="Center">
-						<font size="9"/>
-					</textElement>
-					<text><![CDATA[FIRMA Y SELLO DEL MÉDICO TRATANTE]]></text>
-				</staticText>
-				<line>
-					<reportElement x="314" y="685" width="234" height="1" uuid="93dfc330-8599-40c3-a3d8-dfc30f3a09ae"/>
-				</line>
-				<staticText>
 					<reportElement x="0" y="567" width="100" height="20" uuid="71479b01-9cda-4c1a-9cee-a1e484f766ab"/>
 					<textElement>
 						<font isBold="true"/>
@@ -340,7 +335,7 @@
 					<textFieldExpression><![CDATA[$F{TOPICO_HORA_ACTU}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="36" y="681" width="89" height="20" uuid="d8fe0f2b-c458-4c71-9c14-ab5aeba4f820"/>
+					<reportElement x="36" y="681" width="104" height="20" uuid="d8fe0f2b-c458-4c71-9c14-ab5aeba4f820"/>
 					<textFieldExpression><![CDATA[$F{TOPICO_FECHA_ACTU}]]></textFieldExpression>
 				</textField>
 				<staticText>
@@ -365,17 +360,14 @@
 								<staticText>
 									<reportElement x="0" y="0" width="90" height="15" uuid="310243f1-0aa2-43de-b421-4629820b6d36"/>
 									<textElement textAlignment="Center"/>
-									<text><![CDATA[Código]]></text>
+									<text><![CDATA[Nomenclatura]]></text>
 								</staticText>
 							</jr:columnHeader>
 							<jr:columnFooter style="table 4_CH" height="0" rowSpan="1"/>
 							<jr:detailCell style="table 4_TD" height="13" rowSpan="1">
 								<textField>
-									<reportElement x="0" y="0" width="90" height="13" uuid="13eb1b6e-aba8-46fc-9ad3-2945f58591c5"/>
-									<textElement textAlignment="Center">
-										<font size="9"/>
-									</textElement>
-									<textFieldExpression><![CDATA[$F{cod_exa_ana}]]></textFieldExpression>
+									<reportElement x="2" y="0" width="88" height="13" uuid="b7db25f2-91cc-4aec-9434-9cc757b65832"/>
+									<textFieldExpression><![CDATA[$F{cod_nomen_caja}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
@@ -390,11 +382,8 @@
 							<jr:columnFooter style="table 4_CH" height="0" rowSpan="1"/>
 							<jr:detailCell style="table 4_TD" height="13" rowSpan="1">
 								<textField>
-									<reportElement x="1" y="0" width="465" height="13" uuid="371cd57c-1929-4a43-9ddc-17b55ba8e30b"/>
-									<textElement>
-										<font size="9"/>
-									</textElement>
-									<textFieldExpression><![CDATA[$F{nombre_ana_exa}]]></textFieldExpression>
+									<reportElement x="2" y="0" width="463" height="13" uuid="8cd6aa84-ffdc-4220-a33e-80925af6cf2e"/>
+									<textFieldExpression><![CDATA[$F{descripcion_nomen_tipo}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
@@ -423,7 +412,7 @@
 	<title>
 		<band height="72" splitType="Stretch">
 			<staticText>
-				<reportElement x="183" y="27" width="194" height="30" uuid="28120486-23c8-4a59-80c7-4a9e587798e5"/>
+				<reportElement x="183" y="27" width="194" height="25" uuid="28120486-23c8-4a59-80c7-4a9e587798e5"/>
 				<textElement>
 					<font fontName="Arial" size="20" isBold="true"/>
 				</textElement>
@@ -436,10 +425,6 @@
 				</textElement>
 				<text><![CDATA[FORMATO DE EMERGENCIA]]></text>
 			</staticText>
-			<image>
-				<reportElement x="452" y="1" width="40" height="37" uuid="a8c404f9-8961-40b5-8512-d31afc244742"/>
-				<imageExpression><![CDATA["D:\\SISGESH\\src\\imagenes\\logominsa.gif"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="424" y="36" width="114" height="16" uuid="7bfbb8fd-3310-49f1-a876-bd293222b63e"/>
 				<textElement>
@@ -455,8 +440,19 @@
 				<text><![CDATA[Personas que atendemos personas]]></text>
 			</staticText>
 			<image>
-				<reportElement x="10" y="6" width="61" height="60" uuid="4a7952c2-8c54-493d-a615-124a4c775191"/>
-				<imageExpression><![CDATA["D:\\SISGESH\\src\\imagenes\\logo_nuevo_opt.png"]]></imageExpression>
+				<reportElement x="458" y="3" width="46" height="33" uuid="e213b133-95a7-49de-acf4-c8f97e05c93f"/>
+				<imageExpression><![CDATA["D:\\pry\\SISGESH\\src\\imagenes\\logominsa.gif"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="187" y="52" width="182" height="20" uuid="056da443-f4e4-4e97-abd5-646ec8e3decc"/>
+				<textElement textAlignment="Center">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AR_DESC}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="18" y="3" width="118" height="63" uuid="7ddf39d2-cf65-4321-b054-81340cc1eaf3"/>
+				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -685,160 +681,148 @@
 				<textFieldExpression><![CDATA[$F{TRIAJE_FV_PA}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="373" y="136" width="71" height="20" uuid="307b0b7e-440c-48f1-9569-39a56c1d1675"/>
+				<reportElement x="373" y="117" width="71" height="20" uuid="307b0b7e-440c-48f1-9569-39a56c1d1675"/>
 				<text><![CDATA[Departamento:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="43" y="136" width="128" height="20" uuid="ba285cf5-ef2a-4d6a-be74-74e2ac5e1866"/>
+				<reportElement x="43" y="117" width="128" height="20" uuid="ba285cf5-ef2a-4d6a-be74-74e2ac5e1866"/>
 				<textFieldExpression><![CDATA[$F{DIS_ACT}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="152" y="45" width="44" height="20" uuid="c66917f6-5f14-43a9-b00f-6f86b07635ea"/>
+				<reportElement x="152" y="26" width="44" height="20" uuid="c66917f6-5f14-43a9-b00f-6f86b07635ea"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<text><![CDATA[DNI:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="395" y="94" width="81" height="20" uuid="0bc2d843-4d9e-443a-8868-70a16f9baba0"/>
+				<reportElement x="386" y="49" width="81" height="20" uuid="0bc2d843-4d9e-443a-8868-70a16f9baba0"/>
 				<text><![CDATA[Hora de ingreso:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="520" y="116" width="26" height="20" uuid="78dab253-82d4-414b-bb77-33039412d64d"/>
+				<reportElement x="511" y="71" width="26" height="20" uuid="78dab253-82d4-414b-bb77-33039412d64d"/>
 				<textFieldExpression><![CDATA[$F{sexo}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-1" y="136" width="45" height="20" uuid="33e421ec-f8c2-4f16-ab6a-126ee55784ff"/>
+				<reportElement x="-1" y="117" width="45" height="20" uuid="33e421ec-f8c2-4f16-ab6a-126ee55784ff"/>
 				<text><![CDATA[Distrito:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="223" y="70" width="89" height="20" uuid="5ffd0692-13b6-4991-9533-739c1ece0b17"/>
+				<reportElement x="223" y="51" width="89" height="20" uuid="5ffd0692-13b6-4991-9533-739c1ece0b17"/>
 				<text><![CDATA[Fecha de ingreso:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-1" y="70" width="79" height="20" uuid="d5f291e6-4aa3-492f-b636-9b14afc681ad"/>
+				<reportElement x="-1" y="51" width="79" height="20" uuid="d5f291e6-4aa3-492f-b636-9b14afc681ad"/>
 				<text><![CDATA[Nº de Registro:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="494" y="158" width="60" height="20" uuid="7f96eff5-59eb-4fd8-bfd9-cf774f888dd3"/>
+				<reportElement x="410" y="139" width="60" height="20" uuid="7f96eff5-59eb-4fd8-bfd9-cf774f888dd3"/>
 				<textFieldExpression><![CDATA[$F{SE_COD}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="47" y="92" width="170" height="20" uuid="c5baf382-eab7-4942-a0d9-d9748ff5a647"/>
+				<reportElement x="47" y="73" width="170" height="20" uuid="c5baf382-eab7-4942-a0d9-d9748ff5a647"/>
 				<textFieldExpression><![CDATA[$F{PACIENTE}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="395" y="116" width="33" height="20" uuid="0251d4e8-f789-4bdc-b2e5-8ee98e835500"/>
+				<reportElement x="386" y="71" width="33" height="20" uuid="0251d4e8-f789-4bdc-b2e5-8ee98e835500"/>
 				<text><![CDATA[Edad:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="221" y="136" width="148" height="20" uuid="083182e2-c198-4554-a037-f55553acc4cf"/>
+				<reportElement x="221" y="117" width="148" height="20" uuid="083182e2-c198-4554-a037-f55553acc4cf"/>
 				<textFieldExpression><![CDATA[$F{PRO_ACT}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="223" y="92" width="75" height="20" uuid="b4fe4688-f033-4f4c-965c-766f84a0e8d3"/>
+				<reportElement x="223" y="73" width="75" height="20" uuid="b4fe4688-f033-4f4c-965c-766f84a0e8d3"/>
 				<text><![CDATA[Fecha de Nac.:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="475" y="116" width="43" height="20" uuid="9e660d3e-d0a6-46aa-8ed2-e1db95baea43"/>
+				<reportElement x="466" y="71" width="43" height="20" uuid="9e660d3e-d0a6-46aa-8ed2-e1db95baea43"/>
 				<text><![CDATA[Género:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-1" y="45" width="52" height="20" uuid="c8b94596-472a-4eb6-87ef-c45332de8f5f"/>
+				<reportElement x="-1" y="26" width="52" height="20" uuid="c8b94596-472a-4eb6-87ef-c45332de8f5f"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<text><![CDATA[Nº H.C.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="51" y="158" width="244" height="20" uuid="ff55cfd3-12e2-4283-ac6c-de55e6c35395"/>
+				<reportElement x="51" y="139" width="244" height="20" uuid="ff55cfd3-12e2-4283-ac6c-de55e6c35395"/>
 				<textFieldExpression><![CDATA[$F{DIRECCION}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-1" y="21" width="100" height="20" uuid="99e55b33-dcee-4836-bc6d-5ec0561464bc"/>
+				<reportElement x="-1" y="2" width="100" height="20" uuid="99e55b33-dcee-4836-bc6d-5ec0561464bc"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<text><![CDATA[Acto médico:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="475" y="94" width="79" height="20" uuid="e253b533-4bf6-47db-b48c-a90ecb55e839"/>
-				<textFieldExpression><![CDATA[$F{EMERCAB_HORAING}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="457" y="158" width="38" height="20" uuid="45034eb7-a65b-463b-b32f-72e935650859"/>
+				<reportElement x="373" y="139" width="38" height="20" uuid="45034eb7-a65b-463b-b32f-72e935650859"/>
 				<text><![CDATA[Sector:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="173" y="136" width="50" height="20" uuid="c5740ac0-decf-45e0-aac6-befe3832a0fc"/>
+				<reportElement x="173" y="117" width="50" height="20" uuid="c5740ac0-decf-45e0-aac6-befe3832a0fc"/>
 				<text><![CDATA[Provincia:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="196" y="45" width="100" height="20" uuid="e7f0a787-fa79-44c9-937c-2296e4f69a46"/>
+				<reportElement x="196" y="26" width="100" height="20" uuid="e7f0a787-fa79-44c9-937c-2296e4f69a46"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dni}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-1" y="92" width="50" height="20" uuid="fda24572-adc2-4bee-9130-62f3c4f8c524"/>
+				<reportElement x="-1" y="73" width="50" height="20" uuid="fda24572-adc2-4bee-9130-62f3c4f8c524"/>
 				<text><![CDATA[Paciente:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="311" y="92" width="66" height="20" uuid="636e3645-cc41-4e4b-84f2-ff64d2c7317c"/>
+				<reportElement x="311" y="73" width="66" height="20" uuid="636e3645-cc41-4e4b-84f2-ff64d2c7317c"/>
 				<textFieldExpression><![CDATA[$F{NAC}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="311" y="70" width="60" height="20" uuid="ef6403b2-decc-4e47-b36d-0e1606004970"/>
-				<textFieldExpression><![CDATA[$F{EMERCAB_FECHA_ING}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="-1" y="158" width="53" height="20" uuid="0a66c5f3-ffc7-4454-9e92-b195851d5d6e"/>
+				<reportElement x="-1" y="139" width="53" height="20" uuid="0a66c5f3-ffc7-4454-9e92-b195851d5d6e"/>
 				<text><![CDATA[Dirección:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="62" y="114" width="97" height="20" uuid="b5917d2b-1dbb-4754-a6e6-1c2cc9738c57"/>
+				<reportElement x="62" y="95" width="97" height="20" uuid="b5917d2b-1dbb-4754-a6e6-1c2cc9738c57"/>
 				<textFieldExpression><![CDATA[$F{estado_civil}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="443" y="136" width="111" height="20" uuid="28d2c25b-a382-4894-9c52-120a3e88d270"/>
+				<reportElement x="443" y="117" width="111" height="20" uuid="28d2c25b-a382-4894-9c52-120a3e88d270"/>
 				<textFieldExpression><![CDATA[$F{DEP_ACT}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="426" y="116" width="31" height="20" uuid="80787371-2e25-4c65-bdce-78ffda1b6abf"/>
+				<reportElement x="417" y="71" width="31" height="20" uuid="80787371-2e25-4c65-bdce-78ffda1b6abf"/>
 				<textFieldExpression><![CDATA[$F{EDAD}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-1" y="114" width="64" height="20" uuid="8d878f44-f48f-4e18-950e-d3a340b1d33e"/>
+				<reportElement x="-1" y="95" width="64" height="20" uuid="8d878f44-f48f-4e18-950e-d3a340b1d33e"/>
 				<text><![CDATA[Estado Civil:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="52" y="45" width="100" height="20" uuid="4baf5508-e771-4be8-a3f6-25d8e773efb4"/>
+				<reportElement x="52" y="26" width="100" height="20" uuid="4baf5508-e771-4be8-a3f6-25d8e773efb4"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CODIGO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="71" y="70" width="150" height="20" uuid="b54fe396-68f1-4cc5-9461-7aa08f8eeddf"/>
-				<textFieldExpression><![CDATA[$F{EMERCAB_ID}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="87" y="21" width="312" height="20" uuid="2ca4b4a2-65b9-488d-bc60-ca6bc2842f6e"/>
+				<reportElement x="87" y="2" width="312" height="20" uuid="2ca4b4a2-65b9-488d-bc60-ca6bc2842f6e"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ACTO_MEDICO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="409" y="21" width="100" height="20" uuid="aaeb6a63-d5e7-42ef-80f8-42723dd516be"/>
+				<reportElement x="409" y="2" width="100" height="20" uuid="aaeb6a63-d5e7-42ef-80f8-42723dd516be"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<text><![CDATA[Riesgo:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="411" y="41" width="144" height="53" uuid="128201c7-9d92-4a13-8669-7e519d24107a"/>
+				<reportElement x="411" y="22" width="144" height="29" uuid="128201c7-9d92-4a13-8669-7e519d24107a"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
@@ -847,6 +831,34 @@
 			<textField>
 				<reportElement x="85" y="201" width="100" height="15" uuid="258f2870-a493-4a5c-8e6b-772635ee62aa"/>
 				<textFieldExpression><![CDATA[$F{PRIORIDAD}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="159" width="51" height="20" uuid="12763e43-0793-432f-88f8-7b5a3bd29ff1"/>
+				<text><![CDATA[Traído por:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="52" y="159" width="244" height="20" uuid="c9bc7bf4-c463-43b1-a0d3-f5df71ff779d"/>
+				<textFieldExpression><![CDATA[$F{EMER_TRAIDOPOR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="373" y="159" width="57" height="20" uuid="74f1fa42-430c-4b67-9696-fe4090c5000c"/>
+				<text><![CDATA[Parentesco:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="430" y="159" width="108" height="20" uuid="58632ef0-4e16-44c9-83bf-c9bb1a16173d"/>
+				<textFieldExpression><![CDATA[$F{EMER_PARENTESCO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="51" width="100" height="20" uuid="d756b0b5-c114-44fb-9035-c0c1a95bbd25"/>
+				<textFieldExpression><![CDATA[$F{ID_PREVENTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="51" width="75" height="20" uuid="40af8b1f-2f00-4c30-a7d3-ca55557626ca"/>
+				<textFieldExpression><![CDATA[$F{fecha_actu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="467" y="49" width="81" height="20" uuid="820c5169-4693-4b12-bb4d-a8fcef5de485"/>
+				<textFieldExpression><![CDATA[$F{hora_actu}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -859,6 +871,23 @@
 				</textElement>
 				<text><![CDATA[*Norma Técnica de los Servicios de Emergencia. - Sector Salud.]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="342" y="0" width="186" height="15" uuid="8928aa21-3d80-4e2f-ae71-2220c4c717e5"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[FIRMA Y SELLO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="16" width="223" height="13" uuid="2c4f19f3-1b62-4f01-8333-a055e4fb1c45"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MEDICO}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="330" y="0" width="222" height="1" uuid="ea9513e3-ccd0-4bc9-9ef4-c9f12fe72942"/>
+			</line>
 		</band>
 	</pageFooter>
 	<summary>

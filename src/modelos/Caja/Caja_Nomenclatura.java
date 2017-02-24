@@ -145,10 +145,10 @@ public boolean nuevaNomenclatura(){
         return resp;
     }
     
-    public void formatoTablaTriajeListar(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);//cpt
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(170);//descripcion
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(170);//id
+    public void formatoNomenclaturaEmer(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(90);//cpt
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(555);//descripcion
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(100);//id
         tabla.setRowHeight(25);
     }
     
@@ -177,7 +177,7 @@ public boolean nuevaNomenclatura(){
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             tabla.setRowSorter(elQueOrdena);
             tabla.setModel(m);
-            formatoTablaTriajeListar(tabla);
+            formatoNomenclaturaEmer(tabla);
         } catch (Exception e) {
             System.out.println("Error: cajaNomenclaturaListarEmergencia: " + e.getMessage());
         }

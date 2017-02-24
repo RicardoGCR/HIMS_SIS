@@ -119,10 +119,10 @@ DefaultTableModel m,n,muestra;
     public void Nomenclatura_cargar(String cod){
     try {
         int filaselec=tb_Nomenclatura.getSelectedRow();
-             String titulos[]={"N°","codigo venta detalle","Codigo caja","Código CPT","Nomenclatura","Servicio/Área Solicita","Nº de Documento","Fecha de Emitido"};
+             String titulos[]={"N°","codigo venta detalle","Codigo caja","Código CPT","Nomenclatura","Servicio/Área Solicita","Nº de Documento","Fecha de Emitido","Area"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[8];
+            String fila[]=new String[9];
 
             LAB_Toma_Muestra_Cabecera obj=new LAB_Toma_Muestra_Cabecera();
         String consulta="exec sp_LAB_TOMA_MUESTRA_NOMENCLATURA ?,?,?";
@@ -149,6 +149,7 @@ DefaultTableModel m,n,muestra;
             fila[5]=r.getString(5);
             fila[6]=r.getString(6);
             fila[7]=r.getString(7);
+            fila[8]=r.getString(8);
                 m.addRow(fila);
                 c++;
             }
@@ -173,7 +174,9 @@ DefaultTableModel m,n,muestra;
     tb_Nomenclatura.getColumnModel().getColumn(1).setMinWidth(0);
     tb_Nomenclatura.getColumnModel().getColumn(1).setMaxWidth(0);
     tb_Nomenclatura.getColumnModel().getColumn(2).setMinWidth(0);
-    tb_Nomenclatura.getColumnModel().getColumn(2).setMaxWidth(0);
+//    tb_Nomenclatura.getColumnModel().getColumn(2).setMaxWidth(0);
+//    tb_Nomenclatura.getColumnModel().getColumn(8).setMinWidth(0);
+//    tb_Nomenclatura.getColumnModel().getColumn(8).setMaxWidth(0);
     tb_Nomenclatura.getSelectionModel().setSelectionInterval(0, 0);
     tb_Nomenclatura.requestFocus();
 }
@@ -1350,12 +1353,14 @@ public void calcula() {
                 frm_LAB_TOMA_MUESTRA_DETALLE.txtServicio.setText(tb_Nomenclatura.getValueAt(filaselec, 5).toString());
                 
                 LAB_Toma_Muestra_Detalle md=new LAB_Toma_Muestra_Detalle();
-                frm_LAB_TOMA_MUESTRA_DETALLE.lblExa.setText(md.LAB_Toma_Muestra_Det_exa(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),"1"));
+                String cod_exa="";
+                 cod_exa=md.LAB_Toma_Muestra_Det_exa(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),tb_Nomenclatura.getValueAt(filaselec, 8).toString(),"1");
+                frm_LAB_TOMA_MUESTRA_DETALLE.lblExa.setText(cod_exa);
                 
                 LAB_Toma_Muestra_Detalle md1=new LAB_Toma_Muestra_Detalle();
-                frm_LAB_TOMA_MUESTRA_DETALLE.lblCantidadMues.setText(md1.LAB_Toma_Muestra_Det_exa(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),"3"));
+                frm_LAB_TOMA_MUESTRA_DETALLE.lblCantidadMues.setText(md1.LAB_Toma_Muestra_Det_exa(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),tb_Nomenclatura.getValueAt(filaselec, 8).toString(),"3"));
                 
-                Muestras_cargar(tb_Nomenclatura.getValueAt(filaselec, 2).toString());
+                Muestras_cargar(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),tb_Nomenclatura.getValueAt(filaselec, 8).toString());
                  
                 String u=lblUsu.getText();
                 frm_LAB_TOMA_MUESTRA_DETALLE.lblUsu.setText(u);
@@ -1364,7 +1369,7 @@ public void calcula() {
             }}
         
     }//GEN-LAST:event_tb_NomenclaturaKeyPressed
-public void Muestras_cargar(String nomen){
+public void Muestras_cargar(String nomen,String area){
     try {
         
              String titulos[]={"N°","codigoMuestra","Muestra"};
@@ -1373,11 +1378,12 @@ public void Muestras_cargar(String nomen){
             String fila[]=new String[3];
 
             LAB_Toma_Muestra_Cabecera obj=new LAB_Toma_Muestra_Cabecera();
-        String consulta="exec sp_LAB_TOMA_MUESTRA_DET_EXAMEN ?,?";
+        String consulta="exec sp_LAB_TOMA_MUESTRA_DET_EXAMEN ?,?,?";
         
         PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, nomen);
-                cmd.setString(2, "2");
+             cmd.setString(2, area);
+                cmd.setString(3, "2");
             
         ResultSet r=cmd.executeQuery();
         int c=1;

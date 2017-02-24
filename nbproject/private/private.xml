@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
 <<<<<<< HEAD
         <group/>
 =======
         <group>
-            <file>file:/D:/pry/SISGESH/src/modelos/admisionEmergencia/AdmisionEmergenciaTopico.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/admisionEmergencia/FrmFormatoEmergencia.java</file>
+<<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/vista/Caja/Caja_Precios.java</file>
+=======
+            <file>file:/D:/pry/SISGESH/src/modelos/SIS/SIS.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_DX_MEDICAMENTO_INSUMO_PROCEDIMIENTO.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Servicio_Basicos.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_ACTIVIDADES_PREVENTIVAS_VACUNAS.java</file>
+>>>>>>> cc5674587aaae66730439736d257a13ea2d0277d
         </group>
->>>>>>> dcc5be49095fc501f943c3a0bb055fa01ebfa542
+>>>>>>> b7676fd04cda089b24c31b8091a34c23f6ab6706
     </open-files>
 </project-private>

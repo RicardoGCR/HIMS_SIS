@@ -134,7 +134,7 @@ private String observacion_clasi;
         int resultado=0;
         try
         {
-            String sql = "SELECT * FROM LABORATORIO_CLASIFICACION_EXAMEN where nombre_clasi_exa=? AND estado_clasi_exa='A'";
+            String sql = "SELECT * FROM LABORATORIO_CLASIFICACION_EXAMEN where cod_uni_organica_jerar=? AND estado_clasi_exa='A'";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, nombre);
             ResultSet rs = cmd.executeQuery();
@@ -159,7 +159,7 @@ private String observacion_clasi;
         String cod="";
         try
         {
-            String sql = "SELECT cod_clasi_exa FROM LABORATORIO_CLASIFICACION_EXAMEN where nombre_clasi_exa=?";
+            String sql = "SELECT cod_clasi_exa FROM LABORATORIO_CLASIFICACION_EXAMEN where cod_uni_organica_jerar=?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, codigo);
             ResultSet rs = cmd.executeQuery();
@@ -184,9 +184,8 @@ private String observacion_clasi;
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1,clas);
             ResultSet r= cmd.executeQuery();
-            if(r.next())
-            {
-               unidad = r.getString(4);
+            if(r.next()){
+               unidad = r.getString(5);
             }
             cmd.close();
             getCn().close();

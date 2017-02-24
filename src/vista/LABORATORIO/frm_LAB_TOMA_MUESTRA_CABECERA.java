@@ -30,9 +30,11 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.LABORATORIO.Celda_Checkox;
 import modelos.LABORATORIO.LAB_Toma_Muestra_Cabecera;
+import modelos.LABORATORIO.LAB_Toma_Muestra_Detalle;
 import modelos.LABORATORIO.LAB_Valores_Referenciales;
 import modelos.Usuario;
 import servicios.Conexion;
+import static vista.LABORATORIO.frm_LAB_TOMA_MUESTRA_DETALLE.tb_Muestras;
 
 /**
  *
@@ -88,7 +90,7 @@ DefaultTableModel m,n,muestra;
         btnAgregar.setEnabled(false);
         btnQuitar.setEnabled(false);
 //        formato();
-        
+        lbltipo.setVisible(false);
         
         
   
@@ -343,6 +345,8 @@ public void calcula() {
                     lblArea = new javax.swing.JLabel();
                     txtCodigo = new javax.swing.JTextField();
                     txtNum = new javax.swing.JTextField();
+                    jScrollPane1 = new javax.swing.JScrollPane();
+                    tb_Subdettalle = new javax.swing.JTable();
 
                     personal.setMinimumSize(new java.awt.Dimension(846, 504));
 
@@ -656,7 +660,7 @@ public void calcula() {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addGap(910, 910, 910)
                             .addComponent(jLabel10)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                             .addComponent(jLabel3)
                             .addGap(8, 8, 8))
                     );
@@ -820,13 +824,8 @@ public void calcula() {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panelCabeceraLayout.createSequentialGroup()
-                                    .addGap(0, 0, Short.MAX_VALUE)
                                     .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(13, 13, 13)
-                                    .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblFecha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblHora1))
-                                    .addContainerGap())
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(panelCabeceraLayout.createSequentialGroup()
                                     .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lblNum_toma_mu_exa)
@@ -838,8 +837,11 @@ public void calcula() {
                                         .addComponent(jLabel28)
                                         .addComponent(lblHc1))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lblCantidad)
-                                    .addGap(12, 12, 12))))
+                                    .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblCantidad)
+                                        .addComponent(lblHora1)
+                                        .addComponent(lblFecha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGap(5, 5, 5))))
                     );
 
                     panelPaciente.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos del Paciente"));
@@ -1000,6 +1002,19 @@ public void calcula() {
 
                     lblArea.setText("area");
 
+                    tb_Subdettalle.setModel(new javax.swing.table.DefaultTableModel(
+                        new Object [][] {
+                            {null, null, null, null},
+                            {null, null, null, null},
+                            {null, null, null, null},
+                            {null, null, null, null}
+                        },
+                        new String [] {
+                            "Title 1", "Title 2", "Title 3", "Title 4"
+                        }
+                    ));
+                    jScrollPane1.setViewportView(tb_Subdettalle);
+
                     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                     getContentPane().setLayout(layout);
                     layout.setHorizontalGroup(
@@ -1013,16 +1028,7 @@ public void calcula() {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(panelPaciente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(panelCabecera, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGap(15, 15, 15))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGap(0, 0, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 872, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(13, 13, 13)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(btnQuitar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGap(15, 15, 15))
+                                    .addGap(21, 21, 21))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addGap(29, 29, 29)
                                     .addComponent(lblCodPerToma, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1043,6 +1049,17 @@ public void calcula() {
                                     .addGap(43, 43, 43)
                                     .addComponent(lblContador)
                                     .addGap(53, 53, 53))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane1)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 872, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnQuitar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(21, 21, 21))
                     );
                     layout.setVerticalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1063,20 +1080,20 @@ public void calcula() {
                                 .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(1, 1, 1)
                             .addComponent(panelCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(19, 19, 19)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(0, 0, Short.MAX_VALUE)
                                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(btnAgregar)
                                     .addGap(18, 18, 18)
-                                    .addComponent(btnQuitar)
-                                    .addGap(76, 76, 76))))
+                                    .addComponent(btnQuitar))))
                     );
 
                     pack();
@@ -1118,7 +1135,7 @@ public void calcula() {
         btnAgregar.setEnabled(true);
         btnQuitar.setEnabled(true);
         
-       Lab_guardar_cabecera();
+//       Lab_guardar_cabecera();
         
         }
         else{
@@ -1320,6 +1337,8 @@ public void calcula() {
 
                 frm_LAB_TOMA_MUESTRA_DETALLE vr=new frm_LAB_TOMA_MUESTRA_DETALLE();
                 vr.setVisible(true);
+                frm_LAB_TOMA_MUESTRA_DETALLE.lblServicio.setText(lblServicio.getText());
+                
                 frm_LAB_TOMA_MUESTRA_DETALLE.txtidDocumen.setText(lblDocumento.getText());
                 frm_LAB_TOMA_MUESTRA_DETALLE.lblCodNomen.setText(tb_Nomenclatura.getValueAt(filaselec, 2).toString());
 
@@ -1329,13 +1348,65 @@ public void calcula() {
                 frm_LAB_TOMA_MUESTRA_DETALLE.txtCodigoCPT.setText(tb_Nomenclatura.getValueAt(filaselec, 3).toString());
 
                 frm_LAB_TOMA_MUESTRA_DETALLE.txtServicio.setText(tb_Nomenclatura.getValueAt(filaselec, 5).toString());
+                
+                LAB_Toma_Muestra_Detalle md=new LAB_Toma_Muestra_Detalle();
+                frm_LAB_TOMA_MUESTRA_DETALLE.lblExa.setText(md.LAB_Toma_Muestra_Det_exa(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),"1"));
+                
+                LAB_Toma_Muestra_Detalle md1=new LAB_Toma_Muestra_Detalle();
+                frm_LAB_TOMA_MUESTRA_DETALLE.lblCantidadMues.setText(md1.LAB_Toma_Muestra_Det_exa(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),"3"));
+                
+                Muestras_cargar(tb_Nomenclatura.getValueAt(filaselec, 2).toString());
+                 
                 String u=lblUsu.getText();
                 frm_LAB_TOMA_MUESTRA_DETALLE.lblUsu.setText(u);
             }catch(Exception e){
                 JOptionPane.showMessageDialog(this, e.getMessage());
             }}
+        
     }//GEN-LAST:event_tb_NomenclaturaKeyPressed
+public void Muestras_cargar(String nomen){
+    try {
+        
+             String titulos[]={"N°","codigoMuestra","Muestra"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[3];
 
+            LAB_Toma_Muestra_Cabecera obj=new LAB_Toma_Muestra_Cabecera();
+        String consulta="exec sp_LAB_TOMA_MUESTRA_DET_EXAMEN ?,?";
+        
+        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1, nomen);
+                cmd.setString(2, "2");
+            
+        ResultSet r=cmd.executeQuery();
+        int c=1;
+        while(r.next()){
+            fila[0]=String.valueOf(c)+"º";
+            fila[1]=r.getString(1);
+            fila[2]=r.getString(2);
+                m.addRow(fila);
+                c++;
+            }
+            tb_Muestras.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tb_Muestras.setRowSorter(elQueOrdena);
+            Muestras_formato();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(rootPane, "Error en la tabla");
+    }
+}
+ public void Muestras_formato(){
+    tb_Muestras.getColumnModel().getColumn(0).setPreferredWidth(40);
+    tb_Muestras.getColumnModel().getColumn(1).setPreferredWidth(100);
+    tb_Muestras.getColumnModel().getColumn(2).setPreferredWidth(100);
+    //Ocultar    
+    tb_Muestras.getColumnModel().getColumn(1).setMinWidth(0);
+    tb_Muestras.getColumnModel().getColumn(1).setMaxWidth(0);
+         
+    tb_Muestras.getSelectionModel().setSelectionInterval(0, 0);
+    tb_Muestras.requestFocus();
+}
     private void txtPersonalRegistraTomaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalRegistraTomaKeyPressed
         char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
@@ -1565,6 +1636,7 @@ public void calcula() {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
@@ -1597,6 +1669,7 @@ public void calcula() {
     public static javax.swing.JTable tbPersonal;
     public static javax.swing.JTable tb_Detalle;
     private javax.swing.JTable tb_Nomenclatura;
+    private javax.swing.JTable tb_Subdettalle;
     private javax.swing.JLabel titulo5;
     private javax.swing.JLabel titulo6;
     private javax.swing.JLabel titulo7;

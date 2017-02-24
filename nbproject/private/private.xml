@@ -2,8 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
             <file>file:/D:/pry/SISGESH/src/vista/Caja/Caja_Precios.java</file>
         </group>
+>>>>>>> dcc5be49095fc501f943c3a0bb055fa01ebfa542
     </open-files>
 </project-private>

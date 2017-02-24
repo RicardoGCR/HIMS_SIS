@@ -603,7 +603,7 @@ public void calcula() {
                     titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                     titulo5.setForeground(new java.awt.Color(255, 255, 255));
                     titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                    titulo5.setText("Exámenes por realizar");
+                    titulo5.setText("Toma de Muestra");
                     titulo5.setToolTipText("");
                     titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -635,7 +635,7 @@ public void calcula() {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                             .addGap(16, 16, 16)
                             .addComponent(titulo5)
-                            .addGap(255, 255, 255)
+                            .addGap(333, 333, 333)
                             .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jpanelLayout.createSequentialGroup()
                                     .addComponent(jLabel15)
@@ -646,7 +646,7 @@ public void calcula() {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(lblFecha))
                                 .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addContainerGap(35, Short.MAX_VALUE))
+                            .addContainerGap(26, Short.MAX_VALUE))
                     );
                     jpanelLayout.setVerticalGroup(
                         jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -5528,11 +5528,11 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         }
     }//GEN-LAST:event_btnBuscarToActionPerformed
 
-<<<<<<< HEAD
+
     private void txtNHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNHCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNHCActionPerformed
-=======
+
     private void txtTraidoporCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtTraidoporCaretUpdate
         btnEliminar.setEnabled(true);
         btnGuardar.setEnabled(true);
@@ -5583,8 +5583,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
     private void btnNuevo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNuevo2ActionPerformed
->>>>>>> dcc5be49095fc501f943c3a0bb055fa01ebfa542
-    
+
     public void run() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.       
         Thread ct = Thread.currentThread();

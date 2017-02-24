@@ -100,18 +100,25 @@ public class AdmisionEmergenciaTopico {
     
     public void formatoTablaCargarLaboratorio(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(60);//CODIGO
+        TableColumn columna = tabla.getColumnModel().getColumn(3);
+            columna.setMaxWidth(0);
+            columna.setMinWidth(0);
+            columna.setPreferredWidth(0);
+            tabla.setRowHeight(0);
+            tabla.doLayout();
+        tabla.setRowHeight(25);
     }
     
     public void cargarFormatLaboratorio(String nombre,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Código","Clasificación","Nombre del examen"};
+            String titulos[]={"Código","Nomenclatura","Examen","Precio"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[3];
+            String fila[]=new String[4];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC LABORATORIO_ANALISIS_EXAMEN_LISTAR ?";
+            consulta="EXEC CAJA_NOMENCLATURA_CAJA_LISTAR_EXAMENES ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, nombre);
             ResultSet r= cmd.executeQuery();
@@ -120,6 +127,7 @@ public class AdmisionEmergenciaTopico {
                 fila[0]=r.getString(1); // codigo
                 fila[1]=r.getString(2); //Clasificación
                 fila[2]=r.getString(3); //nombre del examen
+                fila[3]=r.getString(4); //nombre del examen
                     m.addRow(fila);
                     c++;
             }
@@ -137,6 +145,7 @@ public class AdmisionEmergenciaTopico {
         tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//CODIGO
         tabla.getColumnModel().getColumn(1).setPreferredWidth(50);//CODIGO
         tabla.getColumnModel().getColumn(2).setPreferredWidth(500);//CODIGO
+        tabla.setRowHeight(25);
     }
     
     public void cargarDatosCie10(String descripcion,JTable tabla){
@@ -252,10 +261,10 @@ public class AdmisionEmergenciaTopico {
                               "Relato","Conciencia","Hidratación","Nutrición",
                               "Examen Físico","Plan de Trabajo","Anotaciones Médicas",
                               "Anotaciones de Enfermería","Evaluación del Paciente",
-                              "Ubicación al egreso","Prioridad"};
+                              "Ubicación al egreso","Prioridad","ID"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[23];
+            String fila[]=new String[24];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC ADMISION_EMERGENCIA_TOPICO_LISTAR_Y_REPORTE ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -287,6 +296,7 @@ public class AdmisionEmergenciaTopico {
                 fila[20]=r.getString(19);//eval paciente
                 fila[21]=r.getString(20);//ubic egreso
                 fila[22]=r.getString(26);//ubic egreso
+                fila[23]=r.getString(27);//ubic egreso
                     m.addRow(fila);
                     c++;
             }
@@ -306,12 +316,12 @@ public class AdmisionEmergenciaTopico {
             tabla.getColumnModel().getColumn(0).setPreferredWidth(1);//codigo
             tabla.getColumnModel().getColumn(1).setPreferredWidth(250);//fecha d ing
             tabla.getColumnModel().getColumn(2).setPreferredWidth(100);//fecha ingreso
-            TableColumn columna = tabla.getColumnModel().getColumn(0);
-            columna.setMaxWidth(0);
-            columna.setMinWidth(0);
-            columna.setPreferredWidth(0);
-            tabla.setRowHeight(0);
-            tabla.doLayout();
+//            TableColumn columna = tabla.getColumnModel().getColumn(0);
+//            columna.setMaxWidth(0);
+//            columna.setMinWidth(0);
+//            columna.setPreferredWidth(0);
+//            tabla.setRowHeight(0);
+//            tabla.doLayout();
         } else {
             tabla.getColumnModel().getColumn(0).setPreferredWidth(40);//codigo
             tabla.getColumnModel().getColumn(1).setPreferredWidth(60);//fecha d ing
@@ -325,7 +335,7 @@ public class AdmisionEmergenciaTopico {
         try {
             tabla.setModel(new DefaultTableModel());
             if(tipo==1){
-                String titulos[]={"Nro","Exámenes","Código"};
+                String titulos[]={"Nro","Exámenes","Precio"};
                 m=new DefaultTableModel(null,titulos);
             } else {
                 String titulos[]={"Nro","Código","Diagnósticos"};
@@ -389,28 +399,31 @@ public class AdmisionEmergenciaTopico {
     public void formatoTablaTopicoReporteFinal(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(0);//id topico
         tabla.getColumnModel().getColumn(1).setPreferredWidth(70);//nhc
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);//dni
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(200);//paciente
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(100);//apetito
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);//sed
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);//deposicion
-        tabla.getColumnModel().getColumn(7).setPreferredWidth(100);//sueño
-        tabla.getColumnModel().getColumn(8).setPreferredWidth(100);//orinas
-        tabla.getColumnModel().getColumn(9).setPreferredWidth(300);//motivo de emergencia
-        tabla.getColumnModel().getColumn(10).setPreferredWidth(300);//relato de emergencia
-        tabla.getColumnModel().getColumn(11).setPreferredWidth(100);//conciencia
-        tabla.getColumnModel().getColumn(12).setPreferredWidth(100);//hidratacion
-        tabla.getColumnModel().getColumn(13).setPreferredWidth(100);//nutricion
-        tabla.getColumnModel().getColumn(14).setPreferredWidth(300);//examen fisico
-        tabla.getColumnModel().getColumn(15).setPreferredWidth(300);//plan de trabajo
-        tabla.getColumnModel().getColumn(16).setPreferredWidth(300);//anotaciones medicas
-        tabla.getColumnModel().getColumn(17).setPreferredWidth(300);//anotaciones de enfermeria
-        tabla.getColumnModel().getColumn(18).setPreferredWidth(100);//evaluacion del paciente
-        tabla.getColumnModel().getColumn(19).setPreferredWidth(100);//ubicacion al egreso
-        tabla.getColumnModel().getColumn(20).setPreferredWidth(100);//fecha de ingreso
-        tabla.getColumnModel().getColumn(21).setPreferredWidth(100);//hora de ingreso
-        tabla.getColumnModel().getColumn(22).setPreferredWidth(100);//fecha de registro
-        tabla.getColumnModel().getColumn(23).setPreferredWidth(100);//hora de registro
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(70);//nhc
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(80);//dni
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(200);//paciente
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);//apetito
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);//sed
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(100);//deposicion
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(100);//sueño
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(100);//orinas
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(300);//motivo de emergencia
+        tabla.getColumnModel().getColumn(11).setPreferredWidth(300);//relato de emergencia
+        tabla.getColumnModel().getColumn(12).setPreferredWidth(100);//conciencia
+        tabla.getColumnModel().getColumn(13).setPreferredWidth(100);//hidratacion
+        tabla.getColumnModel().getColumn(14).setPreferredWidth(100);//nutricion
+        tabla.getColumnModel().getColumn(15).setPreferredWidth(300);//examen fisico
+        tabla.getColumnModel().getColumn(16).setPreferredWidth(300);//plan de trabajo
+        tabla.getColumnModel().getColumn(17).setPreferredWidth(300);//anotaciones medicas
+        tabla.getColumnModel().getColumn(18).setPreferredWidth(300);//anotaciones de enfermeria
+        tabla.getColumnModel().getColumn(19).setPreferredWidth(100);//evaluacion del paciente
+        tabla.getColumnModel().getColumn(20).setPreferredWidth(100);//ubicacion al egreso
+        tabla.getColumnModel().getColumn(21).setPreferredWidth(100);//fecha de ingreso
+        tabla.getColumnModel().getColumn(22).setPreferredWidth(100);//hora de ingreso
+        tabla.getColumnModel().getColumn(23).setPreferredWidth(100);//fecha de registro
+        tabla.getColumnModel().getColumn(24).setPreferredWidth(100);//hora de registro
+        tabla.getColumnModel().getColumn(25).setPreferredWidth(200);//fecha de registro
+        tabla.getColumnModel().getColumn(26).setPreferredWidth(50);//hora de registro
         TableColumn columna = tabla.getColumnModel().getColumn(0);
             columna.setMaxWidth(1);
             columna.setMinWidth(1);
@@ -419,26 +432,27 @@ public class AdmisionEmergenciaTopico {
         tabla.setRowHeight(30);
     }
     
-    public void admisionEmergenciaTopicoReporteFinal(String nhc,JTable tabla, String estado){
+    public void admisionEmergenciaTopicoReporteFinal(String nhc,JTable tabla, String fechai,String fechaf){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID","Nº H.C.","DNI","Paciente",
+            String titulos[]={"ID","Acto Médico","Nº H.C.","DNI","Paciente",
                 "Apetito","Sed","Deposición","Sueño","Orinas",
                 "Motivo de Emergencia","Relato","Conciencia",
                 "Hidratación","Nutrición","Examen físico",
                 "Plan de trabajo","Anotaciones Médicas",
                 "Anotaciones de enfermería","Evaluación del paciente",
                 "Ubicación al egreso","Fecha de ingreso",
-                "Hora de ingreso","Fecha de registro","Hora de registro","Prioridad"};
+                "Hora de ingreso","Fecha de registro","Hora de registro","Traido por","Prioridad"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[25];
+            String fila[]=new String[27];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="exec ADMISION_EMERGENCIA_TOPICO_REPORTE_FINAL ?,?";
+            consulta="exec ADMISION_EMERGENCIA_TOPICO_REPORTE_FINAL ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, nhc);
-            cmd.setString(2, estado);
+            cmd.setString(2, fechai);
+            cmd.setString(3, fechaf);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -467,6 +481,8 @@ public class AdmisionEmergenciaTopico {
                 fila[22]=r.getString(23); // 
                 fila[23]=r.getString(24); // 
                 fila[24]=r.getString(25); // 
+                fila[25]=r.getString(26); // 
+                fila[26]=r.getString(27); // 
                     m.addRow(fila);
                     c++;
             }

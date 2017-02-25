@@ -26,15 +26,17 @@ public class AdmisionEmergenciaTopicoDetalleExamen {
     private String nom_pc;
     private String usu_cod;
     
-    public boolean insertarDetalleExamen()
+    public boolean insertarDetalleExamen(int id_preventa)
         {
         boolean resp = false;
         try{
-            String sql = "EXEC ADMISION_EMERGENCIA_TOPICO_DETALLE_EXAMEN_INSERTAR ?,?,?";
+            String sql = "EXEC CAJA_PREVENTA_DETALLE_INSERTAR_EXAMEN ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_topico());
             cmd.setString(2, getCod_exa_ana());
             cmd.setString(3, getUsu_cod());
+            cmd.setInt(4,id_preventa);
+            //cmd.setInt(4,id_preventa);
             if(!cmd.execute())
             {
                 resp = true;

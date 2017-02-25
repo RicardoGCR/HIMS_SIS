@@ -6,14 +6,17 @@
 package vista.admisionEmergencia;
 
 import Atxy2k.CustomTextField.RestrictedTextField;
+import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import modelos.*;
+import modelos.Caja.Caja_Preventa;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.admisionEmergencia.AdmisionEmergenciaTopico;
 import modelos.admisionEmergencia.AdmisionEmergenciaTriaje;
@@ -30,15 +33,22 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
     AdmisionEmergenciaCabecera adEmerCab2 = new AdmisionEmergenciaCabecera();
     AdmisionEmergenciaTriaje adEmerTr1 = new AdmisionEmergenciaTriaje();
     AdmisionEmergenciaTopico adEmerTo = new AdmisionEmergenciaTopico();
+    Caja_Preventa cp = new Caja_Preventa();
     DefaultTableModel m;
     public FrmListFormatoEmergencia() {
         initComponents();
         this.setLocationRelativeTo(null);//en el centro
         this.setResizable(false);
         this.getContentPane().setBackground(Color.WHITE);
-            adEmerCab.admisionEmergenciaCabeceraListar(txtBuscar.getText(), "A", tbCabecera);
-            adEmerTr1.admisionEmergenciaTriajeListarReporte(txtBuscar.getText(), tbTriaje, "A");
-            adEmerTo.admisionEmergenciaTopicoReporteFinal(txtBuscar.getText(), tbTopico, "A");
+            cp.listarDatosEmergencia(txtBuscar.getText(), "", "", tbCabecera);
+            tbCabecera.getSelectionModel().setSelectionInterval(0, 0);
+            tbCabecera.requestFocus();
+            adEmerTr1.admisionEmergenciaTriajeListarReporte(txtBuscar.getText(), tbTriaje, "","");
+            tbTriaje.getSelectionModel().setSelectionInterval(0, 0);
+            tbTriaje.requestFocus();
+            adEmerTo.admisionEmergenciaTopicoReporteFinal(txtBuscar.getText(), tbTopico, "","");
+            tbTopico.getSelectionModel().setSelectionInterval(0, 0);
+            tbTopico.requestFocus();
         //BOTON CERRAR
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
         javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
@@ -67,13 +77,33 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
     public void imprimirCabecera(){
         int fila = tbCabecera.getSelectedRow();
         String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Cabecera.jasper";
-        adEmerCab.reporteCabecera(ruta, String.valueOf(tbCabecera.getValueAt(fila, 13)));
+        adEmerCab.reporteCabecera(ruta, Integer.parseInt(String.valueOf(tbCabecera.getValueAt(fila, 0))));
     }
     
     public void imprimirFormatoCompleto(){
         int fila = tbTopico.getSelectedRow();
         String ruta = "/reportes/admisionEmergencia/formatoEmergencia.jasper";
         adEmerTo.reporteTopico(ruta, String.valueOf(tbTopico.getValueAt(fila, 0)));
+    }
+    
+    public String determinarFecha(JDateChooser calendario){
+        String fecha = "";
+        int dia = calendario.getCalendar().get(Calendar.DAY_OF_MONTH);
+        int mes = calendario.getCalendar().get(Calendar.MONTH)+1;
+        int anio = calendario.getCalendar().get(Calendar.YEAR); 
+        if(dia < 10 && mes < 10){
+            fecha = String.valueOf("0" + dia + "/" + "0" + mes + "/" + anio);
+        }else 
+            if(dia < 10 || mes < 10){
+                if(dia < 10 && mes >=10){
+                    fecha = String.valueOf("0" + dia + "/" + mes + "/" + anio);
+                } else 
+                    if(dia >= 10 && mes < 10){
+                        fecha = String.valueOf(dia + "/" + "0" + mes + "/" + anio);
+                    } 
+            } else 
+                fecha = String.valueOf(dia + "/" + mes + "/" + anio);
+        return fecha;
     }
     
     /**
@@ -109,10 +139,8 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
-        rbtA = new javax.swing.JRadioButton();
-        rbtD = new javax.swing.JRadioButton();
-        rbtT = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        fechai = new com.toedter.calendar.JDateChooser();
+        fechaf = new com.toedter.calendar.JDateChooser();
         tbpReporteEmergencia = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -227,6 +255,7 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
 
         txtBuscar.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txtBuscar.setEnabled(false);
         txtBuscar.setSelectionColor(new java.awt.Color(204, 204, 204));
         txtBuscar.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -239,67 +268,27 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
             }
         });
 
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Buscar-32.png"))); // NOI18N
         btnBuscar.setMnemonic('B');
+        btnBuscar.setText("Iniciar");
         btnBuscar.setToolTipText("Buscar (Alt + B)");
         btnBuscar.setContentAreaFilled(false);
         btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        btnBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
 
-        rbtA.setBackground(new java.awt.Color(0, 118, 168));
-        buttonGroup1.add(rbtA);
-        rbtA.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        rbtA.setForeground(new java.awt.Color(255, 255, 255));
-        rbtA.setMnemonic('A');
-        rbtA.setSelected(true);
-        rbtA.setText("Activo(A)");
-        rbtA.setToolTipText("Activo (Alt + A)");
-        rbtA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtAActionPerformed(evt);
-            }
-        });
+        fechai.setBackground(new java.awt.Color(0, 118, 168));
+        fechai.setDateFormatString("dd-MM-yyyy");
 
-        rbtD.setBackground(new java.awt.Color(0, 118, 168));
-        buttonGroup1.add(rbtD);
-        rbtD.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        rbtD.setForeground(new java.awt.Color(255, 255, 255));
-        rbtD.setMnemonic('D');
-        rbtD.setText("Inactivo(D)");
-        rbtD.setToolTipText("Inactivo (Alt + D)");
-        rbtD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtDActionPerformed(evt);
-            }
-        });
-
-        rbtT.setBackground(new java.awt.Color(0, 118, 168));
-        buttonGroup1.add(rbtT);
-        rbtT.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        rbtT.setForeground(new java.awt.Color(255, 255, 255));
-        rbtT.setMnemonic('T');
-        rbtT.setText("Todos(T)");
-        rbtT.setToolTipText("Todos (Alt + T)");
-        rbtT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtTActionPerformed(evt);
-            }
-        });
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/PDF-32.png"))); // NOI18N
-        jButton1.setMnemonic('P');
-        jButton1.setToolTipText("Exportar a PDF (Alt + P)");
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        fechaf.setBackground(new java.awt.Color(0, 118, 168));
+        fechaf.setDateFormatString("dd-MM-yyyy");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -309,21 +298,15 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rbtA)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rbtD)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rbtT))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                        .addComponent(fechai, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fechaf, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscar))
+                    .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,7 +327,7 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
                             .addComponent(lblHora))
@@ -352,21 +335,21 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(50, 50, 50))
+                        .addGap(53, 53, 53))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(titulo5)
-                        .addGap(15, 15, 15)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblUsuUsuario))
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(rbtA, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(rbtD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(rbtT, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(titulo5)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblUsuUsuario))
+                                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(fechai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(fechaf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -608,59 +591,79 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtBuscarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCaretUpdate
-        String estado = "";
-        if(rbtA.isSelected())
-            estado = "A";
-        else if(rbtD.isSelected())
-            estado = "D";
-        else
-            estado = "T";
+   
         if(tbpReporteEmergencia.getSelectedIndex()==0){
-            adEmerCab.admisionEmergenciaCabeceraListar(txtBuscar.getText(), estado, tbCabecera);
+            cp.listarDatosEmergencia(txtBuscar.getText(), determinarFecha(fechai),determinarFecha(fechaf), tbCabecera);
         }else
         if(tbpReporteEmergencia.getSelectedIndex()==1){
-            adEmerTr1.admisionEmergenciaTriajeListarReporte(txtBuscar.getText(), tbTriaje, estado);
+            adEmerTr1.admisionEmergenciaTriajeListarReporte(txtBuscar.getText(), tbTriaje, determinarFecha(fechai),determinarFecha(fechaf));
         }else
         if(tbpReporteEmergencia.getSelectedIndex()==2){
-            adEmerTo.admisionEmergenciaTopicoReporteFinal(txtBuscar.getText(), tbTopico, estado);
+            adEmerTo.admisionEmergenciaTopicoReporteFinal(txtBuscar.getText(), tbTopico, determinarFecha(fechai),determinarFecha(fechaf));
         }
     }//GEN-LAST:event_txtBuscarCaretUpdate
 
-    private void rbtAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtAActionPerformed
-        if(tbpReporteEmergencia.getSelectedIndex()==0)
-            adEmerCab.admisionEmergenciaCabeceraListar(txtBuscar.getText(), "A", tbCabecera);
-        else
-        if(tbpReporteEmergencia.getSelectedIndex()==1)
-            adEmerTr1.admisionEmergenciaTriajeListarReporte(txtBuscar.getText(), tbTriaje, "A");
-        else
-        if(tbpReporteEmergencia.getSelectedIndex()==2)
-            adEmerTo.admisionEmergenciaTopicoReporteFinal(txtBuscar.getText(), tbTopico, "A");
-    }//GEN-LAST:event_rbtAActionPerformed
-
-    private void rbtDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtDActionPerformed
-        if(tbpReporteEmergencia.getSelectedIndex()==0)    
-            adEmerCab.admisionEmergenciaCabeceraListar(txtBuscar.getText(), "D", tbCabecera);
-        else
-        if(tbpReporteEmergencia.getSelectedIndex()==1)
-            adEmerTr1.admisionEmergenciaTriajeListarReporte(txtBuscar.getText(), tbTriaje, "D");
-        else
-        if(tbpReporteEmergencia.getSelectedIndex()==2)
-            adEmerTo.admisionEmergenciaTopicoReporteFinal(txtBuscar.getText(), tbTopico, "D");
-    }//GEN-LAST:event_rbtDActionPerformed
-
-    private void rbtTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtTActionPerformed
-        if(tbpReporteEmergencia.getSelectedIndex()==0)
-            adEmerCab.admisionEmergenciaCabeceraListar(txtBuscar.getText(), "T", tbCabecera);
-        else
-        if(tbpReporteEmergencia.getSelectedIndex()==1)
-            adEmerTr1.admisionEmergenciaTriajeListarReporte(txtBuscar.getText(), tbTriaje, "T");
-        else
-        if(tbpReporteEmergencia.getSelectedIndex()==2)
-            adEmerTo.admisionEmergenciaTopicoReporteFinal(txtBuscar.getText(), tbTopico, "T");
-    }//GEN-LAST:event_rbtTActionPerformed
-
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        txtBuscar.requestFocus();
+        if(tbpReporteEmergencia.getSelectedIndex()==0){
+            if(btnBuscar.getText().equals("Iniciar")){
+                if(fechai.getDate()==null || fechai.getDate()==null){
+                    JOptionPane.showMessageDialog(this, "Ingrese un rango de fechas");
+                }
+                cp.listarDatosEmergencia(txtBuscar.getText(), determinarFecha(fechai),determinarFecha(fechaf), tbCabecera);
+                btnBuscar.setText("Detener");
+                txtBuscar.setEnabled(true);
+                tbpReporteEmergencia.setEnabledAt(0, true);
+                tbpReporteEmergencia.setEnabledAt(1, false);
+                tbpReporteEmergencia.setEnabledAt(2, false);
+            } else {
+                cp.listarDatosEmergencia(txtBuscar.getText(), "","", tbCabecera);
+                btnBuscar.setText("Iniciar");
+                txtBuscar.setEnabled(false);
+                tbpReporteEmergencia.setEnabledAt(0, true);
+                tbpReporteEmergencia.setEnabledAt(1, true);
+                tbpReporteEmergencia.setEnabledAt(2, true);
+            }
+        }else
+        if(tbpReporteEmergencia.getSelectedIndex()==1){
+            if(btnBuscar.getText().equals("Iniciar")){
+            if(fechai.getDate()==null || fechai.getDate()==null){
+                    JOptionPane.showMessageDialog(this, "Ingrese un rango de fechas");
+                }
+                adEmerTr1.admisionEmergenciaTriajeListarReporte(txtBuscar.getText(), tbTriaje, determinarFecha(fechai),determinarFecha(fechaf));
+                btnBuscar.setText("Detener");
+                txtBuscar.setEnabled(true);
+                tbpReporteEmergencia.setEnabledAt(0, false);
+                tbpReporteEmergencia.setEnabledAt(1, true);
+                tbpReporteEmergencia.setEnabledAt(2, false);
+            } else {
+                adEmerTr1.admisionEmergenciaTriajeListarReporte(txtBuscar.getText(), tbTriaje, "","");
+                btnBuscar.setText("Iniciar");
+                txtBuscar.setEnabled(false);
+                tbpReporteEmergencia.setEnabledAt(0, true);
+                tbpReporteEmergencia.setEnabledAt(1, true);
+                tbpReporteEmergencia.setEnabledAt(2, true);
+            }
+        }else
+        if(tbpReporteEmergencia.getSelectedIndex()==2){
+            if(btnBuscar.getText().equals("Iniciar")){
+            if(fechai.getDate()==null || fechai.getDate()==null){
+                    JOptionPane.showMessageDialog(this, "Ingrese un rango de fechas");
+                }
+                adEmerTo.admisionEmergenciaTopicoReporteFinal(txtBuscar.getText(), tbTopico, determinarFecha(fechai),determinarFecha(fechaf));
+                btnBuscar.setText("Detener");
+                txtBuscar.setEnabled(true);
+                tbpReporteEmergencia.setEnabledAt(0, false);
+                tbpReporteEmergencia.setEnabledAt(1, false);
+                tbpReporteEmergencia.setEnabledAt(2, true);
+            } else {
+                adEmerTo.admisionEmergenciaTopicoReporteFinal(txtBuscar.getText(), tbTopico, "","");
+                btnBuscar.setText("Iniciar");
+                txtBuscar.setEnabled(false);
+                tbpReporteEmergencia.setEnabledAt(0, true);
+                tbpReporteEmergencia.setEnabledAt(1, true);
+                tbpReporteEmergencia.setEnabledAt(2, true);
+            }
+            }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
@@ -683,16 +686,6 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_txtBuscarKeyPressed
-
-    private void tbCabeceraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCabeceraKeyPressed
-        if(evt.getExtendedKeyCode()==KeyEvent.VK_UP && tbCabecera.getSelectedRow()==0){
-            txtBuscar.requestFocus();
-        }
-    }//GEN-LAST:event_tbCabeceraKeyPressed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tbTriajeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbTriajeKeyPressed
         if(evt.getExtendedKeyCode()==KeyEvent.VK_UP && tbTriaje.getSelectedRow()==0){
@@ -770,17 +763,6 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
         imprimirTopico();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void tbCabeceraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCabeceraMouseReleased
-        int fila = tbCabecera.getSelectedRow();
-        if(fila == -1)
-            JOptionPane.showMessageDialog(this, "Seleccione una fila");
-        else{
-            if(evt.isPopupTrigger()){
-                jpmCabecera.show(evt.getComponent(),evt.getX(),evt.getY());
-            }
-        }
-    }//GEN-LAST:event_tbCabeceraMouseReleased
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         imprimirCabecera();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
@@ -788,6 +770,23 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         imprimirFormatoCompleto();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void tbCabeceraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCabeceraKeyPressed
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_UP && tbCabecera.getSelectedRow()==0){
+            txtBuscar.requestFocus();
+        }
+    }//GEN-LAST:event_tbCabeceraKeyPressed
+
+    private void tbCabeceraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCabeceraMouseReleased
+        int fila = tbCabecera.getSelectedRow();
+        if(fila == -1)
+        JOptionPane.showMessageDialog(this, "Seleccione una fila");
+        else{
+            if(evt.isPopupTrigger()){
+                jpmCabecera.show(evt.getComponent(),evt.getX(),evt.getY());
+            }
+        }
+    }//GEN-LAST:event_tbCabeceraMouseReleased
 
     /**
      * @param args the command line arguments
@@ -831,7 +830,8 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnImprimir;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
+    private com.toedter.calendar.JDateChooser fechaf;
+    private com.toedter.calendar.JDateChooser fechai;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -865,9 +865,6 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
     private javax.swing.JLabel lblHora;
     public static javax.swing.JLabel lblUsuUsuario;
     private javax.swing.JMenuItem mnuVisualizar;
-    public static javax.swing.JRadioButton rbtA;
-    public static javax.swing.JRadioButton rbtD;
-    public static javax.swing.JRadioButton rbtT;
     private javax.swing.JTable tbCabecera;
     public static javax.swing.JTable tbTopico;
     public static javax.swing.JTable tbTriaje;

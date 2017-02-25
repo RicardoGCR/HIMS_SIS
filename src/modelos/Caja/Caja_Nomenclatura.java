@@ -9,6 +9,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 
 /**
@@ -16,6 +21,7 @@ import servicios.Conexion;
  * @author Ricardo
  */
 public class Caja_Nomenclatura {
+DefaultTableModel m;
 private Connection cn;
 private String cod_nomen_caja;  
 private String cod_grupo_nomen_aten;
@@ -138,7 +144,44 @@ public boolean nuevaNomenclatura(){
         }
         return resp;
     }
-     
+    
+    public void formatoNomenclaturaEmer(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(90);//cpt
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(555);//descripcion
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(100);//id
+        tabla.setRowHeight(25);
+    }
+    
+    public void cajaNomenclaturaListarEmergencia(String descripcion,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Código CPT","Descripción de CPT","ID CPT"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[13];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_NOMENCLATURA_CAJA_LISTAR_EMER ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, descripcion);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); //codigo cpt 
+                fila[1]=r.getString(2); //descripcion
+                fila[2]=r.getString(3); //id
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoNomenclaturaEmer(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: cajaNomenclaturaListarEmergencia: " + e.getMessage());
+        }
+    }
          
       public Caja_Nomenclatura()
     {

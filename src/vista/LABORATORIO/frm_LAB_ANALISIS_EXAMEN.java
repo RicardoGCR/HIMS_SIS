@@ -154,10 +154,10 @@ DefaultTableModel m,n,muestra;
     
     public void LAB_Clasificacion_Examen_cargar(){
     try {
-             String titulos[]={"Nº","Código","Nombre","Cod_uni_org","UniOrg","Observacion"};
+             String titulos[]={"Nº","Código","Nombre","Cogd_uni_or","Servicio","NomUni","Observacion"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[6];
+            String fila[]=new String[7];
 
             Conexion obj=new Conexion();
         String consulta="exec sp_LAB_CLASIFICACION_EXAMEN_listar";
@@ -165,13 +165,13 @@ DefaultTableModel m,n,muestra;
         r=obj.Listar(consulta);
         int c=1;
         while(r.next()){
-            
             fila[0]=String.valueOf(c)+"º";
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
             fila[3]=r.getString(3);
             fila[4]=r.getString(4);
             fila[5]=r.getString(5);
+            fila[6]=r.getString(6);
                 m.addRow(fila);
                 c++;
             }
@@ -185,15 +185,17 @@ DefaultTableModel m,n,muestra;
 }
     public void LAB_Clasificacion_Examen_formato(){
     tb_Clasificacion.getColumnModel().getColumn(0).setPreferredWidth(50);
-    tb_Clasificacion.getColumnModel().getColumn(1).setPreferredWidth(100);
+    tb_Clasificacion.getColumnModel().getColumn(1).setPreferredWidth(110);
     tb_Clasificacion.getColumnModel().getColumn(2).setPreferredWidth(170);
-    tb_Clasificacion.getColumnModel().getColumn(5).setPreferredWidth(150);
+    tb_Clasificacion.getColumnModel().getColumn(3).setPreferredWidth(150);
+    tb_Clasificacion.getColumnModel().getColumn(4).setPreferredWidth(150);
+    tb_Clasificacion.getColumnModel().getColumn(6).setPreferredWidth(220);
     
             //Ocultar    
     tb_Clasificacion.getColumnModel().getColumn(3).setMinWidth(0);
     tb_Clasificacion.getColumnModel().getColumn(3).setMaxWidth(0);
-    tb_Clasificacion.getColumnModel().getColumn(4).setMinWidth(0);
-    tb_Clasificacion.getColumnModel().getColumn(4).setMaxWidth(0);
+    tb_Clasificacion.getColumnModel().getColumn(5).setMinWidth(0);
+    tb_Clasificacion.getColumnModel().getColumn(5).setMaxWidth(0);
     tb_Clasificacion.getSelectionModel().setSelectionInterval(0, 0);
             tb_Clasificacion.requestFocus();
 }
@@ -446,6 +448,7 @@ public void calcula() {
                                     "Title 1", "Title 2", "Title 3", "Title 4"
                                 }
                             ));
+                            tb_Clasificacion.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                             tb_Clasificacion.setRowHeight(25);
                             tb_Clasificacion.addMouseListener(new java.awt.event.MouseAdapter() {
                                 public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -854,7 +857,7 @@ public void calcula() {
                                     .addComponent(jLabel8)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jLabel10)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                                     .addComponent(jLabel3)
                                     .addGap(8, 8, 8))
                             );
@@ -1082,20 +1085,20 @@ public void calcula() {
                                                                 .addComponent(txtCodClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                     .addGap(0, 0, Short.MAX_VALUE))
-                                                .addGroup(layout.createSequentialGroup()
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                            .addComponent(btnBuscarClasif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(txtNomen, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(txtNombreExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(txtNomen, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(txtNombreExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jLabel17)
-                                                        .addComponent(jLabel19)))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(btnBuscarClasif, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                                                    .addComponent(jLabel13)))
+                                                        .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING))))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createSequentialGroup()
@@ -1369,17 +1372,17 @@ public void calcula() {
 
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
         // TODO add your handling code here:
-        String consulta="";
+       String consulta="";
         try {
             tb_Clasificacion.setModel(new DefaultTableModel());
-            String titulos[]={"Nº","Código","Nombre","Cod_uni_org","Observacion","Usuario"};
+            String titulos[]={"Nº","Código","Nombre","Cod_uni_org","Servicio","UniOrg","Observacion"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[6];
+            String fila[]=new String[7];
 
             LAB_Clasificacion_Examen obj=new LAB_Clasificacion_Examen();
-            consulta="exec sp_LAB_CLASIFICACION_EXAMEN_buscar ?";
-
+                    consulta="exec sp_LAB_CLASIFICACION_EXAMEN_buscar ?";
+                    
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, txtbuscarClasifi.getText());
             ResultSet r= cmd.executeQuery();
@@ -1391,6 +1394,7 @@ public void calcula() {
                 fila[3]=r.getString(3);
                 fila[4]=r.getString(4);
                 fila[5]=r.getString(5);
+                fila[6]=r.getString(6);
                 m.addRow(fila);
                 c++;
             }
@@ -1398,9 +1402,9 @@ public void calcula() {
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             tb_Clasificacion.setRowSorter(elQueOrdena);
             this.tb_Clasificacion.setModel(m);
-
+            
             LAB_Clasificacion_Examen_formato();
-
+            
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }

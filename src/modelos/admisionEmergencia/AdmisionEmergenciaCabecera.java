@@ -141,10 +141,14 @@ public class AdmisionEmergenciaCabecera {
     }
     
     public void formatoTablaCargarFormatEmer(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(160);//cod emergencia
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//apellidos
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//cod emergencia
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(160);//apellidos
         tabla.getColumnModel().getColumn(2).setPreferredWidth(80);//nombres
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(180);//dni
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(80);//dni
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(90);//cod emergencia
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(160);//apellidos
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);//nombres
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(100);//dni
         tabla.setRowHeight(25);
     }
     
@@ -372,10 +376,10 @@ public class AdmisionEmergenciaCabecera {
         return fecha;
     }
     
-    public void reporteCabecera(String ruta, String nro_registro) {
+    public void reporteCabecera(String ruta, int id) {
         try {
             Map parametros = new HashMap();
-            //parametros.put("NROREGISTRO", nro_registro);
+            parametros.put("id", id);
             String rutaInforme = ruta;
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream(rutaInforme), parametros, cn);          
             JasperViewer ventanavisor = new JasperViewer(informe, false);

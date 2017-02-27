@@ -56,6 +56,8 @@ DefaultTableModel m, m1,m2 ;
         lblFecha.setText(fechaActual());
         
         cargarDiagnosticos();
+        formatoIndEntDX();
+        nroDX();
     }
 
     /**
@@ -125,6 +127,8 @@ DefaultTableModel m, m1,m2 ;
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_MEDICAMENTOS = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tb_ind_ent_dx = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -476,6 +480,11 @@ DefaultTableModel m, m1,m2 ;
         txtDescripcionDX.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDescripcionDX.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtDescripcionDX.setEnabled(false);
+        txtDescripcionDX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDescripcionDXActionPerformed(evt);
+            }
+        });
 
         btnActividadVacunaBuscarPac.setBackground(new java.awt.Color(255, 255, 255));
         btnActividadVacunaBuscarPac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
@@ -511,10 +520,7 @@ DefaultTableModel m, m1,m2 ;
 
         tb_DX.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -628,20 +634,38 @@ DefaultTableModel m, m1,m2 ;
         tb_MEDICAMENTOS.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane2.setViewportView(tb_MEDICAMENTOS);
 
+        tb_ind_ent_dx.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 2"
+            }
+        ));
+        tb_ind_ent_dx.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane1.setViewportView(tb_ind_ent_dx);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 958, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -936,15 +960,18 @@ DefaultTableModel m, m1,m2 ;
     try{
        DefaultTableModel tabla= new DefaultTableModel();
       
-       tabla.addColumn("Codigo");
-       tabla.addColumn("Codigo CPT");
+       tabla.addColumn("Código");
+       tabla.addColumn("Código CPT");
+       tabla.addColumn("Servicio");
+       tabla.addColumn("Área");
+       tabla.addColumn("Forma de Pago");
        tabla.addColumn("Nomenclatura");
 
        cst=con.prepareCall("exec SIS_DIAGNOSTICO_NOMEN_LISTAR");
        r=cst.executeQuery();
        while (r.next()){
-       Object dato[]=new  Object[3];
-       for (int i=0; i<3; i++){
+       Object dato[]=new  Object[6];
+       for (int i=0; i<6; i++){
            dato[i]=r.getString(i+1);
        }
        tabla.addRow(dato);
@@ -957,28 +984,58 @@ DefaultTableModel m, m1,m2 ;
      }
     
     public void formatoDiagnostico(){
-       tb_diagnosticos.getColumnModel().getColumn(0).setPreferredWidth(80);
-       tb_diagnosticos.getColumnModel().getColumn(1).setPreferredWidth(80);
-       tb_diagnosticos.getColumnModel().getColumn(2).setPreferredWidth(600);
+       //Ocultar
+       tb_diagnosticos.getColumnModel().getColumn(0).setMinWidth(0);
+       tb_diagnosticos.getColumnModel().getColumn(0).setMaxWidth(0);
+       //formato
+       tb_diagnosticos.getColumnModel().getColumn(1).setPreferredWidth(100);
+       tb_diagnosticos.getColumnModel().getColumn(2).setPreferredWidth(110);       
+       tb_diagnosticos.getColumnModel().getColumn(3).setPreferredWidth(110);      
+       tb_diagnosticos.getColumnModel().getColumn(4).setPreferredWidth(110);
+       tb_diagnosticos.getColumnModel().getColumn(5).setPreferredWidth(500);
     }
-    /*
-    public void mostrarCabecerayDetalle(){
+    
+    public void formatoMedicamentos(){
+        tb_MEDICAMENTOS.getColumnModel().getColumn(0).setPreferredWidth(100);
+        tb_MEDICAMENTOS.getColumnModel().getColumn(1).setPreferredWidth(262);
+        tb_MEDICAMENTOS.getColumnModel().getColumn(2).setPreferredWidth(100);
+        tb_MEDICAMENTOS.getColumnModel().getColumn(3).setPreferredWidth(50);
+        tb_MEDICAMENTOS.getColumnModel().getColumn(4).setPreferredWidth(100);
+        tb_MEDICAMENTOS.getColumnModel().getColumn(5).setPreferredWidth(100);
+        tb_MEDICAMENTOS.getColumnModel().getColumn(6).setPreferredWidth(100);
+    }
+    
+    public void formatoIndEntDX(){
+        tb_ind_ent_dx.getColumnModel().getColumn(0).setPreferredWidth(50);
+        tb_ind_ent_dx.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tb_ind_ent_dx.getColumnModel().getColumn(2).setPreferredWidth(50);
+    }
+    
+    public void nroDX(){
+        if(tb_DX.getRowCount()==0){
+            txt_NRO_DX.setText("1");
+        }else
+            txt_NRO_DX.setText("2");
+    }
+    
+    
+    public void cargarDiagnosticoTB(){
         try {
             int filaselec=tb_diagnosticos.getSelectedRow();
             //Diagnostico
             String consulta="";
             tb_MEDICAMENTOS.setModel(new DefaultTableModel());
-            String titulos[]={"ID_CIE10","COD_ENF","DESCRIPCION"};
+            String titulos[]={"Cod_tipoSust","Nombre del Producto","Rendimiento","UM","Cantidad UM","Precio Sustento","Total Sustento"};
             m1=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m1);
-            String fila[]=new String[3];
+            String fila[]=new String[7];
             Usuario obj=new Usuario();
-            consulta="exec SALA_OPERACION_SOLICITUD_DETALLE_BUSCAR ?";
+            consulta="exec SIS_COSTOS_MEDICAMENTOS_BUSCAR ?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, tb_diagnosticos.getValueAt(filaselec, 0).toString());
             ResultSet r= cmd.executeQuery();
             while(r.next()){
-            for (int i=0; i<3; i++){
+            for (int i=0; i<7; i++){
            fila[i]=r.getString(i+1);
        }
                 m1.addRow(fila);
@@ -987,14 +1044,13 @@ DefaultTableModel m, m1,m2 ;
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m1);
             tb_MEDICAMENTOS.setRowSorter(elQueOrdena);
             tb_MEDICAMENTOS.setModel(m1);
-            
-         
+                 
              
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-        //tabSolicitud.setSelectedIndex(0);
-    }*/
+        
+    }
     
     
     public boolean repiteDetalleDiagnostico(){
@@ -1050,14 +1106,17 @@ DefaultTableModel m, m1,m2 ;
 
             tabla.addColumn("Código");
             tabla.addColumn("Código CPT");
+            tabla.addColumn("Servicio");
+            tabla.addColumn("Área");
+            tabla.addColumn("Forma de Pago");
             tabla.addColumn("Nomenclatura");
 
             cst=con.prepareCall("{call SIS_DIAGNOSTICO_NOMEN_BUSCAR(?)}");
             cst.setString(1, dx);
             r=cst.executeQuery();
             while (r.next()){
-                Object dato[]=new  Object[3];
-                for (int i=0; i<3; i++){
+                Object dato[]=new  Object[6];
+                for (int i=0; i<6; i++){
                     dato[i]=r.getString(i+1);
 
                 }
@@ -1111,7 +1170,7 @@ DefaultTableModel m, m1,m2 ;
                 BUSCAR_NOMEN.dispose();
 
              txtActividadDX.setText(String.valueOf(tb_diagnosticos.getValueAt(fila, 1)));
-             txtDescripcionDX.setText(String.valueOf(tb_diagnosticos.getValueAt(fila, 2)));  
+             txtDescripcionDX.setText(String.valueOf(tb_diagnosticos.getValueAt(fila, 5)));  
                      
        }
     }//GEN-LAST:event_tb_diagnosticosKeyPressed
@@ -1121,8 +1180,23 @@ DefaultTableModel m, m1,m2 ;
     }//GEN-LAST:event_txtActividadDXCaretUpdate
 
     private void btn_DX_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DX_AgregarActionPerformed
-        //cargarDiagnosticoTB();
+        if(txtActividadDX.getText().equalsIgnoreCase("")){
+            JOptionPane.showMessageDialog(rootPane, "Ingrese Código CPT");
+        }else{
+        if(txtDescripcionDX.getText().equalsIgnoreCase("")){
+            JOptionPane.showMessageDialog(rootPane, "Ingrese Descripción");
+            
+        }else
+            cargarDiagnosticoTB();
+            formatoMedicamentos();
+        }
+        
+        
     }//GEN-LAST:event_btn_DX_AgregarActionPerformed
+
+    private void txtDescripcionDXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionDXActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDescripcionDXActionPerformed
 
     public static String fechaActual(){
         Date now = new Date(System.currentTimeMillis());
@@ -1232,6 +1306,7 @@ DefaultTableModel m, m1,m2 ;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1247,6 +1322,7 @@ DefaultTableModel m, m1,m2 ;
     private javax.swing.JTable tb_MEDICAMENTOS;
     private javax.swing.JTable tb_Proc_DXImg_Lab;
     private javax.swing.JTable tb_diagnosticos;
+    private javax.swing.JTable tb_ind_ent_dx;
     private javax.swing.JLabel titulo5;
     public static javax.swing.JTextField txtActividadDX;
     public static javax.swing.JTextField txtActividadVacunaPaciente2;

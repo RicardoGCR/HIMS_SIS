@@ -53,8 +53,7 @@ DefaultTableModel m;
         btnmodificar.setEnabled(false);
         btneliminar.setEnabled(false);
         //listado de la unidad organica
-        LAB_Unidad_Organica_cargar();
-        LAB_Unidad_Organica_formato();
+        
         txtCodUni.setVisible(false);
         setLocationRelativeTo(null);//en el centro
         setResizable(false);//para que no funcione el boton maximizar
@@ -741,8 +740,9 @@ public void calcula() {
     private void btnBuscarUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUnidadActionPerformed
         // TODO add your handling code here:
         Buscar_Unidad_Organica.setVisible(true);
-        tb_Unidad_Organica.getSelectionModel().setSelectionInterval(0, 0);
-        tb_Unidad_Organica.requestFocus();
+        txtBuscarUni.setText("");
+        LAB_Unidad_Organica_cargar();
+        LAB_Unidad_Organica_formato();
     }//GEN-LAST:event_btnBuscarUnidadActionPerformed
 
     private void tb_Unidad_OrganicaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Unidad_OrganicaMouseClicked

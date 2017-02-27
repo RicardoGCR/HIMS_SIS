@@ -145,6 +145,56 @@ public class LAB_Analisis_Examen {
         }
         return cod;
     }
+    
+    
+      public int LAB_Analisis_Examen_ver(String clasif, String nomen)
+    {
+        int resultado=0;
+        try
+        {
+            String sql = "SELECT * FROM LABORATORIO_ANALISIS_EXAMEN where cod_clasi_exa=? and cod_nomen_caja=? AND estado_analisis_exa='A'";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, clasif);
+            cmd.setString(2, nomen);
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resultado;
+    }
+    
+ 
+    public String LAB_Analisis_Examen_codigo(String codigo)
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT cod_clasi_exa FROM LABORATORIO_CLASIFICACION_EXAMEN where cod_uni_organica_jerar=?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, codigo);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return cod;
+    }
     /**
      * @return the cn
      */

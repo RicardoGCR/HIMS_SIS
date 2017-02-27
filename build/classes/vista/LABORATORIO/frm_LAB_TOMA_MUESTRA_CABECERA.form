@@ -5,7 +5,7 @@
     <Container class="javax.swing.JDialog" name="personal">
       <Properties>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[846, 504]"/>
+          <Dimension value="[852, 504]"/>
         </Property>
       </Properties>
 
@@ -31,7 +31,7 @@
                           <Component id="lbltipo" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
               </Group>
               <Component id="jpanel2" alignment="1" max="32767" attributes="0"/>
           </Group>

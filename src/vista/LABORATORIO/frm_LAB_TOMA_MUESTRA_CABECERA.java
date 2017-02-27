@@ -85,11 +85,8 @@ DefaultTableModel m,n,muestra;
         lblFecha.setText(fechaActual());
         lblFecha1.setText(fechaActual());
         
-        tb_Detalle.setEnabled(false);
-        jPanel2.setEnabled(false);
-        btnAgregar.setEnabled(false);
-        btnQuitar.setEnabled(false);
-//        formato();
+  
+        formato();
         lbltipo.setVisible(false);
         
         
@@ -351,7 +348,7 @@ public void calcula() {
                     jScrollPane1 = new javax.swing.JScrollPane();
                     tb_Subdettalle = new javax.swing.JTable();
 
-                    personal.setMinimumSize(new java.awt.Dimension(846, 504));
+                    personal.setMinimumSize(new java.awt.Dimension(852, 504));
 
                     txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
                     txtBuscar.setEnabled(false);
@@ -458,7 +455,7 @@ public void calcula() {
                                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(lbltipo)))
-                            .addContainerGap(26, Short.MAX_VALUE))
+                            .addContainerGap(32, Short.MAX_VALUE))
                         .addComponent(jpanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     );
                     personalLayout.setVerticalGroup(
@@ -1358,7 +1355,9 @@ public void calcula() {
                 frm_LAB_TOMA_MUESTRA_DETALLE.lblExa.setText(cod_exa);
                 
                 LAB_Toma_Muestra_Detalle md1=new LAB_Toma_Muestra_Detalle();
-                frm_LAB_TOMA_MUESTRA_DETALLE.lblCantidadMues.setText(md1.LAB_Toma_Muestra_Det_exa(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),tb_Nomenclatura.getValueAt(filaselec, 8).toString(),"3"));
+                String cantidad=md1.LAB_Toma_Muestra_Det_exa(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),tb_Nomenclatura.getValueAt(filaselec, 8).toString(),"3");
+                frm_LAB_TOMA_MUESTRA_DETALLE.lblCantidadMues.setText(cantidad);
+                frm_LAB_TOMA_MUESTRA_DETALLE.lblContador.setText(cantidad);
                 
                 Muestras_cargar(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),tb_Nomenclatura.getValueAt(filaselec, 8).toString());
                  

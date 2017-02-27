@@ -131,8 +131,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
      public void inicializar_tabla(){
      try{
     String titulos[]={"Codigo","Nombre del Producto","Clase producto","Descripcion de la clase producto", "Marca",
-                "Unidad medida","Presentacion","Fabricante","Modelo","Serie producto","Stock minimo"
-                     ,"Observaciones","Fecha de Vencimiento","Lote"};
+                "Unidad medida","Presentacion","Fabricante"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[16];
@@ -157,18 +156,12 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
     tb_productodetalle.getColumnModel().getColumn(6).setPreferredWidth(150);
     tb_productodetalle.getColumnModel().getColumn(7).setPreferredWidth(200);
     tb_productodetalle.getColumnModel().getColumn(8).setPreferredWidth(150);
-    tb_productodetalle.getColumnModel().getColumn(9).setPreferredWidth(120);
-    tb_productodetalle.getColumnModel().getColumn(10).setPreferredWidth(120);
-    tb_productodetalle.getColumnModel().getColumn(11).setPreferredWidth(120);
-    tb_productodetalle.getColumnModel().getColumn(12).setPreferredWidth(120);
-    tb_productodetalle.getColumnModel().getColumn(13).setPreferredWidth(80);
 
      }
      public void cargarProducto(){
     try {
              String titulos[]={"Nº","Codigo","Nombre del Producto","Clase producto","Descripcion de la clase producto", "Marca",
-                "Unidad medida","Presentacion","Fabricante","Modelo","Serie producto","Stock minimo"
-                     ,"Observaciones","Fecha de Vencimiento","Lote"};
+                "Unidad medida","Presentacion","Fabricante"};
             m2=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m2);
             String fila[]=new String[16];
@@ -186,12 +179,6 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
             fila[6]=r.getString(6);
             fila[7]=r.getString(7);
             fila[8]=r.getString(8);
-            fila[9]=r.getString(9);
-            fila[10]=r.getString(10);
-            fila[11]=r.getString(11);
-            fila[12]=r.getString(12);
-            fila[13]=r.getString(13);
-            fila[14]=r.getString(14);
                 m2.addRow(fila);
                 c++;
             }
@@ -212,11 +199,6 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
     tbProductoAlmacen.getColumnModel().getColumn(6).setPreferredWidth(100);
     tbProductoAlmacen.getColumnModel().getColumn(7).setPreferredWidth(150);
     tbProductoAlmacen.getColumnModel().getColumn(8).setPreferredWidth(150);
-    tbProductoAlmacen.getColumnModel().getColumn(9).setPreferredWidth(120);
-    tbProductoAlmacen.getColumnModel().getColumn(10).setPreferredWidth(120);
-    tbProductoAlmacen.getColumnModel().getColumn(11).setPreferredWidth(120);
-    tbProductoAlmacen.getColumnModel().getColumn(12).setPreferredWidth(120);
-    tbProductoAlmacen.getColumnModel().getColumn(13).setPreferredWidth(80);
     tbProductoAlmacen.getSelectionModel().setSelectionInterval(0, 0);
             tbProductoAlmacen.requestFocus();
 }
@@ -1036,8 +1018,7 @@ enableDatos();
         try {
             tbProductoAlmacen.setModel(new DefaultTableModel());
             String titulos[]={"Nº","Codigo","Nombre del Producto","Clase producto","Descripcion de la clase producto", "Marca",
-                "Unidad medida","Presentacion","Fabricante","Modelo","Serie producto","Stock minimo"
-                ,"Observaciones","Fecha de Vencimiento","Lote"};
+                "Unidad medida","Presentacion","Fabricante"};
             m3=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m3);
             String fila[]=new String[15];
@@ -1059,12 +1040,6 @@ enableDatos();
                 fila[6]=r.getString(6);
                 fila[7]=r.getString(7);
                 fila[8]=r.getString(8);
-                fila[9]=r.getString(9);
-                fila[10]=r.getString(10);
-                fila[11]=r.getString(11);
-                fila[12]=r.getString(12);
-                fila[13]=r.getString(13);
-                fila[14]=r.getString(14);
                 m3.addRow(fila);
                 c++;
             }
@@ -1220,8 +1195,7 @@ char tecla= evt.getKeyChar();
         
         try {
 String Codigo,Nombre_del_Producto,Clase_producto,Descripcion_de_la_clase_producto,Marca,
-                Unidad_medida,Presentacion,Fabricante,Modelo,Serie_producto,Stock_minimo
-                     ,Observaciones,Fecha_de_Vencimiento,Lote;
+                Unidad_medida,Presentacion,Fabricante;
             int filaselec=tbProductoAlmacen.getSelectedRow();
             
             m1=(DefaultTableModel) tbProductoAlmacen.getModel();
@@ -1233,17 +1207,11 @@ String Codigo,Nombre_del_Producto,Clase_producto,Descripcion_de_la_clase_product
             Unidad_medida=tbProductoAlmacen.getValueAt(filaselec, 6).toString();
             Presentacion=tbProductoAlmacen.getValueAt(filaselec, 7).toString();
             Fabricante=tbProductoAlmacen.getValueAt(filaselec, 8).toString();
-            Modelo=tbProductoAlmacen.getValueAt(filaselec, 9).toString();
-            Serie_producto=tbProductoAlmacen.getValueAt(filaselec, 10).toString();
-            Stock_minimo=tbProductoAlmacen.getValueAt(filaselec, 11).toString();
-            Observaciones=tbProductoAlmacen.getValueAt(filaselec, 12).toString();
-            Fecha_de_Vencimiento=tbProductoAlmacen.getValueAt(filaselec, 13).toString();
-           Lote =tbProductoAlmacen.getValueAt(filaselec, 14).toString();
            
           if(tb_productodetalle.getRowCount()==0){
               m1=(DefaultTableModel) tb_productodetalle.getModel();
            String filaelemento[]={Codigo,Nombre_del_Producto,Clase_producto,Descripcion_de_la_clase_producto,
-           Marca,Unidad_medida,Presentacion,Fabricante,Modelo,Serie_producto,Stock_minimo,Observaciones,Fecha_de_Vencimiento,Lote};
+           Marca,Unidad_medida,Presentacion,Fabricante};
                m1.addRow(filaelemento);
                
           }
@@ -1254,7 +1222,7 @@ String Codigo,Nombre_del_Producto,Clase_producto,Descripcion_de_la_clase_product
            else{
                 m1=(DefaultTableModel) tb_productodetalle.getModel();
            String filaelemento[]={Codigo,Nombre_del_Producto,Clase_producto,Descripcion_de_la_clase_producto,
-           Marca,Unidad_medida,Presentacion,Fabricante,Modelo,Serie_producto,Stock_minimo,Observaciones,Fecha_de_Vencimiento,Lote};
+           Marca,Unidad_medida,Presentacion,Fabricante};
                m1.addRow(filaelemento);   
            }
           }
@@ -1299,8 +1267,7 @@ String Codigo,Nombre_del_Producto,Clase_producto,Descripcion_de_la_clase_product
           String consulta="";
             tb_productodetalle.setModel(new DefaultTableModel());
             String titulos[]={"Codigo","Nombre del Producto","Clase producto","Descripcion de la clase producto", "Marca",
-                "Unidad medida","Presentacion","Fabricante","Modelo","Serie producto","Stock minimo"
-                ,"Observaciones","Fecha de Vencimiento","Lote"};
+                "Unidad medida","Presentacion","Fabricante"};
             m1=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m1);
             String fila[]=new String[15];
@@ -1321,12 +1288,6 @@ String Codigo,Nombre_del_Producto,Clase_producto,Descripcion_de_la_clase_product
                 fila[5]=r.getString(6);
                 fila[6]=r.getString(7);
                 fila[7]=r.getString(8);
-                fila[8]=r.getString(9);
-                fila[9]=r.getString(10);
-                fila[10]=r.getString(11);
-                fila[11]=r.getString(12);
-                fila[12]=r.getString(13);
-                fila[13]=r.getString(14);
                 m1.addRow(fila);
                 c++;
             }

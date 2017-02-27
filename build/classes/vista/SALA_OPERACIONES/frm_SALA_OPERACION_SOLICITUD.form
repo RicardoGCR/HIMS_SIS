@@ -707,6 +707,10 @@
             </Property>
           </Properties>
           <Events>
+<<<<<<< HEAD
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscarActionPerformed"/>
+=======
+>>>>>>> f714cffe8f1ba52f016549fe2c4d0440cdeacaea
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarKeyPressed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarKeyTyped"/>
           </Events>
@@ -1204,6 +1208,12 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
+<<<<<<< HEAD
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarCIE10ActionPerformed"/>
+          </Events>
+=======
+>>>>>>> f714cffe8f1ba52f016549fe2c4d0440cdeacaea
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel31">
           <Properties>
@@ -2137,6 +2147,12 @@
                         </Property>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+<<<<<<< HEAD
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txthcActionPerformed"/>
+                      </Events>
+=======
+>>>>>>> f714cffe8f1ba52f016549fe2c4d0440cdeacaea
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                       </AuxValues>

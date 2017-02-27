@@ -61,13 +61,14 @@ public class LAB_Toma_Muestra_Detalle {
         return resp;
     }
      
-    public String LAB_Toma_Muestra_Det_exa(String exa,String tipo){
+    public String LAB_Toma_Muestra_Det_exa(String nomen,String area,String tipo){
        String cod_exa="";
         try{
-           String consulta="exec sp_LAB_TOMA_MUESTRA_DET_EXAMEN ?,?";
+           String consulta="exec sp_LAB_TOMA_MUESTRA_DET_EXAMEN ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setString(1,exa);
-            cmd.setString(2,tipo);
+            cmd.setString(1,nomen);
+            cmd.setString(2,area);
+            cmd.setString(3,tipo);
             ResultSet r= cmd.executeQuery();
             if(r.next()){
                cod_exa = r.getString(1);

@@ -47,6 +47,7 @@ Conexion conectar=new Conexion();
         tbNomenclatura.getSelectionModel().setSelectionInterval(0, 0);
         tbNomenclatura.requestFocus();
         btnBuscar.setMnemonic(KeyEvent.VK_F1);
+        setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
         //para limpiar el txt al darle click
  txtBuscar.addFocusListener(new FocusListener() {

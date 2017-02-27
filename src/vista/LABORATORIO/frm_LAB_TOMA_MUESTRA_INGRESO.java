@@ -1129,26 +1129,26 @@ public void buscar_examenes(){
     }//GEN-LAST:event_verActionPerformed
 
     private void tb_NomenclaturaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_NomenclaturaKeyPressed
-        char tecla= evt.getKeyChar();
-        if(tecla==KeyEvent.VK_ENTER){
-            try{
-
-                int filaselec=tb_Nomenclatura.getSelectedRow();
-                nomenclatura.setVisible(false);
-
-                frm_LAB_TOMA_MUESTRA_DETALLE vr=new frm_LAB_TOMA_MUESTRA_DETALLE();
-                vr.setVisible(true);
-                frm_LAB_TOMA_MUESTRA_DETALLE.txtidDocumen.setText(lblDocumento.getText());
-                frm_LAB_TOMA_MUESTRA_DETALLE.lblId_cod_doc_det.setText(tb_Nomenclatura.getValueAt(filaselec, 1).toString());
-
-                frm_LAB_TOMA_MUESTRA_DETALLE.txtNomenclatura.setText(tb_Nomenclatura.getValueAt(filaselec, 3).toString());
-                frm_LAB_TOMA_MUESTRA_DETALLE.txtCodigoCPT.setText(tb_Nomenclatura.getValueAt(filaselec, 4).toString());
-
-                String u=lblUsu.getText();
-                frm_LAB_TOMA_MUESTRA_DETALLE.lblUsu.setText(u);
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(this, e.getMessage());
-            }}
+//        char tecla= evt.getKeyChar();
+//        if(tecla==KeyEvent.VK_ENTER){
+//            try{
+//
+//                int filaselec=tb_Nomenclatura.getSelectedRow();
+//                nomenclatura.setVisible(false);
+//
+//                frm_LAB_TOMA_MUESTRA_DETALLE vr=new frm_LAB_TOMA_MUESTRA_DETALLE();
+//                vr.setVisible(true);
+//                frm_LAB_TOMA_MUESTRA_DETALLE.txtidDocumen.setText(lblDocumento.getText());
+//                frm_LAB_TOMA_MUESTRA_DETALLE.lblId_cod_doc_det.setText(tb_Nomenclatura.getValueAt(filaselec, 1).toString());
+//
+//                frm_LAB_TOMA_MUESTRA_DETALLE.txtNomenclatura.setText(tb_Nomenclatura.getValueAt(filaselec, 3).toString());
+//                frm_LAB_TOMA_MUESTRA_DETALLE.txtCodigoCPT.setText(tb_Nomenclatura.getValueAt(filaselec, 4).toString());
+//
+//                String u=lblUsu.getText();
+//                frm_LAB_TOMA_MUESTRA_DETALLE.lblUsu.setText(u);
+//            }catch(Exception e){
+//                JOptionPane.showMessageDialog(this, e.getMessage());
+//            }}
     }//GEN-LAST:event_tb_NomenclaturaKeyPressed
     public void enableDatos(){
     tb_Pacientes.setEnabled(true);

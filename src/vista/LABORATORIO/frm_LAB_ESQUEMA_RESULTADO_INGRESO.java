@@ -102,24 +102,26 @@ String hora, minutos, segundos, ampm;
     
     public void LAB_Clasificacion_Examen_cargar(){
     try {
-        String titulos[]={"Código","Nombre de la Unidad","Cod_uni_org","Clasificación","Observacion"};
-        m=new DefaultTableModel(null,titulos);
-        JTable p=new JTable(m);
-        String fila[]=new String[6];
+             String titulos[]={"Nº","Código","Servicio","Nombre de la Unidad","Cogd_uni_or","Clasificación","Observacion"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[7];
 
-        Conexion obj=new Conexion();
+            Conexion obj=new Conexion();
         String consulta="exec sp_LAB_CLASIFICACION_EXAMEN_listar";
         ResultSet r;
         r=obj.Listar(consulta);
         int c=1;
         while(r.next()){
-        fila[0]=r.getString(1);
-        fila[1]=r.getString(4);
-        fila[2]=r.getString(3);
-        fila[3]=r.getString(2);
-        fila[4]=r.getString(5);
-        m.addRow(fila);
-            c++;
+            fila[0]=String.valueOf(c)+"º";
+            fila[1]=r.getString(1);
+            fila[2]=r.getString(4);
+            fila[3]=r.getString(5);
+            fila[4]=r.getString(4);
+            fila[5]=r.getString(2);
+            fila[6]=r.getString(6);
+                m.addRow(fila);
+                c++;
             }
             tb_Clasificacion_Examen.setModel(m);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
@@ -130,27 +132,32 @@ String hora, minutos, segundos, ampm;
     }
 }
     public void LAB_Clasificacion_Examen_formato(){
-    tb_Clasificacion_Examen.getColumnModel().getColumn(1).setPreferredWidth(150);
-    tb_Clasificacion_Examen.getColumnModel().getColumn(3).setPreferredWidth(220);
+        tb_Clasificacion_Examen.getColumnModel().getColumn(2).setPreferredWidth(150);
+    tb_Clasificacion_Examen.getColumnModel().getColumn(3).setPreferredWidth(150);
+    tb_Clasificacion_Examen.getColumnModel().getColumn(5).setPreferredWidth(220);
     
             //Ocultar    
     tb_Clasificacion_Examen.getColumnModel().getColumn(0).setMinWidth(0);
     tb_Clasificacion_Examen.getColumnModel().getColumn(0).setMaxWidth(0);
-    tb_Clasificacion_Examen.getColumnModel().getColumn(2).setMinWidth(0);
-    tb_Clasificacion_Examen.getColumnModel().getColumn(2).setMaxWidth(0);
+    tb_Clasificacion_Examen.getColumnModel().getColumn(1).setMinWidth(0);
+    tb_Clasificacion_Examen.getColumnModel().getColumn(1).setMaxWidth(0);
+        tb_Clasificacion_Examen.getColumnModel().getColumn(3).setMinWidth(0);
+    tb_Clasificacion_Examen.getColumnModel().getColumn(3).setMaxWidth(0);
     tb_Clasificacion_Examen.getColumnModel().getColumn(4).setMinWidth(0);
     tb_Clasificacion_Examen.getColumnModel().getColumn(4).setMaxWidth(0);
+        tb_Clasificacion_Examen.getColumnModel().getColumn(6).setMinWidth(0);
+    tb_Clasificacion_Examen.getColumnModel().getColumn(6).setMaxWidth(0);
     tb_Clasificacion_Examen.getSelectionModel().setSelectionInterval(0, 0);
             tb_Clasificacion_Examen.requestFocus();
 }
 public void LAB_Analisis_Examen_cargar(){
     try {
-             String titulos[]={"Nº","Código","CodigoClasif","CodNomen","Clasificación","Código CPT","Nomenclatura","Nombre Análisis",
+             String titulos[]={"Nº","Código","CodigoClasif","CodNomen","Servicio","Clasificación","Código CPT","Nomenclatura","Nombre Análisis",
                  "Abrev. Análisis","Tiempo Hora","Tiempo Min","Tipo Procesamiento","Restriccion",
                  "Explicación","Estado","Observacion"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[16];
+            String fila[]=new String[17];
 
             Conexion obj=new Conexion();
         String consulta="exec sp_LAB_ANALISIS_EXAMEN_listar";
@@ -174,6 +181,7 @@ public void LAB_Analisis_Examen_cargar(){
             fila[13]=r.getString(13);
             fila[14]=r.getString(14);
             fila[15]=r.getString(15);
+            fila[16]=r.getString(16);
                 m.addRow(fila);
                 c++;
             }
@@ -186,9 +194,10 @@ public void LAB_Analisis_Examen_cargar(){
     }
 }
     public void LAB_Analisis_Examen_formato(){
-    tb_Analisis_Examen.getColumnModel().getColumn(4).setPreferredWidth(200);
-    tb_Analisis_Examen.getColumnModel().getColumn(7).setPreferredWidth(215);
+    tb_Analisis_Examen.getColumnModel().getColumn(4).setPreferredWidth(150);
+    tb_Analisis_Examen.getColumnModel().getColumn(5).setPreferredWidth(140);
     tb_Analisis_Examen.getColumnModel().getColumn(8).setPreferredWidth(215);
+    tb_Analisis_Examen.getColumnModel().getColumn(9).setPreferredWidth(150);
             //Ocultar    
     tb_Analisis_Examen.getColumnModel().getColumn(0).setMinWidth(0);
     tb_Analisis_Examen.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -198,12 +207,10 @@ public void LAB_Analisis_Examen_cargar(){
     tb_Analisis_Examen.getColumnModel().getColumn(2).setMaxWidth(0);
     tb_Analisis_Examen.getColumnModel().getColumn(3).setMinWidth(0);
     tb_Analisis_Examen.getColumnModel().getColumn(3).setMaxWidth(0);
-    tb_Analisis_Examen.getColumnModel().getColumn(5).setMinWidth(0);
-    tb_Analisis_Examen.getColumnModel().getColumn(5).setMaxWidth(0);
     tb_Analisis_Examen.getColumnModel().getColumn(6).setMinWidth(0);
     tb_Analisis_Examen.getColumnModel().getColumn(6).setMaxWidth(0);
-    tb_Analisis_Examen.getColumnModel().getColumn(9).setMinWidth(0);
-    tb_Analisis_Examen.getColumnModel().getColumn(9).setMaxWidth(0);
+    tb_Analisis_Examen.getColumnModel().getColumn(7).setMinWidth(0);
+    tb_Analisis_Examen.getColumnModel().getColumn(7).setMaxWidth(0);
     tb_Analisis_Examen.getColumnModel().getColumn(10).setMinWidth(0);
     tb_Analisis_Examen.getColumnModel().getColumn(10).setMaxWidth(0);
     tb_Analisis_Examen.getColumnModel().getColumn(11).setMinWidth(0);
@@ -216,7 +223,8 @@ public void LAB_Analisis_Examen_cargar(){
     tb_Analisis_Examen.getColumnModel().getColumn(14).setMaxWidth(0);
     tb_Analisis_Examen.getColumnModel().getColumn(15).setMinWidth(0);
     tb_Analisis_Examen.getColumnModel().getColumn(15).setMaxWidth(0);
-    
+     tb_Analisis_Examen.getColumnModel().getColumn(16).setMinWidth(0);
+    tb_Analisis_Examen.getColumnModel().getColumn(16).setMaxWidth(0);   
     
     tb_Analisis_Examen.getSelectionModel().setSelectionInterval(0, 0);
             tb_Analisis_Examen.requestFocus();
@@ -529,12 +537,12 @@ String consulta="";
         try {
             
             tb_Analisis_Examen.setModel(new DefaultTableModel());
-            String titulos[]={"Nº","Código","CodigoClasif","CodNomen","Clasificación","Código CPT","Nomenclatura","Nombre Examen",
+            String titulos[]={"Nº","Código","CodigoClasif","CodNomen","Servicio","Clasificación","Código CPT","Nomenclatura","Nombre Examen",
                  "Abreviatura","Tiempo Hora","Tiempo Min","Tipo Procesamiento","Restriccion",
                  "Explicación","Estado","Observacion"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[16];
+            String fila[]=new String[17];
 
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
                     consulta="exec sp_LAB_ANALISIS_EXAMEN_buscar ?,?";
@@ -560,6 +568,7 @@ String consulta="";
                 fila[13]=r.getString(13);
                 fila[14]=r.getString(14);
                 fila[15]=r.getString(15);
+                fila[16]=r.getString(16);
                 m.addRow(fila);
                 c++;
             }
@@ -597,11 +606,11 @@ public void LAB_Esquema_formato(){
                         LAB_Clasificacion_Examen ce=new LAB_Clasificacion_Examen();
                         lme.setVisible(true);
                         frm_LAB_ESQUEMA_RESULTADO.txtCodClasificacion.setText(tb_Analisis_Examen.getValueAt(filaselec, 2).toString());
-                        frm_LAB_ESQUEMA_RESULTADO.txtUnidadOrganica.setText(ce.LAB_Clasificacion_Examen_buscar(tb_Analisis_Examen.getValueAt(filaselec, 4).toString()));
-                        frm_LAB_ESQUEMA_RESULTADO.txtClasificacion.setText(tb_Analisis_Examen.getValueAt(filaselec, 4).toString());
+                        frm_LAB_ESQUEMA_RESULTADO.txtUnidadOrganica.setText(ce.LAB_Clasificacion_Examen_buscar(tb_Analisis_Examen.getValueAt(filaselec, 5).toString()));
+                        frm_LAB_ESQUEMA_RESULTADO.txtClasificacion.setText(tb_Analisis_Examen.getValueAt(filaselec, 5).toString());
                         frm_LAB_ESQUEMA_RESULTADO.txtCodAnalisis.setText(tb_Analisis_Examen.getValueAt(filaselec, 1).toString());
-                        frm_LAB_ESQUEMA_RESULTADO.txtAnalisis.setText(tb_Analisis_Examen.getValueAt(filaselec, 7).toString());
-                        frm_LAB_ESQUEMA_RESULTADO.txtAbreviatura.setText(tb_Analisis_Examen.getValueAt(filaselec, 8).toString());
+                        frm_LAB_ESQUEMA_RESULTADO.txtAnalisis.setText(tb_Analisis_Examen.getValueAt(filaselec, 8).toString());
+                        frm_LAB_ESQUEMA_RESULTADO.txtAbreviatura.setText(tb_Analisis_Examen.getValueAt(filaselec, 9).toString());
                          String consulta="";
             frm_LAB_ESQUEMA_RESULTADO.tb_Esquema.setModel(new DefaultTableModel());
             String titulos[]={"cod esquema","Nombre de Resultado","Resultado por Defecto" ,

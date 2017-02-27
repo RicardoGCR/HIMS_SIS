@@ -961,7 +961,7 @@ DefaultTableModel m, m1,m2 ;
        tb_diagnosticos.getColumnModel().getColumn(1).setPreferredWidth(80);
        tb_diagnosticos.getColumnModel().getColumn(2).setPreferredWidth(600);
     }
-    
+    /*
     public void mostrarCabecerayDetalle(){
         try {
             int filaselec=tb_diagnosticos.getSelectedRow();
@@ -994,7 +994,7 @@ DefaultTableModel m, m1,m2 ;
             System.out.println("Error: " + e.getMessage());
         }
         //tabSolicitud.setSelectedIndex(0);
-    }
+    }*/
     
     
     public boolean repiteDetalleDiagnostico(){
@@ -1121,7 +1121,7 @@ DefaultTableModel m, m1,m2 ;
     }//GEN-LAST:event_txtActividadDXCaretUpdate
 
     private void btn_DX_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DX_AgregarActionPerformed
-        cargarDiagnosticoTB();
+        //cargarDiagnosticoTB();
     }//GEN-LAST:event_btn_DX_AgregarActionPerformed
 
     public static String fechaActual(){

@@ -89,10 +89,10 @@ Conexion c=new Conexion();
     }
 public void LAB_Clasificacion_Examen_cargar(){
     try {
-             String titulos[]={"Nº","Código","Nombre","Cogd_uni_or","NomUni","Observacion"};
+             String titulos[]={"Nº","Código","Nombre","Cogd_uni_or","Servicio","NomUni","Observacion"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[6];
+            String fila[]=new String[7];
 
             Conexion obj=new Conexion();
         String consulta="exec sp_LAB_CLASIFICACION_EXAMEN_listar";
@@ -106,6 +106,7 @@ public void LAB_Clasificacion_Examen_cargar(){
             fila[3]=r.getString(3);
             fila[4]=r.getString(4);
             fila[5]=r.getString(5);
+            fila[6]=r.getString(6);
                 m.addRow(fila);
                 c++;
             }
@@ -122,14 +123,14 @@ public void LAB_Clasificacion_Examen_cargar(){
     tb_Clasificacion_Examen.getColumnModel().getColumn(1).setPreferredWidth(100);
     tb_Clasificacion_Examen.getColumnModel().getColumn(2).setPreferredWidth(170);
     tb_Clasificacion_Examen.getColumnModel().getColumn(3).setPreferredWidth(150);
-    tb_Clasificacion_Examen.getColumnModel().getColumn(4).setPreferredWidth(250);
-    tb_Clasificacion_Examen.getColumnModel().getColumn(5).setPreferredWidth(250);
+    tb_Clasificacion_Examen.getColumnModel().getColumn(4).setPreferredWidth(150);
+    tb_Clasificacion_Examen.getColumnModel().getColumn(6).setPreferredWidth(220);
     
             //Ocultar    
     tb_Clasificacion_Examen.getColumnModel().getColumn(3).setMinWidth(0);
     tb_Clasificacion_Examen.getColumnModel().getColumn(3).setMaxWidth(0);
-    tb_Clasificacion_Examen.getColumnModel().getColumn(4).setMinWidth(0);
-    tb_Clasificacion_Examen.getColumnModel().getColumn(4).setMaxWidth(0);
+    tb_Clasificacion_Examen.getColumnModel().getColumn(5).setMinWidth(0);
+    tb_Clasificacion_Examen.getColumnModel().getColumn(5).setMaxWidth(0);
     tb_Clasificacion_Examen.getSelectionModel().setSelectionInterval(0, 0);
             tb_Clasificacion_Examen.requestFocus();
 }
@@ -261,10 +262,10 @@ public void LAB_Clasificacion_Examen_cargar(){
 String consulta="";
         try {
             tb_Clasificacion_Examen.setModel(new DefaultTableModel());
-            String titulos[]={"Nº","Código","Nombre","Cod_uni_org","UniOrg","Observacion"};
+            String titulos[]={"Nº","Código","Nombre","Cod_uni_org","Servicio","UniOrg","Observacion"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[6];
+            String fila[]=new String[7];
 
             LAB_Clasificacion_Examen obj=new LAB_Clasificacion_Examen();
                     consulta="exec sp_LAB_CLASIFICACION_EXAMEN_buscar ?";
@@ -280,6 +281,7 @@ String consulta="";
                 fila[3]=r.getString(3);
                 fila[4]=r.getString(4);
                 fila[5]=r.getString(5);
+                fila[6]=r.getString(6);
                 m.addRow(fila);
                 c++;
             }
@@ -310,7 +312,8 @@ String consulta="";
                          frm_LAB_CLASIFICACION_EXAMEN.txtCodigo.setText(tb_Clasificacion_Examen.getValueAt(filaselec, 1).toString());
                          frm_LAB_CLASIFICACION_EXAMEN.txtClasificacion.setText(tb_Clasificacion_Examen.getValueAt(filaselec, 2).toString());
                         frm_LAB_CLASIFICACION_EXAMEN.txtCodUni.setText(tb_Clasificacion_Examen.getValueAt(filaselec, 3).toString());
-                         frm_LAB_CLASIFICACION_EXAMEN.txtObservacion.setText(tb_Clasificacion_Examen.getValueAt(filaselec, 5).toString());
+                         frm_LAB_CLASIFICACION_EXAMEN.txtObservacion.setText(tb_Clasificacion_Examen.getValueAt(filaselec, 6).toString());
+                        frm_LAB_CLASIFICACION_EXAMEN.txtServicio.setText(tb_Clasificacion_Examen.getValueAt(filaselec, 4).toString());
 
                          frm_LAB_CLASIFICACION_EXAMEN.txtCodigo.setEnabled(false);
                          frm_LAB_CLASIFICACION_EXAMEN.btnBuscarUnidad.setEnabled(false);

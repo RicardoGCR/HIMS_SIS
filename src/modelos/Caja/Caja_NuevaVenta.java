@@ -94,6 +94,21 @@ public String id(){//muestra el codigo
         return id;
     }
 
+public String idanu(){//muestra el codigo
+        String id = "";
+        try {
+            String consulta = "exec Caja_Motiv_Anu_Id";
+            ResultSet r;
+            r=con.Listar(consulta);
+        if(r.next()){
+               id = r.getString(1);
+        }
+        }catch(Exception ex){
+            System.out.println("Error " + ex.getMessage());
+        }
+        return id;
+    }
+
 public String sinanulacion(){//muestra el codigo
         String id = "";
         try {
@@ -132,6 +147,28 @@ public String codTipo(String tipo)
         return cod;
     }
 
+public String anular(String tipo)
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT cod_motiv_anu \n" +
+                        "FROM CAJA_MOTIVO_ANULACION\n" +
+                        "WHERE descripcion_anulacion = ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, tipo);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_codDistrito: " + ex.getMessage());
+        }
+        return cod;
+    }
 
 public boolean modificar(){
         boolean resp = false;

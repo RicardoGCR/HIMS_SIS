@@ -10,12 +10,17 @@ import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import modelos.Usuario;
 import servicios.Conexion;
 
 /**
@@ -30,7 +35,7 @@ Calendar calendario;
 Thread h1;
 ResultSet r;
 CallableStatement cst;
-DefaultTableModel m ;
+DefaultTableModel m, m1,m2 ;
     /**
      * Creates new form SIS_DX_MEDICAMENTO_INSUMO
      */
@@ -957,38 +962,38 @@ DefaultTableModel m ;
        tb_diagnosticos.getColumnModel().getColumn(2).setPreferredWidth(600);
     }
     
-    public void cargarDiagnosticoTB(){
-        
+    public void mostrarCabecerayDetalle(){
         try {
-
-        String nro_dx,codigo_dx,descrip,ingres,tipo;
-
-            nro_dx=txt_NRO_DX.getText();
-            codigo_dx=txtActividadDX.getText();
-            descrip=txtDescripcionDX.getText();
-            ingres=this.cbx_INGRESO_EGRESO.getSelectedItem().toString();
-            tipo=this.cbx_TIPO_DIAGNOSTICO.getSelectedItem().toString();
-           
-          if(tb_DX.getRowCount()==0){          
-              m=(DefaultTableModel) tb_DX.getModel();
-            String filaelemento[]={nro_dx,codigo_dx,descrip,ingres,tipo};
-               m.addRow(filaelemento);
-               
-          }
-          else{
-           if(repiteDetalleDiagnostico()==true){
-               JOptionPane.showMessageDialog(rootPane,"El dx ya ha sido ingresado.");   
-          }
-           else{
-              m=(DefaultTableModel) tb_DX.getModel();
-           String filaelemento[]={nro_dx,codigo_dx,descrip,ingres,tipo};
-               m.addRow(filaelemento); 
-               
-           }
-          }
-           } catch (Exception e) {
-              //JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            int filaselec=tb_diagnosticos.getSelectedRow();
+            //Diagnostico
+            String consulta="";
+            tb_MEDICAMENTOS.setModel(new DefaultTableModel());
+            String titulos[]={"ID_CIE10","COD_ENF","DESCRIPCION"};
+            m1=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m1);
+            String fila[]=new String[3];
+            Usuario obj=new Usuario();
+            consulta="exec SALA_OPERACION_SOLICITUD_DETALLE_BUSCAR ?";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1, tb_diagnosticos.getValueAt(filaselec, 0).toString());
+            ResultSet r= cmd.executeQuery();
+            while(r.next()){
+            for (int i=0; i<3; i++){
+           fila[i]=r.getString(i+1);
+       }
+                m1.addRow(fila);
+            }
+            tb_MEDICAMENTOS.setModel(m1);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m1);
+            tb_MEDICAMENTOS.setRowSorter(elQueOrdena);
+            tb_MEDICAMENTOS.setModel(m1);
+            
+         
+             
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
         }
+        //tabSolicitud.setSelectedIndex(0);
     }
     
     

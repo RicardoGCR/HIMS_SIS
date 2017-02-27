@@ -41,12 +41,12 @@ public class Caja_Preventa {
     private String OBSERVACION;
     private int ACTO_MEDICO;
     private int HKD_ID;
-    private String cod_nomen_caja;
     private String EMER_FORMA_LLEGADA_ID;
     private String EMER_TRAIDOPOR;
     private String EMER_PARENTESCO;
     private String EMER_OBSERVACION;
     private String ESTADO_CAJAP;
+    private String cod_nomen;
     Conexion con = new Conexion();
 
     public boolean mantanimientoCajaPreventaEmergencia(String tipo)
@@ -54,7 +54,7 @@ public class Caja_Preventa {
         boolean resp = false;
         try{
             String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_EMERGENCIA "
-                        + "?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId_preventa());
             cmd.setString(2, getId_hc());
@@ -64,6 +64,7 @@ public class Caja_Preventa {
             cmd.setString(6, getEMER_FORMA_LLEGADA_ID());
             cmd.setString(7, getCod_usu());
             cmd.setString(8, tipo);
+            cmd.setString(9, getCod_nomen());
             if(!cmd.execute())
             {
                 resp = true;
@@ -501,21 +502,7 @@ public class Caja_Preventa {
     public void setHKD_ID(int HKD_ID) {
         this.HKD_ID = HKD_ID;
     }
-
-    /**
-     * @return the cod_nomen_caja
-     */
-    public String getCod_nomen_caja() {
-        return cod_nomen_caja;
-    }
-
-    /**
-     * @param cod_nomen_caja the cod_nomen_caja to set
-     */
-    public void setCod_nomen_caja(String cod_nomen_caja) {
-        this.cod_nomen_caja = cod_nomen_caja;
-    }
-
+    
     /**
      * @return the EMER_FORMA_LLEGADA_ID
      */
@@ -584,5 +571,19 @@ public class Caja_Preventa {
      */
     public void setESTADO_CAJAP(String ESTADO_CAJAP) {
         this.ESTADO_CAJAP = ESTADO_CAJAP;
+    }
+
+    /**
+     * @return the cod_nomen
+     */
+    public String getCod_nomen() {
+        return cod_nomen;
+    }
+
+    /**
+     * @param cod_nomen the cod_nomen to set
+     */
+    public void setCod_nomen(String cod_nomen) {
+        this.cod_nomen = cod_nomen;
     }
 }

@@ -66,7 +66,7 @@ DefaultTableModel m,n,muestra;
         btnmodificar.setEnabled(false);
         btneliminar.setEnabled(false);
         txtCodClasificacion.setVisible(false);
-        txtCodNomen.setVisible(false);
+//        txtCodNomen.setVisible(false);
         setLocationRelativeTo(null);//en el centro
         setResizable(false);//para que no funcione el boton maximizar
         buscar_clasificacion.setResizable(false);
@@ -281,9 +281,9 @@ String filas[]=new String[6];
     }
     
     public void LAB_Muestra_formato(){
-    tb_Muestra_Examen.getColumnModel().getColumn(0).setPreferredWidth(30);
-    tb_Muestra_Examen.getColumnModel().getColumn(1).setPreferredWidth(70);
-    tb_Muestra_Examen.getColumnModel().getColumn(2).setPreferredWidth(70);
+    tb_Muestra_Examen.getColumnModel().getColumn(0).setPreferredWidth(60);
+    tb_Muestra_Examen.getColumnModel().getColumn(1).setPreferredWidth(100);
+    tb_Muestra_Examen.getColumnModel().getColumn(2).setPreferredWidth(220);
     tb_Muestra_Examen.getColumnModel().getColumn(3).setMinWidth(0);
     tb_Muestra_Examen.getColumnModel().getColumn(3).setMaxWidth(0);
       tb_Muestra_Examen.getSelectionModel().setSelectionInterval(0, 0);
@@ -602,6 +602,7 @@ public void calcula() {
                                     "Title 1", "Title 2", "Title 3", "Title 4"
                                 }
                             ));
+                            tb_Muestra_Examen.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                             tb_Muestra_Examen.setRowHeight(25);
                             tb_Muestra_Examen.addMouseListener(new java.awt.event.MouseAdapter() {
                                 public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1465,6 +1466,12 @@ public void calcula() {
                 txtClasificacion.setText(tb_Clasificacion.getValueAt(filaselec, 2).toString());
                 lblArea.setText(tb_Clasificacion.getValueAt(filaselec, 3).toString());
                 btnBuscarCPT.setEnabled(true);
+                 txtCodigoCPT.setText("");
+            txtCodNomen.setText("");
+            txtNomen.setText("");
+            txtTiempoHora.setText("");
+            txtTiempoMin.setText("");
+            txtNombreExamen.setText("");
             }
             catch(Exception ex)
             {

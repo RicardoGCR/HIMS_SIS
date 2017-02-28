@@ -337,6 +337,8 @@ public void calcula() {
                     txtSexo = new javax.swing.JTextField();
                     jLabel24 = new javax.swing.JLabel();
                     txtEdad = new javax.swing.JTextField();
+                    jLabel19 = new javax.swing.JLabel();
+                    txtActoMedico = new javax.swing.JTextField();
                     lblHc = new javax.swing.JLabel();
                     btnQuitar = new javax.swing.JButton();
                     lblDocumento = new javax.swing.JLabel();
@@ -344,7 +346,6 @@ public void calcula() {
                     lblCantidad1 = new javax.swing.JLabel();
                     lblHc2 = new javax.swing.JLabel();
                     lblCantidad2 = new javax.swing.JLabel();
-                    lblContador = new javax.swing.JLabel();
                     lblCodPerToma = new javax.swing.JLabel();
                     lblCodPerRegistra = new javax.swing.JLabel();
                     lblServicio = new javax.swing.JLabel();
@@ -666,7 +667,7 @@ public void calcula() {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addGap(910, 910, 910)
                             .addComponent(jLabel10)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                             .addComponent(jLabel3)
                             .addGap(8, 8, 8))
                     );
@@ -894,36 +895,47 @@ public void calcula() {
                     txtEdad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                     txtEdad.setEnabled(false);
 
+                    jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                    jLabel19.setText("Acto Médico");
+
+                    txtActoMedico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+                    txtActoMedico.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                    txtActoMedico.setEnabled(false);
+
                     javax.swing.GroupLayout panelPacienteLayout = new javax.swing.GroupLayout(panelPaciente);
                     panelPaciente.setLayout(panelPacienteLayout);
                     panelPacienteLayout.setHorizontalGroup(
                         panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelPacienteLayout.createSequentialGroup()
-                            .addGap(22, 22, 22)
+                            .addGap(13, 13, 13)
                             .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtHc, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(33, 33, 33)
+                            .addGap(18, 18, 18)
                             .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                                 .addComponent(txtDni))
-                            .addGap(33, 33, 33)
+                            .addGap(21, 21, 21)
                             .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(39, 39, 39)
+                            .addGap(36, 36, 36)
                             .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtFecha)
                                 .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))
-                            .addGap(39, 39, 39)
+                            .addGap(36, 36, 36)
                             .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtEdad)
                                 .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
-                            .addGap(36, 36, 36)
+                            .addGap(30, 30, 30)
                             .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtSexo)
                                 .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(18, 18, 18)
+                            .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtActoMedico))
+                            .addGap(13, 13, 13))
                     );
                     panelPacienteLayout.setVerticalGroup(
                         panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -935,7 +947,8 @@ public void calcula() {
                                 .addComponent(jLabel23)
                                 .addComponent(jLabel17)
                                 .addComponent(jLabel18)
-                                .addComponent(jLabel24))
+                                .addComponent(jLabel24)
+                                .addComponent(jLabel19))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -943,7 +956,8 @@ public void calcula() {
                                 .addComponent(txtHc, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
@@ -1002,8 +1016,6 @@ public void calcula() {
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
-                    lblContador.setText("0");
-
                     lblServicio.setText("Servicio");
 
                     lblArea.setText("area");
@@ -1058,18 +1070,15 @@ public void calcula() {
                                     .addComponent(lblDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(29, 29, 29)
                                     .addComponent(lblHc)
-                                    .addGap(43, 43, 43)
-                                    .addComponent(lblContador)
-                                    .addGap(53, 53, 53))))
+                                    .addGap(102, 102, 102))))
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 872, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(btnQuitar, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAgregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnQuitar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(21, 21, 21))
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
@@ -1086,7 +1095,6 @@ public void calcula() {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblHc)
                                 .addComponent(lblDocumento)
-                                .addComponent(lblContador)
                                 .addComponent(lblCodPerToma, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblCodPerRegistra, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblServicio)
@@ -1161,15 +1169,25 @@ public void calcula() {
                     "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                 if(eliminar == 0 ){
                    
-                    
+                    int remov[]=new int[6];
+                    int c=0;
                     //quitar el subdetalle
                     for (int i=0;i<tb_Subdetalle.getRowCount(); i++){
                         if(tb_Subdetalle.getValueAt(i, 0).toString().equalsIgnoreCase(tb_Detalle.getValueAt(filaselec, 3).toString())){
-                        DefaultTableModel modelosub = (DefaultTableModel)tb_Subdetalle.getModel();
-                        modelosub.removeRow(i);
+                        remov[c]=i;
+                        c++;
 			}
-                        
                     }
+                    DefaultTableModel modelosub = (DefaultTableModel)tb_Subdetalle.getModel();
+                    for (int j=0;j<c; j++){
+                        int i=j;
+                        if(i==0){
+                        modelosub.removeRow(remov[j]);
+                        }else{
+                         modelosub.removeRow(remov[j]-j);   
+                        }
+                    }
+                    
                     //quitar el detalle
                      DefaultTableModel modelo = (DefaultTableModel)tb_Detalle.getModel();
                     modelo.removeRow(filaselec);
@@ -1188,30 +1206,14 @@ public void calcula() {
                 JOptionPane.showMessageDialog(this, "Seleccione el Registro a Eliminar");
             }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(this, "Selecione el Registro a eliminar");
+            JOptionPane.showMessageDialog(this, "Seleccione el Registro a eliminar");
         }
     }//GEN-LAST:event_btnQuitarActionPerformed
 public void quitar_subdetalle(){
     
 }
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
-
-        if(lblContador.getText().equalsIgnoreCase("0")){
-            tb_Detalle.setEnabled(true);
-        jPanel2.setEnabled(true);
-        btnAgregar.setEnabled(true);
-        btnQuitar.setEnabled(true);
-        
-//       Lab_guardar_cabecera();
-        
-        }
-        else{
-            
-        }
-    }//GEN-LAST:event_btnGenerarActionPerformed
-        
-    public void Lab_guardar_cabecera(){
-          ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
+ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
         try{
             if(lblCodPerToma.getText().equalsIgnoreCase("")||txtPersonalTomaMuestra.getText().equalsIgnoreCase("")){
               JOptionPane.showMessageDialog(rootPane, "Seleccione un Personal para la Toma de Muestra");
@@ -1222,7 +1224,7 @@ public void quitar_subdetalle(){
          else{
               int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
                       "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
-              if(guardar == 0 ){
+              if(guardar ==0){
                   LAB_Toma_Muestra_Cabecera meGuardar = new LAB_Toma_Muestra_Cabecera();
                   meGuardar.setCod_cab_toma_mu_exa(txtCodigo.getText());
                   meGuardar.setId_documento(lblDocumento.getText());
@@ -1234,12 +1236,14 @@ public void quitar_subdetalle(){
                   meGuardar.setNom_usu(lblUsu.getText());
   
                   if(meGuardar.LAB_Toma_Muestra_Cab_guardar()){
+                      Lab_guardar_detalle();
+                      Lab_guardar_subdetalle();
+                      LAB_Toma_Muestra_Cabecera mc=new LAB_Toma_Muestra_Cabecera();
+                      mc.LAB_Toma_Muestra_Caja_Estado(lblDocumento.getText());
+                      
                     JOptionPane.showMessageDialog(null, "Datos Guardados");
                     limpiar();
                     enableDatos();
-                    lblContador.setText("1");
-                    txtPersonalTomaMuestra.setEnabled(false);
-                    txtPersonalRegistraToma.setEnabled(false);
                   }
                   else{
                     JOptionPane.showMessageDialog(this, "El Registro ya ha sido ingresado\nIntente nuevamente");
@@ -1248,6 +1252,13 @@ public void quitar_subdetalle(){
               JOptionPane.showMessageDialog(this, "Ingrese todos los campos");
               
           }
+    }//GEN-LAST:event_btnGenerarActionPerformed
+        
+    public void Lab_guardar_detalle(){
+          
+    }
+    public void Lab_guardar_subdetalle(){
+          
     }
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
@@ -1418,18 +1429,40 @@ public void quitar_subdetalle(){
 
                 frm_LAB_TOMA_MUESTRA_DETALLE.txtServicio.setText(tb_Nomenclatura.getValueAt(filaselec, 5).toString());
                 
+                //codigo analisis examen
                 LAB_Toma_Muestra_Detalle md=new LAB_Toma_Muestra_Detalle();
                 String cod_exa="";
                  cod_exa=md.LAB_Toma_Muestra_Det_exa(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),tb_Nomenclatura.getValueAt(filaselec, 8).toString(),"1");
                 frm_LAB_TOMA_MUESTRA_DETALLE.lblExa.setText(cod_exa);
                 
+                //cantidad
                 LAB_Toma_Muestra_Detalle md1=new LAB_Toma_Muestra_Detalle();
                 String cantidad=md1.LAB_Toma_Muestra_Det_exa(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),tb_Nomenclatura.getValueAt(filaselec, 8).toString(),"3");
                 frm_LAB_TOMA_MUESTRA_DETALLE.lblCantidadMues.setText(cantidad);
                 frm_LAB_TOMA_MUESTRA_DETALLE.lblContador.setText(cantidad);
-                
+                //CARGAR LAS MUESTRAS
                 Muestras_cargar(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),tb_Nomenclatura.getValueAt(filaselec, 8).toString());
                  
+                //HOSPITALIZACION
+                LAB_Toma_Muestra_Detalle hosp=new LAB_Toma_Muestra_Detalle();
+                if(hosp.LAB_Toma_Muestra_Hospitalizacion_ver(lblHc.getText())>0){
+                    LAB_Toma_Muestra_Detalle idpreventa=new LAB_Toma_Muestra_Detalle();
+                     LAB_Toma_Muestra_Detalle habit=new LAB_Toma_Muestra_Detalle();
+                     LAB_Toma_Muestra_Detalle cama=new LAB_Toma_Muestra_Detalle();
+                     
+                    frm_LAB_TOMA_MUESTRA_DETALLE.chHospit.setSelected(true);
+                    frm_LAB_TOMA_MUESTRA_DETALLE.lbid_preventa.setText(idpreventa.LAB_Toma_Muestra_Hospi_idPreventa(lblHc.getText()));
+                    frm_LAB_TOMA_MUESTRA_DETALLE.txtHabitacion.setText(habit.LAB_Toma_Muestra_Hospi_habitacion(lblHc.getText()));
+                    frm_LAB_TOMA_MUESTRA_DETALLE.txtCama.setText(cama.LAB_Toma_Muestra_Hospi_cama(lblHc.getText()));
+                    
+                }else{
+                    frm_LAB_TOMA_MUESTRA_DETALLE.chHospit.setSelected(false);
+                    frm_LAB_TOMA_MUESTRA_DETALLE.lbid_preventa.setText("");
+                    frm_LAB_TOMA_MUESTRA_DETALLE.txtHabitacion.setText("");
+                    frm_LAB_TOMA_MUESTRA_DETALLE.txtCama.setText("");
+                }
+                
+                
                 String u=lblUsu.getText();
                 frm_LAB_TOMA_MUESTRA_DETALLE.lblUsu.setText(u);
             }catch(Exception e){
@@ -1505,7 +1538,20 @@ public void Muestras_cargar(String nomen,String area){
         if(txtNum.getText().equalsIgnoreCase("")){
         txtNum.setText("000000000001");
         }   
+        
         lblNum_toma_mu_exa.setText(txtNum.getText());
+        lblCodPerToma.setText("");
+        txtPersonalTomaMuestra.setText("");
+        lblCodPerRegistra.setText("");
+        txtPersonalRegistraToma.setText("");
+         DefaultTableModel modelo = (DefaultTableModel)tb_Detalle.getModel(); 
+   for(int i=0;i<tb_Detalle.getRowCount();i++){
+                    modelo.removeRow(0);
+   }          
+        DefaultTableModel modelo1 = (DefaultTableModel)tb_Subdetalle.getModel(); 
+        for(int j=0;j<tb_Subdetalle.getRowCount();j++){
+                    modelo.removeRow(0);
+   }
 }
    
   
@@ -1695,6 +1741,7 @@ public void Muestras_cargar(String nomen,String area){
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -1723,7 +1770,6 @@ public void Muestras_cargar(String nomen,String area){
     public static javax.swing.JLabel lblCantidad2;
     private javax.swing.JLabel lblCodPerRegistra;
     private javax.swing.JLabel lblCodPerToma;
-    private javax.swing.JLabel lblContador;
     public static javax.swing.JLabel lblDocumento;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFecha1;
@@ -1747,6 +1793,7 @@ public void Muestras_cargar(String nomen,String area){
     private javax.swing.JLabel titulo5;
     private javax.swing.JLabel titulo6;
     private javax.swing.JLabel titulo7;
+    public static javax.swing.JTextField txtActoMedico;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtCodigo;
     public static javax.swing.JTextField txtDni;

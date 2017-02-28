@@ -16,6 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DecimalFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
@@ -319,12 +320,12 @@ public void calcula() {
                     spHora = new javax.swing.JSpinner();
                     spMin = new javax.swing.JSpinner();
                     jLabel12 = new javax.swing.JLabel();
-                    jCheckBox1 = new javax.swing.JCheckBox();
+                    chHospit = new javax.swing.JCheckBox();
                     jLabel4 = new javax.swing.JLabel();
                     jLabel5 = new javax.swing.JLabel();
                     txtHabitacion = new javax.swing.JTextField();
                     txtCama = new javax.swing.JTextField();
-                    lblcod_asig_cama_pac = new javax.swing.JLabel();
+                    lbid_preventa = new javax.swing.JLabel();
                     panelPaciente = new javax.swing.JPanel();
                     jLabel23 = new javax.swing.JLabel();
                     txtCodigoCPT = new javax.swing.JTextField();
@@ -896,19 +897,22 @@ public void calcula() {
                             jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                             jLabel12.setText("min");
 
-                            jCheckBox1.setSelected(true);
-                            jCheckBox1.setText("Hospitalizado");
-                            jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+                            chHospit.setText("Hospitalizado");
+                            chHospit.setEnabled(false);
+                            chHospit.addActionListener(new java.awt.event.ActionListener() {
                                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                    jCheckBox1ActionPerformed(evt);
+                                    chHospitActionPerformed(evt);
                                 }
                             });
 
+                            jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel4.setText("Habitación");
 
+                            jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel5.setText("Cama");
 
                             txtHabitacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                            txtHabitacion.setEnabled(false);
                             txtHabitacion.addActionListener(new java.awt.event.ActionListener() {
                                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                                     txtHabitacionActionPerformed(evt);
@@ -916,13 +920,14 @@ public void calcula() {
                             });
 
                             txtCama.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                            txtCama.setEnabled(false);
                             txtCama.addActionListener(new java.awt.event.ActionListener() {
                                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                                     txtCamaActionPerformed(evt);
                                 }
                             });
 
-                            lblcod_asig_cama_pac.setText("jLabel20");
+                            lbid_preventa.setText("jLabel20");
 
                             javax.swing.GroupLayout panelCabeceraLayout = new javax.swing.GroupLayout(panelCabecera);
                             panelCabecera.setLayout(panelCabeceraLayout);
@@ -948,31 +953,28 @@ public void calcula() {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jLabel12))
                                         .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGap(58, 58, 58)
-                                    .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCabeceraLayout.createSequentialGroup()
-                                            .addComponent(jLabel4)
-                                            .addGap(32, 32, 32))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCabeceraLayout.createSequentialGroup()
-                                            .addComponent(txtHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(24, 24, 24)))
-                                    .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtCama, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel5))
+                                    .addGap(31, 31, 31)
+                                    .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtHabitacion)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE))
+                                    .addGap(24, 24, 24)
+                                    .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtCama)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCabeceraLayout.createSequentialGroup()
                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblcod_asig_cama_pac)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(27, 27, 27))
+                                    .addComponent(lbid_preventa)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(chHospit, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(45, 45, 45))
                             );
                             panelCabeceraLayout.setVerticalGroup(
                                 panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panelCabeceraLayout.createSequentialGroup()
                                     .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblcod_asig_cama_pac))
+                                        .addComponent(chHospit, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbid_preventa))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(panelCabeceraLayout.createSequentialGroup()
@@ -1576,9 +1578,9 @@ public void calcula() {
         // TODO add your handling code here:
     }//GEN-LAST:event_spMinPropertyChange
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void chHospitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chHospitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_chHospitActionPerformed
 
     private void tb_MuestrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_MuestrasMouseClicked
  tb_Muestras.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1634,8 +1636,39 @@ public void calcula() {
             area=txtArea.getText();
             cantidad=txtCantidadRegis.getText();
             String cod_ba=lblDni.getText();
+            
+            //NUMERO DE DIAS
+            int sDias=0;
+            Calendar fecha = new GregorianCalendar();
+            int dia=fecha.get(Calendar.DAY_OF_MONTH);
+            int mes=fecha.get(Calendar.MONTH)+1;
+            int anio=fecha.get(Calendar.YEAR);
+           
+            if(mes>1){
+            for(int i=1;i<mes;i++)    {
+            switch (i){
+                case 1:case 3:case 5:case 7:case 8:case 10:case 12: 
+                sDias = sDias+ 31;
+                break;
+                case 2:	
+                    if(anio %4==0){
+                        sDias = sDias+ 29;
+                    }else{
+                        sDias = sDias+ 28;
+                    }
+                break;			
+                case 4:case 6:case 9:case 11:			
+                sDias = sDias+ 30;
+                break;
+                default:
+                sDias = 0;
+            }}}
+            int ndias=sDias+dia;
+            DecimalFormat df = new DecimalFormat("000");
             //dni invertido + muestra + examen
-            cod_barras=cod_ba.substring(0, 2)+cod_ba.substring(6, 8)+cod_ba.substring(2, 6)+lblCodMuestra.getText().substring(2, 5)
+            cod_barras=cod_ba.substring(0, 2)+cod_ba.substring(6, 8)+cod_ba.substring(2, 6)+
+                    df.format(ndias)
+                    +lblCodMuestra.getText().substring(2, 5)
                     +lblCodNomen.getText().substring(2,7);
            
           if(tb_MuestrasRegis.getRowCount()==0){
@@ -1948,7 +1981,7 @@ char tecla= evt.getKeyChar();
             servicio=txtServicio.getText();
             cod_per_solicita=lblCodPerSolicita.getText();
             nom_per_solicita=txtPersonalSolicita.getText();
-                DecimalFormat df = new DecimalFormat("00");
+            DecimalFormat df = new DecimalFormat("00");
                 
         int dia,mes,anio;
         dia = date.getCalendar().get(Calendar.DAY_OF_MONTH);
@@ -1960,7 +1993,7 @@ char tecla= evt.getKeyChar();
             fecha_probable_entre=fecha;
             hora_probable_entre=df.format(spHora.getValue())+":"+df.format(spMin.getValue())+":00";
             
-            cod_asig_cama_pac=lblcod_asig_cama_pac.getText();
+            cod_asig_cama_pac=lbid_preventa.getText();
             habitacion_hospi=txtHabitacion.getText();
             cama_hospi=txtCama.getText();
             
@@ -2366,10 +2399,10 @@ char tecla= evt.getKeyChar();
     private javax.swing.JButton btnBuscar2;
     private javax.swing.JButton btnQuitar;
     private javax.swing.JComboBox cbxBuscar2;
+    public static javax.swing.JCheckBox chHospit;
     private javax.swing.JDialog contenedor;
     private com.toedter.calendar.JDateChooser date;
     private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -2387,8 +2420,8 @@ char tecla= evt.getKeyChar();
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    public static javax.swing.JLabel jLabel4;
+    public static javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2404,6 +2437,7 @@ char tecla= evt.getKeyChar();
     private javax.swing.JPanel jpanel1;
     private javax.swing.JPanel jpanel2;
     private javax.swing.JPanel jpanel3;
+    public static javax.swing.JLabel lbid_preventa;
     private javax.swing.JLabel lblArId;
     public static javax.swing.JLabel lblCantidadMues;
     public static javax.swing.JLabel lblCantidadMues1;
@@ -2423,7 +2457,6 @@ char tecla= evt.getKeyChar();
     private javax.swing.JTextField lblMuestra;
     public static javax.swing.JLabel lblServicio;
     public static javax.swing.JLabel lblUsu;
-    private javax.swing.JLabel lblcod_asig_cama_pac;
     private javax.swing.JLabel lblf;
     private javax.swing.JDialog muestras;
     private javax.swing.JPanel panelCabecera;
@@ -2445,11 +2478,11 @@ char tecla= evt.getKeyChar();
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtBuscar1;
     private javax.swing.JTextField txtBuscarUni;
-    private javax.swing.JTextField txtCama;
+    public static javax.swing.JTextField txtCama;
     private javax.swing.JTextField txtCantidadRegis;
     public static javax.swing.JTextField txtCodigoCPT;
     private javax.swing.JTextField txtContenedor;
-    private javax.swing.JTextField txtHabitacion;
+    public static javax.swing.JTextField txtHabitacion;
     public static javax.swing.JTextField txtNomenclatura;
     private javax.swing.JTextField txtPersonalSolicita;
     public static javax.swing.JTextField txtServicio;

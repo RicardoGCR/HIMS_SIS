@@ -82,6 +82,99 @@ public class LAB_Toma_Muestra_Detalle {
         return cod_exa;
     }
 
+    
+    
+     public int LAB_Toma_Muestra_Hospitalizacion_ver(String idhc){
+        int resultado=0;
+        try
+        {
+            String sql = "sp_TOMA_MUESTRA_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resultado;
+    }
+    
+ 
+    public String LAB_Toma_Muestra_Hospi_idPreventa(String idhc)
+    {
+        String cod="";
+        try
+        {
+            String sql = "sp_TOMA_MUESTRA_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return cod;
+    }
+    public String LAB_Toma_Muestra_Hospi_habitacion(String idhc)
+    {
+        String cod="";
+        try
+        {
+            String sql = "sp_TOMA_MUESTRA_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(2);
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public String LAB_Toma_Muestra_Hospi_cama(String idhc)
+    {
+        String cod="";
+        try
+        {
+            String sql = "sp_TOMA_MUESTRA_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(3);
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return cod;
+    }
     /**
      * @return the cn
      */

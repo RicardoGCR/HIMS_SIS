@@ -80,7 +80,16 @@ DefaultTableModel m,n,muestra;
    
         setLocationRelativeTo(null);//en el centro
       setResizable(false);//para que no funcione el boton maximizar
-       
+       //OCULTAR
+      lblServicio.setVisible(false);
+      lblCodNomen.setVisible(false);
+      lblExa.setVisible(false);
+      lblId_cod_doc_det.setVisible(false);
+      lblDni.setVisible(false);
+      lblid_preventa.setVisible(false);
+      lblCodMuestra.setVisible(false);
+      lblCodContenedor.setVisible(false);
+      lblArId.setVisible(false);
         
         //fecha
        Calendar cal=Calendar.getInstance(); 
@@ -320,12 +329,11 @@ public void calcula() {
                     spHora = new javax.swing.JSpinner();
                     spMin = new javax.swing.JSpinner();
                     jLabel12 = new javax.swing.JLabel();
-                    chHospit = new javax.swing.JCheckBox();
                     jLabel4 = new javax.swing.JLabel();
                     jLabel5 = new javax.swing.JLabel();
                     txtHabitacion = new javax.swing.JTextField();
                     txtCama = new javax.swing.JTextField();
-                    lbid_preventa = new javax.swing.JLabel();
+                    lblHospi = new javax.swing.JLabel();
                     panelPaciente = new javax.swing.JPanel();
                     jLabel23 = new javax.swing.JLabel();
                     txtCodigoCPT = new javax.swing.JTextField();
@@ -372,9 +380,10 @@ public void calcula() {
                             jLabel16 = new javax.swing.JLabel();
                             txtCantidadRegis = new javax.swing.JTextField();
                             lblMuestra = new javax.swing.JTextField();
-                            lblContador = new javax.swing.JLabel();
                             jButton2 = new javax.swing.JButton();
                             lblDni = new javax.swing.JLabel();
+                            lblid_preventa = new javax.swing.JLabel();
+                            jButton3 = new javax.swing.JButton();
 
                             muestras.setMinimumSize(new java.awt.Dimension(385, 213));
 
@@ -897,14 +906,6 @@ public void calcula() {
                             jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                             jLabel12.setText("min");
 
-                            chHospit.setText("Hospitalizado");
-                            chHospit.setEnabled(false);
-                            chHospit.addActionListener(new java.awt.event.ActionListener() {
-                                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                    chHospitActionPerformed(evt);
-                                }
-                            });
-
                             jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel4.setText("Habitación");
 
@@ -927,7 +928,8 @@ public void calcula() {
                                 }
                             });
 
-                            lbid_preventa.setText("jLabel20");
+                            lblHospi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                            lblHospi.setText("jLabel1");
 
                             javax.swing.GroupLayout panelCabeceraLayout = new javax.swing.GroupLayout(panelCabecera);
                             panelCabecera.setLayout(panelCabeceraLayout);
@@ -954,27 +956,23 @@ public void calcula() {
                                             .addComponent(jLabel12))
                                         .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGap(31, 31, 31)
-                                    .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtHabitacion)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE))
-                                    .addGap(24, 24, 24)
-                                    .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtCama)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCabeceraLayout.createSequentialGroup()
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbid_preventa)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(chHospit, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(45, 45, 45))
+                                    .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblHospi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(panelCabeceraLayout.createSequentialGroup()
+                                            .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(txtHabitacion)
+                                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE))
+                                            .addGap(24, 24, 24)
+                                            .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(txtCama)
+                                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
+                                            .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addContainerGap())
                             );
                             panelCabeceraLayout.setVerticalGroup(
                                 panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panelCabeceraLayout.createSequentialGroup()
-                                    .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(chHospit, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbid_preventa))
+                                    .addComponent(lblHospi)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(panelCabeceraLayout.createSequentialGroup()
@@ -1300,11 +1298,11 @@ public void calcula() {
                                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                         .addComponent(lblf, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                                                         .addComponent(lblFechaEmi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                    .addGap(24, 24, 24)
+                                                    .addGap(72, 72, 72)
                                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                         .addComponent(lblHoraEmitido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(lblH, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
-                                                    .addGap(81, 81, 81))
+                                                    .addGap(45, 45, 45))
                                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                                     .addGap(48, 48, 48)
                                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1365,8 +1363,6 @@ public void calcula() {
                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             );
 
-                            lblContador.setText("cont");
-
                             jButton2.setText("Aceptar");
                             jButton2.addActionListener(new java.awt.event.ActionListener() {
                                 public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1376,6 +1372,15 @@ public void calcula() {
 
                             lblDni.setText("dni");
 
+                            lblid_preventa.setText("preventa");
+
+                            jButton3.setText("Salir");
+                            jButton3.addActionListener(new java.awt.event.ActionListener() {
+                                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                    jButton3ActionPerformed(evt);
+                                }
+                            });
+
                             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                             getContentPane().setLayout(layout);
                             layout.setHorizontalGroup(
@@ -1384,16 +1389,11 @@ public void calcula() {
                                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGap(70, 70, 70))
                                 .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2)
-                                    .addGap(397, 397, 397))
                                 .addGroup(layout.createSequentialGroup()
                                     .addContainerGap()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(lblContador)
-                                            .addGap(13, 13, 13)
+                                            .addGap(34, 34, 34)
                                             .addComponent(lblServicio)
                                             .addGap(61, 61, 61)
                                             .addComponent(lblCodPerSolicita, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1405,6 +1405,8 @@ public void calcula() {
                                             .addComponent(lblId_cod_doc_det)
                                             .addGap(33, 33, 33)
                                             .addComponent(lblDni)
+                                            .addGap(88, 88, 88)
+                                            .addComponent(lblid_preventa)
                                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1412,6 +1414,12 @@ public void calcula() {
                                                 .addComponent(panelPaciente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(panelCabecera, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                             .addGap(16, 16, 16))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(326, 326, 326)
+                                    .addComponent(jButton2)
+                                    .addGap(35, 35, 35)
+                                    .addComponent(jButton3)
+                                    .addGap(0, 0, Short.MAX_VALUE))
                             );
                             layout.setVerticalGroup(
                                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1427,19 +1435,20 @@ public void calcula() {
                                                 .addComponent(lblCodNomen)
                                                 .addComponent(lblCodPerSolicita, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(lblExa)
-                                                .addComponent(lblDni)))
+                                                .addComponent(lblDni)
+                                                .addComponent(lblid_preventa)))
                                         .addGroup(layout.createSequentialGroup()
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(lblServicio)
-                                                .addComponent(lblContador))))
+                                            .addComponent(lblServicio)))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(panelCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(4, 4, 4)
                                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2)
-                                    .addGap(18, 18, 18)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButton2)
+                                        .addComponent(jButton3))
+                                    .addGap(3, 3, 3)
                                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             );
 
@@ -1577,10 +1586,6 @@ public void calcula() {
     private void spMinPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_spMinPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_spMinPropertyChange
-
-    private void chHospitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chHospitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chHospitActionPerformed
 
     private void tb_MuestrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_MuestrasMouseClicked
  tb_Muestras.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1962,6 +1967,10 @@ char tecla= evt.getKeyChar();
          dispose();
     }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
     
      public void cargar_detalle(){
          try {
@@ -1969,10 +1978,10 @@ char tecla= evt.getKeyChar();
        
             //pasar datos a una tabla
 
-            String cod_det_toma_mu_ana,id_cod_det,cod_exa_ana,cod_caja,cod_cpt,nomenclatura,servicio,cod_per_solicita,nom_per_solicita,
+            String id_cod_det,cod_exa_ana,cod_caja,cod_cpt,nomenclatura,servicio,cod_per_solicita,nom_per_solicita,
                     fecha_probable_entre,hora_probable_entre,cod_asig_cama_pac,habitacion_hospi,cama_hospi;
 
-            cod_det_toma_mu_ana="";
+           
             id_cod_det=lblId_cod_doc_det.getText();
             cod_exa_ana=lblExa.getText();
             cod_caja=lblCodNomen.getText();
@@ -1993,14 +2002,14 @@ char tecla= evt.getKeyChar();
             fecha_probable_entre=fecha;
             hora_probable_entre=df.format(spHora.getValue())+":"+df.format(spMin.getValue())+":00";
             
-            cod_asig_cama_pac=lbid_preventa.getText();
+            cod_asig_cama_pac=lblid_preventa.getText();
             habitacion_hospi=txtHabitacion.getText();
             cama_hospi=txtCama.getText();
             
 
             //Cargar los datos a la otra tabla 
             muestra = (DefaultTableModel) frm_LAB_TOMA_MUESTRA_CABECERA.tb_Detalle.getModel();
-           String filaelemento[]={cod_det_toma_mu_ana,id_cod_det,cod_exa_ana,cod_caja,cod_cpt,nomenclatura,servicio,cod_per_solicita,nom_per_solicita,
+           String filaelemento[]={id_cod_det,cod_exa_ana,cod_caja,cod_cpt,nomenclatura,servicio,cod_per_solicita,nom_per_solicita,
                     fecha_probable_entre,hora_probable_entre,cod_asig_cama_pac,habitacion_hospi,cama_hospi};
                muestra.addRow(filaelemento);
 
@@ -2399,10 +2408,10 @@ char tecla= evt.getKeyChar();
     private javax.swing.JButton btnBuscar2;
     private javax.swing.JButton btnQuitar;
     private javax.swing.JComboBox cbxBuscar2;
-    public static javax.swing.JCheckBox chHospit;
     private javax.swing.JDialog contenedor;
     private com.toedter.calendar.JDateChooser date;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -2437,7 +2446,6 @@ char tecla= evt.getKeyChar();
     private javax.swing.JPanel jpanel1;
     private javax.swing.JPanel jpanel2;
     private javax.swing.JPanel jpanel3;
-    public static javax.swing.JLabel lbid_preventa;
     private javax.swing.JLabel lblArId;
     public static javax.swing.JLabel lblCantidadMues;
     public static javax.swing.JLabel lblCantidadMues1;
@@ -2445,7 +2453,6 @@ char tecla= evt.getKeyChar();
     private javax.swing.JLabel lblCodMuestra;
     public static javax.swing.JLabel lblCodNomen;
     public static javax.swing.JLabel lblCodPerSolicita;
-    public static javax.swing.JLabel lblContador;
     public static javax.swing.JLabel lblDni;
     public static javax.swing.JLabel lblExa;
     private javax.swing.JLabel lblFecha;
@@ -2453,11 +2460,13 @@ char tecla= evt.getKeyChar();
     private javax.swing.JLabel lblH;
     private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblHoraEmitido;
+    public static javax.swing.JLabel lblHospi;
     public static javax.swing.JLabel lblId_cod_doc_det;
     private javax.swing.JTextField lblMuestra;
     public static javax.swing.JLabel lblServicio;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JLabel lblf;
+    public static javax.swing.JLabel lblid_preventa;
     private javax.swing.JDialog muestras;
     private javax.swing.JPanel panelCabecera;
     private javax.swing.JPanel panelMuestras;

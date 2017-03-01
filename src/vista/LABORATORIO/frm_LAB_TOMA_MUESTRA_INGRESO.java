@@ -116,6 +116,8 @@ DefaultTableModel m,n,muestra;
     tb_Pacientes.getColumnModel().getColumn(0).setMaxWidth(0);
     tb_Pacientes.getColumnModel().getColumn(8).setMinWidth(0);
     tb_Pacientes.getColumnModel().getColumn(8).setMaxWidth(0);
+    tb_Pacientes.getColumnModel().getColumn(9).setMinWidth(0);
+    tb_Pacientes.getColumnModel().getColumn(9).setMaxWidth(0);
     tb_Pacientes.getSelectionModel().setSelectionInterval(0, 0);
             tb_Pacientes.requestFocus();
 }
@@ -288,10 +290,10 @@ DefaultTableModel m,n,muestra;
     String consulta="";
         try {
             tb_Pacientes.setModel(new DefaultTableModel());
-            String titulos[]={"Código","N° de H.C.","Datos del Paciente","DNI","Fecha de Nacimiento","Edad","Sexo","Cantidad de Exámenes","Documento"};
+            String titulos[]={"Código","N° de H.C.","Datos del Paciente","DNI","Fecha de Nacimiento","Edad","Sexo","Cantidad de Exámenes","Documento","Acto Medico"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[9];
+            String fila[]=new String[10];
 
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
                     consulta="exec sp_LAB_TOMA_MUESTRA_CAJA ?,?,?,?,?";
@@ -313,6 +315,7 @@ DefaultTableModel m,n,muestra;
                 fila[6]=r.getString(7);
                 fila[7]=r.getString(8);
                 fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
                 m.addRow(fila);
                 c++;
             }
@@ -711,11 +714,11 @@ public void calcula() {
 
                         },
                         new String [] {
-                            "Código", "N° de H.C", "Datos del Paciente", "DNI", "Fecha de Nacimiento", "Edad", "Sexo", "Cantidad de Exámenes", "Documento"
+                            "Código", "N° de H.C", "Datos del Paciente", "DNI", "Fecha de Nacimiento", "Edad", "Sexo", "Cantidad de Exámenes", "Documento", "Acto Medico"
                         }
                     ) {
                         boolean[] canEdit = new boolean [] {
-                            false, false, true, false, false, false, true, true, true
+                            false, false, false, false, false, false, false, false, false, false
                         };
 
                         public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1036,10 +1039,10 @@ public void buscar_examenes(){
     String consulta="";
         try {
             tb_Pacientes.setModel(new DefaultTableModel());
-            String titulos[]={"Código","N° de H.C.","Datos del Paciente","DNI","Fecha de Nacimiento","Edad","Sexo","Cantidad de Exámenes","Documento"};
+            String titulos[]={"Código","N° de H.C.","Datos del Paciente","DNI","Fecha de Nacimiento","Edad","Sexo","Cantidad de Exámenes","Documento","Acto Medico"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[9];
+            String fila[]=new String[10];
 
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
                     consulta="exec sp_LAB_TOMA_MUESTRA_CAJA ?,?,?,?,?";
@@ -1061,6 +1064,7 @@ public void buscar_examenes(){
                 fila[6]=r.getString(7);
                 fila[7]=r.getString(8);
                 fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
                 m.addRow(fila);
                 c++;
             }
@@ -1093,11 +1097,13 @@ public void buscar_examenes(){
                     frm_LAB_TOMA_MUESTRA_CABECERA.txtSexo.setText(tb_Pacientes.getValueAt(filaselec, 6).toString());
                     frm_LAB_TOMA_MUESTRA_CABECERA.lblCantidad.setText(tb_Pacientes.getValueAt(filaselec, 7).toString());
                     frm_LAB_TOMA_MUESTRA_CABECERA.lblCantidad1.setText(tb_Pacientes.getValueAt(filaselec, 7).toString());
+                    frm_LAB_TOMA_MUESTRA_CABECERA.lblDocumento.setText(tb_Pacientes.getValueAt(filaselec, 8).toString());
+                    
+                    frm_LAB_TOMA_MUESTRA_CABECERA.txtActoMedico.setText(tb_Pacientes.getValueAt(filaselec, 9).toString());
                     
                     frm_LAB_TOMA_MUESTRA_CABECERA.lblServicio.setText(lblServicio.getText());
                     frm_LAB_TOMA_MUESTRA_CABECERA.lblArea.setText(lblArea.getText());
                     
-                    frm_LAB_TOMA_MUESTRA_CABECERA.lblDocumento.setText(tb_Pacientes.getValueAt(filaselec, 8).toString());
                     
                     String u=lblUsu.getText();
                              frm_LAB_TOMA_MUESTRA_CABECERA.lblUsu.setText(u);

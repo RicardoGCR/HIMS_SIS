@@ -79,7 +79,15 @@ DefaultTableModel m,n,muestra;
         personal.setLocationRelativeTo(null);
         setLocationRelativeTo(null);//en el centro
         setResizable(false);//para que no funcione el boton maximizar
-
+        //ocultar
+        lblServicio.setVisible(false);
+        lblArea.setVisible(false);
+        txtCodigo.setVisible(false);
+        txtNum.setVisible(false);
+        txtCodigoDet.setVisible(false);
+        lblDocumento.setVisible(false);
+        lblHc.setVisible(false);
+   
         //fecha
         Calendar cal=Calendar.getInstance(); 
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
@@ -1255,8 +1263,8 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
   
                   if(meGuardar.LAB_Toma_Muestra_Cab_guardar()){
                       Lab_guardar_detalleySub();
-//                      LAB_Toma_Muestra_Cabecera mc=new LAB_Toma_Muestra_Cabecera();
-//                      mc.LAB_Toma_Muestra_Caja_Estado(lblDocumento.getText());
+                      LAB_Toma_Muestra_Cabecera mc=new LAB_Toma_Muestra_Cabecera();
+                      mc.LAB_Toma_Muestra_Caja_Estado(lblDocumento.getText());
                       
                     JOptionPane.showMessageDialog(null, "Datos Guardados");
                     limpiar();

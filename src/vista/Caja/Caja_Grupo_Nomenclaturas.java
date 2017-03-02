@@ -67,7 +67,7 @@ Caja_Grupo cnn = new Caja_Grupo();
         String consulta="";
         try {
             tb_Grupo.setModel(new DefaultTableModel());
-             String titulos[]={"Nº","Codigo","Abreviatura","Grupo","Usuario"};
+             String titulos[]={"Codigo","Abreviatura","Grupo","Usuario"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[5];
@@ -80,11 +80,11 @@ Caja_Grupo cnn = new Caja_Grupo();
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-             fila[0]=String.valueOf(c)+"º";
-            fila[1]=r.getString(1);
-            fila[2]=r.getString(2);
-            fila[3]=r.getString(3);
-            fila[4]=r.getString(4);
+ 
+            fila[0]=r.getString(1);
+            fila[1]=r.getString(2);
+            fila[2]=r.getString(3);
+            fila[3]=r.getString(4);
        
  
                 m.addRow(fila);
@@ -101,7 +101,7 @@ Caja_Grupo cnn = new Caja_Grupo();
       }
     public void cargarTipoUsuario(){
     try {
-             String titulos[]={"Nº","Codigo","Abreviatura","Grupo","Usuario"};
+             String titulos[]={"Codigo","Abreviatura","Grupo","Usuario"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[5];
@@ -112,11 +112,11 @@ Caja_Grupo cnn = new Caja_Grupo();
         r=obj.Listar(consulta);
         int c=1;
         while(r.next()){
-            fila[0]=String.valueOf(c)+"º";
-            fila[1]=r.getString(1);
-            fila[2]=r.getString(2);
-            fila[3]=r.getString(3);
-            fila[4]=r.getString(4);
+          
+            fila[0]=r.getString(1);
+            fila[1]=r.getString(2);
+            fila[2]=r.getString(3);
+            fila[3]=r.getString(4);
          
 
                 m.addRow(fila);
@@ -126,14 +126,18 @@ Caja_Grupo cnn = new Caja_Grupo();
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             tb_Grupo.setRowSorter(elQueOrdena);
             this.tb_Grupo.setModel(m);
+            formatoTipoUsuario();
     } catch (Exception e) {
     }
 }
     public void formatoTipoUsuario(){
-    tb_Grupo.getColumnModel().getColumn(0).setPreferredWidth(50);
-    tb_Grupo.getColumnModel().getColumn(1).setPreferredWidth(100);
-    tb_Grupo.getColumnModel().getColumn(2).setPreferredWidth(150);
-    tb_Grupo.getColumnModel().getColumn(3).setPreferredWidth(200);
+    tb_Grupo.getColumnModel().getColumn(1).setPreferredWidth(120);
+    tb_Grupo.getColumnModel().getColumn(2).setPreferredWidth(330);
+
+    tb_Grupo.getColumnModel().getColumn(0).setMinWidth(0);
+    tb_Grupo.getColumnModel().getColumn(0).setMaxWidth(0);
+    tb_Grupo.getColumnModel().getColumn(3).setMinWidth(0);
+    tb_Grupo.getColumnModel().getColumn(3).setMaxWidth(0);
 }
       
     /**
@@ -146,67 +150,45 @@ Caja_Grupo cnn = new Caja_Grupo();
     private void initComponents() {
 
         buscar = new javax.swing.JDialog();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        btnbuscar1 = new javax.swing.JButton();
+        Ok = new javax.swing.JDialog();
+        jPanel7 = new javax.swing.JPanel();
+        btnbuscar4 = new javax.swing.JButton();
+        lblusu1 = new javax.swing.JLabel();
+        btnNuevo1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        btnNuevo = new javax.swing.JButton();
+        btneditar = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
+        btnbuscar = new javax.swing.JButton();
+        lblusu = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        btneliminar1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtcod = new javax.swing.JTextField();
+        txtav = new javax.swing.JTextField();
+        txtgp = new javax.swing.JTextField();
+        jLabel51 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_Grupo = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false; //Disallow the editing of any cell
             }};
-            jPanel6 = new javax.swing.JPanel();
-            jLabel8 = new javax.swing.JLabel();
-            btnbuscar1 = new javax.swing.JButton();
             txtBuscar = new javax.swing.JTextField();
-            Ok = new javax.swing.JDialog();
-            jPanel7 = new javax.swing.JPanel();
-            btnbuscar4 = new javax.swing.JButton();
-            lblusu1 = new javax.swing.JLabel();
-            btnNuevo1 = new javax.swing.JButton();
-            jPanel1 = new javax.swing.JPanel();
-            jLabel1 = new javax.swing.JLabel();
-            btnNuevo = new javax.swing.JButton();
-            btneditar = new javax.swing.JButton();
-            btnguardar = new javax.swing.JButton();
-            btneliminar = new javax.swing.JButton();
-            btnbuscar = new javax.swing.JButton();
-            lblusu = new javax.swing.JLabel();
-            jLabel6 = new javax.swing.JLabel();
-            jLabel7 = new javax.swing.JLabel();
-            btneliminar1 = new javax.swing.JButton();
-            jPanel2 = new javax.swing.JPanel();
-            jLabel2 = new javax.swing.JLabel();
-            jLabel3 = new javax.swing.JLabel();
-            jLabel4 = new javax.swing.JLabel();
-            txtcod = new javax.swing.JTextField();
-            txtav = new javax.swing.JTextField();
-            txtgp = new javax.swing.JTextField();
-            jLabel51 = new javax.swing.JLabel();
+            jLabel52 = new javax.swing.JLabel();
+            jPanel3 = new javax.swing.JPanel();
 
             buscar.setAlwaysOnTop(true);
             buscar.setAutoRequestFocus(false);
             buscar.setMinimumSize(new java.awt.Dimension(692, 374));
-
-            tb_Grupo.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                    {null, null, null, null},
-                    {null, null, null, null},
-                    {null, null, null, null},
-                    {null, null, null, null}
-                },
-                new String [] {
-                    "Title 1", "Title 2", "Title 3", "Title 4"
-                }
-            ));
-            tb_Grupo.setRowHeight(25);
-            tb_Grupo.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    tb_GrupoMouseClicked(evt);
-                }
-            });
-            tb_Grupo.addKeyListener(new java.awt.event.KeyAdapter() {
-                public void keyPressed(java.awt.event.KeyEvent evt) {
-                    tb_GrupoKeyPressed(evt);
-                }
-            });
-            jScrollPane2.setViewportView(tb_Grupo);
 
             jPanel6.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -229,18 +211,6 @@ Caja_Grupo cnn = new Caja_Grupo();
                 }
             });
 
-            txtBuscar.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-            txtBuscar.addCaretListener(new javax.swing.event.CaretListener() {
-                public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                    txtBuscarCaretUpdate(evt);
-                }
-            });
-            txtBuscar.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    txtBuscarActionPerformed(evt);
-                }
-            });
-
             javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
             jPanel6.setLayout(jPanel6Layout);
             jPanel6Layout.setHorizontalGroup(
@@ -250,23 +220,17 @@ Caja_Grupo cnn = new Caja_Grupo();
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel8)
                         .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGap(242, 242, 242)
                             .addComponent(btnbuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(412, Short.MAX_VALUE))
             );
             jPanel6Layout.setVerticalGroup(
                 jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap(11, Short.MAX_VALUE)
                     .addComponent(jLabel8)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addGap(3, 3, 3)
-                            .addComponent(btnbuscar1)))
+                    .addGap(3, 3, 3)
+                    .addComponent(btnbuscar1)
                     .addGap(408, 408, 408))
             );
 
@@ -275,18 +239,12 @@ Caja_Grupo cnn = new Caja_Grupo();
             buscarLayout.setHorizontalGroup(
                 buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(buscarLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
-                    .addContainerGap())
             );
             buscarLayout.setVerticalGroup(
                 buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(buscarLayout.createSequentialGroup()
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                    .addContainerGap())
+                    .addContainerGap(270, Short.MAX_VALUE))
             );
 
             Ok.setAlwaysOnTop(true);
@@ -489,7 +447,7 @@ Caja_Grupo cnn = new Caja_Grupo();
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -573,12 +531,12 @@ Caja_Grupo cnn = new Caja_Grupo();
                                     .addComponent(txtav, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
                                 .addComponent(txtgp, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jLabel51))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap(142, Short.MAX_VALUE))
             );
             jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
+                    .addGap(0, 0, 0)
                     .addComponent(jLabel51)
                     .addGap(24, 24, 24)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -592,25 +550,103 @@ Caja_Grupo cnn = new Caja_Grupo();
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(txtgp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(60, Short.MAX_VALUE))
+                    .addContainerGap(61, Short.MAX_VALUE))
+            );
+
+            jScrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+
+            tb_Grupo.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null}
+                },
+                new String [] {
+                    "Title 1", "Title 2", "Title 3", "Title 4"
+                }
+            ));
+            tb_Grupo.setGridColor(new java.awt.Color(255, 255, 255));
+            tb_Grupo.setRowHeight(25);
+            tb_Grupo.setSelectionBackground(new java.awt.Color(0, 153, 153));
+            tb_Grupo.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    tb_GrupoMouseClicked(evt);
+                }
+            });
+            tb_Grupo.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    tb_GrupoKeyPressed(evt);
+                }
+            });
+            jScrollPane2.setViewportView(tb_Grupo);
+
+            txtBuscar.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+            txtBuscar.addCaretListener(new javax.swing.event.CaretListener() {
+                public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                    txtBuscarCaretUpdate(evt);
+                }
+            });
+            txtBuscar.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    txtBuscarActionPerformed(evt);
+                }
+            });
+
+            jLabel52.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+            jLabel52.setForeground(new java.awt.Color(102, 102, 102));
+            jLabel52.setText("Registro");
+
+            jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+            jPanel3.setPreferredSize(new java.awt.Dimension(1, 432));
+
+            javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+            jPanel3.setLayout(jPanel3Layout);
+            jPanel3Layout.setHorizontalGroup(
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 1, Short.MAX_VALUE)
+            );
+            jPanel3Layout.setVerticalGroup(
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 432, Short.MAX_VALUE)
             );
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel52))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 10, Short.MAX_VALUE))
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(63, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addComponent(jLabel52)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             );
 
             pack();
@@ -668,6 +704,7 @@ Caja_Grupo cnn = new Caja_Grupo();
        
                     if(cno1.nuevoGrupoNomenclatura()==true){
                            Ok.setVisible(true);
+                           cargarTipoUsuario();
                        } else {
                            JOptionPane.showMessageDialog(this, "Error al guardar");
 
@@ -685,6 +722,7 @@ Caja_Grupo cnn = new Caja_Grupo();
                         cno1.setNom_usu(lblusu.getText());//
                         if(cno1.modificarGrupoNomenclatura()==true){
                            Ok.setVisible(true);
+                           cargarTipoUsuario();
                         } else {
                            
                              JOptionPane.showMessageDialog(this, "Error al guardar");
@@ -711,7 +749,8 @@ Caja_Grupo cnn = new Caja_Grupo();
                 Caja_Grupo hCEl = new Caja_Grupo();
                 hCEl.setCod_grupo_nomen_aten(txtcod.getText());
                 if(hCEl.eliminarCajaNomenclatura()){
-                    JOptionPane.showMessageDialog(this, "Historia Clínica \n\t\t\teliminada");
+                    JOptionPane.showMessageDialog(this, "Grupo \n\t\t\teliminada");
+                    cargarTipoUsuario();
              
                 }
            
@@ -725,7 +764,7 @@ Caja_Grupo cnn = new Caja_Grupo();
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
   
-   buscar.setVisible(true);
+        txtBuscar.requestFocus();
                
     }//GEN-LAST:event_btnbuscarActionPerformed
 
@@ -739,11 +778,11 @@ Caja_Grupo cnn = new Caja_Grupo();
 
     private void tb_GrupoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_GrupoMouseClicked
  int fila=tb_Grupo.getSelectedRow();
-   if(evt.getClickCount()==2){
+   if(evt.getClickCount()==1){
        buscar.dispose();
-       txtcod.setText(String.valueOf(tb_Grupo.getValueAt(fila, 1)));  
-       txtav.setText(String.valueOf(tb_Grupo.getValueAt(fila, 2))); 
-       txtgp.setText(String.valueOf(tb_Grupo.getValueAt(fila, 3)));
+       txtcod.setText(String.valueOf(tb_Grupo.getValueAt(fila, 0)));  
+       txtav.setText(String.valueOf(tb_Grupo.getValueAt(fila, 1))); 
+       txtgp.setText(String.valueOf(tb_Grupo.getValueAt(fila, 2)));
    } 
    btnNuevo.setEnabled(true);
         btnguardar.setEnabled(false);
@@ -761,9 +800,9 @@ Caja_Grupo cnn = new Caja_Grupo();
             int fila = tb_Grupo.getSelectedRow();
             
             buscar.dispose();
-            txtcod.setText(String.valueOf(tb_Grupo.getValueAt(fila, 1)));  
-            txtav.setText(String.valueOf(tb_Grupo.getValueAt(fila, 2))); 
-            txtgp.setText(String.valueOf(tb_Grupo.getValueAt(fila, 3))); 
+            txtcod.setText(String.valueOf(tb_Grupo.getValueAt(fila, 0)));  
+            txtav.setText(String.valueOf(tb_Grupo.getValueAt(fila, 1))); 
+            txtgp.setText(String.valueOf(tb_Grupo.getValueAt(fila, 2))); 
         
     
        }
@@ -849,11 +888,13 @@ Buscar();
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane2;

@@ -25,17 +25,13 @@ DefaultTableModel m;
 private Connection cn;
 private String cod_nomen_caja;  
 private String cod_grupo_nomen_aten;
-private String cod_uni_organica_jerar;  
+private int ar_id;  
 private String id_cuenta;  
-private String nom_uni_organica_jerar;  
 private String nomen_caja;  
 private String descripcion_nomen_tipo;  
 private String nom_usu;  
 
-private String vis_admi;  
-private String cod_farma;  
-private String tipo_nomen;  
-private String funcion_nomen;  
+private String vis_admi;   
 private String vis_aten;  
 Conexion con = new Conexion(); 
 public String idNomen(){//muestra el codigo
@@ -57,22 +53,18 @@ public boolean nuevaNomenclatura(){
         boolean resp = false;
         try{
             String sql = "exec Caja_nomenclatura_NUEVO "
-                        + "?,?,?,?,?,?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getCod_nomen_caja());
             cmd.setString(2, getCod_grupo_nomen_aten());
-            cmd.setString(3, getCod_uni_organica_jerar());
+            cmd.setInt(3, getAr_id());
             cmd.setString(4, getId_cuenta());
-            cmd.setString(5, getNom_uni_organica_jerar());
-            cmd.setString(6, getNomen_caja());
-            cmd.setString(7, getDescripcion_nomen_tipo());
-            cmd.setString(8, getNom_usu());
+            cmd.setString(5, getNomen_caja());
+            cmd.setString(6, getDescripcion_nomen_tipo());
+            cmd.setString(7, getNom_usu());
 
-            cmd.setString(9, getVis_admi());
-            cmd.setString(10, getCod_farma());
-            cmd.setString(11, getTipo_nomen());
-            cmd.setString(12, getFuncion_nomen());
-            cmd.setString(13, getVis_aten());
+            cmd.setString(8, getVis_admi());
+            cmd.setString(9, getVis_aten());
 
             if(!cmd.execute())
             {
@@ -93,22 +85,18 @@ public boolean nuevaNomenclatura(){
         boolean resp = false;
         try
         {
-            String sql = "Caja_nomenclatura_MODIFICAR ?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "Caja_nomenclatura_MODIFICAR ?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getCod_nomen_caja());
             cmd.setString(2, getCod_grupo_nomen_aten());
-            cmd.setString(3, getCod_uni_organica_jerar());
+            cmd.setInt(3, getAr_id());
             cmd.setString(4, getId_cuenta());
-            cmd.setString(5, getNom_uni_organica_jerar());
-            cmd.setString(6, getNomen_caja());
-            cmd.setString(7, getDescripcion_nomen_tipo());
-            cmd.setString(8, getNom_usu());
+            cmd.setString(5, getNomen_caja());
+            cmd.setString(6, getDescripcion_nomen_tipo());
+            cmd.setString(7, getNom_usu());
 
-            cmd.setString(9, getVis_admi());
-            cmd.setString(10, getCod_farma());
-            cmd.setString(11, getTipo_nomen());
-            cmd.setString(12, getFuncion_nomen());
-            cmd.setString(13, getVis_aten());  
+            cmd.setString(8, getVis_admi());
+            cmd.setString(9, getVis_aten());  
             if(!cmd.execute())
             {
                 resp = true;
@@ -213,13 +201,15 @@ public boolean nuevaNomenclatura(){
         this.cod_grupo_nomen_aten = cod_grupo_nomen_aten;
     }
 
-    public String getCod_uni_organica_jerar() {
-        return cod_uni_organica_jerar;
+    public int getAr_id() {
+        return ar_id;
     }
 
-    public void setCod_uni_organica_jerar(String cod_uni_organica_jerar) {
-        this.cod_uni_organica_jerar = cod_uni_organica_jerar;
+    public void setAr_id(int ar_id) {
+        this.ar_id = ar_id;
     }
+
+
 
     public String getId_cuenta() {
         return id_cuenta;
@@ -229,13 +219,7 @@ public boolean nuevaNomenclatura(){
         this.id_cuenta = id_cuenta;
     }
 
-    public String getNom_uni_organica_jerar() {
-        return nom_uni_organica_jerar;
-    }
 
-    public void setNom_uni_organica_jerar(String nom_uni_organica_jerar) {
-        this.nom_uni_organica_jerar = nom_uni_organica_jerar;
-    }
 
     public String getNomen_caja() {
         return nomen_caja;
@@ -271,29 +255,7 @@ public boolean nuevaNomenclatura(){
         this.vis_admi = vis_admi;
     }
 
-    public String getCod_farma() {
-        return cod_farma;
-    }
-
-    public void setCod_farma(String cod_farma) {
-        this.cod_farma = cod_farma;
-    }
-
-    public String getTipo_nomen() {
-        return tipo_nomen;
-    }
-
-    public void setTipo_nomen(String tipo_nomen) {
-        this.tipo_nomen = tipo_nomen;
-    }
-
-    public String getFuncion_nomen() {
-        return funcion_nomen;
-    }
-
-    public void setFuncion_nomen(String funcion_nomen) {
-        this.funcion_nomen = funcion_nomen;
-    }
+   
 
     public String getVis_aten() {
         return vis_aten;

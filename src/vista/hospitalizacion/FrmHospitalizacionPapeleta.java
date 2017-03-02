@@ -50,8 +50,8 @@ public class FrmHospitalizacionPapeleta extends javax.swing.JFrame {
         this.getContentPane().setBackground(Color.WHITE);//color blanco del formulario
         conexion = c.conectar();
         limitaciones();
-        cbxServicio.setModel(servicios());
-        cbxServicio.setBackground(Color.white);
+        cbxAreas.setModel(areas());
+        cbxAreas.setBackground(Color.white);
         cbxAreas.setBackground(Color.white);
         //BOTON CERRAR
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
@@ -146,17 +146,17 @@ public class FrmHospitalizacionPapeleta extends javax.swing.JFrame {
         }
     }
     
-    public DefaultComboBoxModel servicios(){
+    public DefaultComboBoxModel areas(){
            DefaultComboBoxModel  listmodel = new DefaultComboBoxModel ();        
            String   sql = null;
            ResultSet rs = null;
            Statement  st = null;   
             try {
                   st = conexion.createStatement();
-                  r = st.executeQuery ("EXEC HOSPITALIZACION_MOSTRAR_SERVICIOS"); 
+                  r = st.executeQuery ("EXEC SERVICIO_AREAS_LISTAR"); 
                   listmodel.addElement("Seleccionar...");
                 while( r.next() ){
-                    listmodel.addElement( r.getString( "SE_DESC" ) );                
+                    listmodel.addElement( r.getString( "AR_DESC" ) );                
                  }
                 r.close();
                 
@@ -488,6 +488,11 @@ public class FrmHospitalizacionPapeleta extends javax.swing.JFrame {
                 txtBuscarArtActionPerformed(evt);
             }
         });
+        txtBuscarArt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarArtKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout dlgArticulosLayout = new javax.swing.GroupLayout(dlgArticulos.getContentPane());
         dlgArticulos.getContentPane().setLayout(dlgArticulosLayout);
@@ -517,7 +522,7 @@ public class FrmHospitalizacionPapeleta extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel8.setBackground(new java.awt.Color(217, 100, 118));
+        jPanel8.setBackground(new java.awt.Color(217, 176, 86));
         jPanel8.setPreferredSize(new java.awt.Dimension(500, 65));
         jPanel8.setLayout(null);
 
@@ -902,15 +907,12 @@ public class FrmHospitalizacionPapeleta extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtEdad)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel6)
-                                .addComponent(txtDni))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(txtDni))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -1117,33 +1119,7 @@ public class FrmHospitalizacionPapeleta extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxTipoBusquedaActionPerformed
 
     private void cbxServicioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxServicioItemStateChanged
-        try{ 
-            if(evt.getStateChange()==ItemEvent.SELECTED){
-                    if(this.cbxServicio.getSelectedIndex()>0){
-                        this.cbxAreas.removeAllItems(); 
-                    Statement sta=conexion.createStatement();
-                    HospitalizacionPisos hosPiso = new HospitalizacionPisos();
-                    int servicio = Integer.parseInt(hosPiso.codServicio(cbxServicio.getSelectedItem().toString()));
-                    ResultSet rs=sta.executeQuery("EXEC SERVICIO_AREAS_LISTAR " + servicio + "");
-                    this.cbxAreas.addItem("Seleccionar...");
-                    while(rs.next()){
-                     this.cbxAreas.addItem(rs.getString("AR_DESC"));
-                    }
-                    lblServicio.setText(cbxServicio.getSelectedItem().toString().toUpperCase());
-                     }else{
-                        this.cbxAreas.removeAllItems();
-                        this.cbxAreas.addItem("Seleccionar...");
-                        lblServicio.setText("");
-                        txtArea.setText("");
-                    }
-                    
 
-            }}
-            catch(Exception ex) 
-            {
-                System.out.println("Error: " + ex.getMessage());
-            }
-        
         try{  
             HospitalizacionPisos hos = new HospitalizacionPisos();
                     if(this.cbxServicio.getSelectedIndex()>0){
@@ -1186,8 +1162,8 @@ public class FrmHospitalizacionPapeleta extends javax.swing.JFrame {
     private void txtBuscarArtCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarArtCaretUpdate
         HospitalizacionPapeletas hosP = new HospitalizacionPapeletas();
         hosP.hospitalizacionArticulosListar(tbArticulos,txtBuscarArt.getText());
-        tbArticulos.getSelectionModel().setSelectionInterval(0,0);
-        tbArticulos.requestFocus();
+        
+        
     }//GEN-LAST:event_txtBuscarArtCaretUpdate
 
     private void txtBuscarArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarArtActionPerformed
@@ -1256,6 +1232,13 @@ public class FrmHospitalizacionPapeleta extends javax.swing.JFrame {
     private void cbxAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAreasActionPerformed
       
     }//GEN-LAST:event_cbxAreasActionPerformed
+
+    private void txtBuscarArtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarArtKeyPressed
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
+            tbArticulos.getSelectionModel().setSelectionInterval(0,0);
+            tbArticulos.requestFocus();
+        }
+    }//GEN-LAST:event_txtBuscarArtKeyPressed
 
     /**
      * @param args the command line arguments

@@ -16,13 +16,15 @@ import servicios.Conexion;
  */
 public class LAB_Toma_Muestra_Detalle {
     private Connection cn;
+    private String cod_det_toma_mu_ana;
     private String cod_cab_toma_mu_exa;
-    private String id_documento;
-    private String num_toma_mu_exa;
-    private String cod_per_toma_muestra;
-    private String nombre_per_toma_muestra;
-    private String cod_per_regis_toma_muestra;
-    private String nombre_per_regis_toma_muestra;
+    private String id_cod_det;
+    private String cod_exa_ana;
+    private String cod_per_solicita;
+    private String nom_per_solicita;
+    private String fecha_probable_entre;
+    private String Id_Preventa;
+    private String hora_probable_entre;
     private String nom_usu;
     
     public LAB_Toma_Muestra_Detalle(){
@@ -36,16 +38,18 @@ public class LAB_Toma_Muestra_Detalle {
         boolean resp = false;
         try
         {
-            String sql = "exec sp_LAB_TOMA_MUESTRA_CAB_insertar ?,?,?,?,?,?,?,?";
+            String sql = "exec sp_LAB_TOMA_MUESTRA_DET_insertar ?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getCod_cab_toma_mu_exa());
-            cmd.setString(2, getId_documento());
-            cmd.setString(3, getNum_toma_mu_exa());
-            cmd.setString(4, getCod_per_toma_muestra());
-            cmd.setString(5, getNombre_per_toma_muestra());
-            cmd.setString(6, getCod_per_regis_toma_muestra());
-            cmd.setString(7, getNombre_per_regis_toma_muestra());
-            cmd.setString(8, getNom_usu());
+            cmd.setString(1, getCod_det_toma_mu_ana());
+            cmd.setString(2, getCod_cab_toma_mu_exa());
+            cmd.setString(3, getId_cod_det());
+            cmd.setString(4, getCod_exa_ana());
+            cmd.setString(5, getCod_per_solicita());
+            cmd.setString(6, getNom_per_solicita());
+            cmd.setString(7, getFecha_probable_entre());
+            cmd.setString(8, getHora_probable_entre());
+            cmd.setString(9, getId_Preventa());
+            cmd.setString(10, getNom_usu());
  
             if(!cmd.execute())
             {
@@ -61,6 +65,26 @@ public class LAB_Toma_Muestra_Detalle {
         return resp;
     }
      
+      public String LAB_Toma_Muestra_Det_generarid()
+    {
+        Conexion cn=new Conexion();
+        String cod="";
+        try{
+        String consulta="exec sp_LAB_TOMA_MUESTRA_DET_generarid";
+        ResultSet r;
+        r=cn.Listar(consulta);
+        if(r.next())
+            {
+               cod = r.getString(1);
+            }
+        }catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return cod;
+    }
+      
+      
     public String LAB_Toma_Muestra_Det_exa(String nomen,String area,String tipo){
        String cod_exa="";
         try{
@@ -82,6 +106,100 @@ public class LAB_Toma_Muestra_Detalle {
         return cod_exa;
     }
 
+    
+    
+     public int LAB_Toma_Muestra_Hospitalizacion_ver(String idhc){
+        int resultado=0;
+        try
+        {
+            String sql = "sp_TOMA_MUESTRA_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resultado;
+    }
+    
+ 
+    public String LAB_Toma_Muestra_Hospi_idPreventa(String idhc)
+    {
+        String cod="";
+        try
+        {
+            String sql = "sp_TOMA_MUESTRA_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return cod;
+    }
+    public String LAB_Toma_Muestra_Hospi_habitacion(String idhc)
+    {
+        String cod="";
+        try
+        {
+            String sql = "sp_TOMA_MUESTRA_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(2);
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public String LAB_Toma_Muestra_Hospi_cama(String idhc)
+    {
+        String cod="";
+        try
+        {
+            String sql = "sp_TOMA_MUESTRA_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(3);
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return cod;
+    }
+
     /**
      * @return the cn
      */
@@ -94,6 +212,20 @@ public class LAB_Toma_Muestra_Detalle {
      */
     public void setCn(Connection cn) {
         this.cn = cn;
+    }
+
+    /**
+     * @return the cod_det_toma_mu_ana
+     */
+    public String getCod_det_toma_mu_ana() {
+        return cod_det_toma_mu_ana;
+    }
+
+    /**
+     * @param cod_det_toma_mu_ana the cod_det_toma_mu_ana to set
+     */
+    public void setCod_det_toma_mu_ana(String cod_det_toma_mu_ana) {
+        this.cod_det_toma_mu_ana = cod_det_toma_mu_ana;
     }
 
     /**
@@ -111,87 +243,101 @@ public class LAB_Toma_Muestra_Detalle {
     }
 
     /**
-     * @return the id_documento
+     * @return the id_cod_det
      */
-    public String getId_documento() {
-        return id_documento;
+    public String getId_cod_det() {
+        return id_cod_det;
     }
 
     /**
-     * @param id_documento the id_documento to set
+     * @param id_cod_det the id_cod_det to set
      */
-    public void setId_documento(String id_documento) {
-        this.id_documento = id_documento;
+    public void setId_cod_det(String id_cod_det) {
+        this.id_cod_det = id_cod_det;
     }
 
     /**
-     * @return the num_toma_mu_exa
+     * @return the cod_exa_ana
      */
-    public String getNum_toma_mu_exa() {
-        return num_toma_mu_exa;
+    public String getCod_exa_ana() {
+        return cod_exa_ana;
     }
 
     /**
-     * @param num_toma_mu_exa the num_toma_mu_exa to set
+     * @param cod_exa_ana the cod_exa_ana to set
      */
-    public void setNum_toma_mu_exa(String num_toma_mu_exa) {
-        this.num_toma_mu_exa = num_toma_mu_exa;
+    public void setCod_exa_ana(String cod_exa_ana) {
+        this.cod_exa_ana = cod_exa_ana;
     }
 
     /**
-     * @return the cod_per_toma_muestra
+     * @return the cod_per_solicita
      */
-    public String getCod_per_toma_muestra() {
-        return cod_per_toma_muestra;
+    public String getCod_per_solicita() {
+        return cod_per_solicita;
     }
 
     /**
-     * @param cod_per_toma_muestra the cod_per_toma_muestra to set
+     * @param cod_per_solicita the cod_per_solicita to set
      */
-    public void setCod_per_toma_muestra(String cod_per_toma_muestra) {
-        this.cod_per_toma_muestra = cod_per_toma_muestra;
+    public void setCod_per_solicita(String cod_per_solicita) {
+        this.cod_per_solicita = cod_per_solicita;
     }
 
     /**
-     * @return the nombre_per_toma_muestra
+     * @return the nom_per_solicita
      */
-    public String getNombre_per_toma_muestra() {
-        return nombre_per_toma_muestra;
+    public String getNom_per_solicita() {
+        return nom_per_solicita;
     }
 
     /**
-     * @param nombre_per_toma_muestra the nombre_per_toma_muestra to set
+     * @param nom_per_solicita the nom_per_solicita to set
      */
-    public void setNombre_per_toma_muestra(String nombre_per_toma_muestra) {
-        this.nombre_per_toma_muestra = nombre_per_toma_muestra;
+    public void setNom_per_solicita(String nom_per_solicita) {
+        this.nom_per_solicita = nom_per_solicita;
     }
 
     /**
-     * @return the cod_per_regis_toma_muestra
+     * @return the fecha_probable_entre
      */
-    public String getCod_per_regis_toma_muestra() {
-        return cod_per_regis_toma_muestra;
+    public String getFecha_probable_entre() {
+        return fecha_probable_entre;
     }
 
     /**
-     * @param cod_per_regis_toma_muestra the cod_per_regis_toma_muestra to set
+     * @param fecha_probable_entre the fecha_probable_entre to set
      */
-    public void setCod_per_regis_toma_muestra(String cod_per_regis_toma_muestra) {
-        this.cod_per_regis_toma_muestra = cod_per_regis_toma_muestra;
+    public void setFecha_probable_entre(String fecha_probable_entre) {
+        this.fecha_probable_entre = fecha_probable_entre;
     }
 
     /**
-     * @return the nombre_per_regis_toma_muestra
+     * @return the Id_Preventa
      */
-    public String getNombre_per_regis_toma_muestra() {
-        return nombre_per_regis_toma_muestra;
+    public String getId_Preventa() {
+        return Id_Preventa;
     }
 
     /**
-     * @param nombre_per_regis_toma_muestra the nombre_per_regis_toma_muestra to set
+     * @param Id_Preventa the Id_Preventa to set
      */
-    public void setNombre_per_regis_toma_muestra(String nombre_per_regis_toma_muestra) {
-        this.nombre_per_regis_toma_muestra = nombre_per_regis_toma_muestra;
+    public void setId_Preventa(String Id_Preventa) {
+        this.Id_Preventa = Id_Preventa;
+    }
+
+    /**
+     * @return the hora_probable_entre
+     */
+    public String getHora_probable_entre() {
+        return hora_probable_entre;
+    }
+
+    /**
+     * @param hora_probable_entre the hora_probable_entre to set
+     */
+    public void setHora_probable_entre(String hora_probable_entre) {
+        this.hora_probable_entre = hora_probable_entre;
     }
 
     /**
@@ -207,6 +353,5 @@ public class LAB_Toma_Muestra_Detalle {
     public void setNom_usu(String nom_usu) {
         this.nom_usu = nom_usu;
     }
-    
-    
+  
 }

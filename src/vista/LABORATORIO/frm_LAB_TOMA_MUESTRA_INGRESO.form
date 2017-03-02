@@ -369,21 +369,17 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnPacientes" min="-2" pref="28" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
+              <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="lblArea" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="327" max="-2" attributes="0"/>
-              <Component id="lbldia" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane5" max="32767" attributes="0"/>
-                  <Component id="jPanel1" pref="724" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lbldia" max="32767" attributes="0"/>
+                  <Component id="jScrollPane5" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanel1" alignment="0" pref="724" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
           </Group>
@@ -403,28 +399,26 @@
                   <Component id="dateDesde" pref="25" max="32767" attributes="0"/>
                   <Component id="dateHasta" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnPacientes" alignment="0" min="-2" pref="26" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="chPacientes" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtPacientes" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="lblServicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="btnGuardar" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
-                              <Component id="lblArea" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chPacientes" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPacientes" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="lblServicio" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                      <Component id="lbldia" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane5" min="-2" pref="379" max="-2" attributes="0"/>
+                      <Component id="btnBuscar" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
+                          <Component id="lblArea" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+              <Component id="lbldia" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+              <Component id="jScrollPane5" min="-2" pref="379" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
           </Group>
@@ -655,16 +649,17 @@
         <Component class="javax.swing.JTable" name="tb_Pacientes">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="9" rowCount="0">
+              <Table columnCount="10" rowCount="0">
                 <Column editable="false" title="C&#xf3;digo" type="java.lang.Object"/>
                 <Column editable="false" title="N&#xb0; de H.C" type="java.lang.Object"/>
-                <Column editable="true" title="Datos del Paciente" type="java.lang.Object"/>
+                <Column editable="false" title="Datos del Paciente" type="java.lang.Object"/>
                 <Column editable="false" title="DNI" type="java.lang.Object"/>
                 <Column editable="false" title="Fecha de Nacimiento" type="java.lang.Object"/>
                 <Column editable="false" title="Edad" type="java.lang.Object"/>
-                <Column editable="true" title="Sexo" type="java.lang.Object"/>
-                <Column editable="true" title="Cantidad de Ex&#xe1;menes" type="java.lang.Object"/>
-                <Column editable="true" title="Documento" type="java.lang.Object"/>
+                <Column editable="false" title="Sexo" type="java.lang.Object"/>
+                <Column editable="false" title="Cantidad de Ex&#xe1;menes" type="java.lang.Object"/>
+                <Column editable="false" title="Documento" type="java.lang.Object"/>
+                <Column editable="false" title="Acto Medico" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="autoResizeMode" type="int" value="0"/>
@@ -715,6 +710,11 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
               </TableColumnModel>
             </Property>
             <Property name="componentPopupMenu" type="javax.swing.JPopupMenu" editor="org.netbeans.modules.form.ComponentChooserEditor">
@@ -742,7 +742,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnGuardar">
+    <Component class="javax.swing.JButton" name="btnBuscar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagenes/iconos/guardar16x16.png"/>
@@ -751,7 +751,7 @@
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="chPacientes">
@@ -806,6 +806,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="13" style="1"/>
         </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Ex&#xe1;menes del d&#xed;a"/>
       </Properties>
     </Component>

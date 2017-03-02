@@ -1029,8 +1029,8 @@ DefaultTableModel m, m1,m2, m3 ;
     
     public void formatoDiagnostico(){
        //Ocultar
-       //tb_diagnosticos.getColumnModel().getColumn(0).setMinWidth(0);
-       //tb_diagnosticos.getColumnModel().getColumn(0).setMaxWidth(0);
+       tb_diagnosticos.getColumnModel().getColumn(0).setMinWidth(0);
+       tb_diagnosticos.getColumnModel().getColumn(0).setMaxWidth(0);
        //formato
        tb_diagnosticos.getColumnModel().getColumn(1).setPreferredWidth(100);
        tb_diagnosticos.getColumnModel().getColumn(2).setPreferredWidth(110);       

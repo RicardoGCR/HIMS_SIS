@@ -365,19 +365,26 @@
                                       <EmptySpace min="-2" pref="499" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="dateHasta" min="-2" pref="124" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="dateHasta" min="-2" pref="124" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="lblServicio" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                              <Component id="lblArea" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                                               <Component id="panelPacientes" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                                              <Component id="lblServicio" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="lblArea" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                              <EmptySpace min="89" max="32767" attributes="0"/>
                                               <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                                           </Group>
@@ -407,14 +414,10 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnGuardar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lblArea" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblServicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Component id="btnGuardar" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="panelPacientes" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -431,7 +434,12 @@
                           <Component id="cbx" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblArea" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblServicio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Component id="jScrollPane5" min="-2" pref="379" max="-2" attributes="0"/>
@@ -643,17 +651,25 @@
         <Component class="javax.swing.JTable" name="tb_Pacientes">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="10" rowCount="0">
-                <Column editable="false" title="C&#xf3;digo" type="java.lang.Object"/>
+              <Table columnCount="18" rowCount="0">
+                <Column editable="false" title="cod_det_toma_mu_ana" type="java.lang.Object"/>
+                <Column editable="true" title="cod_exa_ana" type="java.lang.Object"/>
+                <Column editable="true" title="id_hc" type="java.lang.Object"/>
+                <Column editable="false" title="Servicio/&#xc1;rea" type="java.lang.Object"/>
+                <Column editable="true" title="C&#xf3;digo CPT" type="java.lang.Object"/>
+                <Column editable="true" title="Nomenclatura" type="java.lang.Object"/>
+                <Column editable="false" title="Analisis Examen" type="java.lang.Object"/>
+                <Column editable="true" title="N&#xb0; de Toma de Muestra" type="java.lang.Object"/>
                 <Column editable="false" title="N&#xb0; de H.C" type="java.lang.Object"/>
                 <Column editable="false" title="Datos del Paciente" type="java.lang.Object"/>
                 <Column editable="false" title="DNI" type="java.lang.Object"/>
                 <Column editable="false" title="Fecha de Nacimiento" type="java.lang.Object"/>
                 <Column editable="false" title="Edad" type="java.lang.Object"/>
                 <Column editable="false" title="Sexo" type="java.lang.Object"/>
-                <Column editable="false" title="Cantidad de Ex&#xe1;menes" type="java.lang.Object"/>
-                <Column editable="false" title="Documento" type="java.lang.Object"/>
+                <Column editable="false" title="Forma de Pago" type="java.lang.Object"/>
                 <Column editable="false" title="Acto Medico" type="java.lang.Object"/>
+                <Column editable="true" title="Nombre Per Toma Muestra" type="java.lang.Object"/>
+                <Column editable="false" title="Documento" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="autoResizeMode" type="int" value="0"/>
@@ -684,12 +700,52 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>

@@ -84,6 +84,12 @@ DefaultTableModel m, m1,m2, m3 ;
         txtBuscarDX = new javax.swing.JTextField();
         btn_BuscarDX = new javax.swing.JButton();
         jSpinFieldBeanInfo1 = new com.toedter.components.JSpinFieldBeanInfo();
+        BUSCAR_PACIENTE_FUA = new javax.swing.JDialog();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tb_Pacientes_Caja = new javax.swing.JTable();
         jpanel = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -259,6 +265,63 @@ DefaultTableModel m, m1,m2, m3 ;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                 .addContainerGap())
+        );
+
+        BUSCAR_PACIENTE_FUA.setMaximumSize(new java.awt.Dimension(400, 500));
+        BUSCAR_PACIENTE_FUA.setMinimumSize(new java.awt.Dimension(400, 500));
+
+        jLabel28.setFont(new java.awt.Font("Palatino Linotype", 1, 16)); // NOI18N
+        jLabel28.setText("BUSQUEDA");
+
+        jLabel29.setText("Nombre:");
+
+        tb_Pacientes_Caja.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(tb_Pacientes_Caja);
+
+        javax.swing.GroupLayout BUSCAR_PACIENTE_FUALayout = new javax.swing.GroupLayout(BUSCAR_PACIENTE_FUA.getContentPane());
+        BUSCAR_PACIENTE_FUA.getContentPane().setLayout(BUSCAR_PACIENTE_FUALayout);
+        BUSCAR_PACIENTE_FUALayout.setHorizontalGroup(
+            BUSCAR_PACIENTE_FUALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BUSCAR_PACIENTE_FUALayout.createSequentialGroup()
+                .addGroup(BUSCAR_PACIENTE_FUALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BUSCAR_PACIENTE_FUALayout.createSequentialGroup()
+                        .addGroup(BUSCAR_PACIENTE_FUALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BUSCAR_PACIENTE_FUALayout.createSequentialGroup()
+                                .addGap(160, 160, 160)
+                                .addComponent(jLabel28))
+                            .addGroup(BUSCAR_PACIENTE_FUALayout.createSequentialGroup()
+                                .addGap(91, 91, 91)
+                                .addComponent(jLabel29)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 122, Short.MAX_VALUE))
+                    .addGroup(BUSCAR_PACIENTE_FUALayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        BUSCAR_PACIENTE_FUALayout.setVerticalGroup(
+            BUSCAR_PACIENTE_FUALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BUSCAR_PACIENTE_FUALayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel28)
+                .addGap(18, 18, 18)
+                .addGroup(BUSCAR_PACIENTE_FUALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1026,6 +1089,8 @@ DefaultTableModel m, m1,m2, m3 ;
        }catch (Exception e){
        }
      }
+
+    
     
     public void formatoDiagnostico(){
        //Ocultar
@@ -1208,7 +1273,7 @@ DefaultTableModel m, m1,m2, m3 ;
     }//GEN-LAST:event_btnDX_Medicam_InsumoNuevoActionPerformed
 
     private void btnDx_Medicam_Insumo_BuscarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDx_Medicam_Insumo_BuscarPacActionPerformed
-
+        
     }//GEN-LAST:event_btnDx_Medicam_Insumo_BuscarPacActionPerformed
 
     private void btnActividadVacunaBuscarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadVacunaBuscarPacActionPerformed
@@ -1306,7 +1371,7 @@ DefaultTableModel m, m1,m2, m3 ;
                this.tb_diagnosticos.getSelectedRow() != -1){
               int fila = tb_diagnosticos.getSelectedRow();
               
-                BUSCAR_NOMEN.dispose();
+             BUSCAR_NOMEN.dispose();
              lblCod_sustento.setText(String.valueOf(tb_diagnosticos.getValueAt(fila, 0)));
              txtActividadDX.setText(String.valueOf(tb_diagnosticos.getValueAt(fila, 1)));
              txtDescripcionDX.setText(String.valueOf(tb_diagnosticos.getValueAt(fila, 5)));  
@@ -1419,6 +1484,7 @@ DefaultTableModel m, m1,m2, m3 ;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog BUSCAR_NOMEN;
+    private javax.swing.JDialog BUSCAR_PACIENTE_FUA;
     private javax.swing.JButton btnActividadVacunaBuscarPac;
     private javax.swing.JButton btnActividadVacunaBuscarPac1;
     private javax.swing.JButton btnDX_Medicam_InsumoNuevo;
@@ -1449,6 +1515,8 @@ DefaultTableModel m, m1,m2, m3 ;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1472,8 +1540,10 @@ DefaultTableModel m, m1,m2, m3 ;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private com.toedter.components.JSpinFieldBeanInfo jSpinFieldBeanInfo1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel jpanel;
     private javax.swing.JLabel lblCod_sustento;
     private javax.swing.JLabel lblFecha;
@@ -1482,6 +1552,7 @@ DefaultTableModel m, m1,m2, m3 ;
     private javax.swing.JTable tb_DX;
     private javax.swing.JTable tb_INSUMOS;
     private javax.swing.JTable tb_MEDICAMENTOS;
+    private javax.swing.JTable tb_Pacientes_Caja;
     private javax.swing.JTable tb_Proc_DXImg_Lab;
     private javax.swing.JTable tb_diagnosticos;
     private javax.swing.JTable tb_ind_ent_dx;

@@ -397,7 +397,7 @@ public void calcula() {
                     }else{
                         return false; //Disallow the editing of any cell
                     }}};
-                    btnGuardar = new javax.swing.JButton();
+                    btnBuscar = new javax.swing.JButton();
                     chPacientes = new javax.swing.JCheckBox();
                     txtPacientes = new javax.swing.JTextField();
                     btnPacientes = new javax.swing.JButton();
@@ -756,12 +756,12 @@ public void calcula() {
                         tb_Pacientes.getColumnModel().getColumn(6).setResizable(false);
                     }
 
-                    btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/guardar16x16.png"))); // NOI18N
-                    btnGuardar.setMnemonic('B');
-                    btnGuardar.setText("Buscar");
-                    btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+                    btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/guardar16x16.png"))); // NOI18N
+                    btnBuscar.setMnemonic('B');
+                    btnBuscar.setText("Buscar");
+                    btnBuscar.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            btnGuardarActionPerformed(evt);
+                            btnBuscarActionPerformed(evt);
                         }
                     });
 
@@ -788,6 +788,7 @@ public void calcula() {
                     lblArea.setText("area");
 
                     lbldia.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+                    lbldia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                     lbldia.setText("Exámenes del día");
 
                     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -816,19 +817,16 @@ public void calcula() {
                             .addGap(18, 18, 18)
                             .addComponent(btnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(44, 44, 44)
-                            .addComponent(btnGuardar)
+                            .addComponent(btnBuscar)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(lblArea)
                             .addGap(74, 74, 74))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(327, 327, 327)
-                            .addComponent(lbldia)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(13, 13, 13)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane5)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lbldia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE))
                             .addGap(13, 13, 13))
                     );
                     layout.setVerticalGroup(
@@ -843,23 +841,22 @@ public void calcula() {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(dateDesde, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                                 .addComponent(dateHasta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(33, 33, 33)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(chPacientes)
-                                            .addComponent(txtPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblServicio))
-                                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addGap(0, 20, Short.MAX_VALUE)
-                                            .addComponent(lblArea)))
-                                    .addGap(9, 9, 9)
-                                    .addComponent(lbldia)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(chPacientes)
+                                        .addComponent(txtPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblServicio))
+                                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 20, Short.MAX_VALUE)
+                                        .addComponent(lblArea))))
+                            .addGap(3, 3, 3)
+                            .addComponent(lbldia)
+                            .addGap(3, 3, 3)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     );
@@ -986,7 +983,7 @@ public void calcula() {
          }
     }//GEN-LAST:event_chPacientesItemStateChanged
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
  try{
           
             if(dateDesde.getDate()==null || dateHasta.getDate()==null){
@@ -995,13 +992,13 @@ public void calcula() {
               JOptionPane.showMessageDialog(rootPane, "Seleccione y/o ingrese una Historia Clínica");
           }  else {
               buscar_examenes();
-              lbldia.setVisible(false);
+              
           }  
           }catch(Exception e) {
               JOptionPane.showMessageDialog(this, e.getMessage());
               
           }
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    }//GEN-LAST:event_btnBuscarActionPerformed
 public void buscar_examenes(){
     DecimalFormat df = new DecimalFormat("00");
         int dia,mes,anio,diah,mesh,anioh;
@@ -1011,9 +1008,11 @@ public void buscar_examenes(){
         diah = dateHasta.getCalendar().get(Calendar.DAY_OF_MONTH);
         mesh = dateHasta.getCalendar().get(Calendar.MONTH) + 1;
         anioh = dateHasta.getCalendar().get(Calendar.YEAR);
-        
+        lbldia.setText("Exámenes del "+df.format(dia)+"/"+df.format(mes)+"/"+anio+" al " 
+                +df.format(diah)+"/"+df.format(mesh)+"/"+anioh);
         int desde=Integer.parseInt(anio+df.format(mes)+df.format(dia));
         int hasta=Integer.parseInt(anioh+df.format(mesh)+df.format(diah));
+        
         String buscar="",tipo="1",servicioArea="";
         
         
@@ -1249,8 +1248,8 @@ public void buscar_examenes(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscar1;
-    private javax.swing.JButton btnGuardar;
     public static javax.swing.JButton btnPacientes;
     private javax.swing.JDialog buscar_HC;
     private javax.swing.JCheckBox chPacientes;

@@ -18,10 +18,10 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
     
-    static String servidor="SILVANA\\SQLEXPRESS";
+    static String servidor="192.168.1.40";
     static String puerto="1433";
     static String user="sa";
-    static String password="sistemas";
+    static String password="ILVANA\\\\SQLEXPRESSsistemas";
     static String baseDatos="SISGESH_NET";
     Connection conexion=null;
     

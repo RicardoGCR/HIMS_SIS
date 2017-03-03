@@ -14,7 +14,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
-import vista.hospitalizacion.FrmHospitalizacionPapeleta;
+import vista.hospitalizacion.FrmHospitalizacionCajaPreventa;
 
 /**
  *
@@ -163,7 +163,7 @@ public class HospitalizacionPapeletas {
             JTable p=new JTable(m);
             String fila[]=new String[18];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC HOSPITALIZACION_PAPELETA_LISTAR ?,?";
+            consulta="EXEC CAJA_PREVENTA_LISTAR_HOSPITALIZACION ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, busqueda);
             cmd.setString(2, tipo);
@@ -225,14 +225,14 @@ public class HospitalizacionPapeletas {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                FrmHospitalizacionPapeleta.lblIDHC.setText(r.getString(18)); 
-                FrmHospitalizacionPapeleta.txtDni.setText(r.getString(1)); 
-                FrmHospitalizacionPapeleta.txtPaciente.setText(r.getString(2) + " " + r.getString(3) + " " + 
+                FrmHospitalizacionCajaPreventa.lblIDHC.setText(r.getString(18)); 
+                FrmHospitalizacionCajaPreventa.txtDni.setText(r.getString(1)); 
+                FrmHospitalizacionCajaPreventa.txtPaciente.setText(r.getString(2) + " " + r.getString(3) + " " + 
                                  r.getString(4) + " " + r.getString(5) + " " +
                                  r.getString(6)); 
-                FrmHospitalizacionPapeleta.txtEdad.setText(r.getString(19)); 
-                FrmHospitalizacionPapeleta.lblEstado.setText(r.getString(17)); 
-                FrmHospitalizacionPapeleta.lblGenero.setText(r.getString(8)); 
+                FrmHospitalizacionCajaPreventa.txtEdad.setText(r.getString(19)); 
+                FrmHospitalizacionCajaPreventa.lblEstado.setText(r.getString(17)); 
+                FrmHospitalizacionCajaPreventa.lblGenero.setText(r.getString(8)); 
                 
             }
             //

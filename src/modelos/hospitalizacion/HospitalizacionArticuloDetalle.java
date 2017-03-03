@@ -20,7 +20,7 @@ public class HospitalizacionArticuloDetalle {
     Conexion con = new Conexion();
     private Connection cn;
     private int art_id;
-    private String hp_id;
+    private int id_preventa;
     private String clasificacion;
     private String descripcion;
     private String cod_usu;
@@ -34,7 +34,7 @@ public class HospitalizacionArticuloDetalle {
         try{
             String sql = "HOSPITALIZACION_ART_DETALLE_INSERTAR ?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getHp_id());
+            cmd.setInt(1, getId_preventa());
             cmd.setString(2, getDescripcion());
             if(!cmd.execute())
             {
@@ -82,20 +82,6 @@ public class HospitalizacionArticuloDetalle {
      */
     public void setArt_id(int art_id) {
         this.art_id = art_id;
-    }
-
-    /**
-     * @return the hp_id
-     */
-    public String getHp_id() {
-        return hp_id;
-    }
-
-    /**
-     * @param hp_id the hp_id to set
-     */
-    public void setHp_id(String hp_id) {
-        this.hp_id = hp_id;
     }
 
     /**
@@ -180,5 +166,19 @@ public class HospitalizacionArticuloDetalle {
      */
     public void setNom_pc(String nom_pc) {
         this.nom_pc = nom_pc;
+    }
+
+    /**
+     * @return the id_preventa
+     */
+    public int getId_preventa() {
+        return id_preventa;
+    }
+
+    /**
+     * @param id_preventa the id_preventa to set
+     */
+    public void setId_preventa(int id_preventa) {
+        this.id_preventa = id_preventa;
     }
 }

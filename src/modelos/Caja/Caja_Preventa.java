@@ -12,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
 import servicios.Conexion;
 
 /**
@@ -47,6 +48,8 @@ public class Caja_Preventa {
     private String EMER_OBSERVACION;
     private String ESTADO_CAJAP;
     private String cod_nomen;
+    private String procedencia;
+    
     Conexion con = new Conexion();
 
     public boolean mantanimientoCajaPreventaEmergencia(String tipo)
@@ -75,6 +78,35 @@ public class Caja_Preventa {
         catch(Exception ex)
         {
             System.out.println("mantanimientoCajaPreventaEmergencia: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean mantenimientoCajaPreventaHospitalizacion(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_HOSPITALIZACION "
+                        + "?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+            cmd.setString(2, getId_hc());
+            cmd.setInt(3, getCA_ID());
+            cmd.setString(4, gethOS_Indicaciones());
+            cmd.setString(5, getCod_usu());
+            cmd.setInt(6, getAR_ID());
+            cmd.setString(7, getProcedencia());
+            cmd.setString(8, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("mantenimientoCajaPreventaHospitalizacion: " + ex.getMessage());
         }
         return resp;
     }
@@ -117,6 +149,51 @@ public class Caja_Preventa {
         catch(Exception ex)
         {
             System.out.println("Error_codUsuario: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public String codArea(String area)
+    {
+        String cod="";
+        try
+        {
+            String sql = "select AR_ID from SISTEMA_AREAS where ar_desc = ? \n" +
+                        "and se_id not in(01)";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, area);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: codArea: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public String codCama(String cama)
+    {
+        String cod="";
+        try
+        {
+            String sql = "select ca_id\n" +
+                        "from HOSPITALIZACION_CAMAS\n" +
+                        "where CA_DESC = ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, cama);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: codCama: " + ex.getMessage());
         }
         return cod;
     }
@@ -585,5 +662,19 @@ public class Caja_Preventa {
      */
     public void setCod_nomen(String cod_nomen) {
         this.cod_nomen = cod_nomen;
+    }
+
+    /**
+     * @return the procedencia
+     */
+    public String getProcedencia() {
+        return procedencia;
+    }
+
+    /**
+     * @param procedencia the procedencia to set
+     */
+    public void setProcedencia(String procedencia) {
+        this.procedencia = procedencia;
     }
 }

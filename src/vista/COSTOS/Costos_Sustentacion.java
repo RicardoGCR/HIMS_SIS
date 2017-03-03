@@ -1078,6 +1078,7 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
                                                 jLabel14.setText("Servicio:");
 
                                                 txtServicio.setEditable(false);
+                                                txtServicio.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                                                 txtServicio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
                                                 jLabel16.setFont(new java.awt.Font("Palatino Linotype", 1, 13)); // NOI18N
@@ -1152,12 +1153,6 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
                                                                     .addComponent(txtCodigoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                 .addGap(29, 29, 29))))
                                                     .addGroup(pnlCPTLayout.createSequentialGroup()
-                                                        .addContainerGap()
-                                                        .addGroup(pnlCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jLabel18)
-                                                            .addComponent(txtFormadePago, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addContainerGap(18, Short.MAX_VALUE))
-                                                    .addGroup(pnlCPTLayout.createSequentialGroup()
                                                         .addGap(26, 26, 26)
                                                         .addGroup(pnlCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                             .addComponent(spHora, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
@@ -1167,6 +1162,12 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
                                                             .addComponent(jLabel12)
                                                             .addComponent(jLabel11))
                                                         .addGap(0, 0, Short.MAX_VALUE))
+                                                    .addGroup(pnlCPTLayout.createSequentialGroup()
+                                                        .addContainerGap()
+                                                        .addGroup(pnlCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(txtFormadePago, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(jLabel18))
+                                                        .addContainerGap(18, Short.MAX_VALUE))
                                                 );
                                                 pnlCPTLayout.setVerticalGroup(
                                                     pnlCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

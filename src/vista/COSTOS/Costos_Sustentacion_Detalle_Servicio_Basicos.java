@@ -473,8 +473,6 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
 
         BUSCAR_TIPO_SUSTENTACION.setAlwaysOnTop(true);
         BUSCAR_TIPO_SUSTENTACION.setMinimumSize(new java.awt.Dimension(450, 500));
@@ -1129,24 +1127,12 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
         jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/cancelar16x16.png"))); // NOI18N
         jLabel37.setText("Cancelar(Alt+C)");
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/mas.png"))); // NOI18N
-        jLabel24.setText("Agregar(Alt+\"+\")");
-
-        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/menos16x16.png"))); // NOI18N
-        jLabel38.setText("Quitar(Alt+\"-\")");
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(417, 417, 417)
-                .addComponent(jLabel24)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel38)
-                .addGap(18, 18, 18)
+                .addGap(667, 667, 667)
                 .addComponent(jLabel23)
                 .addGap(21, 21, 21)
                 .addComponent(jLabel37)
@@ -1161,9 +1147,7 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel24))
+                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(5, 5, 5))
         );
 
@@ -2031,10 +2015,8 @@ public void calcula() {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

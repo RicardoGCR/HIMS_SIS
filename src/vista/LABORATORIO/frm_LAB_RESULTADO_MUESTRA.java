@@ -74,8 +74,7 @@ DefaultTableModel m,n,muestra;
         
         panelResultado.setBackground(Color.white);
         this.getContentPane().setBackground(Color.white); 
-        nomenclatura.getContentPane().setBackground(Color.white);
-        nomenclatura.setLocationRelativeTo(null);
+
         personal.getContentPane().setBackground(Color.white);
         personal.setLocationRelativeTo(null);
         setLocationRelativeTo(null);//en el centro
@@ -239,15 +238,6 @@ public void calcula() {
             jpanel2 = new javax.swing.JPanel();
             titulo7 = new javax.swing.JLabel();
             lbltipo = new javax.swing.JLabel();
-            nomenclatura = new javax.swing.JDialog();
-            jScrollPane3 = new javax.swing.JScrollPane();
-            tb_Nomenclatura = new javax.swing.JTable();
-            txthc = new javax.swing.JLabel();
-            jLabel5 = new javax.swing.JLabel();
-            txtNombres = new javax.swing.JLabel();
-            jLabel4 = new javax.swing.JLabel();
-            jpanel1 = new javax.swing.JPanel();
-            titulo6 = new javax.swing.JLabel();
             jpanel = new javax.swing.JPanel();
             titulo5 = new javax.swing.JLabel();
             jLabel14 = new javax.swing.JLabel();
@@ -453,102 +443,6 @@ public void calcula() {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addContainerGap(47, Short.MAX_VALUE))
-                    );
-
-                    nomenclatura.setMinimumSize(new java.awt.Dimension(710, 435));
-
-                    tb_Nomenclatura.setModel(new javax.swing.table.DefaultTableModel(
-                        new Object [][] {
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null}
-                        },
-                        new String [] {
-                            "Title 1", "Title 2", "Title 3", "Title 4"
-                        }
-                    ));
-                    tb_Nomenclatura.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-                    tb_Nomenclatura.setRowHeight(21);
-                    tb_Nomenclatura.addKeyListener(new java.awt.event.KeyAdapter() {
-                        public void keyPressed(java.awt.event.KeyEvent evt) {
-                            tb_NomenclaturaKeyPressed(evt);
-                        }
-                    });
-                    jScrollPane3.setViewportView(tb_Nomenclatura);
-
-                    txthc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-                    txthc.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-                    txthc.setText("N° de H.C.");
-
-                    jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-                    jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-                    jLabel5.setText("N° de H.C.");
-
-                    txtNombres.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-                    txtNombres.setText("jLabel4");
-
-                    jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-                    jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-                    jLabel4.setText("Paciente:");
-
-                    jpanel1.setBackground(new java.awt.Color(2, 67, 115));
-
-                    titulo6.setBackground(new java.awt.Color(0, 102, 102));
-                    titulo6.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-                    titulo6.setForeground(new java.awt.Color(255, 255, 255));
-                    titulo6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                    titulo6.setText("Exámenes");
-                    titulo6.setToolTipText("");
-                    titulo6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-                    javax.swing.GroupLayout jpanel1Layout = new javax.swing.GroupLayout(jpanel1);
-                    jpanel1.setLayout(jpanel1Layout);
-                    jpanel1Layout.setHorizontalGroup(
-                        jpanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(titulo6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    );
-                    jpanel1Layout.setVerticalGroup(
-                        jpanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jpanel1Layout.createSequentialGroup()
-                            .addComponent(titulo6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, Short.MAX_VALUE))
-                    );
-
-                    javax.swing.GroupLayout nomenclaturaLayout = new javax.swing.GroupLayout(nomenclatura.getContentPane());
-                    nomenclatura.getContentPane().setLayout(nomenclaturaLayout);
-                    nomenclaturaLayout.setHorizontalGroup(
-                        nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jpanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(nomenclaturaLayout.createSequentialGroup()
-                            .addGroup(nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(nomenclaturaLayout.createSequentialGroup()
-                                    .addGap(33, 33, 33)
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(81, 81, 81)
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txthc))
-                                .addGroup(nomenclaturaLayout.createSequentialGroup()
-                                    .addGap(16, 16, 16)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap(28, Short.MAX_VALUE))
-                    );
-                    nomenclaturaLayout.setVerticalGroup(
-                        nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nomenclaturaLayout.createSequentialGroup()
-                            .addComponent(jpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addGroup(nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel4)
-                                .addComponent(txtNombres)
-                                .addComponent(jLabel5)
-                                .addComponent(txthc))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(46, 46, 46))
                     );
 
                     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -1582,84 +1476,12 @@ public void calcula() {
     }//GEN-LAST:event_cbxBuscar2ItemStateChanged
 
     private void txtPersonalTomaMuestraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalTomaMuestraKeyPressed
-       char tecla= evt.getKeyChar();
-                if(tecla==KeyEvent.VK_ENTER){
-                    personal.setVisible(true);
-                    Personal_cargar();
-                    Personal_formato();
-                    lbltipo.setText("1");
-                }
+      
     }//GEN-LAST:event_txtPersonalTomaMuestraKeyPressed
 
     private void txtPersonalTomaMuestraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalTomaMuestraKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPersonalTomaMuestraKeyReleased
-
-    private void tb_NomenclaturaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_NomenclaturaKeyPressed
-        char tecla= evt.getKeyChar();
-        if(tecla==KeyEvent.VK_ENTER){
-            try{
-
-                int filaselec=tb_Nomenclatura.getSelectedRow();
-                nomenclatura.setVisible(false);
-
-                frm_LAB_TOMA_MUESTRA_DETALLE vr=new frm_LAB_TOMA_MUESTRA_DETALLE();
-                vr.setVisible(true);
-                frm_LAB_TOMA_MUESTRA_DETALLE.lblDni.setText(txtDni.getText());
-                
-                frm_LAB_TOMA_MUESTRA_DETALLE.lblServicio.setText(lblServicio.getText());
-                
-                frm_LAB_TOMA_MUESTRA_DETALLE.txtidDocumen.setText(tb_Nomenclatura.getValueAt(filaselec, 6).toString());
-                frm_LAB_TOMA_MUESTRA_DETALLE.lblCodNomen.setText(tb_Nomenclatura.getValueAt(filaselec, 2).toString());
-
-                frm_LAB_TOMA_MUESTRA_DETALLE.lblId_cod_doc_det.setText(tb_Nomenclatura.getValueAt(filaselec, 1).toString());
-
-                frm_LAB_TOMA_MUESTRA_DETALLE.txtNomenclatura.setText(tb_Nomenclatura.getValueAt(filaselec, 4).toString());
-                frm_LAB_TOMA_MUESTRA_DETALLE.txtCodigoCPT.setText(tb_Nomenclatura.getValueAt(filaselec, 3).toString());
-
-                frm_LAB_TOMA_MUESTRA_DETALLE.txtServicio.setText(tb_Nomenclatura.getValueAt(filaselec, 5).toString());
-                
-                //codigo analisis examen
-                LAB_Toma_Muestra_Detalle md=new LAB_Toma_Muestra_Detalle();
-                String cod_exa="";
-                 cod_exa=md.LAB_Toma_Muestra_Det_exa(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),tb_Nomenclatura.getValueAt(filaselec, 8).toString(),"1");
-                frm_LAB_TOMA_MUESTRA_DETALLE.lblExa.setText(cod_exa);
-                
-                //cantidad
-                LAB_Toma_Muestra_Detalle md1=new LAB_Toma_Muestra_Detalle();
-                String cantidad=md1.LAB_Toma_Muestra_Det_exa(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),tb_Nomenclatura.getValueAt(filaselec, 8).toString(),"3");
-                frm_LAB_TOMA_MUESTRA_DETALLE.lblCantidadMues.setText(cantidad);
-               
-                //CARGAR LAS MUESTRAS
-                Muestras_cargar(tb_Nomenclatura.getValueAt(filaselec, 2).toString(),tb_Nomenclatura.getValueAt(filaselec, 8).toString());
-                 
-                //HOSPITALIZACION
-                LAB_Toma_Muestra_Detalle hosp=new LAB_Toma_Muestra_Detalle();
-                if(hosp.LAB_Toma_Muestra_Hospitalizacion_ver(lblHc.getText())>0){
-                    LAB_Toma_Muestra_Detalle idpreventa=new LAB_Toma_Muestra_Detalle();
-                     LAB_Toma_Muestra_Detalle habit=new LAB_Toma_Muestra_Detalle();
-                     LAB_Toma_Muestra_Detalle cama=new LAB_Toma_Muestra_Detalle();
-                     
-                    frm_LAB_TOMA_MUESTRA_DETALLE.lblHospi.setText("Hospitalizado");
-                    frm_LAB_TOMA_MUESTRA_DETALLE.lblid_preventa.setText(idpreventa.LAB_Toma_Muestra_Hospi_idPreventa(lblHc.getText()));
-                    frm_LAB_TOMA_MUESTRA_DETALLE.txtHabitacion.setText(habit.LAB_Toma_Muestra_Hospi_habitacion(lblHc.getText()));
-                    frm_LAB_TOMA_MUESTRA_DETALLE.txtCama.setText(cama.LAB_Toma_Muestra_Hospi_cama(lblHc.getText()));
-                    
-                }else{
-                    frm_LAB_TOMA_MUESTRA_DETALLE.lblHospi.setText("No Hospitalizado");
-                    frm_LAB_TOMA_MUESTRA_DETALLE.lblid_preventa.setText("");
-                    frm_LAB_TOMA_MUESTRA_DETALLE.txtHabitacion.setText("--");
-                    frm_LAB_TOMA_MUESTRA_DETALLE.txtCama.setText("--");
-                }
-                
-                
-                String u=lblUsu.getText();
-                frm_LAB_TOMA_MUESTRA_DETALLE.lblUsu.setText(u);
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(this, e.getMessage());
-            }}
-        
-    }//GEN-LAST:event_tb_NomenclaturaKeyPressed
 public void Muestras_cargar(String nomen,String area){
     try {
         
@@ -1807,7 +1629,13 @@ public void Muestras_cargar(String nomen,String area){
     }//GEN-LAST:event_txtPersonalSolicita1KeyReleased
 
     private void txtPersonalSolicita1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalSolicita1KeyPressed
-        // TODO add your handling code here:
+       char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){
+                    personal.setVisible(true);
+                    Personal_cargar();
+                    Personal_formato();
+                    lbltipo.setText("1");
+                }
     }//GEN-LAST:event_txtPersonalSolicita1KeyPressed
 
     private void txtPersonalSolicita1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPersonalSolicita1ActionPerformed
@@ -2241,18 +2069,14 @@ public void Muestras_cargar(String nomen,String area){
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPanel jpanel;
-    private javax.swing.JPanel jpanel1;
     private javax.swing.JPanel jpanel2;
     public static javax.swing.JLabel lblArea;
     public static javax.swing.JLabel lblDocumento;
@@ -2265,7 +2089,6 @@ public void Muestras_cargar(String nomen,String area){
     public static javax.swing.JLabel lblcod_det_toma;
     public static javax.swing.JLabel lblcod_exa_ana;
     private javax.swing.JLabel lbltipo;
-    private javax.swing.JDialog nomenclatura;
     private javax.swing.JPanel panelCabecera;
     private javax.swing.JPanel panelPaciente;
     private javax.swing.JPanel panelResultado;
@@ -2273,10 +2096,8 @@ public void Muestras_cargar(String nomen,String area){
     private javax.swing.JDialog personal;
     public static javax.swing.JTable tbPersonal;
     public static javax.swing.JTable tb_Detalle;
-    private javax.swing.JTable tb_Nomenclatura;
     public static javax.swing.JTable tb_Subdetalle;
     private javax.swing.JLabel titulo5;
-    private javax.swing.JLabel titulo6;
     private javax.swing.JLabel titulo7;
     public static javax.swing.JTextField txtActoMedico;
     private javax.swing.JTextField txtBuscar;
@@ -2294,7 +2115,6 @@ public void Muestras_cargar(String nomen,String area){
     public static javax.swing.JTextField txtHoraOrden;
     public static javax.swing.JTextField txtHoraTM;
     public static javax.swing.JTextField txtNToma;
-    private javax.swing.JLabel txtNombres;
     public static javax.swing.JTextField txtNomenclatura;
     private javax.swing.JTextField txtNum;
     public static javax.swing.JTextField txtPacientes;
@@ -2305,6 +2125,5 @@ public void Muestras_cargar(String nomen,String area){
     public static javax.swing.JTextField txtPiso1;
     public static javax.swing.JTextField txtServArea;
     public static javax.swing.JTextField txtSexo;
-    private javax.swing.JLabel txthc;
     // End of variables declaration//GEN-END:variables
 }

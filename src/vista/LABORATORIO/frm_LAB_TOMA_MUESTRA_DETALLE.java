@@ -1210,6 +1210,9 @@ public void calcula() {
                                 public void keyPressed(java.awt.event.KeyEvent evt) {
                                     txtAreaKeyPressed(evt);
                                 }
+                                public void keyReleased(java.awt.event.KeyEvent evt) {
+                                    txtAreaKeyReleased(evt);
+                                }
                             });
 
                             jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1498,21 +1501,20 @@ public void calcula() {
 
         try {
             String tipo="",buscar="";
-            buscar=txtBuscar.getText();
 
             if(cbxBuscar2.getSelectedIndex()==1){
-                tipo="8";
+                tipo="2";
             }else if(cbxBuscar2.getSelectedIndex()==2){
-                tipo="9";
+                tipo="3";
             }
             buscar=txtBuscar.getText();
-            String titulos[]={"N°","Código","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio","Área"};
+            String titulos[]={"N°","Código","Apellido Paterno","Apellido Materno","Nombres","Cargo"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
             LAB_Toma_Muestra_Cabecera obj=new LAB_Toma_Muestra_Cabecera();
 
-            String consulta="exec sp_LAB_TOMA_MUESTRA_CAB_ROL ?,?,?";
+            String consulta="exec sp_LAB_PERSONAL ?,?,?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, buscar);
             cmd.setString(2, "");
@@ -1526,8 +1528,6 @@ public void calcula() {
                 fila[3]=r.getString(3);
                 fila[4]=r.getString(4);
                 fila[5]=r.getString(5);
-                fila[6]=r.getString(6);
-                fila[7]=r.getString(7);
                 m.addRow(fila);
                 c++;
             }
@@ -1594,6 +1594,7 @@ public void calcula() {
       char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
                     personal.setVisible(true);
+                    txtBuscar.setText("");
                     Personal_cargar();
                     Personal_formato();
                 }
@@ -1965,9 +1966,7 @@ char tecla= evt.getKeyChar();
     }//GEN-LAST:event_txtCantidadRegisKeyTyped
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(lblCodPerSolicita.getText().equalsIgnoreCase("")){
-           JOptionPane.showMessageDialog(rootPane, "Seleccione al Personal");
-       }else if(date.getDate()==null){
+        if(date.getDate()==null){
         JOptionPane.showMessageDialog(rootPane, "Seleccione la Fecha de Entrega del Examen");
     }else if(spHora.getValue().equals(0) && spMin.getValue().equals(0)){
       JOptionPane.showMessageDialog(rootPane, "Ingrese la Hora de Entrega del Examen");
@@ -1997,6 +1996,10 @@ char tecla= evt.getKeyChar();
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txtAreaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAreaKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAreaKeyReleased
     
      public void cargar_detalle(){
          try {
@@ -2014,8 +2017,13 @@ char tecla= evt.getKeyChar();
             cod_cpt=txtCodigoCPT.getText();
             nomenclatura=txtNomenclatura.getText();
             servicio=txtServicio.getText();
+            if(lblCodPerSolicita.getText().equalsIgnoreCase("")){
+            cod_per_solicita="";
+            nom_per_solicita="";
+            }else{
             cod_per_solicita=lblCodPerSolicita.getText();
             nom_per_solicita=txtPersonalSolicita.getText();
+            }
             DecimalFormat df = new DecimalFormat("00");
                 
         int dia,mes,anio;
@@ -2074,17 +2082,17 @@ char tecla= evt.getKeyChar();
     public void Personal_cargar(){
 
     try {
-             String titulos[]={"N°","Código","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio","Área"};
+             String titulos[]={"N°","Código","Apellido Paterno","Apellido Materno","Nombres","Cargo"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
             LAB_Toma_Muestra_Cabecera obj=new LAB_Toma_Muestra_Cabecera();
             
-        String consulta="exec sp_LAB_TOMA_MUESTRA_CAB_ROL ?,?,?";
+        String consulta="exec sp_LAB_PERSONAL ?,?,?";
        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
            cmd.setString(1, "");
             cmd.setString(2, "");
-            cmd.setString(3, "7");
+            cmd.setString(3, "1");
         ResultSet r=cmd.executeQuery();
         int c=1;
         while(r.next()){
@@ -2094,8 +2102,6 @@ char tecla= evt.getKeyChar();
             fila[3]=r.getString(3);
             fila[4]=r.getString(4);
             fila[5]=r.getString(5);
-            fila[6]=r.getString(6);
-            fila[7]=r.getString(7);
                 m.addRow(fila);
                 c++;
             }
@@ -2114,8 +2120,6 @@ char tecla= evt.getKeyChar();
     tbPersonal.getColumnModel().getColumn(3).setPreferredWidth(120);
     tbPersonal.getColumnModel().getColumn(4).setPreferredWidth(200);
     tbPersonal.getColumnModel().getColumn(5).setPreferredWidth(240);
-    tbPersonal.getColumnModel().getColumn(6).setPreferredWidth(120);
-    tbPersonal.getColumnModel().getColumn(7).setPreferredWidth(120);
     tbPersonal.getSelectionModel().setSelectionInterval(0, 0);
             tbPersonal.requestFocus();
 }

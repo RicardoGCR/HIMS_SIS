@@ -1497,6 +1497,7 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
                     Personal_cargar();
                     Personal_formato();
                     lbltipo.setText("1");
+                    txtBuscar.setText("");
                 }
     }//GEN-LAST:event_txtPersonalTomaMuestraKeyPressed
 
@@ -1620,6 +1621,7 @@ public void Muestras_cargar(String nomen,String area){
                     Personal_cargar();
                     Personal_formato();
                     lbltipo.setText("2");
+                    txtBuscar.setText("");
                 }
     }//GEN-LAST:event_txtPersonalRegistraTomaKeyPressed
 

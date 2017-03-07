@@ -3390,6 +3390,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         lblServicio.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         lblServicio.setText("jLabel7");
 
+        lblSe_ID.setForeground(new java.awt.Color(255, 255, 255));
         lblSe_ID.setText("jLabel7");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N

@@ -7,10 +7,18 @@ package vista.hospitalizacion;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import static java.awt.image.ImageObserver.WIDTH;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import modelos.Caja.Caja_Preventa;
+import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
+import modelos.hospitalizacion.HospitalizacionAsignacionCamas;
+import modelos.hospitalizacion.HospitalizacionHCHospitalaria;
 import modelos.hospitalizacion.HospitalizacionPapeletas;
 import static vista.hospitalizacion.FrmHospitalizacionListarCajaPreventa.tbListarPapeleta;
-import static vista.hospitalizacion.FrmHospitalizacionListarCajaPreventa.txtBuscarr;
 
 /**
  *
@@ -27,6 +35,32 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.WHITE);
         cbxTipoAtencion.setBackground(Color.WHITE);
+        //BOTON CERRAR
+        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
+        // BOTON ESCAPE (ESC)
+        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e)
+            {
+                dispose();
+            }
+        });
+        cerrar();
+    }
+    
+    public void cerrar (){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e){
+                    dispose();
+                }
+        });
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public void limpiar(){
@@ -44,6 +78,9 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         txtMotEnfer.setText("");
         txtSintPrincipales.setText("");
         cbxTipoAtencion.setSelectedIndex(0);
+        lblMant.setText("");
+        lblID_Preventa.setText("");
+        lblIdHc.setText("");
     }
     
     public void habilitarCajas(boolean opcion){
@@ -75,6 +112,29 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         FrmHospitalizacionFormatoHC.txtNroCama.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 7)));
     }
 
+    public void enviarDatosaModificar(){
+        int fila = tbFormatoHC.getSelectedRow();
+        frmListarFormatoHC.dispose();
+        FrmHospitalizacionFormatoHC.lblHHH_ID.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 0)));
+        FrmHospitalizacionFormatoHC.txtActoMedico.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 1)));
+        FrmHospitalizacionFormatoHC.txtNHC.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 2)));
+        FrmHospitalizacionFormatoHC.txtDNI.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 3)));
+        FrmHospitalizacionFormatoHC.txtPaciente.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 4)));
+        FrmHospitalizacionFormatoHC.cbxTipoAtencion.setSelectedItem(String.valueOf(tbFormatoHC.getValueAt(fila, 5)));
+        FrmHospitalizacionFormatoHC.txtAnamnesis.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 6)));
+        FrmHospitalizacionFormatoHC.txtEnfInfancia.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 7)));
+        FrmHospitalizacionFormatoHC.txtEnfAdulto.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 8)));
+        FrmHospitalizacionFormatoHC.txtTraumaAcci.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 9)));
+        FrmHospitalizacionFormatoHC.txtHabitos.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 10)));
+        FrmHospitalizacionFormatoHC.txtTiempEnf.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 11)));
+        FrmHospitalizacionFormatoHC.txtMotEnfer.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 12)));
+        FrmHospitalizacionFormatoHC.txtSintPrincipales.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 13)));
+        FrmHospitalizacionFormatoHC.txtNroCama.setText(String.valueOf(tbFormatoHC.getValueAt(fila, 14)));
+        habilitarCajas(false);
+        btnGuardar.setEnabled(false);
+        btnModificar.setEnabled(true);
+        btnEliminar.setEnabled(true);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -87,6 +147,17 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         txtBuscarPaciente = new javax.swing.JTextField();
         btnBuscarPaciente = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
+        frmListarFormatoHC = new javax.swing.JFrame();
+        jPanel10 = new javax.swing.JPanel();
+        titulo7 = new javax.swing.JLabel();
+        lblUsuUsuario1 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        txtBuscarActoMedico = new javax.swing.JTextField();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        tbFormatoHC = new javax.swing.JTable();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        txtBuscarDatos = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         lblUsuUsuario = new javax.swing.JLabel();
@@ -95,6 +166,7 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnBuscar3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cbxTipoAtencion = new javax.swing.JComboBox();
@@ -113,6 +185,8 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         lblID_Preventa = new javax.swing.JLabel();
         lblIdHc = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        lblMant = new javax.swing.JLabel();
+        lblHHH_ID = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAnamnesis = new javax.swing.JEditorPane();
@@ -160,6 +234,11 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         jScrollPane9.setBorder(null);
         jScrollPane9.setOpaque(false);
 
+        tbPacientesHosp = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tbPacientesHosp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -171,6 +250,11 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         tbPacientesHosp.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbPacientesHosp.setSelectionBackground(new java.awt.Color(217, 176, 86));
         tbPacientesHosp.getTableHeader().setReorderingAllowed(false);
+        tbPacientesHosp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbPacientesHospMouseClicked(evt);
+            }
+        });
         tbPacientesHosp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbPacientesHospKeyPressed(evt);
@@ -217,6 +301,118 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
             FrmBuscarPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
         );
+
+        frmListarFormatoHC.setMinimumSize(new java.awt.Dimension(900, 600));
+        frmListarFormatoHC.getContentPane().setLayout(null);
+
+        jPanel10.setBackground(new java.awt.Color(217, 176, 86));
+        jPanel10.setPreferredSize(new java.awt.Dimension(500, 65));
+        jPanel10.setLayout(null);
+
+        titulo7.setBackground(new java.awt.Color(153, 0, 51));
+        titulo7.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        titulo7.setForeground(new java.awt.Color(255, 255, 255));
+        titulo7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        titulo7.setText("Formatos Historia Clínica Hospitalaria");
+        titulo7.setToolTipText("");
+        titulo7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel10.add(titulo7);
+        titulo7.setBounds(10, 10, 470, 41);
+
+        lblUsuUsuario1.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        lblUsuUsuario1.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuUsuario1.setText("Silvana");
+        jPanel10.add(lblUsuUsuario1);
+        lblUsuUsuario1.setBounds(1190, 20, 85, 20);
+
+        jLabel20.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
+        jPanel10.add(jLabel20);
+        jLabel20.setBounds(1150, 20, 32, 24);
+
+        txtBuscarActoMedico.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscarActoMedicoCaretUpdate(evt);
+            }
+        });
+        txtBuscarActoMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarActoMedicoActionPerformed(evt);
+            }
+        });
+        txtBuscarActoMedico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarActoMedicoKeyPressed(evt);
+            }
+        });
+        jPanel10.add(txtBuscarActoMedico);
+        txtBuscarActoMedico.setBounds(100, 50, 120, 30);
+
+        jScrollPane11.setBorder(null);
+        jScrollPane11.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane11.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        tbFormatoHC = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
+        tbFormatoHC.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbFormatoHC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbFormatoHC.setSelectionBackground(new java.awt.Color(217, 176, 86));
+        tbFormatoHC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbFormatoHCKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tbFormatoHCKeyReleased(evt);
+            }
+        });
+        jScrollPane11.setViewportView(tbFormatoHC);
+
+        jPanel10.add(jScrollPane11);
+        jScrollPane11.setBounds(0, 112, 895, 460);
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Acto Médico:");
+        jPanel10.add(jLabel18);
+        jLabel18.setBounds(10, 60, 90, 20);
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Nº H.C. / DNI / Apellidos y nombres:");
+        jPanel10.add(jLabel21);
+        jLabel21.setBounds(10, 90, 230, 18);
+
+        txtBuscarDatos.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscarDatosCaretUpdate(evt);
+            }
+        });
+        txtBuscarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarDatosActionPerformed(evt);
+            }
+        });
+        txtBuscarDatos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarDatosKeyPressed(evt);
+            }
+        });
+        jPanel10.add(txtBuscarDatos);
+        txtBuscarDatos.setBounds(240, 80, 260, 30);
+
+        frmListarFormatoHC.getContentPane().add(jPanel10);
+        jPanel10.setBounds(0, 0, 900, 620);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Formato de Historia Clínica Hospitalaria");
@@ -322,6 +518,31 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         jPanel8.add(btnEliminar);
         btnEliminar.setBounds(130, 60, 28, 30);
 
+        btnBuscar3.setBackground(new java.awt.Color(204, 204, 204));
+        btnBuscar3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnBuscar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Buscar-32.png"))); // NOI18N
+        btnBuscar3.setToolTipText("Buscar (Alt + F3)");
+        btnBuscar3.setContentAreaFilled(false);
+        btnBuscar3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscar3.setFocusable(false);
+        btnBuscar3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBuscar3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBuscar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscar3ActionPerformed(evt);
+            }
+        });
+        btnBuscar3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnBuscar3KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                btnBuscar3KeyTyped(evt);
+            }
+        });
+        jPanel8.add(btnBuscar3);
+        btnBuscar3.setBounds(170, 60, 38, 32);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
@@ -329,7 +550,7 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         jLabel1.setText("Tipo de atención:");
 
         cbxTipoAtencion.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        cbxTipoAtencion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Recuperativo Asistencial", "Rehabilitacion", "Preventivo Promocional", "Comunitaria" }));
+        cbxTipoAtencion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Recuperativo Asistencial", "Rehabilitacion" }));
         cbxTipoAtencion.setEnabled(false);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -389,6 +610,10 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel17.setText("Alt + B");
 
+        lblMant.setText("Mantenimiento");
+
+        lblHHH_ID.setText("HHH_ID");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -406,12 +631,15 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
                         .addComponent(btnBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNHC, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
+                        .addComponent(jLabel5))
+                    .addComponent(lblMant))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -422,23 +650,28 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNroCama, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(178, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(224, 224, 224)
+                        .addGap(82, 82, 82)
                         .addComponent(lblID_Preventa, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(72, 72, 72)
                         .addComponent(lblIdHc, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(347, 347, 347))))
+                        .addGap(68, 68, 68)
+                        .addComponent(lblHHH_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(155, 155, 155))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblID_Preventa)
-                    .addComponent(lblIdHc)
-                    .addComponent(jLabel17))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblID_Preventa)
+                        .addComponent(lblIdHc)
+                        .addComponent(jLabel17)
+                        .addComponent(lblMant))
+                    .addComponent(lblHHH_ID, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -639,23 +872,121 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        HospitalizacionHCHospitalaria hospHC = new HospitalizacionHCHospitalaria();
+        if(hospHC.idHospitalizacionHCHospitalaria()!=0)
+            lblHHH_ID.setText(String.valueOf(hospHC.idHospitalizacionHCHospitalaria()));
+        else
+            lblHHH_ID.setText("1");
         limpiar();
         habilitarCajas(true);
         btnGuardar.setEnabled(true);
+        lblMant.setText("I");
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        limpiar();
-        habilitarCajas(false);
-        btnGuardar.setEnabled(false);
+        ImageIcon alerta=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png"));
+        ImageIcon guarda=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Comprobado-60.png"));
+        AdmisionEmergenciaCabecera ademer = new AdmisionEmergenciaCabecera();
+        if(cbxTipoAtencion.getSelectedIndex()==0 || txtActoMedico.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un paciente \n y el tipo de atención", "Atención", WIDTH, alerta);
+        } else {
+            if(lblMant.getText().equals("I")){
+                int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+                                            "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,alerta);
+                HospitalizacionHCHospitalaria hospHC = new HospitalizacionHCHospitalaria();
+                int hhh_id = Integer.parseInt(lblHHH_ID.getText());
+                int id_preventa = Integer.parseInt(lblID_Preventa.getText());
+                String tipo_atencion = cbxTipoAtencion.getSelectedItem().toString();
+                String anamnesis = txtAnamnesis.getText();
+                String enf_infancia = txtEnfInfancia.getText();
+                String enf_adulto = txtEnfAdulto.getText();
+                String trauma_acc = txtTraumaAcci.getText();
+                String habitos = txtHabitos.getText();
+                String tiempo_enf = txtTiempEnf.getText();
+                String motivo_enf = txtMotEnfer.getText();
+                String sintoma_prin = txtSintPrincipales.getText();
+                String usuario = ademer.codUsuario(lblUsuUsuario.getText());
+                if(guardar == 0){
+                    hospHC.setHhh_id(hhh_id);
+                    hospHC.setId_preventa(id_preventa);
+                    hospHC.setTipo_atencion(tipo_atencion);
+                    hospHC.setAnamnesis(anamnesis);
+                    hospHC.setEnf_infancia(enf_infancia);
+                    hospHC.setEnf_adulto(enf_adulto);
+                    hospHC.setTrauma_acc(trauma_acc);
+                    hospHC.setHabitos(habitos);
+                    hospHC.setTiempo_enf(tiempo_enf);
+                    hospHC.setMotivo_enf(motivo_enf);
+                    hospHC.setSintoma_prin(sintoma_prin);
+                    hospHC.setCod_usu(usuario);
+                    if(hospHC.mantenimientoHospitalizacionHCHospitalaria(lblMant.getText())==true){
+                        JOptionPane.showMessageDialog(this, "Registro Guardado con éxito", "Registro Guardado", WIDTH, guarda);
+                        //REPORTE
+                        //
+                        //
+                        //
+                        //
+                        limpiar();
+                        habilitarCajas(false);
+                        btnGuardar.setEnabled(false);
+                    }
+                }
+            } else { //MODIFICAR FORMATO HC HOSPITALARIA
+                int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",
+                                            "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,alerta);
+                HospitalizacionHCHospitalaria hospHC = new HospitalizacionHCHospitalaria();
+                int hhh_id = Integer.parseInt(lblHHH_ID.getText());
+                String tipo_atencion = cbxTipoAtencion.getSelectedItem().toString();
+                String anamnesis = txtAnamnesis.getText();
+                String enf_infancia = txtEnfInfancia.getText();
+                String enf_adulto = txtEnfAdulto.getText();
+                String trauma_acc = txtTraumaAcci.getText();
+                String habitos = txtHabitos.getText();
+                String tiempo_enf = txtTiempEnf.getText();
+                String motivo_enf = txtMotEnfer.getText();
+                String sintoma_prin = txtSintPrincipales.getText();
+                if(guardar == 0){
+                    hospHC.setHhh_id(hhh_id);
+                    hospHC.setTipo_atencion(tipo_atencion);
+                    hospHC.setAnamnesis(anamnesis);
+                    hospHC.setEnf_infancia(enf_infancia);
+                    hospHC.setEnf_adulto(enf_adulto);
+                    hospHC.setTrauma_acc(trauma_acc);
+                    hospHC.setHabitos(habitos);
+                    hospHC.setTiempo_enf(tiempo_enf);
+                    hospHC.setMotivo_enf(motivo_enf);
+                    hospHC.setSintoma_prin(sintoma_prin);
+                    if(hospHC.mantenimientoHospitalizacionHCHospitalaria(lblMant.getText())==true){
+                        JOptionPane.showMessageDialog(this, "Registro modificado con éxito", "Registro Modificado", WIDTH, guarda);
+                        limpiar();
+                        habilitarCajas(false);
+                        btnGuardar.setEnabled(false);
+                    }
+                }
+            }
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-
+        habilitarCajas(true);
+        lblMant.setText("U");
+        btnGuardar.setEnabled(true);
+        btnEliminar.setEnabled(false);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
+        ImageIcon alerta=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png"));
+        ImageIcon guarda=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Comprobado-60.png"));
+        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea ELIMINAR los datos?",
+                                            "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,alerta);
+        HospitalizacionHCHospitalaria hosp = new HospitalizacionHCHospitalaria();
+        if(eliminar == 0){
+            hosp.setHhh_id(Integer.parseInt(lblHHH_ID.getText()));
+            if(hosp.mantenimientoHospitalizacionHCHospitalaria("E")){
+                JOptionPane.showMessageDialog(this, "Registro elimnado con éxito", "Registro Eliminado", WIDTH, guarda);
+                limpiar();
+            }
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -691,6 +1022,94 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         HospitalizacionPapeletas hosp = new HospitalizacionPapeletas();
         hosp.listarPapeleta("C", txtBuscarPaciente.getText(), tbPacientesHosp,"F");
     }//GEN-LAST:event_txtBuscarPacienteCaretUpdate
+
+    private void tbPacientesHospMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPacientesHospMouseClicked
+        if(evt.getClickCount()==2){
+            FrmBuscarPaciente.dispose();
+            enviarDatosPac();
+        }
+    }//GEN-LAST:event_tbPacientesHospMouseClicked
+
+    private void btnBuscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar3ActionPerformed
+        frmListarFormatoHC.setVisible(true);
+        frmListarFormatoHC.setLocationRelativeTo(null);//en el centro
+        frmListarFormatoHC.setResizable(false);
+        frmListarFormatoHC.getContentPane().setBackground(Color.WHITE);
+        HospitalizacionHCHospitalaria hosp = new HospitalizacionHCHospitalaria();
+        hosp.listarFormatoHC(0, txtBuscarActoMedico.getText(), "A", tbFormatoHC);
+        
+    }//GEN-LAST:event_btnBuscar3ActionPerformed
+
+    private void txtBuscarActoMedicoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarActoMedicoCaretUpdate
+        if(txtBuscarActoMedico.getText().equals("")){
+            txtBuscarDatos.setEnabled(true);
+            HospitalizacionHCHospitalaria hosp = new HospitalizacionHCHospitalaria();
+            hosp.listarFormatoHC(0, txtBuscarActoMedico.getText(), "A", tbFormatoHC);
+        } else {
+            HospitalizacionHCHospitalaria hosp = new HospitalizacionHCHospitalaria();
+            hosp.listarFormatoHC(0, txtBuscarActoMedico.getText(), "A", tbFormatoHC);
+            txtBuscarDatos.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtBuscarActoMedicoCaretUpdate
+
+    private void txtBuscarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarDatosActionPerformed
+        
+    }//GEN-LAST:event_txtBuscarDatosActionPerformed
+
+    private void txtBuscarActoMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActoMedicoActionPerformed
+       
+    }//GEN-LAST:event_txtBuscarActoMedicoActionPerformed
+
+    private void txtBuscarDatosCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarDatosCaretUpdate
+        if(txtBuscarDatos.getText().equals("")){
+            txtBuscarActoMedico.setEnabled(true);
+            HospitalizacionHCHospitalaria hosp = new HospitalizacionHCHospitalaria();
+            hosp.listarFormatoHC(0, txtBuscarDatos.getText(), "N", tbFormatoHC);
+        } else {
+            HospitalizacionHCHospitalaria hosp = new HospitalizacionHCHospitalaria();
+            hosp.listarFormatoHC(0, txtBuscarDatos.getText(), "N", tbFormatoHC);
+            txtBuscarActoMedico.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtBuscarDatosCaretUpdate
+
+    private void txtBuscarActoMedicoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarActoMedicoKeyPressed
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
+            txtBuscarDatos.requestFocus();
+        }
+    }//GEN-LAST:event_txtBuscarActoMedicoKeyPressed
+
+    private void txtBuscarDatosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarDatosKeyPressed
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
+            tbFormatoHC.getSelectionModel().setSelectionInterval(0,0);
+            tbFormatoHC.requestFocus();
+        }
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_UP){
+            txtBuscarActoMedico.requestFocus();
+        }
+    }//GEN-LAST:event_txtBuscarDatosKeyPressed
+
+    private void tbFormatoHCKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbFormatoHCKeyPressed
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_UP && tbFormatoHC.getSelectedRow()==0){
+            tbFormatoHC.getSelectionModel().setSelectionInterval(0,0);
+            txtBuscarDatos.requestFocus();
+        }
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            enviarDatosaModificar();
+        }
+    }//GEN-LAST:event_tbFormatoHCKeyPressed
+
+    private void btnBuscar3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnBuscar3KeyTyped
+        
+    }//GEN-LAST:event_btnBuscar3KeyTyped
+
+    private void btnBuscar3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnBuscar3KeyPressed
+
+    }//GEN-LAST:event_btnBuscar3KeyPressed
+
+    private void tbFormatoHCKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbFormatoHCKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbFormatoHCKeyReleased
 
     /**
      * @param args the command line arguments
@@ -730,12 +1149,14 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame FrmBuscarPaciente;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscar3;
     private javax.swing.JButton btnBuscarPaciente;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
-    private javax.swing.JComboBox cbxTipoAtencion;
+    public static javax.swing.JComboBox cbxTipoAtencion;
+    private javax.swing.JFrame frmListarFormatoHC;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -745,8 +1166,11 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -755,10 +1179,12 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -768,25 +1194,32 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
+    public static javax.swing.JLabel lblHHH_ID;
     public static javax.swing.JLabel lblID_Preventa;
     public static javax.swing.JLabel lblIdHc;
+    private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblUsuUsuario;
+    public static javax.swing.JLabel lblUsuUsuario1;
+    private javax.swing.JTable tbFormatoHC;
     private javax.swing.JTable tbPacientesHosp;
     private javax.swing.JLabel titulo5;
     private javax.swing.JLabel titulo6;
+    private javax.swing.JLabel titulo7;
     public static javax.swing.JTextField txtActoMedico;
-    private javax.swing.JEditorPane txtAnamnesis;
+    public static javax.swing.JEditorPane txtAnamnesis;
+    private javax.swing.JTextField txtBuscarActoMedico;
+    private javax.swing.JTextField txtBuscarDatos;
     private javax.swing.JTextField txtBuscarPaciente;
     public static javax.swing.JTextField txtDNI;
-    private javax.swing.JEditorPane txtEnfAdulto;
-    private javax.swing.JEditorPane txtEnfInfancia;
-    private javax.swing.JEditorPane txtHabitos;
-    private javax.swing.JEditorPane txtMotEnfer;
+    public static javax.swing.JEditorPane txtEnfAdulto;
+    public static javax.swing.JEditorPane txtEnfInfancia;
+    public static javax.swing.JEditorPane txtHabitos;
+    public static javax.swing.JEditorPane txtMotEnfer;
     public static javax.swing.JTextField txtNHC;
     public static javax.swing.JTextField txtNroCama;
     public static javax.swing.JTextField txtPaciente;
-    private javax.swing.JEditorPane txtSintPrincipales;
-    private javax.swing.JEditorPane txtTiempEnf;
-    private javax.swing.JEditorPane txtTraumaAcci;
+    public static javax.swing.JEditorPane txtSintPrincipales;
+    public static javax.swing.JEditorPane txtTiempEnf;
+    public static javax.swing.JEditorPane txtTraumaAcci;
     // End of variables declaration//GEN-END:variables
 }

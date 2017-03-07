@@ -158,8 +158,12 @@ public class Caja_Preventa {
         String cod="";
         try
         {
-            String sql = "select AR_ID from SISTEMA_AREAS where ar_desc = ? \n" +
-                        "and se_id not in(01)";
+            String sql = " select SA.AR_ID\n" +
+                        " from SISTEMA_SERVICIO SS, SISTEMA_AREAS SA, SISTEMA_CONFIGURACION_PC_AREA SP\n" +
+                        " WHERE SS.UP_ID in (02)\n" +
+                        " AND SP.SE_ID = SS.SE_ID\n" +
+                        " AND SA.AR_DESC = ?\n" +
+                        " AND SA.SE_ID = SS.SE_ID";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, area);
             ResultSet rs = cmd.executeQuery();

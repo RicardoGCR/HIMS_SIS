@@ -105,7 +105,7 @@ public class HospitalizacionPapeletas {
                 fila[2]=r.getString(3); // nhc
                 fila[3]=r.getString(4) + " " + r.getString(5) + " " + r.getString(6) + " " + 
                         r.getString(7) + " " + r.getString(8); // apellidos y nombres
-                fila[4]=r.getString(36); // Edad
+                fila[4]=r.getString(34); // Edad
                     m.addRow(fila);
                     c++;
             }

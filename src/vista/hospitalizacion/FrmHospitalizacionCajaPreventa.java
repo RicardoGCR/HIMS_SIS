@@ -807,6 +807,9 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
         });
 
         lblIDHC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblIDHC.setForeground(new java.awt.Color(255, 255, 255));
+
+        lblEstado.setForeground(new java.awt.Color(255, 255, 255));
 
         cbxServicio.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         cbxServicio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));

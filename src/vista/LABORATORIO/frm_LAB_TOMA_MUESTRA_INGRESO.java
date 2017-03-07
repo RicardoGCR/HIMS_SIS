@@ -1082,9 +1082,10 @@ public void buscar_examenes(){
         char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){  
                     try{
-                        dispose();
+                        if( tb_Pacientes.getRowCount()>0){
                         int filaselec=tb_Pacientes.getSelectedRow();
                         
+                           dispose();
               frm_LAB_TOMA_MUESTRA_CABECERA vr=new frm_LAB_TOMA_MUESTRA_CABECERA();
                     vr.setVisible(true);
                     frm_LAB_TOMA_MUESTRA_CABECERA.lblHc.setText(tb_Pacientes.getValueAt(filaselec, 0).toString());
@@ -1106,11 +1107,13 @@ public void buscar_examenes(){
                     
                     String u=lblUsu.getText();
                              frm_LAB_TOMA_MUESTRA_CABECERA.lblUsu.setText(u);
-                             
+                        }
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "ingreso"+e.getMessage());
         }
         }
+                
+               
     }//GEN-LAST:event_tb_PacientesKeyPressed
 
     private void verActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verActionPerformed

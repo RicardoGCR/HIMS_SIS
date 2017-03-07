@@ -137,8 +137,8 @@ DefaultTableModel m,n,muestra;
 //    tb_TomasRealizadas.getColumnModel().getColumn(8).setMaxWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(9).setMinWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(9).setMaxWidth(0);
-//    tb_TomasRealizadas.getSelectionModel().setSelectionInterval(0, 0);
-//            tb_TomasRealizadas.requestFocus();
+    tb_TomasRealizadas.getSelectionModel().setSelectionInterval(0, 0);
+            tb_TomasRealizadas.requestFocus();
 }
     
     public void LAB_BUSCAR_TM_DIA(){
@@ -1447,9 +1447,11 @@ public void buscar_examenes(){
         char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){  
                     try{
-                        dispose();
+                        if( tb_TomasRealizadas.getRowCount()>0){
                         int filaselec=tb_TomasRealizadas.getSelectedRow();
                         
+                       
+                           dispose();
                     frm_LAB_RESULTADO_MUESTRA vr=new frm_LAB_RESULTADO_MUESTRA();
                     vr.setVisible(true);
                     
@@ -1500,16 +1502,130 @@ public void buscar_examenes(){
                     frm_LAB_RESULTADO_MUESTRA.lblServicio.setText(lblServicio.getText());
                     frm_LAB_RESULTADO_MUESTRA.lblArea.setText(lblArea.getText());
                     
-                    
+                    LAB_Esquema_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
+                    LAB_ValoresRef_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
+                    LAB_Validar_Valores();
                     String u=lblUsu.getText();
                              frm_LAB_RESULTADO_MUESTRA.lblUsu.setText(u);
-                             
+                       }        
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "ingreso "+e.getMessage());
         }
         }
     }//GEN-LAST:event_tb_TomasRealizadasKeyPressed
 
+    
+    public  void LAB_Esquema_cargar(String cod_exa_ana){
+         try {
+             String titulos[]={"Código","Nombre Esquema","Resultado","Tipo","CodUniMedida","UM","Área"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[8];
+            LAB_Resultado_Muestra_Cabecera obj=new LAB_Resultado_Muestra_Cabecera();
+            
+        String consulta="exec sp_LAB_RESULTADO_ESQUEMA_VALORES ?,?";
+       PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+           cmd.setString(1, cod_exa_ana);
+            cmd.setString(2, "1");
+        ResultSet r=cmd.executeQuery();
+        int c=1;
+        while(r.next()){
+            fila[0]=r.getString(1);
+            fila[1]=r.getString(2);
+            fila[2]=r.getString(3);
+            fila[3]=r.getString(4);
+            fila[4]=r.getString(5);
+            fila[5]=r.getString(6);
+            fila[6]=r.getString(7);
+                m.addRow(fila);
+                c++;
+            }
+            frm_LAB_RESULTADO_MUESTRA.tb_Esquema.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            frm_LAB_RESULTADO_MUESTRA.tb_Esquema.setRowSorter(elQueOrdena);
+            
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(rootPane, e.getMessage());
+    }
+    }
+    
+    public void LAB_ValoresRef_cargar(String cod_exa_ana){
+         try {
+             String titulos[]={"Código","Cod Esquema","Nombre Esquema",
+                 "estado_todos_fabricantes","cod_fabricante_producto_mh","ini_anio","ini_mes",
+"ini_dia","fin_anio","fin_mes","fin_dia","genero","estado_clinico_ref",
+"valor_minimo","valor_maximo","valor_texto_referencia","tipo_valor_referencia"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[17];
+            LAB_Resultado_Muestra_Cabecera obj=new LAB_Resultado_Muestra_Cabecera();
+            
+        String consulta="exec sp_LAB_RESULTADO_ESQUEMA_VALORES ?,?";
+       PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+           cmd.setString(1, cod_exa_ana);
+            cmd.setString(2, "2");
+        ResultSet r=cmd.executeQuery();
+        int c=1;
+        while(r.next()){
+            fila[0]=r.getString(1);
+            fila[1]=r.getString(2);
+            fila[2]=r.getString(3);
+            fila[3]=r.getString(4);
+            fila[4]=r.getString(5);
+            fila[5]=r.getString(6);
+            fila[6]=r.getString(7);
+            fila[7]=r.getString(8);
+            fila[8]=r.getString(9);
+            fila[9]=r.getString(10);
+            fila[10]=r.getString(11);
+            fila[11]=r.getString(12);
+            fila[12]=r.getString(13);
+            fila[13]=r.getString(14);
+            fila[14]=r.getString(15);
+            fila[15]=r.getString(16);
+            fila[16]=r.getString(17);
+            
+                m.addRow(fila);
+                c++;
+            }
+            frm_LAB_RESULTADO_MUESTRA.tb_Valores.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            frm_LAB_RESULTADO_MUESTRA.tb_Valores.setRowSorter(elQueOrdena);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(rootPane, e.getMessage());
+    }
+    }
+    public void LAB_Validar_Valores(){
+         try {
+            for(int i=0;i<frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getRowCount();i++){
+                String cod_esquema,nombre_resultado_exa,cod_valores_refe_resul,cod_uni_med_exa,
+                        valor_de_resultado_analisis,estado_todos_fabricante,cod_fabricante_producto
+                        ,ini_anio_resul,ini_mes_resul,ini_dia_resul,fin_anio_resul,fin_mes_resul
+                        ,fin_dia_resul,sexo_masculino_resul,sexo_femenino_resul,
+                        valor_minimo_resul,valor_maximo_resul;
+            cod_esquema=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(0, i).toString();
+            nombre_resultado_exa,cod_valores_refe_resul,cod_uni_med_exa,
+                        valor_de_resultado_analisis,estado_todos_fabricante,cod_fabricante_producto
+                        ,ini_anio_resul,ini_mes_resul,ini_dia_resul,fin_anio_resul,fin_mes_resul
+                        ,fin_dia_resul,sexo_masculino_resul,sexo_femenino_resul,
+                        valor_minimo_resul,valor_maximo_resul;
+           
+              muestra=(DefaultTableModel)frm_LAB_RESULTADO_MUESTRA.tb_Detalle.getModel();
+           String filaelemento[]={cod_esquema,nombre_resultado_exa,cod_valores_refe_resul,cod_uni_med_exa,
+                        valor_de_resultado_analisis,estado_todos_fabricante,cod_fabricante_producto
+                        ,ini_anio_resul,ini_mes_resul,ini_dia_resul,fin_anio_resul,fin_mes_resul
+                        ,fin_dia_resul,sexo_masculino_resul,sexo_femenino_resul,
+                        valor_minimo_resul,valor_maximo_resul};
+               muestra.addRow(filaelemento);
+             
+          
+          
+          }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(rootPane, e.getMessage());
+    }
+    }
+    
     private void chPacientesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chPacientesItemStateChanged
         if(chPacientes.isSelected()){
             txtPacientes.setEnabled(false);

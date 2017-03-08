@@ -1602,20 +1602,41 @@ public void buscar_examenes(){
                         valor_de_resultado_analisis,estado_todos_fabricante,cod_fabricante_producto
                         ,ini_anio_resul,ini_mes_resul,ini_dia_resul,fin_anio_resul,fin_mes_resul
                         ,fin_dia_resul,sexo_masculino_resul,sexo_femenino_resul,
-                        valor_minimo_resul,valor_maximo_resul;
-            cod_esquema=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(0, i).toString();
-            nombre_resultado_exa,cod_valores_refe_resul,cod_uni_med_exa,
-                        valor_de_resultado_analisis,estado_todos_fabricante,cod_fabricante_producto
-                        ,ini_anio_resul,ini_mes_resul,ini_dia_resul,fin_anio_resul,fin_mes_resul
-                        ,fin_dia_resul,sexo_masculino_resul,sexo_femenino_resul,
-                        valor_minimo_resul,valor_maximo_resul;
+                        valor_minimo_resul,valor_maximo_resul,valor_texto_referencia_resul,
+                        tipo_valor_refencia_resul, observaciones_resultado_exa
+                        ,tipo_esquema_sub_ana,usu_valores_ref;
+                
+                cod_esquema=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(0, i).toString();
+                nombre_resultado_exa="";
+                cod_valores_refe_resul="";
+                cod_uni_med_exa="";
+                valor_de_resultado_analisis="";
+                estado_todos_fabricante="";
+            cod_fabricante_producto="";
+            ini_anio_resul="";
+            ini_mes_resul="";
+            ini_dia_resul="";
+            fin_anio_resul="";
+            fin_mes_resul="";
+            fin_dia_resul="";
+            sexo_masculino_resul="";
+            sexo_femenino_resul="";
+            valor_minimo_resul="";
+            valor_maximo_resul="";
+            valor_texto_referencia_resul="";
+            tipo_valor_refencia_resul="";
+            observaciones_resultado_exa="";
+            tipo_esquema_sub_ana="";
+            usu_valores_ref="";
            
               muestra=(DefaultTableModel)frm_LAB_RESULTADO_MUESTRA.tb_Detalle.getModel();
            String filaelemento[]={cod_esquema,nombre_resultado_exa,cod_valores_refe_resul,cod_uni_med_exa,
                         valor_de_resultado_analisis,estado_todos_fabricante,cod_fabricante_producto
                         ,ini_anio_resul,ini_mes_resul,ini_dia_resul,fin_anio_resul,fin_mes_resul
                         ,fin_dia_resul,sexo_masculino_resul,sexo_femenino_resul,
-                        valor_minimo_resul,valor_maximo_resul};
+                        valor_minimo_resul,valor_maximo_resul,valor_texto_referencia_resul,
+                        tipo_valor_refencia_resul, observaciones_resultado_exa
+                        ,tipo_esquema_sub_ana,usu_valores_ref};
                muestra.addRow(filaelemento);
              
           

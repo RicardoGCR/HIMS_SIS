@@ -105,7 +105,7 @@ public class HospitalizacionPapeletas {
                 fila[2]=r.getString(3); // nhc
                 fila[3]=r.getString(4) + " " + r.getString(5) + " " + r.getString(6) + " " + 
                         r.getString(7) + " " + r.getString(8); // apellidos y nombres
-                fila[4]=r.getString(36); // Edad
+                fila[4]=r.getString(34); // Edad
                     m.addRow(fila);
                     c++;
             }
@@ -135,67 +135,131 @@ public class HospitalizacionPapeletas {
             tabla.doLayout();
         tabla.getColumnModel().getColumn(2).setPreferredWidth(90);//ACTO MEDICO
         tabla.getColumnModel().getColumn(3).setPreferredWidth(70);//NHC
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(250);//PACIENTE
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);//RIESGO
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(250);//MEDICO
-        tabla.getColumnModel().getColumn(7).setPreferredWidth(200);//SERVICIO
-        tabla.getColumnModel().getColumn(8).setPreferredWidth(130);//CODIGO AREA
-        tabla.getColumnModel().getColumn(9).setPreferredWidth(150);//AREA DESC
-        tabla.getColumnModel().getColumn(10).setPreferredWidth(100);//CAMA
-        tabla.getColumnModel().getColumn(11).setPreferredWidth(150);//INDICACIONES
-        tabla.getColumnModel().getColumn(12).setPreferredWidth(90);//ESTADO DE VENTA
-        tabla.getColumnModel().getColumn(13).setPreferredWidth(80);//FECHA REGISTRO
-        tabla.getColumnModel().getColumn(14).setPreferredWidth(80);//HORA REGISTRO
-        tabla.getColumnModel().getColumn(15).setPreferredWidth(200);//FORMA DE PAGO
-        tabla.getColumnModel().getColumn(16).setPreferredWidth(90);//FECHA PAGO
-        tabla.getColumnModel().getColumn(16).setPreferredWidth(90);//HORA PAGO
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(80);//PACIENTE
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(250);//PACIENTE
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);//RIESGO
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(250);//MEDICO
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(200);//SERVICIO
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(130);//CODIGO AREA
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(150);//AREA DESC
+        tabla.getColumnModel().getColumn(11).setPreferredWidth(100);//CAMA
+        tabla.getColumnModel().getColumn(12).setPreferredWidth(150);//INDICACIONES
+        tabla.getColumnModel().getColumn(13).setPreferredWidth(90);//ESTADO DE VENTA
+        tabla.getColumnModel().getColumn(14).setPreferredWidth(80);//FECHA REGISTRO
+        tabla.getColumnModel().getColumn(15).setPreferredWidth(80);//HORA REGISTRO
+        tabla.getColumnModel().getColumn(16).setPreferredWidth(200);//FORMA DE PAGO
+        tabla.getColumnModel().getColumn(17).setPreferredWidth(90);//FECHA PAGO
+        tabla.getColumnModel().getColumn(18).setPreferredWidth(90);//HORA PAGO
         tabla.setRowHeight(30);
     }
     
-    public void listarPapeleta(String tipo, String busqueda, JTable tabla){
+    public void formatoTablaListarPapeletasF(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);//nhc
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(0);//apellidos
+//        COLUMNAS OCULTAS
+        TableColumn columna = tabla.getColumnModel().getColumn(0);
+            columna.setMaxWidth(0);
+            columna.setMinWidth(0);
+            columna.setPreferredWidth(0);
+            tabla.doLayout();
+        TableColumn columna1 = tabla.getColumnModel().getColumn(1);
+            columna1.setMaxWidth(0);
+            columna1.setMinWidth(0);
+            columna1.setPreferredWidth(0);
+            tabla.doLayout();
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(90);//ACTO MEDICO
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(70);//NHC
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(80);//NHC
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(250);//PACIENTE
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);//RIESGO
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(250);//MEDICO
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(200);//SERVICIO
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(130);//CODIGO AREA
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(150);//AREA DESC
+        tabla.setRowHeight(30);
+    }
+    
+    public void listarPapeleta(String tipo, String busqueda, JTable tabla, String frm){
     String consulta="";
         try {
-            tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID HP","ID HC","Acto Médico","N° H.C.","Datos del Paciente","Riesgo","Médico",
-            "Servicio","Código de Área","Área","Cama","Indicaciones","Estado","Fecha de registro","Hora de registro",
-            "Forma de pago","Fecha de pago","Hora de pago"};
-            m=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(m);
-            String fila[]=new String[18];
-            //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CAJA_PREVENTA_LISTAR_HOSPITALIZACION ?,?";
-            PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setString(1, busqueda);
-            cmd.setString(2, tipo);
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-                fila[0]=r.getString(1); // id
-                fila[1]=r.getString(2); // dni
-                fila[2]=r.getString(3); // nhc
-                fila[3]=r.getString(4); // apellidos y nombres
-                fila[4]=r.getString(5); // Edad
-                fila[5]=r.getString(6); // id
-                fila[6]=r.getString(7); // dni
-                fila[7]=r.getString(8); // nhc
-                fila[8]=r.getString(9); // apellidos y nombres
-                fila[9]=r.getString(10); // Edad
-                fila[10]=r.getString(11); // id
-                fila[11]=r.getString(12); // dni
-                fila[12]=r.getString(13); // nhc
-                fila[13]=r.getString(14); // apellidos y nombres
-                fila[14]=r.getString(15); // Edad
-                fila[15]=r.getString(16); // apellidos y nombres
-                fila[16]=r.getString(17); // Edad
-                fila[17]=r.getString(18); // Edad
-                    m.addRow(fila);
-                    c++;
-            }
+            if(frm.equals("C")){
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID CP","ID HC","Acto Médico","N° H.C.","DNI","Datos del Paciente","Riesgo","Médico",
+                "Servicio","Código de Área","Área","Cama","Indicaciones","Estado","Fecha de registro","Hora de registro",
+                "Forma de pago","Fecha de pago","Hora de pago"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[19];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC CAJA_PREVENTA_LISTAR_HOSPITALIZACION ?,?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, busqueda);
+                cmd.setString(2, tipo);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); // id
+                    fila[1]=r.getString(2); // dni
+                    fila[2]=r.getString(3); // nhc
+                    fila[3]=r.getString(4); // apellidos y nombres
+                    fila[4]=r.getString(5); // Edad
+                    fila[5]=r.getString(6); // id
+                    fila[6]=r.getString(7); // dni
+                    fila[7]=r.getString(8); // nhc
+                    fila[8]=r.getString(9); // apellidos y nombres
+                    fila[9]=r.getString(10); // Edad
+                    fila[10]=r.getString(11); // id
+                    fila[11]=r.getString(12); // dni
+                    fila[12]=r.getString(13); // nhc
+                    fila[13]=r.getString(14); // apellidos y nombres
+                    fila[14]=r.getString(15); // Edad
+                    fila[15]=r.getString(16); // apellidos y nombres
+                    fila[16]=r.getString(17); // Edad
+                    fila[17]=r.getString(18); // Edad
+                    fila[18]=r.getString(19); // Edad
+                        m.addRow(fila);
+                        c++;
+                }
             tabla.setModel(m);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             tabla.setRowSorter(elQueOrdena);
             tabla.setModel(m);
-            formatoTablaListarPapeletas(tabla);
+                formatoTablaListarPapeletas(tabla);
+            } else {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID CP","ID HC","Acto Médico","N° H.C.","DNI","Datos del Paciente","Riesgo",
+                    "Cama","Indicaciones","Fecha de ingreso","Hora de ingreso"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[11];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC CAJA_PREVENTA_LISTAR_HOSPITALIZACION ?,?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, busqueda);
+                cmd.setString(2, tipo);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); // id
+                    fila[1]=r.getString(2); // dni
+                    fila[2]=r.getString(3); // nhc
+                    fila[3]=r.getString(4); // apellidos y nombres
+                    fila[4]=r.getString(5); // Edad
+                    fila[5]=r.getString(6); // id
+                    fila[6]=r.getString(7); // cama
+                    fila[7]=r.getString(12); // indicaciones
+                    fila[8]=r.getString(13); // fecha ingreso
+                    fila[9]=r.getString(18); // hora ingreso
+                    fila[10]=r.getString(19); // hora ingreso
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+                formatoTablaListarPapeletasF(tabla);
+            }
         } catch (Exception e) {
             System.out.println("Error_buscar_HC: " + e.getMessage());
         }

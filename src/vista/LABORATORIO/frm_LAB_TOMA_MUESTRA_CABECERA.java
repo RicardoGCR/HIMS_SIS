@@ -1324,8 +1324,11 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
                      mdGuardar.setNom_per_solicita(tb_Detalle.getValueAt(i, 7).toString());
                      mdGuardar.setFecha_probable_entre(tb_Detalle.getValueAt(i, 8).toString());
                      mdGuardar.setHora_probable_entre(tb_Detalle.getValueAt(i, 9).toString());
-                     if(tb_Detalle.getValueAt(i, 10).toString().equalsIgnoreCase("")==false){
-                     mdGuardar.setId_Preventa(tb_Detalle.getValueAt(i, 10).toString());
+                     if(tb_Detalle.getValueAt(i, 10).toString().equalsIgnoreCase("")){
+                     mdGuardar.setHab_nom("");
+                     mdGuardar.setCa_desc("");
+                    }else{
+                      mdGuardar.setId_Preventa(tb_Detalle.getValueAt(i, 10).toString());
                      mdGuardar.setHab_nom(tb_Detalle.getValueAt(i, 11).toString());
                      mdGuardar.setCa_desc(tb_Detalle.getValueAt(i, 12).toString());
                     }
@@ -1494,6 +1497,7 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
                     Personal_cargar();
                     Personal_formato();
                     lbltipo.setText("1");
+                    txtBuscar.setText("");
                 }
     }//GEN-LAST:event_txtPersonalTomaMuestraKeyPressed
 
@@ -1617,6 +1621,7 @@ public void Muestras_cargar(String nomen,String area){
                     Personal_cargar();
                     Personal_formato();
                     lbltipo.setText("2");
+                    txtBuscar.setText("");
                 }
     }//GEN-LAST:event_txtPersonalRegistraTomaKeyPressed
 

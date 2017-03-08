@@ -1090,11 +1090,15 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
+<<<<<<< HEAD
                   <EmptySpace min="-2" pref="417" max="-2" attributes="0"/>
                   <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="667" max="-2" attributes="0"/>
+>>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                   <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
@@ -1112,8 +1116,11 @@
                       <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel23" alignment="3" max="32767" attributes="0"/>
                       <Component id="jLabel37" alignment="3" max="32767" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="jLabel38" alignment="3" max="32767" attributes="0"/>
                       <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+>>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                   </Group>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               </Group>
@@ -1154,6 +1161,7 @@
             <Property name="text" type="java.lang.String" value="Cancelar(Alt+C)"/>
           </Properties>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JLabel" name="jLabel24">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1176,6 +1184,8 @@
             <Property name="text" type="java.lang.String" value="Quitar(Alt+&quot;-&quot;)"/>
           </Properties>
         </Component>
+=======
+>>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
       </SubComponents>
     </Container>
   </SubComponents>

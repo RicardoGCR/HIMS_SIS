@@ -12,9 +12,14 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import modelos.Caja.Caja_Preventa;
 import modelos.hospitalizacion.HospitalizacionPapeletas;
 import servicios.Conexion;
 
@@ -46,9 +51,8 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
                 dispose();
             }
         });
-        hosP.listarPapeleta("P", txtBuscarr.getText(), tbListarPapeleta);
+        hosP.listarPapeleta("P", txtBuscarr.getText(), tbListarPapeleta,"C");
         cerrar();
-        
         JTableHeader th; 
         th = tbListarPapeleta.getTableHeader(); 
         Font fuente = new Font("Segoe UI Light", Font.CENTER_BASELINE, 14); 
@@ -79,6 +83,21 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        mnuCjPreventa = new javax.swing.JPopupMenu();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        mnuEliminar = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        mnuFormatoHC = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        jMenu1 = new javax.swing.JMenu();
+        mnuForHC = new javax.swing.JMenuItem();
+        mnuExClinico = new javax.swing.JMenuItem();
+        mnuCtrlVital = new javax.swing.JMenuItem();
+        mnuHjEvolucion = new javax.swing.JMenuItem();
+        mnuNotEnfermeria = new javax.swing.JMenuItem();
+        mnuForInterconsulta = new javax.swing.JMenuItem();
+        mnuExComplemen = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbListarPapeleta = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -90,6 +109,58 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
         txtBuscarr = new javax.swing.JTextField();
         rbtP = new javax.swing.JRadioButton();
         rbtH = new javax.swing.JRadioButton();
+
+        mnuCjPreventa.setBackground(new java.awt.Color(255, 255, 255));
+        mnuCjPreventa.add(jSeparator1);
+
+        mnuEliminar.setFont(new java.awt.Font("Segoe UI Light", 1, 15)); // NOI18N
+        mnuEliminar.setText("Eliminar");
+        mnuEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuEliminarActionPerformed(evt);
+            }
+        });
+        mnuCjPreventa.add(mnuEliminar);
+        mnuCjPreventa.add(jSeparator2);
+
+        jMenuItem1.setFont(new java.awt.Font("Segoe UI Light", 1, 15)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/opciones.png"))); // NOI18N
+        jMenuItem1.setText("Opciones");
+        mnuFormatoHC.add(jMenuItem1);
+        mnuFormatoHC.add(jSeparator3);
+
+        jMenu1.setText("Formato de Historia Clínica");
+        jMenu1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+
+        mnuForHC.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        mnuForHC.setText("Formato H.C. Hospitalaria");
+        jMenu1.add(mnuForHC);
+
+        mnuExClinico.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        mnuExClinico.setText("Examen Clínico");
+        jMenu1.add(mnuExClinico);
+
+        mnuCtrlVital.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        mnuCtrlVital.setText("Controles Vitales");
+        jMenu1.add(mnuCtrlVital);
+
+        mnuHjEvolucion.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        mnuHjEvolucion.setText("Hoja de Evolución");
+        jMenu1.add(mnuHjEvolucion);
+
+        mnuNotEnfermeria.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        mnuNotEnfermeria.setText("Notas de Enfermeria");
+        jMenu1.add(mnuNotEnfermeria);
+
+        mnuForInterconsulta.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        mnuForInterconsulta.setText("Formato de Interconsulta");
+        jMenu1.add(mnuForInterconsulta);
+
+        mnuExComplemen.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        mnuExComplemen.setText("Examenes Complementarios");
+        jMenu1.add(mnuExComplemen);
+
+        mnuFormatoHC.add(jMenu1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1300, 720));
@@ -111,6 +182,11 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
         tbListarPapeleta.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbListarPapeleta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tbListarPapeleta.setSelectionBackground(new java.awt.Color(217, 176, 86));
+        tbListarPapeleta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tbListarPapeletaMouseReleased(evt);
+            }
+        });
         tbListarPapeleta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbListarPapeletaKeyPressed(evt);
@@ -125,7 +201,7 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1300, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +209,7 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 641, 1300, 35);
+        jPanel1.setBounds(0, 650, 1300, 35);
 
         jPanel8.setBackground(new java.awt.Color(217, 176, 86));
         jPanel8.setPreferredSize(new java.awt.Dimension(500, 65));
@@ -230,18 +306,18 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void rbtPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtPActionPerformed
-        hosP.listarPapeleta("P", txtBuscarr.getText(), tbListarPapeleta);
+        hosP.listarPapeleta("P", txtBuscarr.getText(), tbListarPapeleta,"C");
     }//GEN-LAST:event_rbtPActionPerformed
 
     private void txtBuscarrCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarrCaretUpdate
         if(rbtP.isSelected())
-            hosP.listarPapeleta("P", txtBuscarr.getText(), tbListarPapeleta);
+            hosP.listarPapeleta("P", txtBuscarr.getText(), tbListarPapeleta,"C");
         else
-            hosP.listarPapeleta("H", txtBuscarr.getText(), tbListarPapeleta);
+            hosP.listarPapeleta("H", txtBuscarr.getText(), tbListarPapeleta,"C");
     }//GEN-LAST:event_txtBuscarrCaretUpdate
 
     private void rbtHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtHActionPerformed
-        hosP.listarPapeleta("H", txtBuscarr.getText(), tbListarPapeleta);
+        hosP.listarPapeleta("H", txtBuscarr.getText(), tbListarPapeleta,"C");
     }//GEN-LAST:event_rbtHActionPerformed
 
     private void txtBuscarrKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarrKeyPressed
@@ -257,6 +333,44 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
             txtBuscarr.requestFocus();
         }
     }//GEN-LAST:event_tbListarPapeletaKeyPressed
+
+    private void tbListarPapeletaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbListarPapeletaMouseReleased
+       if(rbtP.isSelected()){
+            int fila = tbListarPapeleta.getSelectedRow();
+            if(fila == -1)
+                JOptionPane.showMessageDialog(this, "Seleccione una fila");
+            else{
+                if(evt.isPopupTrigger()){
+                    mnuCjPreventa.show(evt.getComponent(),evt.getX(),evt.getY());
+                }
+            }
+        }
+       if(rbtH.isSelected()){
+            int fila = tbListarPapeleta.getSelectedRow();
+            if(fila == -1)
+                JOptionPane.showMessageDialog(this, "Seleccione una fila");
+            else{
+                if(evt.isPopupTrigger()){
+                    mnuFormatoHC.show(evt.getComponent(),evt.getX(),evt.getY());
+                }
+            }
+       }
+    }//GEN-LAST:event_tbListarPapeletaMouseReleased
+
+    private void mnuEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuEliminarActionPerformed
+        int fila = tbListarPapeleta.getSelectedRow();
+        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png"));
+        int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea ELIMINAR los datos?",
+                      "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+        int id_preventa = Integer.parseInt(String.valueOf(tbListarPapeleta.getValueAt(fila, 0)));
+        Caja_Preventa cp = new Caja_Preventa();
+        cp.setId_preventa(id_preventa);
+        if(guardar==0){
+            if(cp.mantenimientoCajaPreventaHospitalizacion("E")){
+                JOptionPane.showMessageDialog(this, "Registro eliminado", "Mensaje", 0, i);
+            }
+        }
+    }//GEN-LAST:event_mnuEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -298,14 +412,29 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
     public static javax.swing.JLabel lblUsuUsuario;
+    private javax.swing.JPopupMenu mnuCjPreventa;
+    private javax.swing.JMenuItem mnuCtrlVital;
+    private javax.swing.JMenuItem mnuEliminar;
+    private javax.swing.JMenuItem mnuExClinico;
+    private javax.swing.JMenuItem mnuExComplemen;
+    private javax.swing.JMenuItem mnuForHC;
+    private javax.swing.JMenuItem mnuForInterconsulta;
+    private javax.swing.JPopupMenu mnuFormatoHC;
+    private javax.swing.JMenuItem mnuHjEvolucion;
+    private javax.swing.JMenuItem mnuNotEnfermeria;
     public static javax.swing.JRadioButton rbtH;
     public static javax.swing.JRadioButton rbtP;
-    private javax.swing.JTable tbListarPapeleta;
+    public static javax.swing.JTable tbListarPapeleta;
     private javax.swing.JLabel titulo5;
-    private javax.swing.JTextField txtBuscarr;
+    public static javax.swing.JTextField txtBuscarr;
     // End of variables declaration//GEN-END:variables
 }

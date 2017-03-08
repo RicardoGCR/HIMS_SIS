@@ -66,7 +66,7 @@ DefaultTableModel m,n,muestra;
         btnmodificar.setEnabled(false);
         btneliminar.setEnabled(false);
         txtCodClasificacion.setVisible(false);
-//        txtCodNomen.setVisible(false);
+        txtCodNomen.setVisible(false);
         setLocationRelativeTo(null);//en el centro
         setResizable(false);//para que no funcione el boton maximizar
         buscar_clasificacion.setResizable(false);
@@ -1233,8 +1233,7 @@ public void calcula() {
               JOptionPane.showMessageDialog(rootPane, "Seleccione un Código CPT");
           }  
           else if(txtNombreExamen.getText().equalsIgnoreCase("")||txtAbrev.getText().equalsIgnoreCase("")||
-                  cbxTipoProc.getSelectedIndex()==0 || cbxRestric.getSelectedIndex()==0 ||
-                  txtExplicacion.getText().equalsIgnoreCase("")||txtObservacion.getText().equalsIgnoreCase("")){
+                  cbxTipoProc.getSelectedIndex()==0 || cbxRestric.getSelectedIndex()==0 ){
               JOptionPane.showMessageDialog(rootPane, "Ingrese todos los campos");
           }  
           else if(me1.LAB_Analisis_Examen_ver(txtCodClasificacion.getText(),txtCodNomen.getText())>0){
@@ -1472,6 +1471,7 @@ public void calcula() {
             txtTiempoHora.setText("");
             txtTiempoMin.setText("");
             txtNombreExamen.setText("");
+            txtAbrev.setText("");
             }
             catch(Exception ex)
             {
@@ -1676,7 +1676,7 @@ char tecla= evt.getKeyChar();
         try{
             int filaselec=tb_Muestras.getSelectedRow();
             if( filaselec>=0){   
-                int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea QUITAR el Producto?",
+                int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea QUITAR la Muestra?",
             "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if(eliminar == 0 ){
        

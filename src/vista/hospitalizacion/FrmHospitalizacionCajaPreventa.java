@@ -103,6 +103,7 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
         chkAislado.setEnabled(opcion);
         cbxProcedencia.setEnabled(opcion);
         txtArea.setEnabled(opcion);
+        btnBuscarNHC.setEnabled(opcion);
     }
     public String formatoNHC(String nhc){
         String codigo = String.valueOf(nhc.charAt(0)) + 
@@ -696,6 +697,7 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
         btnBuscarNHC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/buscar.png"))); // NOI18N
         btnBuscarNHC.setContentAreaFilled(false);
         btnBuscarNHC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarNHC.setEnabled(false);
         btnBuscarNHC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarNHCActionPerformed(evt);
@@ -805,6 +807,9 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
         });
 
         lblIDHC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblIDHC.setForeground(new java.awt.Color(255, 255, 255));
+
+        lblEstado.setForeground(new java.awt.Color(255, 255, 255));
 
         cbxServicio.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         cbxServicio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));

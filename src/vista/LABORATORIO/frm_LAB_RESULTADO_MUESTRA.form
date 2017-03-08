@@ -262,7 +262,7 @@
                       <Component id="btnGenerar" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="35" max="-2" attributes="0"/>
-                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                      <EmptySpace pref="17" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -424,11 +424,12 @@
         <Component class="javax.swing.JTable" name="tb_Detalle">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="22" rowCount="0">
+              <Table columnCount="21" rowCount="0">
                 <Column editable="false" title="cod_esquema" type="java.lang.Object"/>
                 <Column editable="false" title="nombre_resultado_exa" type="java.lang.Object"/>
-                <Column editable="false" title="cod_valores_refe_resul" type="java.lang.Object"/>
+                <Column editable="false" title="tipo_esquema_sub_ana" type="java.lang.Object"/>
                 <Column editable="false" title="cod_uni_med_exa" type="java.lang.Object"/>
+                <Column editable="false" title="cod_valores_refe_resul" type="java.lang.Object"/>
                 <Column editable="false" title="valor_de_resultado_analisis" type="java.lang.Object"/>
                 <Column editable="false" title="estado_todos_fabricante" type="java.lang.Object"/>
                 <Column editable="false" title="cod_fabricante_producto" type="java.lang.Object"/>
@@ -438,25 +439,18 @@
                 <Column editable="false" title="fin_anio_resul" type="java.lang.Object"/>
                 <Column editable="false" title="fin_mes_resul" type="java.lang.Object"/>
                 <Column editable="false" title="fin_dia_resul" type="java.lang.Object"/>
-                <Column editable="false" title="sexo_masculino_resul" type="java.lang.Object"/>
-                <Column editable="false" title="sexo_femenino_resul" type="java.lang.Object"/>
+                <Column editable="false" title="genero" type="java.lang.Object"/>
                 <Column editable="false" title="valor_minimo_resul" type="java.lang.Object"/>
                 <Column editable="false" title="valor_maximo_resul" type="java.lang.Object"/>
                 <Column editable="false" title="valor_texto_referencia_resul" type="java.lang.Object"/>
                 <Column editable="false" title="tipo_valor_refencia_resul" type="java.lang.Object"/>
                 <Column editable="false" title="observaciones_resultado_exa" type="java.lang.Object"/>
-                <Column editable="false" title="tipo_esquema_sub_ana" type="java.lang.Object"/>
                 <Column editable="false" title="usu_valores_ref" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="autoResizeMode" type="int" value="0"/>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
@@ -893,7 +887,7 @@
         <Component class="javax.swing.JLabel" name="jLabel40">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Personal -Responsable Resultado"/>
+            <Property name="text" type="java.lang.String" value="Personal - Responsable Resultado"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtPersonalResponR">
@@ -1016,37 +1010,37 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                          <Component id="lblcod_exa_ana" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="panelSubdetalle" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="41" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="tb_valores" pref="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Component id="lblcod_exa_ana" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblCodPerRegistraR" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblCodPerResponsaR" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblHc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblDocumento" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblcod_cab_toma" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblcod_det_toma" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
-                              <Group type="103" groupAlignment="3" attributes="0">
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                  <Component id="lblHc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDocumento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblcod_cab_toma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblcod_det_toma" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                                   <Component id="lblServicio" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblArea" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtNum" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="panelSubdetalle" min="-2" max="-2" attributes="0"/>
-                              <Component id="tb_valores" min="-2" pref="79" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -1060,9 +1054,8 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="462" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

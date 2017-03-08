@@ -530,11 +530,11 @@ public void calcula() {
 
                         },
                         new String [] {
-                            "cod_esquema", "nombre_resultado_exa", "cod_valores_refe_resul", "cod_uni_med_exa", "valor_de_resultado_analisis", "estado_todos_fabricante", "cod_fabricante_producto", "ini_anio_resul", "ini_mes_resul", "ini_dia_resul", "fin_anio_resul", "fin_mes_resul", "fin_dia_resul", "sexo_masculino_resul", "sexo_femenino_resul", "valor_minimo_resul", "valor_maximo_resul", "valor_texto_referencia_resul", "tipo_valor_refencia_resul", "observaciones_resultado_exa", "tipo_esquema_sub_ana", "usu_valores_ref"
+                            "cod_esquema", "nombre_resultado_exa", "tipo_esquema_sub_ana", "cod_uni_med_exa", "cod_valores_refe_resul", "valor_de_resultado_analisis", "estado_todos_fabricante", "cod_fabricante_producto", "ini_anio_resul", "ini_mes_resul", "ini_dia_resul", "fin_anio_resul", "fin_mes_resul", "fin_dia_resul", "genero", "valor_minimo_resul", "valor_maximo_resul", "valor_texto_referencia_resul", "tipo_valor_refencia_resul", "observaciones_resultado_exa", "usu_valores_ref"
                         }
                     ) {
                         boolean[] canEdit = new boolean [] {
-                            false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                            false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
                         };
 
                         public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -700,7 +700,7 @@ public void calcula() {
                     panelResultado.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado"));
 
                     jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                    jLabel40.setText("Personal -Responsable Resultado");
+                    jLabel40.setText("Personal - Responsable Resultado");
 
                     txtPersonalResponR.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                     txtPersonalResponR.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -818,9 +818,8 @@ public void calcula() {
                     panelSubdetalleLayout.setHorizontalGroup(
                         panelSubdetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelSubdetalleLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(20, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 20, Short.MAX_VALUE))
                     );
                     panelSubdetalleLayout.setVerticalGroup(
                         panelSubdetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -915,30 +914,30 @@ public void calcula() {
                             .addContainerGap()
                             .addGroup(panelOcultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panelOcultarLayout.createSequentialGroup()
-                                    .addGap(16, 16, 16)
-                                    .addComponent(lblcod_exa_ana)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelSubdetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addContainerGap(41, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOcultarLayout.createSequentialGroup()
                                     .addGroup(panelOcultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(tb_valores, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                         .addGroup(panelOcultarLayout.createSequentialGroup()
+                                            .addGap(16, 16, 16)
+                                            .addComponent(lblcod_exa_ana)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addGroup(panelOcultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(lblCodPerRegistraR)
-                                                .addComponent(lblCodPerResponsaR))
-                                            .addGap(6, 6, 6)
-                                            .addGroup(panelOcultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(lblHc)
-                                                .addComponent(lblDocumento)
-                                                .addComponent(lblcod_cab_toma)
-                                                .addComponent(lblcod_det_toma)))
-                                        .addGroup(panelOcultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(lblCodPerResponsaR))))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(panelOcultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOcultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lblHc)
+                                            .addComponent(lblDocumento)
+                                            .addComponent(lblcod_cab_toma)
+                                            .addComponent(lblcod_det_toma))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOcultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(lblServicio)
                                             .addComponent(lblArea)
                                             .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(panelOcultarLayout.createSequentialGroup()
-                                    .addGroup(panelOcultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(panelSubdetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tb_valores, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addContainerGap(17, Short.MAX_VALUE))))
+                                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     );
 
                     panelTM.setBorder(javax.swing.BorderFactory.createTitledBorder("Toma de Muestra"));
@@ -1375,7 +1374,7 @@ public void calcula() {
                                     .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))

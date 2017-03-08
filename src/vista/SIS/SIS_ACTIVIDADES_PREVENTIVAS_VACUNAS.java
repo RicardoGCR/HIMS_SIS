@@ -217,7 +217,6 @@ CallableStatement cst;
         jLabel1 = new javax.swing.JLabel();
         txtServicio = new javax.swing.JTextField();
 
-        BUSCAR_PACIENTE_FUA.setMaximumSize(new java.awt.Dimension(600, 400));
         BUSCAR_PACIENTE_FUA.setMinimumSize(new java.awt.Dimension(600, 400));
 
         jLabel28.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
@@ -509,7 +508,7 @@ CallableStatement cst;
         });
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
         jPanel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));

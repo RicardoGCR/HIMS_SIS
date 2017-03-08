@@ -1,36 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-<<<<<<< HEAD
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
-        <file>
-            <url>src/vista/hospitalizacion/FrmHospitalizacionMotivoAltas.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>222</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
-=======
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
->>>>>>> b0b11f0ecfe099c069f8bed20b5d90a757716ec0
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-<<<<<<< HEAD
         <group>
-            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_DX_MEDICAMENTO_INSUMO_PROCEDIMIENTO.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_ACTIVIDADES_PREVENTIVAS_VACUNAS.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_PRESTACIONES.java</file>
         </group>
-=======
-        <group/>
->>>>>>> b0b11f0ecfe099c069f8bed20b5d90a757716ec0
-=======
-        <group>
-            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionPisos.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionCajaPreventa.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/Caja/Caja_Preventa.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionArticuloDetalle.java</file>
-        </group>
->>>>>>> 2ca3ab770ad7725aacfa035e708d12e9c4e2aa35
     </open-files>
 </project-private>

@@ -63,7 +63,7 @@ public class HospitalizacionExamenClinico {
             }
             //
         } catch (Exception e) {
-            System.out.println("Error_mostrar_MovHC: " + e.getMessage());
+            System.out.println("Error: datosTriaje: " + e.getMessage());
         }
     }
     

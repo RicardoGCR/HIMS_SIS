@@ -394,7 +394,6 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         );
 
         FrmCie10Presun.setMinimumSize(new java.awt.Dimension(600, 450));
-        FrmCie10Presun.setPreferredSize(new java.awt.Dimension(600, 450));
 
         jPanel10.setBackground(new java.awt.Color(217, 176, 86));
         jPanel10.setPreferredSize(new java.awt.Dimension(500, 65));
@@ -432,7 +431,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         jScrollPane24.setViewportView(tbCiePresun);
 
         jPanel10.add(jScrollPane24);
-        jScrollPane24.setBounds(0, 110, 595, 310);
+        jScrollPane24.setBounds(0, 110, 595, 312);
 
         txtBuscarCie10.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -472,7 +471,6 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         );
 
         FrmCie10Defi.setMinimumSize(new java.awt.Dimension(600, 450));
-        FrmCie10Defi.setPreferredSize(new java.awt.Dimension(600, 450));
 
         jPanel11.setBackground(new java.awt.Color(217, 176, 86));
         jPanel11.setPreferredSize(new java.awt.Dimension(500, 65));
@@ -510,7 +508,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         jScrollPane25.setViewportView(tbCieDefi);
 
         jPanel11.add(jScrollPane25);
-        jScrollPane25.setBounds(0, 110, 595, 310);
+        jScrollPane25.setBounds(0, 110, 595, 312);
 
         txtBuscarCieDefi.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -550,7 +548,6 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         );
 
         FrmCie10Sind.setMinimumSize(new java.awt.Dimension(600, 450));
-        FrmCie10Sind.setPreferredSize(new java.awt.Dimension(600, 450));
 
         jPanel12.setBackground(new java.awt.Color(217, 176, 86));
         jPanel12.setPreferredSize(new java.awt.Dimension(500, 65));
@@ -588,7 +585,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         jScrollPane26.setViewportView(tbCieSind);
 
         jPanel12.add(jScrollPane26);
-        jScrollPane26.setBounds(0, 110, 595, 310);
+        jScrollPane26.setBounds(0, 110, 595, 312);
 
         txtBuscarSind.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -628,7 +625,6 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         );
 
         FrmCie10Prin.setMinimumSize(new java.awt.Dimension(600, 450));
-        FrmCie10Prin.setPreferredSize(new java.awt.Dimension(600, 450));
         FrmCie10Prin.setResizable(false);
 
         jPanel13.setBackground(new java.awt.Color(217, 176, 86));
@@ -667,7 +663,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         jScrollPane27.setViewportView(tbCiePrin);
 
         jPanel13.add(jScrollPane27);
-        jScrollPane27.setBounds(0, 110, 595, 310);
+        jScrollPane27.setBounds(0, 110, 595, 312);
 
         txtBuscarPrin.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {

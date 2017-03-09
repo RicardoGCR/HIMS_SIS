@@ -145,7 +145,8 @@ DefaultTableModel m,n,muestra;
 }
     
     public void formato_esquema(){
-            tb_Esquema.getColumnModel().getColumn(0).setMinWidth(0);
+        
+    tb_Esquema.getColumnModel().getColumn(0).setMinWidth(0);
     tb_Esquema.getColumnModel().getColumn(0).setMaxWidth(0);
     tb_Esquema.getColumnModel().getColumn(4).setMinWidth(0);
     tb_Esquema.getColumnModel().getColumn(4).setMaxWidth(0);
@@ -533,6 +534,7 @@ public void calcula() {
                         return canEdit [columnIndex];
                     }
                 });
+                tb_Esquema.setRowHeight(19);
                 tb_Esquema.setSelectionBackground(new java.awt.Color(2, 67, 115));
                 tb_Esquema.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -620,7 +622,7 @@ public void calcula() {
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, 0)
                         .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtAbreviatura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -640,6 +642,11 @@ public void calcula() {
                 jLabel22.setText("Resultado por Defecto");
 
                 txtResultadoDefec.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                txtResultadoDefec.addKeyListener(new java.awt.event.KeyAdapter() {
+                    public void keyTyped(java.awt.event.KeyEvent evt) {
+                        txtResultadoDefecKeyTyped(evt);
+                    }
+                });
 
                 chTitulo.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 chTitulo.setText("Título");
@@ -737,24 +744,24 @@ public void calcula() {
                             .addComponent(txtCodClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCodAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCodMedida))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addGap(3, 3, 3)
                         .addGroup(panelEsquemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEsquemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panelEsquemaLayout.createSequentialGroup()
                                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGap(0, 0, 0)
                                     .addComponent(txtNombreResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(panelEsquemaLayout.createSequentialGroup()
                                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGap(0, 0, 0)
                                     .addComponent(txtResultadoDefec, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEsquemaLayout.createSequentialGroup()
                                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(0, 0, 0)
                                 .addGroup(panelEsquemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtUnidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnBuscarUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap())
+                        .addGap(5, 5, 5))
                 );
 
                 btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/guardar16x16.png"))); // NOI18N
@@ -1090,6 +1097,15 @@ LAB_Unidad_Medida_formato();
                 }
             }});
     }//GEN-LAST:event_tb_EsquemaMouseClicked
+
+    private void txtResultadoDefecKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResultadoDefecKeyTyped
+    char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
+            evt.consume();
+            getToolkit().beep();            
+        }
+    }//GEN-LAST:event_txtResultadoDefecKeyTyped
     public void enableDatos(){
     chTitulo.setEnabled(true);
     txtResultadoDefec.setEnabled(true);

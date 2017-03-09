@@ -293,7 +293,7 @@ public void calcula() {
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setTitle("SISGESH .::. Muestra Examen");
+            setTitle("SISGESH .::. Clasificación Examen");
 
             jpanel.setBackground(new java.awt.Color(2, 67, 115));
 

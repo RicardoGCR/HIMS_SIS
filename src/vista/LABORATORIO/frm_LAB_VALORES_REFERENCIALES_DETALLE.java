@@ -159,7 +159,7 @@ DefaultTableModel m,n,muestra;
     tb_ValoresRef.getColumnModel().getColumn(12).setPreferredWidth(80);
     tb_ValoresRef.getColumnModel().getColumn(13).setPreferredWidth(80);
     tb_ValoresRef.getColumnModel().getColumn(14).setPreferredWidth(80);
-    tb_ValoresRef.getColumnModel().getColumn(15).setPreferredWidth(170);
+    tb_ValoresRef.getColumnModel().getColumn(15).setPreferredWidth(168);
     
     
     tb_ValoresRef.getColumnModel().getColumn(0).setMinWidth(0);
@@ -263,6 +263,8 @@ public void calcula() {
             lblHora = new javax.swing.JLabel();
             lblUsu = new javax.swing.JLabel();
             btnNuevo = new javax.swing.JButton();
+            btnGuardar = new javax.swing.JButton();
+            jButton2 = new javax.swing.JButton();
             jPanel1 = new javax.swing.JPanel();
             jLabel3 = new javax.swing.JLabel();
             jLabel4 = new javax.swing.JLabel();
@@ -284,8 +286,6 @@ public void calcula() {
             txtResultadoDefec = new javax.swing.JTextField();
             txtUnidadMedida = new javax.swing.JTextField();
             jLabel20 = new javax.swing.JLabel();
-            btnGuardar = new javax.swing.JButton();
-            jButton2 = new javax.swing.JButton();
             panelValores = new javax.swing.JPanel();
             jLabel24 = new javax.swing.JLabel();
             txtFabricante = new javax.swing.JTextField();
@@ -469,6 +469,26 @@ public void calcula() {
                     }
                 });
 
+                btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
+                btnGuardar.setMnemonic('G');
+                btnGuardar.setContentAreaFilled(false);
+                btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        btnGuardarActionPerformed(evt);
+                    }
+                });
+
+                jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Basura-32.png"))); // NOI18N
+                jButton2.setMnemonic('E');
+                jButton2.setContentAreaFilled(false);
+                jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                jButton2.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        jButton2ActionPerformed(evt);
+                    }
+                });
+
                 javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
                 jpanel.setLayout(jpanelLayout);
                 jpanelLayout.setHorizontalGroup(
@@ -476,11 +496,17 @@ public void calcula() {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jpanelLayout.createSequentialGroup()
+                                .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(titulo5))
+                        .addGap(13, 13, 13)
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpanelLayout.createSequentialGroup()
-                                .addGap(696, 696, 696)
+                                .addGap(681, 681, 681)
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jpanelLayout.createSequentialGroup()
                                         .addComponent(jLabel15)
@@ -492,7 +518,7 @@ public void calcula() {
                                         .addComponent(lblFecha)))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 688, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 691, Short.MAX_VALUE)
                                 .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34))))
                 );
@@ -500,8 +526,11 @@ public void calcula() {
                     jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addComponent(titulo5)
-                        .addGap(2, 2, 2)
-                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton2)
+                            .addComponent(btnGuardar)
+                            .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addContainerGap()
@@ -702,24 +731,6 @@ public void calcula() {
                         .addGap(14, 14, 14))
                 );
 
-                btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/guardar16x16.png"))); // NOI18N
-                btnGuardar.setMnemonic('G');
-                btnGuardar.setText("Guardar");
-                btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        btnGuardarActionPerformed(evt);
-                    }
-                });
-
-                jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/eliminar16x16.png"))); // NOI18N
-                jButton2.setMnemonic('E');
-                jButton2.setText("Eliminar");
-                jButton2.addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        jButton2ActionPerformed(evt);
-                    }
-                });
-
                 panelValores.setBorder(javax.swing.BorderFactory.createTitledBorder("Valor Referencial"));
 
                 jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -758,18 +769,27 @@ public void calcula() {
                 lblCodFabr.setText("jLabel13");
 
                 txtDesdeM.addKeyListener(new java.awt.event.KeyAdapter() {
+                    public void keyReleased(java.awt.event.KeyEvent evt) {
+                        txtDesdeMKeyReleased(evt);
+                    }
                     public void keyTyped(java.awt.event.KeyEvent evt) {
                         txtDesdeMKeyTyped(evt);
                     }
                 });
 
                 txtHastaMeses.addKeyListener(new java.awt.event.KeyAdapter() {
+                    public void keyReleased(java.awt.event.KeyEvent evt) {
+                        txtHastaMesesKeyReleased(evt);
+                    }
                     public void keyTyped(java.awt.event.KeyEvent evt) {
                         txtHastaMesesKeyTyped(evt);
                     }
                 });
 
                 txtDesdeDias.addKeyListener(new java.awt.event.KeyAdapter() {
+                    public void keyReleased(java.awt.event.KeyEvent evt) {
+                        txtDesdeDiasKeyReleased(evt);
+                    }
                     public void keyTyped(java.awt.event.KeyEvent evt) {
                         txtDesdeDiasKeyTyped(evt);
                     }
@@ -788,6 +808,9 @@ public void calcula() {
                 });
 
                 txtHastaDias.addKeyListener(new java.awt.event.KeyAdapter() {
+                    public void keyReleased(java.awt.event.KeyEvent evt) {
+                        txtHastaDiasKeyReleased(evt);
+                    }
                     public void keyTyped(java.awt.event.KeyEvent evt) {
                         txtHastaDiasKeyTyped(evt);
                     }
@@ -1102,6 +1125,7 @@ public void calcula() {
                     }
                 });
                 tb_ValoresRef.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+                tb_ValoresRef.setRowHeight(20);
                 tb_ValoresRef.setSelectionBackground(new java.awt.Color(2, 67, 115));
                 tb_ValoresRef.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1109,6 +1133,20 @@ public void calcula() {
                     }
                 });
                 jScrollPane6.setViewportView(tb_ValoresRef);
+                if (tb_ValoresRef.getColumnModel().getColumnCount() > 0) {
+                    tb_ValoresRef.getColumnModel().getColumn(0).setResizable(false);
+                    tb_ValoresRef.getColumnModel().getColumn(1).setResizable(false);
+                    tb_ValoresRef.getColumnModel().getColumn(2).setResizable(false);
+                    tb_ValoresRef.getColumnModel().getColumn(3).setResizable(false);
+                    tb_ValoresRef.getColumnModel().getColumn(4).setResizable(false);
+                    tb_ValoresRef.getColumnModel().getColumn(5).setResizable(false);
+                    tb_ValoresRef.getColumnModel().getColumn(6).setResizable(false);
+                    tb_ValoresRef.getColumnModel().getColumn(7).setResizable(false);
+                    tb_ValoresRef.getColumnModel().getColumn(8).setResizable(false);
+                    tb_ValoresRef.getColumnModel().getColumn(9).setResizable(false);
+                    tb_ValoresRef.getColumnModel().getColumn(10).setResizable(false);
+                    tb_ValoresRef.getColumnModel().getColumn(11).setResizable(false);
+                }
 
                 jPanel2.add(jScrollPane6);
                 jScrollPane6.setBounds(0, 20, 960, 260);
@@ -1131,17 +1169,14 @@ public void calcula() {
                                 .addComponent(txtGuarModif, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtCodigoEsquema, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnGuardar)
-                                .addGap(36, 36, 36)
-                                .addComponent(jButton2)
-                                .addGap(34, 34, 34))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 949, Short.MAX_VALUE)
-                                .addContainerGap())
+                                .addGap(34, 446, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(panelValores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 965, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(panelValores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addContainerGap())))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 );
                 layout.setVerticalGroup(
@@ -1160,10 +1195,8 @@ public void calcula() {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtCodigoValorRef, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCodigoEsquema, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtGuarModif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton2)
-                                    .addComponent(btnGuardar))
-                                .addGap(3, 3, 3)
+                                    .addComponent(txtGuarModif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(24, 24, 24)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1175,7 +1208,8 @@ public void calcula() {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
 
-       dispose();
+    limpiar();
+    enableDatos();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void txtGuarModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGuarModifActionPerformed
@@ -1559,21 +1593,25 @@ LAB_Fabricante_formato();
     }//GEN-LAST:event_txtMinPropertyChange
 
     private void txtMinKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMinKeyTyped
-       char tecla;
+      char tecla;
         tecla = evt.getKeyChar();
-        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
-            evt.consume();
-            getToolkit().beep();            
+        if(!Character.isDigit(tecla)&&tecla !='.'){
+            evt.consume();            
+        }
+        if(tecla =='.' && txtMin.getText().contains(".")){
+            evt.consume();            
         }
         
     }//GEN-LAST:event_txtMinKeyTyped
 
     private void txtMaxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMaxKeyTyped
-     char tecla;
+    char tecla;
         tecla = evt.getKeyChar();
-        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
-            evt.consume();
-            getToolkit().beep();            
+        if(!Character.isDigit(tecla)&&tecla !='.'){
+            evt.consume();            
+        }
+        if(tecla =='.' && txtMax.getText().contains(".")){
+            evt.consume();            
         }
     }//GEN-LAST:event_txtMaxKeyTyped
 
@@ -1691,6 +1729,30 @@ evt.consume();
             txtMax.setText("");
     }
     }//GEN-LAST:event_txtResultadoKeyReleased
+
+    private void txtDesdeMKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDesdeMKeyReleased
+        if(Integer.parseInt(txtDesdeM.getText())>12){
+            txtDesdeM.setText("");
+        }
+    }//GEN-LAST:event_txtDesdeMKeyReleased
+
+    private void txtHastaMesesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHastaMesesKeyReleased
+      if(Integer.parseInt(txtHastaMeses.getText())>12){
+            txtHastaMeses.setText("");
+        }
+    }//GEN-LAST:event_txtHastaMesesKeyReleased
+
+    private void txtDesdeDiasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDesdeDiasKeyReleased
+        if(Integer.parseInt(txtDesdeDias.getText())>31){
+            txtDesdeDias.setText("");
+        }
+    }//GEN-LAST:event_txtDesdeDiasKeyReleased
+
+    private void txtHastaDiasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHastaDiasKeyReleased
+        if(Integer.parseInt(txtHastaDias.getText())>31){
+            txtHastaDias.setText("");
+        }
+    }//GEN-LAST:event_txtHastaDiasKeyReleased
     public void enableDatos(){
    txtMin.setEnabled(true);
    txtMax.setEnabled(true);

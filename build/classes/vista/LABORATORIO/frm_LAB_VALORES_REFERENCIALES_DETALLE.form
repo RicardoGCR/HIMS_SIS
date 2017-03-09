@@ -165,21 +165,6 @@
                       <Component id="txtGuarModif" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="txtCodigoEsquema" min="-2" pref="230" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jPanel2" pref="949" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="panelValores" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-=======
                       <EmptySpace min="34" pref="446" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -191,7 +176,6 @@
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                   </Group>
               </Group>
           </Group>
@@ -216,15 +200,8 @@
                           <Component id="txtCodigoValorRef" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="txtCodigoEsquema" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="txtGuarModif" alignment="3" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-=======
                       </Group>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                       <Component id="jPanel2" min="-2" pref="281" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -249,14 +226,6 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <Component id="btnNuevo" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="titulo5" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="696" max="-2" attributes="0"/>
-=======
                       <Group type="102" attributes="0">
                           <Component id="btnNuevo" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -270,7 +239,6 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="681" max="-2" attributes="0"/>
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
@@ -286,11 +254,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-<<<<<<< HEAD
-                          <EmptySpace pref="688" max="32767" attributes="0"/>
-=======
                           <EmptySpace pref="691" max="32767" attributes="0"/>
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                           <Component id="lblUsu" min="-2" pref="97" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
@@ -302,17 +266,12 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="titulo5" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                  <Component id="btnNuevo" min="-2" pref="43" max="-2" attributes="0"/>
-=======
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                       <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
                       <Component id="btnNuevo" min="-2" pref="43" max="-2" attributes="0"/>
                   </Group>
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
@@ -433,8 +392,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevoActionPerformed"/>
           </Events>
         </Component>
-<<<<<<< HEAD
-=======
         <Component class="javax.swing.JButton" name="btnGuardar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -465,7 +422,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
           </Events>
         </Component>
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel1">
@@ -788,33 +744,6 @@
         </Component>
       </SubComponents>
     </Container>
-<<<<<<< HEAD
-    <Component class="javax.swing.JButton" name="btnGuardar">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/iconos/guardar16x16.png"/>
-        </Property>
-        <Property name="mnemonic" type="int" value="71"/>
-        <Property name="text" type="java.lang.String" value="Guardar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/iconos/eliminar16x16.png"/>
-        </Property>
-        <Property name="mnemonic" type="int" value="69"/>
-        <Property name="text" type="java.lang.String" value="Eliminar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
-      </Events>
-    </Component>
-=======
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
     <Container class="javax.swing.JPanel" name="panelValores">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1074,28 +1003,19 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtDesdeM">
           <Events>
-<<<<<<< HEAD
-=======
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDesdeMKeyReleased"/>
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDesdeMKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtHastaMeses">
           <Events>
-<<<<<<< HEAD
-=======
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtHastaMesesKeyReleased"/>
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtHastaMesesKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDesdeDias">
           <Events>
-<<<<<<< HEAD
-=======
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDesdeDiasKeyReleased"/>
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDesdeDiasKeyTyped"/>
           </Events>
         </Component>
@@ -1111,10 +1031,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtHastaDias">
           <Events>
-<<<<<<< HEAD
-=======
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtHastaDiasKeyReleased"/>
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtHastaDiasKeyTyped"/>
           </Events>
         </Component>
@@ -1421,120 +1338,69 @@
                 <Property name="autoResizeMode" type="int" value="0"/>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
-<<<<<<< HEAD
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-=======
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-<<<<<<< HEAD
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-=======
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-<<<<<<< HEAD
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-=======
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-<<<<<<< HEAD
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-=======
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-<<<<<<< HEAD
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-=======
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-<<<<<<< HEAD
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-=======
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-<<<<<<< HEAD
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-=======
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-<<<<<<< HEAD
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-=======
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-<<<<<<< HEAD
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-=======
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-<<<<<<< HEAD
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-=======
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-<<<<<<< HEAD
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-=======
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-<<<<<<< HEAD
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-=======
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                   </TableColumnModel>
                 </Property>
-<<<<<<< HEAD
-=======
                 <Property name="rowHeight" type="int" value="20"/>
->>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
                 <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="73" green="43" red="2" type="rgb"/>
                 </Property>

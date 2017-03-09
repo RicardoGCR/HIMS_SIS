@@ -34,7 +34,7 @@ Calendar calendario;
 Thread h1;
 ResultSet r;
 CallableStatement cst;
-DefaultTableModel m;
+DefaultTableModel m, modelo1, modelo2;
     /**
      * Creates new form SIS_PRESTACIONES
      */
@@ -46,6 +46,7 @@ DefaultTableModel m;
         //inicializar_tabla();
         deshabilitar();
         txtGM.setVisible(false);
+        txtDescripcion.setLineWrap(true); 
         
         //FECHA Y HORA
         h1 = new Thread(this);
@@ -113,15 +114,6 @@ DefaultTableModel m;
         cbxN_Gestante_N_Puerp = new javax.swing.JComboBox();
         jLabel23 = new javax.swing.JLabel();
         cbxRegimen_Componente = new javax.swing.JComboBox();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        txtDestinoAseguradoPres = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -227,7 +219,7 @@ DefaultTableModel m;
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(titulo5)))
-                .addGap(261, 261, 261)
+                .addGap(354, 354, 354)
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpanelLayout.createSequentialGroup()
@@ -440,85 +432,6 @@ DefaultTableModel m;
         );
 
         jTabbedPane1.addTab("                       PRESTACIONES                     ", jPanel1);
-
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane4.setViewportView(jTable2);
-
-        jLabel24.setText("Destino del Asegurado");
-
-        jLabel25.setText("Destino del Asegurado por Prestacion:");
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel25)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDestinoAseguradoPres)))
-                .addGap(31, 31, 31))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(jLabel25)
-                    .addComponent(txtDestinoAseguradoPres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("                          DESTINO                           ", jPanel6);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
@@ -741,8 +654,13 @@ DefaultTableModel m;
        tb_Pres.getColumnModel().getColumn(1).setPreferredWidth(150);       
        tb_Pres.getColumnModel().getColumn(2).setPreferredWidth(500);      
        tb_Pres.getColumnModel().getColumn(3).setPreferredWidth(180);
- 
     }
+    
+
+ 
+    
+
+
     
     private void btnDX_Medicam_InsumoNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDX_Medicam_InsumoNuevoActionPerformed
         habilitar();
@@ -970,8 +888,6 @@ DefaultTableModel m;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -984,15 +900,9 @@ DefaultTableModel m;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JPanel jpanel;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;
@@ -1002,7 +912,6 @@ DefaultTableModel m;
     public static javax.swing.JTextField txtActividadVacunaPaciente;
     private javax.swing.JTextField txtCodigoPrestacion;
     private javax.swing.JTextArea txtDescripcion;
-    private javax.swing.JTextField txtDestinoAseguradoPres;
     private javax.swing.JTextField txtEdad_Maxima;
     private javax.swing.JTextField txtEdad_Minima;
     private javax.swing.JTextField txtEtapa_Vida;

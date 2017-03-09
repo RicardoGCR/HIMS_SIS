@@ -2,6 +2,25 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+<<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionHCHospitalaria.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionExamenClinico.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionExClinico.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionPapeletas.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/admisionCentral/FrmSeguimientoHC.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/admisionEmergencia/FrmFormatoEmergencia.java</file>
+        </group>
+=======
+            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_PRESTACIONES.java</file>
+        </group>
+=======
+        <group/>
+>>>>>>> d3ef0662d18596f562f9be55954bae06ff6c6dcc
+>>>>>>> b842a9b335e19a046b4cb254e6dcaf0143d05ba9
+>>>>>>> 789495918bb5a460c91aaf8cae14ec8fefc15962
     </open-files>
 </project-private>

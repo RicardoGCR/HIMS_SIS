@@ -5,6 +5,7 @@
  */
 package vista.hospitalizacion;
 
+import campos.LimitadorDeDocumento;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
@@ -18,6 +19,7 @@ import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.hospitalizacion.HospitalizacionAsignacionCamas;
 import modelos.hospitalizacion.HospitalizacionHCHospitalaria;
 import modelos.hospitalizacion.HospitalizacionPapeletas;
+import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
 import static vista.hospitalizacion.FrmHospitalizacionListarCajaPreventa.tbListarPapeleta;
 
 /**
@@ -47,6 +49,23 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
             }
         });
         cerrar();
+        //Validar cajas de texto
+        LimitadorDeDocumento limitObservacion = new LimitadorDeDocumento(300);
+        txtAnamnesis.setDocument(limitObservacion);
+        LimitadorDeDocumento en_infancia = new LimitadorDeDocumento(200);
+        txtEnfInfancia.setDocument(en_infancia);
+        LimitadorDeDocumento eb_adulto = new LimitadorDeDocumento(200);
+        txtEnfAdulto.setDocument(eb_adulto);
+        LimitadorDeDocumento trauma_acc = new LimitadorDeDocumento(200);
+        txtTraumaAcci.setDocument(trauma_acc);
+        LimitadorDeDocumento habitos = new LimitadorDeDocumento(100);
+        txtHabitos.setDocument(habitos);
+        LimitadorDeDocumento tiempo_enf = new LimitadorDeDocumento(100);
+        txtTiempEnf.setDocument(tiempo_enf);
+        LimitadorDeDocumento motivo_enf = new LimitadorDeDocumento(200);
+        txtMotEnfer.setDocument(motivo_enf);
+        LimitadorDeDocumento sintoma_prin = new LimitadorDeDocumento(500);
+        txtSintPrincipales.setDocument(sintoma_prin);
     }
     
     public void cerrar (){
@@ -872,7 +891,8 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        HospitalizacionHCHospitalaria hospHC = new HospitalizacionHCHospitalaria();
+        try {
+            HospitalizacionHCHospitalaria hospHC = new HospitalizacionHCHospitalaria();
         if(hospHC.idHospitalizacionHCHospitalaria()!=0)
             lblHHH_ID.setText(String.valueOf(hospHC.idHospitalizacionHCHospitalaria()));
         else
@@ -880,11 +900,18 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         limpiar();
         habilitarCajas(true);
         btnGuardar.setEnabled(true);
+        btnModificar.setEnabled(false);
+        btnEliminar.setEnabled(false);
         lblMant.setText("I");
+        } catch (Exception e) {
+            System.out.println("Error: Nuevo FrmHospitalizacionExClinico" + e.getMessage());
+        }
+        
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        ImageIcon alerta=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png"));
+        try {
+            ImageIcon alerta=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png"));
         ImageIcon guarda=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Comprobado-60.png"));
         AdmisionEmergenciaCabecera ademer = new AdmisionEmergenciaCabecera();
         if(cbxTipoAtencion.getSelectedIndex()==0 || txtActoMedico.getText().equals("")){
@@ -961,10 +988,16 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
                         limpiar();
                         habilitarCajas(false);
                         btnGuardar.setEnabled(false);
+                        btnModificar.setEnabled(false);
+                        btnEliminar.setEnabled(false);
                     }
                 }
             }
         }
+        } catch (Exception e) {
+            System.out.println("Error: Guardar FrmHospitalizacionExClinico" + e.getMessage());
+        }
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -985,6 +1018,8 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
             if(hosp.mantenimientoHospitalizacionHCHospitalaria("E")){
                 JOptionPane.showMessageDialog(this, "Registro elimnado con éxito", "Registro Eliminado", WIDTH, guarda);
                 limpiar();
+                btnEliminar.setEnabled(false);
+                btnModificar.setEnabled(false);
             }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -1049,6 +1084,7 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
             HospitalizacionHCHospitalaria hosp = new HospitalizacionHCHospitalaria();
             hosp.listarFormatoHC(0, txtBuscarActoMedico.getText(), "A", tbFormatoHC);
             txtBuscarDatos.setEnabled(false);
+            txtBuscarDatos.setText("");
         }
     }//GEN-LAST:event_txtBuscarActoMedicoCaretUpdate
 
@@ -1069,6 +1105,7 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
             HospitalizacionHCHospitalaria hosp = new HospitalizacionHCHospitalaria();
             hosp.listarFormatoHC(0, txtBuscarDatos.getText(), "N", tbFormatoHC);
             txtBuscarActoMedico.setEnabled(false);
+            txtBuscarActoMedico.setText("");
         }
     }//GEN-LAST:event_txtBuscarDatosCaretUpdate
 

@@ -14,7 +14,7 @@ import servicios.Conexion;
  *
  * @author PC-SISTEMA
  */
-public class LAB_Resultado_Muestra_Cabecera {
+public class LAB_Resultado_Muestra_Detalle {
     private Connection cn;
      private String cod_cab_resultado_mu_ana;
      private String num_resul_exa;
@@ -25,7 +25,7 @@ public class LAB_Resultado_Muestra_Cabecera {
      private String nombre_personal_regis_resul;
     private String nom_usu;
     
-    public LAB_Resultado_Muestra_Cabecera(){
+    public LAB_Resultado_Muestra_Detalle(){
         Conexion con = new Conexion();
         cn = con.conectar();
     }

@@ -159,11 +159,12 @@ DefaultTableModel m,n,resultado;
             String titulos[]={"cod_cab_toma_mu_exa","cod_det_toma_mu_ana","cod_exa_ana","id_hc","Servicio/Área","Código CPT",
                 "Nomenclatura" ,"Análisis Examen","Número de Toma de Muestra","N° de H.C.","Datos del Paciente",
                 "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","Acto Médico","Personal TMuestra",
-                "Fecha TM","Hora TM","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","idDocumento"};
+                "Fecha TM","Hora TM","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","idDocumento",
+                 "Años","Meses","Dias"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
 //            m=(DefaultTableModel)tb_TomasRealizadas.getModel(); Cuando se va agregando
-            String fila[]=new String[27];
+            String fila[]=new String[30];
 
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
                     consulta="exec sp_LAB_RESULTADO_TOMA_MUESTRA ?,?,?,?,?";
@@ -202,6 +203,9 @@ DefaultTableModel m,n,resultado;
                 fila[23]=r.getString(24);
                 fila[24]=r.getString(25);
                 fila[25]=r.getString(26);
+                fila[26]=r.getString(27);
+                fila[27]=r.getString(28);
+                fila[28]=r.getString(29);
 
                 m.addRow(fila);
                 c++;
@@ -1385,11 +1389,12 @@ public void buscar_examenes(){
             String titulos[]={"cod_cab_toma_mu_exa","cod_det_toma_mu_ana","cod_exa_ana","id_hc","Servicio/Área","Código CPT",
                 "Nomenclatura" ,"Análisis Examen","Número de Toma de Muestra","N° de H.C.","Datos del Paciente",
                 "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","Acto Médico","Personal TMuestra",
-                "Fecha TM","Hora TM","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","idDocumento"};
+                "Fecha TM","Hora TM","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","idDocumento",
+                "Años","Meses","Dias"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
 //            m=(DefaultTableModel)tb_TomasRealizadas.getModel(); Cuando se va agregando
-            String fila[]=new String[27];
+            String fila[]=new String[30];
 
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
                     consulta="exec sp_LAB_RESULTADO_TOMA_MUESTRA ?,?,?,?,?";
@@ -1428,6 +1433,9 @@ public void buscar_examenes(){
                 fila[23]=r.getString(24);
                 fila[24]=r.getString(25);
                 fila[25]=r.getString(26);
+                fila[26]=r.getString(27);
+                fila[27]=r.getString(28);
+                fila[28]=r.getString(29);
 
                 m.addRow(fila);
                 c++;
@@ -1504,7 +1512,12 @@ public void buscar_examenes(){
                     
                     LAB_Esquema_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
                     LAB_ValoresRef_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
-                    LAB_Validar_Valores();
+                    
+                    //como parametro sexo-años-meses-dias del paciente
+                    LAB_Validar_Valores(tb_TomasRealizadas.getValueAt(filaselec, 14).toString(),
+                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 26).toString()),
+                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 27).toString()),
+                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 28).toString()));
                     String u=lblUsu.getText();
                              frm_LAB_RESULTADO_MUESTRA.lblUsu.setText(u);
                        }        
@@ -1554,10 +1567,10 @@ public void buscar_examenes(){
              String titulos[]={"Código","Cod Esquema","Nombre Esquema",
                  "estado_todos_fabricantes","cod_fabricante_producto_mh","ini_anio","ini_mes",
 "ini_dia","fin_anio","fin_mes","fin_dia","genero","estado_clinico_ref",
-"valor_minimo","valor_maximo","valor_texto_referencia","tipo_valor_referencia"};
+"valor_minimo","valor_maximo","valor_texto_referencia","tipo_valor_referencia","ini_dias","fin_dias"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[17];
+            String fila[]=new String[19];
             LAB_Resultado_Muestra_Cabecera obj=new LAB_Resultado_Muestra_Cabecera();
             
         String consulta="exec sp_LAB_RESULTADO_ESQUEMA_VALORES ?,?";
@@ -1584,6 +1597,8 @@ public void buscar_examenes(){
             fila[14]=r.getString(15);
             fila[15]=r.getString(16);
             fila[16]=r.getString(17);
+            fila[17]=r.getString(18);
+            fila[18]=r.getString(19);
             
                 m.addRow(fila);
                 c++;
@@ -1595,14 +1610,15 @@ public void buscar_examenes(){
         JOptionPane.showMessageDialog(rootPane, e.getMessage());
     }
     }
-    public void LAB_Validar_Valores(){
+    public void LAB_Validar_Valores(String sexo,int anio,int meses,int dias){
         
          try {
              int filtro=0,valores=0;
+             
             for(int i=0;i<frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getRowCount();i++){
                 String cod_esquema="",nombre_resultado_exa="",tipo_esquema_sub_ana=""
                         ,cod_uni_med_exa="",cod_valores_refe_resul="",
-                        valor_de_resultado_analisis="",estado_todos_fabricante="",cod_fabricante_producto=""
+                        valor_de_resultado_analisis="",unidad_med="",estado_todos_fabricante="",cod_fabricante_producto=""
                         ,ini_anio_resul="",ini_mes_resul="",ini_dia_resul="",fin_anio_resul="",fin_mes_resul=""
                         ,fin_dia_resul="",genero="",
                         valor_minimo_resul="",valor_maximo_resul="",valor_texto_referencia_resul="",
@@ -1613,15 +1629,15 @@ public void buscar_examenes(){
                 nombre_resultado_exa=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i, 1).toString();
                 tipo_esquema_sub_ana=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i, 3).toString();
                 cod_uni_med_exa=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i, 4).toString();
+                unidad_med=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i, 5).toString();
                 
                 for(int va=0;va<frm_LAB_RESULTADO_MUESTRA.tb_Valores.getRowCount();va++){
-                  filtro = 0;
+                filtro = 0;
+                
                 if (frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i,0).toString().
                     equalsIgnoreCase(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 1).toString())){
-                
                     //Verificando el Sexo
-                    if(frm_LAB_RESULTADO_MUESTRA.txtSexo.toString().
-                    equalsIgnoreCase(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 11).toString())){
+                    if(sexo.equalsIgnoreCase(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 11).toString())){
                         filtro = filtro + 1;
                     }
                     //Verifica los Fabricantes
@@ -1634,38 +1650,44 @@ public void buscar_examenes(){
                     }
                     
                     String tipo="";
-                    int edad=0,edad_ini=0,edad_fin=0;
+                    int ini_dias=0,fin_dias=0;
+//                    int edadD_ini=0,edadD_fin=0,edadM_ini=0,edadM_fin=0,edadA_ini=0,edadA_fin=0;
                     String e=frm_LAB_RESULTADO_MUESTRA.txtEdad.getText();
                     int leng=e.length();
                     
                     tipo=String.valueOf(e.charAt(leng-1));
-                    
-                    if(tipo.equalsIgnoreCase("D")){
-                       edad=Integer.parseInt(e.substring(0,leng-2));
-                        edad_ini=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 6).toString());
-                        edad_fin=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 9).toString());
-                        if(edad>=edad_ini &&edad<=edad_fin){
+
+                    if(sexo.equalsIgnoreCase(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 11).toString())){
+//                        edadA_ini=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 5).toString());
+//                        edadA_fin=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 8).toString());
+//                        edadM_ini=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 6).toString());
+//                        edadM_fin=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 9).toString());
+//                        edadD_ini=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 7).toString());
+//                        edadD_fin=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 10).toString());
+//                        
+                        ini_dias=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 17).toString());
+                        fin_dias=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 18).toString());
+                        
+                    if(dias>=ini_dias &&dias<=fin_dias ){
                         filtro = filtro + 1; 
-                        }
                     }
-                    else if(tipo.equalsIgnoreCase("M")){
-                        edad=Integer.parseInt(e.substring(0,leng-2));
-                        edad_ini=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 7).toString());
-                        edad_fin=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 10).toString());
-                        if(edad>=edad_ini &&edad<=edad_fin){
-                        filtro = filtro + 1; 
-                        }
+//                    else if(tipo.equalsIgnoreCase("D")){
+//                        
+//                        if(edad>=edadD_ini &&edad<=edadD_fin && anio>=edadA_ini &&anio<=edadA_fin && 0>=edadM_ini &&0<=edadM_fin){
+//                        filtro = filtro + 1; 
+//                        }
                     }else{
-                        edad=Integer.parseInt(e.substring(0,leng-2));
-                        edad_ini=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 5).toString());
-                        edad_fin=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 8).toString());
-                        if(edad>=edad_ini &&edad<=edad_fin){
-                        filtro = filtro + 1; 
-                        }
+//                       
+//                        if(anio>edadA_ini &&anio<edadA_fin){
+//                        filtro = filtro + 1; 
+//                        }else if( (anio==edadA_ini ||anio==edadA_fin)&& meses>edadM_ini &meses<edadM_fin){
+//                            filtro = filtro + 1; 
+//                        }
                     }
                     }
                     if(filtro==3){
                     valores=va;
+                    va=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getRowCount();
                     }
                 }
                 
@@ -1686,10 +1708,16 @@ public void buscar_examenes(){
                 fin_dia_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 10).toString();  
                 genero=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 11).toString();  
 //                sexo_femenino_resul="";
-                valor_minimo_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 12).toString();  
-                valor_maximo_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 13).toString();  
-                valor_texto_referencia_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 14).toString();  
-                tipo_valor_refencia_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 15).toString();  
+                if(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 15).toString().equalsIgnoreCase("")){
+                valor_minimo_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 13).toString();  
+                valor_maximo_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 14).toString();  
+                valor_texto_referencia_resul="--";
+                }else{
+                 valor_minimo_resul="--";
+                valor_maximo_resul="--";
+                valor_texto_referencia_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 15).toString();
+                }
+                tipo_valor_refencia_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 16).toString();  
                 observaciones_resultado_exa="";
             
                 usa_valores_ref="S";
@@ -1697,7 +1725,7 @@ public void buscar_examenes(){
                 resultado=(DefaultTableModel)frm_LAB_RESULTADO_MUESTRA.tb_Detalle.getModel();
                 String filaelemento[]={cod_esquema,nombre_resultado_exa,tipo_esquema_sub_ana
                         ,cod_uni_med_exa,cod_valores_refe_resul,
-                        valor_de_resultado_analisis,estado_todos_fabricante,cod_fabricante_producto
+                        valor_de_resultado_analisis,unidad_med,estado_todos_fabricante,cod_fabricante_producto
                         ,ini_anio_resul,ini_mes_resul,ini_dia_resul,fin_anio_resul,
                         fin_mes_resul,fin_dia_resul,genero,
                         valor_minimo_resul,valor_maximo_resul,valor_texto_referencia_resul,
@@ -1718,9 +1746,9 @@ public void buscar_examenes(){
             fin_mes_resul="";
             fin_dia_resul="";
             genero="";
-            valor_minimo_resul="";
-            valor_maximo_resul="";
-            valor_texto_referencia_resul="";
+            valor_minimo_resul="--";
+            valor_maximo_resul="--";
+            valor_texto_referencia_resul="--";
             tipo_valor_refencia_resul="";
             observaciones_resultado_exa="";
             
@@ -1729,7 +1757,7 @@ public void buscar_examenes(){
               resultado=(DefaultTableModel)frm_LAB_RESULTADO_MUESTRA.tb_Detalle.getModel();
               String filaelemento[]={cod_esquema,nombre_resultado_exa,tipo_esquema_sub_ana
                         ,cod_uni_med_exa,cod_valores_refe_resul,
-                        valor_de_resultado_analisis,estado_todos_fabricante,cod_fabricante_producto
+                        valor_de_resultado_analisis,unidad_med,estado_todos_fabricante,cod_fabricante_producto
                         ,ini_anio_resul,ini_mes_resul,ini_dia_resul,fin_anio_resul,fin_mes_resul
                         ,fin_dia_resul,genero,valor_minimo_resul,valor_maximo_resul
                         ,valor_texto_referencia_resul,tipo_valor_refencia_resul

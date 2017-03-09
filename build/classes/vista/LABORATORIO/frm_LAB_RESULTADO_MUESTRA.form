@@ -424,13 +424,14 @@
         <Component class="javax.swing.JTable" name="tb_Detalle">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="21" rowCount="0">
+              <Table columnCount="22" rowCount="0">
                 <Column editable="false" title="cod_esquema" type="java.lang.Object"/>
-                <Column editable="false" title="nombre_resultado_exa" type="java.lang.Object"/>
+                <Column editable="false" title="An&#xe1;lisis/Estudio" type="java.lang.Object"/>
                 <Column editable="false" title="tipo_esquema_sub_ana" type="java.lang.Object"/>
                 <Column editable="false" title="cod_uni_med_exa" type="java.lang.Object"/>
                 <Column editable="false" title="cod_valores_refe_resul" type="java.lang.Object"/>
-                <Column editable="false" title="valor_de_resultado_analisis" type="java.lang.Object"/>
+                <Column editable="true" title="Valor de Resultado" type="java.lang.Object"/>
+                <Column editable="false" title="Unidad de Medida" type="java.lang.Object"/>
                 <Column editable="false" title="estado_todos_fabricante" type="java.lang.Object"/>
                 <Column editable="false" title="cod_fabricante_producto" type="java.lang.Object"/>
                 <Column editable="false" title="ini_anio_resul" type="java.lang.Object"/>
@@ -440,118 +441,123 @@
                 <Column editable="false" title="fin_mes_resul" type="java.lang.Object"/>
                 <Column editable="false" title="fin_dia_resul" type="java.lang.Object"/>
                 <Column editable="false" title="genero" type="java.lang.Object"/>
-                <Column editable="false" title="valor_minimo_resul" type="java.lang.Object"/>
-                <Column editable="false" title="valor_maximo_resul" type="java.lang.Object"/>
-                <Column editable="false" title="valor_texto_referencia_resul" type="java.lang.Object"/>
+                <Column editable="false" title="Valor M&#xed;nimo" type="java.lang.Object"/>
+                <Column editable="false" title="Valor M&#xe1;ximo" type="java.lang.Object"/>
+                <Column editable="false" title="Valor Texto" type="java.lang.Object"/>
                 <Column editable="false" title="tipo_valor_refencia_resul" type="java.lang.Object"/>
-                <Column editable="false" title="observaciones_resultado_exa" type="java.lang.Object"/>
+                <Column editable="true" title="Observaci&#xf3;n Resultado" type="java.lang.Object"/>
                 <Column editable="false" title="usu_valores_ref" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="autoResizeMode" type="int" value="0"/>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -573,7 +579,6 @@
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tb_DetalleKeyTyped"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable(){&#xa;    public boolean isCellEditable(int rowIndex, int colIndex){&#xa;        if(colIndex==0){&#xa;            return true;&#xa;        }else{&#xa;            return false; //Disallow the editing of any cell&#xa;        }}}"/>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
         </Component>
@@ -835,7 +840,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="txtPersonaRegistraR" max="32767" attributes="0"/>
+                      <Component id="txtPersonalRegistraR" max="32767" attributes="0"/>
                       <Component id="jLabel43" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel40" alignment="0" pref="303" max="32767" attributes="0"/>
                       <Component id="txtPersonalResponR" alignment="0" max="32767" attributes="0"/>
@@ -876,7 +881,7 @@
                   </Group>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtPersonaRegistraR" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtPersonalRegistraR" alignment="3" max="32767" attributes="0"/>
                       <Component id="lblHora1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -903,7 +908,7 @@
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonalResponRKeyReleased"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPersonaRegistraR">
+        <Component class="javax.swing.JTextField" name="txtPersonalRegistraR">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="11" style="0"/>
@@ -911,9 +916,9 @@
             <Property name="horizontalAlignment" type="int" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPersonaRegistraRActionPerformed"/>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonaRegistraRKeyPressed"/>
-            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonaRegistraRKeyReleased"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPersonalRegistraRActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonalRegistraRKeyPressed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonalRegistraRKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel43">

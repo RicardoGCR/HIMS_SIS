@@ -43,6 +43,64 @@ public class HospitalizacionExamenClinico {
     private String hec_ex_gine;
     private String hec_extrem;
     private String hec_sis_neuro;
+    private String cod_usu;
+    private String cod_per;
+    private int diag_prin;
+    
+    public int idHospitalizacionExamenClinico(){
+        int id = 0;
+        try {
+            String consulta = "EXEC HOSPITALIZACION_EXAMEN_CLINICO_GENERAR_ID";
+            ResultSet r;
+            r=con.Listar(consulta);
+        if(r.next()){
+               id = r.getInt(1);
+        }
+        }catch(Exception ex){
+            System.out.println("Error: idHospitalizacionExamenClinico: " + ex.getMessage());
+        }
+        return id;
+    }
+    
+    public boolean mantenimientoHospitalizacionExClinico(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "HOSPITALIZACION_EXAMEN_CLINICO_MANTENIMIENTO ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getHec_id());
+            cmd.setInt(2, getId_preventa());
+            cmd.setString(3, getHec_ex_gen());
+            cmd.setString(4, getHec_piel_tej());
+            cmd.setString(5, getHec_cab());
+            cmd.setString(6, getHec_oj());
+            cmd.setString(7, getHec_dientes());
+            cmd.setString(8, getHec_torax());
+            cmd.setString(9, getHec_mam());
+            cmd.setString(10, getHec_pulmon());
+            cmd.setString(11, getHec_cora());
+            cmd.setString(12, getHec_linf());
+            cmd.setString(13, getHec_genit());
+            cmd.setString(14, getHec_tacto_rec());
+            cmd.setString(15, getHec_ex_gine());
+            cmd.setString(16, getHec_extrem());
+            cmd.setString(17, getHec_sis_neuro());
+            cmd.setString(18, getCod_per());
+            cmd.setInt(19, getDiag_prin());
+            cmd.setString(20, getCod_usu());
+            cmd.setString(21, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoHospitalizacionExClinico: " + ex.getMessage());
+        }
+        return resp;
+    }
     
     public void datosTriaje(int id_preventa){
         String consulta="";
@@ -78,6 +136,17 @@ public class HospitalizacionExamenClinico {
 //            columna.setPreferredWidth(0);
 //            tabla.doLayout();
         tabla.setRowHeight(30);
+    }
+    
+    public void inicializarTabla(JTable tabla){
+        tabla.setModel(new DefaultTableModel());
+        String titulos[]={"ID CIE 10","Código CIE 10","Diagnósticos Presuntivos"};
+        m=new DefaultTableModel(null,titulos);
+        tabla.setModel(m);
+        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+        tabla.setRowSorter(elQueOrdena);
+        tabla.setModel(m);
+        formatoTablaDiagPresuntivo(tabla);
     }
     
     public void listarDiagPresun(String topico_id, JTable tabla){
@@ -411,6 +480,48 @@ public class HospitalizacionExamenClinico {
      */
     public void setHec_sis_neuro(String hec_sis_neuro) {
         this.hec_sis_neuro = hec_sis_neuro;
+    }
+
+    /**
+     * @return the cod_usu
+     */
+    public String getCod_usu() {
+        return cod_usu;
+    }
+
+    /**
+     * @param cod_usu the cod_usu to set
+     */
+    public void setCod_usu(String cod_usu) {
+        this.cod_usu = cod_usu;
+    }
+
+    /**
+     * @return the cod_per
+     */
+    public String getCod_per() {
+        return cod_per;
+    }
+
+    /**
+     * @param cod_per the cod_per to set
+     */
+    public void setCod_per(String cod_per) {
+        this.cod_per = cod_per;
+    }
+
+    /**
+     * @return the diag_prin
+     */
+    public int getDiag_prin() {
+        return diag_prin;
+    }
+
+    /**
+     * @param diag_prin the diag_prin to set
+     */
+    public void setDiag_prin(int diag_prin) {
+        this.diag_prin = diag_prin;
     }
     
 }

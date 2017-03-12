@@ -84,8 +84,8 @@ DefaultTableModel m,n,resultado;
             btnPersonal.setVisible(false);
             btnBuscar.setVisible(false);
 
-//        lblServicio.setVisible(false);
-//        lblArea.setVisible(false);
+        lblServicio.setVisible(false);
+        lblArea.setVisible(false);
         this.getContentPane().setBackground(Color.white); 
        
         setLocationRelativeTo(null);//en el centro
@@ -101,6 +101,13 @@ DefaultTableModel m,n,resultado;
     dateDesde.requestFocus();
   
  
+    //inicio
+    txtPacientes.setEnabled(false);
+            btnPacientes.setEnabled(false);
+            txtAnalisis.setEnabled(false);
+            btnAnalisis.setEnabled(false);
+            txtPersonal.setEnabled(false);
+            btnPersonal.setEnabled(false);
     //Servicio-Area
         LAB_PC_AREA pa=new LAB_PC_AREA();
         lblServicio.setText(pa.LAB_PC_AREA_SERVICIO());
@@ -118,10 +125,10 @@ DefaultTableModel m,n,resultado;
     }
     
     public void formato(){
-    tb_TomasRealizadas.getColumnModel().getColumn(4).setPreferredWidth(180);
-    tb_TomasRealizadas.getColumnModel().getColumn(5).setPreferredWidth(100);
+    tb_TomasRealizadas.getColumnModel().getColumn(4).setPreferredWidth(190);
+    tb_TomasRealizadas.getColumnModel().getColumn(5).setPreferredWidth(90);
     tb_TomasRealizadas.getColumnModel().getColumn(6).setPreferredWidth(250);
-    tb_TomasRealizadas.getColumnModel().getColumn(7).setPreferredWidth(250);
+    tb_TomasRealizadas.getColumnModel().getColumn(7).setPreferredWidth(240);
     tb_TomasRealizadas.getColumnModel().getColumn(8).setPreferredWidth(140);
     tb_TomasRealizadas.getColumnModel().getColumn(9).setPreferredWidth(90);
     tb_TomasRealizadas.getColumnModel().getColumn(10).setPreferredWidth(250);
@@ -131,12 +138,40 @@ DefaultTableModel m,n,resultado;
     tb_TomasRealizadas.getColumnModel().getColumn(14).setPreferredWidth(50);
     tb_TomasRealizadas.getColumnModel().getColumn(15).setPreferredWidth(130);
     //Ocultar    
-//    tb_TomasRealizadas.getColumnModel().getColumn(0).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(0).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(8).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(8).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(9).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(9).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(0).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(0).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(1).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(1).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(2).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(2).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(3).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(3).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(16).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(16).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(17).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(17).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(18).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(18).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(19).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(19).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(20).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(20).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(21).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(21).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(22).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(22).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(23).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(23).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(24).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(24).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(25).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(25).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(26).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(26).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(27).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(27).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(28).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(28).setMaxWidth(0);
     tb_TomasRealizadas.getSelectionModel().setSelectionInterval(0, 0);
             tb_TomasRealizadas.requestFocus();
 }
@@ -863,7 +898,7 @@ public void calcula() {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
                                 .addComponent(titulo5)
-                                .addGap(273, 273, 273)
+                                .addGap(408, 408, 408)
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jpanelLayout.createSequentialGroup()
                                         .addComponent(jLabel15)
@@ -874,7 +909,7 @@ public void calcula() {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblFecha))
                                     .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(21, Short.MAX_VALUE))
                         );
                         jpanelLayout.setVerticalGroup(
                             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -897,43 +932,28 @@ public void calcula() {
 
                         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
                         jPanel1.setPreferredSize(new java.awt.Dimension(721, 25));
+                        jPanel1.setLayout(null);
 
                         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salir16x16.png"))); // NOI18N
                         jLabel3.setText("Salir (Esc)");
+                        jPanel1.add(jLabel3);
+                        jLabel3.setBounds(921, 5, 67, 16);
 
                         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
                         jLabel10.setText("Buscar (Alt+B)");
-
-                        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-                        jPanel1.setLayout(jPanel1Layout);
-                        jPanel1Layout.setHorizontalGroup(
-                            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(550, 550, 550)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                                .addComponent(jLabel3)
-                                .addGap(8, 8, 8))
-                        );
-                        jPanel1Layout.setVerticalGroup(
-                            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        );
+                        jPanel1.add(jLabel10);
+                        jLabel10.setBounds(718, 5, 90, 16);
 
                         tb_TomasRealizadas.setModel(new javax.swing.table.DefaultTableModel(
                             new Object [][] {
 
                             },
                             new String [] {
-                                "cod_cab_toma_mu_exa", "cod_det_toma_mu_ana", "cod_exa_ana", "id_hc", "Servicio/Área", "Código CPT", "Nomenclatura", "Analisis Examen", "N° de Toma de Muestra", "N° de H.C", "Datos del Paciente", "DNI", "Fecha de Nacimiento", "Edad", "Sexo", "Forma de Pago", "Acto Medico", "Nombre Per Toma Muestra", "fecha_toma_mu_de", "hora_toma_mu_de", "nom_per_solicita", "hab_nom", "cama", "fecha_orden", "hora_orden", "Documento"
+                                "cod_cab_toma_mu_exa", "cod_det_toma_mu_ana", "cod_exa_ana", "id_hc", "Servicio/Área", "Código CPT", "Nomenclatura", "Analisis Examen", "N° de Toma de Muestra", "N° de H.C", "Datos del Paciente", "DNI", "Fecha de Nacimiento", "Edad", "Sexo", "Forma de Pago", "Acto Medico", "Nombre Per Toma Muestra", "fecha_toma_mu_de", "hora_toma_mu_de", "nom_per_solicita", "hab_nom", "cama", "fecha_orden", "hora_orden", "id_cod_doc_det", "Años", "Meses", "Dias"
                             }
                         ) {
                             boolean[] canEdit = new boolean [] {
-                                true, false, true, true, false, true, true, false, true, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, false
+                                true, false, true, true, false, true, true, false, true, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, false, true, true, true
                             };
 
                             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -941,7 +961,7 @@ public void calcula() {
                             }
                         });
                         tb_TomasRealizadas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-                        tb_TomasRealizadas.setRowHeight(20);
+                        tb_TomasRealizadas.setRowHeight(24);
                         tb_TomasRealizadas.setSelectionBackground(new java.awt.Color(2, 67, 115));
                         tb_TomasRealizadas.addMouseListener(new java.awt.event.MouseAdapter() {
                             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -976,7 +996,9 @@ public void calcula() {
                         lblArea.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         lblArea.setText("area");
 
+                        chPacientes.setSelected(true);
                         chPacientes.setText("Todos los Pacientes");
+                        chPacientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                         chPacientes.addItemListener(new java.awt.event.ItemListener() {
                             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                                 chPacientesItemStateChanged(evt);
@@ -999,7 +1021,9 @@ public void calcula() {
                             }
                         });
 
+                        chAnalisis.setSelected(true);
                         chAnalisis.setText("Todos los Análisis");
+                        chAnalisis.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                         chAnalisis.addItemListener(new java.awt.event.ItemListener() {
                             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                                 chAnalisisItemStateChanged(evt);
@@ -1022,6 +1046,7 @@ public void calcula() {
                             }
                         });
 
+                        chPersonal.setSelected(true);
                         chPersonal.setText("Todo el Personal");
                         chPersonal.setHideActionText(true);
                         chPersonal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1047,7 +1072,7 @@ public void calcula() {
                             }
                         });
 
-                        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/guardar16x16.png"))); // NOI18N
+                        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Buscararchivo16.png"))); // NOI18N
                         btnBuscar.setMnemonic('B');
                         btnBuscar.setText("Buscar");
                         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -1107,7 +1132,7 @@ public void calcula() {
                                             .addComponent(btnPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(chPersonal))
                                         .addGap(0, 0, Short.MAX_VALUE)))
-                                .addContainerGap())
+                                .addGap(0, 0, 0))
                             .addGroup(panelPacientesLayout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addComponent(btnBuscar)
@@ -1157,24 +1182,29 @@ public void calcula() {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(dateHasta, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(298, 298, 298))
+                                .addGap(351, 351, 351))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbldia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
-                                        .addComponent(lblServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblArea, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cbx, 0, 173, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                                        .addComponent(panelPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE))
+                                        .addContainerGap()
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lbldia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addGap(71, 71, 71)
+                                                .addComponent(lblServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(lblArea, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(cbx, 0, 173, Short.MAX_VALUE))
+                                                .addGap(84, 84, 84)
+                                                .addComponent(panelPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING))))
                                 .addGap(19, 19, 19))
                         );
                         layout.setVerticalGroup(
@@ -1198,10 +1228,10 @@ public void calcula() {
                                         .addComponent(lblArea)
                                         .addComponent(lblServicio))
                                     .addComponent(panelPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(21, 21, 21)
+                                .addGap(45, 45, 45)
                                 .addComponent(lbldia)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         );
@@ -1387,9 +1417,9 @@ public void buscar_examenes(){
         try {
             tb_TomasRealizadas.setModel(new DefaultTableModel());
             String titulos[]={"cod_cab_toma_mu_exa","cod_det_toma_mu_ana","cod_exa_ana","id_hc","Servicio/Área","Código CPT",
-                "Nomenclatura" ,"Análisis Examen","Número de Toma de Muestra","N° de H.C.","Datos del Paciente",
+                "Nomenclatura" ,"Análisis Examen","N° de Toma de Muestra","N° de H.C.","Datos del Paciente",
                 "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","Acto Médico","Personal TMuestra",
-                "Fecha TM","Hora TM","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","idDocumento",
+                "Fecha TM","Hora TM","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","id_cod_doc_det",
                 "Años","Meses","Dias"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
@@ -1467,7 +1497,7 @@ public void buscar_examenes(){
                     frm_LAB_RESULTADO_MUESTRA.lblcod_cab_toma.setText(tb_TomasRealizadas.getValueAt(filaselec, 0).toString());
                     frm_LAB_RESULTADO_MUESTRA.lblcod_det_toma.setText(tb_TomasRealizadas.getValueAt(filaselec, 1).toString());
                     frm_LAB_RESULTADO_MUESTRA.lblcod_exa_ana.setText(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
-                    frm_LAB_RESULTADO_MUESTRA.lblDocumento.setText(tb_TomasRealizadas.getValueAt(filaselec, 25).toString());
+                    frm_LAB_RESULTADO_MUESTRA.lblid_cod_doc_det.setText(tb_TomasRealizadas.getValueAt(filaselec, 25).toString());
                    
                     //Datos del Paciente
                     frm_LAB_RESULTADO_MUESTRA.lblHc.setText(tb_TomasRealizadas.getValueAt(filaselec, 3).toString());
@@ -1782,7 +1812,7 @@ public void buscar_examenes(){
             txtAnalisis.setText("");
         }
     }//GEN-LAST:event_chPacientesItemStateChanged
-
+            
     private void btnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacientesActionPerformed
         buscar_HC.setVisible(true);
         txtbuscarHC.setText("");

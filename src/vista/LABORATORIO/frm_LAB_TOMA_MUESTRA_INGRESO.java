@@ -81,7 +81,10 @@ DefaultTableModel m,n,muestra;
        Calendar cal=Calendar.getInstance(); 
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
         lblFecha.setText(fechaActual());
-       
+       //iniciar
+        txtPacientes.setEnabled(false);
+             btnPacientes.setEnabled(false);
+             txtPacientes.setText("");
 
    formato();
     dateDesde.requestFocus();
@@ -649,7 +652,7 @@ public void calcula() {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(lblFecha))
                                 .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addContainerGap(26, Short.MAX_VALUE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
                     jpanelLayout.setVerticalGroup(
                         jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -756,7 +759,8 @@ public void calcula() {
                         tb_Pacientes.getColumnModel().getColumn(6).setResizable(false);
                     }
 
-                    btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/guardar16x16.png"))); // NOI18N
+                    btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+                    btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Buscararchivo16.png"))); // NOI18N
                     btnBuscar.setMnemonic('B');
                     btnBuscar.setText("Buscar");
                     btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -765,6 +769,7 @@ public void calcula() {
                         }
                     });
 
+                    chPacientes.setSelected(true);
                     chPacientes.setText("Todos los Pacientes");
                     chPacientes.addItemListener(new java.awt.event.ItemListener() {
                         public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -826,7 +831,7 @@ public void calcula() {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(lbldia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE))
+                                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(13, 13, 13))
                     );
                     layout.setVerticalGroup(

@@ -70,7 +70,11 @@
                           <Component id="titulo5" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+<<<<<<< HEAD
+                  <EmptySpace min="-2" pref="354" max="-2" attributes="0"/>
+=======
                   <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
+>>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel22" min="-2" pref="199" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
@@ -634,6 +638,8 @@
             </Component>
           </SubComponents>
         </Container>
+<<<<<<< HEAD
+=======
         <Container class="javax.swing.JPanel" name="jPanel6">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -770,6 +776,7 @@
             </Container>
           </SubComponents>
         </Container>
+>>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">

@@ -164,7 +164,7 @@ public void calcula() {
         btnguardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
         btnguardar.setMnemonic('G');
-        btnguardar.setToolTipText("Guardar (Alt-G)");
+        btnguardar.setToolTipText("Guardar (Alt+G)");
         btnguardar.setContentAreaFilled(false);
         btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnguardar.addActionListener(new java.awt.event.ActionListener() {
@@ -188,7 +188,7 @@ public void calcula() {
         btnmodificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Editar-32.png"))); // NOI18N
         btnmodificar.setMnemonic('M');
-        btnmodificar.setToolTipText("Modificar (Alt-M)");
+        btnmodificar.setToolTipText("Modificar (Alt+M)");
         btnmodificar.setContentAreaFilled(false);
         btnmodificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnmodificar.addActionListener(new java.awt.event.ActionListener() {

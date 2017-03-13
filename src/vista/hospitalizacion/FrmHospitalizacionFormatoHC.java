@@ -66,6 +66,10 @@ public class FrmHospitalizacionFormatoHC extends javax.swing.JFrame {
         txtMotEnfer.setDocument(motivo_enf);
         LimitadorDeDocumento sintoma_prin = new LimitadorDeDocumento(500);
         txtSintPrincipales.setDocument(sintoma_prin);
+        lblMant.setVisible(false);
+        lblID_Preventa.setVisible(false);
+        lblIdHc.setVisible(false);
+        lblHHH_ID.setVisible(false);
     }
     
     public void cerrar (){

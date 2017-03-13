@@ -26,8 +26,7 @@ import javax.swing.*;
 import javax.swing.Timer;
 import modelos.Usuario;
 import servicios.Conexion;
-import vista.*;
-import vista.PrincipalMDI;
+
 import static vista.Principal.fechaActual;
 
 /**

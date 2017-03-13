@@ -172,7 +172,7 @@ DefaultTableModel m,n,muestra;
             String fila[]=new String[8];
             LAB_Toma_Muestra_Cabecera obj=new LAB_Toma_Muestra_Cabecera();
             
-        String consulta="exec sp_LAB_TOMA_MUESTRA_CAB_ROL ?,?,?";
+        String consulta="exec sp_PERSONAL_ROL ?,?,?";
        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
            cmd.setString(1, "");
             cmd.setString(2, serArea);
@@ -915,10 +915,10 @@ public void calcula() {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(lblcod_det_toma, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(lblHc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblHc, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(lblid_cod_doc_det, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18))
+                    .addGap(145, 145, 145))
             );
             panelOcultarLayout.setVerticalGroup(
                 panelOcultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1439,7 +1439,7 @@ int filtro=0;
                       Lab_guardar_detalleySub();
                       
                       LAB_Resultado_Muestra_Cabecera mc=new LAB_Resultado_Muestra_Cabecera();
-                      mc.LAB_Resultado_Caja_Estado(lblid_cod_doc_det.getText());
+                      mc.LAB_Resultado_Caja_Estado(Integer.parseInt( lblid_cod_doc_det.getText()));
                       
                     JOptionPane.showMessageDialog(null, "Datos Guardados");
                     limpiar();
@@ -1565,7 +1565,7 @@ int filtro=0;
             String fila[]=new String[8];
             LAB_Toma_Muestra_Cabecera obj=new LAB_Toma_Muestra_Cabecera();
             
-        String consulta="exec sp_LAB_TOMA_MUESTRA_CAB_ROL ?,?,?";
+        String consulta="exec sp_PERSONAL_ROL ?,?,?";
        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, buscar);
             cmd.setString(2, serArea);
@@ -1893,16 +1893,7 @@ public void Muestras_cargar(String nomen,String area){
     tb_Detalle.setBackground(Color.white);
 }
     public void limpiar(){
- LAB_Resultado_Muestra_Cabecera u=new LAB_Resultado_Muestra_Cabecera();
-        txtCodigo.setText(u.LAB_Resultado_Muestra_Cab_generarid("1"));
-        if(txtCodigo.getText().equalsIgnoreCase("")){
-        txtCodigo.setText("RC000000000000000001");
-        }
-     LAB_Resultado_Muestra_Cabecera num=new LAB_Resultado_Muestra_Cabecera();
-        txtNum.setText(num.LAB_Resultado_Muestra_Cab_generarid("2"));
-        if(txtNum.getText().equalsIgnoreCase("")){
-        txtNum.setText("00000000000000000001");
-        }   
+
         
 //        lblNum_toma_mu_exa.setText(txtNum.getText());
 //        lblCodPerToma.setText("");

@@ -220,7 +220,7 @@ DefaultTableModel m,n,muestra;
             String fila[]=new String[8];
             LAB_Toma_Muestra_Cabecera obj=new LAB_Toma_Muestra_Cabecera();
             
-        String consulta="exec sp_LAB_TOMA_MUESTRA_CAB_ROL ?,?,?";
+        String consulta="exec sp_PERSONAL_ROL ?,?,?";
        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
            cmd.setString(1, "");
             cmd.setString(2, serArea);
@@ -1328,7 +1328,7 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
     public void LAB_Caja_cambiar_estado(){
         for (int i = 0; i < tb_Detalle.getRowCount(); i++){  
          LAB_Toma_Muestra_Cabecera mc=new LAB_Toma_Muestra_Cabecera();
-        mc.LAB_Toma_Muestra_Caja_Estado(tb_Detalle.getValueAt(i, 0).toString());
+        mc.LAB_Toma_Muestra_Caja_Estado(Integer.parseInt(tb_Detalle.getValueAt(i, 0).toString()));
     }
     }
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
@@ -1373,7 +1373,7 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
             String fila[]=new String[8];
             LAB_Toma_Muestra_Cabecera obj=new LAB_Toma_Muestra_Cabecera();
             
-        String consulta="exec sp_LAB_TOMA_MUESTRA_CAB_ROL ?,?,?";
+        String consulta="exec sp_PERSONAL_ROL ?,?,?";
        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, buscar);
             cmd.setString(2, serArea);

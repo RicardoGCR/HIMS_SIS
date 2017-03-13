@@ -318,9 +318,6 @@ public void calcula() {
             jLabel15 = new javax.swing.JLabel();
             lblHora = new javax.swing.JLabel();
             lblUsu = new javax.swing.JLabel();
-            jPanel1 = new javax.swing.JPanel();
-            jLabel3 = new javax.swing.JLabel();
-            jLabel10 = new javax.swing.JLabel();
             jScrollPane5 = new javax.swing.JScrollPane();
             tb_Detalle = new javax.swing.JTable(){
                 public boolean isCellEditable(int rowIndex, int colIndex){
@@ -378,6 +375,7 @@ public void calcula() {
                     jScrollPane1 = new javax.swing.JScrollPane();
                     tb_Subdetalle = new javax.swing.JTable();
 
+                    personal.setAlwaysOnTop(true);
                     personal.setMinimumSize(new java.awt.Dimension(852, 504));
 
                     txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
@@ -420,6 +418,7 @@ public void calcula() {
                     ));
                     tbPersonal.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                     tbPersonal.setRowHeight(25);
+                    tbPersonal.getTableHeader().setReorderingAllowed(false);
                     tbPersonal.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                             tbPersonalMouseClicked(evt);
@@ -506,6 +505,7 @@ public void calcula() {
                             .addContainerGap(47, Short.MAX_VALUE))
                     );
 
+                    nomenclatura.setAlwaysOnTop(true);
                     nomenclatura.setMinimumSize(new java.awt.Dimension(710, 435));
 
                     tb_Nomenclatura.setModel(new javax.swing.table.DefaultTableModel(
@@ -521,6 +521,7 @@ public void calcula() {
                     ));
                     tb_Nomenclatura.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                     tb_Nomenclatura.setRowHeight(21);
+                    tb_Nomenclatura.getTableHeader().setReorderingAllowed(false);
                     tb_Nomenclatura.addKeyListener(new java.awt.event.KeyAdapter() {
                         public void keyPressed(java.awt.event.KeyEvent evt) {
                             tb_NomenclaturaKeyPressed(evt);
@@ -675,34 +676,6 @@ public void calcula() {
                             .addContainerGap())
                     );
 
-                    jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-
-                    jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salir16x16.png"))); // NOI18N
-                    jLabel3.setText("Salir (Esc)");
-
-                    jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/mas.png"))); // NOI18N
-                    jLabel10.setText("Agregar Toma de Muestra");
-
-                    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-                    jPanel1.setLayout(jPanel1Layout);
-                    jPanel1Layout.setHorizontalGroup(
-                        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGap(17, 17, 17)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3)
-                            .addGap(8, 8, 8))
-                    );
-                    jPanel1Layout.setVerticalGroup(
-                        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    );
-
                     tb_Detalle.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
 
@@ -722,6 +695,7 @@ public void calcula() {
                     tb_Detalle.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                     tb_Detalle.setRowHeight(25);
                     tb_Detalle.setSelectionBackground(new java.awt.Color(2, 67, 115));
+                    tb_Detalle.getTableHeader().setReorderingAllowed(false);
                     tb_Detalle.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                             tb_DetalleMouseClicked(evt);
@@ -803,6 +777,7 @@ public void calcula() {
                     btnGenerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/guardar16x16.png"))); // NOI18N
                     btnGenerar.setMnemonic('G');
                     btnGenerar.setText("Guardar");
+                    btnGenerar.setToolTipText("Guardar (Alt-G)");
                     btnGenerar.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                             btnGenerarActionPerformed(evt);
@@ -818,6 +793,7 @@ public void calcula() {
                     jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
                     jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salir16x16.png"))); // NOI18N
                     jButton1.setText("Regresar");
+                    jButton1.setToolTipText("Regresar(Esc)");
                     jButton1.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                             jButton1ActionPerformed(evt);
@@ -1127,9 +1103,6 @@ public void calcula() {
                             .addGap(26, 26, 26)
                             .addComponent(txtCodigoDet, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
                     layout.setVerticalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1146,11 +1119,10 @@ public void calcula() {
                                     .addGap(18, 18, 18)
                                     .addComponent(btnAgregar)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnQuitar))
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnQuitar)
+                                    .addGap(0, 35, Short.MAX_VALUE))
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblCodPerToma, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1846,7 +1818,6 @@ public void Muestras_cargar(String nomen,String area){
     private javax.swing.JButton btnQuitar;
     private javax.swing.JComboBox cbxBuscar2;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
@@ -1861,11 +1832,9 @@ public void Muestras_cargar(String nomen,String area){
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

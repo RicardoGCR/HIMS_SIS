@@ -266,7 +266,7 @@
               <Image iconType="3" name="/imagenes/iconos/Guardar-32.png"/>
             </Property>
             <Property name="mnemonic" type="int" value="71"/>
-            <Property name="toolTipText" type="java.lang.String" value="Guardar (Alt-G)"/>
+            <Property name="toolTipText" type="java.lang.String" value="Guardar (Alt+G)"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -310,7 +310,7 @@
               <Image iconType="3" name="/imagenes/iconos/Editar-32.png"/>
             </Property>
             <Property name="mnemonic" type="int" value="77"/>
-            <Property name="toolTipText" type="java.lang.String" value="Modificar (Alt-M)"/>
+            <Property name="toolTipText" type="java.lang.String" value="Modificar (Alt+M)"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>

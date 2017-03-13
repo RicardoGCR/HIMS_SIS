@@ -397,6 +397,7 @@ public void calcula() {
                             .addGap(0, 213, Short.MAX_VALUE)
                         );
 
+                        personal.setAlwaysOnTop(true);
                         personal.setMinimumSize(new java.awt.Dimension(846, 504));
 
                         txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
@@ -439,6 +440,7 @@ public void calcula() {
                         ));
                         tbPersonal.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                         tbPersonal.setRowHeight(25);
+                        tbPersonal.getTableHeader().setReorderingAllowed(false);
                         tbPersonal.addMouseListener(new java.awt.event.MouseAdapter() {
                             public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 tbPersonalMouseClicked(evt);
@@ -519,6 +521,7 @@ public void calcula() {
                                 .addContainerGap(47, Short.MAX_VALUE))
                         );
 
+                        contenedor.setAlwaysOnTop(true);
                         contenedor.setMinimumSize(new java.awt.Dimension(434, 467));
 
                         tb_Contenedor.setModel(new javax.swing.table.DefaultTableModel(
@@ -534,6 +537,7 @@ public void calcula() {
                         ));
                         tb_Contenedor.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                         tb_Contenedor.setRowHeight(25);
+                        tb_Contenedor.getTableHeader().setReorderingAllowed(false);
                         tb_Contenedor.addMouseListener(new java.awt.event.MouseAdapter() {
                             public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 tb_ContenedorMouseClicked(evt);
@@ -650,6 +654,7 @@ public void calcula() {
                         ));
                         tb_Unidad_Organica.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                         tb_Unidad_Organica.setRowHeight(25);
+                        tb_Unidad_Organica.getTableHeader().setReorderingAllowed(false);
                         tb_Unidad_Organica.addMouseListener(new java.awt.event.MouseAdapter() {
                             public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 tb_Unidad_OrganicaMouseClicked(evt);
@@ -1099,6 +1104,7 @@ public void calcula() {
                             }
                         });
                         tb_MuestrasRegis.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+                        tb_MuestrasRegis.getTableHeader().setReorderingAllowed(false);
                         jScrollPane1.setViewportView(tb_MuestrasRegis);
 
                         panelMuestras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1388,6 +1394,8 @@ public void calcula() {
                         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/aceptar16x16.png"))); // NOI18N
                         jButton2.setMnemonic('A');
                         jButton2.setText("Aceptar");
+                        jButton2.setToolTipText("Aceptar(Alt+A)");
+                        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                         jButton2.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 jButton2ActionPerformed(evt);
@@ -1400,6 +1408,8 @@ public void calcula() {
 
                         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salir16x16.png"))); // NOI18N
                         jButton3.setText("Salir");
+                        jButton3.setToolTipText("Salir(Esc)");
+                        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                         jButton3.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 jButton3ActionPerformed(evt);
@@ -1439,7 +1449,7 @@ public void calcula() {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(326, 326, 326)
                                 .addComponent(jButton2)
-                                .addGap(35, 35, 35)
+                                .addGap(81, 81, 81)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1463,16 +1473,15 @@ public void calcula() {
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblServicio)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(panelCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(4, 4, 4)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton2)
-                                    .addComponent(jButton3))
-                                .addGap(3, 3, 3)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         );
 
                         pack();

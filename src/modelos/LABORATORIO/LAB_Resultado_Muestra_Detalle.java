@@ -86,7 +86,7 @@ public class LAB_Resultado_Muestra_Detalle {
         }
         catch(Exception ex)
         {
-            System.out.println("Error: " + ex.getMessage());
+            System.out.println("Error DET: " + ex.getMessage());
         }
         return resp;
     }

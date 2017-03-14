@@ -78,12 +78,12 @@ public class LAB_Resultado_Muestra_Cabecera {
         return unidad;
     }
 
-     public boolean LAB_Resultado_Caja_Estado(String id_cod_doc_det){
+     public boolean LAB_Resultado_Caja_Estado(int id_cod_doc_det){
          boolean resp = false;
         try{
             String sql = "sp_LAB_CAJA_ESTADO ?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, id_cod_doc_det);
+            cmd.setInt(1, id_cod_doc_det);
             cmd.setString(2, "2");
             if(!cmd.execute())
             {

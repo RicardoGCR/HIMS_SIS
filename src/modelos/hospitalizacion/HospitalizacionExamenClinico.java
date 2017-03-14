@@ -180,6 +180,112 @@ public class HospitalizacionExamenClinico {
         }
     }
     
+    public void formatoTablaExClinico(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(40);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(40);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(100);//cama
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(250);//medico
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(80);//codigo medico
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(11).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(12).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(13).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(14).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(15).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(16).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(17).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(18).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(19).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(20).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(21).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(22).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(23).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(24).setPreferredWidth(300);
+//        COLUMNAS OCULTAS
+//        TableColumn columna = tabla.getColumnModel().getColumn(0);
+//            columna.setMaxWidth(0);
+//            columna.setMinWidth(0);
+//            columna.setPreferredWidth(0);
+//            tabla.doLayout();
+        tabla.setRowHeight(30);
+    }
+    
+    public void inicializarTablaExClinico(JTable tabla){
+        tabla.setModel(new DefaultTableModel());
+        String titulos[]={"ID","Preventa","Acto Médico","DNI","Nº H.C.","Paciente",
+                "Edad","Cama","Médico","Códido del Médico","Examen General","Piel,Tejido,celular subcutáneo",
+                "Cabeza,Cuello","Ojos,oídos,nariz,garganta,boca","Dientes","Tórax","Mamas","Pulmones","Corazón",
+                "Linfáticos","Genitales","Tacto rectal","Examen Ginecológico","Extremidades","Sistema Neurológico"};
+        m=new DefaultTableModel(null,titulos);
+        tabla.setModel(m);
+        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+        tabla.setRowSorter(elQueOrdena);
+        tabla.setModel(m);
+        formatoTablaExClinico(tabla);
+    }
+    
+    public void listarExClinico(String busqueda, JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID","Preventa","Acto Médico","DNI","Nº H.C.","Paciente",
+                "Edad","Cama","Médico","Códido del Médico","Examen General","Piel,Tejido,celular subcutáneo",
+                "Cabeza,Cuello","Ojos,oídos,nariz,garganta,boca","Dientes","Tórax","Mamas","Pulmones","Corazón",
+                "Linfáticos","Genitales","Tacto rectal","Examen Ginecológico","Extremidades","Sistema Neurológico"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[25];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC HOSPITALIZACION_EXAMEN_CLINICO_LISTAR ?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, busqueda);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                    fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
+                    fila[9]=r.getString(10); 
+                    fila[10]=r.getString(11); 
+                    fila[11]=r.getString(12); 
+                    fila[12]=r.getString(13); 
+                    fila[13]=r.getString(14); 
+                    fila[14]=r.getString(15); 
+                    fila[15]=r.getString(16); 
+                    fila[16]=r.getString(17); 
+                    fila[17]=r.getString(18); 
+                    fila[18]=r.getString(19); 
+                    fila[19]=r.getString(20); 
+                    fila[20]=r.getString(21); 
+                    fila[21]=r.getString(22); 
+                    fila[22]=r.getString(23); 
+                    fila[23]=r.getString(24); 
+                    fila[24]=r.getString(25); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaExClinico(tabla);
+            //inicializarTablaExClinico(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarExClinico: " + e.getMessage());
+        }
+    }
+    
     public void formatoTablaDiagDefinitivo(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(40);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(60);
@@ -265,6 +371,58 @@ public class HospitalizacionExamenClinico {
             formatoListarMedicos(tabla);
         } catch (Exception e) {
             System.out.println("Error: listarFormatoHC: " + e.getMessage());
+        }
+    }
+    
+    public void formatoTablaDiagnosticos(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(350);
+//        COLUMNAS OCULTAS
+//        TableColumn columna = tabla.getColumnModel().getColumn(0);
+//            columna.setMaxWidth(0);
+//            columna.setMinWidth(0);
+//            columna.setPreferredWidth(0);
+//            tabla.doLayout();
+        tabla.setRowHeight(30);
+    }
+    
+    public void listarDiagnosticos(String id, String tipo, JTable tabla,String modo){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID CIE 10","Código CIE 10","Diagnósticos Definitivos"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[3];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC HOSPITALIZACION_EXAMEN_CLINICO_LISTAR_DIAGNOSTICOS ?,?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, id);
+                cmd.setString(2, tipo);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); // id
+                    fila[1]=r.getString(2); // dni
+                    fila[2]=r.getString(3); // nhc
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            if(modo.equals("V"))
+               formatoTablaDiagnosticos(tabla);
+            else{
+                tabla.getColumnModel().getColumn(0).setPreferredWidth(40);
+                tabla.getColumnModel().getColumn(1).setPreferredWidth(60);
+                tabla.getColumnModel().getColumn(2).setPreferredWidth(550);
+                tabla.setRowHeight(30);
+            }
+        } catch (Exception e) {
+            System.out.println("Error: listarDiagnosticos: " + e.getMessage());
         }
     }
     

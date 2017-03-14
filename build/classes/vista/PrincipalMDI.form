@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-<<<<<<< HEAD
-=======
   <NonVisualComponents>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
     </Container>
   </NonVisualComponents>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Sistema de Gestion Hospitalaria - Modulo Administracion del Sistema"/>
@@ -53,11 +50,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="bc" alignment="0" max="32767" attributes="0"/>
-<<<<<<< HEAD
-                      <Component id="bc1" max="32767" attributes="0"/>
-=======
                       <Component id="bc1" alignment="1" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                       <Component id="bc5" alignment="1" max="32767" attributes="0"/>
                       <Component id="Hospitalicacion" alignment="0" max="32767" attributes="0"/>
                       <Component id="bc2" alignment="0" max="32767" attributes="0"/>
@@ -80,36 +73,17 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="137" max="32767" attributes="0"/>
               </Group>
-<<<<<<< HEAD
-=======
               <Group type="102" alignment="0" attributes="0">
                   <Component id="bc3" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="p4" min="-2" max="-2" attributes="0"/>
               </Group>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="p12" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="bc" min="-2" max="-2" attributes="0"/>
-                                              <Component id="p1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-=======
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -129,7 +103,6 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Component id="bc1" min="-2" max="-2" attributes="0"/>
                                               <Component id="p2" min="-2" max="-2" attributes="0"/>
@@ -158,11 +131,7 @@
                           <Component id="btnSistema" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-<<<<<<< HEAD
-                  <EmptySpace pref="582" max="32767" attributes="0"/>
-=======
                   <EmptySpace pref="526" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
               </Group>
           </Group>
         </DimensionLayout>
@@ -191,15 +160,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-<<<<<<< HEAD
-              <Image iconType="3" name="/imagenes/iconos/Ambulancia-30.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Admisi&#xf3;n"/>
-=======
               <Image iconType="3" name="/imagenes/iconos/Recepci&#xf3;n-30.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Admisi&#xf3;n Central"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -536,8 +499,6 @@
             </DimensionLayout>
           </Layout>
         </Container>
-<<<<<<< HEAD
-=======
         <Component class="javax.swing.JButton" name="bc3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -589,7 +550,6 @@
             </DimensionLayout>
           </Layout>
         </Container>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
       </SubComponents>
     </Container>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
@@ -638,11 +598,7 @@
                               <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-<<<<<<< HEAD
-                      <EmptySpace pref="84" max="32767" attributes="0"/>
-=======
-                      <EmptySpace pref="264" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
+                      <EmptySpace pref="79" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -661,11 +617,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                      <EmptySpace pref="256" max="32767" attributes="0"/>
-=======
-                      <EmptySpace pref="823" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
+                      <EmptySpace pref="822" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1007,11 +959,7 @@
                               <Component id="lblusu2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-<<<<<<< HEAD
-                      <EmptySpace pref="182" max="32767" attributes="0"/>
-=======
-                      <EmptySpace pref="362" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
+                      <EmptySpace pref="177" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1667,11 +1615,7 @@
                           </Group>
                           <Component id="jPanel33" alignment="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-<<<<<<< HEAD
-                      <EmptySpace pref="117" max="32767" attributes="0"/>
-=======
-                      <EmptySpace pref="297" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
+                      <EmptySpace pref="112" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1695,11 +1639,7 @@
                           <Component id="jPanel24" max="32767" attributes="0"/>
                           <Component id="jPanel33" max="32767" attributes="0"/>
                       </Group>
-<<<<<<< HEAD
-                      <EmptySpace pref="198" max="32767" attributes="0"/>
-=======
-                      <EmptySpace pref="765" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
+                      <EmptySpace pref="764" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2790,102 +2730,129 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="lblusu5" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanel30" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel30" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jPanel45" alignment="0" pref="0" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jPanel29" alignment="0" pref="0" max="32767" attributes="0"/>
                                           <Component id="jPanel44" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jPanel70" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jPanel45" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="36" max="32767" attributes="0"/>
-=======
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanel30" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jPanel84" alignment="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="jPanel75" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel80" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="lblusu5" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="242" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="lblusu5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel30" min="-2" pref="219" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jPanel44" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel45" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="jPanel70" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="361" max="-2" attributes="0"/>
-=======
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Component id="lblusu5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel30" min="-2" pref="219" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jPanel75" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel84" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="jPanel30" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jPanel44" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jPanel29" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jPanel80" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel45" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="643" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
+                      <EmptySpace min="-2" pref="449" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-<<<<<<< HEAD
-=======
-            <Component class="javax.swing.JLabel" name="lblusu5">
+            <Container class="javax.swing.JPanel" name="jPanel29">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Light" size="24" style="0"/>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="66" type="rgb"/>
+                  <Color blue="0" green="99" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Bienvenido al modulo de laboratorio"/>
               </Properties>
-            </Component>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="btneditar10" min="-2" pref="117" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btneditar10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel36">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI Light" size="24" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Nomenclaturas"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btneditar10">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f0" green="f0" red="f0" type="rgb"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/iconos/H&#xe9;lice de ADN-100.png"/>
+                    </Property>
+                    <Property name="mnemonic" type="int" value="78"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Cursor de Mano"/>
+                    </Property>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                    <Property name="iconTextGap" type="int" value="30"/>
+                    <Property name="verticalAlignment" type="int" value="3"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneditar10ActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
             <Container class="javax.swing.JPanel" name="jPanel30">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -2907,7 +2874,7 @@
                               <Component id="jPanel40" alignment="0" max="32767" attributes="0"/>
                               <Component id="jPanel42" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jPanel39" alignment="0" max="32767" attributes="0"/>
                               <Component id="jPanel41" alignment="0" max="32767" attributes="0"/>
@@ -2923,29 +2890,24 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="btneditar11" min="-2" pref="211" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-<<<<<<< HEAD
-                              <Component id="jPanel42" max="32767" attributes="0"/>
-=======
-                              <Component id="jPanel42" alignment="0" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                              <Component id="jPanel32" alignment="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jPanel39" alignment="1" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jPanel41" alignment="0" max="32767" attributes="0"/>
-<<<<<<< HEAD
-                              <Component id="jPanel40" pref="0" max="32767" attributes="0"/>
-                              <Component id="jPanel43" max="32767" attributes="0"/>
-=======
-                              <Component id="jPanel40" alignment="1" pref="110" max="32767" attributes="0"/>
-                              <Component id="jPanel43" alignment="1" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
+                              <Component id="jPanel39" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jPanel32" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jPanel42" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jPanel43" alignment="1" pref="0" max="32767" attributes="0"/>
+                              <Component id="jPanel41" alignment="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jPanel40" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -2961,14 +2923,14 @@
                       <Color blue="f0" green="f0" red="f0" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/iconos/Tubo de ensayo-100.png"/>
+                      <Image iconType="3" name="/imagenes/iconos/Microscopio-100.png"/>
                     </Property>
                     <Property name="mnemonic" type="int" value="78"/>
-                    <Property name="text" type="java.lang.String" value="Laboratorio"/>
+                    <Property name="text" type="java.lang.String" value="Toma de Muestra"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Cursor Por defecto"/>
+                      <Color id="Cursor de Mano"/>
                     </Property>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                     <Property name="iconTextGap" type="int" value="30"/>
@@ -2989,8 +2951,11 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnMuestras" alignment="1" pref="194" max="32767" attributes="0"/>
-                          <Component id="jLabel41" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnMuestras" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel41" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -2998,7 +2963,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel41" min="-2" pref="36" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                              <Component id="btnMuestras" pref="0" max="32767" attributes="0"/>
+                              <Component id="btnMuestras" min="-2" pref="82" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3059,20 +3025,30 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnEsquema" alignment="0" pref="194" max="32767" attributes="0"/>
-                          <Component id="jLabel52" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel53" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel52" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel53" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="91" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="btnEsquema" alignment="1" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                              <Component id="jLabel52" min="-2" pref="25" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel52" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel53" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
-                              <Component id="btnEsquema" min="-2" pref="59" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnEsquema" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3153,19 +3129,29 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel55" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel56" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnValores" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel55" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel56" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="73" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="btnValores" alignment="1" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                              <Component id="jLabel55" min="-2" pref="25" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel55" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel56" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="btnValores" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -3247,17 +3233,23 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel38" alignment="0" pref="182" max="32767" attributes="0"/>
+                          <Component id="jLabel38" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnUnidadMedi" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel39" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel38" min="-2" pref="36" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                              <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               <Component id="btnUnidadMedi" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3274,13 +3266,33 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value=" Unidad de Medida"/>
+                        <Property name="text" type="java.lang.String" value=" Unidad de"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                           <Color id="Cursor de Mano"/>
                         </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel38MouseClicked"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel39">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI Light" size="18" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value=" Medida"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Cursor de Mano"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel39MouseClicked"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnUnidadMedi">
@@ -3319,17 +3331,21 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnAnalisis" alignment="1" pref="202" max="32767" attributes="0"/>
-                          <Component id="jLabel46" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="59" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="btnAnalisis" alignment="1" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel46" min="-2" pref="38" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnAnalisis" min="-2" pref="74" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="32" max="32767" attributes="0"/>
+                              <Component id="btnAnalisis" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3346,7 +3362,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value=" An&#xe1;lisis - Examen"/>
+                        <Property name="text" type="java.lang.String" value="An&#xe1;lisis - Examen"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                           <Color id="Cursor de Mano"/>
                         </Property>
@@ -3390,16 +3406,19 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnClasificacion" alignment="1" pref="202" max="32767" attributes="0"/>
-                          <Component id="jLabel54" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnClasificacion" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel54" min="-2" pref="103" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel54" min="-2" pref="32" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnClasificacion" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="jLabel54" min="-2" pref="36" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnClasificacion" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3452,11 +3471,7 @@
                 </Container>
               </SubComponents>
             </Container>
-<<<<<<< HEAD
             <Container class="javax.swing.JPanel" name="jPanel44">
-=======
-            <Container class="javax.swing.JPanel" name="jPanel75">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
@@ -3470,48 +3485,29 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                          <Component id="jLabel57" min="-2" pref="238" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel66" max="32767" attributes="0"/>
-                              <Component id="jPanel69" max="32767" attributes="0"/>
-=======
-                          <Component id="jLabel88" min="-2" pref="238" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel78" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jPanel79" alignment="0" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btneditar12" min="-2" pref="103" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <Component id="jLabel57" pref="219" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="jPanel66" min="-2" pref="104" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel69" pref="109" max="32767" attributes="0"/>
-=======
-                      <Component id="jLabel88" alignment="0" pref="219" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jPanel78" min="-2" pref="104" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel79" pref="109" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
+                          <Component id="btneditar12" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-<<<<<<< HEAD
                 <Component class="javax.swing.JLabel" name="jLabel57">
-=======
-                <Component class="javax.swing.JLabel" name="jLabel88">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -3522,203 +3518,36 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/iconos/Bacteria Filled-100.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Toma de Muestra"/>
-                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Cursor Por defecto"/>
-                    </Property>
-                    <Property name="horizontalTextPosition" type="int" value="0"/>
-                    <Property name="verticalTextPosition" type="int" value="1"/>
+                    <Property name="text" type="java.lang.String" value="Grupos"/>
                   </Properties>
                 </Component>
-<<<<<<< HEAD
-                <Container class="javax.swing.JPanel" name="jPanel66">
-=======
-                <Container class="javax.swing.JPanel" name="jPanel78">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
+                <Component class="javax.swing.JButton" name="btneditar12">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="b2" green="77" red="0" type="rgb"/>
+                      <Color blue="99" green="ff" red="ff" type="rgb"/>
                     </Property>
-                  </Properties>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnTM" alignment="1" pref="202" max="32767" attributes="0"/>
-<<<<<<< HEAD
-                          <Component id="jLabel77" alignment="0" max="32767" attributes="0"/>
-=======
-                          <Component id="jLabel89" alignment="0" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                              <Component id="jLabel77" min="-2" pref="33" max="-2" attributes="0"/>
-=======
-                              <Component id="jLabel89" min="-2" pref="33" max="-2" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnTM" min="-2" pref="73" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-<<<<<<< HEAD
-                    <Component class="javax.swing.JLabel" name="jLabel77">
-=======
-                    <Component class="javax.swing.JLabel" name="jLabel89">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI Light" size="18" style="0"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value=" Toma de Muestra"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor de Mano"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-<<<<<<< HEAD
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel77MouseClicked"/>
-=======
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel89MouseClicked"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="btnTM">
-                      <Properties>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f0" green="f0" red="f0" type="rgb"/>
-                        </Property>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/imagenes/iconos/probeta (2).png"/>
-                        </Property>
-                        <Property name="mnemonic" type="int" value="78"/>
-                        <Property name="toolTipText" type="java.lang.String" value=""/>
-                        <Property name="contentAreaFilled" type="boolean" value="false"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor de Mano"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="4"/>
-                        <Property name="horizontalTextPosition" type="int" value="0"/>
-                        <Property name="iconTextGap" type="int" value="30"/>
-                        <Property name="verticalAlignment" type="int" value="3"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTMActionPerformed"/>
-                      </Events>
-                    </Component>
-                  </SubComponents>
-                </Container>
-<<<<<<< HEAD
-                <Container class="javax.swing.JPanel" name="jPanel69">
-=======
-                <Container class="javax.swing.JPanel" name="jPanel79">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="b2" green="77" red="0" type="rgb"/>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="ff" red="ff" type="rgb"/>
                     </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/iconos/Tubo de ensayo-100.png"/>
+                    </Property>
+                    <Property name="mnemonic" type="int" value="78"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Cursor de Mano"/>
+                    </Property>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                    <Property name="iconTextGap" type="int" value="30"/>
+                    <Property name="verticalAlignment" type="int" value="3"/>
                   </Properties>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnTMBusqueda" alignment="1" max="32767" attributes="0"/>
-<<<<<<< HEAD
-                          <Component id="jLabel79" alignment="0" max="32767" attributes="0"/>
-=======
-                          <Component id="jLabel94" alignment="0" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                              <Component id="jLabel79" min="-2" pref="39" max="-2" attributes="0"/>
-=======
-                              <Component id="jLabel94" min="-2" pref="39" max="-2" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnTMBusqueda" min="-2" pref="68" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-<<<<<<< HEAD
-                    <Component class="javax.swing.JLabel" name="jLabel79">
-=======
-                    <Component class="javax.swing.JLabel" name="jLabel94">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI Light" size="18" style="0"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value=" B&#xfa;squeda de Toma de M."/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor de Mano"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-<<<<<<< HEAD
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel79MouseClicked"/>
-=======
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel94MouseClicked"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="btnTMBusqueda">
-                      <Properties>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f0" green="f0" red="f0" type="rgb"/>
-                        </Property>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/imagenes/iconos/Buscar-47.png"/>
-                        </Property>
-                        <Property name="mnemonic" type="int" value="78"/>
-                        <Property name="toolTipText" type="java.lang.String" value=""/>
-                        <Property name="contentAreaFilled" type="boolean" value="false"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor de Mano"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="4"/>
-                        <Property name="horizontalTextPosition" type="int" value="0"/>
-                        <Property name="iconTextGap" type="int" value="30"/>
-                        <Property name="verticalAlignment" type="int" value="3"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTMBusquedaActionPerformed"/>
-                      </Events>
-                    </Component>
-                  </SubComponents>
-                </Container>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneditar12ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
-<<<<<<< HEAD
             <Component class="javax.swing.JLabel" name="lblusu5">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -3744,21 +3573,24 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                          <Component id="jLabel58" min="-2" pref="232" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="jLabel58" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btneditar13" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="btneditar13" min="-2" pref="117" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel58" max="32767" attributes="0"/>
-                              <Component id="btneditar13" pref="112" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btneditar13" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="jLabel58" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3775,7 +3607,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Conversi&#xf3;n"/>
+                    <Property name="text" type="java.lang.String" value="Precios"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btneditar13">
@@ -3784,7 +3616,7 @@
                       <Color blue="f0" green="f0" red="f0" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/iconos/Tubo de ensayo-100.png"/>
+                      <Image iconType="3" name="/imagenes/iconos/Tubo de ensayo delgado-100.png"/>
                     </Property>
                     <Property name="mnemonic" type="int" value="78"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -3802,439 +3634,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel70">
-=======
-            <Container class="javax.swing.JPanel" name="jPanel80">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="99" red="99" type="rgb"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="99" red="ff" type="rgb"/>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                          <Component id="jLabel81" min="-2" pref="244" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel71" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jPanel72" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jPanel73" max="32767" attributes="0"/>
-=======
-                          <Component id="jLabel95" min="-2" pref="244" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel81" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jPanel82" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jPanel83" alignment="0" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                          </Group>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <Group type="102" attributes="0">
-                          <Component id="jPanel71" min="-2" pref="109" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel72" pref="112" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel73" min="-2" pref="114" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jLabel81" max="32767" attributes="0"/>
-=======
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jPanel81" min="-2" pref="109" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel82" pref="112" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel83" min="-2" pref="114" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jLabel95" alignment="0" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-<<<<<<< HEAD
-                <Component class="javax.swing.JLabel" name="jLabel81">
-=======
-                <Component class="javax.swing.JLabel" name="jLabel95">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI Light" size="24" style="0"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/iconos/Microscopio-100.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Resultados"/>
-                    <Property name="horizontalTextPosition" type="int" value="0"/>
-                    <Property name="verticalTextPosition" type="int" value="1"/>
-                  </Properties>
-                </Component>
-<<<<<<< HEAD
-                <Container class="javax.swing.JPanel" name="jPanel71">
-=======
-                <Container class="javax.swing.JPanel" name="jPanel81">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="b2" green="77" red="0" type="rgb"/>
-                    </Property>
-                  </Properties>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnResultado" alignment="1" pref="202" max="32767" attributes="0"/>
-<<<<<<< HEAD
-                          <Component id="jLabel82" alignment="0" max="32767" attributes="0"/>
-=======
-                          <Component id="jLabel96" alignment="0" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                              <Component id="jLabel82" min="-2" pref="33" max="-2" attributes="0"/>
-=======
-                              <Component id="jLabel96" min="-2" pref="33" max="-2" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnResultado" min="-2" pref="73" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-<<<<<<< HEAD
-                    <Component class="javax.swing.JLabel" name="jLabel82">
-=======
-                    <Component class="javax.swing.JLabel" name="jLabel96">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI Light" size="18" style="0"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value=" Resultados"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor de Mano"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-<<<<<<< HEAD
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel82MouseClicked"/>
-=======
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel96MouseClicked"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="btnResultado">
-                      <Properties>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f0" green="f0" red="f0" type="rgb"/>
-                        </Property>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/imagenes/iconos/ExamenFisico-50.png"/>
-                        </Property>
-                        <Property name="mnemonic" type="int" value="78"/>
-                        <Property name="toolTipText" type="java.lang.String" value=""/>
-                        <Property name="contentAreaFilled" type="boolean" value="false"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor de Mano"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="4"/>
-                        <Property name="horizontalTextPosition" type="int" value="0"/>
-                        <Property name="iconTextGap" type="int" value="30"/>
-                        <Property name="verticalAlignment" type="int" value="3"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResultadoActionPerformed"/>
-                      </Events>
-                    </Component>
-                  </SubComponents>
-                </Container>
-<<<<<<< HEAD
-                <Container class="javax.swing.JPanel" name="jPanel72">
-=======
-                <Container class="javax.swing.JPanel" name="jPanel82">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="b2" green="77" red="0" type="rgb"/>
-                    </Property>
-                  </Properties>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnResultadoBusq" alignment="1" max="32767" attributes="0"/>
-<<<<<<< HEAD
-                          <Component id="jLabel85" alignment="0" max="32767" attributes="0"/>
-=======
-                          <Component id="jLabel97" alignment="0" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                              <Component id="jLabel85" min="-2" pref="39" max="-2" attributes="0"/>
-=======
-                              <Component id="jLabel97" min="-2" pref="39" max="-2" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnResultadoBusq" min="-2" pref="79" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-<<<<<<< HEAD
-                    <Component class="javax.swing.JLabel" name="jLabel85">
-=======
-                    <Component class="javax.swing.JLabel" name="jLabel97">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI Light" size="18" style="0"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value=" B&#xfa;squeda de Resultados"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor de Mano"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-<<<<<<< HEAD
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel85MouseClicked"/>
-=======
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel97MouseClicked"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="btnResultadoBusq">
-                      <Properties>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f0" green="f0" red="f0" type="rgb"/>
-                        </Property>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/imagenes/iconos/Buscar-47.png"/>
-                        </Property>
-                        <Property name="mnemonic" type="int" value="78"/>
-                        <Property name="toolTipText" type="java.lang.String" value=""/>
-                        <Property name="contentAreaFilled" type="boolean" value="false"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor de Mano"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="4"/>
-                        <Property name="horizontalTextPosition" type="int" value="0"/>
-                        <Property name="iconTextGap" type="int" value="30"/>
-                        <Property name="verticalAlignment" type="int" value="3"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResultadoBusqActionPerformed"/>
-                      </Events>
-                    </Component>
-                  </SubComponents>
-                </Container>
-<<<<<<< HEAD
-                <Container class="javax.swing.JPanel" name="jPanel73">
-=======
-                <Container class="javax.swing.JPanel" name="jPanel83">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="b2" green="77" red="0" type="rgb"/>
-                    </Property>
-                  </Properties>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnResultadoBusq1" alignment="1" max="32767" attributes="0"/>
-<<<<<<< HEAD
-                          <Component id="jLabel86" alignment="0" max="32767" attributes="0"/>
-=======
-                          <Component id="jLabel98" alignment="0" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                              <Component id="jLabel86" min="-2" pref="39" max="-2" attributes="0"/>
-=======
-                              <Component id="jLabel98" min="-2" pref="39" max="-2" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnResultadoBusq1" min="-2" pref="79" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-<<<<<<< HEAD
-                    <Component class="javax.swing.JLabel" name="jLabel86">
-=======
-                    <Component class="javax.swing.JLabel" name="jLabel98">
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI Light" size="18" style="0"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value=" Entrega de Resultados"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor de Mano"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-<<<<<<< HEAD
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel86MouseClicked"/>
-=======
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel98MouseClicked"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="btnResultadoBusq1">
-                      <Properties>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f0" green="f0" red="f0" type="rgb"/>
-                        </Property>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/imagenes/iconos/Vista general 2-50.png"/>
-                        </Property>
-                        <Property name="mnemonic" type="int" value="78"/>
-                        <Property name="toolTipText" type="java.lang.String" value=""/>
-                        <Property name="contentAreaFilled" type="boolean" value="false"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Cursor de Mano"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="4"/>
-                        <Property name="horizontalTextPosition" type="int" value="0"/>
-                        <Property name="iconTextGap" type="int" value="30"/>
-                        <Property name="verticalAlignment" type="int" value="3"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResultadoBusq1ActionPerformed"/>
-                      </Events>
-                    </Component>
-                  </SubComponents>
-                </Container>
-              </SubComponents>
-            </Container>
-<<<<<<< HEAD
-=======
-            <Container class="javax.swing.JPanel" name="jPanel84">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="99" red="99" type="rgb"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="99" red="ff" type="rgb"/>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                          <Component id="jLabel99" min="-2" pref="232" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btneditar20" min="-2" pref="204" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel99" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btneditar20" alignment="0" pref="112" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel99">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI Light" size="24" style="0"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Conversi&#xf3;n"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="btneditar20">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f0" green="f0" red="f0" type="rgb"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/imagenes/iconos/Tubo de ensayo-100.png"/>
-                    </Property>
-                    <Property name="mnemonic" type="int" value="78"/>
-                    <Property name="toolTipText" type="java.lang.String" value=""/>
-                    <Property name="contentAreaFilled" type="boolean" value="false"/>
-                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Cursor de Mano"/>
-                    </Property>
-                    <Property name="horizontalTextPosition" type="int" value="0"/>
-                    <Property name="iconTextGap" type="int" value="30"/>
-                    <Property name="verticalAlignment" type="int" value="3"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneditar20ActionPerformed"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel46">
@@ -5202,11 +4601,7 @@
                                       <Component id="jPanel57" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-<<<<<<< HEAD
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
-                              <EmptySpace min="0" pref="207" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
+                              <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
@@ -5243,11 +4638,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
-=======
-                      <EmptySpace pref="612" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
+                      <EmptySpace pref="611" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -5831,11 +5222,7 @@
                           <Component id="jPanel64" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel65" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-=======
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -5983,14 +5370,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-<<<<<<< HEAD
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/imagenes/iconos/ControlVital-50 (2).png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="&lt;html&gt;Controles&lt;br&gt; Vitales&lt;/html&gt;"/>
-=======
                         <Property name="text" type="java.lang.String" value="Controles Vitales"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -6034,12 +5414,6 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-<<<<<<< HEAD
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/imagenes/iconos/ExamenClinico-50.png"/>
-                        </Property>
-=======
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                         <Property name="text" type="java.lang.String" value="Examen Clinico"/>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -6049,12 +5423,9 @@
                         <Property name="horizontalAlignment" type="int" value="2"/>
                         <Property name="horizontalTextPosition" type="int" value="2"/>
                       </Properties>
-<<<<<<< HEAD
-=======
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
                       </Events>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                     </Component>
                   </SubComponents>
                 </Container>
@@ -6086,14 +5457,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-<<<<<<< HEAD
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/imagenes/iconos/HojaEvolucion-50.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="&lt;html&gt;Hoja de &lt;br&gt;Evolucion&lt;/html&gt;"/>
-=======
                         <Property name="text" type="java.lang.String" value="&lt;html&gt;Hoja de Evolucion&lt;/html&gt;"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -6116,11 +5480,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                          <Component id="jButton7" alignment="0" pref="219" max="32767" attributes="0"/>
-=======
                           <Component id="jButton7" alignment="0" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -6139,16 +5499,10 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-<<<<<<< HEAD
-                          <Image iconType="3" name="/imagenes/iconos/NotaEnfermeria-50.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="&lt;html&gt;Notas de &lt;br&gt;Enfermeria&lt;/html&gt;"/>
-=======
                           <Image iconType="3" name="/imagenes/iconos/0 por ciento-10.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Notas de Enfermeria"/>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -6171,14 +5525,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton8" min="-2" pref="203" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
-                          </Group>
-=======
                           <Component id="jButton8" alignment="0" pref="226" max="32767" attributes="0"/>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -6196,12 +5543,6 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-<<<<<<< HEAD
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/imagenes/iconos/Estetoscopio-50.png"/>
-                        </Property>
-=======
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                         <Property name="text" type="java.lang.String" value="&lt;html&gt;Formato de &lt;br&gt;Interconsulta&lt;/html&gt;"/>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -6243,12 +5584,6 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-<<<<<<< HEAD
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/imagenes/iconos/Examenes-50.png"/>
-                        </Property>
-=======
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
                         <Property name="text" type="java.lang.String" value="&lt;html&gt;Examenes &lt;br&gt;Complementarios&lt;/html&gt;"/>
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -6286,8 +5621,6 @@
             </Container>
           </SubComponents>
         </Container>
-<<<<<<< HEAD
-=======
         <Container class="javax.swing.JPanel" name="jPanel66">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -6321,7 +5654,7 @@
                           </Group>
                           <Component id="jPanel68" alignment="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="521" max="32767" attributes="0"/>
+                      <EmptySpace pref="336" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -6337,7 +5670,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanel77" max="32767" attributes="0"/>
+                          <Component id="jPanel77" pref="0" max="32767" attributes="0"/>
                           <Component id="jPanel76" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -7183,7 +6516,6 @@
             </Container>
           </SubComponents>
         </Container>
->>>>>>> fb1fbe890211c90a91ab73fc1da3e1e883cada99
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel9">

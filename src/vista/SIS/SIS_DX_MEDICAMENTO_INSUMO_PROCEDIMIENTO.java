@@ -179,9 +179,9 @@ DefaultTableModel m, m1,m2, m3, m4 ;
         jLabel1 = new javax.swing.JLabel();
         txtServicio = new javax.swing.JTextField();
 
-        BUSCAR_NOMEN.setMinimumSize(new java.awt.Dimension(500, 300));
+        BUSCAR_NOMEN.setMinimumSize(new java.awt.Dimension(600, 400));
 
-        jLabel24.setFont(new java.awt.Font("Palatino Linotype", 1, 16)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Palatino Linotype", 1, 17)); // NOI18N
         jLabel24.setText("BUSQUEDA");
 
         tb_diagnosticos = new javax.swing.JTable(){
@@ -208,7 +208,7 @@ DefaultTableModel m, m1,m2, m3, m4 ;
         });
         jScrollPane4.setViewportView(tb_diagnosticos);
 
-        jLabel25.setText("Buscar Diagnostico:");
+        jLabel25.setText("Buscar por código CPT o nomenclatura:");
 
         txtBuscarDX.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtBuscarDX.addCaretListener(new javax.swing.event.CaretListener() {
@@ -249,26 +249,24 @@ DefaultTableModel m, m1,m2, m3, m4 ;
             .addGroup(BUSCAR_NOMENLayout.createSequentialGroup()
                 .addGroup(BUSCAR_NOMENLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BUSCAR_NOMENLayout.createSequentialGroup()
-                        .addGap(200, 200, 200)
+                        .addGap(263, 263, 263)
                         .addComponent(jLabel24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtDX, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtPROC, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(BUSCAR_NOMENLayout.createSequentialGroup()
-                        .addGroup(BUSCAR_NOMENLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BUSCAR_NOMENLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(BUSCAR_NOMENLayout.createSequentialGroup()
-                                .addGap(103, 103, 103)
-                                .addComponent(jLabel25)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtBuscarDX, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(btn_BuscarDX, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(130, 130, 130)
+                        .addComponent(jLabel25)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtBuscarDX, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(btn_BuscarDX, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 118, Short.MAX_VALUE)))
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BUSCAR_NOMENLayout.createSequentialGroup()
+                .addComponent(jScrollPane4)
+                .addContainerGap())
         );
         BUSCAR_NOMENLayout.setVerticalGroup(
             BUSCAR_NOMENLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,7 +282,7 @@ DefaultTableModel m, m1,m2, m3, m4 ;
                     .addComponent(txtBuscarDX, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_BuscarDX, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

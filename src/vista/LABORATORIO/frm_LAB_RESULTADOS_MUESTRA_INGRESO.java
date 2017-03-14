@@ -311,7 +311,7 @@ DefaultTableModel m,n,resultado;
  public void Personal_cargar(){
 
     try {
-             String titulos[]={"N°","Código","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio","Área"};
+             String titulos[]={"N°","Código","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -332,7 +332,6 @@ DefaultTableModel m,n,resultado;
             fila[4]=r.getString(4);
             fila[5]=r.getString(5);
             fila[6]=r.getString(6);
-            fila[7]=r.getString(7);
                 m.addRow(fila);
                 c++;
             }
@@ -351,10 +350,8 @@ DefaultTableModel m,n,resultado;
     tbPersonal.getColumnModel().getColumn(3).setPreferredWidth(120);
     tbPersonal.getColumnModel().getColumn(4).setPreferredWidth(200);
     tbPersonal.getColumnModel().getColumn(5).setPreferredWidth(250);
-    tbPersonal.getColumnModel().getColumn(6).setPreferredWidth(120);
+    tbPersonal.getColumnModel().getColumn(6).setPreferredWidth(140);
     
-    tbPersonal.getColumnModel().getColumn(7).setMinWidth(0);
-    tbPersonal.getColumnModel().getColumn(7).setMaxWidth(0);
     tbPersonal.getSelectionModel().setSelectionInterval(0, 0);
             tbPersonal.requestFocus();
 }

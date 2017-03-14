@@ -224,6 +224,50 @@ public class HospitalizacionExamenClinico {
         }
     }
     
+    public void formatoListarMedicos(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(345);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(150);
+        tabla.setRowHeight(30);
+    }
+    
+    public void listarMedicos(String busqueda, JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Código","Médico","Día","Mes","Año","Turno",};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[15];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC HOSPITALIZACION_LISTA_MEDICO_TURNO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, busqueda);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // id
+                fila[1]=r.getString(2); // dni
+                fila[2]=r.getString(3); // nhc
+                fila[3]=r.getString(4); //
+                fila[4]=r.getString(5); // 
+                fila[5]=r.getString(6); // id
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoListarMedicos(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarFormatoHC: " + e.getMessage());
+        }
+    }
+    
     public HospitalizacionExamenClinico()
     {
         Conexion con = new Conexion();

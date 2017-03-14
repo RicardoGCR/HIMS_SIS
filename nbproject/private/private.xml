@@ -3,12 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionHCHospitalaria.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionExamenClinico.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionExClinico.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionPapeletas.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionHojaEvolucion.java</file>
+<<<<<<< HEAD
             <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionFormatoHC.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/admisionEmergencia/FrmFormatoEmergencia.java</file>
 =======
@@ -18,6 +14,8 @@
             <file>file:/D:/pry/SISGESH/src/modelos/SIS/SIS_CLS_PRESTACIONES.java</file>
 >>>>>>> b67992945d738c20ac90cc08362769f5d8c3df34
 >>>>>>> 55571035d8b094b38fd05d402fa93aa51999c17a
+=======
+>>>>>>> 13fbd22cf17277cc782fb5d2afcb640c8a226dd7
         </group>
     </open-files>
 </project-private>

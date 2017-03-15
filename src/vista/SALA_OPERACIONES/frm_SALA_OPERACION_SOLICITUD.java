@@ -2692,7 +2692,7 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
     }//GEN-LAST:event_tabSolicitudStateChanged
 
     private void tbListaSolicitudKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbListaSolicitudKeyPressed
-                try {
+       try {
             m4 = (DefaultTableModel) tbListaSolicitud.getModel();
         char tecla= evt.getKeyChar();
         

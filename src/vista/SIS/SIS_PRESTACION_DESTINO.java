@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelos.SIS.SIS_CLS_PRESTACION_DESTINO;
@@ -55,15 +56,16 @@ DefaultTableModel m, modelo1, modelo2;
         lblFecha.setText(fechaActual());
         
         //generar id 
-        SIS_CLS_PRESTACION_DESTINO a=new SIS_CLS_PRESTACION_DESTINO();
+        /*SIS_CLS_PRESTACION_DESTINO a=new SIS_CLS_PRESTACION_DESTINO();
         txtID_Detalle_destino.setText(a.SIS_PRESTACION_DESTINO_GENERAR_ID());
         if(txtID_Detalle_destino.getText().equalsIgnoreCase("")){
         txtID_Detalle_destino.setText("DP00000001");
-        }
+        }*/
         
         cargarDestinoAsegurado();
         formatoDetallePrestacionDestino();
-        cargarPrestacion();
+        cargarPrestacionDetalle();
+        cargarDetalleDestino();
     }
 
     /**
@@ -375,7 +377,7 @@ DefaultTableModel m, modelo1, modelo2;
 
             },
             new String [] {
-                "Prestación", "ID Destino", "Descripción destino"
+                "ID Prestación", "Prestación", "ID Destino", "Descripción Destino"
             }
         ));
         tbDetalle_Pres_Destino.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
@@ -439,6 +441,7 @@ DefaultTableModel m, modelo1, modelo2;
         btnBuscarPrestacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         btnBuscarPrestacion.setContentAreaFilled(false);
         btnBuscarPrestacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarPrestacion.setEnabled(false);
         btnBuscarPrestacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarPrestacionActionPerformed(evt);
@@ -704,7 +707,7 @@ DefaultTableModel m, modelo1, modelo2;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void cargarPrestacion(){      
+    public void cargarPrestacionDetalle(){      
         try{
        DefaultTableModel tabla= new DefaultTableModel();
       
@@ -738,6 +741,29 @@ DefaultTableModel m, modelo1, modelo2;
        }
     }
     
+    public void cargarDetalleDestino(){      
+        try{
+       DefaultTableModel tabla= new DefaultTableModel();
+      
+       tabla.addColumn("ID Prestación");
+       tabla.addColumn("Número de Prestación");
+       tabla.addColumn("Descripción");
+       
+       cst=con.prepareCall("exec SIS_DETALLE_PRESTACION_DESTINO_LISTAR");
+       r=cst.executeQuery();
+       while (r.next()){
+       Object dato[]=new  Object[3];
+       for (int i=0; i<3; i++){
+           dato[i]=r.getString(i+1);
+       }
+       tabla.addRow(dato);
+       }
+       this.tb_Pres.setModel(tabla);
+       formatoDetallePrestacion();
+       }catch (Exception e){
+       }
+    }
+    
     public void cargarDestinoAsegurado(){
        
     try{
@@ -766,10 +792,17 @@ DefaultTableModel m, modelo1, modelo2;
        tb_destino.getColumnModel().getColumn(1).setPreferredWidth(200);
     }
     
+    public void formatoDetallePrestacion(){
+       tb_Pres.getColumnModel().getColumn(0).setPreferredWidth(90);
+       tb_Pres.getColumnModel().getColumn(1).setPreferredWidth(180);
+       tb_Pres.getColumnModel().getColumn(2).setPreferredWidth(500);
+    }
+    
     public void formatoDetallePrestacionDestino(){
        tbDetalle_Pres_Destino.getColumnModel().getColumn(0).setPreferredWidth(80);
        tbDetalle_Pres_Destino.getColumnModel().getColumn(1).setPreferredWidth(80);       
-       tbDetalle_Pres_Destino.getColumnModel().getColumn(2).setPreferredWidth(190);      
+       tbDetalle_Pres_Destino.getColumnModel().getColumn(2).setPreferredWidth(90);    
+       tbDetalle_Pres_Destino.getColumnModel().getColumn(3).setPreferredWidth(190);
        
     }
     
@@ -782,6 +815,73 @@ DefaultTableModel m, modelo1, modelo2;
 	}}
         return c;
     }
+    /*
+        public void mostrarCabecerayDetalle(){
+        try {
+            int filaselec=tb_Pres.getSelectedRow();
+            //Diagnostico
+            String consulta="";
+            tbDetalle_Pres_Destino.setModel(new DefaultTableModel());
+            String titulos[]={"ID_CIE10","COD_ENF","DESCRIPCION"};
+            m3=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m3);
+            String fila[]=new String[3];
+            Usuario obj=new Usuario();
+            consulta="exec SALA_OPERACION_SOLICITUD_DETALLE_BUSCAR ?";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1, tbListaSolicitud.getValueAt(filaselec, 0).toString());
+            ResultSet r= cmd.executeQuery();
+            while(r.next()){
+            for (int i=0; i<3; i++){
+           fila[i]=r.getString(i+1);
+       }
+                m3.addRow(fila);
+            }
+            tbDiagnostico.setModel(m3);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
+            tbDiagnostico.setRowSorter(elQueOrdena);
+            tbDiagnostico.setModel(m3);
+            
+            txthc.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 2).toString()));
+             txt_idhc.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 1).toString())); 
+             txtSolicitud.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 0).toString()));
+             txtApellidosNombres.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 3).toString()));
+             txtDNI.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 4).toString()));
+             txtEdad.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 5).toString()));
+             
+            String fechaSeleccionada = (String) tbListaSolicitud.getModel().getValueAt(filaselec, 6);
+             try {
+       
+             DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+             java.util.Date fecha = dfo.parse(fechaSeleccionada);
+             
+             dateCFechaSolicitud.setDate(fecha);
+             
+            } catch (Exception e) {
+            }
+             
+             spHora.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 7).toString()));
+             txtAutogenerado.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 8).toString()));
+             cbxServicio.setSelectedItem(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 9).toString()));
+             txtOperacion.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 10).toString()));
+             txtCod_Nomen.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 11).toString()));
+             txtHora.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 12).toString()));
+             txtMin.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 13).toString()));
+             cbxAnestesia.setSelectedItem(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 14).toString()));
+             txtc11.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 15).toString()));
+             txtCirujano1.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 16).toString()));
+             txtc22.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 17).toString()));
+             txtCirujano2.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 18).toString()));
+             txtc33.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 19).toString()));
+             txtJefeServ.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 20).toString()));
+             txtCama.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 21).toString()));
+             
+             
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        tabSolicitud.setSelectedIndex(0);
+    }*/
     
     private void btnNuevo_detalle_destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo_detalle_destinoActionPerformed
         habilitar();
@@ -801,53 +901,60 @@ DefaultTableModel m, modelo1, modelo2;
         // btneliminar.setEnabled(false);*/
     }//GEN-LAST:event_btnmodificarActionPerformed
 
+    public void guardarDetalleDestino(){
+         for (int i = 0; i < tbDetalle_Pres_Destino.getRowCount(); i++){      
+               SIS_CLS_PRESTACION_DESTINO dd=new SIS_CLS_PRESTACION_DESTINO();
+               dd.setID_PRESTACION(tbDetalle_Pres_Destino.getValueAt(i, 0).toString());
+               dd.setID_DESTINO(tbDetalle_Pres_Destino.getValueAt(i, 2).toString());
+               dd.setNOM_USU(lblUsu.getText());
+               dd.SIS_PRESTACION_DESTINO_Guardar();
+                
+    }}
+    
+    private void Clear_Tb_Detalle_Destino(){
+        DefaultTableModel modelo1 = (DefaultTableModel)tbDetalle_Pres_Destino.getModel(); 
+        int b=tbDetalle_Pres_Destino.getRowCount();
+        for(int j=0;j<b;j++){
+                    modelo1.removeRow(0);
+        }
+   }
+    
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-/*        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
-        SIS_CLS_PRESTACIONES C=new SIS_CLS_PRESTACIONES();
-        SIS_CLS_PRESTACIONES C1=new SIS_CLS_PRESTACIONES();
-        SIS_CLS_PRESTACIONES C2=new SIS_CLS_PRESTACIONES();
-        SIS_CLS_PRESTACIONES C3=new SIS_CLS_PRESTACIONES();
-        SIS_CLS_PRESTACIONES C4=new SIS_CLS_PRESTACIONES();
+        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
+        SIS_CLS_PRESTACION_DESTINO C=new SIS_CLS_PRESTACION_DESTINO();
+        SIS_CLS_PRESTACION_DESTINO C1=new SIS_CLS_PRESTACION_DESTINO();
+        SIS_CLS_PRESTACION_DESTINO C2=new SIS_CLS_PRESTACION_DESTINO();
+        SIS_CLS_PRESTACION_DESTINO C3=new SIS_CLS_PRESTACION_DESTINO();
+        SIS_CLS_PRESTACION_DESTINO C4=new SIS_CLS_PRESTACION_DESTINO();
         try{
             if(txtGM.getText().equalsIgnoreCase("G")){
-                if(txtDescripcion.getText().equalsIgnoreCase("") || txtNum_Prestacion.getText().equalsIgnoreCase("")
-                    || cbxTipo.getSelectedIndex()==0){
-                    JOptionPane.showMessageDialog(rootPane, "Verifique si ha ingresado todos los campos");
+                if(tbDetalle_Pres_Destino.getRowCount()==0){
+                    JOptionPane.showMessageDialog(rootPane, "Verifique si ha ingresado el destino");
                 }
-                else if(C.SIS_PRESTACIONES_Ver(txtDescripcion.getText())>0 ||
+                /*else if(C.SIS_PRESTACIONES_Ver(txtDescripcion.getText())>0 ||
                     C3.SIS_PRESTACIONES_Ver_NUM(txtNum_Prestacion.getText())>0){
                     JOptionPane.showMessageDialog(rootPane, "El registro ya existe\nIntente nuevamente");
                     txtNum_Prestacion.setText("");
                     txtDescripcion.setText("");
                     cbxTipo.setSelectedIndex(0);
                     txtNum_Prestacion.requestFocus();
-                }else{
+                }*/else{
 
                     int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
                         "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
                     if(guardar == 0 ){
-                        SIS_CLS_PRESTACIONES cg = new SIS_CLS_PRESTACIONES();
-                        cg.setID_PRESTACION(txtCodigoPrestacion.getText());
-                        cg.setNUM_PRESTACION(txtNum_Prestacion.getText());
-                        cg.setDESCRIP_PRESTACION(txtDescripcion.getText());
-                        cg.setTIPO(cbxTipo.getSelectedItem().toString());
-                        cg.setNOM_USU(lblUsu.getText());
-
-                        if(cg.SIS_PRESTACIONES_Guardar()){
-                            JOptionPane.showMessageDialog(null, "Datos Guardados");
-                            limpiar();
-                            deshabilitar();
-                            txtGM.setText("G");
-                        }
-                        else{
-                            JOptionPane.showMessageDialog(this, "El registro ya existe\nIntente nuevamente");
-
-                        }}
+                        SIS_CLS_PRESTACION_DESTINO cg = new SIS_CLS_PRESTACION_DESTINO();
+                        guardarDetalleDestino();
+                        JOptionPane.showMessageDialog(this,"Datos Guardados");
+                        limpiar();
+                        Clear_Tb_Detalle_Destino();
+                        
+                    }
                     }}else{
-                        if(txtDescripcion.getText().equalsIgnoreCase("")){
+                        if(txtID_Detalle_destino.getText().equalsIgnoreCase("")){
                             JOptionPane.showMessageDialog(rootPane, "Verifique si ha ingresado todos los campos");
                         }
-                        else if( C2.SIS_PRESTACIONES_Ver(txtDescripcion.getText())>0 ||
+                        /*else if( C2.SIS_PRESTACIONES_Ver(txtDescripcion.getText())>0 ||
                             C4.SIS_PRESTACIONES_Ver_NUM(txtNum_Prestacion.getText())>0){
                             //C1.SIS_PRESTACION_Codigo(txtDescripcion.getText()).equalsIgnoreCase(txtCodigoPrestacion.getText())==false
                             //&&
@@ -856,20 +963,16 @@ DefaultTableModel m, modelo1, modelo2;
                             txtDescripcion.setText("");
                             cbxTipo.setSelectedIndex(0);
                             txtNum_Prestacion.requestFocus();
-                        }else{
+                        }*/else{
                             int modificar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",
                                 "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
                             if(modificar == 0 ){
-                                SIS_CLS_PRESTACIONES cm= new SIS_CLS_PRESTACIONES();
-                                cm.setID_PRESTACION(txtCodigoPrestacion.getText());
-                                cm.setNUM_PRESTACION(txtNum_Prestacion.getText());
-                                cm.setDESCRIP_PRESTACION(txtDescripcion.getText());
-                                cm.setTIPO(cbxTipo.getSelectedItem().toString());
-                                cm.setNOM_USU(lblUsu.getText());
-
-                                if(cm.SIS_PRESTACIONES_Modificar()){
+                                SIS_CLS_PRESTACION_DESTINO cm= new SIS_CLS_PRESTACION_DESTINO();
+                                guardarDetalleDestino();
+                                if(cm.SIS_PRESTACION_DESTINO_Modificar()){
                                     JOptionPane.showMessageDialog(this, "Datos Modificados");
                                     limpiar();
+                                    Clear_Tb_Detalle_Destino();
                                     deshabilitar();
                                     txtGM.setText("G");
                                 }
@@ -880,11 +983,11 @@ DefaultTableModel m, modelo1, modelo2;
                             }}}catch(Exception e) {
                                 JOptionPane.showMessageDialog(this, "Ingrese todos los campos");
 
-                            }*/
+                            }
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
-        //cargarPrestacion();
+        cargarDetalleDestino();
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
     private void btnBuscarPrestacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPrestacionActionPerformed
@@ -931,15 +1034,16 @@ DefaultTableModel m, modelo1, modelo2;
         }else{
             if( filaselec>=0 ){
 
-                String cod_prestacion, id_destino, descripcion;
-
-                cod_prestacion = txtNumeroPrestacion.getText();
+                String id_prestacion, num_prestacion, id_destino, descripcion;
+                
+                id_prestacion = txtID_Detalle_destino.getText();
+                num_prestacion = txtNumeroPrestacion.getText();
                 id_destino = tb_destino.getValueAt(filaselec, 0).toString();
                 descripcion = tb_destino.getValueAt(filaselec, 1).toString();
 
                 modelo2 = (DefaultTableModel) tbDetalle_Pres_Destino.getModel();
 
-                String filaelemento[] = {cod_prestacion, id_destino, descripcion};
+                String filaelemento[] = {id_prestacion, num_prestacion, id_destino, descripcion};
 
                 modelo2.addRow(filaelemento);
            
@@ -950,6 +1054,7 @@ DefaultTableModel m, modelo1, modelo2;
             }
 
         }
+      
     }//GEN-LAST:event_btncargarActionPerformed
 
     private void tb_destinoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_destinoKeyPressed
@@ -1062,7 +1167,7 @@ DefaultTableModel m, modelo1, modelo2;
             int fila = tb_presta.getSelectedRow();
 
             BUSCAR_PRESTACION.dispose();
-
+                txtID_Detalle_destino.setText(String.valueOf(tb_presta.getValueAt(fila, 0)));
                 txtNumeroPrestacion.setText(String.valueOf(tb_presta.getValueAt(fila, 1)));
                 txtDescrip.setText(String.valueOf(tb_presta.getValueAt(fila, 2)));
     }                   
@@ -1086,15 +1191,10 @@ DefaultTableModel m, modelo1, modelo2;
     
     public void limpiar()
     {
-        SIS_CLS_PRESTACION_DESTINO t=new SIS_CLS_PRESTACION_DESTINO();
-        txtID_Detalle_destino.setText(t.SIS_PRESTACION_DESTINO_GENERAR_ID());
-        if(txtID_Detalle_destino.getText().equalsIgnoreCase("")){
-        txtID_Detalle_destino.setText("DP00000001");
-        }
         txtNumeroPrestacion.setText("");
-        txtDescrip.setText("");       
-        txtGM.setText("G");
-   
+        txtDescrip.setText(""); 
+        
+        txtGM.setText("G");  
     }
     
     

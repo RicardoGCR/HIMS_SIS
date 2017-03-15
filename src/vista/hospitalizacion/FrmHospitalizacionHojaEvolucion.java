@@ -6,9 +6,21 @@
 package vista.hospitalizacion;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
+import javax.swing.SpinnerModel;
+import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
+import modelos.hospitalizacion.HospitalizacionEvolucion;
 import modelos.hospitalizacion.HospitalizacionPapeletas;
 
 /**
@@ -16,6 +28,7 @@ import modelos.hospitalizacion.HospitalizacionPapeletas;
  * @author PC02
  */
 public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
+
 
     /**
      * Creates new form FrmHospitalizacionHojaEvolucion
@@ -37,6 +50,8 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
             }
         });
         cerrar();
+        HospitalizacionEvolucion hosEv = new HospitalizacionEvolucion();
+        hosEv.inicializarTabla(tbEvolucion);
     }
 
     public void cerrar (){
@@ -62,6 +77,7 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         txtPaciente.setEnabled(opcion);
         txtIndicaciones.setEnabled(opcion);
         txtEvolucion.setEnabled(opcion);
+        spHora.setEnabled(opcion);
     }
     
     public void limpiar(){
@@ -72,8 +88,135 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         txtPaciente.setText("");
         txtIndicaciones.setText("");
         txtEvolucion.setText("");
+        txtIDPreventa.setText("");
+        txtIdHe.setText("");
     }
-  
+    
+    public void enviarDatosPac(){
+        int fila = tbPacientesHosp.getSelectedRow();
+        FrmHospitalizacionHojaEvolucion.txtIDPreventa.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 0)));
+        FrmHospitalizacionHojaEvolucion.txtActoMedico.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 2)));
+        FrmHospitalizacionHojaEvolucion.txtNHC.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 3)));
+        FrmHospitalizacionHojaEvolucion.txtDNI.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 4)));
+        FrmHospitalizacionHojaEvolucion.txtPaciente.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 5)));
+        FrmHospitalizacionHojaEvolucion.txtNroCama.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 7)));
+    }
+    
+    public boolean guardarDatosEvolucion(){
+        boolean retorna = false;
+        try {
+            ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+            AdmisionEmergenciaCabecera adEmerCab5 = new AdmisionEmergenciaCabecera();
+            if(txtIndicaciones.getText().equals("") || txtEvolucion.getText().equals("") || txtActoMedico.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Debe completar todos los datos porfavor");
+            } else {
+                //int id = Integer.parseInt(txtID.getText());
+                int id_preventa = Integer.parseInt(txtIDPreventa.getText());
+                String indicaciones = txtIndicaciones.getText();
+                String evolucion = txtEvolucion.getText();
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat formatoHora =  new SimpleDateFormat("HH:mm:ss");
+                String fecha = formatoFecha.format(spHora.getValue());
+                String hora = formatoHora.format(spHora.getValue());
+                String cod_usu = adEmerCab5.codUsuario(lblUsuUsuario.getText());
+                HospitalizacionEvolucion hosEv = new HospitalizacionEvolucion();
+                int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+                               "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                if(guardar == 0){
+                    hosEv.setEvolucion(evolucion);
+                    hosEv.setIndicaciones(indicaciones);
+                    hosEv.setFecha_ev(fecha);
+                    hosEv.setHora_ev(hora);
+                    hosEv.setPreventa(id_preventa);
+                    hosEv.setUsuario(cod_usu);
+                    if(hosEv.mantenimientoHospitalizacionEvolucion(lblMant.getText())==true){
+                        txtIdHe.setText(hosEv.hospitalizacionEvolucionID());
+                        JOptionPane.showMessageDialog(this, "Hoja de Evolución Guardada");
+                        hosEv.listarEvolucion(txtIDPreventa.getText(), tbEvolucion);
+                        txtIndicaciones.setText("");
+                        txtEvolucion.setText("");
+                        lblMant.setText("");
+                        btnGuardar.setEnabled(true);
+                        btnModificar.setEnabled(true);
+                        btnEliminar.setEnabled(true);
+                    } else
+                        JOptionPane.showMessageDialog(this, "No se realizó ningun registro");
+                }else{
+                        JOptionPane.showMessageDialog(this, "No se realizó ningun registro");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: guardarDatosEvolucion" + e.getMessage());
+        }
+        return retorna;
+    }
+    
+    public boolean modificarDatosEvolucion(){
+        boolean retorna = false;
+        try {
+            ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+            if(txtIndicaciones.getText().equals("") || txtEvolucion.getText().equals("") || txtActoMedico.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Debe completar todos los datos porfavor");
+            } else {
+                int fila = tbEvolucion.getSelectedRow();
+                int id_preventa = Integer.parseInt(txtIDPreventa.getText());
+                String indicaciones = txtIndicaciones.getText();
+                String evolucion = txtEvolucion.getText();
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat formatoHora =  new SimpleDateFormat("HH:mm:ss");
+                String fecha = formatoFecha.format(spHora.getValue());
+                String hora = formatoHora.format(spHora.getValue());
+                HospitalizacionEvolucion hosEv = new HospitalizacionEvolucion();
+                int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+                               "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                if(guardar == 0){
+                    hosEv.setHe_id(Integer.parseInt(String.valueOf(tbEvolucion.getValueAt(fila, 0))));
+                    hosEv.setEvolucion(evolucion);
+                    hosEv.setIndicaciones(indicaciones);
+                    hosEv.setFecha_ev(fecha);
+                    hosEv.setHora_ev(hora);
+                    hosEv.setPreventa(id_preventa);
+                    if(hosEv.mantenimientoHospitalizacionEvolucion(lblMant.getText())==true){
+                        txtIdHe.setText(hosEv.hospitalizacionEvolucionID());
+                        JOptionPane.showMessageDialog(this, "Hoja de Evolución Guardada");
+                        hosEv.listarEvolucion(txtIDPreventa.getText(), tbEvolucion);
+                        txtIndicaciones.setText("");
+                        txtEvolucion.setText("");
+                        lblMant.setText("");
+                        btnGuardar.setEnabled(true);
+                        btnModificar.setEnabled(true);
+                        btnEliminar.setEnabled(true);
+                    } else
+                        JOptionPane.showMessageDialog(this, "No se realizó ningun registro");
+                }else{
+                        JOptionPane.showMessageDialog(this, "No se realizó ningun registro");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: guardarDatosEvolucion" + e.getMessage());
+        }
+        return retorna;
+    }
+    
+    public void eliminarRegistroEvolucion(){
+        HospitalizacionEvolucion hosEv = new HospitalizacionEvolucion();
+        int fila = tbEvolucion.getSelectedRow();
+        hosEv.setHe_id(Integer.parseInt(String.valueOf(tbEvolucion.getValueAt(fila, 0))));
+        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea ELIMINAR este registro?",
+                               "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+        if(eliminar == 0){
+            if(hosEv.mantenimientoHospitalizacionEvolucion("E")){
+                JOptionPane.showMessageDialog(this, "Registro eliminado");
+                hosEv.listarEvolucion(txtIDPreventa.getText(), tbEvolucion);
+            } else {
+                JOptionPane.showMessageDialog(this, "No se realizó ninguna modificación");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No se realizó ninguna modificación");
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -96,6 +239,10 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         btnBuscarPac = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        txtIDPreventa = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
+        lblMant = new javax.swing.JLabel();
+        txtIdHe = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtEvolucion = new javax.swing.JEditorPane();
@@ -103,10 +250,8 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         txtIndicaciones = new javax.swing.JEditorPane();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        spHora = new javax.swing.JSpinner();
-        dtFecha = new com.toedter.calendar.JDateChooser();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbEvolucion = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         txtActoMedico = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -117,8 +262,13 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         txtPaciente = new javax.swing.JTextField();
         txtNroCama = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        spHora = new javax.swing.JSpinner();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
 
         FrmBuscarPaciente.setAlwaysOnTop(true);
         FrmBuscarPaciente.setMinimumSize(new java.awt.Dimension(750, 450));
@@ -295,8 +445,7 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         btnEliminar.setBackground(new java.awt.Color(204, 204, 204));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Basura-32.png"))); // NOI18N
-        btnEliminar.setMnemonic('E');
-        btnEliminar.setToolTipText("Eliminar (Alt + E)");
+        btnEliminar.setToolTipText("Eliminar (Delete)");
         btnEliminar.setContentAreaFilled(false);
         btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminar.setEnabled(false);
@@ -337,6 +486,22 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         jPanel8.add(jLabel7);
         jLabel7.setBounds(170, 110, 50, 20);
 
+        txtIDPreventa.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtIDPreventaCaretUpdate(evt);
+            }
+        });
+        jPanel8.add(txtIDPreventa);
+        txtIDPreventa.setBounds(370, 100, 210, 20);
+        jPanel8.add(txtID);
+        txtID.setBounds(620, 100, 70, 20);
+
+        lblMant.setText("jLabel9");
+        jPanel8.add(lblMant);
+        lblMant.setBounds(700, 100, 34, 14);
+        jPanel8.add(txtIdHe);
+        txtIdHe.setBounds(760, 100, 110, 20);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         txtEvolucion.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
@@ -353,14 +518,9 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel2.setText("Evolución");
 
-        spHora.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1489078580011L), null, null, java.util.Calendar.YEAR));
-        spHora.setEnabled(false);
-
-        dtFecha.setEnabled(false);
-
         jScrollPane3.setBorder(null);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbEvolucion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -371,44 +531,105 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        tbEvolucion.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbEvolucion.setSelectionBackground(new java.awt.Color(218, 209, 195));
+        tbEvolucion.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        tbEvolucion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbEvolucionKeyPressed(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tbEvolucion);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel4.setText("Acto Médico:");
 
         txtActoMedico.setEditable(false);
+        txtActoMedico.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        txtActoMedico.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtActoMedico.setEnabled(false);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel3.setText("Nº H.C.");
 
         txtNHC.setEditable(false);
+        txtNHC.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        txtNHC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNHC.setEnabled(false);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel5.setText("DNI:");
 
         txtDNI.setEditable(false);
+        txtDNI.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        txtDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDNI.setEnabled(false);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel6.setText("Paciente:");
 
         txtPaciente.setEditable(false);
+        txtPaciente.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        txtPaciente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPaciente.setEnabled(false);
 
         txtNroCama.setEditable(false);
         txtNroCama.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        txtNroCama.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNroCama.setEnabled(false);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel8.setText("Nº de Cama:");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        jLabel9.setText("Fecha:");
-
         jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        jLabel10.setText("Hora:");
+        jLabel10.setText("Fecha y Hora:");
+
+        spHora.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        spHora.setModel(new javax.swing.SpinnerDateModel());
+        spHora.setEnabled(false);
+
+        jLabel42.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Document-16.png"))); // NOI18N
+        jLabel42.setText("Nuevo (Alt + N)");
+
+        jLabel43.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Save-16.png"))); // NOI18N
+        jLabel43.setText("Guardar (Alt + G)");
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Edit-16.png"))); // NOI18N
+        jLabel36.setText("Modificar (Alt + M)");
+
+        jLabel44.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Eliminar-16.png"))); // NOI18N
+        jLabel44.setText("Eliminar (Delete)");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel42)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel43)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel36)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel44)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel42)
+                    .addComponent(jLabel36)
+                    .addComponent(jLabel43)
+                    .addComponent(jLabel44))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -418,89 +639,77 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane2)
-                                .addContainerGap())))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(dtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtActoMedico, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNHC, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtNHC, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNroCama, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(spHora)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNroCama, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spHora, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane2)))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNHC)
+                    .addComponent(txtDNI)
+                    .addComponent(txtPaciente)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
-                        .addComponent(txtNroCama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNroCama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10)
+                        .addComponent(spHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtActoMedico)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
-                        .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)
                         .addComponent(jLabel5)
-                        .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6)
-                        .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel6)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(dtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(spHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel10))
-                    .addComponent(jLabel9))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -528,19 +737,40 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-
+        try { 
+            limpiar();
+            habilitarDatos(true);
+            lblMant.setText("I");
+            btnGuardar.setEnabled(true);
+            btnEliminar.setEnabled(true);
+            btnModificar.setEnabled(true);
+        } catch (Exception e) {
+            System.out.println("Error: btnNuevo" + e.getMessage());
+        }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-
+        if(lblMant.getText().equals("I")) 
+            guardarDatosEvolucion();
+        else
+            modificarDatosEvolucion();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-
+        btnEliminar.setEnabled(false);
+        lblMant.setText("U");
+        int fila = tbEvolucion.getSelectedRow();
+        txtIndicaciones.setText(String.valueOf(tbEvolucion.getValueAt(fila, 3)));
+        txtEvolucion.setText(String.valueOf(tbEvolucion.getValueAt(fila, 4)));
+        spHora.setEnabled(false);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
+        if(tbEvolucion.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(this, "Seleccione un registro");
+        } else {
+                eliminarRegistroEvolucion();
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacActionPerformed
@@ -554,11 +784,21 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarPacActionPerformed
 
     private void tbPacientesHospMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPacientesHospMouseClicked
-        
+        if(evt.getClickCount()==2){
+            enviarDatosPac();
+        }
     }//GEN-LAST:event_tbPacientesHospMouseClicked
 
     private void tbPacientesHospKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPacientesHospKeyPressed
-        
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_UP && tbPacientesHosp.getSelectedRow()==0){
+            tbPacientesHosp.getSelectionModel().setSelectionInterval(0,0);
+            txtBuscarPaciente.requestFocus();
+        }
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            FrmBuscarPaciente.dispose();
+            enviarDatosPac();
+        }
     }//GEN-LAST:event_tbPacientesHospKeyPressed
 
     private void txtBuscarPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPacienteCaretUpdate
@@ -569,6 +809,21 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     private void txtBuscarPacienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPacienteKeyPressed
         
     }//GEN-LAST:event_txtBuscarPacienteKeyPressed
+
+    private void txtIDPreventaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtIDPreventaCaretUpdate
+        HospitalizacionEvolucion hosEv = new HospitalizacionEvolucion();
+        hosEv.listarEvolucion(txtIDPreventa.getText(), tbEvolucion);
+    }//GEN-LAST:event_txtIDPreventaCaretUpdate
+
+    private void tbEvolucionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbEvolucionKeyPressed
+        if(tbEvolucion.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(this, "Seleccione un registro");
+        } else {
+            if(evt.getKeyChar()==KeyEvent.VK_DELETE){
+                eliminarRegistroEvolucion();
+            }
+        }
+    }//GEN-LAST:event_tbEvolucionKeyPressed
 
     /**
      * @param args the command line arguments
@@ -613,29 +868,33 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
-    private com.toedter.calendar.JDateChooser dtFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblUsuUsuario;
-    private javax.swing.JSpinner spHora;
+    public static javax.swing.JSpinner spHora;
+    private javax.swing.JTable tbEvolucion;
     private javax.swing.JTable tbPacientesHosp;
     private javax.swing.JLabel titulo5;
     private javax.swing.JLabel titulo6;
@@ -643,6 +902,9 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     private javax.swing.JTextField txtBuscarPaciente;
     public static javax.swing.JTextField txtDNI;
     private javax.swing.JEditorPane txtEvolucion;
+    private javax.swing.JTextField txtID;
+    public static javax.swing.JTextField txtIDPreventa;
+    private javax.swing.JTextField txtIdHe;
     private javax.swing.JEditorPane txtIndicaciones;
     public static javax.swing.JTextField txtNHC;
     public static javax.swing.JTextField txtNroCama;

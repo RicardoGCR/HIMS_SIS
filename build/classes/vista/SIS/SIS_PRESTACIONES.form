@@ -684,10 +684,25 @@
                   </StringArray>
                 </Property>
               </Properties>
+<<<<<<< HEAD
+=======
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+>>>>>>> bd538bfd87a5d61b8941551decb3ec0e44fbd8f2
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
               </AuxValues>
+<<<<<<< HEAD
             </Component>
+=======
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JEditorPane" name="txtDescripcion">
+                </Component>
+              </SubComponents>
+            </Container>
+>>>>>>> bd538bfd87a5d61b8941551decb3ec0e44fbd8f2
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">

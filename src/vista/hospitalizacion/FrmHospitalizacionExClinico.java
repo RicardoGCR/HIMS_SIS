@@ -60,6 +60,12 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         hospEx.inicializarTabla(tbDiagPresuntivo);
         hospEx.inicializarTabla(tbDiagPrincipal);
         hospEx.inicializarTabla(tbDiagSindromico);
+        txtID.setVisible(false);
+        txtIDMod.setVisible(false);
+        txtIDTriaje.setVisible(false);
+        lblIdHC.setVisible(false);
+        lblMant.setVisible(false);
+        txtIdPreventa.setVisible(false);
     }
     
     public void cerrar (){
@@ -107,6 +113,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
        txtSistemaNeuro.setText("");
        txtMedico.setText("");
        txtCodigoMedico.setText("");
+       txtIDMod.setText("");
         DefaultTableModel modelo1 = (DefaultTableModel)tbDiagSindromico.getModel(); 
         int b=tbDiagSindromico.getRowCount();
         for(int j=0;j<b;j++){
@@ -116,6 +123,16 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         int b2=tbDiagPrincipal.getRowCount();
         for(int j=0;j<b2;j++){
                     modelo2.removeRow(0);
+        }
+       DefaultTableModel modelo3 = (DefaultTableModel)tbDiagPresuntivo.getModel(); 
+        int b3=tbDiagPresuntivo.getRowCount();
+        for(int j=0;j<b3;j++){
+                    modelo3.removeRow(0);
+        }
+        DefaultTableModel modelo4 = (DefaultTableModel)tbDiagDefinitivo.getModel(); 
+        int b4=tbDiagDefinitivo.getRowCount();
+        for(int j=0;j<b4;j++){
+                    modelo4.removeRow(0);
         }
     }
     
@@ -232,13 +249,18 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
     public boolean guardarDiagPresuntivo(){
         AdmisionEmergenciaCabecera adEmer2 = new AdmisionEmergenciaCabecera();
         boolean retorna = false;
+        int id = 0;
         try {
+            if(lblMant.getText().equals("I"))
+                id = Integer.parseInt(txtID.getText());
+            else
+                id = Integer.parseInt(txtIDMod.getText());
             for (int i = 0; i < tbDiagPresuntivo.getRowCount(); i++){      
                 HospitalizacionExClinicoDiagPresun hosPresun = new HospitalizacionExClinicoDiagPresun();
-                hosPresun.setHec_id(Integer.parseInt(txtID.getText()));
+                hosPresun.setHec_id(id);
                 hosPresun.setId_cie10(Integer.parseInt(tbDiagPresuntivo.getValueAt(i,0).toString()));
                 hosPresun.setCod_usu(adEmer2.codUsuario(lblUsuUsuario.getText()));
-                if(hosPresun.insertarDiagPresun(lblMant.getText())==true)
+                if(hosPresun.insertarDiagPresun("I")==true)
                     retorna = true;
             }
         } catch (Exception e) {
@@ -250,13 +272,18 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
     public boolean guardarDiagSindromico(){
         AdmisionEmergenciaCabecera adEmer2 = new AdmisionEmergenciaCabecera();
         boolean retorna = false;
+        int id = 0;
         try {
+            if(lblMant.getText().equals("I"))
+                id = Integer.parseInt(txtID.getText());
+            else
+                id = Integer.parseInt(txtIDMod.getText());
             for (int i = 0; i < tbDiagSindromico.getRowCount(); i++){      
                 HospitalizacionExClinicoDiagSind hosSind = new HospitalizacionExClinicoDiagSind();
-                hosSind.setHec_id(Integer.parseInt(txtID.getText()));
+                hosSind.setHec_id(id);
                 hosSind.setId_cie10(Integer.parseInt(tbDiagSindromico.getValueAt(i,0).toString()));
                 hosSind.setCod_usu(adEmer2.codUsuario(lblUsuUsuario.getText()));
-                if(hosSind.insertarDiagSind(lblMant.getText())==true)
+                if(hosSind.insertarDiagSind("I")==true)
                     retorna = true;
             }
         } catch (Exception e) {
@@ -268,13 +295,18 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
     public boolean guardarDiagDefinitivo(){
         AdmisionEmergenciaCabecera adEmer2 = new AdmisionEmergenciaCabecera();
         boolean retorna = false;
+        int id = 0;
         try {
+            if(lblMant.getText().equals("I"))
+                id = Integer.parseInt(txtID.getText());
+            else
+                id = Integer.parseInt(txtIDMod.getText());
             for (int i = 0; i < tbDiagPresuntivo.getRowCount(); i++){      
                 HospitalizacionExClinicoDiagDefi hosDefi = new HospitalizacionExClinicoDiagDefi();
-                hosDefi.setHec_id(Integer.parseInt(txtID.getText()));
+                hosDefi.setHec_id(id);
                 hosDefi.setId_cie10(Integer.parseInt(tbDiagDefinitivo.getValueAt(i,0).toString()));
                 hosDefi.setCod_usu(adEmer2.codUsuario(lblUsuUsuario.getText()));
-                if(hosDefi.insertarDiagDefi(lblMant.getText())==true)
+                if(hosDefi.insertarDiagDefi("I")==true)
                     retorna = true;
             }
         } catch (Exception e) {
@@ -372,9 +404,95 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         return retorna;
     }
     
+    public void modificarDatosExClinico(){
+        try {
+            ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+            int diag_prin;
+            if(txtActoMedico.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Seleccine un paciente");
+            } else
+            if(txtMedico.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Seleccine un médico");
+            } else
+            if(tbDiagPrincipal.getRowCount()==0 || tbDiagDefinitivo.getRowCount()==0 ||
+               tbDiagSindromico.getRowCount()==0 || tbDiagPresuntivo.getRowCount()==0){
+                JOptionPane.showMessageDialog(this, "Seleccione los diagnósticos");
+            } else {
+                diag_prin = Integer.parseInt(String.valueOf(tbDiagPrincipal.getValueAt(0, 0)));
+                int hec_id = Integer.parseInt(txtIDMod.getText());
+                String ex_gen = txtExamenGeneral.getText();
+                String piel = txtPiel.getText();
+                String cabeza = txtCabeza.getText();
+                String ojo = txtOjos.getText();
+                String dientes = txtDientes.getText();
+                String torax = txtTorax.getText();
+                String mam = txtMamas.getText();
+                String pulmon = txtPulmones.getText();
+                String cora = txtCorazon.getText();
+                String linf = txtLinfaticos.getText();
+                String genit = txtGenitales.getText();
+                String tacto = txtTactoRec.getText();
+                String ex_gine = txtExGineco.getText();
+                String extrem = txtExtremidades.getText();
+                String sist = txtSistemaNeuro.getText();
+                String cod_per = txtCodigoMedico.getText();
+                HospitalizacionExamenClinico hosp1 = new HospitalizacionExamenClinico();
+                int modificar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",
+                               "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                if(modificar == 0){
+                    hosp1.setHec_id(hec_id);
+                    hosp1.setHec_ex_gen(ex_gen);
+                    hosp1.setHec_piel_tej(piel);
+                    hosp1.setHec_cab(cabeza);
+                    hosp1.setHec_oj(ojo);
+                    hosp1.setHec_dientes(dientes);
+                    hosp1.setHec_torax(torax);
+                    hosp1.setHec_mam(mam);
+                    hosp1.setHec_pulmon(pulmon);
+                    hosp1.setHec_cora(cora);
+                    hosp1.setHec_linf(linf);
+                    hosp1.setHec_genit(genit);
+                    hosp1.setHec_tacto_rec(tacto);
+                    hosp1.setHec_ex_gine(ex_gine);
+                    hosp1.setHec_extrem(extrem);
+                    hosp1.setHec_sis_neuro(sist);
+                    hosp1.setCod_per(cod_per);
+                    hosp1.setDiag_prin(diag_prin);
+                    if(hosp1.mantenimientoHospitalizacionExClinico(lblMant.getText())==true){
+                        if(guardarDiagPresuntivo() && guardarDiagDefinitivo() && guardarDiagSindromico()){
+                            JOptionPane.showMessageDialog(this, "Examen clínico Modificado");
+                            limpiar();
+                            habilitarCampos(false);
+                            txtIdPreventa.setText("");
+                            lblIdHC.setText("");
+                            lblMant.setText("");
+                            txtID.setText("");
+                            btnGuardar.setEnabled(false);
+                            btnModificar.setEnabled(false);
+                            btnEliminar.setEnabled(false);
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Hubo un error en el registro,\n se modificaron algunos datos");
+                            limpiar();
+                            habilitarCampos(false);
+                            txtIdPreventa.setText("");
+                            lblIdHC.setText("");
+                            lblMant.setText("");
+                            txtID.setText("");
+                        }
+                    }
+                }else{
+                        JOptionPane.showMessageDialog(this, "No se realizó ningun movimiento");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: modificarDatosExClinico" + e.getMessage());
+        }
+    }
+    
     public void enviarDatosExClinico(){
         int fila = tbExClinico.getSelectedRow();
         FrmHospitalizacionExClinico.txtIDMod.setText(String.valueOf(tbExClinico.getValueAt(fila, 0)));
+        FrmHospitalizacionExClinico.txtIdPreventa.setText(String.valueOf(tbExClinico.getValueAt(fila, 1)));
         FrmHospitalizacionExClinico.txtActoMedico.setText(String.valueOf(tbExClinico.getValueAt(fila, 2)));
         FrmHospitalizacionExClinico.txtDNI.setText(String.valueOf(tbExClinico.getValueAt(fila, 3)));
         FrmHospitalizacionExClinico.txtNHC.setText(String.valueOf(tbExClinico.getValueAt(fila, 4)));
@@ -398,6 +516,8 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         FrmHospitalizacionExClinico.txtExtremidades.setText(String.valueOf(tbExClinico.getValueAt(fila, 23)));
         FrmHospitalizacionExClinico.txtSistemaNeuro.setText(String.valueOf(tbExClinico.getValueAt(fila, 24)));
         FrmListarExClinico.dispose();
+        btnModificar.setEnabled(true);
+        btnEliminar.setEnabled(true);
     }
     
     /**
@@ -1098,7 +1218,6 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
 
         FrmListarExClinico.setAlwaysOnTop(true);
         FrmListarExClinico.setMinimumSize(new java.awt.Dimension(1368, 700));
-        FrmListarExClinico.setPreferredSize(new java.awt.Dimension(1368, 700));
         FrmListarExClinico.setResizable(false);
         FrmListarExClinico.getContentPane().setLayout(null);
 
@@ -1188,6 +1307,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
             }
         });
         tbExClinico.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbExClinico.setSelectionBackground(new java.awt.Color(217, 176, 86));
         tbExClinico.getTableHeader().setReorderingAllowed(false);
         tbExClinico.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1225,6 +1345,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
             }
         ));
         tbDiagP.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbDiagP.setSelectionBackground(new java.awt.Color(221, 194, 82));
         jScrollPane30.setViewportView(tbDiagP);
 
         jLabel42.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
@@ -1249,6 +1370,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
             }
         ));
         tbDiagS.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbDiagS.setSelectionBackground(new java.awt.Color(221, 194, 82));
         jScrollPane31.setViewportView(tbDiagS);
 
         jLabel44.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
@@ -1270,6 +1392,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
             }
         ));
         tbDiagD.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbDiagD.setSelectionBackground(new java.awt.Color(221, 194, 82));
         jScrollPane32.setViewportView(tbDiagD);
 
         jLabel45.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
@@ -1292,6 +1415,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         ));
         tbDiagPR.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbDiagPR.setGridColor(new java.awt.Color(255, 255, 255));
+        tbDiagPR.setSelectionBackground(new java.awt.Color(2, 127, 42));
         jScrollPane33.setViewportView(tbDiagPR);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -1329,8 +1453,8 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
                 .addComponent(jScrollPane32, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel45)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane33, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane33, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
 
@@ -2032,7 +2156,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
 
         txtCodigoMedico.setEditable(false);
         txtCodigoMedico.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        txtCodigoMedico.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtCodigoMedico.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCodigoMedico.setEnabled(false);
 
         btnAgregarMedico.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -2262,7 +2386,6 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        
             try {
             HospitalizacionExamenClinico hose = new HospitalizacionExamenClinico();
             if(hose.idHospitalizacionExamenClinico()!=0){
@@ -2274,21 +2397,51 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
             habilitarCampos(true);
             btnGuardar.setEnabled(true);
             lblMant.setText("I");
+            btnModificar.setEnabled(false);
+            btnEliminar.setEnabled(false);
         } catch (Exception e) {
             System.out.println("Error: btnNuevo " + e.getMessage());
         }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        guardarDatosExClinico();
+        if(lblMant.getText().equals("I"))
+            guardarDatosExClinico();
+        else if(lblMant.getText().equals("U"))
+           modificarDatosExClinico();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         lblMant.setText("U");
+        habilitarCampos(true);
+        btnGuardar.setEnabled(true);
+        btnModificar.setEnabled(false);
+        btnEliminar.setEnabled(false);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
+        HospitalizacionExamenClinico hosp3 = new HospitalizacionExamenClinico();
+        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea ELIMINAR los datos?",
+                               "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+        if(eliminar == 0){
+            hosp3.setHec_id(Integer.parseInt(txtIDMod.getText()));
+            if(hosp3.mantenimientoHospitalizacionExClinico("E")){
+                JOptionPane.showMessageDialog(this, "Examen Clínico eliminado");
+                btnEliminar.setEnabled(false);
+                btnGuardar.setEnabled(false);
+                btnModificar.setEnabled(false);
+                limpiar();
+                habilitarCampos(false);
+            } else{
+                JOptionPane.showMessageDialog(this, "Ocurrió un error al eliminar");
+                btnEliminar.setEnabled(false);
+                btnGuardar.setEnabled(false);
+                btnModificar.setEnabled(false);
+                limpiar();
+                habilitarCampos(false);
+            }
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void tbPacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPacKeyPressed
@@ -2521,7 +2674,9 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
     }//GEN-LAST:event_tbMedicosKeyPressed
 
     private void txtBuscarMedicoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarMedicoCaretUpdate
-        // TODO add your handling code here:
+        HospitalizacionExamenClinico hospe = new HospitalizacionExamenClinico();
+        hospe.listarMedicos(txtBuscarMedico.getText(), tbMedicos);
+        txtBuscarMedico.requestFocus();
     }//GEN-LAST:event_txtBuscarMedicoCaretUpdate
 
     private void txtBuscarMedicoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarMedicoKeyPressed
@@ -2529,7 +2684,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscarMedicoKeyPressed
 
     private void btnBuscarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacActionPerformed
-
+        
         FrmBuscarPac.setVisible(true);
         FrmBuscarPac.setLocationRelativeTo(null);//en el centro
         FrmBuscarPac.setResizable(false);
@@ -2563,6 +2718,9 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         HospitalizacionExamenClinico hosp = new HospitalizacionExamenClinico();
         hosp.listarExClinico(txtBuscarExClinico.getText(), tbExClinico);
         txtBuscarExClinico.requestFocus();
+        btnGuardar.setEnabled(false);
+        btnModificar.setEnabled(false);
+        btnEliminar.setEnabled(false);
     }//GEN-LAST:event_btnBuscarExClinicoActionPerformed
 
     private void txtBuscarExClinicoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarExClinicoCaretUpdate

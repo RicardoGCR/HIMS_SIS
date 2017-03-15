@@ -38,6 +38,7 @@ import vista.sectorizacion.FrmSector;
 import vista.LABORATORIO.*;
 import vista.hospitalizacion.FrmHospitalizacionExClinico;
 import vista.hospitalizacion.FrmHospitalizacionFormatoHC;
+import vista.hospitalizacion.FrmHospitalizacionHojaEvolucion;
 import vista.hospitalizacion.FrmHospitalizacionListarCajaPreventa;
 
 /**
@@ -3584,6 +3585,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jButton6.setIconTextGap(45);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel78Layout = new javax.swing.GroupLayout(jPanel78);
         jPanel78.setLayout(jPanel78Layout);
@@ -4860,6 +4866,14 @@ public class PrincipalMDI extends javax.swing.JFrame {
         String u=lblUsu.getText();
         FrmHospitalizacionExClinico.lblUsuUsuario.setText(u);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        FrmHospitalizacionHojaEvolucion frmEv =new  FrmHospitalizacionHojaEvolucion();
+        frmEv.setVisible(true);
+        String u=lblUsu.getText();
+        FrmHospitalizacionHojaEvolucion.lblUsuUsuario.setText(u);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     /**

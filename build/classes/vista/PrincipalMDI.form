@@ -5485,6 +5485,9 @@
                         <Property name="horizontalTextPosition" type="int" value="2"/>
                         <Property name="iconTextGap" type="int" value="45"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

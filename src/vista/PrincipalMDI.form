@@ -3661,7 +3661,7 @@
                                   <Component id="jPanel48" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jPanel47" alignment="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="jPanel47" alignment="0" pref="284" max="32767" attributes="0"/>
                                           <Component id="jPanel55" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -3852,7 +3852,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jPanel52" max="32767" attributes="0"/>
-                              <Component id="jPanel54" pref="0" max="32767" attributes="0"/>
+                              <Component id="jPanel54" pref="100" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -4614,7 +4614,7 @@
                                               <Component id="jPanel67" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jPanel14" pref="0" max="32767" attributes="0"/>
+                                          <Component id="jPanel75" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                       <Component id="jPanel57" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -4652,7 +4652,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel67" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel75" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -5225,7 +5225,7 @@
                 <Property name="text" type="java.lang.String" value="Pendientes"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JPanel" name="jPanel14">
+            <Container class="javax.swing.JPanel" name="jPanel75">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
@@ -5251,7 +5251,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jPanel15" max="32767" attributes="0"/>
-                                      <Component id="jPanel59" max="32767" attributes="0"/>
+                                      <Component id="jPanel78" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -5280,7 +5280,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel59" min="-2" max="-2" attributes="0"/>
+                              <Component id="jPanel78" min="-2" max="-2" attributes="0"/>
                               <Component id="jPanel61" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -5447,7 +5447,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="jPanel59">
+                <Container class="javax.swing.JPanel" name="jPanel78">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="56" green="b0" red="d9" type="rgb"/>
@@ -5659,7 +5659,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="lblusu7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblusu8" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jPanel74" min="-2" pref="184" max="-2" attributes="0"/>
                               <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
@@ -5680,7 +5680,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="lblusu7" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblusu8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jPanel73" alignment="0" pref="0" max="32767" attributes="0"/>
@@ -5699,7 +5699,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblusu7">
+            <Component class="javax.swing.JLabel" name="lblusu8">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI Light" size="24" style="0"/>
@@ -5822,7 +5822,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel77" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel88" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="59" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -5831,7 +5831,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jLabel77" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel88" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="28" max="32767" attributes="0"/>
                               <Component id="btnReportCabecera1" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -5839,7 +5839,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel77">
+                    <Component class="javax.swing.JLabel" name="jLabel88">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>

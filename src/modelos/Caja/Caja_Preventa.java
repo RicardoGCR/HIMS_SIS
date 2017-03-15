@@ -48,12 +48,11 @@ public class Caja_Preventa {
     private String EMER_OBSERVACION;
     private String ESTADO_CAJAP;
     private String cod_nomen;
-<<<<<<< HEAD
+
     private String cod_jerar_forma_pago;
-=======
+
     private String procedencia;
     
->>>>>>> bd8a8b98fd452383672596e297d8528d8f831d72
     Conexion con = new Conexion();
 
     public boolean mantanimientoCajaPreventaEmergencia(String tipo)
@@ -263,10 +262,7 @@ public class Caja_Preventa {
         }
         return cod;
     }
-    
-<<<<<<< HEAD
-    
-=======
+
     public String codArea(String area)
     {
         String cod="";
@@ -315,7 +311,7 @@ public class Caja_Preventa {
         }
         return cod;
     }
->>>>>>> bd8a8b98fd452383672596e297d8528d8f831d72
+
     
     public void formatoTablaCargarFormatEmer(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(60);//id
@@ -850,7 +846,7 @@ public class Caja_Preventa {
         this.cod_nomen = cod_nomen;
     }
 
-<<<<<<< HEAD
+
     public String getCod_jerar_forma_pago() {
         return cod_jerar_forma_pago;
     }
@@ -859,8 +855,7 @@ public class Caja_Preventa {
         this.cod_jerar_forma_pago = cod_jerar_forma_pago;
     }
     
-    
-=======
+
     /**
      * @return the procedencia
      */
@@ -874,5 +869,5 @@ public class Caja_Preventa {
     public void setProcedencia(String procedencia) {
         this.procedencia = procedencia;
     }
->>>>>>> bd8a8b98fd452383672596e297d8528d8f831d72
+
 }

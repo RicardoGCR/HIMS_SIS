@@ -1099,12 +1099,7 @@ LAB_Unidad_Medida_formato();
     }//GEN-LAST:event_tb_EsquemaMouseClicked
 
     private void txtResultadoDefecKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResultadoDefecKeyTyped
-    char tecla;
-        tecla = evt.getKeyChar();
-        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
-            evt.consume();
-            getToolkit().beep();            
-        }
+  
     }//GEN-LAST:event_txtResultadoDefecKeyTyped
     public void enableDatos(){
     chTitulo.setEnabled(true);

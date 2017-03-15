@@ -356,16 +356,16 @@ public class FrmFormatoInterconsulta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        try {
-            limpiar();
-            habilitarDatos(true);
-            lblMant.setText("I");
-            btnGuardar.setEnabled(true);
-            btnEliminar.setEnabled(true);
-            btnModificar.setEnabled(true);
-        } catch (Exception e) {
-            System.out.println("Error: btnNuevo" + e.getMessage());
-        }
+//        try {
+//            limpiar();
+//            habilitarDatos(true);
+//            lblMant.setText("I");
+//            btnGuardar.setEnabled(true);
+//            btnEliminar.setEnabled(true);
+//            btnModificar.setEnabled(true);
+//        } catch (Exception e) {
+//            System.out.println("Error: btnNuevo" + e.getMessage());
+//        }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -373,12 +373,12 @@ public class FrmFormatoInterconsulta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        btnEliminar.setEnabled(false);
-        lblMant.setText("U");
-        int fila = tbNotEnf.getSelectedRow();
-        txtIndicaciones.setText(String.valueOf(tbNotEnf.getValueAt(fila, 3)));
-        txtEvolucion.setText(String.valueOf(tbNotEnf.getValueAt(fila, 4)));
-        spHora.setEnabled(false);
+//        btnEliminar.setEnabled(false);
+//        lblMant.setText("U");
+//        int fila = tbNotEnf.getSelectedRow();
+//        txtIndicaciones.setText(String.valueOf(tbNotEnf.getValueAt(fila, 3)));
+//        txtEvolucion.setText(String.valueOf(tbNotEnf.getValueAt(fila, 4)));
+//        spHora.setEnabled(false);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -386,13 +386,13 @@ public class FrmFormatoInterconsulta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacActionPerformed
-        FrmBuscarPaciente.setVisible(true);
-        FrmBuscarPaciente.setLocationRelativeTo(null);//en el centro
-        FrmBuscarPaciente.setResizable(false);
-        FrmBuscarPaciente.getContentPane().setBackground(Color.WHITE);
-        HospitalizacionPapeletas hosp = new HospitalizacionPapeletas();
-        hosp.listarPapeleta("C", txtBuscarPaciente.getText(), tbPacientesHosp,"F");
-        txtBuscarPaciente.requestFocus();
+//        FrmBuscarPaciente.setVisible(true);
+//        FrmBuscarPaciente.setLocationRelativeTo(null);//en el centro
+//        FrmBuscarPaciente.setResizable(false);
+//        FrmBuscarPaciente.getContentPane().setBackground(Color.WHITE);
+//        HospitalizacionPapeletas hosp = new HospitalizacionPapeletas();
+//        hosp.listarPapeleta("C", txtBuscarPaciente.getText(), tbPacientesHosp,"F");
+//        txtBuscarPaciente.requestFocus();
     }//GEN-LAST:event_btnBuscarPacActionPerformed
 
     /**

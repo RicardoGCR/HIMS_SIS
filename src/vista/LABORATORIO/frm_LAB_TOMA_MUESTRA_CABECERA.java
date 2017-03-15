@@ -1632,7 +1632,7 @@ public void Muestras_cargar(String nomen,String area){
         int b=tb_Subdetalle.getRowCount();
         for(int j=0;j<b;j++){
                     modelo1.removeRow(0);
-   }
+        }
 }
    
   

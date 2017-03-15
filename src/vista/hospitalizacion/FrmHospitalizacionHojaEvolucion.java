@@ -416,7 +416,7 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         jPanel8.add(lblMant);
         lblMant.setBounds(700, 100, 34, 14);
         jPanel8.add(txtIdHe);
-        txtIdHe.setBounds(480, 40, 230, 40);
+        txtIdHe.setBounds(760, 100, 110, 20);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

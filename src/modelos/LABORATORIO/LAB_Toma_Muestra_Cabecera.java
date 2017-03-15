@@ -79,6 +79,30 @@ public class LAB_Toma_Muestra_Cabecera {
         }
         return unidad;
     }
+    
+    public boolean LAB_Toma_Muestra_Caja_Estado(String idDocumento){
+         boolean resp = false;
+        try{
+            String sql = "sp_TOMA_MUESTRA_CAJA_ESTADO ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idDocumento);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    
+    
+    
 
     /**
      * @return the cn

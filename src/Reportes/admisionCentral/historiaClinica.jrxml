@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="historiaClinica" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2104a8e6-0b76-417a-8833-0f6880491806">
-	<property name="ireport.zoom" value="1.6105100000000099"/>
-	<property name="ireport.x" value="267"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="cod_hc" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[EXEC SP_ADMISION_HISTORIA_CLINICA_REPORTE '000004']]>
+		<![CDATA[EXEC SP_ADMISION_HISTORIA_CLINICA_REPORTE $P{cod_hc}]]>
 	</queryString>
 	<field name="COD_HC" class="java.lang.String"/>
 	<field name="PACIENTE" class="java.lang.String"/>
@@ -15,7 +15,7 @@
 	<field name="FEC_NAC" class="java.sql.Date"/>
 	<field name="OCUPACION" class="java.lang.String"/>
 	<field name="ESTADO_CIVIL" class="java.lang.String"/>
-	<field name="EDAD" class="java.lang.Integer"/>
+	<field name="EDAD" class="java.lang.String"/>
 	<field name="PRO_ACT" class="java.lang.String"/>
 	<field name="DIS_ACT" class="java.lang.String"/>
 	<field name="TIPO_DIR_NOM" class="java.lang.String"/>
@@ -209,10 +209,6 @@
 				<textFieldExpression><![CDATA[$F{FEC_NAC}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="413" y="29" width="26" height="20" uuid="bf12afb9-3bb1-4b5a-9e7f-a393c826c31f"/>
-				<textFieldExpression><![CDATA[$F{EDAD}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="447" y="29" width="97" height="20" uuid="b12e77ba-1055-4687-91fb-8094b2799138"/>
 				<textFieldExpression><![CDATA[$F{OCUPACION}]]></textFieldExpression>
 			</textField>
@@ -243,6 +239,11 @@
 			<textField>
 				<reportElement x="6" y="29" width="240" height="20" uuid="ac5b2b00-0b0f-4fb7-9eee-2d8eda4b3542"/>
 				<textFieldExpression><![CDATA[$F{PACIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="408" y="29" width="26" height="20" uuid="94d6be2e-9123-455a-834a-43bb83334eeb"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{EDAD}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

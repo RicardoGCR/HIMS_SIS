@@ -63,7 +63,17 @@ public class frm_LAB_BUSCAR_MUESTRA_EXAMEN extends javax.swing.JFrame {
         LAB_Muestra_Examen_formato();
         this.getContentPane().setBackground(Color.WHITE);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
-        //para limpiar el txt al darle click
+        txtBuscar.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                txtBuscar.setText("");
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });//para limpiar el txt al darle click
         txtBuscar.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {

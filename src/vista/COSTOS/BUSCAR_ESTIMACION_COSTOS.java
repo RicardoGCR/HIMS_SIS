@@ -816,7 +816,7 @@ JOptionPane.showMessageDialog(null, "Documento Exportado Exitosamente!", "Guarda
             while(ri.next()){
             for (int i=0; i<11; i++){
            filai[i]=ri.getString(i+1);
-       }
+            }
                 m.addRow(filai);
             }
             tbInsumo.setModel(m);

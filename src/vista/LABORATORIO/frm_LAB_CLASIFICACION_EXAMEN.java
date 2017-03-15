@@ -53,8 +53,7 @@ DefaultTableModel m;
         btnmodificar.setEnabled(false);
         btneliminar.setEnabled(false);
         //listado de la unidad organica
-        LAB_Unidad_Organica_cargar();
-        LAB_Unidad_Organica_formato();
+        
         txtCodUni.setVisible(false);
         setLocationRelativeTo(null);//en el centro
         setResizable(false);//para que no funcione el boton maximizar
@@ -98,7 +97,7 @@ DefaultTableModel m;
     }
     public void LAB_Unidad_Organica_cargar(){
     try {
-             String titulos[]={"Nº","Código","Código","Área"};
+             String titulos[]={"Nº","Código","Código","Área","Servicio"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[6];
@@ -113,6 +112,8 @@ DefaultTableModel m;
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
             fila[3]=r.getString(3);
+            fila[4]=r.getString(4);
+
                 m.addRow(fila);
                 c++;
             }
@@ -126,8 +127,9 @@ DefaultTableModel m;
 }
     public void LAB_Unidad_Organica_formato(){
     tb_Unidad_Organica.getColumnModel().getColumn(0).setPreferredWidth(50);
-    tb_Unidad_Organica.getColumnModel().getColumn(2).setPreferredWidth(70);
-    tb_Unidad_Organica.getColumnModel().getColumn(3).setPreferredWidth(180);
+    tb_Unidad_Organica.getColumnModel().getColumn(2).setPreferredWidth(60);
+    tb_Unidad_Organica.getColumnModel().getColumn(3).setPreferredWidth(140);
+    tb_Unidad_Organica.getColumnModel().getColumn(4).setPreferredWidth(160);
         tb_Unidad_Organica.getColumnModel().getColumn(1).setMinWidth(0);
     tb_Unidad_Organica.getColumnModel().getColumn(1).setMaxWidth(0);
     tb_Unidad_Organica.getSelectionModel().setSelectionInterval(0, 0);
@@ -196,11 +198,13 @@ public void calcula() {
             btnBuscarUnidad = new javax.swing.JButton();
             jScrollPane2 = new javax.swing.JScrollPane();
             txtObservacion = new javax.swing.JTextArea();
+            jLabel2 = new javax.swing.JLabel();
+            txtServicio = new javax.swing.JTextField();
 
             Buscar_Unidad_Organica.setTitle("SISGESH .::. BÚSQUEDA DE UNIDAD ORGÁNICA");
             Buscar_Unidad_Organica.setAlwaysOnTop(true);
             Buscar_Unidad_Organica.setFocusCycleRoot(false);
-            Buscar_Unidad_Organica.setMinimumSize(new java.awt.Dimension(381, 494));
+            Buscar_Unidad_Organica.setMinimumSize(new java.awt.Dimension(461, 503));
 
             tb_Unidad_Organica.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
@@ -213,6 +217,7 @@ public void calcula() {
                     "Title 1", "Title 2", "Title 3", "Title 4"
                 }
             ));
+            tb_Unidad_Organica.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
             tb_Unidad_Organica.setRowHeight(25);
             tb_Unidad_Organica.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -260,18 +265,18 @@ public void calcula() {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Buscar_Unidad_OrganicaLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addGap(125, 125, 125))
+                    .addGap(155, 155, 155))
                 .addGroup(Buscar_Unidad_OrganicaLayout.createSequentialGroup()
                     .addGroup(Buscar_Unidad_OrganicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(Buscar_Unidad_OrganicaLayout.createSequentialGroup()
-                            .addGap(68, 68, 68)
+                            .addGap(113, 113, 113)
                             .addComponent(txtBuscarUni, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(Buscar_Unidad_OrganicaLayout.createSequentialGroup()
-                            .addGap(12, 12, 12)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(22, Short.MAX_VALUE))
+                            .addGap(21, 21, 21)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(29, Short.MAX_VALUE))
             );
             Buscar_Unidad_OrganicaLayout.setVerticalGroup(
                 Buscar_Unidad_OrganicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,7 +289,7 @@ public void calcula() {
                         .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(42, Short.MAX_VALUE))
+                    .addContainerGap(51, Short.MAX_VALUE))
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -496,6 +501,12 @@ public void calcula() {
 
             jLabel7.setText("Clasificación del Examen:");
 
+            txtClasificacion.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    txtClasificacionActionPerformed(evt);
+                }
+            });
+
             jLabel18.setText("Código:");
 
             txtGuarModif.setText("G");
@@ -519,6 +530,10 @@ public void calcula() {
             txtObservacion.setRows(5);
             jScrollPane2.setViewportView(txtObservacion);
 
+            jLabel2.setText("Servicio:");
+
+            txtServicio.setEnabled(false);
+
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
@@ -528,9 +543,11 @@ public void calcula() {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(85, 85, 85)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel18)
                         .addComponent(jLabel7)
-                        .addComponent(jLabel9))
+                        .addComponent(jLabel9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel18)))
                     .addGap(18, 18, 18)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
@@ -548,7 +565,8 @@ public void calcula() {
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtCodUni, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(0, 0, Short.MAX_VALUE))))
             );
             layout.setVerticalGroup(
@@ -560,7 +578,11 @@ public void calcula() {
                         .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel18)
                         .addComponent(txtGuarModif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(26, 26, 26)
+                    .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -599,8 +621,9 @@ public void calcula() {
           }  else if(txtObservacion.getText().equalsIgnoreCase("")){
               JOptionPane.showMessageDialog(rootPane, "Ingrese la Observación");
           }  
-          else if(me.LAB_Clasificacion_Examen_ver(txtClasificacion.getText())>0){
+          else if(me.LAB_Clasificacion_Examen_ver(txtCodUni.getText())>0){
               JOptionPane.showMessageDialog(rootPane, "El Registro ya ha sido ingresado\nIntente nuevamente");
+              txtServicio.setText("");
               txtClasificacion.setText("");
               txtClasificacion.requestFocus();
           }else{
@@ -631,9 +654,10 @@ public void calcula() {
           }  else if(txtObservacion.getText().equalsIgnoreCase("")){
               JOptionPane.showMessageDialog(rootPane, "Ingrese la Observación");
           } 
-              else if(me1.LAB_Clasificacion_Examen_codigo(txtClasificacion.getText()).equalsIgnoreCase(txtCodigo.getText())==false && me2.LAB_Clasificacion_Examen_ver(txtClasificacion.getText())>0 ){
-                  JOptionPane.showMessageDialog(rootPane, "La Muestra ingresada ya existe\nIntente nuevamente");
-              txtClasificacion.setText("");
+              else if(me1.LAB_Clasificacion_Examen_codigo(txtCodUni.getText()).equalsIgnoreCase(txtCodigo.getText())==false && me2.LAB_Clasificacion_Examen_ver(txtCodUni.getText())>0 ){
+                  JOptionPane.showMessageDialog(rootPane,"El Registro ya existe\nIntente nuevamente");
+              txtServicio.setText("");
+                  txtClasificacion.setText("");
               txtClasificacion.requestFocus();
               }else{
               int modificar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",
@@ -716,8 +740,9 @@ public void calcula() {
     private void btnBuscarUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUnidadActionPerformed
         // TODO add your handling code here:
         Buscar_Unidad_Organica.setVisible(true);
-        tb_Unidad_Organica.getSelectionModel().setSelectionInterval(0, 0);
-        tb_Unidad_Organica.requestFocus();
+        txtBuscarUni.setText("");
+        LAB_Unidad_Organica_cargar();
+        LAB_Unidad_Organica_formato();
     }//GEN-LAST:event_btnBuscarUnidadActionPerformed
 
     private void tb_Unidad_OrganicaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Unidad_OrganicaMouseClicked
@@ -733,6 +758,7 @@ public void calcula() {
                 
                 frm_LAB_CLASIFICACION_EXAMEN.txtCodUni.setText(tb_Unidad_Organica.getValueAt(filaselec, 1).toString());
                 frm_LAB_CLASIFICACION_EXAMEN.txtClasificacion.setText(tb_Unidad_Organica.getValueAt(filaselec, 3).toString());
+        frm_LAB_CLASIFICACION_EXAMEN.txtServicio.setText(tb_Unidad_Organica.getValueAt(filaselec, 4).toString());
 
                 frm_LAB_CLASIFICACION_EXAMEN.txtCodigo.setEnabled(false);
                 String u=frmlaboratorioClinico.lblUsu.getText();
@@ -771,7 +797,7 @@ public void calcula() {
         String consulta="";
         try {
             tb_Unidad_Organica.setModel(new DefaultTableModel());
-            String titulos[]={"Nº","Código","Código","Unidad Orgánica"};
+            String titulos[]={"Nº","Código","Código","Área","Servicio"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[6];
@@ -788,6 +814,7 @@ public void calcula() {
                 fila[1]=r.getString(1);
                 fila[2]=r.getString(2);
                 fila[3]=r.getString(3);
+                fila[4]=r.getString(4);
                 m.addRow(fila);
                 c++;
             }
@@ -801,6 +828,10 @@ public void calcula() {
             System.out.println("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_btnBuscar1ActionPerformed
+
+    private void txtClasificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClasificacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtClasificacionActionPerformed
     public void enableDatos(){
     txtClasificacion.setEnabled(true);
     txtObservacion.setEnabled(true);
@@ -812,6 +843,7 @@ public void calcula() {
    if(txtCodigo.getText().equalsIgnoreCase("")){
         txtCodigo.setText("CE00000001");
     }
+   txtServicio.setText("");
     txtClasificacion.setText("");
     txtCodUni.setText("");
     txtObservacion.setText("");
@@ -888,6 +920,7 @@ public void calcula() {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -910,5 +943,6 @@ public void calcula() {
     public static javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtGuarModif;
     public static javax.swing.JTextArea txtObservacion;
+    public static javax.swing.JTextField txtServicio;
     // End of variables declaration//GEN-END:variables
 }

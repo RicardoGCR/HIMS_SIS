@@ -66,7 +66,7 @@ DefaultTableModel m,n,muestra;
         btnmodificar.setEnabled(false);
         btneliminar.setEnabled(false);
         txtCodClasificacion.setVisible(false);
-        txtCodNomen.setVisible(false);
+//        txtCodNomen.setVisible(false);
         setLocationRelativeTo(null);//en el centro
         setResizable(false);//para que no funcione el boton maximizar
         buscar_clasificacion.setResizable(false);
@@ -82,10 +82,10 @@ DefaultTableModel m,n,muestra;
    if(txtCodigo.getText().equalsIgnoreCase("")){
         txtCodigo.setText("AE0000000000001");
     }
+   btnBuscarCPT.setEnabled(false);
+   lblArea.setVisible(false);
    LAB_Clasificacion_Examen_cargar();
    LAB_Clasificacion_Examen_formato();
-   LAB_Nomenclatura_cargar();
-   LAB_Nomenclatura_formato();
    LAB_Muestra_Examen_cargar();
    LAB_Muestra_formato();
    ///tb_Muestras.getColumnModel().getColumn(0).setCellEditor(new Celda_Checkox());
@@ -154,10 +154,10 @@ DefaultTableModel m,n,muestra;
     
     public void LAB_Clasificacion_Examen_cargar(){
     try {
-             String titulos[]={"Nº","Código","Nombre","Cod_uni_org","UniOrg","Observacion"};
+             String titulos[]={"Nº","Código","Nombre","Cogd_uni_or","Servicio","NomUni","Observacion"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[6];
+            String fila[]=new String[7];
 
             Conexion obj=new Conexion();
         String consulta="exec sp_LAB_CLASIFICACION_EXAMEN_listar";
@@ -165,13 +165,13 @@ DefaultTableModel m,n,muestra;
         r=obj.Listar(consulta);
         int c=1;
         while(r.next()){
-            
             fila[0]=String.valueOf(c)+"º";
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
             fila[3]=r.getString(3);
             fila[4]=r.getString(4);
             fila[5]=r.getString(5);
+            fila[6]=r.getString(6);
                 m.addRow(fila);
                 c++;
             }
@@ -185,40 +185,44 @@ DefaultTableModel m,n,muestra;
 }
     public void LAB_Clasificacion_Examen_formato(){
     tb_Clasificacion.getColumnModel().getColumn(0).setPreferredWidth(50);
-    tb_Clasificacion.getColumnModel().getColumn(1).setPreferredWidth(100);
+    tb_Clasificacion.getColumnModel().getColumn(1).setPreferredWidth(110);
     tb_Clasificacion.getColumnModel().getColumn(2).setPreferredWidth(170);
-    tb_Clasificacion.getColumnModel().getColumn(5).setPreferredWidth(150);
+    tb_Clasificacion.getColumnModel().getColumn(3).setPreferredWidth(150);
+    tb_Clasificacion.getColumnModel().getColumn(4).setPreferredWidth(150);
+    tb_Clasificacion.getColumnModel().getColumn(6).setPreferredWidth(220);
     
             //Ocultar    
     tb_Clasificacion.getColumnModel().getColumn(3).setMinWidth(0);
     tb_Clasificacion.getColumnModel().getColumn(3).setMaxWidth(0);
-    tb_Clasificacion.getColumnModel().getColumn(4).setMinWidth(0);
-    tb_Clasificacion.getColumnModel().getColumn(4).setMaxWidth(0);
+    tb_Clasificacion.getColumnModel().getColumn(5).setMinWidth(0);
+    tb_Clasificacion.getColumnModel().getColumn(5).setMaxWidth(0);
     tb_Clasificacion.getSelectionModel().setSelectionInterval(0, 0);
             tb_Clasificacion.requestFocus();
 }
     
         public void LAB_Nomenclatura_cargar(){
-    try {
-             String titulos[]={"Nº","Código","Código CPT","Nomenclatura","Tiempo(hora)","Tiempo(min)"};
+     String consulta="";
+        try {
+            tb_Nomenclatura.setModel(new DefaultTableModel());
+            String titulos[]={"Nº","Código","Código CPT","Nomenclatura","Tiempo(hora)","Tiempo(min)"};
             n=new DefaultTableModel(null,titulos);
             JTable p=new JTable(n);
             String fila[]=new String[6];
 
-            Conexion obj=new Conexion();
-        String consulta="exec sp_LAB_ANALISIS_NOMEN_listar";
-        ResultSet r;
-        r=obj.Listar(consulta);
-        int c=1;
-         JCheckBox check=new JCheckBox();
-
-        while(r.next()){
-            fila[0]=String.valueOf(c)+"º";
-            fila[1]=r.getString(1);
-            fila[2]=r.getString(2);
-            fila[3]=r.getString(3);
-            fila[4]=r.getString(4);
-            fila[5]=r.getString(5);
+            LAB_Clasificacion_Examen obj=new LAB_Clasificacion_Examen();
+                    consulta="exec sp_LAB_ANALISIS_NOMEN_listar ?";
+                    
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setInt(1, Integer.parseInt(lblArea.getText()));
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=String.valueOf(c)+"º";
+                fila[1]=r.getString(1);
+                fila[2]=r.getString(2);
+                fila[3]=r.getString(3);
+                fila[4]=r.getString(4);
+                fila[5]=r.getString(5);
                 n.addRow(fila);
                 c++;
             }
@@ -226,9 +230,11 @@ DefaultTableModel m,n,muestra;
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(n);
             tb_Nomenclatura.setRowSorter(elQueOrdena);
             this.tb_Nomenclatura.setModel(n);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(rootPane, "Error en la tabla");
-    }
+            
+            
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 }
     public void LAB_Nomenclatura_formato(){
     tb_Nomenclatura.getColumnModel().getColumn(0).setPreferredWidth(50);
@@ -275,9 +281,9 @@ String filas[]=new String[6];
     }
     
     public void LAB_Muestra_formato(){
-    tb_Muestra_Examen.getColumnModel().getColumn(0).setPreferredWidth(30);
-    tb_Muestra_Examen.getColumnModel().getColumn(1).setPreferredWidth(70);
-    tb_Muestra_Examen.getColumnModel().getColumn(2).setPreferredWidth(70);
+    tb_Muestra_Examen.getColumnModel().getColumn(0).setPreferredWidth(60);
+    tb_Muestra_Examen.getColumnModel().getColumn(1).setPreferredWidth(100);
+    tb_Muestra_Examen.getColumnModel().getColumn(2).setPreferredWidth(220);
     tb_Muestra_Examen.getColumnModel().getColumn(3).setMinWidth(0);
     tb_Muestra_Examen.getColumnModel().getColumn(3).setMaxWidth(0);
       tb_Muestra_Examen.getSelectionModel().setSelectionInterval(0, 0);
@@ -403,6 +409,7 @@ public void calcula() {
                             }}};
                             btn_Agregar = new javax.swing.JButton();
                             btn_Quitar = new javax.swing.JButton();
+                            lblArea = new javax.swing.JLabel();
 
                             buscar_clasificacion.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                             buscar_clasificacion.setTitle("SISGESH.::.Clasificación Examen");
@@ -446,6 +453,7 @@ public void calcula() {
                                     "Title 1", "Title 2", "Title 3", "Title 4"
                                 }
                             ));
+                            tb_Clasificacion.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                             tb_Clasificacion.setRowHeight(25);
                             tb_Clasificacion.addMouseListener(new java.awt.event.MouseAdapter() {
                                 public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -594,6 +602,7 @@ public void calcula() {
                                     "Title 1", "Title 2", "Title 3", "Title 4"
                                 }
                             ));
+                            tb_Muestra_Examen.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                             tb_Muestra_Examen.setRowHeight(25);
                             tb_Muestra_Examen.addMouseListener(new java.awt.event.MouseAdapter() {
                                 public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -854,7 +863,7 @@ public void calcula() {
                                     .addComponent(jLabel8)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jLabel10)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                                     .addComponent(jLabel3)
                                     .addGap(8, 8, 8))
                             );
@@ -879,6 +888,11 @@ public void calcula() {
 
                             txtClasificacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
                             txtClasificacion.setEnabled(false);
+                            txtClasificacion.addKeyListener(new java.awt.event.KeyAdapter() {
+                                public void keyReleased(java.awt.event.KeyEvent evt) {
+                                    txtClasificacionKeyReleased(evt);
+                                }
+                            });
 
                             jLabel18.setText("Código:");
 
@@ -1044,6 +1058,8 @@ public void calcula() {
                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             );
 
+                            lblArea.setText("jLabel25");
+
                             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                             getContentPane().setLayout(layout);
                             layout.setHorizontalGroup(
@@ -1075,27 +1091,30 @@ public void calcula() {
                                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                            .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(txtGuarModif, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(txtCodClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                                .addGroup(layout.createSequentialGroup()
+                                                                    .addComponent(txtGuarModif, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                    .addComponent(txtCodClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addGap(18, 18, 18)
+                                                            .addComponent(lblArea)))
                                                     .addGap(0, 0, Short.MAX_VALUE))
-                                                .addGroup(layout.createSequentialGroup()
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                            .addComponent(btnBuscarClasif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(txtNomen, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(txtNombreExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(txtNomen, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(txtNombreExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jLabel17)
-                                                        .addComponent(jLabel19)))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(btnBuscarClasif, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                                                    .addComponent(jLabel13)))
+                                                        .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING))))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createSequentialGroup()
@@ -1126,7 +1145,8 @@ public void calcula() {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(txtCodNomen, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtCodClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtGuarModif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtGuarModif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblArea))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1217,6 +1237,12 @@ public void calcula() {
                   txtExplicacion.getText().equalsIgnoreCase("")||txtObservacion.getText().equalsIgnoreCase("")){
               JOptionPane.showMessageDialog(rootPane, "Ingrese todos los campos");
           }  
+          else if(me1.LAB_Analisis_Examen_ver(txtCodClasificacion.getText(),txtCodNomen.getText())>0){
+              JOptionPane.showMessageDialog(rootPane, "El Registro ya ha sido ingresado\nIntente nuevamente");
+              
+              txtClasificacion.setText("");
+              txtClasificacion.requestFocus();
+          }
          else{
               int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
                       "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
@@ -1369,17 +1395,17 @@ public void calcula() {
 
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
         // TODO add your handling code here:
-        String consulta="";
+       String consulta="";
         try {
             tb_Clasificacion.setModel(new DefaultTableModel());
-            String titulos[]={"Nº","Código","Nombre","Cod_uni_org","Observacion","Usuario"};
+            String titulos[]={"Nº","Código","Nombre","Cod_uni_org","Servicio","UniOrg","Observacion"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[6];
+            String fila[]=new String[7];
 
             LAB_Clasificacion_Examen obj=new LAB_Clasificacion_Examen();
-            consulta="exec sp_LAB_CLASIFICACION_EXAMEN_buscar ?";
-
+                    consulta="exec sp_LAB_CLASIFICACION_EXAMEN_buscar ?";
+                    
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, txtbuscarClasifi.getText());
             ResultSet r= cmd.executeQuery();
@@ -1391,6 +1417,7 @@ public void calcula() {
                 fila[3]=r.getString(3);
                 fila[4]=r.getString(4);
                 fila[5]=r.getString(5);
+                fila[6]=r.getString(6);
                 m.addRow(fila);
                 c++;
             }
@@ -1398,9 +1425,9 @@ public void calcula() {
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             tb_Clasificacion.setRowSorter(elQueOrdena);
             this.tb_Clasificacion.setModel(m);
-
+            
             LAB_Clasificacion_Examen_formato();
-
+            
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -1437,6 +1464,14 @@ public void calcula() {
                 int filaselec=tb_Clasificacion.getSelectedRow();
                 txtCodClasificacion.setText(tb_Clasificacion.getValueAt(filaselec, 1).toString());
                 txtClasificacion.setText(tb_Clasificacion.getValueAt(filaselec, 2).toString());
+                lblArea.setText(tb_Clasificacion.getValueAt(filaselec, 3).toString());
+                btnBuscarCPT.setEnabled(true);
+                 txtCodigoCPT.setText("");
+            txtCodNomen.setText("");
+            txtNomen.setText("");
+            txtTiempoHora.setText("");
+            txtTiempoMin.setText("");
+            txtNombreExamen.setText("");
             }
             catch(Exception ex)
             {
@@ -1495,10 +1530,11 @@ char tecla= evt.getKeyChar();
             String fila[]=new String[6];
 
             LAB_Clasificacion_Examen obj=new LAB_Clasificacion_Examen();
-                    consulta="exec sp_LAB_ANALISIS_NOMEN_buscar ?";
+                    consulta="exec sp_LAB_ANALISIS_NOMEN_buscar ?,?";
                     
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1, txtbuscarNomen.getText());
+            cmd.setInt(1, Integer.parseInt(lblArea.getText()));
+            cmd.setString(2, txtbuscarNomen.getText());
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -1655,6 +1691,10 @@ char tecla= evt.getKeyChar();
             JOptionPane.showMessageDialog(this, "Selecione el Detalle a eliminar");
         }
     }//GEN-LAST:event_btn_QuitarActionPerformed
+
+    private void txtClasificacionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClasificacionKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtClasificacionKeyReleased
     public void enableDatos(){
     btnBuscarClasif.setEnabled(true);
     btnBuscarCPT.setEnabled(true);
@@ -1677,6 +1717,7 @@ char tecla= evt.getKeyChar();
    if(txtCodigo.getText().equalsIgnoreCase("")){
         txtCodigo.setText("AE0000000000001");
     }
+   btnBuscarCPT.setEnabled(false);
     txtCodClasificacion.setText("");
     txtClasificacion.setText("");
     txtCodigoCPT.setText("");
@@ -1832,6 +1873,7 @@ char tecla= evt.getKeyChar();
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPanel jpanel;
+    private javax.swing.JLabel lblArea;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;
     public static javax.swing.JLabel lblUsu;

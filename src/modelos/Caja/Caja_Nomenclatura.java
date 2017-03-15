@@ -170,6 +170,30 @@ public boolean nuevaNomenclatura(){
             System.out.println("Error: cajaNomenclaturaListarEmergencia: " + e.getMessage());
         }
     }
+    
+public int CPT_verif(String nombre)
+    {
+        int resultado=0;
+        try
+        {
+            String sql = "SELECT * FROM CAJA_NOMENCLATURA_CAJA where nomen_caja=? AND estado_nomen_caja='A'";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, nombre);
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            //getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error verificacion repetidos: " + ex.getMessage());
+        }
+        return resultado;
+    }
          
       public Caja_Nomenclatura()
     {

@@ -144,6 +144,8 @@ public boolean eliminar(){
         }
         return cod;
     }
+ 
+ 
 
  public String ActoMedico(){//muestra el codigo
         String id = "";

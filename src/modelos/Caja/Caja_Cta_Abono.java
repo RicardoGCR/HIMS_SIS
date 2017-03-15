@@ -28,7 +28,7 @@ Conexion con = new Conexion();
 public boolean nuevoC(){
         boolean resp = false;
         try{
-            String sql = "exec Caja_Cta_Abono_Cabecera "
+            String sql = "exec Caja_abono_cabecera_nuevo "
                         + "?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_hc());
@@ -77,13 +77,11 @@ public boolean modificar(){
         boolean resp = false;
         try
         {
-            String sql = "Caja_Cta_Abono_MODIFICAR ?,?,?,?,?";
+            String sql = "Caja_Cta_Abono_MODIFICAR ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId_Cta_Abono());
-            cmd.setInt(2, getId_Cta_Abonoc());
-            cmd.setDouble(3, getMonto());
-            cmd.setString(4, getDocumento());
-            cmd.setString(5, getUsuario());
+            cmd.setDouble(2, getMonto());
+            cmd.setString(3, getUsuario());
 
             if(!cmd.execute())
             {
@@ -167,6 +165,29 @@ public String nomen(String tipo)
         }
         return id;
     }
+  
+   public boolean eliminar(){
+        boolean resp = false;
+        try
+        {
+            String sql = "EXEC CAJA_Eliminar_Abono ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_Cta_Abono());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_eliminar: " + ex.getMessage());
+        }
+        return resp;
+    }
+ 
   
  public Caja_Cta_Abono(){
         Conexion con = new Conexion();

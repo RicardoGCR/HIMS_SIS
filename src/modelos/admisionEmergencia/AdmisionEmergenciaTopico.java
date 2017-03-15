@@ -145,7 +145,7 @@ public class AdmisionEmergenciaTopico {
         tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//CODIGO
         tabla.getColumnModel().getColumn(1).setPreferredWidth(50);//CODIGO
         tabla.getColumnModel().getColumn(2).setPreferredWidth(500);//CODIGO
-        tabla.setRowHeight(25);
+        tabla.setRowHeight(30);
     }
     
     public void cargarDatosCie10(String descripcion,JTable tabla){

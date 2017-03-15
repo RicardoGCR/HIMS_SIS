@@ -24,6 +24,8 @@ public class LAB_Toma_Muestra_Detalle {
     private String nom_per_solicita;
     private String fecha_probable_entre;
     private String Id_Preventa;
+    private String hab_nom;
+    private String ca_desc;
     private String hora_probable_entre;
     private String nom_usu;
     
@@ -38,7 +40,7 @@ public class LAB_Toma_Muestra_Detalle {
         boolean resp = false;
         try
         {
-            String sql = "exec sp_LAB_TOMA_MUESTRA_DET_insertar ?,?,?,?,?,?,?,?,?,?";
+            String sql = "exec sp_LAB_TOMA_MUESTRA_DET_insertar ?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getCod_det_toma_mu_ana());
             cmd.setString(2, getCod_cab_toma_mu_exa());
@@ -49,7 +51,9 @@ public class LAB_Toma_Muestra_Detalle {
             cmd.setString(7, getFecha_probable_entre());
             cmd.setString(8, getHora_probable_entre());
             cmd.setString(9, getId_Preventa());
-            cmd.setString(10, getNom_usu());
+            cmd.setString(10, getHab_nom());
+            cmd.setString(11, getCa_desc());
+            cmd.setString(12, getNom_usu());
  
             if(!cmd.execute())
             {
@@ -352,6 +356,34 @@ public class LAB_Toma_Muestra_Detalle {
      */
     public void setNom_usu(String nom_usu) {
         this.nom_usu = nom_usu;
+    }
+
+    /**
+     * @return the hab_nom
+     */
+    public String getHab_nom() {
+        return hab_nom;
+    }
+
+    /**
+     * @param hab_nom the hab_nom to set
+     */
+    public void setHab_nom(String hab_nom) {
+        this.hab_nom = hab_nom;
+    }
+
+    /**
+     * @return the ca_desc
+     */
+    public String getCa_desc() {
+        return ca_desc;
+    }
+
+    /**
+     * @param ca_desc the ca_desc to set
+     */
+    public void setCa_desc(String ca_desc) {
+        this.ca_desc = ca_desc;
     }
   
 }

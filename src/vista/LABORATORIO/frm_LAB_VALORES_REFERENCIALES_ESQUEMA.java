@@ -404,7 +404,7 @@ public void calcula() {
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(titulo5))
-                        .addGap(528, 528, 528)
+                        .addGap(531, 531, 531)
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jpanelLayout.createSequentialGroup()
                                 .addComponent(jLabel15)
@@ -489,6 +489,7 @@ public void calcula() {
                         return canEdit [columnIndex];
                     }
                 });
+                tb_Esquema.setRowHeight(20);
                 tb_Esquema.setSelectionBackground(new java.awt.Color(2, 67, 115));
                 tb_Esquema.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -166,9 +166,10 @@ public void calcula() {
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false; //Disallow the editing of any cell
             }};
-            jLabel1 = new javax.swing.JLabel();
             txtBuscarUni = new javax.swing.JTextField();
             btnBuscar1 = new javax.swing.JButton();
+            jpanel3 = new javax.swing.JPanel();
+            titulo8 = new javax.swing.JLabel();
             jpanel = new javax.swing.JPanel();
             titulo5 = new javax.swing.JLabel();
             jLabel14 = new javax.swing.JLabel();
@@ -231,9 +232,6 @@ public void calcula() {
             });
             jScrollPane1.setViewportView(tb_Unidad_Organica);
 
-            jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-            jLabel1.setText("Búsqueda ");
-
             txtBuscarUni.setForeground(new java.awt.Color(0, 51, 51));
             txtBuscarUni.setText("Ingresar Unidad Orgánica");
             txtBuscarUni.addActionListener(new java.awt.event.ActionListener() {
@@ -258,14 +256,31 @@ public void calcula() {
                 }
             });
 
+            jpanel3.setBackground(new java.awt.Color(2, 67, 115));
+
+            titulo8.setBackground(new java.awt.Color(0, 102, 102));
+            titulo8.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+            titulo8.setForeground(new java.awt.Color(255, 255, 255));
+            titulo8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            titulo8.setText("Búsqueda");
+            titulo8.setToolTipText("");
+            titulo8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+            javax.swing.GroupLayout jpanel3Layout = new javax.swing.GroupLayout(jpanel3);
+            jpanel3.setLayout(jpanel3Layout);
+            jpanel3Layout.setHorizontalGroup(
+                jpanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(titulo8, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+            );
+            jpanel3Layout.setVerticalGroup(
+                jpanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(titulo8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+            );
+
             javax.swing.GroupLayout Buscar_Unidad_OrganicaLayout = new javax.swing.GroupLayout(Buscar_Unidad_Organica.getContentPane());
             Buscar_Unidad_Organica.getContentPane().setLayout(Buscar_Unidad_OrganicaLayout);
             Buscar_Unidad_OrganicaLayout.setHorizontalGroup(
                 Buscar_Unidad_OrganicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Buscar_Unidad_OrganicaLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(155, 155, 155))
                 .addGroup(Buscar_Unidad_OrganicaLayout.createSequentialGroup()
                     .addGroup(Buscar_Unidad_OrganicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(Buscar_Unidad_OrganicaLayout.createSequentialGroup()
@@ -277,23 +292,27 @@ public void calcula() {
                             .addGap(21, 21, 21)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(29, Short.MAX_VALUE))
+                .addGroup(Buscar_Unidad_OrganicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             Buscar_Unidad_OrganicaLayout.setVerticalGroup(
                 Buscar_Unidad_OrganicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Buscar_Unidad_OrganicaLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel1)
-                    .addGap(18, 18, 18)
+                    .addGap(58, 58, 58)
                     .addGroup(Buscar_Unidad_OrganicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtBuscarUni, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(51, Short.MAX_VALUE))
+                .addGroup(Buscar_Unidad_OrganicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Buscar_Unidad_OrganicaLayout.createSequentialGroup()
+                        .addComponent(jpanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 453, Short.MAX_VALUE)))
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setTitle("SISGESH .::. Muestra Examen");
+            setTitle("SISGESH .::. Clasificación Examen");
 
             jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
@@ -915,7 +934,6 @@ public void calcula() {
     public static javax.swing.JButton btneliminar;
     public static javax.swing.JButton btnguardar;
     public static javax.swing.JButton btnmodificar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -932,11 +950,13 @@ public void calcula() {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jpanel;
+    private javax.swing.JPanel jpanel3;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;
     public static javax.swing.JLabel lblUsu;
     public static javax.swing.JTable tb_Unidad_Organica;
     private javax.swing.JLabel titulo5;
+    private javax.swing.JLabel titulo8;
     private javax.swing.JTextField txtBuscarUni;
     public static javax.swing.JTextField txtClasificacion;
     public static javax.swing.JTextField txtCodUni;

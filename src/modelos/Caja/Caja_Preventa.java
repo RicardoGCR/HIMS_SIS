@@ -12,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
 import servicios.Conexion;
 
 /**
@@ -47,7 +48,12 @@ public class Caja_Preventa {
     private String EMER_OBSERVACION;
     private String ESTADO_CAJAP;
     private String cod_nomen;
+<<<<<<< HEAD
     private String cod_jerar_forma_pago;
+=======
+    private String procedencia;
+    
+>>>>>>> bd8a8b98fd452383672596e297d8528d8f831d72
     Conexion con = new Conexion();
 
     public boolean mantanimientoCajaPreventaEmergencia(String tipo)
@@ -76,6 +82,35 @@ public class Caja_Preventa {
         catch(Exception ex)
         {
             System.out.println("mantanimientoCajaPreventaEmergencia: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean mantenimientoCajaPreventaHospitalizacion(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_HOSPITALIZACION "
+                        + "?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+            cmd.setString(2, getId_hc());
+            cmd.setInt(3, getCA_ID());
+            cmd.setString(4, gethOS_Indicaciones());
+            cmd.setString(5, getCod_usu());
+            cmd.setInt(6, getAR_ID());
+            cmd.setString(7, getProcedencia());
+            cmd.setString(8, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("mantenimientoCajaPreventaHospitalizacion: " + ex.getMessage());
         }
         return resp;
     }
@@ -229,7 +264,58 @@ public class Caja_Preventa {
         return cod;
     }
     
+<<<<<<< HEAD
     
+=======
+    public String codArea(String area)
+    {
+        String cod="";
+        try
+        {
+            String sql = " select SA.AR_ID\n" +
+                        " from SISTEMA_SERVICIO SS, SISTEMA_AREAS SA, SISTEMA_CONFIGURACION_PC_AREA SP\n" +
+                        " WHERE SS.UP_ID in (02)\n" +
+                        " AND SP.SE_ID = SS.SE_ID\n" +
+                        " AND SA.AR_DESC = ?\n" +
+                        " AND SA.SE_ID = SS.SE_ID";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, area);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: codArea: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public String codCama(String cama)
+    {
+        String cod="";
+        try
+        {
+            String sql = "select ca_id\n" +
+                        "from HOSPITALIZACION_CAMAS\n" +
+                        "where CA_DESC = ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, cama);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: codCama: " + ex.getMessage());
+        }
+        return cod;
+    }
+>>>>>>> bd8a8b98fd452383672596e297d8528d8f831d72
     
     public void formatoTablaCargarFormatEmer(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(60);//id
@@ -764,6 +850,7 @@ public class Caja_Preventa {
         this.cod_nomen = cod_nomen;
     }
 
+<<<<<<< HEAD
     public String getCod_jerar_forma_pago() {
         return cod_jerar_forma_pago;
     }
@@ -773,4 +860,19 @@ public class Caja_Preventa {
     }
     
     
+=======
+    /**
+     * @return the procedencia
+     */
+    public String getProcedencia() {
+        return procedencia;
+    }
+
+    /**
+     * @param procedencia the procedencia to set
+     */
+    public void setProcedencia(String procedencia) {
+        this.procedencia = procedencia;
+    }
+>>>>>>> bd8a8b98fd452383672596e297d8528d8f831d72
 }

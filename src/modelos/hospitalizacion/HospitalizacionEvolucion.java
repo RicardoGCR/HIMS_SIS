@@ -8,7 +8,10 @@ package modelos.hospitalizacion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 
 /**
@@ -76,6 +79,59 @@ public class HospitalizacionEvolucion {
             System.out.println("hospitalizacionEvolucionID: " + ex.getMessage());
         }
         return cod;
+    }
+    
+    public void formatoTablaEvolucion(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(120);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(120);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(527);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(525);
+        tabla.setRowHeight(30);
+    }
+    
+    public void inicializarTabla(JTable tabla){
+        tabla.setModel(new DefaultTableModel());
+        String titulos[]={"ID","Fecha","Hora","Indicaciones","Evolución Clínica"};
+        m=new DefaultTableModel(null,titulos);
+        JTable p=new JTable(m);
+        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+        tabla.setRowSorter(elQueOrdena);
+        tabla.setModel(m);
+        formatoTablaEvolucion(tabla);
+    }
+    
+    public void listarEvolucion(String preventa, JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID","Fecha","Hora","Indicaciones","Evolución Clínica"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[5];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC HOSPITALIZACION_EVOLUCION_LISTAR ?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, preventa);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); // id
+                    fila[1]=r.getString(2); // id
+                    fila[2]=r.getString(3); // dni
+                    fila[3]=r.getString(4); // nhc
+                    fila[4]=r.getString(5); // nhc
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaEvolucion(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarEvolucion: " + e.getMessage());
+        }
     }
     
     public HospitalizacionEvolucion()

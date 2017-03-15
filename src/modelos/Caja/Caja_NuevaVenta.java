@@ -17,52 +17,76 @@ import servicios.Conexion;
  */
 public class Caja_NuevaVenta {
 private Connection cn;
-
+///////////////////////////////////////////////////////
 private String id_documento ;
 private String cod_tipo_documento ;
 private String cod_jerar_forma_pago ;
 private String id_hc ;
 private String cod_motiv_anu ;
 private String serie_documento ;
-private String num_documento ;
-private String cliente ;
+private String num_documento ;//////////////VENTA NUEVA
 private String dependencia ;
-private Double descuento ;
-private Double sub_total_doc ;
-private Double igv_doc ;
-private Double total_doc ;
-private String fecha_actu ;
-private String hora_actu ;
-private String estado_pago ;
-private String adelanto_doc ;
-private Double devolucion_doc ;
-private String usu_ade ;
-private String shc ;
-private String usu_facturacion ;
-private String nom_pc ;
-private String fecha_actu_anu ;
-private String hora_actu_anu ;
-private String nom_pc_anu ;
-private String cod_usu_anu ;
 private String cod_usu ;
-private String tipo_venta ;
 private String id_liquidacion ;
-private String estado_doc ;
+private int Correlativo ;
+private int Id_ActoMedico ;
+private int id_Cta_Abono ;
+private Double devolucion_doc;
+private String cod_usu_anu;
+//////////////////////////////////////////////////////
+private int ID_ACTOMEDICO1 ;
+private int NUM_ACTOMEDICO ;//////////////ACTO MEDICO
+private String FECHA_TERMINO ;
+private String DURACION ;
 
+////////////////////////////////////////////////////
 Conexion con = new Conexion();
 
-        
+public boolean NuevoActoMedico()
+        {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec CAJA_ACTO_MEDICO_NUEVO ?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_ACTOMEDICO1());
+            cmd.setInt(2, getNUM_ACTOMEDICO());
+            cmd.setString(3, getFECHA_TERMINO());
+            cmd.setString(4, getDURACION());
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
+
 public boolean Nuevo()
         {
         boolean resp = false;
         try{
-            String sql = "EXEC Caja_Cta2_INSERTAR ?,?,?,?,?";
+            String sql = "EXEC Caja_VENTA_NUEVA_CABEZERA ?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-//            cmd.setString(1, getId_cuenta2());
-//            cmd.setString(2, getId_cuenta1());
-//            cmd.setString(3, getCuenta_2());
-//            cmd.setString(4, getDescripcion());
-//            cmd.setString(5, getNom_usu());
+            cmd.setString(1, getId_documento());
+            cmd.setString(2, getCod_tipo_documento());
+            cmd.setString(3, getCod_jerar_forma_pago());
+            cmd.setString(4, getId_hc());
+            cmd.setString(5, getCod_motiv_anu());
+            cmd.setString(6, getSerie_documento());
+            cmd.setString(7, getNum_documento());
+            cmd.setString(8, getDependencia());
+            cmd.setString(9, getCod_usu());
+            cmd.setString(10, getId_liquidacion());
+            cmd.setInt(11, getCorrelativo());
+            cmd.setInt(12, getId_ActoMedico());
+            cmd.setInt(13, getId_Cta_Abono());
 
             if(!cmd.execute())
             {
@@ -77,8 +101,66 @@ public boolean Nuevo()
         }
         return resp;
     }
-    
-    
+
+public boolean eliminar(){
+        boolean resp = false;
+        try
+        {
+            String sql = "EXEC CAJA_ELIMINAR_CABECERA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_documento());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_eliminar: " + ex.getMessage());
+        }
+        return resp;
+    }
+
+ public String codUsuario(String nombreUsuario)
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT USU_CODIGO FROM USUARIO WHERE Usu_Usuario = ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, nombreUsuario);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_codUsuario: " + ex.getMessage());
+        }
+        return cod;
+    }
+ 
+ 
+
+ public String ActoMedico(){//muestra el codigo
+        String id = "";
+        try {
+            String consulta = "exec CAJA_ID_ACTOMEDICO";
+            ResultSet r;
+            r=con.Listar(consulta);
+        if(r.next()){
+               id = r.getString(1);
+        }
+        }catch(Exception ex){
+            System.out.println("Error " + ex.getMessage());
+        }
+        return id;
+    }
 public String id(){//muestra el codigo
         String id = "";
         try {
@@ -94,20 +176,7 @@ public String id(){//muestra el codigo
         return id;
     }
 
-public String idanu(){//muestra el codigo
-        String id = "";
-        try {
-            String consulta = "exec Caja_Motiv_Anu_Id";
-            ResultSet r;
-            r=con.Listar(consulta);
-        if(r.next()){
-               id = r.getString(1);
-        }
-        }catch(Exception ex){
-            System.out.println("Error " + ex.getMessage());
-        }
-        return id;
-    }
+
 
 public String sinanulacion(){//muestra el codigo
         String id = "";
@@ -170,17 +239,16 @@ public String anular(String tipo)
         return cod;
     }
 
-public boolean modificar(){
+public boolean modificarAnulacion(){
         boolean resp = false;
         try
         {
-            String sql = "Exec Caja_Cta2_Actualizar ?,?,?,?,?";
+            String sql = "Exec CAJA_VENTA_CABECERA_ANULACION ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-//            cmd.setString(1, getId_cuenta2());
-//            cmd.setString(2, getId_cuenta1());
-//            cmd.setString(3, getCuenta_2());
-//            cmd.setString(4, getDescripcion());
-//            cmd.setString(5, getNom_usu());
+            cmd.setString(1, getId_documento());
+            cmd.setString(2, getCod_motiv_anu());
+            cmd.setDouble(3, getDevolucion_doc());
+            cmd.setString(4, getCod_usu_anu());
 
             if(!cmd.execute())
             {
@@ -265,156 +333,12 @@ public boolean modificar(){
         this.num_documento = num_documento;
     }
 
-    public String getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
-    }
-
     public String getDependencia() {
         return dependencia;
     }
 
     public void setDependencia(String dependencia) {
         this.dependencia = dependencia;
-    }
-
-    public Double getDescuento() {
-        return descuento;
-    }
-
-    public void setDescuento(Double descuento) {
-        this.descuento = descuento;
-    }
-
-    public Double getSub_total_doc() {
-        return sub_total_doc;
-    }
-
-    public void setSub_total_doc(Double sub_total_doc) {
-        this.sub_total_doc = sub_total_doc;
-    }
-
-    public Double getIgv_doc() {
-        return igv_doc;
-    }
-
-    public void setIgv_doc(Double igv_doc) {
-        this.igv_doc = igv_doc;
-    }
-
-    public Double getTotal_doc() {
-        return total_doc;
-    }
-
-    public void setTotal_doc(Double total_doc) {
-        this.total_doc = total_doc;
-    }
-
-    public String getFecha_actu() {
-        return fecha_actu;
-    }
-
-    public void setFecha_actu(String fecha_actu) {
-        this.fecha_actu = fecha_actu;
-    }
-
-    public String getHora_actu() {
-        return hora_actu;
-    }
-
-    public void setHora_actu(String hora_actu) {
-        this.hora_actu = hora_actu;
-    }
-
-    public String getEstado_pago() {
-        return estado_pago;
-    }
-
-    public void setEstado_pago(String estado_pago) {
-        this.estado_pago = estado_pago;
-    }
-
-    public String getAdelanto_doc() {
-        return adelanto_doc;
-    }
-
-    public void setAdelanto_doc(String adelanto_doc) {
-        this.adelanto_doc = adelanto_doc;
-    }
-
-    public Double getDevolucion_doc() {
-        return devolucion_doc;
-    }
-
-    public void setDevolucion_doc(Double devolucion_doc) {
-        this.devolucion_doc = devolucion_doc;
-    }
-
-    public String getUsu_ade() {
-        return usu_ade;
-    }
-
-    public void setUsu_ade(String usu_ade) {
-        this.usu_ade = usu_ade;
-    }
-
-    public String getShc() {
-        return shc;
-    }
-
-    public void setShc(String shc) {
-        this.shc = shc;
-    }
-
-    public String getUsu_facturacion() {
-        return usu_facturacion;
-    }
-
-    public void setUsu_facturacion(String usu_facturacion) {
-        this.usu_facturacion = usu_facturacion;
-    }
-
-    public String getNom_pc() {
-        return nom_pc;
-    }
-
-    public void setNom_pc(String nom_pc) {
-        this.nom_pc = nom_pc;
-    }
-
-    public String getFecha_actu_anu() {
-        return fecha_actu_anu;
-    }
-
-    public void setFecha_actu_anu(String fecha_actu_anu) {
-        this.fecha_actu_anu = fecha_actu_anu;
-    }
-
-    public String getHora_actu_anu() {
-        return hora_actu_anu;
-    }
-
-    public void setHora_actu_anu(String hora_actu_anu) {
-        this.hora_actu_anu = hora_actu_anu;
-    }
-
-    public String getNom_pc_anu() {
-        return nom_pc_anu;
-    }
-
-    public void setNom_pc_anu(String nom_pc_anu) {
-        this.nom_pc_anu = nom_pc_anu;
-    }
-
-    public String getCod_usu_anu() {
-        return cod_usu_anu;
-    }
-
-    public void setCod_usu_anu(String cod_usu_anu) {
-        this.cod_usu_anu = cod_usu_anu;
     }
 
     public String getCod_usu() {
@@ -425,14 +349,6 @@ public boolean modificar(){
         this.cod_usu = cod_usu;
     }
 
-    public String getTipo_venta() {
-        return tipo_venta;
-    }
-
-    public void setTipo_venta(String tipo_venta) {
-        this.tipo_venta = tipo_venta;
-    }
-
     public String getId_liquidacion() {
         return id_liquidacion;
     }
@@ -441,14 +357,83 @@ public boolean modificar(){
         this.id_liquidacion = id_liquidacion;
     }
 
-    public String getEstado_doc() {
-        return estado_doc;
+    public int getCorrelativo() {
+        return Correlativo;
     }
 
-    public void setEstado_doc(String estado_doc) {
-        this.estado_doc = estado_doc;
+    public void setCorrelativo(int Correlativo) {
+        this.Correlativo = Correlativo;
     }
 
+    public int getId_ActoMedico() {
+        return Id_ActoMedico;
+    }
+
+    public void setId_ActoMedico(int Id_ActoMedico) {
+        this.Id_ActoMedico = Id_ActoMedico;
+    }
+
+    public int getId_Cta_Abono() {
+        return id_Cta_Abono;
+    }
+
+    public void setId_Cta_Abono(int id_Cta_Abono) {
+        this.id_Cta_Abono = id_Cta_Abono;
+    }
+
+    public Double getDevolucion_doc() {
+        return devolucion_doc;
+    }
+
+    public void setDevolucion_doc(Double devolucion_doc) {
+        this.devolucion_doc = devolucion_doc;
+    }
+
+    public String getCod_usu_anu() {
+        return cod_usu_anu;
+    }
+
+    public void setCod_usu_anu(String cod_usu_anu) {
+        this.cod_usu_anu = cod_usu_anu;
+    }
+    
+    
+///////////////////////////////////////////////ACTO MEDICO
+
+    public int getID_ACTOMEDICO1() {
+        return ID_ACTOMEDICO1;
+    }
+
+    public void setID_ACTOMEDICO1(int ID_ACTOMEDICO1) {
+        this.ID_ACTOMEDICO1 = ID_ACTOMEDICO1;
+    }
+
+    public int getNUM_ACTOMEDICO() {
+        return NUM_ACTOMEDICO;
+    }
+
+    public void setNUM_ACTOMEDICO(int NUM_ACTOMEDICO) {
+        this.NUM_ACTOMEDICO = NUM_ACTOMEDICO;
+    }
+
+    public String getFECHA_TERMINO() {
+        return FECHA_TERMINO;
+    }
+
+    public void setFECHA_TERMINO(String FECHA_TERMINO) {
+        this.FECHA_TERMINO = FECHA_TERMINO;
+    }
+
+    public String getDURACION() {
+        return DURACION;
+    }
+
+    public void setDURACION(String DURACION) {
+        this.DURACION = DURACION;
+    }
+    
+    
+    
     public Conexion getCon() {
         return con;
     }
@@ -457,6 +442,4 @@ public boolean modificar(){
         this.con = con;
     }
 
-   
- 
 }

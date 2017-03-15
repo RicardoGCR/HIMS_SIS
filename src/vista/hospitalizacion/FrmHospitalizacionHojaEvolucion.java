@@ -6,9 +6,21 @@
 package vista.hospitalizacion;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
+import javax.swing.SpinnerModel;
+import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
+import modelos.hospitalizacion.HospitalizacionEvolucion;
 import modelos.hospitalizacion.HospitalizacionPapeletas;
 
 /**
@@ -16,6 +28,7 @@ import modelos.hospitalizacion.HospitalizacionPapeletas;
  * @author PC02
  */
 public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
+
 
     /**
      * Creates new form FrmHospitalizacionHojaEvolucion
@@ -62,6 +75,7 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         txtPaciente.setEnabled(opcion);
         txtIndicaciones.setEnabled(opcion);
         txtEvolucion.setEnabled(opcion);
+        spHora.setEnabled(opcion);
     }
     
     public void limpiar(){
@@ -73,7 +87,63 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         txtIndicaciones.setText("");
         txtEvolucion.setText("");
     }
-  
+    
+    public void enviarDatosPac(){
+        int fila = tbPacientesHosp.getSelectedRow();
+        FrmHospitalizacionHojaEvolucion.txtIDPreventa.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 0)));
+        FrmHospitalizacionHojaEvolucion.txtActoMedico.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 2)));
+        FrmHospitalizacionHojaEvolucion.txtNHC.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 3)));
+        FrmHospitalizacionHojaEvolucion.txtDNI.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 4)));
+        FrmHospitalizacionHojaEvolucion.txtPaciente.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 5)));
+        FrmHospitalizacionHojaEvolucion.txtNroCama.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 7)));
+    }
+    
+    public boolean guardarDatosEvolucion(){
+        boolean retorna = false;
+        try {
+            ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+            AdmisionEmergenciaCabecera adEmerCab5 = new AdmisionEmergenciaCabecera();
+            if(txtActoMedico.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Seleccine un paciente");
+            } else {
+                //int id = Integer.parseInt(txtID.getText());
+                int id_preventa = Integer.parseInt(txtIDPreventa.getText());
+                String indicaciones = txtIndicaciones.getText();
+                String evolucion = txtEvolucion.getText();
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat formatoHora =  new SimpleDateFormat("HH:mm:ss");
+                String fecha = formatoFecha.format(spHora.getValue());
+                String hora = formatoHora.format(spHora.getValue());
+                String cod_usu = adEmerCab5.codUsuario(lblUsuUsuario.getText());
+                HospitalizacionEvolucion hosEv = new HospitalizacionEvolucion();
+                int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+                               "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                if(guardar == 0){
+                    hosEv.setEvolucion(evolucion);
+                    hosEv.setIndicaciones(indicaciones);
+                    hosEv.setFecha_ev(fecha);
+                    hosEv.setHora_ev(hora);
+                    hosEv.setPreventa(id_preventa);
+                    hosEv.setUsuario(cod_usu);
+                    if(hosEv.mantenimientoHospitalizacionEvolucion(lblMant.getText())==true){
+                        txtIdHe.setText(hosEv.hospitalizacionEvolucionID());
+                        JOptionPane.showMessageDialog(this, "Hoja de Evolución Guardada");
+                        limpiar();
+                        habilitarDatos(false);
+                        txtIDPreventa.setText("");
+                        lblMant.setText("");
+                    } else
+                        JOptionPane.showMessageDialog(this, "No se realizó ningun registro");
+                }else{
+                        JOptionPane.showMessageDialog(this, "No se realizó ningun registro");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: guardarDatosEvolucion" + e.getMessage());
+        }
+        return retorna;
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -96,6 +166,10 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         btnBuscarPac = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        txtIDPreventa = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
+        lblMant = new javax.swing.JLabel();
+        txtIdHe = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtEvolucion = new javax.swing.JEditorPane();
@@ -103,8 +177,6 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         txtIndicaciones = new javax.swing.JEditorPane();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        spHora = new javax.swing.JSpinner();
-        dtFecha = new com.toedter.calendar.JDateChooser();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
@@ -117,8 +189,8 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         txtPaciente = new javax.swing.JTextField();
         txtNroCama = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        spHora = new javax.swing.JSpinner();
 
         FrmBuscarPaciente.setAlwaysOnTop(true);
         FrmBuscarPaciente.setMinimumSize(new java.awt.Dimension(750, 450));
@@ -261,7 +333,6 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         btnGuardar.setToolTipText("Guardar (Alt + G)");
         btnGuardar.setContentAreaFilled(false);
         btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnGuardar.setEnabled(false);
         btnGuardar.setFocusable(false);
         btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnGuardar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -336,6 +407,16 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         jLabel7.setText("Alt + B");
         jPanel8.add(jLabel7);
         jLabel7.setBounds(170, 110, 50, 20);
+        jPanel8.add(txtIDPreventa);
+        txtIDPreventa.setBounds(370, 100, 210, 20);
+        jPanel8.add(txtID);
+        txtID.setBounds(620, 100, 70, 20);
+
+        lblMant.setText("jLabel9");
+        jPanel8.add(lblMant);
+        lblMant.setBounds(700, 100, 34, 14);
+        jPanel8.add(txtIdHe);
+        txtIdHe.setBounds(480, 40, 230, 40);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -352,11 +433,6 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel2.setText("Evolución");
-
-        spHora.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1489078580011L), null, null, java.util.Calendar.YEAR));
-        spHora.setEnabled(false);
-
-        dtFecha.setEnabled(false);
 
         jScrollPane3.setBorder(null);
 
@@ -377,38 +453,48 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         jLabel4.setText("Acto Médico:");
 
         txtActoMedico.setEditable(false);
+        txtActoMedico.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        txtActoMedico.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtActoMedico.setEnabled(false);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel3.setText("Nº H.C.");
 
         txtNHC.setEditable(false);
+        txtNHC.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        txtNHC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNHC.setEnabled(false);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel5.setText("DNI:");
 
         txtDNI.setEditable(false);
+        txtDNI.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        txtDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDNI.setEnabled(false);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel6.setText("Paciente:");
 
         txtPaciente.setEditable(false);
+        txtPaciente.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        txtPaciente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPaciente.setEnabled(false);
 
         txtNroCama.setEditable(false);
         txtNroCama.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        txtNroCama.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNroCama.setEnabled(false);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel8.setText("Nº de Cama:");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        jLabel9.setText("Fecha:");
-
         jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        jLabel10.setText("Hora:");
+        jLabel10.setText("Fecha y Hora:");
+
+        spHora.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        spHora.setModel(new javax.swing.SpinnerDateModel());
+        spHora.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -418,86 +504,72 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane2)
-                                .addContainerGap())))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(dtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtActoMedico, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNHC, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtNHC, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNroCama, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(spHora)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNroCama, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spHora, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane2)))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNHC)
+                    .addComponent(txtDNI)
+                    .addComponent(txtPaciente)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
-                        .addComponent(txtNroCama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNroCama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10)
+                        .addComponent(spHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtActoMedico)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
-                        .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)
                         .addComponent(jLabel5)
-                        .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6)
-                        .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel6)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(dtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(spHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel10))
-                    .addComponent(jLabel9))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -528,10 +600,18 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-
+        try { 
+            limpiar();
+            habilitarDatos(true);
+            lblMant.setText("I");
+        } catch (Exception e) {
+            System.out.println("Error: btnNuevo" + e.getMessage());
+        }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+         guardarDatosEvolucion();
+
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -558,7 +638,15 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     }//GEN-LAST:event_tbPacientesHospMouseClicked
 
     private void tbPacientesHospKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPacientesHospKeyPressed
-        
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_UP && tbPacientesHosp.getSelectedRow()==0){
+            tbPacientesHosp.getSelectionModel().setSelectionInterval(0,0);
+            txtBuscarPaciente.requestFocus();
+        }
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            FrmBuscarPaciente.dispose();
+            enviarDatosPac();
+        }
     }//GEN-LAST:event_tbPacientesHospKeyPressed
 
     private void txtBuscarPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPacienteCaretUpdate
@@ -613,7 +701,6 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
-    private com.toedter.calendar.JDateChooser dtFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel16;
@@ -625,7 +712,6 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -634,8 +720,9 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblUsuUsuario;
-    private javax.swing.JSpinner spHora;
+    public static javax.swing.JSpinner spHora;
     private javax.swing.JTable tbPacientesHosp;
     private javax.swing.JLabel titulo5;
     private javax.swing.JLabel titulo6;
@@ -643,6 +730,9 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     private javax.swing.JTextField txtBuscarPaciente;
     public static javax.swing.JTextField txtDNI;
     private javax.swing.JEditorPane txtEvolucion;
+    private javax.swing.JTextField txtID;
+    public static javax.swing.JTextField txtIDPreventa;
+    private javax.swing.JTextField txtIdHe;
     private javax.swing.JEditorPane txtIndicaciones;
     public static javax.swing.JTextField txtNHC;
     public static javax.swing.JTextField txtNroCama;

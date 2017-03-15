@@ -60,6 +60,12 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         hospEx.inicializarTabla(tbDiagPresuntivo);
         hospEx.inicializarTabla(tbDiagPrincipal);
         hospEx.inicializarTabla(tbDiagSindromico);
+        txtID.setVisible(false);
+        txtIDMod.setVisible(false);
+        txtIDTriaje.setVisible(false);
+        lblIdHC.setVisible(false);
+        lblMant.setVisible(false);
+        txtIdPreventa.setVisible(false);
     }
     
     public void cerrar (){
@@ -107,6 +113,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
        txtSistemaNeuro.setText("");
        txtMedico.setText("");
        txtCodigoMedico.setText("");
+       txtIDMod.setText("");
         DefaultTableModel modelo1 = (DefaultTableModel)tbDiagSindromico.getModel(); 
         int b=tbDiagSindromico.getRowCount();
         for(int j=0;j<b;j++){
@@ -116,6 +123,16 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         int b2=tbDiagPrincipal.getRowCount();
         for(int j=0;j<b2;j++){
                     modelo2.removeRow(0);
+        }
+       DefaultTableModel modelo3 = (DefaultTableModel)tbDiagPresuntivo.getModel(); 
+        int b3=tbDiagPresuntivo.getRowCount();
+        for(int j=0;j<b3;j++){
+                    modelo3.removeRow(0);
+        }
+        DefaultTableModel modelo4 = (DefaultTableModel)tbDiagDefinitivo.getModel(); 
+        int b4=tbDiagDefinitivo.getRowCount();
+        for(int j=0;j<b4;j++){
+                    modelo4.removeRow(0);
         }
     }
     
@@ -475,6 +492,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
     public void enviarDatosExClinico(){
         int fila = tbExClinico.getSelectedRow();
         FrmHospitalizacionExClinico.txtIDMod.setText(String.valueOf(tbExClinico.getValueAt(fila, 0)));
+        FrmHospitalizacionExClinico.txtIdPreventa.setText(String.valueOf(tbExClinico.getValueAt(fila, 1)));
         FrmHospitalizacionExClinico.txtActoMedico.setText(String.valueOf(tbExClinico.getValueAt(fila, 2)));
         FrmHospitalizacionExClinico.txtDNI.setText(String.valueOf(tbExClinico.getValueAt(fila, 3)));
         FrmHospitalizacionExClinico.txtNHC.setText(String.valueOf(tbExClinico.getValueAt(fila, 4)));
@@ -2368,7 +2386,6 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        
             try {
             HospitalizacionExamenClinico hose = new HospitalizacionExamenClinico();
             if(hose.idHospitalizacionExamenClinico()!=0){
@@ -2380,6 +2397,8 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
             habilitarCampos(true);
             btnGuardar.setEnabled(true);
             lblMant.setText("I");
+            btnModificar.setEnabled(false);
+            btnEliminar.setEnabled(false);
         } catch (Exception e) {
             System.out.println("Error: btnNuevo " + e.getMessage());
         }
@@ -2401,7 +2420,28 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
+        HospitalizacionExamenClinico hosp3 = new HospitalizacionExamenClinico();
+        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea ELIMINAR los datos?",
+                               "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+        if(eliminar == 0){
+            hosp3.setHec_id(Integer.parseInt(txtIDMod.getText()));
+            if(hosp3.mantenimientoHospitalizacionExClinico("E")){
+                JOptionPane.showMessageDialog(this, "Examen Clínico eliminado");
+                btnEliminar.setEnabled(false);
+                btnGuardar.setEnabled(false);
+                btnModificar.setEnabled(false);
+                limpiar();
+                habilitarCampos(false);
+            } else{
+                JOptionPane.showMessageDialog(this, "Ocurrió un error al eliminar");
+                btnEliminar.setEnabled(false);
+                btnGuardar.setEnabled(false);
+                btnModificar.setEnabled(false);
+                limpiar();
+                habilitarCampos(false);
+            }
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void tbPacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPacKeyPressed
@@ -2634,7 +2674,9 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
     }//GEN-LAST:event_tbMedicosKeyPressed
 
     private void txtBuscarMedicoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarMedicoCaretUpdate
-        // TODO add your handling code here:
+        HospitalizacionExamenClinico hospe = new HospitalizacionExamenClinico();
+        hospe.listarMedicos(txtBuscarMedico.getText(), tbMedicos);
+        txtBuscarMedico.requestFocus();
     }//GEN-LAST:event_txtBuscarMedicoCaretUpdate
 
     private void txtBuscarMedicoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarMedicoKeyPressed
@@ -2642,7 +2684,7 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscarMedicoKeyPressed
 
     private void btnBuscarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacActionPerformed
-
+        
         FrmBuscarPac.setVisible(true);
         FrmBuscarPac.setLocationRelativeTo(null);//en el centro
         FrmBuscarPac.setResizable(false);
@@ -2676,6 +2718,9 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         HospitalizacionExamenClinico hosp = new HospitalizacionExamenClinico();
         hosp.listarExClinico(txtBuscarExClinico.getText(), tbExClinico);
         txtBuscarExClinico.requestFocus();
+        btnGuardar.setEnabled(false);
+        btnModificar.setEnabled(false);
+        btnEliminar.setEnabled(false);
     }//GEN-LAST:event_btnBuscarExClinicoActionPerformed
 
     private void txtBuscarExClinicoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarExClinicoCaretUpdate

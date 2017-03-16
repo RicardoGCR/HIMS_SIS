@@ -56,12 +56,12 @@ DefaultTableModel m,n,muestra;
         c.conectar();
         // this.setExtendedState(MAXIMIZED_BOTH);
                 
-       LAB_Toma_Muestra_Cabecera u=new LAB_Toma_Muestra_Cabecera();
+        LAB_Toma_Muestra_Cabecera u=new LAB_Toma_Muestra_Cabecera();
         txtCodigo.setText(u.LAB_Toma_Muestra_Cab_generarid("1"));
         if(txtCodigo.getText().equalsIgnoreCase("")){
         txtCodigo.setText("TC000000000000000001");
         }
-     LAB_Toma_Muestra_Cabecera num=new LAB_Toma_Muestra_Cabecera();
+        LAB_Toma_Muestra_Cabecera num=new LAB_Toma_Muestra_Cabecera();
         txtNum.setText(num.LAB_Toma_Muestra_Cab_generarid("2"));
         if(txtNum.getText().equalsIgnoreCase("")){
         txtNum.setText("000000000001");
@@ -681,11 +681,11 @@ public void calcula() {
 
                         },
                         new String [] {
-                            "idcoddet", "cod_exa_ana", "codigo caja", "Código CPT", "Nomenclatura", "Servicio/Área", "cod_per_solicita", "Personal Solicita", "Fecha de Entrega", "Hora de Entrega", "id_preventa", "Habitacion", "Cama"
+                            "idcoddet", "cod_exa_ana", "codigo caja", "Código CPT", "Nomenclatura", "Servicio/Área", "cod_per_solicita", "Personal Solicita", "Fecha de Entrega", "Hora de Entrega", "id_preventa", "Habitacion", "Cama", "Servicio"
                         }
                     ) {
                         boolean[] canEdit = new boolean [] {
-                            false, false, false, false, false, false, false, false, false, false, false, false, false
+                            false, false, false, false, false, false, false, false, false, false, false, false, false, false
                         };
 
                         public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -710,6 +710,9 @@ public void calcula() {
                         }
                     });
                     tb_Detalle.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyPressed(java.awt.event.KeyEvent evt) {
+                            tb_DetalleKeyPressed(evt);
+                        }
                         public void keyTyped(java.awt.event.KeyEvent evt) {
                             tb_DetalleKeyTyped(evt);
                         }
@@ -1521,17 +1524,19 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
                     LAB_Toma_Muestra_Detalle idpreventa=new LAB_Toma_Muestra_Detalle();
                      LAB_Toma_Muestra_Detalle habit=new LAB_Toma_Muestra_Detalle();
                      LAB_Toma_Muestra_Detalle cama=new LAB_Toma_Muestra_Detalle();
-                     
-                    frm_LAB_TOMA_MUESTRA_DETALLE.lblHospi.setText("Hospitalizado");
+                    LAB_Toma_Muestra_Detalle serv=new LAB_Toma_Muestra_Detalle();
+                    
                     frm_LAB_TOMA_MUESTRA_DETALLE.lblid_preventa.setText(idpreventa.LAB_Toma_Muestra_Hospi_idPreventa(lblHc.getText()));
                     frm_LAB_TOMA_MUESTRA_DETALLE.txtHabitacion.setText(habit.LAB_Toma_Muestra_Hospi_habitacion(lblHc.getText()));
                     frm_LAB_TOMA_MUESTRA_DETALLE.txtCama.setText(cama.LAB_Toma_Muestra_Hospi_cama(lblHc.getText()));
+                    frm_LAB_TOMA_MUESTRA_DETALLE.lblHospi.setText(serv.LAB_Toma_Muestra_Hospi_cama(lblHc.getText()));
                     
                 }else{
-                    frm_LAB_TOMA_MUESTRA_DETALLE.lblHospi.setText("No Hospitalizado");
+                    
                     frm_LAB_TOMA_MUESTRA_DETALLE.lblid_preventa.setText("");
                     frm_LAB_TOMA_MUESTRA_DETALLE.txtHabitacion.setText("--");
                     frm_LAB_TOMA_MUESTRA_DETALLE.txtCama.setText("--");
+                    frm_LAB_TOMA_MUESTRA_DETALLE.lblHospi.setText("");
                 }
                 
                 
@@ -1602,6 +1607,10 @@ public void Muestras_cargar(String nomen,String area){
         frm_LAB_TOMA_MUESTRA_INGRESO tmi=new frm_LAB_TOMA_MUESTRA_INGRESO();
         tmi.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tb_DetalleKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_DetalleKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tb_DetalleKeyPressed
     public void enableDatos(){
     tb_Detalle.setEnabled(true);
     tb_Detalle.setBackground(Color.white);

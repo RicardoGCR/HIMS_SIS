@@ -23,6 +23,7 @@ public class LAB_Resultado_Muestra_Cabecera {
      private String nombre_personal_resultado;
      private String cod_per_regis_resul;
      private String nombre_personal_regis_resul;
+     private String result_PN;
     private String nom_usu;
     
     public LAB_Resultado_Muestra_Cabecera(){
@@ -34,16 +35,15 @@ public class LAB_Resultado_Muestra_Cabecera {
      public boolean LAB_Resultado_Muestra_Cab_guardar(){
         boolean resp = false;
         try{
-            String sql = "exec sp_LAB_RESULTADO_MUESTRA_CAB_insertar ?,?,?,?,?,?,?,?";
+            String sql = "exec sp_LAB_RESULTADO_MUESTRA_CAB_insertar ?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getCod_cab_resultado_mu_ana());
-            cmd.setString(2, getNum_resul_exa());
-            cmd.setString(3, getCod_det_toma_mu_ana());
-            cmd.setString(4, getCod_per_resultado());
-            cmd.setString(5, getNombre_personal_resultado());
-            cmd.setString(6, getCod_per_regis_resul());
-            cmd.setString(7, getNombre_personal_regis_resul());
-            cmd.setString(8, getNom_usu());
+            cmd.setString(1, getCod_det_toma_mu_ana());
+            cmd.setString(2, getCod_per_resultado());
+            cmd.setString(3, getNombre_personal_resultado());
+            cmd.setString(4, getCod_per_regis_resul());
+            cmd.setString(5, getNombre_personal_regis_resul());
+            cmd.setString(6, getResult_PN());
+            cmd.setString(7, getNom_usu());
  
             if(!cmd.execute())
             {
@@ -222,6 +222,20 @@ public class LAB_Resultado_Muestra_Cabecera {
      */
     public void setNom_usu(String nom_usu) {
         this.nom_usu = nom_usu;
+    }
+
+    /**
+     * @return the result_PN
+     */
+    public String getResult_PN() {
+        return result_PN;
+    }
+
+    /**
+     * @param result_PN the result_PN to set
+     */
+    public void setResult_PN(String result_PN) {
+        this.result_PN = result_PN;
     }
   
 }

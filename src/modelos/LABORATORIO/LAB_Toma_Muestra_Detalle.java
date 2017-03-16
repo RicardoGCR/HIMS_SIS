@@ -203,6 +203,28 @@ public class LAB_Toma_Muestra_Detalle {
         }
         return cod;
     }
+    public String LAB_Toma_Muestra_Hospi_Servicio(String idhc)
+    {
+        String cod="";
+        try
+        {
+            String sql = "sp_TOMA_MUESTRA_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(4);
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return cod;
+    }
 
     /**
      * @return the cn

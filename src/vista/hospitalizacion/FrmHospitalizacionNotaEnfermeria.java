@@ -9,8 +9,13 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.SimpleDateFormat;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.hospitalizacion.HospitalizacionEvolucion;
+import modelos.hospitalizacion.HospitalizacionNotaEnfermeria;
 import modelos.hospitalizacion.HospitalizacionPapeletas;
 
 /**
@@ -41,6 +46,10 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
         cerrar();
         HospitalizacionEvolucion hosEv = new HospitalizacionEvolucion();
         hosEv.inicializarTabla(tbNotEnf);
+        txtIDPreventa.setVisible(false);
+        lblMant.setVisible(false);
+        txtID.setVisible(false);
+        txtIdHe.setVisible(false);
     }
     
     public void cerrar (){
@@ -65,6 +74,12 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
         FrmHospitalizacionNotaEnfermeria.txtDNI.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 4)));
         FrmHospitalizacionNotaEnfermeria.txtPaciente.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 5)));
         FrmHospitalizacionNotaEnfermeria.txtNroCama.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 7)));
+        txtIndicaciones.setText("");
+        txtNotEnfermeria.setText("");
+        btnModificar.setEnabled(false);
+        btnEliminar.setEnabled(false);
+        btnGuardar.setEnabled(true);
+        lblMant.setText("I");
     }
     
     public void habilitarDatos(boolean opcion){
@@ -74,8 +89,8 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
         txtNHC.setEnabled(opcion);
         txtNroCama.setEnabled(opcion);
         txtPaciente.setEnabled(opcion);
+        txtNotEnfermeria.setEnabled(opcion);
         txtIndicaciones.setEnabled(opcion);
-        txtEvolucion.setEnabled(opcion);
         spHora.setEnabled(opcion);
     }
     
@@ -85,10 +100,126 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
         txtNHC.setText("");
         txtNroCama.setText("");
         txtPaciente.setText("");
+        txtNotEnfermeria.setText("");
         txtIndicaciones.setText("");
-        txtEvolucion.setText("");
         txtIDPreventa.setText("");
         txtIdHe.setText("");
+    }
+    
+    public boolean guardarDatosNotaEnfermeria(){
+        boolean retorna = false;
+        try {
+            ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+            AdmisionEmergenciaCabecera adEmerCab5 = new AdmisionEmergenciaCabecera();
+            if(txtNotEnfermeria.getText().equals("") || txtIndicaciones.getText().equals("") || txtActoMedico.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Debe completar todos los datos porfavor");
+            } else {
+                //int id = Integer.parseInt(txtID.getText());
+                int id_preventa = Integer.parseInt(txtIDPreventa.getText());
+                String indicaciones = txtIndicaciones.getText();
+                String notEnfermeria = txtNotEnfermeria.getText();
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat formatoHora =  new SimpleDateFormat("HH:mm:ss");
+                String fecha = formatoFecha.format(spHora.getValue());
+                String hora = formatoHora.format(spHora.getValue());
+                String cod_usu = adEmerCab5.codUsuario(lblUsuUsuario.getText());
+                HospitalizacionNotaEnfermeria hosEnf = new HospitalizacionNotaEnfermeria();
+                int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+                               "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                if(guardar == 0){
+                    hosEnf.setNota_enfermeria(notEnfermeria);
+                    hosEnf.setIndicaciones(indicaciones);
+                    hosEnf.setFecha_not(fecha);
+                    hosEnf.setHora_not(hora);
+                    hosEnf.setPreventa(id_preventa);
+                    hosEnf.setUsuario(cod_usu);
+                    if(hosEnf.mantenimientoHospitalizacionNotEnfermeria(lblMant.getText())==true){
+                        txtIdHe.setText(hosEnf.hospitalizacionNotaEnfID());
+                        JOptionPane.showMessageDialog(this, "Nota de enfermería Guardada");
+                        hosEnf.listarNotaEnf(txtIDPreventa.getText(), tbNotEnf);
+                        txtNotEnfermeria.setText("");
+                        txtIndicaciones.setText("");
+                        lblMant.setText("I");
+                        btnGuardar.setEnabled(true);
+                        btnModificar.setEnabled(false);
+                        btnEliminar.setEnabled(false);
+                    } else
+                        JOptionPane.showMessageDialog(this, "No se realizó ningun registro");
+                }else{
+                        JOptionPane.showMessageDialog(this, "No se realizó ningun registro");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: guardarDatosNotaEnfermeria" + e.getMessage());
+        }
+        return retorna;
+    }
+    
+    public boolean modificarDatosNotEnfemeria(){
+        boolean retorna = false;
+        try {
+            ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+            if(txtIndicaciones.getText().equals("") || txtNotEnfermeria.getText().equals("") || txtActoMedico.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Debe completar todos los datos porfavor");
+            } else {
+                int fila = tbNotEnf.getSelectedRow();
+                int id_preventa = Integer.parseInt(txtIDPreventa.getText());
+                String indicaciones = txtIndicaciones.getText();
+                String notEnfermeria = txtNotEnfermeria.getText();
+                HospitalizacionNotaEnfermeria hosEnf = new HospitalizacionNotaEnfermeria();
+                int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",
+                               "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                if(guardar == 0){
+                    hosEnf.setId(Integer.parseInt(String.valueOf(tbNotEnf.getValueAt(fila, 0))));
+                    hosEnf.setNota_enfermeria(notEnfermeria);
+                    hosEnf.setIndicaciones(indicaciones);
+                    hosEnf.setPreventa(id_preventa);
+                    if(hosEnf.mantenimientoHospitalizacionNotEnfermeria(lblMant.getText())==true){
+                        txtIdHe.setText(hosEnf.hospitalizacionNotaEnfID());
+                        JOptionPane.showMessageDialog(this, "Nota de Enfermeria Modificada");
+                        hosEnf.listarNotaEnf(txtIDPreventa.getText(), tbNotEnf);
+                        txtIndicaciones.setText("");
+                        txtNotEnfermeria.setText("");
+                        lblMant.setText("I");
+                        btnGuardar.setEnabled(true);
+                        btnModificar.setEnabled(false);
+                        btnEliminar.setEnabled(false);
+                    } else
+                        JOptionPane.showMessageDialog(this, "No se realizó ningun cambio");
+                }else{
+                        JOptionPane.showMessageDialog(this, "No se realizó ningun cambio");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: modificarDatosNotEnfemeria" + e.getMessage());
+        }
+        return retorna;
+    }
+    
+    public void eliminarRegistroNotEnf(){
+        HospitalizacionNotaEnfermeria hosEnf = new HospitalizacionNotaEnfermeria();
+        int fila = tbNotEnf.getSelectedRow();
+        hosEnf.setId(Integer.parseInt(String.valueOf(tbNotEnf.getValueAt(fila, 0))));
+        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea ELIMINAR este registro?",
+                               "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+        if(eliminar == 0){
+            if(hosEnf.mantenimientoHospitalizacionNotEnfermeria("E")){
+                JOptionPane.showMessageDialog(this, "Registro eliminado");
+                hosEnf.listarNotaEnf(txtIDPreventa.getText(), tbNotEnf);
+                txtIndicaciones.setText("");
+                txtNotEnfermeria.setText("");
+                habilitarDatos(true);
+                btnGuardar.setEnabled(true);
+                lblMant.setText("I");
+                btnEliminar.setEnabled(false);
+                btnModificar.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "No se realizó ninguna modificación");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No se realizó ninguna modificación");
+        }
     }
     
     @SuppressWarnings("unchecked")
@@ -119,9 +250,9 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
         txtIdHe = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtEvolucion = new javax.swing.JEditorPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
         txtIndicaciones = new javax.swing.JEditorPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtNotEnfermeria = new javax.swing.JEditorPane();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -378,22 +509,27 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtEvolucion.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        txtEvolucion.setEnabled(false);
-        jScrollPane2.setViewportView(txtEvolucion);
-
         txtIndicaciones.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         txtIndicaciones.setEnabled(false);
-        jScrollPane1.setViewportView(txtIndicaciones);
+        jScrollPane2.setViewportView(txtIndicaciones);
+
+        txtNotEnfermeria.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        txtNotEnfermeria.setEnabled(false);
+        jScrollPane1.setViewportView(txtNotEnfermeria);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        jLabel1.setText("Indicaciones");
+        jLabel1.setText("Notas de enfemería");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        jLabel2.setText("Evolución");
+        jLabel2.setText("Indicaciones");
 
         jScrollPane3.setBorder(null);
 
+        tbNotEnf = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tbNotEnf.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -408,9 +544,17 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
         tbNotEnf.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbNotEnf.setSelectionBackground(new java.awt.Color(218, 209, 195));
         tbNotEnf.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        tbNotEnf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbNotEnfMouseClicked(evt);
+            }
+        });
         tbNotEnf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbNotEnfKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tbNotEnfKeyReleased(evt);
             }
         });
         jScrollPane3.setViewportView(tbNotEnf);
@@ -558,20 +702,23 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNHC)
-                    .addComponent(txtDNI)
-                    .addComponent(txtPaciente)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtNHC)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtDNI)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtPaciente)
+                        .addComponent(jLabel6))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
                         .addComponent(txtNroCama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel10)
                         .addComponent(spHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtActoMedico)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel6)))
+                        .addComponent(txtActoMedico)
+                        .addComponent(jLabel4)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -616,28 +763,35 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
             habilitarDatos(true);
             lblMant.setText("I");
             btnGuardar.setEnabled(true);
-            btnEliminar.setEnabled(true);
-            btnModificar.setEnabled(true);
+            btnEliminar.setEnabled(false);
+            btnModificar.setEnabled(false);
         } catch (Exception e) {
             System.out.println("Error: btnNuevo" + e.getMessage());
         }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        
+        if(lblMant.getText().equals("I")) 
+            guardarDatosNotaEnfermeria();
+        else
+            modificarDatosNotEnfemeria();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        btnEliminar.setEnabled(false);
         lblMant.setText("U");
-        int fila = tbNotEnf.getSelectedRow();
-        txtIndicaciones.setText(String.valueOf(tbNotEnf.getValueAt(fila, 3)));
-        txtEvolucion.setText(String.valueOf(tbNotEnf.getValueAt(fila, 4)));
-        spHora.setEnabled(false);
+        btnGuardar.setEnabled(true);
+        txtIndicaciones.setEnabled(true);
+        txtNotEnfermeria.setEnabled(true);
+        btnEliminar.setEnabled(false);
+        btnModificar.setEnabled(false);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        
+        if(tbNotEnf.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(this, "Seleccione un registro");
+        } else {
+                eliminarRegistroNotEnf();
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacActionPerformed
@@ -651,15 +805,23 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarPacActionPerformed
 
     private void txtIDPreventaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtIDPreventaCaretUpdate
-        
+        HospitalizacionNotaEnfermeria hosEnf = new HospitalizacionNotaEnfermeria();
+        hosEnf.listarNotaEnf(txtIDPreventa.getText(), tbNotEnf);
     }//GEN-LAST:event_txtIDPreventaCaretUpdate
 
     private void tbNotEnfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbNotEnfKeyPressed
-        
+        if(tbNotEnf.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(this, "Seleccione un registro");
+        } else {
+            if(evt.getKeyChar()==KeyEvent.VK_DELETE){
+                eliminarRegistroNotEnf();
+            }
+        }
     }//GEN-LAST:event_tbNotEnfKeyPressed
 
     private void tbPacientesHospMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPacientesHospMouseClicked
         if(evt.getClickCount()==2){
+            FrmBuscarPaciente.dispose();
             enviarDatosPac();
         }
     }//GEN-LAST:event_tbPacientesHospMouseClicked
@@ -684,6 +846,34 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
     private void txtBuscarPacienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPacienteKeyPressed
 
     }//GEN-LAST:event_txtBuscarPacienteKeyPressed
+
+    private void tbNotEnfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbNotEnfKeyReleased
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN || evt.getExtendedKeyCode()==KeyEvent.VK_UP){
+            int fila = tbNotEnf.getSelectedRow();
+            txtNotEnfermeria.setText(String.valueOf(tbNotEnf.getValueAt(fila, 3)));
+            txtIndicaciones.setText(String.valueOf(tbNotEnf.getValueAt(fila, 4)));
+            spHora.setEnabled(false);
+            btnEliminar.setEnabled(true);
+            btnModificar.setEnabled(true);
+            btnGuardar.setEnabled(false);
+            txtIndicaciones.setEnabled(false);
+            txtNotEnfermeria.setEnabled(false);
+        }
+    }//GEN-LAST:event_tbNotEnfKeyReleased
+
+    private void tbNotEnfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbNotEnfMouseClicked
+        if(evt.getClickCount()==1){
+            int fila = tbNotEnf.getSelectedRow();
+            txtNotEnfermeria.setText(String.valueOf(tbNotEnf.getValueAt(fila, 3)));
+            txtIndicaciones.setText(String.valueOf(tbNotEnf.getValueAt(fila, 4)));
+            spHora.setEnabled(false);
+            btnEliminar.setEnabled(true);
+            btnModificar.setEnabled(true);
+            btnGuardar.setEnabled(false);
+            txtIndicaciones.setEnabled(false);
+            txtNotEnfermeria.setEnabled(false);
+        }
+    }//GEN-LAST:event_tbNotEnfMouseClicked
 
     /**
      * @param args the command line arguments
@@ -761,12 +951,12 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
     public static javax.swing.JTextField txtActoMedico;
     private javax.swing.JTextField txtBuscarPaciente;
     public static javax.swing.JTextField txtDNI;
-    private javax.swing.JEditorPane txtEvolucion;
     private javax.swing.JTextField txtID;
     public static javax.swing.JTextField txtIDPreventa;
     private javax.swing.JTextField txtIdHe;
     private javax.swing.JEditorPane txtIndicaciones;
     public static javax.swing.JTextField txtNHC;
+    private javax.swing.JEditorPane txtNotEnfermeria;
     public static javax.swing.JTextField txtNroCama;
     public static javax.swing.JTextField txtPaciente;
     // End of variables declaration//GEN-END:variables

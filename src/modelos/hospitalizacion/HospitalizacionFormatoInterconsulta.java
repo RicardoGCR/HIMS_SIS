@@ -6,7 +6,12 @@
 package modelos.hospitalizacion;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 
 /**
@@ -29,6 +34,177 @@ public class HospitalizacionFormatoInterconsulta {
     private String nom_pc;
     private String estado;
     private String usuario;
+    
+    public boolean mantenimientoHospitalizacionFormInterconsulta(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "HOSPITALIZACION_FORMATO_INTERCONSULTA_MANTENIMIENTO ?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId());
+            cmd.setInt(2, getId_hec());
+            cmd.setInt(3, getAr_id());
+            cmd.setString(4, getResumen_hc());
+            cmd.setString(5, getMotivo());
+            cmd.setString(6, getCod_per());
+            cmd.setInt(7, getId_preventa());
+            cmd.setString(8, getUsuario());
+            cmd.setString(9, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoHospitalizacionFormInterconsulta: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public String hospitalizacionInterconsultaID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 HFI_ID FROM HOSPITALIZACION_FORMATO_INTERCONSULTA \n" +
+"	WHERE NOM_PC = HOST_NAME() ORDER BY HFI_ID DESC";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("hospitalizacionInterconsultaID: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public void formatoTablaDiag(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(450);
+        tabla.setRowHeight(30);
+    }
+    
+    public void inicializarTablaDiag(JTable tabla){
+        tabla.setModel(new DefaultTableModel());
+        String titulos[]={"ID CIE 10","Código CIE 10","Diagnósticos"};
+        m=new DefaultTableModel(null,titulos);
+        tabla.setModel(m);
+        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+        tabla.setRowSorter(elQueOrdena);
+        tabla.setModel(m);
+        formatoTablaDiag(tabla);
+    }
+    
+    public void formatoTablaDiagInterconsultaP(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(40);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(90);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(120);
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(120);
+        tabla.setRowHeight(30);
+    }
+    
+    public void listarFormatoInterconsultaP(String busqueda, JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID","Preventa","Acto Médico","DNI","Nº H.C.","Paciente",
+                                   "Edad","Médico","Código","Servicio","Area"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[11];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC HOSPITALIZACION_FORMATO_INTERCONSULTA_LISTAR ?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, busqueda);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                    fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
+                    fila[9]=r.getString(10); 
+                    fila[10]=r.getString(11); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaDiagInterconsultaP(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarFormatoInterconsulta: " + e.getMessage());
+        }
+    }
+    
+    public String codServicio(String servicio)
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT SE_ID \n" +
+            "FROM SISTEMA_SERVICIO\n" +
+            "WHERE SE_DESC = ? \n" +
+            "AND UP_ID = 01";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, servicio);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: codServicio: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public String codArea(String area)
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT AR_ID\n" +
+                        "FROM SISTEMA_AREAS, SISTEMA_SERVICIO\n" +
+                        "WHERE AR_DESC = ?\n" +
+                        "AND SISTEMA_AREAS.SE_ID = SISTEMA_SERVICIO.SE_ID\n" +
+                        "AND SISTEMA_SERVICIO.UP_ID = 01";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, area);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: codArea: " + ex.getMessage());
+        }
+        return cod;
+    }
     
     public HospitalizacionFormatoInterconsulta()
     {

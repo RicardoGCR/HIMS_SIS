@@ -2503,7 +2503,7 @@ char tecla= evt.getKeyChar();
     private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblHoraEmitido;
     public static javax.swing.JLabel lblHospi;
-    private javax.swing.JLabel lblHospiServ;
+    public static javax.swing.JLabel lblHospiServ;
     public static javax.swing.JLabel lblId_cod_doc_det;
     private javax.swing.JTextField lblMuestra;
     public static javax.swing.JLabel lblServicio;

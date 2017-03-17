@@ -5590,9 +5590,19 @@
                       <Component id="separar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
+<<<<<<< HEAD
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="Nomen2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="bu" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+                          <Group type="102" attributes="0">
+                              <Component id="separar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="Nomen2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bu" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+>>>>>>> 1b9e749724190b1e37cc830d9f20054b1a2981b1
                           </Group>
                           <Component id="b4" min="-2" max="-2" attributes="0"/>
                       </Group>

@@ -56,17 +56,8 @@ DefaultTableModel m,n,muestra;
         c.conectar();
         // this.setExtendedState(MAXIMIZED_BOTH);
                 
-        LAB_Toma_Muestra_Cabecera u=new LAB_Toma_Muestra_Cabecera();
-        txtCodigo.setText(u.LAB_Toma_Muestra_Cab_generarid("1"));
-        if(txtCodigo.getText().equalsIgnoreCase("")){
-        txtCodigo.setText("TC000000000000000001");
-        }
-        LAB_Toma_Muestra_Cabecera num=new LAB_Toma_Muestra_Cabecera();
-        txtNum.setText(num.LAB_Toma_Muestra_Cab_generarid("2"));
-        if(txtNum.getText().equalsIgnoreCase("")){
-        txtNum.setText("000000000001");
-        }   
-        lblNum_toma_mu_exa.setText(txtNum.getText());
+          
+       
         h1 = new Thread(this);
         h1.start();
         panelPaciente.setBackground(Color.white); 
@@ -101,7 +92,12 @@ DefaultTableModel m,n,muestra;
         formato();
         lbltipo.setVisible(false);
         
-        
+       LAB_Toma_Muestra_Cabecera num=new LAB_Toma_Muestra_Cabecera();
+                    txtNum.setText(num.LAB_Toma_Muestra_Cab_generarid("2"));
+                    if(txtNum.getText().equalsIgnoreCase("")){
+                    txtNum.setText("000000000001");
+                    } 
+                     lblNum_toma_mu_exa.setText(txtNum.getText());
   
    //salir presionando escape
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
@@ -131,10 +127,14 @@ DefaultTableModel m,n,muestra;
   tb_Detalle.getColumnModel().getColumn(0).setMaxWidth(0);
   tb_Detalle.getColumnModel().getColumn(1).setMinWidth(0);
   tb_Detalle.getColumnModel().getColumn(1).setMaxWidth(0);
+  tb_Detalle.getColumnModel().getColumn(2).setMinWidth(0);
+  tb_Detalle.getColumnModel().getColumn(2).setMaxWidth(0);
     tb_Detalle.getColumnModel().getColumn(6).setMinWidth(0);
   tb_Detalle.getColumnModel().getColumn(6).setMaxWidth(0);
     tb_Detalle.getColumnModel().getColumn(10).setMinWidth(0);
   tb_Detalle.getColumnModel().getColumn(10).setMaxWidth(0);
+  tb_Detalle.getColumnModel().getColumn(13).setMinWidth(0);
+  tb_Detalle.getColumnModel().getColumn(13).setMaxWidth(0);
     tb_Detalle.getSelectionModel().setSelectionInterval(0, 0);
             tb_Detalle.requestFocus();
 }
@@ -374,6 +374,7 @@ public void calcula() {
                     panelSubdetalle = new javax.swing.JPanel();
                     jScrollPane1 = new javax.swing.JScrollPane();
                     tb_Subdetalle = new javax.swing.JTable();
+                    lblNum_toma_mu_exa1 = new javax.swing.JLabel();
 
                     personal.setAlwaysOnTop(true);
                     personal.setMinimumSize(new java.awt.Dimension(852, 504));
@@ -506,7 +507,8 @@ public void calcula() {
                     );
 
                     nomenclatura.setAlwaysOnTop(true);
-                    nomenclatura.setMinimumSize(new java.awt.Dimension(710, 435));
+                    nomenclatura.setMinimumSize(new java.awt.Dimension(686, 309));
+                    nomenclatura.setResizable(false);
 
                     tb_Nomenclatura.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
@@ -520,7 +522,7 @@ public void calcula() {
                         }
                     ));
                     tb_Nomenclatura.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-                    tb_Nomenclatura.setRowHeight(21);
+                    tb_Nomenclatura.setRowHeight(23);
                     tb_Nomenclatura.getTableHeader().setReorderingAllowed(false);
                     tb_Nomenclatura.addKeyListener(new java.awt.event.KeyAdapter() {
                         public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -573,34 +575,33 @@ public void calcula() {
                         nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jpanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(nomenclaturaLayout.createSequentialGroup()
-                            .addGroup(nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(nomenclaturaLayout.createSequentialGroup()
-                                    .addGap(33, 33, 33)
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(81, 81, 81)
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txthc))
-                                .addGroup(nomenclaturaLayout.createSequentialGroup()
-                                    .addGap(16, 16, 16)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap(28, Short.MAX_VALUE))
+                            .addGap(33, 33, 33)
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(81, 81, 81)
+                            .addComponent(jLabel5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txthc)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nomenclaturaLayout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap())
                     );
                     nomenclaturaLayout.setVerticalGroup(
                         nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nomenclaturaLayout.createSequentialGroup()
                             .addComponent(jpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel4)
                                 .addComponent(txtNombres)
                                 .addComponent(jLabel5)
                                 .addComponent(txthc))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(46, 46, 46))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(37, Short.MAX_VALUE))
                     );
 
                     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -1052,18 +1053,26 @@ public void calcula() {
                     tb_Subdetalle.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                     jScrollPane1.setViewportView(tb_Subdetalle);
 
+                    lblNum_toma_mu_exa1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                    lblNum_toma_mu_exa1.setText("Num_toma_mu_exa");
+
                     javax.swing.GroupLayout panelSubdetalleLayout = new javax.swing.GroupLayout(panelSubdetalle);
                     panelSubdetalle.setLayout(panelSubdetalleLayout);
                     panelSubdetalleLayout.setHorizontalGroup(
                         panelSubdetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelSubdetalleLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addContainerGap())
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(67, 67, 67)
+                            .addComponent(lblNum_toma_mu_exa1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(79, Short.MAX_VALUE))
                     );
                     panelSubdetalleLayout.setVerticalGroup(
                         panelSubdetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, Short.MAX_VALUE)
+                        .addGroup(panelSubdetalleLayout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(lblNum_toma_mu_exa1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE))
                     );
 
                     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1087,10 +1096,10 @@ public void calcula() {
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(panelSubdetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(lblCodPerToma, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(lblCodPerRegistra, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCodPerToma, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(lblCodPerRegistra, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(lblServicio)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1249,10 +1258,21 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
               int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
                       "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
               if(guardar ==0){
+                  LAB_Toma_Muestra_Cabecera u=new LAB_Toma_Muestra_Cabecera();
+                    txtCodigo.setText(u.LAB_Toma_Muestra_Cab_generarid("1"));
+                    if(txtCodigo.getText().equalsIgnoreCase("")){
+                    txtCodigo.setText("TC000000000000000001");
+                    }
+                    LAB_Toma_Muestra_Cabecera num=new LAB_Toma_Muestra_Cabecera();
+                    txtNum.setText(num.LAB_Toma_Muestra_Cab_generarid("2"));
+                    if(txtNum.getText().equalsIgnoreCase("")){
+                    txtNum.setText("000000000001");
+                    } 
+                     lblNum_toma_mu_exa1.setText(txtNum.getText());
                   LAB_Toma_Muestra_Cabecera meGuardar = new LAB_Toma_Muestra_Cabecera();
                   meGuardar.setCod_cab_toma_mu_exa(txtCodigo.getText());
                   meGuardar.setId_documento(lblDocumento.getText());
-                  meGuardar.setNum_toma_mu_exa(lblNum_toma_mu_exa.getText());
+                  meGuardar.setNum_toma_mu_exa(lblNum_toma_mu_exa1.getText());
                   meGuardar.setCod_per_toma_muestra(lblCodPerToma.getText());
                   meGuardar.setNombre_per_toma_muestra(txtPersonalTomaMuestra.getText());
                   meGuardar.setCod_per_regis_toma_muestra(lblCodPerRegistra.getText());
@@ -1302,10 +1322,12 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
                      if(tb_Detalle.getValueAt(i, 10).toString().equalsIgnoreCase("")){
                      mdGuardar.setHab_nom("");
                      mdGuardar.setCa_desc("");
+                     mdGuardar.setHospi_serv("");
                     }else{
                       mdGuardar.setId_Preventa(tb_Detalle.getValueAt(i, 10).toString());
                      mdGuardar.setHab_nom(tb_Detalle.getValueAt(i, 11).toString());
                      mdGuardar.setCa_desc(tb_Detalle.getValueAt(i, 12).toString());
+                     mdGuardar.setHospi_serv(tb_Detalle.getValueAt(i, 13).toString());
                     }
                      
                      mdGuardar.setNom_usu(lblUsu.getText());
@@ -1529,14 +1551,14 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
                     frm_LAB_TOMA_MUESTRA_DETALLE.lblid_preventa.setText(idpreventa.LAB_Toma_Muestra_Hospi_idPreventa(lblHc.getText()));
                     frm_LAB_TOMA_MUESTRA_DETALLE.txtHabitacion.setText(habit.LAB_Toma_Muestra_Hospi_habitacion(lblHc.getText()));
                     frm_LAB_TOMA_MUESTRA_DETALLE.txtCama.setText(cama.LAB_Toma_Muestra_Hospi_cama(lblHc.getText()));
-                    frm_LAB_TOMA_MUESTRA_DETALLE.lblHospi.setText(serv.LAB_Toma_Muestra_Hospi_cama(lblHc.getText()));
-                    
+                    frm_LAB_TOMA_MUESTRA_DETALLE.lblHospiServ.setText(serv.LAB_Toma_Muestra_Hospi_Servicio(lblHc.getText()));
+//                    JOptionPane.showMessageDialog(panelCabecera, serv.LAB_Toma_Muestra_Hospi_Servicio(lblHc.getText()));
                 }else{
                     
                     frm_LAB_TOMA_MUESTRA_DETALLE.lblid_preventa.setText("");
                     frm_LAB_TOMA_MUESTRA_DETALLE.txtHabitacion.setText("--");
                     frm_LAB_TOMA_MUESTRA_DETALLE.txtCama.setText("--");
-                    frm_LAB_TOMA_MUESTRA_DETALLE.lblHospi.setText("");
+                    frm_LAB_TOMA_MUESTRA_DETALLE.lblHospiServ.setText("");
                 }
                 
                 
@@ -1867,6 +1889,7 @@ public void Muestras_cargar(String nomen,String area){
     private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblHora1;
     private javax.swing.JLabel lblNum_toma_mu_exa;
+    private javax.swing.JLabel lblNum_toma_mu_exa1;
     public static javax.swing.JLabel lblServicio;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JLabel lbltipo;

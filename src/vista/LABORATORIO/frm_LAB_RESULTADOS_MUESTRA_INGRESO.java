@@ -171,6 +171,8 @@ DefaultTableModel m,n,resultado;
     tb_TomasRealizadas.getColumnModel().getColumn(27).setMaxWidth(0);
     tb_TomasRealizadas.getColumnModel().getColumn(28).setMinWidth(0);
     tb_TomasRealizadas.getColumnModel().getColumn(28).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(29).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(29).setMaxWidth(0);
     tb_TomasRealizadas.getSelectionModel().setSelectionInterval(0, 0);
             tb_TomasRealizadas.requestFocus();
 }
@@ -194,11 +196,11 @@ DefaultTableModel m,n,resultado;
                 "Nomenclatura" ,"Análisis Examen","Número de Toma de Muestra","N° de H.C.","Datos del Paciente",
                 "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","Acto Médico","Personal TMuestra",
                 "Fecha TM","Hora TM","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","idDocumento",
-                 "Años","Meses","Dias"};
+                 "Años","Meses","Dias","HospiServ"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
 //            m=(DefaultTableModel)tb_TomasRealizadas.getModel(); Cuando se va agregando
-            String fila[]=new String[30];
+            String fila[]=new String[31];
 
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
                     consulta="exec sp_LAB_RESULTADO_TOMA_MUESTRA ?,?,?,?,?";
@@ -240,7 +242,7 @@ DefaultTableModel m,n,resultado;
                 fila[26]=r.getString(27);
                 fila[27]=r.getString(28);
                 fila[28]=r.getString(29);
-
+                fila[29]=r.getString(30);
                 m.addRow(fila);
                 c++;
             }
@@ -1472,11 +1474,11 @@ public void buscar_examenes(){
                 "Nomenclatura" ,"Análisis Examen","N° de Toma de Muestra","N° de H.C.","Datos del Paciente",
                 "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","Acto Médico","Personal TMuestra",
                 "Fecha TM","Hora TM","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","id_cod_doc_det",
-                "Años","Meses","Dias"};
+                "Años","Meses","Dias","HospiServ"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
 //            m=(DefaultTableModel)tb_TomasRealizadas.getModel(); Cuando se va agregando
-            String fila[]=new String[30];
+            String fila[]=new String[31];
 
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
                     consulta="exec sp_LAB_RESULTADO_TOMA_MUESTRA ?,?,?,?,?";
@@ -1518,7 +1520,7 @@ public void buscar_examenes(){
                 fila[26]=r.getString(27);
                 fila[27]=r.getString(28);
                 fila[28]=r.getString(29);
-
+                fila[29]=r.getString(30);
                 m.addRow(fila);
                 c++;
             }
@@ -1575,9 +1577,11 @@ public void buscar_examenes(){
                     if(tb_TomasRealizadas.getValueAt(filaselec,21).toString().isEmpty()){
                     frm_LAB_RESULTADO_MUESTRA.txtPiso.setText("--");
                     frm_LAB_RESULTADO_MUESTRA.txtCama.setText("--");
+                    frm_LAB_RESULTADO_MUESTRA.txthospiServ.setText("--");
                     }else{
                        frm_LAB_RESULTADO_MUESTRA.txtPiso.setText(tb_TomasRealizadas.getValueAt(filaselec, 21).toString());
                     frm_LAB_RESULTADO_MUESTRA.txtCama.setText(tb_TomasRealizadas.getValueAt(filaselec, 22).toString()); 
+                    frm_LAB_RESULTADO_MUESTRA.txthospiServ.setText(tb_TomasRealizadas.getValueAt(filaselec, 29).toString());
                     }
                     
                     frm_LAB_RESULTADO_MUESTRA.txtFechaOrden.setText(tb_TomasRealizadas.getValueAt(filaselec, 23).toString());

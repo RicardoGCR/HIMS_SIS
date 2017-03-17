@@ -1191,6 +1191,11 @@ try {
                                 abonoCaretUpdate(evt);
                             }
                         });
+                        abono.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                abonoActionPerformed(evt);
+                            }
+                        });
                         abono.addKeyListener(new java.awt.event.KeyAdapter() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 abonoKeyPressed(evt);
@@ -2110,6 +2115,10 @@ try {
     private void abonoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_abonoCaretUpdate
            
     }//GEN-LAST:event_abonoCaretUpdate
+
+    private void abonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_abonoActionPerformed
 
     /**
      * @param args the command line arguments

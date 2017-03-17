@@ -53,18 +53,18 @@ public boolean nuevaNomenclatura(){
         boolean resp = false;
         try{
             String sql = "exec Caja_nomenclatura_NUEVO "
-                        + "?,?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getCod_nomen_caja());
-            cmd.setString(2, getCod_grupo_nomen_aten());
-            cmd.setInt(3, getAr_id());
-            cmd.setString(4, getId_cuenta());
-            cmd.setString(5, getNomen_caja());
-            cmd.setString(6, getDescripcion_nomen_tipo());
-            cmd.setString(7, getNom_usu());
+            //cmd.setString(1, getCod_nomen_caja());
+            cmd.setString(1, getCod_grupo_nomen_aten());
+            cmd.setInt(2, getAr_id());
+            cmd.setString(3, getId_cuenta());
+            cmd.setString(4, getNomen_caja());
+            cmd.setString(5, getDescripcion_nomen_tipo());
+            cmd.setString(6, getNom_usu());
 
-            cmd.setString(8, getVis_admi());
-            cmd.setString(9, getVis_aten());
+            cmd.setString(7, getVis_admi());
+            cmd.setString(8, getVis_aten());
 
             if(!cmd.execute())
             {

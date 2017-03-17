@@ -161,11 +161,12 @@ public class Caja_Preventa {
         boolean resp = false;
         try
         {
-            String sql = "Exec Caja_Actualizar_Preventa ?,?,?";
+            String sql = "Exec Caja_Actualizar_Preventa ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId_preventa());
             cmd.setInt(2, getACTO_MEDICO());
             cmd.setString(3, getCod_jerar_forma_pago());
+            cmd.setString(4, getCod_medico());
 
             if(!cmd.execute())
             {
@@ -460,6 +461,27 @@ public class Caja_Preventa {
           System.out.println("Error " + ex.getMessage());
         }
         return resp;
+    }
+    
+    public String CodSE(String precio)
+    {
+        String cod="";
+        try
+        {
+            String sql = "EXEC CAJA_BUSCAR_SERVICIO_PREVENTA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, precio);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_SE: " + ex.getMessage());
+        }
+        return cod;
     }
     
     public Caja_Preventa()

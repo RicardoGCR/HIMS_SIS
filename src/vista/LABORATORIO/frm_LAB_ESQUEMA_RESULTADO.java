@@ -637,11 +637,13 @@ public void calcula() {
                 jLabel21.setText("Nombre del Resultado");
 
                 txtNombreResultado.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                txtNombreResultado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
                 jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 jLabel22.setText("Resultado por Defecto");
 
                 txtResultadoDefec.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                txtResultadoDefec.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtResultadoDefec.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyTyped(java.awt.event.KeyEvent evt) {
                         txtResultadoDefecKeyTyped(evt);

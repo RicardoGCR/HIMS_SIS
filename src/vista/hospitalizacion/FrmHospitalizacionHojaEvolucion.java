@@ -50,6 +50,12 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
             }
         });
         cerrar();
+        HospitalizacionEvolucion hosEv = new HospitalizacionEvolucion();
+        hosEv.inicializarTabla(tbEvolucion);
+        txtIDPreventa.setVisible(false);
+        lblMant.setVisible(false);
+        txtID.setVisible(false);
+        txtIdHe.setVisible(false);
     }
 
     public void cerrar (){
@@ -86,6 +92,8 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         txtPaciente.setText("");
         txtIndicaciones.setText("");
         txtEvolucion.setText("");
+        txtIDPreventa.setText("");
+        txtIdHe.setText("");
     }
     
     public void enviarDatosPac(){
@@ -96,6 +104,12 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         FrmHospitalizacionHojaEvolucion.txtDNI.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 4)));
         FrmHospitalizacionHojaEvolucion.txtPaciente.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 5)));
         FrmHospitalizacionHojaEvolucion.txtNroCama.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 7)));
+        txtIndicaciones.setText("");
+        txtEvolucion.setText("");
+        btnModificar.setEnabled(false);
+        btnEliminar.setEnabled(false);
+        btnGuardar.setEnabled(true);
+        lblMant.setText("I");
     }
     
     public boolean guardarDatosEvolucion(){
@@ -103,8 +117,8 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         try {
             ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
             AdmisionEmergenciaCabecera adEmerCab5 = new AdmisionEmergenciaCabecera();
-            if(txtActoMedico.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "Seleccine un paciente");
+            if(txtIndicaciones.getText().equals("") || txtEvolucion.getText().equals("") || txtActoMedico.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Debe completar todos los datos porfavor");
             } else {
                 //int id = Integer.parseInt(txtID.getText());
                 int id_preventa = Integer.parseInt(txtIDPreventa.getText());
@@ -128,10 +142,13 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
                     if(hosEv.mantenimientoHospitalizacionEvolucion(lblMant.getText())==true){
                         txtIdHe.setText(hosEv.hospitalizacionEvolucionID());
                         JOptionPane.showMessageDialog(this, "Hoja de Evolución Guardada");
-                        limpiar();
-                        habilitarDatos(false);
-                        txtIDPreventa.setText("");
-                        lblMant.setText("");
+                        hosEv.listarEvolucion(txtIDPreventa.getText(), tbEvolucion);
+                        txtEvolucion.setText("");
+                        txtIndicaciones.setText("");
+                        lblMant.setText("I");
+                        btnGuardar.setEnabled(true);
+                        btnModificar.setEnabled(false);
+                        btnEliminar.setEnabled(false);
                     } else
                         JOptionPane.showMessageDialog(this, "No se realizó ningun registro");
                 }else{
@@ -142,6 +159,79 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
             System.out.println("Error: guardarDatosEvolucion" + e.getMessage());
         }
         return retorna;
+    }
+    
+    public boolean modificarDatosEvolucion(){
+        boolean retorna = false;
+        try {
+            ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+            if(txtIndicaciones.getText().equals("") || txtEvolucion.getText().equals("") || txtActoMedico.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Debe completar todos los datos porfavor");
+            } else {
+                int fila = tbEvolucion.getSelectedRow();
+                int id_preventa = Integer.parseInt(txtIDPreventa.getText());
+                String indicaciones = txtIndicaciones.getText();
+                String evolucion = txtEvolucion.getText();
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat formatoHora =  new SimpleDateFormat("HH:mm:ss");
+                String fecha = formatoFecha.format(spHora.getValue());
+                String hora = formatoHora.format(spHora.getValue());
+                HospitalizacionEvolucion hosEv = new HospitalizacionEvolucion();
+                int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+                               "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                if(guardar == 0){
+                    hosEv.setHe_id(Integer.parseInt(String.valueOf(tbEvolucion.getValueAt(fila, 0))));
+                    hosEv.setEvolucion(evolucion);
+                    hosEv.setIndicaciones(indicaciones);
+                    hosEv.setFecha_ev(fecha);
+                    hosEv.setHora_ev(hora);
+                    hosEv.setPreventa(id_preventa);
+                    if(hosEv.mantenimientoHospitalizacionEvolucion(lblMant.getText())==true){
+                        txtIdHe.setText(hosEv.hospitalizacionEvolucionID());
+                        JOptionPane.showMessageDialog(this, "Hoja de Evolución Guardada");
+                        hosEv.listarEvolucion(txtIDPreventa.getText(), tbEvolucion);
+                        txtIndicaciones.setText("");
+                        txtEvolucion.setText("");
+                        lblMant.setText("I");
+                        btnGuardar.setEnabled(true);
+                        btnModificar.setEnabled(false);
+                        btnEliminar.setEnabled(false);
+                    } else
+                        JOptionPane.showMessageDialog(this, "No se realizó ningun registro");
+                }else{
+                        JOptionPane.showMessageDialog(this, "No se realizó ningun registro");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: guardarDatosEvolucion" + e.getMessage());
+        }
+        return retorna;
+    }
+    
+    public void eliminarRegistroEvolucion(){
+        HospitalizacionEvolucion hosEv = new HospitalizacionEvolucion();
+        int fila = tbEvolucion.getSelectedRow();
+        hosEv.setHe_id(Integer.parseInt(String.valueOf(tbEvolucion.getValueAt(fila, 0))));
+        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea ELIMINAR este registro?",
+                               "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+        if(eliminar == 0){
+            if(hosEv.mantenimientoHospitalizacionEvolucion("E")){
+                JOptionPane.showMessageDialog(this, "Registro eliminado");
+                hosEv.listarEvolucion(txtIDPreventa.getText(), tbEvolucion);
+                txtIndicaciones.setText("");
+                txtEvolucion.setText("");
+                habilitarDatos(true);
+                btnGuardar.setEnabled(true);
+                lblMant.setText("I");
+                btnEliminar.setEnabled(false);
+                btnModificar.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "No se realizó ninguna modificación");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No se realizó ninguna modificación");
+        }
     }
     
     @SuppressWarnings("unchecked")
@@ -178,7 +268,7 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbEvolucion = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         txtActoMedico = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -191,6 +281,11 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         spHora = new javax.swing.JSpinner();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
 
         FrmBuscarPaciente.setAlwaysOnTop(true);
         FrmBuscarPaciente.setMinimumSize(new java.awt.Dimension(750, 450));
@@ -333,6 +428,7 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         btnGuardar.setToolTipText("Guardar (Alt + G)");
         btnGuardar.setContentAreaFilled(false);
         btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar.setEnabled(false);
         btnGuardar.setFocusable(false);
         btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnGuardar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -366,8 +462,7 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         btnEliminar.setBackground(new java.awt.Color(204, 204, 204));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Basura-32.png"))); // NOI18N
-        btnEliminar.setMnemonic('E');
-        btnEliminar.setToolTipText("Eliminar (Alt + E)");
+        btnEliminar.setToolTipText("Eliminar (Delete)");
         btnEliminar.setContentAreaFilled(false);
         btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminar.setEnabled(false);
@@ -407,6 +502,12 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         jLabel7.setText("Alt + B");
         jPanel8.add(jLabel7);
         jLabel7.setBounds(170, 110, 50, 20);
+
+        txtIDPreventa.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtIDPreventaCaretUpdate(evt);
+            }
+        });
         jPanel8.add(txtIDPreventa);
         txtIDPreventa.setBounds(370, 100, 210, 20);
         jPanel8.add(txtID);
@@ -416,7 +517,7 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         jPanel8.add(lblMant);
         lblMant.setBounds(700, 100, 34, 14);
         jPanel8.add(txtIdHe);
-        txtIdHe.setBounds(480, 40, 230, 40);
+        txtIdHe.setBounds(760, 100, 110, 20);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -436,7 +537,12 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
 
         jScrollPane3.setBorder(null);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbEvolucion = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
+        tbEvolucion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -447,7 +553,23 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        tbEvolucion.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbEvolucion.setSelectionBackground(new java.awt.Color(218, 209, 195));
+        tbEvolucion.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        tbEvolucion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbEvolucionMouseClicked(evt);
+            }
+        });
+        tbEvolucion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbEvolucionKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tbEvolucionKeyReleased(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tbEvolucion);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel4.setText("Acto Médico:");
@@ -496,6 +618,49 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         spHora.setModel(new javax.swing.SpinnerDateModel());
         spHora.setEnabled(false);
 
+        jLabel42.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Document-16.png"))); // NOI18N
+        jLabel42.setText("Nuevo (Alt + N)");
+
+        jLabel43.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Save-16.png"))); // NOI18N
+        jLabel43.setText("Guardar (Alt + G)");
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Edit-16.png"))); // NOI18N
+        jLabel36.setText("Modificar (Alt + M)");
+
+        jLabel44.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Eliminar-16.png"))); // NOI18N
+        jLabel44.setText("Eliminar (Delete)");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel42)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel43)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel36)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel44)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel42)
+                    .addComponent(jLabel36)
+                    .addComponent(jLabel43)
+                    .addComponent(jLabel44))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -534,10 +699,11 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
                                 .addComponent(spHora, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane2)))
@@ -571,8 +737,9 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -604,23 +771,36 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
             limpiar();
             habilitarDatos(true);
             lblMant.setText("I");
+            btnGuardar.setEnabled(true);
+            btnEliminar.setEnabled(false);
+            btnModificar.setEnabled(false);
         } catch (Exception e) {
             System.out.println("Error: btnNuevo" + e.getMessage());
         }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-         guardarDatosEvolucion();
-
-
+        if(lblMant.getText().equals("I")) 
+            guardarDatosEvolucion();
+        else
+            modificarDatosEvolucion();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-
+        lblMant.setText("U");
+        btnGuardar.setEnabled(true);
+        txtIndicaciones.setEnabled(true);
+        txtEvolucion.setEnabled(true);
+        btnEliminar.setEnabled(false);
+        btnModificar.setEnabled(false);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
+        if(tbEvolucion.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(this, "Seleccione un registro");
+        } else {
+                eliminarRegistroEvolucion();
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacActionPerformed
@@ -634,7 +814,10 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarPacActionPerformed
 
     private void tbPacientesHospMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPacientesHospMouseClicked
-        
+        if(evt.getClickCount()==2){
+            FrmBuscarPaciente.dispose();
+            enviarDatosPac();
+        }
     }//GEN-LAST:event_tbPacientesHospMouseClicked
 
     private void tbPacientesHospKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPacientesHospKeyPressed
@@ -657,6 +840,50 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     private void txtBuscarPacienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPacienteKeyPressed
         
     }//GEN-LAST:event_txtBuscarPacienteKeyPressed
+
+    private void txtIDPreventaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtIDPreventaCaretUpdate
+        HospitalizacionEvolucion hosEv = new HospitalizacionEvolucion();
+        hosEv.listarEvolucion(txtIDPreventa.getText(), tbEvolucion);
+    }//GEN-LAST:event_txtIDPreventaCaretUpdate
+
+    private void tbEvolucionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbEvolucionKeyPressed
+        if(tbEvolucion.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(this, "Seleccione un registro");
+        } else {
+            if(evt.getKeyChar()==KeyEvent.VK_DELETE){
+                eliminarRegistroEvolucion();
+            }
+        }
+        
+    }//GEN-LAST:event_tbEvolucionKeyPressed
+
+    private void tbEvolucionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEvolucionMouseClicked
+        if(evt.getClickCount()==1){
+            int fila = tbEvolucion.getSelectedRow();
+            txtEvolucion.setText(String.valueOf(tbEvolucion.getValueAt(fila, 4)));
+            txtIndicaciones.setText(String.valueOf(tbEvolucion.getValueAt(fila, 3)));
+            spHora.setEnabled(false);
+            btnEliminar.setEnabled(true);
+            btnModificar.setEnabled(true);
+            btnGuardar.setEnabled(false);
+            txtIndicaciones.setEnabled(false);
+            txtEvolucion.setEnabled(false);
+        }
+    }//GEN-LAST:event_tbEvolucionMouseClicked
+
+    private void tbEvolucionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbEvolucionKeyReleased
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN || evt.getExtendedKeyCode()==KeyEvent.VK_UP){
+            int fila = tbEvolucion.getSelectedRow();
+            txtEvolucion.setText(String.valueOf(tbEvolucion.getValueAt(fila, 4)));
+            txtIndicaciones.setText(String.valueOf(tbEvolucion.getValueAt(fila, 3)));
+            spHora.setEnabled(false);
+            btnEliminar.setEnabled(true);
+            btnModificar.setEnabled(true);
+            btnGuardar.setEnabled(false);
+            txtIndicaciones.setEnabled(false);
+            txtEvolucion.setEnabled(false);
+        }
+    }//GEN-LAST:event_tbEvolucionKeyReleased
 
     /**
      * @param args the command line arguments
@@ -707,22 +934,27 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblUsuUsuario;
     public static javax.swing.JSpinner spHora;
+    private javax.swing.JTable tbEvolucion;
     private javax.swing.JTable tbPacientesHosp;
     private javax.swing.JLabel titulo5;
     private javax.swing.JLabel titulo6;

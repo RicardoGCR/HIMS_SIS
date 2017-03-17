@@ -83,9 +83,10 @@ DefaultTableModel m,n,resultado;
             txtPersonal.setVisible(false);
             btnPersonal.setVisible(false);
             btnBuscar.setVisible(false);
-
-//        lblServicio.setVisible(false);
-//        lblArea.setVisible(false);
+            chActoMedico.setVisible(false);
+            txtActoM.setVisible(false);
+        lblServicio.setVisible(false);
+        lblArea.setVisible(false);
         this.getContentPane().setBackground(Color.white); 
        
         setLocationRelativeTo(null);//en el centro
@@ -107,6 +108,7 @@ DefaultTableModel m,n,resultado;
             txtAnalisis.setEnabled(false);
             btnAnalisis.setEnabled(false);
             txtPersonal.setEnabled(false);
+            txtActoM.setEnabled(false);
             btnPersonal.setEnabled(false);
     //Servicio-Area
         LAB_PC_AREA pa=new LAB_PC_AREA();
@@ -125,10 +127,11 @@ DefaultTableModel m,n,resultado;
     }
     
     public void formato(){
-    tb_TomasRealizadas.getColumnModel().getColumn(4).setPreferredWidth(190);
-    tb_TomasRealizadas.getColumnModel().getColumn(5).setPreferredWidth(90);
-    tb_TomasRealizadas.getColumnModel().getColumn(6).setPreferredWidth(250);
-    tb_TomasRealizadas.getColumnModel().getColumn(7).setPreferredWidth(240);
+    tb_TomasRealizadas.getColumnModel().getColumn(3).setPreferredWidth(200);
+    tb_TomasRealizadas.getColumnModel().getColumn(4).setPreferredWidth(90);
+    tb_TomasRealizadas.getColumnModel().getColumn(5).setPreferredWidth(250);
+    tb_TomasRealizadas.getColumnModel().getColumn(6).setPreferredWidth(240);
+    tb_TomasRealizadas.getColumnModel().getColumn(7).setPreferredWidth(140);
     tb_TomasRealizadas.getColumnModel().getColumn(8).setPreferredWidth(140);
     tb_TomasRealizadas.getColumnModel().getColumn(9).setPreferredWidth(90);
     tb_TomasRealizadas.getColumnModel().getColumn(10).setPreferredWidth(250);
@@ -137,27 +140,38 @@ DefaultTableModel m,n,resultado;
     tb_TomasRealizadas.getColumnModel().getColumn(13).setPreferredWidth(50);
     tb_TomasRealizadas.getColumnModel().getColumn(14).setPreferredWidth(50);
     tb_TomasRealizadas.getColumnModel().getColumn(15).setPreferredWidth(130);
+    tb_TomasRealizadas.getColumnModel().getColumn(17).setPreferredWidth(180);
+    tb_TomasRealizadas.getColumnModel().getColumn(18).setPreferredWidth(180);
+    tb_TomasRealizadas.getColumnModel().getColumn(19).setPreferredWidth(130);
+    tb_TomasRealizadas.getColumnModel().getColumn(20).setPreferredWidth(130);
     //Ocultar    
-//    tb_TomasRealizadas.getColumnModel().getColumn(0).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(0).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(1).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(1).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(2).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(2).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(0).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(0).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(1).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(1).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(2).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(2).setMaxWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(3).setMinWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(3).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(16).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(16).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(16).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(16).setMaxWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(17).setMinWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(17).setMaxWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(18).setMinWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(18).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(19).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(19).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(20).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(20).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(21).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(21).setMaxWidth(0);
+    
+    tb_TomasRealizadas.getColumnModel().getColumn(21).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(21).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(22).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(22).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(23).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(23).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(24).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(24).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(25).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(25).setMaxWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(26).setMinWidth(0);
+    tb_TomasRealizadas.getColumnModel().getColumn(26).setMaxWidth(0);
     tb_TomasRealizadas.getSelectionModel().setSelectionInterval(0, 0);
             tb_TomasRealizadas.requestFocus();
 }
@@ -179,12 +193,12 @@ DefaultTableModel m,n,resultado;
             tb_TomasRealizadas.setModel(new DefaultTableModel());
             String titulos[]={"cod_cab_resultado_mu_ana","cod_exa_ana","id_hc","Servicio/Área","Código CPT",
                 "Nomenclatura" ,"Análisis Examen","N° de Resultado","Acto Médico","N° de H.C.","Datos del Paciente",
-                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","Personal Resultado",
-                "Fecha","Hora","Personal Solicita","Habitacion","Cama","id_cod_doc_det"};
+                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","N°de TM","Personal Resultado","Personal Registra Resultado",
+                "Fecha Resultado","Hora Resultado","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","id_cod_doc_det"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
 //            m=(DefaultTableModel)tb_TomasRealizadas.getModel(); Cuando se va agregando
-            String fila[]=new String[23];
+            String fila[]=new String[28];
 
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
                     consulta="exec sp_LAB_BUSQUEDA_RESULTADO ?,?,?,?,?";
@@ -220,6 +234,10 @@ DefaultTableModel m,n,resultado;
                 fila[20]=r.getString(21);
                 fila[21]=r.getString(22);
                 fila[22]=r.getString(23);
+                fila[23]=r.getString(24);
+                fila[24]=r.getString(25);
+                fila[25]=r.getString(26);
+                fila[26]=r.getString(27);
 
                 m.addRow(fila);
                 c++;
@@ -480,6 +498,8 @@ public void calcula() {
                         txtPersonal = new javax.swing.JTextField();
                         btnPersonal = new javax.swing.JButton();
                         btnBuscar = new javax.swing.JButton();
+                        chActoMedico = new javax.swing.JCheckBox();
+                        txtActoM = new javax.swing.JTextField();
                         dateDesde = new com.toedter.calendar.JDateChooser();
                         dateHasta = new com.toedter.calendar.JDateChooser();
                         jLabel20 = new javax.swing.JLabel();
@@ -849,7 +869,7 @@ public void calcula() {
                         titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                         titulo5.setForeground(new java.awt.Color(255, 255, 255));
                         titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        titulo5.setText("Tomas de Muestras Realizadas");
+                        titulo5.setText("Exámenes Realizados");
                         titulo5.setToolTipText("");
                         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -880,8 +900,8 @@ public void calcula() {
                             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
-                                .addComponent(titulo5)
-                                .addGap(423, 423, 423)
+                                .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(556, 556, 556)
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jpanelLayout.createSequentialGroup()
                                         .addComponent(jLabel15)
@@ -892,7 +912,7 @@ public void calcula() {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblFecha))
                                     .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(46, Short.MAX_VALUE))
                         );
                         jpanelLayout.setVerticalGroup(
                             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -976,6 +996,7 @@ public void calcula() {
 
                         txtPacientes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                         txtPacientes.setForeground(new java.awt.Color(0, 51, 51));
+                        txtPacientes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtPacientes.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 txtPacientesActionPerformed(evt);
@@ -1005,6 +1026,7 @@ public void calcula() {
 
                         txtAnalisis.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                         txtAnalisis.setForeground(new java.awt.Color(0, 51, 51));
+                        txtAnalisis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtAnalisis.addKeyListener(new java.awt.event.KeyAdapter() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 txtAnalisisKeyPressed(evt);
@@ -1030,6 +1052,7 @@ public void calcula() {
 
                         txtPersonal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                         txtPersonal.setForeground(new java.awt.Color(0, 51, 51));
+                        txtPersonal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtPersonal.addKeyListener(new java.awt.event.KeyAdapter() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 txtPersonalKeyPressed(evt);
@@ -1056,20 +1079,40 @@ public void calcula() {
                             }
                         });
 
+                        chActoMedico.setText("Todos los Actos Médicos");
+                        chActoMedico.setHideActionText(true);
+                        chActoMedico.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                        chActoMedico.addItemListener(new java.awt.event.ItemListener() {
+                            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                                chActoMedicoItemStateChanged(evt);
+                            }
+                        });
+
+                        txtActoM.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                        txtActoM.setForeground(new java.awt.Color(0, 51, 51));
+                        txtActoM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                        txtActoM.addKeyListener(new java.awt.event.KeyAdapter() {
+                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                txtActoMKeyPressed(evt);
+                            }
+                        });
+
                         javax.swing.GroupLayout panelPacientesLayout = new javax.swing.GroupLayout(panelPacientes);
                         panelPacientes.setLayout(panelPacientesLayout);
                         panelPacientesLayout.setHorizontalGroup(
                             panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelPacientesLayout.createSequentialGroup()
-                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(chPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                    .addComponent(chAnalisis, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                    .addComponent(chPacientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
+                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(chActoMedico, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .addComponent(chPersonal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .addComponent(chAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .addComponent(chPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                                     .addComponent(txtPacientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(txtPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
+                                    .addComponent(txtPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                    .addComponent(txtActoM, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnPacientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1082,7 +1125,7 @@ public void calcula() {
                         panelPacientesLayout.setVerticalGroup(
                             panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelPacientesLayout.createSequentialGroup()
-                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(panelPacientesLayout.createSequentialGroup()
                                         .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1099,8 +1142,12 @@ public void calcula() {
                                         .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(btnPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(chPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(chPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, 0)
+                                        .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(chActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtActoM, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(0, 0, Short.MAX_VALUE))
                         );
 
@@ -1114,7 +1161,7 @@ public void calcula() {
                         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         jLabel21.setText("Búsqueda por:");
 
-                        cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N° de H.C", "Análisis ", "Personal- Toma de Muestra" }));
+                        cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N° de H.C", "Análisis ", "Personal - Toma de Muestra", "Acto Médico" }));
                         cbx.addItemListener(new java.awt.event.ItemListener() {
                             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                                 cbxItemStateChanged(evt);
@@ -1327,26 +1374,6 @@ public void calcula() {
     private void tb_TomasRealizadasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_TomasRealizadasKeyTyped
 
     }//GEN-LAST:event_tb_TomasRealizadasKeyTyped
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
- try{
-          
-            if(dateDesde.getDate()==null || dateHasta.getDate()==null){
-              JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de Fechas.");
-          } else if(cbx.getSelectedIndex()==0){
-              JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de búsqueda");
-          }  else if(txtPacientes.getText().isEmpty()&&chPacientes.isSelected()==false&& txtAnalisis.getText().isEmpty()
-                  && chAnalisis.isSelected()==false && txtPersonal.getText().isEmpty()&&chPersonal.isSelected()==false){
-              JOptionPane.showMessageDialog(rootPane, "Seleccione y/o ingrese un " +cbx.getSelectedItem());
-          }  else {
-              buscar_examenes();
-           
-          }  
-          }catch(Exception e) {
-              JOptionPane.showMessageDialog(this, e.getMessage());
-              
-          }
-    }//GEN-LAST:event_btnBuscarActionPerformed
 public void buscar_examenes(){
     DecimalFormat df = new DecimalFormat("00");
         int dia,mes,anio,diah,mesh,anioh;
@@ -1356,14 +1383,15 @@ public void buscar_examenes(){
         diah = dateHasta.getCalendar().get(Calendar.DAY_OF_MONTH);
         mesh = dateHasta.getCalendar().get(Calendar.MONTH) + 1;
         anioh = dateHasta.getCalendar().get(Calendar.YEAR);
-        lbldia.setText("Exámenes con Toma de Muestras del "+df.format(dia)+"/"+df.format(mes)+"/"+anio+" al " 
+        lbldia.setText("Exámenes con Resultados del "+df.format(dia)+"/"+df.format(mes)+"/"+anio+" al " 
                 +df.format(diah)+"/"+df.format(mesh)+"/"+anioh);
         int desde=Integer.parseInt(anio+df.format(mes)+df.format(dia));
         int hasta=Integer.parseInt(anioh+df.format(mesh)+df.format(diah));
         String buscar="",tipo="1",servicioArea="";
         
         
-        if((chPacientes.isSelected()==true ||chAnalisis.isSelected()==true ||chPersonal.isSelected()==true) 
+        if((chPacientes.isSelected()==true ||chAnalisis.isSelected()==true ||chPersonal.isSelected()==true
+                ||chActoMedico.isSelected()==true ) 
                 &&lblArea.getText().equalsIgnoreCase("")){
         tipo="1";
         servicioArea=lblServicio.getText();
@@ -1383,24 +1411,35 @@ public void buscar_examenes(){
          buscar=txtPersonal.getText();
         servicioArea=lblServicio.getText();
         }
-        else if((chPacientes.isSelected()==true ||chAnalisis.isSelected()==true||chPersonal.isSelected()==true) 
+         else if(txtActoM.getText().length()>0 &&lblArea.getText().equalsIgnoreCase("")){
+        tipo="5";
+         buscar=txtActoM.getText();
+        servicioArea=lblServicio.getText();
+        }
+        else if((chPacientes.isSelected()==true ||chAnalisis.isSelected()==true||chPersonal.isSelected()==true
+                ||chActoMedico.isSelected()==true ) 
                 &&lblArea.getText().length()>0 ){
-            tipo="5";
+            tipo="6";
             servicioArea=lblArea.getText();        
         }
          else if(txtPacientes.getText().length()>0 &&lblArea.getText().length()>0 ){
-             tipo="6";
+             tipo="7";
               buscar=txtPacientes.getText();
             servicioArea=lblArea.getText();        
         }
          else if(txtAnalisis.getText().length()>0 &&lblArea.getText().length()>0 ){
-             tipo="7";
+             tipo="8";
               buscar=txtAnalisis.getText();
             servicioArea=lblArea.getText();        
         }
         else if(txtPersonal.getText().length()>0 &&lblArea.getText().length()>0 ){
-             tipo="8";
+             tipo="10";
               buscar=txtPersonal.getText();
+            servicioArea=lblArea.getText();        
+        }
+        else if(txtActoM.getText().length()>0 &&lblArea.getText().length()>0 ){
+             tipo="11";
+              buscar=txtActoM.getText();
             servicioArea=lblArea.getText();        
         }
      String consulta="";
@@ -1408,12 +1447,12 @@ public void buscar_examenes(){
             tb_TomasRealizadas.setModel(new DefaultTableModel());
             String titulos[]={"cod_cab_resultado_mu_ana","cod_exa_ana","id_hc","Servicio/Área","Código CPT",
                 "Nomenclatura" ,"Análisis Examen","N° de Resultado","Acto Médico","N° de H.C.","Datos del Paciente",
-                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","Personal Resultado",
-                "Fecha","Hora","Personal Solicita","Habitacion","Cama","id_cod_doc_det"};
+                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","N°de TM","Personal Resultado","Personal Registra Resultado",
+                "Fecha Resultado","Hora Resultado","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","id_cod_doc_det"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
 //            m=(DefaultTableModel)tb_TomasRealizadas.getModel(); Cuando se va agregando
-            String fila[]=new String[25];
+            String fila[]=new String[30];
 
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
                     consulta="exec sp_LAB_BUSQUEDA_RESULTADO ?,?,?,?,?";
@@ -1449,6 +1488,10 @@ public void buscar_examenes(){
                 fila[20]=r.getString(21);
                 fila[21]=r.getString(22);
                 fila[22]=r.getString(23);
+                fila[23]=r.getString(24);
+                fila[24]=r.getString(25);
+                fila[25]=r.getString(26);
+                fila[26]=r.getString(27);
 
                 m.addRow(fila);
                 c++;
@@ -1465,79 +1508,79 @@ public void buscar_examenes(){
 }
     private void tb_TomasRealizadasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_TomasRealizadasKeyPressed
         // TODO add your handling code here:
-        char tecla= evt.getKeyChar();
-                if(tecla==KeyEvent.VK_ENTER){  
-                    try{
-                        if( tb_TomasRealizadas.getRowCount()>0){
-                        int filaselec=tb_TomasRealizadas.getSelectedRow();
-                        
-                       
-                           dispose();
-                    frm_LAB_RESULTADO_MUESTRA vr=new frm_LAB_RESULTADO_MUESTRA();
-                    vr.setVisible(true);
-                    
-                    //codigos
-                    frm_LAB_RESULTADO_MUESTRA.lblcod_cab_toma.setText(tb_TomasRealizadas.getValueAt(filaselec, 0).toString());
-                    frm_LAB_RESULTADO_MUESTRA.lblcod_det_toma.setText(tb_TomasRealizadas.getValueAt(filaselec, 1).toString());
-                    frm_LAB_RESULTADO_MUESTRA.lblcod_exa_ana.setText(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
-                    frm_LAB_RESULTADO_MUESTRA.lblid_cod_doc_det.setText(tb_TomasRealizadas.getValueAt(filaselec, 25).toString());
-                   
-                    //Datos del Paciente
-                    frm_LAB_RESULTADO_MUESTRA.lblHc.setText(tb_TomasRealizadas.getValueAt(filaselec, 3).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtHc.setText(tb_TomasRealizadas.getValueAt(filaselec, 9).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtPacientes.setText(tb_TomasRealizadas.getValueAt(filaselec, 10).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtDni.setText(tb_TomasRealizadas.getValueAt(filaselec, 11).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtFecha.setText(tb_TomasRealizadas.getValueAt(filaselec, 12).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtEdad.setText(tb_TomasRealizadas.getValueAt(filaselec, 13).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtSexo.setText(tb_TomasRealizadas.getValueAt(filaselec, 14).toString());
-                    //Toma de Muestra
-                    frm_LAB_RESULTADO_MUESTRA.txtActoMedico.setText(tb_TomasRealizadas.getValueAt(filaselec, 16).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtFormaPago.setText(tb_TomasRealizadas.getValueAt(filaselec, 15).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtNToma.setText(tb_TomasRealizadas.getValueAt(filaselec, 8).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtPersonalTomaMuestra.setText(tb_TomasRealizadas.getValueAt(filaselec, 17).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtFechaTM.setText(tb_TomasRealizadas.getValueAt(filaselec, 18).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtHoraTM.setText(tb_TomasRealizadas.getValueAt(filaselec, 19).toString());
-                    if(tb_TomasRealizadas.getValueAt(filaselec,20).toString().isEmpty()){
-                    frm_LAB_RESULTADO_MUESTRA.txtPersonalSolicita.setText("--");
-                    }else{
-                    frm_LAB_RESULTADO_MUESTRA.txtPersonalSolicita.setText(tb_TomasRealizadas.getValueAt(filaselec, 20).toString());
-                        
-                    }
-                    if(tb_TomasRealizadas.getValueAt(filaselec,21).toString().isEmpty()){
-                    frm_LAB_RESULTADO_MUESTRA.txtPiso.setText("--");
-                    frm_LAB_RESULTADO_MUESTRA.txtCama.setText("--");
-                    }else{
-                       frm_LAB_RESULTADO_MUESTRA.txtPiso.setText(tb_TomasRealizadas.getValueAt(filaselec, 21).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtCama.setText(tb_TomasRealizadas.getValueAt(filaselec, 22).toString()); 
-                    }
-                    
-                    frm_LAB_RESULTADO_MUESTRA.txtFechaOrden.setText(tb_TomasRealizadas.getValueAt(filaselec, 23).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtHoraOrden.setText(tb_TomasRealizadas.getValueAt(filaselec, 24).toString());
-                    
-                    //Servicio
-                    frm_LAB_RESULTADO_MUESTRA.txtServArea.setText(tb_TomasRealizadas.getValueAt(filaselec, 4).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtCPT.setText(tb_TomasRealizadas.getValueAt(filaselec, 5).toString());
-                    frm_LAB_RESULTADO_MUESTRA.txtNomenclatura.setText(tb_TomasRealizadas.getValueAt(filaselec, 7).toString());
-                    
-                    
-                    frm_LAB_RESULTADO_MUESTRA.lblServicio.setText(lblServicio.getText());
-                    frm_LAB_RESULTADO_MUESTRA.lblArea.setText(lblArea.getText());
-                    
-                    LAB_Esquema_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
-                    LAB_ValoresRef_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
-                    
-                    //como parametro sexo-años-meses-dias del paciente
-                    LAB_Validar_Valores(tb_TomasRealizadas.getValueAt(filaselec, 14).toString(),
-                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 26).toString()),
-                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 27).toString()),
-                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 28).toString()));
-                    String u=lblUsu.getText();
-                             frm_LAB_RESULTADO_MUESTRA.lblUsu.setText(u);
-                       }        
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this, "ingreso "+e.getMessage());
-        }
-        }
+//        char tecla= evt.getKeyChar();
+//                if(tecla==KeyEvent.VK_ENTER){  
+//                    try{
+//                        if( tb_TomasRealizadas.getRowCount()>0){
+//                        int filaselec=tb_TomasRealizadas.getSelectedRow();
+//                        
+//                       
+//                           dispose();
+//                    frm_LAB_RESULTADO_MUESTRA vr=new frm_LAB_RESULTADO_MUESTRA();
+//                    vr.setVisible(true);
+//                    
+//                    //codigos
+//                    frm_LAB_RESULTADO_MUESTRA.lblcod_cab_toma.setText(tb_TomasRealizadas.getValueAt(filaselec, 0).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.lblcod_det_toma.setText(tb_TomasRealizadas.getValueAt(filaselec, 1).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.lblcod_exa_ana.setText(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.lblid_cod_doc_det.setText(tb_TomasRealizadas.getValueAt(filaselec, 25).toString());
+//                   
+//                    //Datos del Paciente
+//                    frm_LAB_RESULTADO_MUESTRA.lblHc.setText(tb_TomasRealizadas.getValueAt(filaselec, 3).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtHc.setText(tb_TomasRealizadas.getValueAt(filaselec, 9).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtPacientes.setText(tb_TomasRealizadas.getValueAt(filaselec, 10).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtDni.setText(tb_TomasRealizadas.getValueAt(filaselec, 11).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtFecha.setText(tb_TomasRealizadas.getValueAt(filaselec, 12).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtEdad.setText(tb_TomasRealizadas.getValueAt(filaselec, 13).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtSexo.setText(tb_TomasRealizadas.getValueAt(filaselec, 14).toString());
+//                    //Toma de Muestra
+//                    frm_LAB_RESULTADO_MUESTRA.txtActoMedico.setText(tb_TomasRealizadas.getValueAt(filaselec, 16).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtFormaPago.setText(tb_TomasRealizadas.getValueAt(filaselec, 15).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtNToma.setText(tb_TomasRealizadas.getValueAt(filaselec, 8).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtPersonalTomaMuestra.setText(tb_TomasRealizadas.getValueAt(filaselec, 17).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtFechaTM.setText(tb_TomasRealizadas.getValueAt(filaselec, 18).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtHoraTM.setText(tb_TomasRealizadas.getValueAt(filaselec, 19).toString());
+//                    if(tb_TomasRealizadas.getValueAt(filaselec,20).toString().isEmpty()){
+//                    frm_LAB_RESULTADO_MUESTRA.txtPersonalSolicita.setText("--");
+//                    }else{
+//                    frm_LAB_RESULTADO_MUESTRA.txtPersonalSolicita.setText(tb_TomasRealizadas.getValueAt(filaselec, 20).toString());
+//                        
+//                    }
+//                    if(tb_TomasRealizadas.getValueAt(filaselec,21).toString().isEmpty()){
+//                    frm_LAB_RESULTADO_MUESTRA.txtPiso.setText("--");
+//                    frm_LAB_RESULTADO_MUESTRA.txtCama.setText("--");
+//                    }else{
+//                       frm_LAB_RESULTADO_MUESTRA.txtPiso.setText(tb_TomasRealizadas.getValueAt(filaselec, 21).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtCama.setText(tb_TomasRealizadas.getValueAt(filaselec, 22).toString()); 
+//                    }
+//                    
+//                    frm_LAB_RESULTADO_MUESTRA.txtFechaOrden.setText(tb_TomasRealizadas.getValueAt(filaselec, 23).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtHoraOrden.setText(tb_TomasRealizadas.getValueAt(filaselec, 24).toString());
+//                    
+//                    //Servicio
+//                    frm_LAB_RESULTADO_MUESTRA.txtServArea.setText(tb_TomasRealizadas.getValueAt(filaselec, 4).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtCPT.setText(tb_TomasRealizadas.getValueAt(filaselec, 5).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.txtNomenclatura.setText(tb_TomasRealizadas.getValueAt(filaselec, 7).toString());
+//                    
+//                    
+//                    frm_LAB_RESULTADO_MUESTRA.lblServicio.setText(lblServicio.getText());
+//                    frm_LAB_RESULTADO_MUESTRA.lblArea.setText(lblArea.getText());
+//                    
+//                    LAB_Esquema_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
+//                    LAB_ValoresRef_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
+//                    
+//                    //como parametro sexo-años-meses-dias del paciente
+//                    LAB_Validar_Valores(tb_TomasRealizadas.getValueAt(filaselec, 14).toString(),
+//                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 26).toString()),
+//                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 27).toString()),
+//                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 28).toString()));
+//                    String u=lblUsu.getText();
+//                             frm_LAB_RESULTADO_MUESTRA.lblUsu.setText(u);
+//                       }        
+//        }catch(Exception e){
+//            JOptionPane.showMessageDialog(this, "ingreso "+e.getMessage());
+//        }
+//        }
     }//GEN-LAST:event_tb_TomasRealizadasKeyPressed
 
     
@@ -1781,49 +1824,9 @@ public void buscar_examenes(){
         JOptionPane.showMessageDialog(rootPane, e.getMessage());
     }
     }
-    
-    private void chPacientesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chPacientesItemStateChanged
-        if(chPacientes.isSelected()){
-            txtPacientes.setEnabled(false);
-            btnPacientes.setEnabled(false);
-            txtPacientes.setText("");
-            txtAnalisis.setText("");
-        }else{
-            txtPacientes.setEnabled(true);
-            btnPacientes.setEnabled(true);
-            txtPacientes.setText("");
-            txtAnalisis.setText("");
-        }
-    }//GEN-LAST:event_chPacientesItemStateChanged
-            
-    private void btnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacientesActionPerformed
-        buscar_HC.setVisible(true);
-        txtbuscarHC.setText("");
-        LAB_HC_cargar();
-        LAB_HC_formato();
-    }//GEN-LAST:event_btnPacientesActionPerformed
-
-    private void chAnalisisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chAnalisisItemStateChanged
-        if(chAnalisis.isSelected()){
-            txtAnalisis.setEnabled(false);
-            btnAnalisis.setEnabled(false);
-            txtAnalisis.setText("");
-        }else{
-            txtAnalisis.setEnabled(true);
-            btnAnalisis.setEnabled(true);
-        }
-    }//GEN-LAST:event_chAnalisisItemStateChanged
-
-    private void btnAnalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalisisActionPerformed
-                 analisis.setVisible(true);
-                    txtBuscarAnalisis.setText("");
-                    Analisis_cargar();
-                    Analisis_formato();
-               
-    }//GEN-LAST:event_btnAnalisisActionPerformed
-
+                
     private void cbxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxItemStateChanged
-        if(cbx.getSelectedIndex()==0){
+           if(cbx.getSelectedIndex()==0){
             chPacientes.setSelected(false);
             chAnalisis.setSelected(false);
             chPersonal.setSelected(false);
@@ -1836,6 +1839,8 @@ public void buscar_examenes(){
             chPersonal.setVisible(false);
             txtPersonal.setVisible(false);
             btnPersonal.setVisible(false);
+            chActoMedico.setVisible(false);
+            txtActoM.setVisible(false);
             txtPacientes.setText("");
             txtAnalisis.setText("");
             txtPersonal.setText("");
@@ -1845,6 +1850,7 @@ public void buscar_examenes(){
             chPacientes.setSelected(true);
             chAnalisis.setSelected(false);
             chPersonal.setSelected(false);
+            chActoMedico.setSelected(false);
             chPacientes.setVisible(true);
             txtPacientes.setVisible(true);
             btnPacientes.setVisible(true);
@@ -1854,14 +1860,18 @@ public void buscar_examenes(){
             chPersonal.setVisible(false);
             txtPersonal.setVisible(false);
             btnPersonal.setVisible(false);
+            chActoMedico.setVisible(false);
+            txtActoM.setVisible(false);
             txtPacientes.setText("");
             txtAnalisis.setText("");
             txtPersonal.setText("");
+            txtActoM.setText("");
             btnBuscar.setVisible(true);
         }else if(cbx.getSelectedIndex()==2){
             chPacientes.setSelected(false);
             chAnalisis.setSelected(true);
             chPersonal.setSelected(false);
+            chActoMedico.setSelected(false);
             chPacientes.setVisible(false);
             txtPacientes.setVisible(false);
             btnPacientes.setVisible(false);
@@ -1871,14 +1881,18 @@ public void buscar_examenes(){
             chPersonal.setVisible(false);
             txtPersonal.setVisible(false);
             btnPersonal.setVisible(false);
+            chActoMedico.setVisible(false);
+            txtActoM.setVisible(false);
             txtPacientes.setText("");
             txtAnalisis.setText("");
             txtPersonal.setText("");
+            txtActoM.setText("");
             btnBuscar.setVisible(true);
         }else if(cbx.getSelectedIndex()==3){
             chPacientes.setSelected(false);
             chAnalisis.setSelected(false);
             chPersonal.setSelected(true);
+            chActoMedico.setSelected(false);
             chPacientes.setVisible(false);
             txtPacientes.setVisible(false);
             btnPacientes.setVisible(false);
@@ -1888,57 +1902,42 @@ public void buscar_examenes(){
             chPersonal.setVisible(true);
             txtPersonal.setVisible(true);
             btnPersonal.setVisible(true);
+            chActoMedico.setVisible(false);
+            txtActoM.setVisible(false);
             txtPacientes.setText("");
             txtAnalisis.setText("");
             txtPersonal.setText("");
+            txtActoM.setText("");
+            btnBuscar.setVisible(true);
+        }else if(cbx.getSelectedIndex()==4){
+            chPacientes.setSelected(false);
+            chAnalisis.setSelected(false);
+            chPersonal.setSelected(false);
+            chActoMedico.setSelected(true);
+            
+            chPacientes.setVisible(false);
+            txtPacientes.setVisible(false);
+            btnPacientes.setVisible(false);
+            chAnalisis.setVisible(false);
+            txtAnalisis.setVisible(false);
+            btnAnalisis.setVisible(false);
+            chPersonal.setVisible(false);
+            txtPersonal.setVisible(false);
+            btnPersonal.setVisible(false);
+            chActoMedico.setVisible(true);
+            txtActoM.setVisible(true);
+            txtPacientes.setText("");
+            txtAnalisis.setText("");
+            txtPersonal.setText("");
+            txtActoM.setText("");
             btnBuscar.setVisible(true);
         }
+                                       
     }//GEN-LAST:event_cbxItemStateChanged
-
-    private void chPersonalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chPersonalItemStateChanged
-       if(chPersonal.isSelected()){
-            txtPersonal.setEnabled(false);
-            btnPersonal.setEnabled(false);
-            txtPersonal.setText("");
-        }else{
-            txtPersonal.setEnabled(true);
-            btnPersonal.setEnabled(true);
-        }
-    }//GEN-LAST:event_chPersonalItemStateChanged
-
-    private void btnPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonalActionPerformed
-       
-                    personal.setVisible(true);
-                    txtBuscarPersonal.setText("");
-                    Personal_cargar();
-                    Personal_formato();
-               
-    }//GEN-LAST:event_btnPersonalActionPerformed
 
     private void cbxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxKeyPressed
-
-    private void txtPacientesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPacientesKeyPressed
-        char tecla= evt.getKeyChar();
-                if(tecla==KeyEvent.VK_ENTER){
-                    btnPacientes.doClick();
-                }
-    }//GEN-LAST:event_txtPacientesKeyPressed
-
-    private void txtAnalisisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnalisisKeyPressed
-         char tecla= evt.getKeyChar();
-                if(tecla==KeyEvent.VK_ENTER){
-                    btnAnalisis.doClick();
-                }
-    }//GEN-LAST:event_txtAnalisisKeyPressed
-
-    private void txtPersonalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalKeyPressed
-        char tecla= evt.getKeyChar();
-                if(tecla==KeyEvent.VK_ENTER){
-                    btnPersonal.doClick();
-                }
-    }//GEN-LAST:event_txtPersonalKeyPressed
 
     private void txtBuscarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarPersonalActionPerformed
         // TODO add your handling code here:
@@ -2155,9 +2154,124 @@ public void buscar_examenes(){
         }
     }//GEN-LAST:event_btnBuscarAnalisisActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        try{
+
+            if(dateDesde.getDate()==null || dateHasta.getDate()==null){
+                JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de Fechas.");
+            } else if(cbx.getSelectedIndex()==0){
+                JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de búsqueda");
+            }  else if(txtPacientes.getText().isEmpty()&&chPacientes.isSelected()==false&& txtAnalisis.getText().isEmpty()
+                  && chAnalisis.isSelected()==false && txtPersonal.getText().isEmpty()&&chPersonal.isSelected()==false
+                  &&txtActoM.getText().isEmpty()&&chActoMedico.isSelected()==false){
+                JOptionPane.showMessageDialog(rootPane, "Seleccione y/o ingrese un " +cbx.getSelectedItem());
+            }  else {
+                buscar_examenes();
+
+            }
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonalActionPerformed
+
+        personal.setVisible(true);
+        txtBuscarPersonal.setText("");
+        Personal_cargar();
+        Personal_formato();
+
+    }//GEN-LAST:event_btnPersonalActionPerformed
+
+    private void txtPersonalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalKeyPressed
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            btnPersonal.doClick();
+        }
+    }//GEN-LAST:event_txtPersonalKeyPressed
+
+    private void chPersonalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chPersonalItemStateChanged
+        if(chPersonal.isSelected()){
+            txtPersonal.setEnabled(false);
+            btnPersonal.setEnabled(false);
+            txtPersonal.setText("");
+        }else{
+            txtPersonal.setEnabled(true);
+            btnPersonal.setEnabled(true);
+        }
+    }//GEN-LAST:event_chPersonalItemStateChanged
+
+    private void btnAnalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalisisActionPerformed
+        analisis.setVisible(true);
+        txtBuscarAnalisis.setText("");
+        Analisis_cargar();
+        Analisis_formato();
+
+    }//GEN-LAST:event_btnAnalisisActionPerformed
+
+    private void txtAnalisisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnalisisKeyPressed
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            btnAnalisis.doClick();
+        }
+    }//GEN-LAST:event_txtAnalisisKeyPressed
+
+    private void chAnalisisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chAnalisisItemStateChanged
+        if(chAnalisis.isSelected()){
+            txtAnalisis.setEnabled(false);
+            btnAnalisis.setEnabled(false);
+            txtAnalisis.setText("");
+        }else{
+            txtAnalisis.setEnabled(true);
+            btnAnalisis.setEnabled(true);
+        }
+    }//GEN-LAST:event_chAnalisisItemStateChanged
+
+    private void btnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacientesActionPerformed
+        buscar_HC.setVisible(true);
+        txtbuscarHC.setText("");
+        LAB_HC_cargar();
+        LAB_HC_formato();
+    }//GEN-LAST:event_btnPacientesActionPerformed
+
+    private void txtPacientesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPacientesKeyPressed
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            btnPacientes.doClick();
+        }
+    }//GEN-LAST:event_txtPacientesKeyPressed
+
     private void txtPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPacientesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPacientesActionPerformed
+
+    private void chPacientesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chPacientesItemStateChanged
+        if(chPacientes.isSelected()){
+            txtPacientes.setEnabled(false);
+            btnPacientes.setEnabled(false);
+            txtPacientes.setText("");
+            txtAnalisis.setText("");
+        }else{
+            txtPacientes.setEnabled(true);
+            btnPacientes.setEnabled(true);
+            txtPacientes.setText("");
+            txtAnalisis.setText("");
+        }
+    }//GEN-LAST:event_chPacientesItemStateChanged
+
+    private void chActoMedicoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chActoMedicoItemStateChanged
+        if(chActoMedico.isSelected()){
+            txtActoM.setEnabled(false);
+            txtActoM.setText("");
+        }else{
+            txtActoM.setEnabled(true);
+        }
+    }//GEN-LAST:event_chActoMedicoItemStateChanged
+
+    private void txtActoMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActoMKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtActoMKeyPressed
     public void enableDatos(){
     tb_TomasRealizadas.setEnabled(true);
     tb_TomasRealizadas.setBackground(Color.white);
@@ -2359,6 +2473,7 @@ public void buscar_examenes(){
     private javax.swing.JComboBox cbx;
     private javax.swing.JComboBox cbxBuscarAnalisis;
     private javax.swing.JComboBox cbxBuscarPersonal;
+    private javax.swing.JCheckBox chActoMedico;
     private javax.swing.JCheckBox chAnalisis;
     private javax.swing.JCheckBox chPacientes;
     private javax.swing.JCheckBox chPersonal;
@@ -2398,6 +2513,7 @@ public void buscar_examenes(){
     private javax.swing.JLabel titulo6;
     private javax.swing.JLabel titulo7;
     private javax.swing.JLabel titulo8;
+    public static javax.swing.JTextField txtActoM;
     public static javax.swing.JTextField txtAnalisis;
     private javax.swing.JTextField txtBuscarAnalisis;
     private javax.swing.JTextField txtBuscarPersonal;

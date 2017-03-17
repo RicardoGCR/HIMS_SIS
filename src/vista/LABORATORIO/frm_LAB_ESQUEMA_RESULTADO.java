@@ -637,11 +637,13 @@ public void calcula() {
                 jLabel21.setText("Nombre del Resultado");
 
                 txtNombreResultado.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                txtNombreResultado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
                 jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 jLabel22.setText("Resultado por Defecto");
 
                 txtResultadoDefec.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                txtResultadoDefec.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtResultadoDefec.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyTyped(java.awt.event.KeyEvent evt) {
                         txtResultadoDefecKeyTyped(evt);
@@ -1099,12 +1101,7 @@ LAB_Unidad_Medida_formato();
     }//GEN-LAST:event_tb_EsquemaMouseClicked
 
     private void txtResultadoDefecKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResultadoDefecKeyTyped
-    char tecla;
-        tecla = evt.getKeyChar();
-        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
-            evt.consume();
-            getToolkit().beep();            
-        }
+  
     }//GEN-LAST:event_txtResultadoDefecKeyTyped
     public void enableDatos(){
     chTitulo.setEnabled(true);

@@ -1316,8 +1316,7 @@ DefaultTableModel m, m1,m2, m3, m4 ;
     }
     
     
-    public void cargarMedicamentos_insumosTB(){
-      
+    public void cargarMedicamentos_insumosTB(){     
         try {
 
             DefaultTableModel modelo=(DefaultTableModel) tb_MEDICAMENTOS.getModel(); 
@@ -1364,45 +1363,6 @@ DefaultTableModel m, m1,m2, m3, m4 ;
         
         } catch (Exception e) {
         }
-        
-        
-        
-        /*
-        
-        try {
-                              
-            String filaselec=lblCod_sustento.getText();
-            //Medicamentos
-            String consulta="";
-            //tb_MEDICAMENTOS.setModel(new DefaultTableModel());
-            String titulos[]={"Cod_tipoSust","Nombre del Producto","Rendimiento","UM","Cantidad UM","Precio Sustento","Total Sustento"};
-            m1=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(m1);
-            String fila[]=new String[7];
-            Usuario obj=new Usuario();
-            consulta="exec SIS_COSTOS_MEDICAMENTOS_BUSCAR ?";
-            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1, filaselec);
-            ResultSet r= cmd.executeQuery();
-            while(r.next()){
-            for (int i=0; i<7; i++){
-                fila[i]=r.getString(i+1);
-                
-                }
-            
-                         
-            }
-            m1.addRow(fila);
-            tb_MEDICAMENTOS.setModel(m1);
-            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m1);
-            tb_MEDICAMENTOS.setRowSorter(elQueOrdena);
-            tb_MEDICAMENTOS.setModel(m1);
-
-             
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }*/
-     
        
     }
     

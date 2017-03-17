@@ -139,6 +139,8 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
           btnbuscar10.setVisible(false);
           jScrollPane14.setVisible(false);
           cargareliminar.setVisible(false);
+          CARGAR4.setVisible(false);
+          cargareliminar2.setVisible(false);
           //////////////////////////
           elimma1.setVisible(false);
           cargareliminarma.setVisible(false);
@@ -231,7 +233,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
     }
     
     
-        public DefaultComboBoxModel anular(){
+    public DefaultComboBoxModel anular(){
        DefaultComboBoxModel  listmodel = new DefaultComboBoxModel ();        
        String   sql = null;
        ResultSet rs = null;
@@ -250,7 +252,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
         return listmodel;
     }
         
-          public void listarMedicos(){
+    public void listarMedicos(){
     String consulta="";
         try {
             tb_medicos.setModel(new DefaultTableModel());
@@ -285,7 +287,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
         }
     }
           
-           public void listarMedicos1(){
+    public void listarMedicos1(){
     String consulta="";
         try {
             tb_medicos.setModel(new DefaultTableModel());
@@ -329,7 +331,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
         tb_medicos.setRowHeight(30);
     }
           
-       public void Detalle(){
+    public void Detalle(){
         String consulta="";
         try {
             tb_Grupo2.setModel(new DefaultTableModel());
@@ -369,7 +371,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
             System.out.println("Error doc: " + e.getMessage());
         }
       } 
-       public void BusquedaGeneral(){
+    public void BusquedaGeneral(){
         String consulta="";
         try {
             tb_Grupo1.setModel(new DefaultTableModel());
@@ -413,7 +415,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
         }
       }
        
-       public void BusquedaDet(){
+    public void BusquedaDet(){
         String consulta="";
         try {
             tb_Grupo6.setModel(new DefaultTableModel());
@@ -451,7 +453,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
             System.out.println("Error doc: " + e.getMessage());
         }
       }
-   public void LISTARMA(){
+    public void LISTARMA(){
     try {
              String titulos[]={"Descripcion","codigo"};
             m=new DefaultTableModel(null,titulos);
@@ -543,7 +545,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
     } catch (Exception e) {
     }
 }  
-   public void Abonnos(){
+    public void Abonnos(){
         String consulta="";
         try {
             ABONOS.setModel(new DefaultTableModel());
@@ -577,7 +579,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
             System.out.println("Error preventa: " + e.getMessage());
         }
       }
-        public void Preventamostrar(){
+    public void Preventamostrar(){
         String consulta="";
         try {
             tb_Grupo5.setModel(new DefaultTableModel());
@@ -621,10 +623,10 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
         try {
             tEME.setModel(new DefaultTableModel());
          
-             String titulos[]={"Nº","DNI","H.C.","Cliente","Modulo","Medico","Fecha","Hora","id","estado","codm","conom"};
+             String titulos[]={"Nº","DNI","H.C.","Cliente","Modulo","Medico","Fecha","Hora","id","estado","codm","conom","ARID"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[12];
+            String fila[]=new String[13];
             Caja_NuevaVenta obj=new Caja_NuevaVenta();
                     consulta="exec Caja_Mostrar_Preventas ?";      
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
@@ -644,6 +646,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
             fila[9]=r.getString(10);
             fila[10]=r.getString(11);
             fila[11]=r.getString(12);
+            fila[12]=r.getString(13);
                 m.addRow(fila);
                 c++;
             }
@@ -661,10 +664,10 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
         try {
             tHOS.setModel(new DefaultTableModel());
          
-             String titulos[]={"Nº","DNI","H.C.","Cliente","Modulo","Indicaciones","Procedencia","Medico","Fecha","Hora","id","estado","COD_MED","CPT","caid","PROC","ACT"};
+             String titulos[]={"Nº","DNI","H.C.","Cliente","Modulo","Indicaciones","Procedencia","Medico","Fecha","Hora","id","estado","COD_MED","CPT","caid","PROC","ACT","ARID"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[17];
+            String fila[]=new String[18];
             Caja_NuevaVenta obj=new Caja_NuevaVenta();
                     consulta="exec Caja_Mostrar_Preventas_HOS ?";      
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
@@ -689,6 +692,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
             fila[14]=r.getString(15);
             fila[15]=r.getString(16);
             fila[16]=r.getString(17);
+            fila[17]=r.getString(18);
                 m.addRow(fila);
                 c++;
             }
@@ -707,14 +711,14 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
         try {
             tEMEDET.setModel(new DefaultTableModel());
          
-             String titulos[]={"CPT","Descripcion","Precio","Fecha","Hora","cod","idDp","ESTADO","IDP"};
+             String titulos[]={"CPT","Descripcion","Precio","Fecha","Hora","cod","idDp","ESTADO","IDP","ARID"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[9];
+            String fila[]=new String[10];
             Caja_NuevaVenta obj=new Caja_NuevaVenta();
                     consulta="exec Caja_Mostrar_DETALLE_Preventas ?";      
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1, jLabel34.getText());
+            cmd.setString(1, IDP.getText());
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -727,6 +731,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
             fila[6]=r.getString(7);
             fila[7]=r.getString(8);
             fila[8]=r.getString(9);
+            fila[9]=r.getString(10);
                 m.addRow(fila);
                 c++;
             }
@@ -745,12 +750,12 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
         try {
             tHOSDET.setModel(new DefaultTableModel());
          
-             String titulos[]={"CPT","Descripcion","Precio","Fecha","Hora","cod","idDp","ESTADO","IDP"};
+             String titulos[]={"CPT","Descripcion","","","","",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[9];
+            String fila[]=new String[7];
             Caja_NuevaVenta obj=new Caja_NuevaVenta();
-                    consulta="exec Caja_Mostrar_DETALLE_Preventas ?";      
+                    consulta="exec Caja_Mostrar_DETALLE_Preventas_HOS ?";      
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, jLabel34.getText());
             ResultSet r= cmd.executeQuery();
@@ -763,8 +768,6 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
             fila[4]=r.getString(5);
             fila[5]=r.getString(6);
             fila[6]=r.getString(7);
-            fila[7]=r.getString(8);
-            fila[8]=r.getString(9);
                 m.addRow(fila);
                 c++;
             }
@@ -772,7 +775,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             tHOSDET.setRowSorter(elQueOrdena);
             this.tHOSDET.setModel(m);
-            formatoEMEDET();
+            
         } catch (Exception e) {
             System.out.println("Error preventa detalleeeeeeeeeeeeeeeeee: " + e.getMessage());
         }
@@ -930,6 +933,8 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
     tEME.getColumnModel().getColumn(10).setMaxWidth(0);
     tEME.getColumnModel().getColumn(11).setMinWidth(0);
     tEME.getColumnModel().getColumn(11).setMaxWidth(0);
+    tEME.getColumnModel().getColumn(12).setMinWidth(0);
+    tEME.getColumnModel().getColumn(12).setMaxWidth(0);
     }
     
     public void formatoHOS(){
@@ -1730,6 +1735,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
 
                                                                                             BHC.setAlwaysOnTop(true);
                                                                                             BHC.setMinimumSize(new java.awt.Dimension(749, 338));
+                                                                                            BHC.setPreferredSize(new java.awt.Dimension(749, 338));
                                                                                             BHC.setResizable(false);
                                                                                             BHC.getContentPane().setLayout(null);
 
@@ -2212,6 +2218,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
 
                                                                                             nomenclaturas.setAlwaysOnTop(true);
                                                                                             nomenclaturas.setMinimumSize(new java.awt.Dimension(749, 338));
+                                                                                            nomenclaturas.setPreferredSize(new java.awt.Dimension(749, 338));
                                                                                             nomenclaturas.setResizable(false);
                                                                                             nomenclaturas.getContentPane().setLayout(null);
 
@@ -4249,7 +4256,6 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
 
                                                                                             Medicos.setAlwaysOnTop(true);
                                                                                             Medicos.setMinimumSize(new java.awt.Dimension(749, 398));
-                                                                                            Medicos.setPreferredSize(new java.awt.Dimension(749, 398));
                                                                                             Medicos.setResizable(false);
                                                                                             Medicos.getContentPane().setLayout(null);
 
@@ -4434,7 +4440,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
                                                                                             setIconImage(getIconImage());
 
-                                                                                            jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+                                                                                            jPanel1.setBackground(new java.awt.Color(58, 168, 178));
 
                                                                                             jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
                                                                                             jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -4716,7 +4722,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                             ));
                                                                                             tb_Grupo6.setGridColor(new java.awt.Color(255, 255, 255));
                                                                                             tb_Grupo6.setRowHeight(25);
-                                                                                            tb_Grupo6.setSelectionBackground(new java.awt.Color(153, 153, 153));
+                                                                                            tb_Grupo6.setSelectionBackground(new java.awt.Color(26, 188, 156));
                                                                                             tb_Grupo6.addMouseListener(new java.awt.event.MouseAdapter() {
                                                                                                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                                                                                                     tb_Grupo6MouseClicked(evt);
@@ -5355,11 +5361,9 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                                     .addComponent(Nomen2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                     .addGap(0, 0, 0)
                                                                                                                     .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                                            .addContainerGap(101, Short.MAX_VALUE))
-                                                                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                                                                                            .addComponent(separar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                            .addContainerGap())))
+                                                                                                            .addContainerGap(101, Short.MAX_VALUE))))
                                                                                                 .addComponent(preventa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                .addComponent(separar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                             );
                                                                                             jPanel3Layout.setVerticalGroup(
                                                                                                 jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5417,14 +5421,13 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                         .addComponent(txtape, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                     .addComponent(preventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                    .addGap(0, 0, Short.MAX_VALUE)
+                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                    .addComponent(separar)
+                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                                                                            .addComponent(separar)
-                                                                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                .addComponent(Nomen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addComponent(bu)))
+                                                                                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                            .addComponent(Nomen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                            .addComponent(bu))
                                                                                                         .addComponent(b4))
                                                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5521,6 +5524,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         cargareliminar3.setVisible(false);
         if(ok.getText()=="okk" && this.tb_Grupo2.getRowCount()==0   ){ 
+              cargareliminar3.setBackground(new Color(255,91,70)); 
               cargareliminar3.setVisible(true);
               eli4.setText("Si");
               noeli4.setVisible(true);
@@ -5751,11 +5755,12 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
         
         if(teclaPresionada==KeyEvent.VK_ENTER){
             int fila = tb_Grupo.getSelectedRow();
+             BHC.dispose();
             bus.setText(String.valueOf(tb_Grupo.getValueAt(fila, 7)));
             bus3.setText(String.valueOf(tb_Grupo.getValueAt(fila, 7)));
             Preventamostrar();
             Abonnos();
-            BHC.dispose();
+           
             txthc.setEnabled(true);
             txtape.setEnabled(true);
             txtdir.setEnabled(true);   
@@ -5827,7 +5832,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
     }//GEN-LAST:event_tb_GrupoKeyPressed
 
     private void btnNuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo1ActionPerformed
-  BHC.dispose();
+       BHC.dispose();
         FrmNuevaHistoriaC frmEmerList = new FrmNuevaHistoriaC();
         frmEmerList.setVisible(true);
         
@@ -5918,14 +5923,14 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
 
     private void tb_Grupo4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo4KeyPressed
         char teclaPresionada = evt.getKeyChar();
-         nomenclaturas.dispose();
         if(teclaPresionada==KeyEvent.VK_ENTER){
             int fila = tb_Grupo4.getSelectedRow();
+            nomenclaturas.dispose();
             SE.setText(String.valueOf(tb_Grupo4.getValueAt(fila, 7)));
             NCP.setText(String.valueOf(tb_Grupo4.getValueAt(fila, 5)));
             GuardarDetalle();
-            b5.setVisible(true);
-            b5.setEnabled(false);
+              b5.setVisible(true);
+              b5.setEnabled(false);
             jPanel20.setVisible(true);
             suma();
             }
@@ -5959,11 +5964,13 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
     }//GEN-LAST:event_btnNuevo2ActionPerformed
 
     private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
-            cargareliminar3.setVisible(true);
-            eli4.setText("Si");
-            noeli4.setVisible(true);
-            Mensaje4.setText("Quitar este registro ?");
-            tgm=00;
+
+        cargareliminar3.setBackground(new Color(255,91,70)); 
+        cargareliminar3.setVisible(true);
+        eli4.setText("Si");
+        noeli4.setVisible(true);
+        Mensaje4.setText("Quitar este registro ?");
+        tgm=00;
 
     }//GEN-LAST:event_b5ActionPerformed
 
@@ -6088,7 +6095,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
         preventa.setVisible(false);
         BHC.setVisible(true);
         txtBuscar.setText("");
-         jTabbedPane2.setSelectedIndex(0);
+        jTabbedPane2.setSelectedIndex(0);
     }//GEN-LAST:event_b2ActionPerformed
 
     private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
@@ -6195,7 +6202,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
        Caja_Preventa cpam = new Caja_Preventa(); 
         int fila=tEME.getSelectedRow();
      if(evt.getClickCount()==1){
-       NCP.setText(String.valueOf(tEME.getValueAt(fila, 11)));  
+       NCP.setText(String.valueOf(tEME.getValueAt(fila, 12)));  
        IDP.setText(String.valueOf(tEME.getValueAt(fila, 0))); 
        //////////////////////ANULAR
        MHOS.setText(String.valueOf(tEME.getValueAt(fila, 4))); 
@@ -6271,14 +6278,18 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
     }//GEN-LAST:event_tEMEDETKeyPressed
 
     private void CARGARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CARGARActionPerformed
-        Caja_Preventa CSE = new Caja_Preventa();
+
+        if(tgp==1){
+          Caja_Preventa CSE = new Caja_Preventa();
         SE.setText(CSE.CodSE(NCP.getText()));
        
         Medicos.setVisible(true);
         listarMedicos1();
         //////////////////
 
-         preventas.dispose();
+         preventas.dispose();   
+        }
+       
 
        
     
@@ -6435,10 +6446,10 @@ if(tgp==1){
     private void cbxtipoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxtipoKeyPressed
         char teclaPresionada = evt.getKeyChar();
         if(teclaPresionada==KeyEvent.VK_ENTER){
-              preventa.setVisible(false);
-        BHC.setVisible(true);
-        txtBuscar.setText("");
-         jTabbedPane2.setSelectedIndex(0);
+            preventa.setVisible(false);
+            BHC.setVisible(true);
+            txtBuscar.setText("");
+            jTabbedPane2.setSelectedIndex(0);
 
           } 
        
@@ -6748,7 +6759,7 @@ if(tgp==1){
        Caja_Preventa cpam = new Caja_Preventa();
         int fila=tHOS.getSelectedRow();
      if(evt.getClickCount()==1){
-       NCP.setText(String.valueOf(tHOS.getValueAt(fila, 13)));  
+       NCP.setText(String.valueOf(tHOS.getValueAt(fila, 17)));  
        IDP.setText(String.valueOf(tHOS.getValueAt(fila, 0)));  
        ca_id.setText(String.valueOf(tHOS.getValueAt(fila, 14))); 
        MODULO.setText(String.valueOf(tHOS.getValueAt(fila, 6))); 
@@ -6757,7 +6768,7 @@ if(tgp==1){
        ////////////////////////////////////////////////////////
        
      } 
-     tgp=3;
+    
       
    
        AM.setText((cpam.Ultima_Emergencia(lblhc.getText())));
@@ -6765,11 +6776,13 @@ if(tgp==1){
          if(AM.getText()==""){
        AM.setText(AMN.getText());    
        }
+        jLabel34.setText(String.valueOf(tHOS.getValueAt(fila, 0)));
+        PreventaHOSDET();
         
         CARGAR3.setVisible(true);
         CARGAR4.setVisible(true);
         
-        
+         tgp=3;
         
         
     }//GEN-LAST:event_tHOSMouseClicked
@@ -6791,7 +6804,9 @@ if(tgp==1){
     }//GEN-LAST:event_tHOSDETKeyPressed
 
     private void CARGAR3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CARGAR3ActionPerformed
-       Caja_Preventa CSE = new Caja_Preventa();
+
+        if(tgp==3){
+          Caja_Preventa CSE = new Caja_Preventa();
         SE.setText(CSE.CodSE(NCP.getText()));
          AsignarCamas();
         Medicos.setVisible(true);
@@ -6799,6 +6814,10 @@ if(tgp==1){
         //////////////////
 
          preventas.dispose(); 
+    }else if(tgp==4){
+        
+    }
+      
         
 
      
@@ -7059,6 +7078,7 @@ if(tgp==1){
     private javax.swing.JLabel T4;
     private javax.swing.JLabel T5;
     private javax.swing.JLabel T6;
+    private javax.swing.JLabel T7;
     private javax.swing.JLabel T8;
     private javax.swing.JPanel aaa;
     private javax.swing.JDialog abono;
@@ -7100,6 +7120,7 @@ if(tgp==1){
     private javax.swing.JLabel bus1;
     private javax.swing.JLabel bus2;
     private javax.swing.JLabel bus3;
+    private javax.swing.JTextField buscartodo;
     private javax.swing.JLabel ca_id;
     private javax.swing.JPanel cargareliminar;
     private javax.swing.JPanel cargareliminar1;
@@ -7213,6 +7234,7 @@ if(tgp==1){
     private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;
+    private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel46;
     private javax.swing.JPanel jPanel47;
     private javax.swing.JPanel jPanel5;

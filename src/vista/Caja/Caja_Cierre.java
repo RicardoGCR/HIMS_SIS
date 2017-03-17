@@ -39,8 +39,8 @@ Caja_AperturaCierre cn1 = new Caja_AperturaCierre();
         setLocationRelativeTo(null);//en el centro
         capertura.setText(cnn.id());
         ccierre.setText(cn1.Apertura());
-        int fila = aperturalista.getSelectedRow();
-        codigo.setText(String.valueOf(aperturalista.getValueAt(fila, 0)));
+//        int fila = aperturalista.getSelectedRow();
+//        codigo.setText(String.valueOf(aperturalista.getValueAt(fila, 0)));
         
     }
      public void LISTAR(){

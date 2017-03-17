@@ -2,24 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-            <file>file:/D:/pry/SISGESH/src/vista/admisionCentral/FrmNuevaHistoriaC.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/Caja/Caja_DetallePreventas.java</file>
             <file>file:/D:/pry/SISGESH/src/modelos/Caja/Caja_Preventa.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/Caja/Caja_Pagos_Detalle.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/Caja/Caja_Precios.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/Caja/Caja_Pagos.java</file>
-=======
-<<<<<<< HEAD
-        <group/>
-=======
-        <group>
-            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionNotaEnfermeria.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmFormatoInterconsulta.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionEvolucion.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionNotaEnfermeria.java</file>
->>>>>>> 0dd67f44c03c204565eb49aa0d0a86a781329072
         </group>
->>>>>>> 39488158ce03a16011fcc0ed73b5e30f32a9eb4f
     </open-files>
 </project-private>

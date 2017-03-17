@@ -58,19 +58,23 @@
               <Group type="102" alignment="1" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <Component id="titulo5" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnDX_Medicam_InsumoNuevo" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btn_Nuevo" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="btnguardar" min="-2" pref="44" max="-2" attributes="1"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="btnmodificar" min="-2" pref="44" max="-2" attributes="1"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                          <Component id="titulo5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Component id="btneliminar" min="-2" pref="42" max="-2" attributes="1"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Component id="btnBuscar" min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="354" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="293" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel22" min="-2" pref="199" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
@@ -96,16 +100,6 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="titulo5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btnDX_Medicam_InsumoNuevo" min="-2" pref="43" max="-2" attributes="0"/>
-                      <Component id="btnmodificar" min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="btnguardar" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
@@ -121,6 +115,22 @@
                   </Group>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="lblUsu" min="-2" pref="27" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="titulo5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="btn_Nuevo" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="btnmodificar" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="btnguardar" min="-2" max="-2" attributes="0"/>
+                              <Component id="btneliminar" min="-2" pref="45" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -206,7 +216,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="btnDX_Medicam_InsumoNuevo">
+        <Component class="javax.swing.JButton" name="btn_Nuevo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
@@ -222,7 +232,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDX_Medicam_InsumoNuevoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_NuevoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel22">
@@ -280,6 +290,47 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
         </Component>
+        <Component class="javax.swing.JButton" name="btneliminar">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagenes/iconos/Basura-32.png"/>
+            </Property>
+            <Property name="mnemonic" type="int" value="69"/>
+            <Property name="toolTipText" type="java.lang.String" value="Eliminar (Alt+E)"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneliminarActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnBuscar">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagenes/iconos/Buscar-32.png"/>
+            </Property>
+            <Property name="mnemonic" type="int" value="66"/>
+            <Property name="toolTipText" type="java.lang.String" value="Buscar (Alt+B)"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
@@ -309,8 +360,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="                                           PRESTACIONES                                           ">
-                <Property name="tabTitle" type="java.lang.String" value="                                           PRESTACIONES                                           "/>
+              <JTabbedPaneConstraints tabName="                                         PRESTACIONES                                         ">
+                <Property name="tabTitle" type="java.lang.String" value="                                         PRESTACIONES                                         "/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -343,32 +394,29 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="cbxSexo_Prestacion" pref="124" max="32767" attributes="0"/>
-                                                      <Component id="txtEdad_Minima" max="32767" attributes="0"/>
-                                                      <Component id="cbxGestante" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="87" pref="87" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                                          <Component id="txtEdad_Maxima" min="-2" pref="124" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="cbxPuerpera" alignment="1" min="-2" pref="124" max="-2" attributes="0"/>
-                                                      <Component id="cbxHospitalizacion_Prestacion" alignment="1" min="-2" pref="124" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="cbxSexo_Prestacion" pref="124" max="32767" attributes="0"/>
+                                                  <Component id="txtEdad_Minima" max="32767" attributes="0"/>
+                                                  <Component id="cbxGestante" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="87" pref="87" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="txtEdad_Maxima" min="-2" pref="124" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="cbxHospitalizacion_Prestacion" alignment="0" pref="124" max="32767" attributes="0"/>
+                                                      <Component id="cbxPuerpera" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="cbxRegimen" alignment="0" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <Component id="cbxTipo" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
-                                              <Component id="txtEtapa_Vida" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                              <Component id="cbxRegimen_Componente" alignment="1" min="-2" pref="124" max="-2" attributes="0"/>
                                           </Group>
+                                          <Component id="cbxTipo" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
+                                          <Component id="txtEtapa_Vida" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
                                           <Component id="jScrollPane2" min="-2" pref="370" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -451,7 +499,7 @@
                           <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cbxN_Gestante_N_Puerp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbxRegimen_Componente" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbxRegimen" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="94" max="32767" attributes="0"/>
                   </Group>
@@ -614,18 +662,6 @@
                 <Property name="text" type="java.lang.String" value="Regimen/Componente:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbxRegimen_Componente">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Seleccionar..."/>
-                    <StringItem index="1" value="1"/>
-                    <StringItem index="2" value="2"/>
-                    <StringItem index="3" value="1 - 2"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-            </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -637,13 +673,28 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JComboBox" name="cbxRegimen">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Seleccionar..."/>
+                    <StringItem index="1" value="1"/>
+                    <StringItem index="2" value="2"/>
+                    <StringItem index="3" value="1 - 2"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
+              </AuxValues>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="                                           LISTADO                                           ">
-                <Property name="tabTitle" type="java.lang.String" value="                                           LISTADO                                           "/>
+              <JTabbedPaneConstraints tabName="                                             LISTADO                                             ">
+                <Property name="tabTitle" type="java.lang.String" value="                                             LISTADO                                             "/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -696,14 +747,14 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane3" pref="686" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane3" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="txtBuscarPrestacion" min="-2" pref="107" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Component id="btnBuscarPrestacion" min="-2" pref="29" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="443" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -790,16 +841,70 @@
                         <Component class="javax.swing.JTable" name="tb_Pres">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="4" rowCount="4">
-                                <Column editable="true" title="ID Prestaci&#xf3;n" type="java.lang.Object"/>
-                                <Column editable="true" title="N&#xfa;mero de Prestaci&#xf3;n" type="java.lang.Object"/>
-                                <Column editable="true" title="Descripci&#xf3;n" type="java.lang.Object"/>
-                                <Column editable="true" title="Tipo" type="java.lang.Object"/>
+                              <Table columnCount="13" rowCount="4">
+                                <Column editable="true" title="" type="java.lang.Object"/>
+                                <Column editable="true" title="" type="java.lang.Object"/>
+                                <Column editable="true" title="" type="java.lang.Object"/>
+                                <Column editable="true" title="" type="java.lang.Object"/>
+                                <Column editable="true" title="T&#xed;tulo 5" type="java.lang.Object"/>
+                                <Column editable="true" title="T&#xed;tulo 6" type="java.lang.Object"/>
+                                <Column editable="true" title="T&#xed;tulo 7" type="java.lang.Object"/>
+                                <Column editable="true" title="T&#xed;tulo 8" type="java.lang.Object"/>
+                                <Column editable="true" title="T&#xed;tulo 9" type="java.lang.Object"/>
+                                <Column editable="true" title="T&#xed;tulo 10" type="java.lang.Object"/>
+                                <Column editable="true" title="T&#xed;tulo 11" type="java.lang.Object"/>
+                                <Column editable="true" title="T&#xed;tulo 12" type="java.lang.Object"/>
+                                <Column editable="true" title="T&#xed;tulo 13" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="autoResizeMode" type="int" value="0"/>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                                   <Title/>
                                   <Editor/>

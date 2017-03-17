@@ -3351,7 +3351,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Light" size="13" style="0"/>
                     </Property>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>

@@ -48,6 +48,9 @@ public class Caja_Preventa {
     private String EMER_OBSERVACION;
     private String ESTADO_CAJAP;
     private String cod_nomen;
+
+    private String cod_jerar_forma_pago;
+
     private String procedencia;
     
     Conexion con = new Conexion();
@@ -132,6 +135,114 @@ public class Caja_Preventa {
         return cod;
     }
     
+    public boolean eliminarP(){
+        boolean resp = false;
+        try
+        {
+            String sql = "EXEC Caja_Preventa_Eliminar ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_eliminar: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean modificarPreventa(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec Caja_Actualizar_Preventa ?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+            cmd.setInt(2, getACTO_MEDICO());
+            cmd.setString(3, getCod_jerar_forma_pago());
+            cmd.setString(4, getCod_medico());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+
+ 
+    public String Ultima_Emergencia(String ActoMedico){
+        String cod="";
+        try
+        {
+            String sql = "CAJA_PREVENTA_ULTIMO_EME ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, ActoMedico);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error Acto medico de emergencia: " + ex.getMessage());
+        }
+        return cod;
+    }
+    public String Ultima_CEX(String ActoMedico){
+        String cod="";
+        try
+        {
+            String sql = "CAJA_PREVENTA_ULTIMO_CEX ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, ActoMedico);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error Acto medico de emergencia: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public boolean camas(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Caja_Actualizar_Camas ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCA_ID());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
     public String codUsuario(String nombreUsuario)
     {
         String cod="";
@@ -152,7 +263,7 @@ public class Caja_Preventa {
         }
         return cod;
     }
-    
+
     public String codArea(String area)
     {
         String cod="";
@@ -201,6 +312,7 @@ public class Caja_Preventa {
         }
         return cod;
     }
+
     
     public void formatoTablaCargarFormatEmer(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(60);//id
@@ -282,6 +394,94 @@ public class Caja_Preventa {
             System.out.println("Error: idCajaPreventa: " + ex.getMessage());
         }
         return id;
+    }
+    
+    ///////////////////////////ANULAR VENTA,PREVENTA CAMA Y ASIGNACION CAMA
+    public boolean anularcamas(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Caja_Actualizar_Camas_ANULAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCA_ID());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean anularpreventa(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Caja_Actualizar_Preventa_ANULAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean anularasigcamas(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Caja_ANULAR_ASIGNACION_CAMA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public String CodSE(String precio)
+    {
+        String cod="";
+        try
+        {
+            String sql = "EXEC CAJA_BUSCAR_SERVICIO_PREVENTA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, precio);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_SE: " + ex.getMessage());
+        }
+        return cod;
     }
     
     public Caja_Preventa()
@@ -668,6 +868,16 @@ public class Caja_Preventa {
         this.cod_nomen = cod_nomen;
     }
 
+
+    public String getCod_jerar_forma_pago() {
+        return cod_jerar_forma_pago;
+    }
+
+    public void setCod_jerar_forma_pago(String cod_jerar_forma_pago) {
+        this.cod_jerar_forma_pago = cod_jerar_forma_pago;
+    }
+    
+
     /**
      * @return the procedencia
      */
@@ -681,4 +891,5 @@ public class Caja_Preventa {
     public void setProcedencia(String procedencia) {
         this.procedencia = procedencia;
     }
+
 }

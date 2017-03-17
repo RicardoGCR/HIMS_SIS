@@ -28,13 +28,12 @@ public boolean NuevoPrecio()
         {
         boolean resp = false;
         try{
-            String sql = "EXEC Caja_Precios_INSERTAR ?,?,?,?,?";
+            String sql = "EXEC Caja_Precios_INSERTAR ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getCod_precio());
-            cmd.setString(2, getCod_jerar_forma_pago());
-            cmd.setString(3, getCod_nomen_caja());
-            cmd.setString(4, getPrecio());
-            cmd.setString(5, getNom_usu());
+            cmd.setString(1, getCod_jerar_forma_pago());
+            cmd.setString(2, getCod_nomen_caja());
+            cmd.setString(3, getPrecio());
+            cmd.setString(4, getNom_usu());
 
             if(!cmd.execute())
             {
@@ -88,6 +87,27 @@ public boolean modificarPrecio(){
         catch(Exception ex)
         {
           System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+public boolean eliminar(){
+        boolean resp = false;
+        try
+        {
+            String sql = "EXEC Caja_Precios_ELIMINAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getCod_precio());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_eliminar: " + ex.getMessage());
         }
         return resp;
     }

@@ -852,9 +852,9 @@ public void calcula() {
                     }
                 });
 
-                jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+                jLabel18.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
                 jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                jLabel18.setText("Valores Normales");
+                jLabel18.setText("Valores Referenciales");
 
                 txtMax.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyReleased(java.awt.event.KeyEvent evt) {

@@ -3,27 +3,37 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        <group/>
+=======
+<<<<<<< HEAD
+>>>>>>> 1b9e749724190b1e37cc830d9f20054b1a2981b1
         <group>
-            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_PRESTACION_DESTINO.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/SIS/SIS_CLS_PRESTACION_DESTINO.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_DX_MEDICAMENTO_INSUMO_PROCEDIMIENTO.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/admisionCentral/FrmSeguimientoHC.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_PRESTACIONES.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/SIS/SIS_CLS_PRESTACIONES.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/Caja/Caja_DetallePreventas.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/Caja/Caja_Preventa.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/Caja/Caja_Pagos.java</file>
+<<<<<<< HEAD
+        </group>
+=======
 =======
 <<<<<<< HEAD
         <group/>
 =======
         <group>
 <<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/vista/Caja/Caja_Nomenclaturas.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionFormatoInterconsulta.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionFormatoInterconsulta.java</file>
 =======
-            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionExamenClinico.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionExClinico.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionHojaEvolucion.java</file>
->>>>>>> bd8a8b98fd452383672596e297d8528d8f831d72
->>>>>>> bd538bfd87a5d61b8941551decb3ec0e44fbd8f2
+            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionNotaEnfermeria.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmFormatoInterconsulta.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionEvolucion.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionNotaEnfermeria.java</file>
+>>>>>>> 0dd67f44c03c204565eb49aa0d0a86a781329072
+>>>>>>> 03ecce6c120ef91188bd1183bb01a45d705fd4ae
         </group>
->>>>>>> f224c5b48a9eee7d23c7bd4dd7897c50a0184a40
+>>>>>>> 39488158ce03a16011fcc0ed73b5e30f32a9eb4f
+>>>>>>> 7fc6e0056f2bed69485ee2294c05b2640ecf0b92
+>>>>>>> 1b9e749724190b1e37cc830d9f20054b1a2981b1
     </open-files>
 </project-private>

@@ -109,25 +109,27 @@ Conexion con = new Conexion();
         }
         return cod;
     }
+    
+    
 public boolean DetalleVenta(){
         boolean resp = false;
         try{
             String sql = "exec CAJA_INSERTAR_DETALLE_VENTA "
-                        + "?,?,?,?,?,?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setInt(1, getId_cod_doc_det());
-            cmd.setString(2, getId_documento());
-            cmd.setString(3, getCod_precio());
-            cmd.setString(4, getNom_consultorio_citas());
-            cmd.setDouble(5, getCantidad_detalle());
-            cmd.setDouble(6, getPrecio_detalle());
-            cmd.setDouble(7, getTotal_detalle());
-            cmd.setString(8, getFecha_aten());
-            cmd.setDouble(9, getDescu_exo_detalle());
-            cmd.setString(10, getPersonal_aten());
-            cmd.setString(11, getNum_aten());
-            cmd.setString(12, getTurno_cita());
-            cmd.setString(13, getCod_usu());
+  
+            cmd.setString(1, getId_documento());
+            cmd.setString(2, getCod_precio());
+            cmd.setString(3, getNom_consultorio_citas());
+            cmd.setDouble(4, getCantidad_detalle());
+            cmd.setDouble(5, getPrecio_detalle());
+            cmd.setDouble(6, getTotal_detalle());
+            cmd.setString(7, getFecha_aten());
+            cmd.setDouble(8, getDescu_exo_detalle());
+            cmd.setString(9, getPersonal_aten());
+            cmd.setString(10, getNum_aten());
+            cmd.setString(11, getTurno_cita());
+            cmd.setString(12, getCod_usu());
 
 
             if(!cmd.execute())

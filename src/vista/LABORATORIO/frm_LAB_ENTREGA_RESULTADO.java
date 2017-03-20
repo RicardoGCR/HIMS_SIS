@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -192,9 +191,9 @@ Conexion c=new Conexion();
     String consulta="";
         try {
             tb_TomasRealizadas.setModel(new DefaultTableModel());
-            String titulos[]={"cod_cab_resultado_mu_ana","cod_exa_ana","id_hc","Servicio/√Årea","C√≥digo CPT",
-                "Nomenclatura" ,"An√°lisis Examen","N¬∞ de Resultado","Acto M√©dico","N¬∞ de H.C.","Datos del Paciente",
-                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","N¬∞de TM","Personal Resultado","Personal Registra Resultado",
+            String titulos[]={"cod_cab_resultado_mu_ana","cod_exa_ana","id_hc","Servicio/¡rea","CÛdigo CPT",
+                "Nomenclatura" ,"An·lisis Examen","N∞ de Resultado","Acto MÈdico","N∞ de H.C.","Datos del Paciente",
+                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","N∞de TM","Personal Resultado","Personal Registra Resultado",
                 "Fecha Resultado","Hora Resultado","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","id_cod_doc_det"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
@@ -256,7 +255,7 @@ Conexion c=new Conexion();
     
     public void LAB_HC_cargar(){
     try {
-             String titulos[]={"N¬∞","N¬∞ H.C.","Paciente","Direcci√≥n","DNI","Sexo","Fecha de Nac.","Edad","COdigo"};
+             String titulos[]={"N∞","N∞ H.C.","Paciente","DirecciÛn","DNI","Sexo","Fecha de Nac.","Edad","COdigo"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[9];
@@ -269,7 +268,7 @@ Conexion c=new Conexion();
         ResultSet r=cmd.executeQuery();
         int c=1;
         while(r.next()){
-            fila[0]=String.valueOf(c)+"¬∫";
+            fila[0]=String.valueOf(c)+"∫";
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
             fila[3]=r.getString(3);
@@ -309,7 +308,7 @@ Conexion c=new Conexion();
  public void Personal_cargar(){
 
     try {
-             String titulos[]={"N¬∞","C√≥digo","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio"};
+             String titulos[]={"N∞","CÛdigo","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -323,7 +322,7 @@ Conexion c=new Conexion();
         ResultSet r=cmd.executeQuery();
         int c=1;
         while(r.next()){
-            fila[0]=String.valueOf(c)+"¬∫";
+            fila[0]=String.valueOf(c)+"∫";
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
             fila[3]=r.getString(3);
@@ -367,7 +366,7 @@ Conexion c=new Conexion();
             
             
             try {
-            String titulos[]={"N¬∞","C√≥digo","C√≥digo CPT","An√°lisis","Servicio","√Årea"};
+            String titulos[]={"N∞","CÛdigo","CÛdigo CPT","An·lisis","Servicio","¡rea"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -381,7 +380,7 @@ Conexion c=new Conexion();
             ResultSet r=cmd.executeQuery();
             int c=1;
             while(r.next()){
-                fila[0]=String.valueOf(c)+"¬∫";
+                fila[0]=String.valueOf(c)+"∫";
                 fila[1]=r.getString(1);
                 fila[2]=r.getString(2);
                 fila[3]=r.getString(3);
@@ -575,7 +574,7 @@ public void calcula() {
                         jLabel10 = new javax.swing.JLabel();
 
                         buscar_HC.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                        buscar_HC.setTitle("SISGESH.::.Clasificaci√≥n Examen");
+                        buscar_HC.setTitle("SISGESH.::.ClasificaciÛn Examen");
                         buscar_HC.setAlwaysOnTop(true);
                         buscar_HC.setMinimumSize(new java.awt.Dimension(876, 692));
 
@@ -634,7 +633,7 @@ public void calcula() {
                         titulo8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                         titulo8.setForeground(new java.awt.Color(255, 255, 255));
                         titulo8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        titulo8.setText("Historia Cl√≠nica");
+                        titulo8.setText("Historia ClÌnica");
                         titulo8.setToolTipText("");
                         titulo8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -701,7 +700,7 @@ public void calcula() {
                             }
                         });
 
-                        jLabel2.setText("B√∫squeda por:");
+                        jLabel2.setText("B˙squeda por:");
 
                         btnBuscarPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/view.gif"))); // NOI18N
                         btnBuscarPersonal.setBorder(null);
@@ -836,7 +835,7 @@ public void calcula() {
                         titulo6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                         titulo6.setForeground(new java.awt.Color(255, 255, 255));
                         titulo6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        titulo6.setText("An√°lisis");
+                        titulo6.setText("An·lisis");
                         titulo6.setToolTipText("");
                         titulo6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -853,9 +852,9 @@ public void calcula() {
                                 .addGap(0, 0, Short.MAX_VALUE))
                         );
 
-                        jLabel6.setText("B√∫squeda por:");
+                        jLabel6.setText("B˙squeda por:");
 
-                        cbxBuscarAnalisis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "C√≥digo CPT", "An√°lisis" }));
+                        cbxBuscarAnalisis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "CÛdigo CPT", "An·lisis" }));
                         cbxBuscarAnalisis.addItemListener(new java.awt.event.ItemListener() {
                             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                                 cbxBuscarAnalisisItemStateChanged(evt);
@@ -983,7 +982,7 @@ public void calcula() {
                         txtDni.setEnabled(false);
 
                         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel22.setText("N¬∫ de H.C.");
+                        jLabel22.setText("N∫ de H.C.");
 
                         txtHc.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
                         txtHc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1078,7 +1077,7 @@ public void calcula() {
                                 .addGap(0, 0, Short.MAX_VALUE))
                         );
 
-                        panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder("An√°lisis"));
+                        panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder("An·lisis"));
 
                         txtNomenclatura.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                         txtNomenclatura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1101,7 +1100,7 @@ public void calcula() {
                         jLabel35.setText("Nomenclatura");
 
                         jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel38.setText("C√≥digo CPT");
+                        jLabel38.setText("CÛdigo CPT");
 
                         txtCPT.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                         txtCPT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1121,7 +1120,7 @@ public void calcula() {
                         });
 
                         jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel39.setText("Servicio/√Årea");
+                        jLabel39.setText("Servicio/¡rea");
 
                         txtServArea.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
                         txtServArea.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1314,7 +1313,7 @@ public void calcula() {
                         panelTM.setBorder(javax.swing.BorderFactory.createTitledBorder("Toma de Muestra"));
 
                         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel31.setText("Acto M√©dico");
+                        jLabel31.setText("Acto MÈdico");
 
                         txtActoMedico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
                         txtActoMedico.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1341,7 +1340,7 @@ public void calcula() {
                         jLabel30.setText("Forma de Pago");
 
                         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel29.setText("N¬∞ de Toma de Muestra");
+                        jLabel29.setText("N∞ de Toma de Muestra");
 
                         txtNToma.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                         txtNToma.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1533,7 +1532,7 @@ public void calcula() {
                         });
 
                         jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel36.setText("Hospitalizaci√≥n-Servicio");
+                        jLabel36.setText("HospitalizaciÛn-Servicio");
 
                         javax.swing.GroupLayout panelTMLayout = new javax.swing.GroupLayout(panelTM);
                         panelTM.setLayout(panelTMLayout);
@@ -1668,7 +1667,7 @@ public void calcula() {
                         );
 
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                        setTitle("SISGESH .::. An√°lisis Examen");
+                        setTitle("SISGESH .::. An·lisis Examen");
 
                         jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
@@ -1676,7 +1675,7 @@ public void calcula() {
                         titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                         titulo5.setForeground(new java.awt.Color(255, 255, 255));
                         titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        titulo5.setText("Ex√°menes Realizados");
+                        titulo5.setText("Ex·menes Realizados");
                         titulo5.setToolTipText("");
                         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -1745,7 +1744,7 @@ public void calcula() {
 
                             },
                             new String [] {
-                                "cod_cab_toma_mu_exa", "cod_det_toma_mu_ana", "cod_exa_ana", "id_hc", "Servicio/√Årea", "C√≥digo CPT", "Nomenclatura", "An√°lisis Examen", "N¬∞ de Toma de Muestra", "N¬∞ de H.C", "Datos del Paciente", "DNI", "Fecha de Nacimiento", "Edad", "Sexo", "Forma de Pago", "Acto Medico", "Nombre Per Toma Muestra", "fecha_toma_mu_de", "hora_toma_mu_de", "nom_per_solicita", "hab_nom", "cama", "id_cod_doc_det"
+                                "cod_cab_toma_mu_exa", "cod_det_toma_mu_ana", "cod_exa_ana", "id_hc", "Servicio/¡rea", "CÛdigo CPT", "Nomenclatura", "An·lisis Examen", "N∞ de Toma de Muestra", "N∞ de H.C", "Datos del Paciente", "DNI", "Fecha de Nacimiento", "Edad", "Sexo", "Forma de Pago", "Acto Medico", "Nombre Per Toma Muestra", "fecha_toma_mu_de", "hora_toma_mu_de", "nom_per_solicita", "hab_nom", "cama", "id_cod_doc_det"
                             }
                         ) {
                             boolean[] canEdit = new boolean [] {
@@ -1822,7 +1821,7 @@ public void calcula() {
                             }
                         });
 
-                        chAnalisis.setText("Todos los An√°lisis");
+                        chAnalisis.setText("Todos los An·lisis");
                         chAnalisis.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                         chAnalisis.addItemListener(new java.awt.event.ItemListener() {
                             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1883,7 +1882,7 @@ public void calcula() {
                             }
                         });
 
-                        chActoMedico.setText("Todos los Actos M√©dicos");
+                        chActoMedico.setText("Todos los Actos MÈdicos");
                         chActoMedico.setHideActionText(true);
                         chActoMedico.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                         chActoMedico.addItemListener(new java.awt.event.ItemListener() {
@@ -1963,9 +1962,9 @@ public void calcula() {
                         jLabel20.setText("Hasta");
 
                         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel21.setText("B√∫squeda por:");
+                        jLabel21.setText("B˙squeda por:");
 
-                        cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N¬∞ de H.C", "An√°lisis ", "Personal- Toma de Muestra" }));
+                        cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N∞ de H.C", "An·lisis ", "Personal- Toma de Muestra" }));
                         cbx.addItemListener(new java.awt.event.ItemListener() {
                             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                                 cbxItemStateChanged(evt);
@@ -1982,7 +1981,7 @@ public void calcula() {
 
                         lbldia.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
                         lbldia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        lbldia.setText("Ex√°menes con Toma de Muestras del D√≠a");
+                        lbldia.setText("Ex·menes con Toma de Muestras del DÌa");
 
                         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
                         jPanel1.setPreferredSize(new java.awt.Dimension(721, 25));
@@ -2085,7 +2084,7 @@ public void calcula() {
         String consulta="";
         try {
             tb_HC.setModel(new DefaultTableModel());
-            String titulos[]={"N¬∞","N¬∞ H.C.","Paciente","Direcci√≥n","DNI","Sexo","Fecha de Nac.","Edad","COdigo"};
+            String titulos[]={"N∞","N∞ H.C.","Paciente","DirecciÛn","DNI","Sexo","Fecha de Nac.","Edad","COdigo"};
            m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[9];
@@ -2098,7 +2097,7 @@ public void calcula() {
             ResultSet r= cmd.executeQuery();
             int c=1;
         while(r.next()){
-            fila[0]=String.valueOf(c)+"¬∫";
+            fila[0]=String.valueOf(c)+"∫";
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
             fila[3]=r.getString(3);
@@ -2185,7 +2184,7 @@ public void calcula() {
             if(dateDesde.getDate()==null || dateHasta.getDate()==null){
               JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de Fechas.");
           } else if(cbx.getSelectedIndex()==0){
-              JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de b√∫squeda");
+              JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de b˙squeda");
           }  else if(txtPacientes.getText().isEmpty()&&chPacientes.isSelected()==false&& txtAnalisis.getText().isEmpty()
                   && chAnalisis.isSelected()==false && txtPersonal.getText().isEmpty()&&chPersonal.isSelected()==false){
               JOptionPane.showMessageDialog(rootPane, "Seleccione y/o ingrese un " +cbx.getSelectedItem());
@@ -2207,7 +2206,7 @@ public void buscar_examenes(){
         diah = dateHasta.getCalendar().get(Calendar.DAY_OF_MONTH);
         mesh = dateHasta.getCalendar().get(Calendar.MONTH) + 1;
         anioh = dateHasta.getCalendar().get(Calendar.YEAR);
-        lbldia.setText("Ex√°menes con Resultados del "+df.format(dia)+"/"+df.format(mes)+"/"+anio+" al " 
+        lbldia.setText("Ex·menes con Resultados del "+df.format(dia)+"/"+df.format(mes)+"/"+anio+" al " 
                 +df.format(diah)+"/"+df.format(mesh)+"/"+anioh);
         int desde=Integer.parseInt(anio+df.format(mes)+df.format(dia));
         int hasta=Integer.parseInt(anioh+df.format(mesh)+df.format(diah));
@@ -2257,9 +2256,9 @@ public void buscar_examenes(){
      String consulta="";
         try {
             tb_TomasRealizadas.setModel(new DefaultTableModel());
-            String titulos[]={"cod_cab_resultado_mu_ana","cod_exa_ana","id_hc","Servicio/√Årea","C√≥digo CPT",
-                "Nomenclatura" ,"An√°lisis Examen","N¬∞ de Resultado","Acto M√©dico","N¬∞ de H.C.","Datos del Paciente",
-                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","N¬∞de TM","Personal Resultado","Personal Registra Resultado",
+            String titulos[]={"cod_cab_resultado_mu_ana","cod_exa_ana","id_hc","Servicio/¡rea","CÛdigo CPT",
+                "Nomenclatura" ,"An·lisis Examen","N∞ de Resultado","Acto MÈdico","N∞ de H.C.","Datos del Paciente",
+                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","N∞de TM","Personal Resultado","Personal Registra Resultado",
                 "Fecha Resultado","Hora Resultado","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","id_cod_doc_det"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
@@ -2381,7 +2380,7 @@ public void buscar_examenes(){
 //                    LAB_Esquema_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
 //                    LAB_ValoresRef_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
 //                    
-//                    //como parametro sexo-a√±os-meses-dias del paciente
+//                    //como parametro sexo-aÒos-meses-dias del paciente
 //                    LAB_Validar_Valores(tb_TomasRealizadas.getValueAt(filaselec, 14).toString(),
 //                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 26).toString()),
 //                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 27).toString()),
@@ -2398,7 +2397,7 @@ public void buscar_examenes(){
     
     public  void LAB_Esquema_cargar(String cod_exa_ana){
          try {
-             String titulos[]={"C√≥digo","Nombre Esquema","Resultado","Tipo","CodUniMedida","UM","√Årea"};
+             String titulos[]={"CÛdigo","Nombre Esquema","Resultado","Tipo","CodUniMedida","UM","¡rea"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -2432,7 +2431,7 @@ public void buscar_examenes(){
     
     public void LAB_ValoresRef_cargar(String cod_exa_ana){
          try {
-             String titulos[]={"C√≥digo","Cod Esquema","Nombre Esquema",
+             String titulos[]={"CÛdigo","Cod Esquema","Nombre Esquema",
                  "estado_todos_fabricantes","cod_fabricante_producto_mh","ini_anio","ini_mes",
 "ini_dia","fin_anio","fin_mes","fin_dia","genero","estado_clinico_ref",
 "valor_minimo","valor_maximo","valor_texto_referencia","tipo_valor_referencia","ini_dias","fin_dias"};
@@ -2560,7 +2559,7 @@ public void buscar_examenes(){
                 }
                 
                 if(filtro==3){
-//                    "C√≥digo","Cod Esquema","Nombre Esquema",
+//                    "CÛdigo","Cod Esquema","Nombre Esquema",
 //                 "estado_todos_fabricantes","cod_fabricante_producto_mh","ini_anio","ini_mes",
 //"ini_dia","fin_anio","fin_mes","fin_dia","genero","estado_clinico_ref",
 //"valor_minimo","valor_maximo","valor_texto_referencia","tipo_valor_referencia"
@@ -2859,7 +2858,7 @@ public void buscar_examenes(){
                 tipo="6";
             }
             buscar=txtBuscarPersonal.getText();
-            String titulos[]={"N¬∞","C√≥digo","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio","√Årea"};
+            String titulos[]={"N∞","CÛdigo","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio","¡rea"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -2873,7 +2872,7 @@ public void buscar_examenes(){
             ResultSet r=cmd.executeQuery();
             int c=1;
             while(r.next()){
-                fila[0]=String.valueOf(c)+"¬∫";
+                fila[0]=String.valueOf(c)+"∫";
                 fila[1]=r.getString(1);
                 fila[2]=r.getString(2);
                 fila[3]=r.getString(3);
@@ -3013,7 +3012,7 @@ public void buscar_examenes(){
                 servArea=lblArea.getText();
             }
             buscar=txtBuscarAnalisis.getText();
-            String titulos[]={"N¬∞","C√≥digo","C√≥digo CPT","An√°lisis","Servicio","√Årea"};
+            String titulos[]={"N∞","CÛdigo","CÛdigo CPT","An·lisis","Servicio","¡rea"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -3027,7 +3026,7 @@ public void buscar_examenes(){
             ResultSet r=cmd.executeQuery();
             int c=1;
             while(r.next()){
-                fila[0]=String.valueOf(c)+"¬∫";
+                fila[0]=String.valueOf(c)+"∫";
                 fila[1]=r.getString(1);
                 fila[2]=r.getString(2);
                 fila[3]=r.getString(3);

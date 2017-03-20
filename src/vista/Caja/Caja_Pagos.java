@@ -1735,7 +1735,6 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
 
                                                                                             BHC.setAlwaysOnTop(true);
                                                                                             BHC.setMinimumSize(new java.awt.Dimension(749, 338));
-                                                                                            BHC.setPreferredSize(new java.awt.Dimension(749, 338));
                                                                                             BHC.setResizable(false);
                                                                                             BHC.getContentPane().setLayout(null);
 
@@ -7078,7 +7077,6 @@ if(tgp==1){
     private javax.swing.JLabel T4;
     private javax.swing.JLabel T5;
     private javax.swing.JLabel T6;
-    private javax.swing.JLabel T7;
     private javax.swing.JLabel T8;
     private javax.swing.JPanel aaa;
     private javax.swing.JDialog abono;
@@ -7120,7 +7118,6 @@ if(tgp==1){
     private javax.swing.JLabel bus1;
     private javax.swing.JLabel bus2;
     private javax.swing.JLabel bus3;
-    private javax.swing.JTextField buscartodo;
     private javax.swing.JLabel ca_id;
     private javax.swing.JPanel cargareliminar;
     private javax.swing.JPanel cargareliminar1;
@@ -7234,7 +7231,6 @@ if(tgp==1){
     private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;
-    private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel46;
     private javax.swing.JPanel jPanel47;
     private javax.swing.JPanel jPanel5;

@@ -391,7 +391,7 @@ public class HospitalizacionExamenClinico {
     String consulta="";
         try {
                 tabla.setModel(new DefaultTableModel());
-                String titulos[]={"ID CIE 10","Código CIE 10","Diagnósticos Definitivos"};
+                String titulos[]={"ID CIE 10","Código CIE 10","Diagnósticos"};
                 m=new DefaultTableModel(null,titulos);
                 JTable p=new JTable(m);
                 String fila[]=new String[3];

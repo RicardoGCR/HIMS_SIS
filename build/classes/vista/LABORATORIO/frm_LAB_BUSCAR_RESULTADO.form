@@ -1288,9 +1288,15 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
             <StringItem index="0" value="Seleccionar..."/>
+<<<<<<< HEAD
             <StringItem index="1" value="N&#xb0; de H.C / DNI"/>
             <StringItem index="2" value="An&#xe1;lisis "/>
             <StringItem index="3" value="Personal - Resultado"/>
+=======
+            <StringItem index="1" value="N&#xb0; de H.C"/>
+            <StringItem index="2" value="An&#xe1;lisis "/>
+            <StringItem index="3" value="Personal - Toma de Muestra"/>
+>>>>>>> 570e30bd7e58d77ea01fc938dbce2ccb7a7bbc5b
             <StringItem index="4" value="Acto M&#xe9;dico"/>
           </StringArray>
         </Property>

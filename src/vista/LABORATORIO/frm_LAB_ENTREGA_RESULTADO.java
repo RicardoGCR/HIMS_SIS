@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -192,9 +191,9 @@ Conexion c=new Conexion();
     String consulta="";
         try {
             tb_TomasRealizadas.setModel(new DefaultTableModel());
-            String titulos[]={"cod_cab_resultado_mu_ana","cod_exa_ana","id_hc","Servicio/√Årea","C√≥digo CPT",
-                "Nomenclatura" ,"An√°lisis Examen","N¬∞ de Resultado","Acto M√©dico","N¬∞ de H.C.","Datos del Paciente",
-                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","N¬∞de TM","Personal Resultado","Personal Registra Resultado",
+            String titulos[]={"cod_cab_resultado_mu_ana","cod_exa_ana","id_hc","Servicio/¡rea","CÛdigo CPT",
+                "Nomenclatura" ,"An·lisis Examen","N∞ de Resultado","Acto MÈdico","N∞ de H.C.","Datos del Paciente",
+                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","N∞de TM","Personal Resultado","Personal Registra Resultado",
                 "Fecha Resultado","Hora Resultado","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","id_cod_doc_det"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
@@ -256,7 +255,7 @@ Conexion c=new Conexion();
     
     public void LAB_HC_cargar(){
     try {
-             String titulos[]={"N¬∞","N¬∞ H.C.","Paciente","Direcci√≥n","DNI","Sexo","Fecha de Nac.","Edad","COdigo"};
+             String titulos[]={"N∞","N∞ H.C.","Paciente","DirecciÛn","DNI","Sexo","Fecha de Nac.","Edad","COdigo"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[9];
@@ -269,7 +268,7 @@ Conexion c=new Conexion();
         ResultSet r=cmd.executeQuery();
         int c=1;
         while(r.next()){
-            fila[0]=String.valueOf(c)+"¬∫";
+            fila[0]=String.valueOf(c)+"∫";
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
             fila[3]=r.getString(3);
@@ -309,7 +308,7 @@ Conexion c=new Conexion();
  public void Personal_cargar(){
 
     try {
-             String titulos[]={"N¬∞","C√≥digo","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio"};
+             String titulos[]={"N∞","CÛdigo","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -323,7 +322,7 @@ Conexion c=new Conexion();
         ResultSet r=cmd.executeQuery();
         int c=1;
         while(r.next()){
-            fila[0]=String.valueOf(c)+"¬∫";
+            fila[0]=String.valueOf(c)+"∫";
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
             fila[3]=r.getString(3);
@@ -367,7 +366,7 @@ Conexion c=new Conexion();
             
             
             try {
-            String titulos[]={"N¬∞","C√≥digo","C√≥digo CPT","An√°lisis","Servicio","√Årea"};
+            String titulos[]={"N∞","CÛdigo","CÛdigo CPT","An·lisis","Servicio","¡rea"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -381,7 +380,7 @@ Conexion c=new Conexion();
             ResultSet r=cmd.executeQuery();
             int c=1;
             while(r.next()){
-                fila[0]=String.valueOf(c)+"¬∫";
+                fila[0]=String.valueOf(c)+"∫";
                 fila[1]=r.getString(1);
                 fila[2]=r.getString(2);
                 fila[3]=r.getString(3);
@@ -472,30 +471,10 @@ public void calcula() {
                 txtBuscarAnalisis = new javax.swing.JTextField();
                 btnBuscarAnalisis = new javax.swing.JButton();
                 entregaResultado = new javax.swing.JDialog();
-<<<<<<< HEAD
-                panelTM = new javax.swing.JPanel();
-                jLabel25 = new javax.swing.JLabel();
-                txtActoMedico = new javax.swing.JTextField();
-                txtFormaPago = new javax.swing.JTextField();
-                jLabel30 = new javax.swing.JLabel();
-                jLabel29 = new javax.swing.JLabel();
-                txtNToma = new javax.swing.JTextField();
-                jLabel26 = new javax.swing.JLabel();
-                txtPersonalSolicita = new javax.swing.JTextField();
-                jLabel27 = new javax.swing.JLabel();
-                txtFechaOrden = new javax.swing.JTextField();
-                jLabel28 = new javax.swing.JLabel();
-                txtHoraOrden = new javax.swing.JTextField();
-                jLabel32 = new javax.swing.JLabel();
-                txtPiso = new javax.swing.JTextField();
-                jLabel33 = new javax.swing.JLabel();
-                txtCama = new javax.swing.JTextField();
-                jLabel34 = new javax.swing.JLabel();
-                txtHospSer = new javax.swing.JTextField();
-=======
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
                 jpanel4 = new javax.swing.JPanel();
                 titulo9 = new javax.swing.JLabel();
+                jScrollPane4 = new javax.swing.JScrollPane();
+                tb_muestras = new javax.swing.JTable();
                 panelPaciente = new javax.swing.JPanel();
                 jLabel23 = new javax.swing.JLabel();
                 txtDni = new javax.swing.JTextField();
@@ -526,8 +505,6 @@ public void calcula() {
                 jLabel45 = new javax.swing.JLabel();
                 lblFecha1 = new javax.swing.JLabel();
                 lblHora1 = new javax.swing.JLabel();
-<<<<<<< HEAD
-=======
                 jLabel4 = new javax.swing.JLabel();
                 txtResult_PN = new javax.swing.JTextField();
                 panelTM = new javax.swing.JPanel();
@@ -555,7 +532,6 @@ public void calcula() {
                 txtHoraOrden = new javax.swing.JTextField();
                 txthospiServ = new javax.swing.JTextField();
                 jLabel36 = new javax.swing.JLabel();
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
                 jpanel = new javax.swing.JPanel();
                 titulo5 = new javax.swing.JLabel();
                 jLabel14 = new javax.swing.JLabel();
@@ -598,7 +574,7 @@ public void calcula() {
                         jLabel10 = new javax.swing.JLabel();
 
                         buscar_HC.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                        buscar_HC.setTitle("SISGESH.::.Clasificaci√≥n Examen");
+                        buscar_HC.setTitle("SISGESH.::.ClasificaciÛn Examen");
                         buscar_HC.setAlwaysOnTop(true);
                         buscar_HC.setMinimumSize(new java.awt.Dimension(876, 692));
 
@@ -657,7 +633,7 @@ public void calcula() {
                         titulo8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                         titulo8.setForeground(new java.awt.Color(255, 255, 255));
                         titulo8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        titulo8.setText("Historia Cl√≠nica");
+                        titulo8.setText("Historia ClÌnica");
                         titulo8.setToolTipText("");
                         titulo8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -724,7 +700,7 @@ public void calcula() {
                             }
                         });
 
-                        jLabel2.setText("B√∫squeda por:");
+                        jLabel2.setText("B˙squeda por:");
 
                         btnBuscarPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/view.gif"))); // NOI18N
                         btnBuscarPersonal.setBorder(null);
@@ -859,7 +835,7 @@ public void calcula() {
                         titulo6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                         titulo6.setForeground(new java.awt.Color(255, 255, 255));
                         titulo6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        titulo6.setText("An√°lisis");
+                        titulo6.setText("An·lisis");
                         titulo6.setToolTipText("");
                         titulo6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -876,9 +852,9 @@ public void calcula() {
                                 .addGap(0, 0, Short.MAX_VALUE))
                         );
 
-                        jLabel6.setText("B√∫squeda por:");
+                        jLabel6.setText("B˙squeda por:");
 
-                        cbxBuscarAnalisis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "C√≥digo CPT", "An√°lisis" }));
+                        cbxBuscarAnalisis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "CÛdigo CPT", "An·lisis" }));
                         cbxBuscarAnalisis.addItemListener(new java.awt.event.ItemListener() {
                             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                                 cbxBuscarAnalisisItemStateChanged(evt);
@@ -949,247 +925,6 @@ public void calcula() {
                         entregaResultado.setMinimumSize(new java.awt.Dimension(890, 572));
                         entregaResultado.setResizable(false);
 
-<<<<<<< HEAD
-                        panelTM.setBorder(javax.swing.BorderFactory.createTitledBorder("Toma de Muestra"));
-
-                        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel25.setText("Acto M√©dico");
-
-                        txtActoMedico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-                        txtActoMedico.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtActoMedico.setEnabled(false);
-
-                        txtFormaPago.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-                        txtFormaPago.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtFormaPago.setEnabled(false);
-                        txtFormaPago.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtFormaPagoActionPerformed(evt);
-                            }
-                        });
-                        txtFormaPago.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtFormaPagoKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtFormaPagoKeyReleased(evt);
-                            }
-                        });
-
-                        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel30.setText("Forma de Pago");
-
-                        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel29.setText("N¬∞ de Toma de Muestra");
-
-                        txtNToma.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-                        txtNToma.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtNToma.setEnabled(false);
-                        txtNToma.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtNTomaActionPerformed(evt);
-                            }
-                        });
-                        txtNToma.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtNTomaKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtNTomaKeyReleased(evt);
-                            }
-                        });
-
-                        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel26.setText("Personal - Solicita Muestra");
-
-                        txtPersonalSolicita.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-                        txtPersonalSolicita.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtPersonalSolicita.setEnabled(false);
-                        txtPersonalSolicita.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtPersonalSolicitaActionPerformed(evt);
-                            }
-                        });
-                        txtPersonalSolicita.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtPersonalSolicitaKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtPersonalSolicitaKeyReleased(evt);
-                            }
-                        });
-
-                        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel27.setText("Fecha Orden");
-
-                        txtFechaOrden.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-                        txtFechaOrden.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtFechaOrden.setEnabled(false);
-                        txtFechaOrden.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtFechaOrdenActionPerformed(evt);
-                            }
-                        });
-                        txtFechaOrden.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtFechaOrdenKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtFechaOrdenKeyReleased(evt);
-                            }
-                        });
-
-                        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel28.setText("Hora Orden");
-
-                        txtHoraOrden.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-                        txtHoraOrden.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtHoraOrden.setEnabled(false);
-                        txtHoraOrden.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtHoraOrdenActionPerformed(evt);
-                            }
-                        });
-                        txtHoraOrden.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtHoraOrdenKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtHoraOrdenKeyReleased(evt);
-                            }
-                        });
-
-                        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel32.setText("Piso");
-
-                        txtPiso.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-                        txtPiso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtPiso.setEnabled(false);
-                        txtPiso.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtPisoActionPerformed(evt);
-                            }
-                        });
-                        txtPiso.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtPisoKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtPisoKeyReleased(evt);
-                            }
-                        });
-
-                        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel33.setText("Cama");
-
-                        txtCama.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-                        txtCama.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtCama.setEnabled(false);
-                        txtCama.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtCamaActionPerformed(evt);
-                            }
-                        });
-                        txtCama.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtCamaKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtCamaKeyReleased(evt);
-                            }
-                        });
-
-                        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel34.setText("Hospitalizaci√≥n-Servicio");
-
-                        txtHospSer.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-                        txtHospSer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtHospSer.setEnabled(false);
-                        txtHospSer.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtHospSerActionPerformed(evt);
-                            }
-                        });
-                        txtHospSer.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtHospSerKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtHospSerKeyReleased(evt);
-                            }
-                        });
-
-                        javax.swing.GroupLayout panelTMLayout = new javax.swing.GroupLayout(panelTM);
-                        panelTM.setLayout(panelTMLayout);
-                        panelTMLayout.setHorizontalGroup(
-                            panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelTMLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(panelTMLayout.createSequentialGroup()
-                                        .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                                            .addComponent(txtActoMedico, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addGap(45, 45, 45)
-                                        .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtNToma)
-                                            .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)))
-                                    .addComponent(txtPersonalSolicita)
-                                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(22, 22, 22)
-                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtFormaPago, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                                    .addComponent(txtHospSer, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(18, 18, Short.MAX_VALUE)
-                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPiso, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtFechaOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(19, 19, 19)
-                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtCama)
-                                    .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                                    .addComponent(txtHoraOrden, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(106, 106, 106))
-                        );
-                        panelTMLayout.setVerticalGroup(
-                            panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelTMLayout.createSequentialGroup()
-                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel29)
-                                    .addComponent(jLabel30)
-                                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel28))
-                                .addGap(0, 0, 0)
-                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtFormaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNToma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFechaOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtHoraOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(2, 2, 2)
-                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel26)
-                                    .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel34)
-                                    .addComponent(jLabel32))
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtPersonalSolicita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtHospSer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap())
-                        );
-
-=======
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
                         jpanel4.setBackground(new java.awt.Color(2, 67, 115));
 
                         titulo9.setBackground(new java.awt.Color(0, 102, 102));
@@ -1216,6 +951,27 @@ public void calcula() {
                                 .addGap(0, 0, Short.MAX_VALUE))
                         );
 
+                        tb_muestras.setModel(new javax.swing.table.DefaultTableModel(
+                            new Object [][] {
+
+                            },
+                            new String [] {
+                                "cod_det_toma_mu_ana", "codMuestra", "codContenedor", "codArea", "Muestra", "Contenedor", "Area", "Cantidad", "Codigo_Barras"
+                            }
+                        ) {
+                            boolean[] canEdit = new boolean [] {
+                                false, true, false, false, false, false, false, false, false
+                            };
+
+                            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                                return canEdit [columnIndex];
+                            }
+                        });
+                        tb_muestras.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+                        tb_muestras.setRowHeight(28);
+                        tb_muestras.getTableHeader().setReorderingAllowed(false);
+                        jScrollPane4.setViewportView(tb_muestras);
+
                         panelPaciente.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos del Paciente"));
 
                         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1226,7 +982,7 @@ public void calcula() {
                         txtDni.setEnabled(false);
 
                         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel22.setText("N¬∫ de H.C.");
+                        jLabel22.setText("N∫ de H.C.");
 
                         txtHc.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
                         txtHc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1321,7 +1077,7 @@ public void calcula() {
                                 .addGap(0, 0, Short.MAX_VALUE))
                         );
 
-                        panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder("An√°lisis"));
+                        panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder("An·lisis"));
 
                         txtNomenclatura.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                         txtNomenclatura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1344,7 +1100,7 @@ public void calcula() {
                         jLabel35.setText("Nomenclatura");
 
                         jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel38.setText("C√≥digo CPT");
+                        jLabel38.setText("CÛdigo CPT");
 
                         txtCPT.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                         txtCPT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1364,7 +1120,7 @@ public void calcula() {
                         });
 
                         jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel39.setText("Servicio/√Årea");
+                        jLabel39.setText("Servicio/¡rea");
 
                         txtServArea.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
                         txtServArea.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1557,7 +1313,7 @@ public void calcula() {
                         panelTM.setBorder(javax.swing.BorderFactory.createTitledBorder("Toma de Muestra"));
 
                         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel31.setText("Acto M√©dico");
+                        jLabel31.setText("Acto MÈdico");
 
                         txtActoMedico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
                         txtActoMedico.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1584,7 +1340,7 @@ public void calcula() {
                         jLabel30.setText("Forma de Pago");
 
                         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel29.setText("N¬∞ de Toma de Muestra");
+                        jLabel29.setText("N∞ de Toma de Muestra");
 
                         txtNToma.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
                         txtNToma.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1776,7 +1532,7 @@ public void calcula() {
                         });
 
                         jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel36.setText("Hospitalizaci√≥n-Servicio");
+                        jLabel36.setText("HospitalizaciÛn-Servicio");
 
                         javax.swing.GroupLayout panelTMLayout = new javax.swing.GroupLayout(panelTM);
                         panelTM.setLayout(panelTMLayout);
@@ -1873,114 +1629,6 @@ public void calcula() {
                                 .addGap(3, 3, 3))
                         );
 
-<<<<<<< HEAD
-                        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-                        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel1.setText("Muestra(s)");
-
-                        panelResultado.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado"));
-
-                        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel40.setText("Personal - Responsable Resultado");
-
-                        txtPersonalResponR.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-                        txtPersonalResponR.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtPersonalResponR.setEnabled(false);
-                        txtPersonalResponR.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtPersonalResponRActionPerformed(evt);
-                            }
-                        });
-                        txtPersonalResponR.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtPersonalResponRKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtPersonalResponRKeyReleased(evt);
-                            }
-                        });
-
-                        txtPersonalRegistraR.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-                        txtPersonalRegistraR.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtPersonalRegistraR.setEnabled(false);
-                        txtPersonalRegistraR.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtPersonalRegistraRActionPerformed(evt);
-                            }
-                        });
-                        txtPersonalRegistraR.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtPersonalRegistraRKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtPersonalRegistraRKeyReleased(evt);
-                            }
-                        });
-
-                        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel43.setText("Personal - Registra Resultado");
-
-                        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel44.setText("Fecha Registro Resul.");
-
-                        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel45.setText("Hora Registro Resul.");
-
-                        lblFecha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-                        lblFecha1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        lblFecha1.setText("00/00/00");
-
-                        lblHora1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-                        lblHora1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        lblHora1.setText("00:00:00");
-
-                        javax.swing.GroupLayout panelResultadoLayout = new javax.swing.GroupLayout(panelResultado);
-                        panelResultado.setLayout(panelResultadoLayout);
-                        panelResultadoLayout.setHorizontalGroup(
-                            panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelResultadoLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                                    .addComponent(txtPersonalResponR))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                                    .addComponent(txtPersonalRegistraR))
-                                .addGap(18, 18, 18)
-                                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblFecha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblHora1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap())
-                        );
-                        panelResultadoLayout.setVerticalGroup(
-                            panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelResultadoLayout.createSequentialGroup()
-                                .addGap(0, 0, 0)
-                                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResultadoLayout.createSequentialGroup()
-                                        .addGap(14, 14, 14)
-                                        .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txtPersonalResponR)
-                                            .addComponent(txtPersonalRegistraR)
-                                            .addComponent(lblFecha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lblHora1)))
-                                    .addGroup(panelResultadoLayout.createSequentialGroup()
-                                        .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel44)
-                                            .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE))
-                                        .addGap(18, 18, 18)))
-                                .addContainerGap())
-                        );
-
-=======
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
                         javax.swing.GroupLayout entregaResultadoLayout = new javax.swing.GroupLayout(entregaResultado.getContentPane());
                         entregaResultado.getContentPane().setLayout(entregaResultadoLayout);
                         entregaResultadoLayout.setHorizontalGroup(
@@ -1994,16 +1642,9 @@ public void calcula() {
                                         .addComponent(panelPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(16, 16, 16)
                                         .addComponent(panelAnalisis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-<<<<<<< HEAD
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, entregaResultadoLayout.createSequentialGroup()
-                                        .addComponent(panelTM, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(panelResultado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-=======
                                     .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(panelResultado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(panelTM, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
                                 .addGap(32, 32, 32))
                         );
                         entregaResultadoLayout.setVerticalGroup(
@@ -2018,17 +1659,15 @@ public void calcula() {
                                 .addComponent(panelTM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(panelResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                                .addGap(13, 13, 13)
-=======
                                 .addGap(9, 9, 9)
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
                                 .addComponent(jLabel1)
-                                .addContainerGap())
+                                .addGap(1, 1, 1)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(108, 108, 108))
                         );
 
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                        setTitle("SISGESH .::. An√°lisis Examen");
+                        setTitle("SISGESH .::. An·lisis Examen");
 
                         jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
@@ -2036,7 +1675,7 @@ public void calcula() {
                         titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                         titulo5.setForeground(new java.awt.Color(255, 255, 255));
                         titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        titulo5.setText("Ex√°menes Realizados");
+                        titulo5.setText("Ex·menes Realizados");
                         titulo5.setToolTipText("");
                         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -2105,7 +1744,7 @@ public void calcula() {
 
                             },
                             new String [] {
-                                "cod_cab_toma_mu_exa", "cod_det_toma_mu_ana", "cod_exa_ana", "id_hc", "Servicio/√Årea", "C√≥digo CPT", "Nomenclatura", "An√°lisis Examen", "N¬∞ de Toma de Muestra", "N¬∞ de H.C", "Datos del Paciente", "DNI", "Fecha de Nacimiento", "Edad", "Sexo", "Forma de Pago", "Acto Medico", "Nombre Per Toma Muestra", "fecha_toma_mu_de", "hora_toma_mu_de", "nom_per_solicita", "hab_nom", "cama", "id_cod_doc_det"
+                                "cod_cab_toma_mu_exa", "cod_det_toma_mu_ana", "cod_exa_ana", "id_hc", "Servicio/¡rea", "CÛdigo CPT", "Nomenclatura", "An·lisis Examen", "N∞ de Toma de Muestra", "N∞ de H.C", "Datos del Paciente", "DNI", "Fecha de Nacimiento", "Edad", "Sexo", "Forma de Pago", "Acto Medico", "Nombre Per Toma Muestra", "fecha_toma_mu_de", "hora_toma_mu_de", "nom_per_solicita", "hab_nom", "cama", "id_cod_doc_det"
                             }
                         ) {
                             boolean[] canEdit = new boolean [] {
@@ -2182,7 +1821,7 @@ public void calcula() {
                             }
                         });
 
-                        chAnalisis.setText("Todos los An√°lisis");
+                        chAnalisis.setText("Todos los An·lisis");
                         chAnalisis.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                         chAnalisis.addItemListener(new java.awt.event.ItemListener() {
                             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -2243,7 +1882,7 @@ public void calcula() {
                             }
                         });
 
-                        chActoMedico.setText("Todos los Actos M√©dicos");
+                        chActoMedico.setText("Todos los Actos MÈdicos");
                         chActoMedico.setHideActionText(true);
                         chActoMedico.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                         chActoMedico.addItemListener(new java.awt.event.ItemListener() {
@@ -2323,9 +1962,9 @@ public void calcula() {
                         jLabel20.setText("Hasta");
 
                         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel21.setText("B√∫squeda por:");
+                        jLabel21.setText("B˙squeda por:");
 
-                        cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N¬∞ de H.C", "An√°lisis ", "Personal- Toma de Muestra" }));
+                        cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N∞ de H.C", "An·lisis ", "Personal- Toma de Muestra" }));
                         cbx.addItemListener(new java.awt.event.ItemListener() {
                             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                                 cbxItemStateChanged(evt);
@@ -2342,7 +1981,7 @@ public void calcula() {
 
                         lbldia.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
                         lbldia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        lbldia.setText("Ex√°menes con Toma de Muestras del D√≠a");
+                        lbldia.setText("Ex·menes con Toma de Muestras del DÌa");
 
                         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
                         jPanel1.setPreferredSize(new java.awt.Dimension(721, 25));
@@ -2445,7 +2084,7 @@ public void calcula() {
         String consulta="";
         try {
             tb_HC.setModel(new DefaultTableModel());
-            String titulos[]={"N¬∞","N¬∞ H.C.","Paciente","Direcci√≥n","DNI","Sexo","Fecha de Nac.","Edad","COdigo"};
+            String titulos[]={"N∞","N∞ H.C.","Paciente","DirecciÛn","DNI","Sexo","Fecha de Nac.","Edad","COdigo"};
            m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[9];
@@ -2458,7 +2097,7 @@ public void calcula() {
             ResultSet r= cmd.executeQuery();
             int c=1;
         while(r.next()){
-            fila[0]=String.valueOf(c)+"¬∫";
+            fila[0]=String.valueOf(c)+"∫";
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
             fila[3]=r.getString(3);
@@ -2545,7 +2184,7 @@ public void calcula() {
             if(dateDesde.getDate()==null || dateHasta.getDate()==null){
               JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de Fechas.");
           } else if(cbx.getSelectedIndex()==0){
-              JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de b√∫squeda");
+              JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de b˙squeda");
           }  else if(txtPacientes.getText().isEmpty()&&chPacientes.isSelected()==false&& txtAnalisis.getText().isEmpty()
                   && chAnalisis.isSelected()==false && txtPersonal.getText().isEmpty()&&chPersonal.isSelected()==false){
               JOptionPane.showMessageDialog(rootPane, "Seleccione y/o ingrese un " +cbx.getSelectedItem());
@@ -2567,7 +2206,7 @@ public void buscar_examenes(){
         diah = dateHasta.getCalendar().get(Calendar.DAY_OF_MONTH);
         mesh = dateHasta.getCalendar().get(Calendar.MONTH) + 1;
         anioh = dateHasta.getCalendar().get(Calendar.YEAR);
-        lbldia.setText("Ex√°menes con Resultados del "+df.format(dia)+"/"+df.format(mes)+"/"+anio+" al " 
+        lbldia.setText("Ex·menes con Resultados del "+df.format(dia)+"/"+df.format(mes)+"/"+anio+" al " 
                 +df.format(diah)+"/"+df.format(mesh)+"/"+anioh);
         int desde=Integer.parseInt(anio+df.format(mes)+df.format(dia));
         int hasta=Integer.parseInt(anioh+df.format(mesh)+df.format(diah));
@@ -2617,9 +2256,9 @@ public void buscar_examenes(){
      String consulta="";
         try {
             tb_TomasRealizadas.setModel(new DefaultTableModel());
-            String titulos[]={"cod_cab_resultado_mu_ana","cod_exa_ana","id_hc","Servicio/√Årea","C√≥digo CPT",
-                "Nomenclatura" ,"An√°lisis Examen","N¬∞ de Resultado","Acto M√©dico","N¬∞ de H.C.","Datos del Paciente",
-                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","N¬∞de TM","Personal Resultado","Personal Registra Resultado",
+            String titulos[]={"cod_cab_resultado_mu_ana","cod_exa_ana","id_hc","Servicio/¡rea","CÛdigo CPT",
+                "Nomenclatura" ,"An·lisis Examen","N∞ de Resultado","Acto MÈdico","N∞ de H.C.","Datos del Paciente",
+                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","N∞de TM","Personal Resultado","Personal Registra Resultado",
                 "Fecha Resultado","Hora Resultado","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","id_cod_doc_det"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
@@ -2741,7 +2380,7 @@ public void buscar_examenes(){
 //                    LAB_Esquema_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
 //                    LAB_ValoresRef_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
 //                    
-//                    //como parametro sexo-a√±os-meses-dias del paciente
+//                    //como parametro sexo-aÒos-meses-dias del paciente
 //                    LAB_Validar_Valores(tb_TomasRealizadas.getValueAt(filaselec, 14).toString(),
 //                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 26).toString()),
 //                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 27).toString()),
@@ -2758,7 +2397,7 @@ public void buscar_examenes(){
     
     public  void LAB_Esquema_cargar(String cod_exa_ana){
          try {
-             String titulos[]={"C√≥digo","Nombre Esquema","Resultado","Tipo","CodUniMedida","UM","√Årea"};
+             String titulos[]={"CÛdigo","Nombre Esquema","Resultado","Tipo","CodUniMedida","UM","¡rea"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -2792,7 +2431,7 @@ public void buscar_examenes(){
     
     public void LAB_ValoresRef_cargar(String cod_exa_ana){
          try {
-             String titulos[]={"C√≥digo","Cod Esquema","Nombre Esquema",
+             String titulos[]={"CÛdigo","Cod Esquema","Nombre Esquema",
                  "estado_todos_fabricantes","cod_fabricante_producto_mh","ini_anio","ini_mes",
 "ini_dia","fin_anio","fin_mes","fin_dia","genero","estado_clinico_ref",
 "valor_minimo","valor_maximo","valor_texto_referencia","tipo_valor_referencia","ini_dias","fin_dias"};
@@ -2920,7 +2559,7 @@ public void buscar_examenes(){
                 }
                 
                 if(filtro==3){
-//                    "C√≥digo","Cod Esquema","Nombre Esquema",
+//                    "CÛdigo","Cod Esquema","Nombre Esquema",
 //                 "estado_todos_fabricantes","cod_fabricante_producto_mh","ini_anio","ini_mes",
 //"ini_dia","fin_anio","fin_mes","fin_dia","genero","estado_clinico_ref",
 //"valor_minimo","valor_maximo","valor_texto_referencia","tipo_valor_referencia"
@@ -3219,7 +2858,7 @@ public void buscar_examenes(){
                 tipo="6";
             }
             buscar=txtBuscarPersonal.getText();
-            String titulos[]={"N¬∞","C√≥digo","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio","√Årea"};
+            String titulos[]={"N∞","CÛdigo","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio","¡rea"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -3233,7 +2872,7 @@ public void buscar_examenes(){
             ResultSet r=cmd.executeQuery();
             int c=1;
             while(r.next()){
-                fila[0]=String.valueOf(c)+"¬∫";
+                fila[0]=String.valueOf(c)+"∫";
                 fila[1]=r.getString(1);
                 fila[2]=r.getString(2);
                 fila[3]=r.getString(3);
@@ -3373,7 +3012,7 @@ public void buscar_examenes(){
                 servArea=lblArea.getText();
             }
             buscar=txtBuscarAnalisis.getText();
-            String titulos[]={"N¬∞","C√≥digo","C√≥digo CPT","An√°lisis","Servicio","√Årea"};
+            String titulos[]={"N∞","CÛdigo","CÛdigo CPT","An·lisis","Servicio","¡rea"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -3387,7 +3026,7 @@ public void buscar_examenes(){
             ResultSet r=cmd.executeQuery();
             int c=1;
             while(r.next()){
-                fila[0]=String.valueOf(c)+"¬∫";
+                fila[0]=String.valueOf(c)+"∫";
                 fila[1]=r.getString(1);
                 fila[2]=r.getString(2);
                 fila[3]=r.getString(3);
@@ -3617,51 +3256,7 @@ public void buscar_examenes(){
 
     private void txthospiServKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txthospiServKeyReleased
         // TODO add your handling code here:
-<<<<<<< HEAD
-    }//GEN-LAST:event_txtPersonalSolicitaActionPerformed
-
-    private void txtHospSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHospSerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHospSerActionPerformed
-
-    private void txtHospSerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHospSerKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHospSerKeyPressed
-
-    private void txtHospSerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHospSerKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHospSerKeyReleased
-
-    private void txtNTomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNTomaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNTomaActionPerformed
-
-    private void txtPersonalResponRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPersonalResponRActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPersonalResponRActionPerformed
-
-    private void txtPersonalResponRKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalResponRKeyPressed
-
-    }//GEN-LAST:event_txtPersonalResponRKeyPressed
-
-    private void txtPersonalResponRKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalResponRKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPersonalResponRKeyReleased
-
-    private void txtPersonalRegistraRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPersonalRegistraRActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPersonalRegistraRActionPerformed
-
-    private void txtPersonalRegistraRKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalRegistraRKeyPressed
-  
-    }//GEN-LAST:event_txtPersonalRegistraRKeyPressed
-
-    private void txtPersonalRegistraRKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalRegistraRKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPersonalRegistraRKeyReleased
-=======
     }//GEN-LAST:event_txthospiServKeyReleased
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
     public void enableDatos(){
     tb_TomasRealizadas.setEnabled(true);
     tb_TomasRealizadas.setBackground(Color.white);
@@ -4027,10 +3622,7 @@ public void buscar_examenes(){
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-<<<<<<< HEAD
-=======
     private javax.swing.JLabel jLabel4;
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
@@ -4041,6 +3633,7 @@ public void buscar_examenes(){
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPanel jpanel;
     private javax.swing.JPanel jpanel1;
@@ -4065,6 +3658,7 @@ public void buscar_examenes(){
     private javax.swing.JTable tb_Analisis;
     public static javax.swing.JTable tb_HC;
     public static javax.swing.JTable tb_TomasRealizadas;
+    public static javax.swing.JTable tb_muestras;
     private javax.swing.JLabel titulo5;
     private javax.swing.JLabel titulo6;
     private javax.swing.JLabel titulo7;
@@ -4081,18 +3675,11 @@ public void buscar_examenes(){
     public static javax.swing.JTextField txtEdad;
     public static javax.swing.JTextField txtFecha;
     public static javax.swing.JTextField txtFechaOrden;
-<<<<<<< HEAD
-    public static javax.swing.JTextField txtFormaPago;
-    public static javax.swing.JTextField txtHc;
-    public static javax.swing.JTextField txtHoraOrden;
-    public static javax.swing.JTextField txtHospSer;
-=======
     public static javax.swing.JTextField txtFechaTM;
     public static javax.swing.JTextField txtFormaPago;
     public static javax.swing.JTextField txtHc;
     public static javax.swing.JTextField txtHoraOrden;
     public static javax.swing.JTextField txtHoraTM;
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
     public static javax.swing.JTextField txtNToma;
     public static javax.swing.JTextField txtNomenclatura;
     public static javax.swing.JTextField txtPacientes;
@@ -4101,10 +3688,7 @@ public void buscar_examenes(){
     private javax.swing.JTextField txtPersonalRegistraR;
     private javax.swing.JTextField txtPersonalResponR;
     public static javax.swing.JTextField txtPersonalSolicita;
-<<<<<<< HEAD
-=======
     public static javax.swing.JTextField txtPersonalTomaMuestra;
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
     public static javax.swing.JTextField txtPiso;
     private javax.swing.JTextField txtResult_PN;
     public static javax.swing.JTextField txtServArea;

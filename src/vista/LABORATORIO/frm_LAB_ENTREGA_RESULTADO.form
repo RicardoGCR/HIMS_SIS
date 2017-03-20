@@ -600,17 +600,9 @@
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Component id="panelAnalisis" max="32767" attributes="0"/>
                       </Group>
-<<<<<<< HEAD
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="panelTM" min="-2" pref="836" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="panelResultado" alignment="0" max="32767" attributes="0"/>
-=======
                       <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
                       <Component id="panelResultado" alignment="0" max="32767" attributes="0"/>
                       <Component id="panelTM" alignment="0" max="32767" attributes="0"/>
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
                   </Group>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
@@ -626,323 +618,19 @@
                       <Component id="panelAnalisis" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  <Component id="panelResultado" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-=======
                   <Component id="panelTM" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="panelResultado" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                  <Component id="jScrollPane4" min="-2" pref="141" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-<<<<<<< HEAD
-        <Container class="javax.swing.JPanel" name="panelTM">
-          <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Toma de Muestra"/>
-              </Border>
-            </Property>
-          </Properties>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jLabel25" alignment="0" pref="118" max="32767" attributes="0"/>
-                                  <Component id="txtActoMedico" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtNToma" max="32767" attributes="0"/>
-                                  <Component id="jLabel29" pref="148" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="txtPersonalSolicita" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel26" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="txtFormaPago" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel30" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel34" alignment="0" pref="141" max="32767" attributes="0"/>
-                          <Component id="txtHospSer" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtPiso" alignment="1" min="-2" pref="113" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="txtFechaOrden" alignment="1" min="-2" pref="113" max="-2" attributes="0"/>
-                              <Component id="jLabel27" min="-2" pref="113" max="-2" attributes="0"/>
-                              <Component id="jLabel32" alignment="1" min="-2" pref="113" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jLabel33" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtCama" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jLabel28" alignment="0" pref="93" max="32767" attributes="0"/>
-                          <Component id="txtHoraOrden" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel25" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
-                          <Component id="jLabel27" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
-                          <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtFormaPago" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtActoMedico" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtNToma" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtFechaOrden" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtHoraOrden" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel33" alignment="3" max="32767" attributes="0"/>
-                          <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtPersonalSolicita" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCama" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtHospSer" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtPiso" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel25">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Acto M&#xe9;dico"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtActoMedico">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="12" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtFormaPago">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="11" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFormaPagoActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtFormaPagoKeyPressed"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtFormaPagoKeyReleased"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel30">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Forma de Pago"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel29">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="N&#xb0; de Toma de Muestra"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtNToma">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="11" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNTomaActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNTomaKeyPressed"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNTomaKeyReleased"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel26">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Personal - Solicita Muestra"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtPersonalSolicita">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="10" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPersonalSolicitaActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonalSolicitaKeyPressed"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonalSolicitaKeyReleased"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel27">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Fecha Orden"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtFechaOrden">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="11" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaOrdenActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtFechaOrdenKeyPressed"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtFechaOrdenKeyReleased"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel28">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Hora Orden"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtHoraOrden">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="11" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHoraOrdenActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtHoraOrdenKeyPressed"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtHoraOrdenKeyReleased"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel32">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Piso"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtPiso">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="11" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPisoActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPisoKeyPressed"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPisoKeyReleased"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel33">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Cama"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtCama">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="11" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCamaActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCamaKeyPressed"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCamaKeyReleased"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel34">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Hospitalizaci&#xf3;n-Servicio"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtHospSer">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="11" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHospSerActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtHospSerKeyPressed"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtHospSerKeyReleased"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
-            </Component>
-          </SubComponents>
-        </Container>
-=======
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
         <Container class="javax.swing.JPanel" name="jpanel4">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -988,6 +676,40 @@
                   <Color id="Cursor Por defecto"/>
                 </Property>
               </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="tb_muestras">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="9" rowCount="0">
+                    <Column editable="false" title="cod_det_toma_mu_ana" type="java.lang.Object"/>
+                    <Column editable="true" title="codMuestra" type="java.lang.Object"/>
+                    <Column editable="false" title="codContenedor" type="java.lang.Object"/>
+                    <Column editable="false" title="codArea" type="java.lang.Object"/>
+                    <Column editable="false" title="Muestra" type="java.lang.Object"/>
+                    <Column editable="false" title="Contenedor" type="java.lang.Object"/>
+                    <Column editable="false" title="Area" type="java.lang.Object"/>
+                    <Column editable="false" title="Cantidad" type="java.lang.Object"/>
+                    <Column editable="false" title="Codigo_Barras" type="java.lang.Object"/>
+                  </Table>
+                </Property>
+                <Property name="autoResizeMode" type="int" value="0"/>
+                <Property name="rowHeight" type="int" value="28"/>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -1344,29 +1066,6 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel40" pref="285" max="32767" attributes="0"/>
-                          <Component id="txtPersonalResponR" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel43" pref="272" max="32767" attributes="0"/>
-                          <Component id="txtPersonalRegistraR" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel44" max="32767" attributes="0"/>
-                          <Component id="lblFecha1" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblHora1" max="32767" attributes="0"/>
-                          <Component id="jLabel45" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-=======
                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -1399,7 +1098,6 @@
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1413,26 +1111,12 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="txtPersonalResponR" alignment="3" max="32767" attributes="0"/>
                                   <Component id="txtPersonalRegistraR" alignment="3" max="32767" attributes="0"/>
-<<<<<<< HEAD
-                                  <Component id="lblFecha1" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="lblHora1" alignment="3" min="-2" max="-2" attributes="0"/>
-=======
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel40" alignment="3" max="32767" attributes="0"/>
                                   <Component id="jLabel43" alignment="3" max="32767" attributes="0"/>
-<<<<<<< HEAD
-                                  <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel45" alignment="3" pref="17" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-=======
                               </Group>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
@@ -1449,7 +1133,6 @@
                           <Component id="lblFecha1" alignment="3" max="32767" attributes="0"/>
                           <Component id="txtResult_PN" alignment="3" max="32767" attributes="0"/>
                       </Group>
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1525,8 +1208,6 @@
                 <Property name="text" type="java.lang.String" value="00:00:00"/>
               </Properties>
             </Component>
-<<<<<<< HEAD
-=======
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
@@ -1948,7 +1629,6 @@
                 <Property name="text" type="java.lang.String" value="Hospitalizaci&#xf3;n-Servicio"/>
               </Properties>
             </Component>
->>>>>>> 0a01c27ad680028bf855b445615621ee723095e9
           </SubComponents>
         </Container>
       </SubComponents>

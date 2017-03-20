@@ -487,7 +487,30 @@ public class Consultorio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
+    ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
+        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea ELIMINAR los datos?",
+                               "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+        if(eliminar == 0){
+            ConsultorioExConsultorio consultorio3 = new ConsultorioExConsultorio();
+            consultorio3.setId(Integer.parseInt(txtID.getText()));
+            if(consultorio3.mantenimientoConsultorioExConsultorio("E")){
+                JOptionPane.showMessageDialog(this, "Examen Clínico eliminado");
+                consultorio3.listarConsultorios("", tbConsultorios);
+                btnEliminar.setEnabled(false);
+                btnGuardar.setEnabled(false);
+                btnModificar.setEnabled(false);
+                limpiar();
+                habilitarCampos(false);
+            } else{
+                JOptionPane.showMessageDialog(this, "Ocurrió un error al eliminar");
+                consultorio3.listarConsultorios("", tbConsultorios);
+                btnEliminar.setEnabled(false);
+                btnGuardar.setEnabled(false);
+                btnModificar.setEnabled(false);
+                limpiar();
+                habilitarCampos(false);
+            }
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void tbConsultoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbConsultoriosMouseClicked

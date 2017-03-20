@@ -5,10 +5,421 @@
  */
 package modelos.ConsultorioEx;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.table.DefaultTableModel;
+import servicios.Conexion;
+
 /**
  *
  * @author PC02
  */
 public class ConsultorioExRiesgoQuirurgico {
+    DefaultTableModel m;
+    Conexion con = new Conexion();
+    private Connection cn;
+    private int id;
+    private int ar_id;
+    private String id_hc;
+    private int procedencia;
+    private String hta;
+    private String dm;
+    private String renal;
+    private String alergia;
+    private String qx;
+    private String otros;
+    private String disnea;
+    private String palpit;
+    private String tos;
+    private String sint_otros;
+    private String ex_fisico;
+    private String desc;
+    private String sugerencia;
+    private String cod_per;
+    private String fecha_actu;
+    private String hora_actu;
+    private String nom_pc;
+    private String estado;
+    private String usuario;
+          
+    public boolean mantenimientoConsultorioExRQ(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CONSULTORIO_EXT_RIESGO_QUIRURGICO_MANTENIMIENTO ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId());
+            cmd.setInt(2, getAr_id());
+            cmd.setString(3, getId_hc());
+            cmd.setInt(4, getProcedencia());
+            cmd.setString(5, getHta());
+            cmd.setString(6, getDm());
+            cmd.setString(7, getRenal());
+            cmd.setString(8, getAlergia());
+            cmd.setString(9, getQx());
+            cmd.setString(10, getOtros());
+            cmd.setString(11, getDisnea());
+            cmd.setString(12, getPalpit());
+            cmd.setString(13, getTos());
+            cmd.setString(14, getSint_otros());
+            cmd.setString(15, getEx_fisico());
+            cmd.setString(16, getDesc());
+            cmd.setString(17, getSugerencia());
+            cmd.setString(18, getCod_per());
+            cmd.setString(19, getUsuario());
+            cmd.setString(20, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoConsultorioExRQ: " + ex.getMessage());
+        }
+        return resp;
+    }
     
+    public ConsultorioExRiesgoQuirurgico()
+    {
+        Conexion con = new Conexion();
+        cn = con.conectar();
+    }
+
+    /**
+     * @return the cn
+     */
+    public Connection getCn() {
+        return cn;
+    }
+
+    /**
+     * @param cn the cn to set
+     */
+    public void setCn(Connection cn) {
+        this.cn = cn;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the ar_id
+     */
+    public int getAr_id() {
+        return ar_id;
+    }
+
+    /**
+     * @param ar_id the ar_id to set
+     */
+    public void setAr_id(int ar_id) {
+        this.ar_id = ar_id;
+    }
+
+    /**
+     * @return the id_hc
+     */
+    public String getId_hc() {
+        return id_hc;
+    }
+
+    /**
+     * @param id_hc the id_hc to set
+     */
+    public void setId_hc(String id_hc) {
+        this.id_hc = id_hc;
+    }
+
+    /**
+     * @return the procedencia
+     */
+    public int getProcedencia() {
+        return procedencia;
+    }
+
+    /**
+     * @param procedencia the procedencia to set
+     */
+    public void setProcedencia(int procedencia) {
+        this.procedencia = procedencia;
+    }
+
+    /**
+     * @return the hta
+     */
+    public String getHta() {
+        return hta;
+    }
+
+    /**
+     * @param hta the hta to set
+     */
+    public void setHta(String hta) {
+        this.hta = hta;
+    }
+
+    /**
+     * @return the dm
+     */
+    public String getDm() {
+        return dm;
+    }
+
+    /**
+     * @param dm the hm to set
+     */
+    public void setDm(String dm) {
+        this.dm = dm;
+    }
+
+    /**
+     * @return the renal
+     */
+    public String getRenal() {
+        return renal;
+    }
+
+    /**
+     * @param renal the renal to set
+     */
+    public void setRenal(String renal) {
+        this.renal = renal;
+    }
+
+    /**
+     * @return the alergia
+     */
+    public String getAlergia() {
+        return alergia;
+    }
+
+    /**
+     * @param alergia the alergia to set
+     */
+    public void setAlergia(String alergia) {
+        this.alergia = alergia;
+    }
+
+    /**
+     * @return the qx
+     */
+    public String getQx() {
+        return qx;
+    }
+
+    /**
+     * @param qx the qx to set
+     */
+    public void setQx(String qx) {
+        this.qx = qx;
+    }
+
+    /**
+     * @return the otros
+     */
+    public String getOtros() {
+        return otros;
+    }
+
+    /**
+     * @param otros the otros to set
+     */
+    public void setOtros(String otros) {
+        this.otros = otros;
+    }
+
+    /**
+     * @return the disnea
+     */
+    public String getDisnea() {
+        return disnea;
+    }
+
+    /**
+     * @param disnea the disnea to set
+     */
+    public void setDisnea(String disnea) {
+        this.disnea = disnea;
+    }
+
+    /**
+     * @return the palpit
+     */
+    public String getPalpit() {
+        return palpit;
+    }
+
+    /**
+     * @param palpit the palpit to set
+     */
+    public void setPalpit(String palpit) {
+        this.palpit = palpit;
+    }
+
+    /**
+     * @return the tos
+     */
+    public String getTos() {
+        return tos;
+    }
+
+    /**
+     * @param tos the tos to set
+     */
+    public void setTos(String tos) {
+        this.tos = tos;
+    }
+
+    /**
+     * @return the sint_otros
+     */
+    public String getSint_otros() {
+        return sint_otros;
+    }
+
+    /**
+     * @param sint_otros the sint_otros to set
+     */
+    public void setSint_otros(String sint_otros) {
+        this.sint_otros = sint_otros;
+    }
+
+    /**
+     * @return the ex_fisico
+     */
+    public String getEx_fisico() {
+        return ex_fisico;
+    }
+
+    /**
+     * @param ex_fisico the ex_fisico to set
+     */
+    public void setEx_fisico(String ex_fisico) {
+        this.ex_fisico = ex_fisico;
+    }
+
+    /**
+     * @return the desc
+     */
+    public String getDesc() {
+        return desc;
+    }
+
+    /**
+     * @param desc the desc to set
+     */
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    /**
+     * @return the sugerencia
+     */
+    public String getSugerencia() {
+        return sugerencia;
+    }
+
+    /**
+     * @param sugerencia the sugerencia to set
+     */
+    public void setSugerencia(String sugerencia) {
+        this.sugerencia = sugerencia;
+    }
+
+    /**
+     * @return the cod_per
+     */
+    public String getCod_per() {
+        return cod_per;
+    }
+
+    /**
+     * @param cod_per the cod_per to set
+     */
+    public void setCod_per(String cod_per) {
+        this.cod_per = cod_per;
+    }
+
+    /**
+     * @return the fecha_actu
+     */
+    public String getFecha_actu() {
+        return fecha_actu;
+    }
+
+    /**
+     * @param fecha_actu the fecha_actu to set
+     */
+    public void setFecha_actu(String fecha_actu) {
+        this.fecha_actu = fecha_actu;
+    }
+
+    /**
+     * @return the hora_actu
+     */
+    public String getHora_actu() {
+        return hora_actu;
+    }
+
+    /**
+     * @param hora_actu the hora_actu to set
+     */
+    public void setHora_actu(String hora_actu) {
+        this.hora_actu = hora_actu;
+    }
+
+    /**
+     * @return the nom_pc
+     */
+    public String getNom_pc() {
+        return nom_pc;
+    }
+
+    /**
+     * @param nom_pc the nom_pc to set
+     */
+    public void setNom_pc(String nom_pc) {
+        this.nom_pc = nom_pc;
+    }
+
+    /**
+     * @return the estado
+     */
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * @return the usuario
+     */
+    public String getUsuario() {
+        return usuario;
+    }
+
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 }

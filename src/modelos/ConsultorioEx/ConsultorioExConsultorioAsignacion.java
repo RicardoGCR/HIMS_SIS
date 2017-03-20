@@ -6,6 +6,7 @@
 package modelos.ConsultorioEx;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 
@@ -14,12 +15,12 @@ import servicios.Conexion;
  * @author PC02
  */
 public class ConsultorioExConsultorioAsignacion {
-   DefaultTableModel m;
+    DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private int id;
     private int consultorio_id;
-    private String nro_cita;
+    private int nro_cita;
     private String turno;
     private int cod_rol;
     private String fecha_actu;
@@ -27,6 +28,32 @@ public class ConsultorioExConsultorioAsignacion {
     private String nom_pc;
     private String estado;
     private String usuario;
+    
+    public boolean mantenimientoConsultorioExConsultorioAsignacion(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CONSULTORIO_EXT_CONSULTORIO_ASIGNACION_MANTENIMIENTO ?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId());
+            cmd.setInt(2, getConsultorio_id());
+            cmd.setInt(3, getNro_cita());
+            cmd.setString(4, getTurno());
+            cmd.setInt(5, getCod_rol());
+            cmd.setString(6, getUsuario());
+            cmd.setString(7, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoConsultorioExConsultorioAsignacion: " + ex.getMessage());
+        }
+        return resp;
+    }
     
     public ConsultorioExConsultorioAsignacion()
     {
@@ -79,14 +106,14 @@ public class ConsultorioExConsultorioAsignacion {
     /**
      * @return the nro_cita
      */
-    public String getNro_cita() {
+    public int getNro_cita() {
         return nro_cita;
     }
 
     /**
      * @param nro_cita the nro_cita to set
      */
-    public void setNro_cita(String nro_cita) {
+    public void setNro_cita(int nro_cita) {
         this.nro_cita = nro_cita;
     }
 

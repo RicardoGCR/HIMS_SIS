@@ -6,6 +6,7 @@
 package modelos.ConsultorioEx;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 
@@ -26,6 +27,30 @@ public class ConsultorioExConsultorio {
     private String estado;
     private String usuario;
 
+    public boolean mantenimientoConsultorioExConsultorio(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CONSULTORIO_EXT_CONSULTORIO_MANTENIMIENTO ?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId());
+            cmd.setString(2, getNumero());
+            cmd.setString(3, getDescripcion());
+            cmd.setString(4, getUsuario());
+            cmd.setString(5, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoConsultorioExConsultorio: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public ConsultorioExConsultorio()
     {
         Conexion con = new Conexion();

@@ -8,12 +8,6 @@
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[749, 338]"/>
         </Property>
-<<<<<<< HEAD
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[749, 338]"/>
-        </Property>
-=======
->>>>>>> 570e30bd7e58d77ea01fc938dbce2ccb7a7bbc5b
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
 

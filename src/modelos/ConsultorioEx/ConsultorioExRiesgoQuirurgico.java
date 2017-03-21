@@ -7,7 +7,11 @@ package modelos.ConsultorioEx;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 
 /**
@@ -79,6 +83,117 @@ public class ConsultorioExRiesgoQuirurgico {
             System.out.println("Error: mantenimientoConsultorioExRQ: " + ex.getMessage());
         }
         return resp;
+    }
+    
+    public void formatoTablaDiagnostico(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(40);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(550);
+//        COLUMNAS OCULTAS
+//        TableColumn columna = tabla.getColumnModel().getColumn(0);
+//            columna.setMaxWidth(0);
+//            columna.setMinWidth(0);
+//            columna.setPreferredWidth(0);
+//            tabla.doLayout();
+        tabla.setRowHeight(30);
+    }
+    
+    public void inicializarTabla(JTable tabla){
+        tabla.setModel(new DefaultTableModel());
+        String titulos[]={"ID CIE 10","Código CIE 10","Diagnóstico"};
+        m=new DefaultTableModel(null,titulos);
+        tabla.setModel(m);
+        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+        tabla.setRowSorter(elQueOrdena);
+        tabla.setModel(m);
+        formatoTablaDiagnostico(tabla);
+    }
+    
+    public void listarDiagnostico(String busqueda, JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID CIE 10","Código CIE 10","Diagnósticos"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[3];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC CIE10_LISTAR ?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, busqueda);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); // id
+                    fila[1]=r.getString(2); // dni
+                    fila[2]=r.getString(3); // nhc
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaDiagnostico(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarDiagnostico: " + e.getMessage());
+        }
+    }
+    
+    
+    public void inicializarTablaNomenclatura(JTable tabla){
+        tabla.setModel(new DefaultTableModel());
+        String titulos[]={"ID","Código CPT","Nomenclatura"};
+        m=new DefaultTableModel(null,titulos);
+        tabla.setModel(m);
+        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+        tabla.setRowSorter(elQueOrdena);
+        tabla.setModel(m);
+        formatoTablaNomenclatura(tabla);
+    }
+    
+    public void formatoTablaNomenclatura(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(600);
+//        COLUMNAS OCULTAS
+//        TableColumn columna = tabla.getColumnModel().getColumn(0);
+//            columna.setMaxWidth(0);
+//            columna.setMinWidth(0);
+//            columna.setPreferredWidth(0);
+//            tabla.doLayout();
+        tabla.setRowHeight(30);
+    }
+    
+    public void listarDiagnosticoNomenclatura(String busqueda, JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID","Código CPT","Nomenclatura"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[3];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC CAJA_NOMENCLATURA_CAJA_LISTAR ?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, busqueda);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); // id
+                    fila[1]=r.getString(2); // dni
+                    fila[2]=r.getString(3); // nhc
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaNomenclatura(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarDiagnosticoNomenclatura: " + e.getMessage());
+        }
     }
     
     public ConsultorioExRiesgoQuirurgico()

@@ -7,7 +7,11 @@ package modelos.ConsultorioEx;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 
 /**
@@ -49,6 +53,81 @@ public class ConsultorioExConsultorio {
             System.out.println("Error: mantenimientoConsultorioExConsultorio: " + ex.getMessage());
         }
         return resp;
+    }
+    
+    public String consultorioID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 CC_ID FROM CONSULTORIO_EXT_CONSULTORIO WHERE NOM_PC = HOST_NAME() ORDER BY CC_ID DESC";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: consultorioID: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public void formatoTablaConsultorio(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(20);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(30);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(330);
+//        COLUMNAS OCULTAS
+//        TableColumn columna = tabla.getColumnModel().getColumn(0);
+//            columna.setMaxWidth(0);
+//            columna.setMinWidth(0);
+//            columna.setPreferredWidth(0);
+//            tabla.doLayout();
+        tabla.setRowHeight(30);
+    }
+    
+    public void inicializarTablaConsultorios(JTable tabla){
+        tabla.setModel(new DefaultTableModel());
+        String titulos[]={"ID","Nº Consultorio","Descripción"};
+        m=new DefaultTableModel(null,titulos);
+        tabla.setModel(m);
+        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+        tabla.setRowSorter(elQueOrdena);
+        tabla.setModel(m);
+        formatoTablaConsultorio(tabla);
+    }
+    
+    public void listarConsultorios(String busqueda, JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID","Nº Consultorio","Descripción"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[3];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC CONSULTORIO_EXT_CONSULTORIO_LISTAR ?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, busqueda);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaConsultorio(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarConsultorios: " + e.getMessage());
+        }
     }
     
     public ConsultorioExConsultorio()

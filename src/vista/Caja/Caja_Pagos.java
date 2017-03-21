@@ -1920,7 +1920,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                                                                         .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                                                                                                         .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                                                                                                    .addContainerGap(93, Short.MAX_VALUE))
+                                                                                                    .addContainerGap(30, Short.MAX_VALUE))
                                                                                             );
 
                                                                                             BHC.getContentPane().add(jPanel8);
@@ -1949,7 +1949,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                 .addGroup(jPanel4Layout.createSequentialGroup()
                                                                                                     .addGap(62, 62, 62)
                                                                                                     .addComponent(jLabel9)
-                                                                                                    .addContainerGap(67, Short.MAX_VALUE))
+                                                                                                    .addContainerGap(30, Short.MAX_VALUE))
                                                                                             );
 
                                                                                             jTabbedPane2.addTab("tab2", jPanel4);
@@ -1993,7 +1993,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                             );
                                                                                             jPanel5Layout.setVerticalGroup(
                                                                                                 jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                                                                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
                                                                                             );
 
                                                                                             jTabbedPane2.addTab("tab2", jPanel5);
@@ -2217,7 +2217,6 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
 
                                                                                             nomenclaturas.setAlwaysOnTop(true);
                                                                                             nomenclaturas.setMinimumSize(new java.awt.Dimension(749, 338));
-                                                                                            nomenclaturas.setPreferredSize(new java.awt.Dimension(749, 338));
                                                                                             nomenclaturas.setResizable(false);
                                                                                             nomenclaturas.getContentPane().setLayout(null);
 

@@ -5,20 +5,17 @@
  */
 package vista.ConsultorioEx;
 
-import java.awt.Color;
-
 /**
  *
  * @author MYS1
  */
-public class ConsultorioAsignacion extends javax.swing.JFrame {
+public class FrmSolicitudPruebaELISVIH extends javax.swing.JFrame {
 
     /**
-     * Creates new form ConsultorioAsignacion
+     * Creates new form FrmSolicitudPruebaELISVIH
      */
-    public ConsultorioAsignacion() {
+    public FrmSolicitudPruebaELISVIH() {
         initComponents();
-        this.getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -44,26 +41,29 @@ public class ConsultorioAsignacion extends javax.swing.JFrame {
         jPanel29 = new javax.swing.JPanel();
         buscartodo2 = new javax.swing.JTextField();
         T5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tb_Grupo1 = new javax.swing.JTable(){
+        tbTriaje = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false; //Disallow the editing of any cell
             }};
-            jPanel3 = new javax.swing.JPanel();
-            jLabel2 = new javax.swing.JLabel();
-            jComboBox1 = new javax.swing.JComboBox();
-            jPanel27 = new javax.swing.JPanel();
-            buscartodo = new javax.swing.JTextField();
-            T3 = new javax.swing.JLabel();
-            jLabel5 = new javax.swing.JLabel();
-            jLabel4 = new javax.swing.JLabel();
-            jTextField2 = new javax.swing.JTextField();
-            jLabel6 = new javax.swing.JLabel();
-            jLabel7 = new javax.swing.JLabel();
-            jPanel28 = new javax.swing.JPanel();
-            buscartodo1 = new javax.swing.JTextField();
-            T4 = new javax.swing.JLabel();
-            jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,7 +71,7 @@ public class ConsultorioAsignacion extends javax.swing.JFrame {
 
             jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
             jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel1.setText("<html>Consultorios <span style=\"font-size:'15px'\">Asignación</span></html>");
+            jLabel1.setText("<html>Solicitud de prueba de ELISA o prueba rápida para VIH  <span style=\"font-size:'15px'\"><br>(Para uso de laboratorio local)</br></span></html>");
 
             btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
             btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Documento-32.png"))); // NOI18N
@@ -211,8 +211,6 @@ public class ConsultorioAsignacion extends javax.swing.JFrame {
                     .addGap(552, 552, 552))
             );
 
-            jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
-
             jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
             jPanel29.setBackground(new java.awt.Color(204, 204, 204));
@@ -269,244 +267,218 @@ public class ConsultorioAsignacion extends javax.swing.JFrame {
                     .addGap(0, 0, 0))
             );
 
-            jScrollPane3.setBorder(null);
+            jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel2.setText("Paciente");
 
-            tb_Grupo1.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                    {null, null, null, null},
-                    {null, null, null, null},
-                    {null, null, null, null},
-                    {null, null, null, null}
-                },
-                new String [] {
-                    "Title 1", "Title 2", "Title 3", "Title 4"
-                }
-            ));
-            tb_Grupo1.setGridColor(new java.awt.Color(255, 255, 255));
-            tb_Grupo1.setRowHeight(25);
-            tb_Grupo1.setSelectionBackground(new java.awt.Color(0, 153, 102));
-            tb_Grupo1.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    tb_Grupo1MouseClicked(evt);
-                }
-                public void mousePressed(java.awt.event.MouseEvent evt) {
-                    tb_Grupo1MousePressed(evt);
+            jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel3.setText("Apellidos y Nombres");
+
+            jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel4.setText("ABC");
+
+            jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel5.setText("Edad");
+
+            jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel6.setText("00");
+
+            jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel7.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel7.setText("CÓDIGO");
+
+            jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel8.setText("APAMN1N2");
+
+            jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel9.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel9.setText("F.N.");
+
+            jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel10.setText("FN");
+
+            jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel11.setText("H.C.");
+
+            jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel12.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel12.setText("HC");
+
+            jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            jLabel13.setForeground(new java.awt.Color(102, 102, 102));
+            jLabel13.setText("Prueba Solicitada_________________________________________________________________________________________");
+
+            jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
+            jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jCheckBox1.setText("ELISA VIH");
+            jCheckBox1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jCheckBox1ActionPerformed(evt);
                 }
             });
-            tb_Grupo1.addKeyListener(new java.awt.event.KeyAdapter() {
-                public void keyPressed(java.awt.event.KeyEvent evt) {
-                    tb_Grupo1KeyPressed(evt);
+
+            jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
+            jCheckBox2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jCheckBox2.setText("PRUEBA RÁPIDA VIH");
+            jCheckBox2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jCheckBox2ActionPerformed(evt);
                 }
             });
-            jScrollPane3.setViewportView(tb_Grupo1);
+
+            jCheckBox3.setBackground(new java.awt.Color(255, 255, 255));
+            jCheckBox3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jCheckBox3.setText("PRUEBA CONFIRMATORIA VIH");
+            jCheckBox3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jCheckBox3ActionPerformed(evt);
+                }
+            });
+
+            jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel14.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel14.setText("Acto Medico");
+
+            jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel15.setForeground(new java.awt.Color(51, 51, 51));
+            jLabel15.setText("AM");
 
             javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
             jPanel2.setLayout(jPanel2Layout);
             jPanel2Layout.setHorizontalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jCheckBox1)
+                            .addGap(52, 52, 52)
+                            .addComponent(jCheckBox2)
+                            .addGap(38, 38, 38)
+                            .addComponent(jCheckBox3))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(28, 28, 28)
+                            .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel4))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel8)))
+                            .addGap(114, 114, 114)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel6))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel10)))
+                            .addGap(99, 99, 99)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel14)
+                                .addComponent(jLabel11))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel12)
+                                .addComponent(jLabel15)))
+                        .addComponent(jLabel13))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
             );
             jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(23, 23, 23)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel2)
+                        .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(27, 27, 27)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel11)
+                        .addComponent(jLabel12))
                     .addGap(18, 18, 18)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addContainerGap())
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel8)
+                        .addComponent(jLabel9)
+                        .addComponent(jLabel10)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel13)
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jCheckBox1)
+                        .addComponent(jCheckBox2)
+                        .addComponent(jCheckBox3))
+                    .addGap(54, 54, 54))
             );
 
             jTabbedPane1.addTab("tab1", jPanel2);
 
             jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-            jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel2.setText("Médico");
+            jScrollPane3.setBorder(null);
 
-            jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mañana", "Tarde" }));
+            tbTriaje.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
 
-            jPanel27.setBackground(new java.awt.Color(204, 204, 204));
-
-            buscartodo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            buscartodo.setBorder(null);
-            buscartodo.addCaretListener(new javax.swing.event.CaretListener() {
-                public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                    buscartodoCaretUpdate(evt);
+                },
+                new String [] {
+                    "Title 1", "Title 2", "Title 3", "Title 4"
                 }
-            });
-            buscartodo.addMouseListener(new java.awt.event.MouseAdapter() {
+            ));
+            tbTriaje.setGridColor(new java.awt.Color(255, 255, 255));
+            tbTriaje.setRowHeight(25);
+            tbTriaje.setSelectionBackground(new java.awt.Color(0, 153, 102));
+            tbTriaje.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    buscartodoMouseClicked(evt);
+                    tbTriajeMouseClicked(evt);
+                }
+                public void mousePressed(java.awt.event.MouseEvent evt) {
+                    tbTriajeMousePressed(evt);
                 }
             });
-            buscartodo.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    buscartodoActionPerformed(evt);
-                }
-            });
-            buscartodo.addKeyListener(new java.awt.event.KeyAdapter() {
+            tbTriaje.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {
-                    buscartodoKeyPressed(evt);
+                    tbTriajeKeyPressed(evt);
                 }
             });
-
-            T3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
-            T3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            T3.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    T3MouseClicked(evt);
-                }
-            });
-
-            javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
-            jPanel27.setLayout(jPanel27Layout);
-            jPanel27Layout.setHorizontalGroup(
-                jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel27Layout.createSequentialGroup()
-                    .addGap(1, 1, 1)
-                    .addComponent(buscartodo, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0))
-            );
-            jPanel27Layout.setVerticalGroup(
-                jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel27Layout.createSequentialGroup()
-                    .addGap(0, 1, Short.MAX_VALUE)
-                    .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(T3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buscartodo))
-                    .addGap(0, 0, 0))
-            );
-
-            jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel5.setText("Nº de Atenciones");
-
-            jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel4.setText("Turno");
-
-            jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-            jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel6.setText("Asignación de consultorios");
-
-            jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel7.setText("Consultorio");
-
-            jPanel28.setBackground(new java.awt.Color(204, 204, 204));
-
-            buscartodo1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            buscartodo1.setBorder(null);
-            buscartodo1.addCaretListener(new javax.swing.event.CaretListener() {
-                public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                    buscartodo1CaretUpdate(evt);
-                }
-            });
-            buscartodo1.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    buscartodo1MouseClicked(evt);
-                }
-            });
-            buscartodo1.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    buscartodo1ActionPerformed(evt);
-                }
-            });
-            buscartodo1.addKeyListener(new java.awt.event.KeyAdapter() {
-                public void keyPressed(java.awt.event.KeyEvent evt) {
-                    buscartodo1KeyPressed(evt);
-                }
-            });
-
-            T4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
-            T4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            T4.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    T4MouseClicked(evt);
-                }
-            });
-
-            javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
-            jPanel28.setLayout(jPanel28Layout);
-            jPanel28Layout.setHorizontalGroup(
-                jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
-                    .addGap(1, 1, 1)
-                    .addComponent(buscartodo1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0))
-            );
-            jPanel28Layout.setVerticalGroup(
-                jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
-                    .addGap(0, 1, Short.MAX_VALUE)
-                    .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(T4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buscartodo1))
-                    .addGap(0, 0, 0))
-            );
+            jScrollPane3.setViewportView(tbTriaje);
 
             javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
             jPanel3.setLayout(jPanel3Layout);
             jPanel3Layout.setHorizontalGroup(
                 jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel4))
-                            .addGap(29, 29, 29)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(jLabel6)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel2))
-                            .addGap(64, 64, 64)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addContainerGap(323, Short.MAX_VALUE))
+                .addComponent(jScrollPane3)
             );
             jPanel3Layout.setVerticalGroup(
                 jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel6)
-                    .addGap(15, 15, 15)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2))
-                    .addGap(18, 18, 18)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel7)
-                        .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(31, 31, 31)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(154, Short.MAX_VALUE))
+                    .addGap(37, 37, 37)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                    .addContainerGap())
             );
 
             jTabbedPane1.addTab("tab2", jPanel3);
@@ -521,10 +493,10 @@ public class ConsultorioAsignacion extends javax.swing.JFrame {
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, Short.MAX_VALUE)
+                    .addContainerGap())
             );
 
             pack();
@@ -554,46 +526,6 @@ public class ConsultorioAsignacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btneliminar1ActionPerformed
 
-    private void buscartodoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodoCaretUpdate
-     
-    }//GEN-LAST:event_buscartodoCaretUpdate
-
-    private void buscartodoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscartodoMouseClicked
-
-    }//GEN-LAST:event_buscartodoMouseClicked
-
-    private void buscartodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscartodoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscartodoActionPerformed
-
-    private void buscartodoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscartodoKeyPressed
-      
-    }//GEN-LAST:event_buscartodoKeyPressed
-
-    private void T3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T3MouseClicked
-
-    }//GEN-LAST:event_T3MouseClicked
-
-    private void buscartodo1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodo1CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscartodo1CaretUpdate
-
-    private void buscartodo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscartodo1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscartodo1MouseClicked
-
-    private void buscartodo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscartodo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscartodo1ActionPerformed
-
-    private void buscartodo1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscartodo1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscartodo1KeyPressed
-
-    private void T4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T4MouseClicked
-
     private void buscartodo2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodo2CaretUpdate
         // TODO add your handling code here:
     }//GEN-LAST:event_buscartodo2CaretUpdate
@@ -614,17 +546,29 @@ public class ConsultorioAsignacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_T5MouseClicked
 
-    private void tb_Grupo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo1MouseClicked
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
-    }//GEN-LAST:event_tb_Grupo1MouseClicked
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
-    private void tb_Grupo1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo1MousePressed
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
 
-    }//GEN-LAST:event_tb_Grupo1MousePressed
+    private void tbTriajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTriajeMouseClicked
 
-    private void tb_Grupo1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo1KeyPressed
+    }//GEN-LAST:event_tbTriajeMouseClicked
 
-    }//GEN-LAST:event_tb_Grupo1KeyPressed
+    private void tbTriajeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTriajeMousePressed
+
+    }//GEN-LAST:event_tbTriajeMousePressed
+
+    private void tbTriajeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbTriajeKeyPressed
+
+    }//GEN-LAST:event_tbTriajeKeyPressed
 
     /**
      * @param args the command line arguments
@@ -643,27 +587,25 @@ public class ConsultorioAsignacion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultorioAsignacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSolicitudPruebaELISVIH.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultorioAsignacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSolicitudPruebaELISVIH.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultorioAsignacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSolicitudPruebaELISVIH.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultorioAsignacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSolicitudPruebaELISVIH.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultorioAsignacion().setVisible(true);
+                new FrmSolicitudPruebaELISVIH().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel T3;
-    private javax.swing.JLabel T4;
     private javax.swing.JLabel T5;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnbuscar;
@@ -671,27 +613,32 @@ public class ConsultorioAsignacion extends javax.swing.JFrame {
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btneliminar1;
     private javax.swing.JButton btnguardar;
-    private javax.swing.JTextField buscartodo;
-    private javax.swing.JTextField buscartodo1;
     private javax.swing.JTextField buscartodo2;
-    private javax.swing.JComboBox jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel27;
-    private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblusu;
-    private javax.swing.JTable tb_Grupo1;
+    private javax.swing.JTable tbTriaje;
     // End of variables declaration//GEN-END:variables
 }

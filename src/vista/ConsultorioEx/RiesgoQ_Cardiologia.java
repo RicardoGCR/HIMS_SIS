@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import modelos.ConsultorioEx.ConsultorioExRQDetalle;
 import modelos.ConsultorioEx.ConsultorioExRiesgoQuirurgico;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.admisionEmergencia.AdmisionEmergenciaTriaje;
@@ -206,15 +207,33 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Seleccione un registro");
     }
     
+    public boolean guardarDiagnostico(int id_riesgo){
+        AdmisionEmergenciaCabecera adEmer2 = new AdmisionEmergenciaCabecera();
+        boolean retorna = false;
+        try {
+            for (int i = 0; i < tbDiagnostico.getRowCount(); i++){      
+                ConsultorioExRQDetalle consultorio4 = new ConsultorioExRQDetalle();
+                consultorio4.setRq_id(id_riesgo);
+                consultorio4.setId_cie10(Integer.parseInt(tbDiagnostico.getValueAt(i,0).toString()));
+                consultorio4.setUsuario(adEmer2.codUsuario(lblusu.getText()));
+                if(consultorio4.mantenimientoConsultorioExRQDetalle("I")==true)
+                    retorna = true;
+            }
+        } catch (Exception e) {
+            System.out.println("Error: guardarDiagnostico" + e.getMessage());
+        }
+        return retorna;
+    }
+    
 //    public boolean guardarDatos(){
 //        boolean retorna = false;
 //        try {
 //            AdmisionEmergenciaCabecera adEmerCab5 = new AdmisionEmergenciaCabecera();
 //            ConsultorioExRiesgoQuirurgico consultorio3 = new ConsultorioExRiesgoQuirurgico();
-////            consultorio3.setAr_id(lblArea.getText());
-////            consultorio3.
-////            if(hosp1.mantenimientoHospitalizacionExClinico(lblMant.getText())==true){
-//                /*if(guardarDiagPresuntivo() && guardarDiagDefinitivo() && guardarDiagSindromico()){
+//            consultorio3.setAr_id(lblArea.getText());
+//            consultorio3.
+//            if(hosp1.mantenimientoHospitalizacionExClinico(lblMant.getText())==true){
+//                if(guardarDiagPresuntivo() && guardarDiagDefinitivo() && guardarDiagSindromico()){
 //                    JOptionPane.showMessageDialog(this, "Examen clínico Guardado");
 //                    limpiar();
 //                    habilitarCampos(false);
@@ -230,9 +249,8 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
 //                    lblIdHC.setText("");
 //                    lblMant.setText("");
 //                    txtID.setText("");
-//                }*/
-//                    }
-//            
+//                }
+//            }
 //        } catch (Exception e) {
 //            System.out.println("Error: guardarDatosExClinico" + e.getMessage());
 //        }
@@ -1355,7 +1373,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel24))
-                            .addContainerGap(54, Short.MAX_VALUE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
                     pnlMensaje.setBackground(new java.awt.Color(255, 153, 51));
@@ -1435,7 +1453,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     );
 
                     pack();
@@ -1674,7 +1692,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
 
     private void btnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiActionPerformed
         if(lblMant.getText().equals("I")){
-            //guardarDatos();
+            guardarDatos();
         }
     }//GEN-LAST:event_btnSiActionPerformed
 

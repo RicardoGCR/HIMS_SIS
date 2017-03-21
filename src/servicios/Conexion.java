@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 public class Conexion {
     
 
-    static String servidor="l192.168.1.35";
+    static String servidor="192.168.1.35";
     static String puerto="1433";
     static String user="sa";
     static String password="sistemas";
@@ -38,7 +38,8 @@ public class Conexion {
              //System.out.println("Conexión exitosa");
         }
         catch(Exception ex)
-        {
+        {   
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar al servidor");
             System.out.println("Error de conexion: " + ex.getMessage());
         }
         return conexion;

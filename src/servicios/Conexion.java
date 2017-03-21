@@ -38,7 +38,8 @@ public class Conexion {
              //System.out.println("Conexión exitosa");
         }
         catch(Exception ex)
-        {
+        {   
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar al servidor");
             System.out.println("Error de conexion: " + ex.getMessage());
         }
         return conexion;

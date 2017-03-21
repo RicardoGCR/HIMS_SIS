@@ -176,6 +176,10 @@ public class Consultorio extends javax.swing.JFrame {
             jLabel48 = new javax.swing.JLabel();
             jScrollPane1 = new javax.swing.JScrollPane();
             txtDescripcion = new javax.swing.JEditorPane();
+            cargareliminar1 = new javax.swing.JPanel();
+            Mensaje1 = new javax.swing.JLabel();
+            eli1 = new javax.swing.JButton();
+            noeli1 = new javax.swing.JButton();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -407,6 +411,62 @@ public class Consultorio extends javax.swing.JFrame {
 
             jScrollPane1.setViewportView(txtDescripcion);
 
+            cargareliminar1.setBackground(new java.awt.Color(255, 153, 51));
+
+            Mensaje1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+            Mensaje1.setForeground(new java.awt.Color(255, 255, 255));
+            Mensaje1.setText("Desea Actualizar el Registro ?");
+
+            eli1.setForeground(new java.awt.Color(240, 240, 240));
+            eli1.setText("Si");
+            eli1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+            eli1.setContentAreaFilled(false);
+            eli1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            eli1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            eli1.setIconTextGap(30);
+            eli1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    eli1ActionPerformed(evt);
+                }
+            });
+
+            noeli1.setForeground(new java.awt.Color(240, 240, 240));
+            noeli1.setText("No");
+            noeli1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+            noeli1.setContentAreaFilled(false);
+            noeli1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            noeli1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            noeli1.setIconTextGap(30);
+            noeli1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    noeli1ActionPerformed(evt);
+                }
+            });
+
+            javax.swing.GroupLayout cargareliminar1Layout = new javax.swing.GroupLayout(cargareliminar1);
+            cargareliminar1.setLayout(cargareliminar1Layout);
+            cargareliminar1Layout.setHorizontalGroup(
+                cargareliminar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(cargareliminar1Layout.createSequentialGroup()
+                    .addGap(19, 19, 19)
+                    .addComponent(Mensaje1)
+                    .addGap(46, 46, 46)
+                    .addComponent(eli1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(noeli1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+            cargareliminar1Layout.setVerticalGroup(
+                cargareliminar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(cargareliminar1Layout.createSequentialGroup()
+                    .addGap(17, 17, 17)
+                    .addGroup(cargareliminar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Mensaje1)
+                        .addComponent(eli1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(noeli1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
@@ -432,12 +492,15 @@ public class Consultorio extends javax.swing.JFrame {
                             .addGap(0, 22, Short.MAX_VALUE))
                         .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addContainerGap())
+                .addComponent(cargareliminar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
+                    .addGap(0, 0, 0)
+                    .addComponent(cargareliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -454,7 +517,7 @@ public class Consultorio extends javax.swing.JFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(5, 5, 5))
+                    .addContainerGap())
             );
 
             pack();
@@ -549,6 +612,47 @@ public class Consultorio extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtIDCaretUpdate
 
+    private void eli1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eli1ActionPerformed
+        if (tge==3 || tge==1 ||tge==9 ||tge==7||tge==9){
+            cargareliminar.setVisible(false);
+
+        }
+        if (tge==2){
+            Modificar();
+            btnguardar.setEnabled(false);
+            btneditar.setEnabled(true);
+            btneliminar.setEnabled(true);
+            btnbuscar.setEnabled(true);
+            b.setVisible(false);
+            b1.setVisible(false);
+            b2.setVisible(false);
+
+        }
+        if (tge==6){
+            eliminar();
+
+        }
+    }//GEN-LAST:event_eli1ActionPerformed
+
+    private void noeli1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noeli1ActionPerformed
+
+        if (tge==3 || tge==1 || tge==6){
+            cargareliminar.setVisible(false);
+
+        }
+        if (tge==2){
+            cargareliminar.setVisible(true);
+            cargareliminar.setBackground(new Color(255,153,51));
+            Mensaje.setText("No se han realizado modificaciones");
+            eli.setText("OK");
+            eli.setVisible(true);
+            noeli.setVisible(false);
+            tge=9;
+
+        }
+
+    }//GEN-LAST:event_noeli1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -585,10 +689,16 @@ public class Consultorio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Mensaje;
+    private javax.swing.JLabel Mensaje1;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
+    private javax.swing.JPanel cargareliminar;
+    private javax.swing.JPanel cargareliminar1;
+    private javax.swing.JButton eli;
+    private javax.swing.JButton eli1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel29;
@@ -605,6 +715,8 @@ public class Consultorio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblMant;
     private javax.swing.JLabel lblusu;
+    private javax.swing.JButton noeli;
+    private javax.swing.JButton noeli1;
     private javax.swing.JTable tbConsultorios;
     private javax.swing.JEditorPane txtDescripcion;
     private javax.swing.JTextField txtID;

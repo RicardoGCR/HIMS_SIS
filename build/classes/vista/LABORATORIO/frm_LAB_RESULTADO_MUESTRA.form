@@ -1829,7 +1829,7 @@
         <Component class="javax.swing.JLabel" name="jLabel35">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Nomenclatura"/>
+            <Property name="text" type="java.lang.String" value="An&#xe1;lisis / Examen"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel34">

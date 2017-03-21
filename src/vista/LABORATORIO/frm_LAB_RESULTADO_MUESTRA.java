@@ -1310,7 +1310,7 @@ public void calcula() {
             });
 
             jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel35.setText("Nomenclatura");
+            jLabel35.setText("Análisis / Examen");
 
             jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel34.setText("Código CPT");

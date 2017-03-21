@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -71,6 +70,8 @@ Conexion c=new Conexion();
         personal.setLocationRelativeTo(null);
         analisis.getContentPane().setBackground(Color.white);
         analisis.setLocationRelativeTo(null);
+        entregaResultado.getContentPane().setBackground(Color.white);
+        entregaResultado.setLocationRelativeTo(null);
      
         panelPacientes.setBackground(Color.white);
          chPacientes.setVisible(false);
@@ -128,53 +129,53 @@ Conexion c=new Conexion();
     }
     
     public void formato(){
-    tb_TomasRealizadas.getColumnModel().getColumn(3).setPreferredWidth(200);
-    tb_TomasRealizadas.getColumnModel().getColumn(4).setPreferredWidth(90);
-    tb_TomasRealizadas.getColumnModel().getColumn(5).setPreferredWidth(250);
-    tb_TomasRealizadas.getColumnModel().getColumn(6).setPreferredWidth(240);
-    tb_TomasRealizadas.getColumnModel().getColumn(7).setPreferredWidth(140);
-    tb_TomasRealizadas.getColumnModel().getColumn(8).setPreferredWidth(140);
-    tb_TomasRealizadas.getColumnModel().getColumn(9).setPreferredWidth(90);
-    tb_TomasRealizadas.getColumnModel().getColumn(10).setPreferredWidth(250);
-    tb_TomasRealizadas.getColumnModel().getColumn(11).setPreferredWidth(85);
-    tb_TomasRealizadas.getColumnModel().getColumn(12).setPreferredWidth(140);
-    tb_TomasRealizadas.getColumnModel().getColumn(13).setPreferredWidth(50);
-    tb_TomasRealizadas.getColumnModel().getColumn(14).setPreferredWidth(50);
-    tb_TomasRealizadas.getColumnModel().getColumn(15).setPreferredWidth(130);
-    tb_TomasRealizadas.getColumnModel().getColumn(17).setPreferredWidth(180);
-    tb_TomasRealizadas.getColumnModel().getColumn(18).setPreferredWidth(180);
-    tb_TomasRealizadas.getColumnModel().getColumn(19).setPreferredWidth(130);
-    tb_TomasRealizadas.getColumnModel().getColumn(20).setPreferredWidth(130);
+    tb_Resultado.getColumnModel().getColumn(3).setPreferredWidth(200);
+    tb_Resultado.getColumnModel().getColumn(4).setPreferredWidth(90);
+    tb_Resultado.getColumnModel().getColumn(5).setPreferredWidth(250);
+    tb_Resultado.getColumnModel().getColumn(6).setPreferredWidth(240);
+    tb_Resultado.getColumnModel().getColumn(7).setPreferredWidth(140);
+    tb_Resultado.getColumnModel().getColumn(8).setPreferredWidth(200);
+    tb_Resultado.getColumnModel().getColumn(9).setPreferredWidth(90);
+    tb_Resultado.getColumnModel().getColumn(10).setPreferredWidth(100);
+    tb_Resultado.getColumnModel().getColumn(11).setPreferredWidth(50);
+    tb_Resultado.getColumnModel().getColumn(12).setPreferredWidth(50);
+    tb_Resultado.getColumnModel().getColumn(13).setPreferredWidth(100);
+    tb_Resultado.getColumnModel().getColumn(14).setPreferredWidth(100);
+    tb_Resultado.getColumnModel().getColumn(15).setPreferredWidth(130);
+    tb_Resultado.getColumnModel().getColumn(16).setPreferredWidth(100);
+    tb_Resultado.getColumnModel().getColumn(17).setPreferredWidth(100);
+    tb_Resultado.getColumnModel().getColumn(19).setPreferredWidth(130);
+    tb_Resultado.getColumnModel().getColumn(20).setPreferredWidth(130);
     //Ocultar    
-    tb_TomasRealizadas.getColumnModel().getColumn(0).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(0).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(1).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(1).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(2).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(2).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(0).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(0).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(1).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(1).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(2).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(2).setMaxWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(3).setMinWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(3).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(16).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(16).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(14).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(14).setMaxWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(17).setMinWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(17).setMaxWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(18).setMinWidth(0);
 //    tb_TomasRealizadas.getColumnModel().getColumn(18).setMaxWidth(0);
-    
-    tb_TomasRealizadas.getColumnModel().getColumn(21).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(21).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(22).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(22).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(23).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(23).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(24).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(24).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(25).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(25).setMaxWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(26).setMinWidth(0);
-    tb_TomasRealizadas.getColumnModel().getColumn(26).setMaxWidth(0);
-    tb_TomasRealizadas.getSelectionModel().setSelectionInterval(0, 0);
-            tb_TomasRealizadas.requestFocus();
+//    
+//    tb_TomasRealizadas.getColumnModel().getColumn(21).setMinWidth(0);
+//    tb_TomasRealizadas.getColumnModel().getColumn(21).setMaxWidth(0);
+//    tb_TomasRealizadas.getColumnModel().getColumn(22).setMinWidth(0);
+//    tb_TomasRealizadas.getColumnModel().getColumn(22).setMaxWidth(0);
+//    tb_TomasRealizadas.getColumnModel().getColumn(23).setMinWidth(0);
+//    tb_TomasRealizadas.getColumnModel().getColumn(23).setMaxWidth(0);
+//    tb_TomasRealizadas.getColumnModel().getColumn(24).setMinWidth(0);
+//    tb_TomasRealizadas.getColumnModel().getColumn(24).setMaxWidth(0);
+//    tb_TomasRealizadas.getColumnModel().getColumn(25).setMinWidth(0);
+//    tb_TomasRealizadas.getColumnModel().getColumn(25).setMaxWidth(0);
+//    tb_TomasRealizadas.getColumnModel().getColumn(26).setMinWidth(0);
+//    tb_TomasRealizadas.getColumnModel().getColumn(26).setMaxWidth(0);
+    tb_Resultado.getSelectionModel().setSelectionInterval(0, 0);
+            tb_Resultado.requestFocus();
 }
     
     public void LAB_BUSCAR_TM_DIA(){
@@ -191,18 +192,20 @@ Conexion c=new Conexion();
          
     String consulta="";
         try {
-            tb_TomasRealizadas.setModel(new DefaultTableModel());
+            tb_Resultado.setModel(new DefaultTableModel());
             String titulos[]={"cod_cab_resultado_mu_ana","cod_exa_ana","id_hc","Servicio/Área","Código CPT",
-                "Nomenclatura" ,"Análisis Examen","N° de Resultado","Acto Médico","N° de H.C.","Datos del Paciente",
-                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","N°de TM","Personal Resultado","Personal Registra Resultado",
-                "Fecha Resultado","Hora Resultado","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","id_cod_doc_det"};
+                "Nomenclatura" ,"Análisis Examen","N° de H.C.","Datos del Paciente",
+                "DNI","Fecha de Nacimiento","Edad","Sexo","Acto Médico","N° de TM","Forma de Pago"
+                ,"Fecha Orden","Hora Orden","Personal Solicita","Serv-Hosp","Habitacion","Cama",
+                "N° de Resultado","Personal Resultado","Personal Registra Resultado",
+                "Fecha Resultado","Hora Resultado","id_cod_doc_det"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
 //            m=(DefaultTableModel)tb_TomasRealizadas.getModel(); Cuando se va agregando
             String fila[]=new String[28];
 
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
-                    consulta="exec sp_LAB_BUSQUEDA_RESULTADO ?,?,?,?,?";
+                    consulta="exec sp_LAB_ENTREGA_RESULTADO_buscar ?,?,?,?,?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setInt(1,0);
             cmd.setInt(2, 0);
@@ -239,14 +242,14 @@ Conexion c=new Conexion();
                 fila[24]=r.getString(25);
                 fila[25]=r.getString(26);
                 fila[26]=r.getString(27);
-
+                fila[27]=r.getString(28);
                 m.addRow(fila);
                 c++;
             }
-            tb_TomasRealizadas.setModel(m);
+            tb_Resultado.setModel(m);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
-            tb_TomasRealizadas.setRowSorter(elQueOrdena);
-            this.tb_TomasRealizadas.setModel(m);
+            tb_Resultado.setRowSorter(elQueOrdena);
+            this.tb_Resultado.setModel(m);
             
             formato();
         } catch (Exception e) {
@@ -256,7 +259,7 @@ Conexion c=new Conexion();
     
     public void LAB_HC_cargar(){
     try {
-             String titulos[]={"N°","N° H.C.","Paciente","Dirección","DNI","Sexo","Fecha de Nac.","Edad","COdigo"};
+             String titulos[]={"N°","N° H.C.","Paciente","Dirección","DNI","Sexo","Fecha de Nac.","Edad","Código"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[9];
@@ -269,7 +272,7 @@ Conexion c=new Conexion();
         ResultSet r=cmd.executeQuery();
         int c=1;
         while(r.next()){
-            fila[0]=String.valueOf(c)+"º";
+            fila[0]=String.valueOf(c)+"°";
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
             fila[3]=r.getString(3);
@@ -323,7 +326,7 @@ Conexion c=new Conexion();
         ResultSet r=cmd.executeQuery();
         int c=1;
         while(r.next()){
-            fila[0]=String.valueOf(c)+"º";
+            fila[0]=String.valueOf(c)+"°";
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
             fila[3]=r.getString(3);
@@ -367,7 +370,7 @@ Conexion c=new Conexion();
             
             
             try {
-            String titulos[]={"N°","Código","Código CPT","Análisis","Servicio","Área"};
+            String titulos[]={"NO","Código","C�digo CPT","Análisis","Servicio","Área"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -381,7 +384,7 @@ Conexion c=new Conexion();
             ResultSet r=cmd.executeQuery();
             int c=1;
             while(r.next()){
-                fila[0]=String.valueOf(c)+"º";
+                fila[0]=String.valueOf(c)+"°";
                 fila[1]=r.getString(1);
                 fila[2]=r.getString(2);
                 fila[3]=r.getString(3);
@@ -474,8 +477,6 @@ public void calcula() {
                 entregaResultado = new javax.swing.JDialog();
                 jpanel4 = new javax.swing.JPanel();
                 titulo9 = new javax.swing.JLabel();
-                jScrollPane4 = new javax.swing.JScrollPane();
-                tb_muestras = new javax.swing.JTable();
                 panelPaciente = new javax.swing.JPanel();
                 jLabel23 = new javax.swing.JLabel();
                 txtDni = new javax.swing.JTextField();
@@ -496,7 +497,6 @@ public void calcula() {
                 txtCPT = new javax.swing.JTextField();
                 jLabel39 = new javax.swing.JLabel();
                 txtServArea = new javax.swing.JTextField();
-                jLabel1 = new javax.swing.JLabel();
                 panelResultado = new javax.swing.JPanel();
                 jLabel40 = new javax.swing.JLabel();
                 txtPersonalResponR = new javax.swing.JTextField();
@@ -506,8 +506,6 @@ public void calcula() {
                 jLabel45 = new javax.swing.JLabel();
                 lblFecha1 = new javax.swing.JLabel();
                 lblHora1 = new javax.swing.JLabel();
-                jLabel4 = new javax.swing.JLabel();
-                txtResult_PN = new javax.swing.JTextField();
                 panelTM = new javax.swing.JPanel();
                 jLabel31 = new javax.swing.JLabel();
                 txtActoMedico = new javax.swing.JTextField();
@@ -515,12 +513,6 @@ public void calcula() {
                 jLabel30 = new javax.swing.JLabel();
                 jLabel29 = new javax.swing.JLabel();
                 txtNToma = new javax.swing.JTextField();
-                jLabel25 = new javax.swing.JLabel();
-                txtPersonalTomaMuestra = new javax.swing.JTextField();
-                jLabel27 = new javax.swing.JLabel();
-                txtFechaTM = new javax.swing.JTextField();
-                jLabel28 = new javax.swing.JLabel();
-                txtHoraTM = new javax.swing.JTextField();
                 jLabel26 = new javax.swing.JLabel();
                 txtPersonalSolicita = new javax.swing.JTextField();
                 jLabel32 = new javax.swing.JLabel();
@@ -533,6 +525,18 @@ public void calcula() {
                 txtHoraOrden = new javax.swing.JTextField();
                 txthospiServ = new javax.swing.JTextField();
                 jLabel36 = new javax.swing.JLabel();
+                panelResultado1 = new javax.swing.JPanel();
+                date = new com.toedter.calendar.JDateChooser();
+                jLabel27 = new javax.swing.JLabel();
+                jLabel28 = new javax.swing.JLabel();
+                spHora = new javax.swing.JSpinner();
+                spMin = new javax.swing.JSpinner();
+                jLabel11 = new javax.swing.JLabel();
+                jLabel12 = new javax.swing.JLabel();
+                panelResultado2 = new javax.swing.JPanel();
+                jRadioButton1 = new javax.swing.JRadioButton();
+                jRadioButton2 = new javax.swing.JRadioButton();
+                buttonGroup1 = new javax.swing.ButtonGroup();
                 jpanel = new javax.swing.JPanel();
                 titulo5 = new javax.swing.JLabel();
                 jLabel14 = new javax.swing.JLabel();
@@ -541,7 +545,7 @@ public void calcula() {
                 lblHora = new javax.swing.JLabel();
                 lblUsu = new javax.swing.JLabel();
                 jScrollPane5 = new javax.swing.JScrollPane();
-                tb_TomasRealizadas = new javax.swing.JTable(){
+                tb_Resultado = new javax.swing.JTable(){
                     public boolean isCellEditable(int rowIndex, int colIndex){
                         if(colIndex==0){
                             return true;
@@ -923,7 +927,7 @@ public void calcula() {
                         );
 
                         entregaResultado.setAlwaysOnTop(true);
-                        entregaResultado.setMinimumSize(new java.awt.Dimension(890, 572));
+                        entregaResultado.setMinimumSize(new java.awt.Dimension(844, 639));
                         entregaResultado.setResizable(false);
 
                         jpanel4.setBackground(new java.awt.Color(2, 67, 115));
@@ -951,27 +955,6 @@ public void calcula() {
                                 .addComponent(titulo9, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                         );
-
-                        tb_muestras.setModel(new javax.swing.table.DefaultTableModel(
-                            new Object [][] {
-
-                            },
-                            new String [] {
-                                "cod_det_toma_mu_ana", "codMuestra", "codContenedor", "codArea", "Muestra", "Contenedor", "Area", "Cantidad", "Codigo_Barras"
-                            }
-                        ) {
-                            boolean[] canEdit = new boolean [] {
-                                false, true, false, false, false, false, false, false, false
-                            };
-
-                            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                                return canEdit [columnIndex];
-                            }
-                        });
-                        tb_muestras.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-                        tb_muestras.setRowHeight(28);
-                        tb_muestras.getTableHeader().setReorderingAllowed(false);
-                        jScrollPane4.setViewportView(tb_muestras);
 
                         panelPaciente.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos del Paciente"));
 
@@ -1140,7 +1123,7 @@ public void calcula() {
                         panelAnalisisLayout.setHorizontalGroup(
                             panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelAnalisisLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
+                                .addContainerGap()
                                 .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(panelAnalisisLayout.createSequentialGroup()
                                         .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1152,7 +1135,7 @@ public void calcula() {
                                             .addComponent(txtNomenclatura)))
                                     .addComponent(txtServArea)
                                     .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(25, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         );
                         panelAnalisisLayout.setVerticalGroup(
                             panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1174,10 +1157,6 @@ public void calcula() {
                                         .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(21, 21, 21))))
                         );
-
-                        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-                        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel1.setText("Muestra(s)");
 
                         panelResultado.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado"));
 
@@ -1235,80 +1214,48 @@ public void calcula() {
                         lblHora1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         lblHora1.setText("00:00:00");
 
-                        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel4.setText("Resultado");
-
-                        txtResult_PN.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-                        txtResult_PN.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtResult_PN.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtResult_PNActionPerformed(evt);
-                            }
-                        });
-                        txtResult_PN.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtResult_PNKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtResult_PNKeyReleased(evt);
-                            }
-                        });
-
                         javax.swing.GroupLayout panelResultadoLayout = new javax.swing.GroupLayout(panelResultado);
                         panelResultado.setLayout(panelResultadoLayout);
                         panelResultadoLayout.setHorizontalGroup(
                             panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelResultadoLayout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelResultadoLayout.createSequentialGroup()
-                                        .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtResult_PN)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                                            .addComponent(lblFecha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                            .addComponent(lblHora1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(84, 84, 84))
-                                    .addGroup(panelResultadoLayout.createSequentialGroup()
-                                        .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtPersonalResponR, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel40, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE))
-                                        .addGap(43, 43, 43)
-                                        .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtPersonalRegistraR)
-                                            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtPersonalResponR)
+                                    .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                                    .addComponent(txtPersonalRegistraR))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblFecha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblHora1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)))
                         );
                         panelResultadoLayout.setVerticalGroup(
                             panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelResultadoLayout.createSequentialGroup()
                                 .addGap(0, 0, 0)
                                 .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResultadoLayout.createSequentialGroup()
+                                    .addGroup(panelResultadoLayout.createSequentialGroup()
                                         .addGap(14, 14, 14)
                                         .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(txtPersonalResponR)
-                                            .addComponent(txtPersonalRegistraR)))
+                                            .addComponent(txtPersonalRegistraR)
+                                            .addComponent(lblFecha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblHora1))
+                                        .addContainerGap())
                                     .addGroup(panelResultadoLayout.createSequentialGroup()
                                         .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(20, 20, 20)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
-                                    .addComponent(jLabel44)
-                                    .addComponent(jLabel4))
-                                .addGap(2, 2, 2)
-                                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblHora1)
-                                    .addComponent(lblFecha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtResult_PN)))
+                                            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel44)
+                                            .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE))
+                                        .addGap(17, 17, 17))))
                         );
 
                         panelTM.setBorder(javax.swing.BorderFactory.createTitledBorder("Toma de Muestra"));
@@ -1352,66 +1299,6 @@ public void calcula() {
                             }
                             public void keyReleased(java.awt.event.KeyEvent evt) {
                                 txtNTomaKeyReleased(evt);
-                            }
-                        });
-
-                        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel25.setText("Personal - Toma de Muestra");
-
-                        txtPersonalTomaMuestra.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-                        txtPersonalTomaMuestra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtPersonalTomaMuestra.setEnabled(false);
-                        txtPersonalTomaMuestra.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtPersonalTomaMuestraActionPerformed(evt);
-                            }
-                        });
-                        txtPersonalTomaMuestra.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtPersonalTomaMuestraKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtPersonalTomaMuestraKeyReleased(evt);
-                            }
-                        });
-
-                        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel27.setText("Fecha Toma Muestra");
-
-                        txtFechaTM.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-                        txtFechaTM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtFechaTM.setEnabled(false);
-                        txtFechaTM.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtFechaTMActionPerformed(evt);
-                            }
-                        });
-                        txtFechaTM.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtFechaTMKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtFechaTMKeyReleased(evt);
-                            }
-                        });
-
-                        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel28.setText("Hora Toma Muestra");
-
-                        txtHoraTM.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-                        txtHoraTM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtHoraTM.setEnabled(false);
-                        txtHoraTM.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtHoraTMActionPerformed(evt);
-                            }
-                        });
-                        txtHoraTM.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtHoraTMKeyPressed(evt);
-                            }
-                            public void keyReleased(java.awt.event.KeyEvent evt) {
-                                txtHoraTMKeyReleased(evt);
                             }
                         });
 
@@ -1541,93 +1428,176 @@ public void calcula() {
                             panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelTMLayout.createSequentialGroup()
                                 .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTMLayout.createSequentialGroup()
+                                        .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(txtActoMedico)
+                                            .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                            .addComponent(txtNToma)))
                                     .addGroup(panelTMLayout.createSequentialGroup()
                                         .addGap(20, 20, 20)
-                                        .addComponent(txtPersonalTomaMuestra, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTMLayout.createSequentialGroup()
-                                        .addContainerGap()
                                         .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtPersonalSolicita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(panelTMLayout.createSequentialGroup()
-                                        .addGap(114, 114, 114)
-                                        .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(19, 19, 19)
-                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtFechaTM, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                                        .addComponent(txtNToma, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(txtFechaOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtFormaPago)
+                                    .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                    .addComponent(txthospiServ))
                                 .addGap(21, 21, 21)
                                 .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtHoraOrden)
-                                    .addComponent(txtFormaPago, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtHoraTM))
-                                .addGap(26, 26, 26)
-                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPiso, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txthospiServ)
                                     .addGroup(panelTMLayout.createSequentialGroup()
-                                        .addComponent(jLabel36)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(txtCama)
-                                    .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(13, 13, 13))
+                                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(panelTMLayout.createSequentialGroup()
+                                        .addComponent(txtFechaOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtHoraOrden))
+                                    .addGroup(panelTMLayout.createSequentialGroup()
+                                        .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(txtPiso, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtCama))))
+                                .addGap(35, 35, 35))
                         );
                         panelTMLayout.setVerticalGroup(
                             panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelTMLayout.createSequentialGroup()
-                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelTMLayout.createSequentialGroup()
-                                        .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel29)
-                                            .addComponent(jLabel30)
-                                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, 0)
-                                        .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txtNToma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtFormaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(panelTMLayout.createSequentialGroup()
-                                        .addComponent(jLabel36)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(txthospiServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelTMLayout.createSequentialGroup()
-                                        .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel25)
-                                            .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel28)
-                                            .addComponent(jLabel32))
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txtPersonalTomaMuestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtFechaTM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtHoraTM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, 0)
-                                        .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel37)
-                                            .addComponent(jLabel33))
-                                        .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txtPersonalSolicita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtFechaOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtHoraOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(panelTMLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtCama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel29)
+                                    .addComponent(jLabel30)
+                                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel37))
+                                .addGap(0, 0, 0)
+                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtNToma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFormaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFechaOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtHoraOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel33)
+                                    .addComponent(jLabel36)
+                                    .addComponent(jLabel32))
+                                .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtPersonalSolicita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txthospiServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(3, 3, 3))
+                        );
+
+                        panelResultado1.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado"));
+
+                        date.setDateFormatString("dd-MM-yyyy");
+
+                        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                        jLabel27.setText("Fecha de Entrega");
+
+                        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                        jLabel28.setText("Hora de Entrega");
+
+                        spHora.setModel(new javax.swing.SpinnerNumberModel(0, 0, 24, 1));
+                        spHora.addChangeListener(new javax.swing.event.ChangeListener() {
+                            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                                spHoraStateChanged(evt);
+                            }
+                        });
+
+                        spMin.setModel(new javax.swing.SpinnerNumberModel(0, 0, 60, 1));
+                        spMin.addChangeListener(new javax.swing.event.ChangeListener() {
+                            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                                spMinStateChanged(evt);
+                            }
+                        });
+                        spMin.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+                            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                                spMinPropertyChange(evt);
+                            }
+                        });
+
+                        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                        jLabel11.setText("h");
+
+                        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                        jLabel12.setText("min");
+
+                        javax.swing.GroupLayout panelResultado1Layout = new javax.swing.GroupLayout(panelResultado1);
+                        panelResultado1.setLayout(panelResultado1Layout);
+                        panelResultado1Layout.setHorizontalGroup(
+                            panelResultado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelResultado1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(panelResultado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(37, 37, 37)
+                                .addGroup(panelResultado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panelResultado1Layout.createSequentialGroup()
+                                        .addComponent(spHora, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(spMin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel12))
+                                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(20, Short.MAX_VALUE))
+                        );
+                        panelResultado1Layout.setVerticalGroup(
+                            panelResultado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelResultado1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(panelResultado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jLabel28))
+                                .addGap(0, 0, 0)
+                                .addGroup(panelResultado1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel11)
+                                    .addComponent(spHora)
+                                    .addComponent(spMin)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(116, 116, 116))
+                        );
+
+                        panelResultado2.setBorder(javax.swing.BorderFactory.createTitledBorder("Recepción"));
+
+                        buttonGroup1.add(jRadioButton1);
+                        jRadioButton1.setText("jRadioButton1");
+
+                        buttonGroup1.add(jRadioButton2);
+                        jRadioButton2.setText("jRadioButton2");
+
+                        javax.swing.GroupLayout panelResultado2Layout = new javax.swing.GroupLayout(panelResultado2);
+                        panelResultado2.setLayout(panelResultado2Layout);
+                        panelResultado2Layout.setHorizontalGroup(
+                            panelResultado2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelResultado2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(panelResultado2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButton1)
+                                    .addComponent(jRadioButton2))
+                                .addContainerGap(247, Short.MAX_VALUE))
+                        );
+                        panelResultado2Layout.setVerticalGroup(
+                            panelResultado2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelResultado2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jRadioButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioButton2)
+                                .addGap(43, 43, 43))
                         );
 
                         javax.swing.GroupLayout entregaResultadoLayout = new javax.swing.GroupLayout(entregaResultado.getContentPane());
@@ -1635,18 +1605,21 @@ public void calcula() {
                         entregaResultadoLayout.setHorizontalGroup(
                             entregaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jpanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entregaResultadoLayout.createSequentialGroup()
+                            .addGroup(entregaResultadoLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
-                                .addGroup(entregaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, entregaResultadoLayout.createSequentialGroup()
+                                .addGroup(entregaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(panelResultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelTM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(entregaResultadoLayout.createSequentialGroup()
                                         .addComponent(panelPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(16, 16, 16)
-                                        .addComponent(panelAnalisis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(panelResultado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(panelTM, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(32, 32, 32))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                                        .addComponent(panelAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(entregaResultadoLayout.createSequentialGroup()
+                                        .addComponent(panelResultado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(38, 38, 38)
+                                        .addComponent(panelResultado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addContainerGap())
                         );
                         entregaResultadoLayout.setVerticalGroup(
                             entregaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1660,15 +1633,16 @@ public void calcula() {
                                 .addComponent(panelTM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(panelResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(9, 9, 9)
-                                .addComponent(jLabel1)
-                                .addGap(1, 1, 1)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(108, 108, 108))
+                                .addGap(18, 18, 18)
+                                .addGroup(entregaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(panelResultado2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(panelResultado1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(89, 89, 89))
                         );
 
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                         setTitle("SISGESH .::. Análisis Examen");
+                        setPreferredSize(new java.awt.Dimension(1067, 665));
 
                         jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
@@ -1740,7 +1714,7 @@ public void calcula() {
                                 .addContainerGap())
                         );
 
-                        tb_TomasRealizadas.setModel(new javax.swing.table.DefaultTableModel(
+                        tb_Resultado.setModel(new javax.swing.table.DefaultTableModel(
                             new Object [][] {
 
                             },
@@ -1756,35 +1730,35 @@ public void calcula() {
                                 return canEdit [columnIndex];
                             }
                         });
-                        tb_TomasRealizadas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-                        tb_TomasRealizadas.setRowHeight(24);
-                        tb_TomasRealizadas.setSelectionBackground(new java.awt.Color(2, 67, 115));
-                        tb_TomasRealizadas.getTableHeader().setReorderingAllowed(false);
-                        tb_TomasRealizadas.addMouseListener(new java.awt.event.MouseAdapter() {
+                        tb_Resultado.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+                        tb_Resultado.setRowHeight(24);
+                        tb_Resultado.setSelectionBackground(new java.awt.Color(2, 67, 115));
+                        tb_Resultado.getTableHeader().setReorderingAllowed(false);
+                        tb_Resultado.addMouseListener(new java.awt.event.MouseAdapter() {
                             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                tb_TomasRealizadasMouseClicked(evt);
+                                tb_ResultadoMouseClicked(evt);
                             }
                             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                                tb_TomasRealizadasMouseReleased(evt);
+                                tb_ResultadoMouseReleased(evt);
                             }
                         });
-                        tb_TomasRealizadas.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+                        tb_Resultado.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
                             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                                tb_TomasRealizadasPropertyChange(evt);
+                                tb_ResultadoPropertyChange(evt);
                             }
                         });
-                        tb_TomasRealizadas.addKeyListener(new java.awt.event.KeyAdapter() {
+                        tb_Resultado.addKeyListener(new java.awt.event.KeyAdapter() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
-                                tb_TomasRealizadasKeyPressed(evt);
+                                tb_ResultadoKeyPressed(evt);
                             }
                             public void keyTyped(java.awt.event.KeyEvent evt) {
-                                tb_TomasRealizadasKeyTyped(evt);
+                                tb_ResultadoKeyTyped(evt);
                             }
                         });
-                        jScrollPane5.setViewportView(tb_TomasRealizadas);
-                        if (tb_TomasRealizadas.getColumnModel().getColumnCount() > 0) {
-                            tb_TomasRealizadas.getColumnModel().getColumn(13).setResizable(false);
-                            tb_TomasRealizadas.getColumnModel().getColumn(14).setResizable(false);
+                        jScrollPane5.setViewportView(tb_Resultado);
+                        if (tb_Resultado.getColumnModel().getColumnCount() > 0) {
+                            tb_Resultado.getColumnModel().getColumn(13).setResizable(false);
+                            tb_Resultado.getColumnModel().getColumn(14).setResizable(false);
                         }
 
                         lblServicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1916,7 +1890,7 @@ public void calcula() {
                                     .addComponent(txtAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                                     .addComponent(txtPacientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                                     .addComponent(txtPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(txtActoM))
+                                    .addComponent(txtActoM, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnPacientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1965,7 +1939,7 @@ public void calcula() {
                         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         jLabel21.setText("Búsqueda por:");
 
-                        cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N° de H.C", "Análisis ", "Personal- Toma de Muestra" }));
+                        cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N° de H.C / DNI", "Análisis ", "Personal - Resultado", "Acto Médico" }));
                         cbx.addItemListener(new java.awt.event.ItemListener() {
                             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                                 cbxItemStateChanged(evt);
@@ -2098,7 +2072,7 @@ public void calcula() {
             ResultSet r= cmd.executeQuery();
             int c=1;
         while(r.next()){
-            fila[0]=String.valueOf(c)+"º";
+            fila[0]=String.valueOf(c)+"°";
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
             fila[3]=r.getString(3);
@@ -2163,33 +2137,34 @@ public void calcula() {
         // TODO add your handling code here:
     }//GEN-LAST:event_tb_HCKeyPressed
 
-    private void tb_TomasRealizadasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_TomasRealizadasMouseClicked
+    private void tb_ResultadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_ResultadoMouseClicked
 
-    }//GEN-LAST:event_tb_TomasRealizadasMouseClicked
+    }//GEN-LAST:event_tb_ResultadoMouseClicked
 
-    private void tb_TomasRealizadasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_TomasRealizadasMouseReleased
+    private void tb_ResultadoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_ResultadoMouseReleased
  
-    }//GEN-LAST:event_tb_TomasRealizadasMouseReleased
+    }//GEN-LAST:event_tb_ResultadoMouseReleased
 
-    private void tb_TomasRealizadasPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tb_TomasRealizadasPropertyChange
+    private void tb_ResultadoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tb_ResultadoPropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_TomasRealizadasPropertyChange
+    }//GEN-LAST:event_tb_ResultadoPropertyChange
 
-    private void tb_TomasRealizadasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_TomasRealizadasKeyTyped
+    private void tb_ResultadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_ResultadoKeyTyped
 
-    }//GEN-LAST:event_tb_TomasRealizadasKeyTyped
+    }//GEN-LAST:event_tb_ResultadoKeyTyped
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
  try{
           
             if(dateDesde.getDate()==null || dateHasta.getDate()==null){
-              JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de Fechas.");
-          } else if(cbx.getSelectedIndex()==0){
-              JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de búsqueda");
-          }  else if(txtPacientes.getText().isEmpty()&&chPacientes.isSelected()==false&& txtAnalisis.getText().isEmpty()
-                  && chAnalisis.isSelected()==false && txtPersonal.getText().isEmpty()&&chPersonal.isSelected()==false){
-              JOptionPane.showMessageDialog(rootPane, "Seleccione y/o ingrese un " +cbx.getSelectedItem());
-          }  else {
+                JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de Fechas.");
+            } else if(cbx.getSelectedIndex()==0){
+                JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de búsqueda");
+            }  else if(txtPacientes.getText().isEmpty()&&chPacientes.isSelected()==false&& txtAnalisis.getText().isEmpty()
+                  && chAnalisis.isSelected()==false && txtPersonal.getText().isEmpty()&&chPersonal.isSelected()==false
+                  &&txtActoM.getText().isEmpty()&&chActoMedico.isSelected()==false){
+                JOptionPane.showMessageDialog(rootPane, "Seleccione y/o ingrese un " +cbx.getSelectedItem());
+            }  else {
               buscar_examenes();
            
           }  
@@ -2214,7 +2189,8 @@ public void buscar_examenes(){
         String buscar="",tipo="1",servicioArea="";
         
         
-        if((chPacientes.isSelected()==true ||chAnalisis.isSelected()==true ||chPersonal.isSelected()==true) 
+        if((chPacientes.isSelected()==true ||chAnalisis.isSelected()==true ||chPersonal.isSelected()==true
+                ||chActoMedico.isSelected()==true ) 
                 &&lblArea.getText().equalsIgnoreCase("")){
         tipo="1";
         servicioArea=lblServicio.getText();
@@ -2234,40 +2210,53 @@ public void buscar_examenes(){
          buscar=txtPersonal.getText();
         servicioArea=lblServicio.getText();
         }
-        else if((chPacientes.isSelected()==true ||chAnalisis.isSelected()==true||chPersonal.isSelected()==true) 
+         else if(txtActoM.getText().length()>0 &&lblArea.getText().equalsIgnoreCase("")){
+        tipo="5";
+         buscar=txtActoM.getText();
+        servicioArea=lblServicio.getText();
+        }
+        else if((chPacientes.isSelected()==true ||chAnalisis.isSelected()==true||chPersonal.isSelected()==true
+                ||chActoMedico.isSelected()==true ) 
                 &&lblArea.getText().length()>0 ){
-            tipo="5";
+            tipo="6";
             servicioArea=lblArea.getText();        
         }
          else if(txtPacientes.getText().length()>0 &&lblArea.getText().length()>0 ){
-             tipo="6";
+             tipo="7";
               buscar=txtPacientes.getText();
             servicioArea=lblArea.getText();        
         }
          else if(txtAnalisis.getText().length()>0 &&lblArea.getText().length()>0 ){
-             tipo="7";
+             tipo="8";
               buscar=txtAnalisis.getText();
             servicioArea=lblArea.getText();        
         }
         else if(txtPersonal.getText().length()>0 &&lblArea.getText().length()>0 ){
-             tipo="8";
+             tipo="10";
               buscar=txtPersonal.getText();
+            servicioArea=lblArea.getText();        
+        }
+        else if(txtActoM.getText().length()>0 &&lblArea.getText().length()>0 ){
+             tipo="11";
+              buscar=txtActoM.getText();
             servicioArea=lblArea.getText();        
         }
      String consulta="";
         try {
-            tb_TomasRealizadas.setModel(new DefaultTableModel());
+            tb_Resultado.setModel(new DefaultTableModel());
             String titulos[]={"cod_cab_resultado_mu_ana","cod_exa_ana","id_hc","Servicio/Área","Código CPT",
-                "Nomenclatura" ,"Análisis Examen","N° de Resultado","Acto Médico","N° de H.C.","Datos del Paciente",
-                "DNI","Fecha de Nacimiento","Edad","Sexo","Forma de Pago","N°de TM","Personal Resultado","Personal Registra Resultado",
-                "Fecha Resultado","Hora Resultado","Personal Solicita","Habitacion","Cama","Fecha Orden","Hora Orden","id_cod_doc_det"};
+                "Nomenclatura" ,"Análisis Examen","N° de H.C.","Datos del Paciente",
+                "DNI","Fecha de Nacimiento","Edad","Sexo","Acto Médico","N° de TM","Forma de Pago"
+                ,"Fecha Orden","Hora Orden","Personal Solicita","Serv-Hosp","Habitacion","Cama",
+                "N° de Resultado","Personal Resultado","Personal Registra Resultado",
+                "Fecha Resultado","Hora Resultado","id_cod_doc_det"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
 //            m=(DefaultTableModel)tb_TomasRealizadas.getModel(); Cuando se va agregando
             String fila[]=new String[30];
 
             LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
-                    consulta="exec sp_LAB_BUSQUEDA_RESULTADO ?,?,?,?,?";
+                    consulta="exec sp_LAB_ENTREGA_RESULTADO_buscar ?,?,?,?,?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setInt(1,desde);
             cmd.setInt(2, hasta);
@@ -2304,339 +2293,86 @@ public void buscar_examenes(){
                 fila[24]=r.getString(25);
                 fila[25]=r.getString(26);
                 fila[26]=r.getString(27);
-
+                fila[27]=r.getString(28);
                 m.addRow(fila);
                 c++;
             }
-            tb_TomasRealizadas.setModel(m);
+            tb_Resultado.setModel(m);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
-            tb_TomasRealizadas.setRowSorter(elQueOrdena);
-            this.tb_TomasRealizadas.setModel(m);
+            tb_Resultado.setRowSorter(elQueOrdena);
+            this.tb_Resultado.setModel(m);
             
             formato();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
 }
-    private void tb_TomasRealizadasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_TomasRealizadasKeyPressed
+    private void tb_ResultadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_ResultadoKeyPressed
         // TODO add your handling code here:
-//        char tecla= evt.getKeyChar();
-//                if(tecla==KeyEvent.VK_ENTER){  
-//                    try{
-//                        if( tb_TomasRealizadas.getRowCount()>0){
-//                        int filaselec=tb_TomasRealizadas.getSelectedRow();
-//                        
-//                       
-//                           dispose();
-//                    frm_LAB_RESULTADO_MUESTRA vr=new frm_LAB_RESULTADO_MUESTRA();
-//                    vr.setVisible(true);
-//                    
-//                    //codigos
-//                    frm_LAB_RESULTADO_MUESTRA.lblcod_cab_toma.setText(tb_TomasRealizadas.getValueAt(filaselec, 0).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.lblcod_det_toma.setText(tb_TomasRealizadas.getValueAt(filaselec, 1).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.lblcod_exa_ana.setText(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.lblid_cod_doc_det.setText(tb_TomasRealizadas.getValueAt(filaselec, 25).toString());
-//                   
-//                    //Datos del Paciente
-//                    frm_LAB_RESULTADO_MUESTRA.lblHc.setText(tb_TomasRealizadas.getValueAt(filaselec, 3).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtHc.setText(tb_TomasRealizadas.getValueAt(filaselec, 9).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtPacientes.setText(tb_TomasRealizadas.getValueAt(filaselec, 10).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtDni.setText(tb_TomasRealizadas.getValueAt(filaselec, 11).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtFecha.setText(tb_TomasRealizadas.getValueAt(filaselec, 12).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtEdad.setText(tb_TomasRealizadas.getValueAt(filaselec, 13).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtSexo.setText(tb_TomasRealizadas.getValueAt(filaselec, 14).toString());
-//                    //Toma de Muestra
-//                    frm_LAB_RESULTADO_MUESTRA.txtActoMedico.setText(tb_TomasRealizadas.getValueAt(filaselec, 16).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtFormaPago.setText(tb_TomasRealizadas.getValueAt(filaselec, 15).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtNToma.setText(tb_TomasRealizadas.getValueAt(filaselec, 8).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtPersonalTomaMuestra.setText(tb_TomasRealizadas.getValueAt(filaselec, 17).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtFechaTM.setText(tb_TomasRealizadas.getValueAt(filaselec, 18).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtHoraTM.setText(tb_TomasRealizadas.getValueAt(filaselec, 19).toString());
-//                    if(tb_TomasRealizadas.getValueAt(filaselec,20).toString().isEmpty()){
-//                    frm_LAB_RESULTADO_MUESTRA.txtPersonalSolicita.setText("--");
-//                    }else{
-//                    frm_LAB_RESULTADO_MUESTRA.txtPersonalSolicita.setText(tb_TomasRealizadas.getValueAt(filaselec, 20).toString());
-//                        
-//                    }
-//                    if(tb_TomasRealizadas.getValueAt(filaselec,21).toString().isEmpty()){
-//                    frm_LAB_RESULTADO_MUESTRA.txtPiso.setText("--");
-//                    frm_LAB_RESULTADO_MUESTRA.txtCama.setText("--");
-//                    }else{
-//                       frm_LAB_RESULTADO_MUESTRA.txtPiso.setText(tb_TomasRealizadas.getValueAt(filaselec, 21).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtCama.setText(tb_TomasRealizadas.getValueAt(filaselec, 22).toString()); 
-//                    }
-//                    
-//                    frm_LAB_RESULTADO_MUESTRA.txtFechaOrden.setText(tb_TomasRealizadas.getValueAt(filaselec, 23).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtHoraOrden.setText(tb_TomasRealizadas.getValueAt(filaselec, 24).toString());
-//                    
-//                    //Servicio
-//                    frm_LAB_RESULTADO_MUESTRA.txtServArea.setText(tb_TomasRealizadas.getValueAt(filaselec, 4).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtCPT.setText(tb_TomasRealizadas.getValueAt(filaselec, 5).toString());
-//                    frm_LAB_RESULTADO_MUESTRA.txtNomenclatura.setText(tb_TomasRealizadas.getValueAt(filaselec, 7).toString());
-//                    
-//                    
-//                    frm_LAB_RESULTADO_MUESTRA.lblServicio.setText(lblServicio.getText());
-//                    frm_LAB_RESULTADO_MUESTRA.lblArea.setText(lblArea.getText());
-//                    
-//                    LAB_Esquema_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
-//                    LAB_ValoresRef_cargar(tb_TomasRealizadas.getValueAt(filaselec, 2).toString());
-//                    
-//                    //como parametro sexo-años-meses-dias del paciente
-//                    LAB_Validar_Valores(tb_TomasRealizadas.getValueAt(filaselec, 14).toString(),
-//                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 26).toString()),
-//                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 27).toString()),
-//                            Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 28).toString()));
-//                    String u=lblUsu.getText();
-//                             frm_LAB_RESULTADO_MUESTRA.lblUsu.setText(u);
-//                       }        
-//        }catch(Exception e){
-//            JOptionPane.showMessageDialog(this, "ingreso "+e.getMessage());
-//        }
-//        }
-    }//GEN-LAST:event_tb_TomasRealizadasKeyPressed
-
-    
-    public  void LAB_Esquema_cargar(String cod_exa_ana){
-         try {
-             String titulos[]={"Código","Nombre Esquema","Resultado","Tipo","CodUniMedida","UM","Área"};
-            m=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(m);
-            String fila[]=new String[8];
-            LAB_Resultado_Muestra_Cabecera obj=new LAB_Resultado_Muestra_Cabecera();
-            
-        String consulta="exec sp_LAB_RESULTADO_ESQUEMA_VALORES ?,?";
-       PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-           cmd.setString(1, cod_exa_ana);
-            cmd.setString(2, "1");
-        ResultSet r=cmd.executeQuery();
-        int c=1;
-        while(r.next()){
-            fila[0]=r.getString(1);
-            fila[1]=r.getString(2);
-            fila[2]=r.getString(3);
-            fila[3]=r.getString(4);
-            fila[4]=r.getString(5);
-            fila[5]=r.getString(6);
-            fila[6]=r.getString(7);
-                m.addRow(fila);
-                c++;
-            }
-            frm_LAB_RESULTADO_MUESTRA.tb_Esquema.setModel(m);
-            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
-            frm_LAB_RESULTADO_MUESTRA.tb_Esquema.setRowSorter(elQueOrdena);
-            
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(rootPane, e.getMessage());
-    }
-    }
-    
-    public void LAB_ValoresRef_cargar(String cod_exa_ana){
-         try {
-             String titulos[]={"Código","Cod Esquema","Nombre Esquema",
-                 "estado_todos_fabricantes","cod_fabricante_producto_mh","ini_anio","ini_mes",
-"ini_dia","fin_anio","fin_mes","fin_dia","genero","estado_clinico_ref",
-"valor_minimo","valor_maximo","valor_texto_referencia","tipo_valor_referencia","ini_dias","fin_dias"};
-            m=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(m);
-            String fila[]=new String[19];
-            LAB_Resultado_Muestra_Cabecera obj=new LAB_Resultado_Muestra_Cabecera();
-            
-        String consulta="exec sp_LAB_RESULTADO_ESQUEMA_VALORES ?,?";
-       PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-           cmd.setString(1, cod_exa_ana);
-            cmd.setString(2, "2");
-        ResultSet r=cmd.executeQuery();
-        int c=1;
-        while(r.next()){
-            fila[0]=r.getString(1);
-            fila[1]=r.getString(2);
-            fila[2]=r.getString(3);
-            fila[3]=r.getString(4);
-            fila[4]=r.getString(5);
-            fila[5]=r.getString(6);
-            fila[6]=r.getString(7);
-            fila[7]=r.getString(8);
-            fila[8]=r.getString(9);
-            fila[9]=r.getString(10);
-            fila[10]=r.getString(11);
-            fila[11]=r.getString(12);
-            fila[12]=r.getString(13);
-            fila[13]=r.getString(14);
-            fila[14]=r.getString(15);
-            fila[15]=r.getString(16);
-            fila[16]=r.getString(17);
-            fila[17]=r.getString(18);
-            fila[18]=r.getString(19);
-            
-                m.addRow(fila);
-                c++;
-            }
-            frm_LAB_RESULTADO_MUESTRA.tb_Valores.setModel(m);
-            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
-            frm_LAB_RESULTADO_MUESTRA.tb_Valores.setRowSorter(elQueOrdena);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(rootPane, e.getMessage());
-    }
-    }
-    public void LAB_Validar_Valores(String sexo,int anio,int meses,int dias){
-        
-         try {
-             int filtro=0,valores=0;
-             
-            for(int i=0;i<frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getRowCount();i++){
-                String cod_esquema="",nombre_resultado_exa="",tipo_esquema_sub_ana=""
-                        ,cod_uni_med_exa="",cod_valores_refe_resul="",
-                        valor_de_resultado_analisis="",unidad_med="",estado_todos_fabricante="",cod_fabricante_producto=""
-                        ,ini_anio_resul="",ini_mes_resul="",ini_dia_resul="",fin_anio_resul="",fin_mes_resul=""
-                        ,fin_dia_resul="",genero="",
-                        valor_minimo_resul="",valor_maximo_resul="",valor_texto_referencia_resul="",
-                        tipo_valor_refencia_resul="", observaciones_resultado_exa=""
-                        ,usa_valores_ref="";
-                
-                cod_esquema=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i, 0).toString();
-                nombre_resultado_exa=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i, 1).toString();
-                tipo_esquema_sub_ana=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i, 3).toString();
-                cod_uni_med_exa=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i, 4).toString();
-                unidad_med=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i, 5).toString();
-                
-                for(int va=0;va<frm_LAB_RESULTADO_MUESTRA.tb_Valores.getRowCount();va++){
-                filtro = 0;
-                
-                if (frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i,0).toString().
-                    equalsIgnoreCase(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 1).toString())){
-                    //Verificando el Sexo
-                    if(sexo.equalsIgnoreCase(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 11).toString())){
-                        filtro = filtro + 1;
-                    }
-                    //Verifica los Fabricantes
-                    if(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 3).toString().
-                    equalsIgnoreCase("S")){
-                       filtro = filtro + 1; 
-                    }
-                    if(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 3).toString().
-                    equalsIgnoreCase("N")){
-                    }
-                    
-                    String tipo="";
-                    int ini_dias=0,fin_dias=0;
-//                    int edadD_ini=0,edadD_fin=0,edadM_ini=0,edadM_fin=0,edadA_ini=0,edadA_fin=0;
-                    String e=frm_LAB_RESULTADO_MUESTRA.txtEdad.getText();
-                    int leng=e.length();
-                    
-                    tipo=String.valueOf(e.charAt(leng-1));
-
-                    if(sexo.equalsIgnoreCase(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 11).toString())){
-//                        edadA_ini=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 5).toString());
-//                        edadA_fin=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 8).toString());
-//                        edadM_ini=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 6).toString());
-//                        edadM_fin=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 9).toString());
-//                        edadD_ini=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 7).toString());
-//                        edadD_fin=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 10).toString());
-//                        
-                        ini_dias=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 17).toString());
-                        fin_dias=Integer.parseInt(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(va, 18).toString());
+        char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){  
+                    try{
+                        if( tb_Resultado.getRowCount()>0){
+                        int filaselec=tb_Resultado.getSelectedRow();
                         
-                    if(dias>=ini_dias &&dias<=fin_dias ){
-                        filtro = filtro + 1; 
-                    }
-//                    else if(tipo.equalsIgnoreCase("D")){
-//                        
-//                        if(edad>=edadD_ini &&edad<=edadD_fin && anio>=edadA_ini &&anio<=edadA_fin && 0>=edadM_ini &&0<=edadM_fin){
-//                        filtro = filtro + 1; 
-//                        }
+                      entregaResultado.setVisible(true);
+                    
+                      
+                    //codigos
+//                    frm_LAB_RESULTADO_MUESTRA.lblcod_cab_toma.setText(tb_Resultado.getValueAt(filaselec, 0).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.lblcod_det_toma.setText(tb_Resultado.getValueAt(filaselec, 1).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.lblcod_exa_ana.setText(tb_Resultado.getValueAt(filaselec, 2).toString());
+//                    frm_LAB_RESULTADO_MUESTRA.lblid_cod_doc_det.setText(tb_Resultado.getValueAt(filaselec, 25).toString());
+                   
+                    //Datos del Paciente
+                    txtHc.setText(tb_Resultado.getValueAt(filaselec, 7).toString());
+                    txtPacientes.setText(tb_Resultado.getValueAt(filaselec, 8).toString());
+                    txtDni.setText(tb_Resultado.getValueAt(filaselec, 9).toString());
+                    txtFecha.setText(tb_Resultado.getValueAt(filaselec, 10).toString());
+                    txtEdad.setText(tb_Resultado.getValueAt(filaselec, 11).toString());
+                    txtSexo.setText(tb_Resultado.getValueAt(filaselec, 12).toString());
+                    //Toma de Muestra
+                    txtActoMedico.setText(tb_Resultado.getValueAt(filaselec, 13).toString());
+                    txtFormaPago.setText(tb_Resultado.getValueAt(filaselec, 15).toString());
+                    txtNToma.setText(tb_Resultado.getValueAt(filaselec, 14).toString());
+                    txtFechaOrden.setText(tb_Resultado.getValueAt(filaselec, 16).toString());
+                    txtHoraOrden.setText(tb_Resultado.getValueAt(filaselec, 17).toString());
+                    
+                    if(tb_Resultado.getValueAt(filaselec,18).toString().isEmpty()){
+                    txtPersonalSolicita.setText("--");
                     }else{
-//                       
-//                        if(anio>edadA_ini &&anio<edadA_fin){
-//                        filtro = filtro + 1; 
-//                        }else if( (anio==edadA_ini ||anio==edadA_fin)&& meses>edadM_ini &meses<edadM_fin){
-//                            filtro = filtro + 1; 
-//                        }
+                    txtPersonalSolicita.setText(tb_Resultado.getValueAt(filaselec, 18).toString());
+                        
                     }
+                    if(tb_Resultado.getValueAt(filaselec,19).toString().isEmpty()){
+                    txthospiServ.setText("--");
+                    txtPiso.setText("--");
+                    txtCama.setText("--");
+                    }else{
+                        txthospiServ.setText(tb_Resultado.getValueAt(filaselec,19).toString());
+                       txtPiso.setText(tb_Resultado.getValueAt(filaselec, 20).toString());
+                    txtCama.setText(tb_Resultado.getValueAt(filaselec, 21).toString()); 
                     }
-                    if(filtro==3){
-                    valores=va;
-                    va=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getRowCount();
-                    }
-                }
-                
-                if(filtro==3){
-//                    "Código","Cod Esquema","Nombre Esquema",
-//                 "estado_todos_fabricantes","cod_fabricante_producto_mh","ini_anio","ini_mes",
-//"ini_dia","fin_anio","fin_mes","fin_dia","genero","estado_clinico_ref",
-//"valor_minimo","valor_maximo","valor_texto_referencia","tipo_valor_referencia"
-                  cod_valores_refe_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 0).toString();   
-                valor_de_resultado_analisis="";
-                estado_todos_fabricante=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 3).toString();  
-                cod_fabricante_producto=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 4).toString();  
-                ini_anio_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 5).toString();  
-                ini_mes_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 6).toString();  
-                ini_dia_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 7).toString();  
-                fin_anio_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 8).toString();  
-                fin_mes_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 9).toString();  
-                fin_dia_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 10).toString();  
-                genero=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 11).toString();  
-//                sexo_femenino_resul="";
-                if(frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 15).toString().equalsIgnoreCase("")){
-                valor_minimo_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 13).toString();  
-                valor_maximo_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 14).toString();  
-                valor_texto_referencia_resul="--";
-                }else{
-                 valor_minimo_resul="--";
-                valor_maximo_resul="--";
-                valor_texto_referencia_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 15).toString();
-                }
-                tipo_valor_refencia_resul=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getValueAt(valores, 16).toString();  
-                observaciones_resultado_exa="";
-            
-                usa_valores_ref="S";
-                
-                resultado=(DefaultTableModel)frm_LAB_RESULTADO_MUESTRA.tb_Detalle.getModel();
-                String filaelemento[]={cod_esquema,nombre_resultado_exa,tipo_esquema_sub_ana
-                        ,cod_uni_med_exa,cod_valores_refe_resul,
-                        valor_de_resultado_analisis,unidad_med,estado_todos_fabricante,cod_fabricante_producto
-                        ,ini_anio_resul,ini_mes_resul,ini_dia_resul,fin_anio_resul,
-                        fin_mes_resul,fin_dia_resul,genero,
-                        valor_minimo_resul,valor_maximo_resul,valor_texto_referencia_resul,
-                        tipo_valor_refencia_resul, observaciones_resultado_exa
-                        ,usa_valores_ref};
-                resultado.addRow(filaelemento);     
-                }
-                else{
-                cod_valores_refe_resul="";
-                
-                valor_de_resultado_analisis="";
-                estado_todos_fabricante="";
-            cod_fabricante_producto="";
-            ini_anio_resul="";
-            ini_mes_resul="";
-            ini_dia_resul="";
-            fin_anio_resul="";
-            fin_mes_resul="";
-            fin_dia_resul="";
-            genero="";
-            valor_minimo_resul="--";
-            valor_maximo_resul="--";
-            valor_texto_referencia_resul="--";
-            tipo_valor_refencia_resul="";
-            observaciones_resultado_exa="";
-            
-            usa_valores_ref="N";
-                
-              resultado=(DefaultTableModel)frm_LAB_RESULTADO_MUESTRA.tb_Detalle.getModel();
-              String filaelemento[]={cod_esquema,nombre_resultado_exa,tipo_esquema_sub_ana
-                        ,cod_uni_med_exa,cod_valores_refe_resul,
-                        valor_de_resultado_analisis,unidad_med,estado_todos_fabricante,cod_fabricante_producto
-                        ,ini_anio_resul,ini_mes_resul,ini_dia_resul,fin_anio_resul,fin_mes_resul
-                        ,fin_dia_resul,genero,valor_minimo_resul,valor_maximo_resul
-                        ,valor_texto_referencia_resul,tipo_valor_refencia_resul
-                        ,observaciones_resultado_exa,usa_valores_ref};
-               resultado.addRow(filaelemento);   
-          }}
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(rootPane, e.getMessage());
-    }
-    }
-    
+                    
+                    //Resultado
+                    txtPersonalResponR.setText(tb_Resultado.getValueAt(filaselec, 23).toString());
+                    txtPersonalRegistraR.setText(tb_Resultado.getValueAt(filaselec, 24).toString());
+                    lblFecha1.setText(tb_Resultado.getValueAt(filaselec, 25).toString());
+                    lblHora1.setText(tb_Resultado.getValueAt(filaselec, 26).toString());
+                    
+                    //Servicio
+                    txtServArea.setText(tb_Resultado.getValueAt(filaselec, 3).toString());
+                    txtCPT.setText(tb_Resultado.getValueAt(filaselec, 4).toString());
+                    txtNomenclatura.setText(tb_Resultado.getValueAt(filaselec, 6).toString());
+                    
+                  
+                       }        
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "ingreso "+e.getMessage());
+        }
+        }
+    }//GEN-LAST:event_tb_ResultadoKeyPressed
+
     private void chPacientesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chPacientesItemStateChanged
         if(chPacientes.isSelected()){
             txtPacientes.setEnabled(false);
@@ -2678,7 +2414,7 @@ public void buscar_examenes(){
     }//GEN-LAST:event_btnAnalisisActionPerformed
 
     private void cbxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxItemStateChanged
-        if(cbx.getSelectedIndex()==0){
+      if(cbx.getSelectedIndex()==0){
             chPacientes.setSelected(false);
             chAnalisis.setSelected(false);
             chPersonal.setSelected(false);
@@ -2784,6 +2520,7 @@ public void buscar_examenes(){
             txtActoM.setText("");
             btnBuscar.setVisible(true);
         }
+                          
     }//GEN-LAST:event_cbxItemStateChanged
 
     private void chPersonalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chPersonalItemStateChanged
@@ -2859,7 +2596,7 @@ public void buscar_examenes(){
                 tipo="6";
             }
             buscar=txtBuscarPersonal.getText();
-            String titulos[]={"N°","Código","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio","Área"};
+            String titulos[]={"N�","C�digo","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio","�rea"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -2873,7 +2610,7 @@ public void buscar_examenes(){
             ResultSet r=cmd.executeQuery();
             int c=1;
             while(r.next()){
-                fila[0]=String.valueOf(c)+"º";
+                fila[0]=String.valueOf(c)+"�";
                 fila[1]=r.getString(1);
                 fila[2]=r.getString(2);
                 fila[3]=r.getString(3);
@@ -3013,7 +2750,7 @@ public void buscar_examenes(){
                 servArea=lblArea.getText();
             }
             buscar=txtBuscarAnalisis.getText();
-            String titulos[]={"N°","Código","Código CPT","Análisis","Servicio","Área"};
+            String titulos[]={"N�","C�digo","C�digo CPT","An�lisis","Servicio","�rea"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -3027,7 +2764,7 @@ public void buscar_examenes(){
             ResultSet r=cmd.executeQuery();
             int c=1;
             while(r.next()){
-                fila[0]=String.valueOf(c)+"º";
+                fila[0]=String.valueOf(c)+"�";
                 fila[1]=r.getString(1);
                 fila[2]=r.getString(2);
                 fila[3]=r.getString(3);
@@ -3119,18 +2856,6 @@ public void buscar_examenes(){
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPersonalRegistraRKeyReleased
 
-    private void txtResult_PNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResult_PNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtResult_PNActionPerformed
-
-    private void txtResult_PNKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResult_PNKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtResult_PNKeyPressed
-
-    private void txtResult_PNKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtResult_PNKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtResult_PNKeyReleased
-
     private void txtFormaPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFormaPagoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFormaPagoActionPerformed
@@ -3150,42 +2875,6 @@ public void buscar_examenes(){
     private void txtNTomaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNTomaKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNTomaKeyReleased
-
-    private void txtPersonalTomaMuestraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPersonalTomaMuestraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPersonalTomaMuestraActionPerformed
-
-    private void txtPersonalTomaMuestraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalTomaMuestraKeyPressed
-
-    }//GEN-LAST:event_txtPersonalTomaMuestraKeyPressed
-
-    private void txtPersonalTomaMuestraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalTomaMuestraKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPersonalTomaMuestraKeyReleased
-
-    private void txtFechaTMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaTMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaTMActionPerformed
-
-    private void txtFechaTMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaTMKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaTMKeyPressed
-
-    private void txtFechaTMKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaTMKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaTMKeyReleased
-
-    private void txtHoraTMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraTMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHoraTMActionPerformed
-
-    private void txtHoraTMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHoraTMKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHoraTMKeyPressed
-
-    private void txtHoraTMKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHoraTMKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHoraTMKeyReleased
 
     private void txtPersonalSolicitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPersonalSolicitaActionPerformed
         // TODO add your handling code here:
@@ -3258,14 +2947,26 @@ public void buscar_examenes(){
     private void txthospiServKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txthospiServKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txthospiServKeyReleased
+
+    private void spHoraStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spHoraStateChanged
+
+    }//GEN-LAST:event_spHoraStateChanged
+
+    private void spMinStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spMinStateChanged
+
+    }//GEN-LAST:event_spMinStateChanged
+
+    private void spMinPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_spMinPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_spMinPropertyChange
     public void enableDatos(){
-    tb_TomasRealizadas.setEnabled(true);
-    tb_TomasRealizadas.setBackground(Color.white);
+    tb_Resultado.setEnabled(true);
+    tb_Resultado.setBackground(Color.white);
 }
     public void limpiar(){
   
-   DefaultTableModel modelo = (DefaultTableModel)tb_TomasRealizadas.getModel(); 
-   int filas=tb_TomasRealizadas.getRowCount();
+   DefaultTableModel modelo = (DefaultTableModel)tb_Resultado.getModel(); 
+   int filas=tb_Resultado.getRowCount();
    for(int i=0;i<filas;i++){
                     modelo.removeRow(0);
    }
@@ -3584,6 +3285,7 @@ public void buscar_examenes(){
     public static javax.swing.JButton btnPacientes;
     public static javax.swing.JButton btnPersonal;
     private javax.swing.JDialog buscar_HC;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox cbx;
     private javax.swing.JComboBox cbxBuscarAnalisis;
     private javax.swing.JComboBox cbxBuscarPersonal;
@@ -3591,11 +3293,13 @@ public void buscar_examenes(){
     private javax.swing.JCheckBox chAnalisis;
     private javax.swing.JCheckBox chPacientes;
     private javax.swing.JCheckBox chPersonal;
+    private com.toedter.calendar.JDateChooser date;
     private com.toedter.calendar.JDateChooser dateDesde;
     private com.toedter.calendar.JDateChooser dateHasta;
     private javax.swing.JDialog entregaResultado;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
@@ -3607,7 +3311,6 @@ public void buscar_examenes(){
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -3623,7 +3326,6 @@ public void buscar_examenes(){
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
@@ -3631,10 +3333,11 @@ public void buscar_examenes(){
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPanel jpanel;
     private javax.swing.JPanel jpanel1;
@@ -3653,13 +3356,16 @@ public void buscar_examenes(){
     private javax.swing.JPanel panelPaciente;
     private javax.swing.JPanel panelPacientes;
     private javax.swing.JPanel panelResultado;
+    private javax.swing.JPanel panelResultado1;
+    private javax.swing.JPanel panelResultado2;
     private javax.swing.JPanel panelTM;
     private javax.swing.JDialog personal;
+    public static javax.swing.JSpinner spHora;
+    public static javax.swing.JSpinner spMin;
     public static javax.swing.JTable tbPersonal;
     private javax.swing.JTable tb_Analisis;
     public static javax.swing.JTable tb_HC;
-    public static javax.swing.JTable tb_TomasRealizadas;
-    public static javax.swing.JTable tb_muestras;
+    public static javax.swing.JTable tb_Resultado;
     private javax.swing.JLabel titulo5;
     private javax.swing.JLabel titulo6;
     private javax.swing.JLabel titulo7;
@@ -3676,11 +3382,9 @@ public void buscar_examenes(){
     public static javax.swing.JTextField txtEdad;
     public static javax.swing.JTextField txtFecha;
     public static javax.swing.JTextField txtFechaOrden;
-    public static javax.swing.JTextField txtFechaTM;
     public static javax.swing.JTextField txtFormaPago;
     public static javax.swing.JTextField txtHc;
     public static javax.swing.JTextField txtHoraOrden;
-    public static javax.swing.JTextField txtHoraTM;
     public static javax.swing.JTextField txtNToma;
     public static javax.swing.JTextField txtNomenclatura;
     public static javax.swing.JTextField txtPacientes;
@@ -3689,9 +3393,7 @@ public void buscar_examenes(){
     private javax.swing.JTextField txtPersonalRegistraR;
     private javax.swing.JTextField txtPersonalResponR;
     public static javax.swing.JTextField txtPersonalSolicita;
-    public static javax.swing.JTextField txtPersonalTomaMuestra;
     public static javax.swing.JTextField txtPiso;
-    private javax.swing.JTextField txtResult_PN;
     public static javax.swing.JTextField txtServArea;
     public static javax.swing.JTextField txtSexo;
     private javax.swing.JTextField txtbuscarHC;

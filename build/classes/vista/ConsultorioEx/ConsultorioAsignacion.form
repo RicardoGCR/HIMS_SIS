@@ -657,8 +657,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
           <Component id="mensaje" alignment="0" max="32767" attributes="0"/>
+<<<<<<< HEAD
           <Component id="Nuevo" alignment="0" max="32767" attributes="0"/>
           <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+=======
+          <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
+>>>>>>> 5ab76feffbdb5ff1425fd23429edb84241b5406a
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -668,9 +672,13 @@
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="mensaje" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
               <Component id="Nuevo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel2" max="32767" attributes="0"/>
+=======
+              <Component id="jPanel3" max="32767" attributes="0"/>
+>>>>>>> 5ab76feffbdb5ff1425fd23429edb84241b5406a
           </Group>
       </Group>
     </DimensionLayout>
@@ -706,7 +714,11 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btneliminar" min="-2" pref="37" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="btnsubir" min="-2" pref="37" max="-2" attributes="0"/>
+=======
+                          <Component id="btnbuscar" min="-2" pref="37" max="-2" attributes="0"/>
+>>>>>>> 5ab76feffbdb5ff1425fd23429edb84241b5406a
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -876,7 +888,22 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneliminar1ActionPerformed"/>
           </Events>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JButton" name="btnsubir">
+=======
+        <Component class="javax.swing.JLabel" name="lblusu">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Light" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Silvana"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btneliminar1">
+>>>>>>> 5ab76feffbdb5ff1425fd23429edb84241b5406a
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -1177,7 +1204,11 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
+<<<<<<< HEAD
             <Component class="javax.swing.JTextField" name="txtMedico">
+=======
+            <Component class="javax.swing.JTextField" name="buscartodo">
+>>>>>>> 5ab76feffbdb5ff1425fd23429edb84241b5406a
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1302,7 +1333,11 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
+<<<<<<< HEAD
             <Component class="javax.swing.JTextField" name="txtConsultorio">
+=======
+            <Component class="javax.swing.JTextField" name="buscartodo1">
+>>>>>>> 5ab76feffbdb5ff1425fd23429edb84241b5406a
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1371,6 +1406,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Inicio"/>
           </Properties>
+<<<<<<< HEAD
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
@@ -1479,6 +1515,8 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
           </Properties>
+=======
+>>>>>>> 5ab76feffbdb5ff1425fd23429edb84241b5406a
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
@@ -1555,6 +1593,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
+<<<<<<< HEAD
 
           <Layout>
             <DimensionLayout dim="0">
@@ -1634,6 +1673,9 @@
             </Component>
           </SubComponents>
         </Container>
+=======
+        </Component>
+>>>>>>> 5ab76feffbdb5ff1425fd23429edb84241b5406a
       </SubComponents>
     </Container>
   </SubComponents>

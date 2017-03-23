@@ -177,10 +177,10 @@ public class AdmisionEmergenciaTriaje {
             tabla.setModel(new DefaultTableModel());
             String titulos[]={"ID","Acto Médico","DNI","Nº H.C.",
                 "Paciente","Edad","Ocupación","FC","FR",
-                "PA","Peso","T°","Talla"};
+                "PA","Peso","T°","Talla","HC"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[13];
+            String fila[]=new String[14];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CONSULTORIO_EXT_TRIAJE_LISTAR ?,'','',?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -202,6 +202,7 @@ public class AdmisionEmergenciaTriaje {
                 fila[10]=r.getString(11); // 
                 fila[11]=r.getString(12); // 
                 fila[12]=r.getString(13); // 
+                fila[13]=r.getString(14); // 
                     m.addRow(fila);
                     c++;
             }

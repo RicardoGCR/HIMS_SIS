@@ -45,8 +45,11 @@ public class FormatoTablaMovCONEXT extends DefaultTableCellRenderer{
         SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
         return date.format(now);
     }
-   
-   
+//    public static String fechaAyer(){
+//        Date hoy = new Date();
+//        Date ayer = new Date( hoy.getTime()-86400000);
+//        return ayer;
+//    }
     
     
 }

@@ -9,15 +9,25 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import modelos.ConsultorioEx.ConsultorioExConsultorioAsignacion;
+import servicios.Conexion;
 import tablas.FormatoTablaMovCONEXT;
 import static vista.hospitalizacion.FrmHospitalizacionListarCajaPreventa.tbListarPapeleta;
 
@@ -27,6 +37,11 @@ import static vista.hospitalizacion.FrmHospitalizacionListarCajaPreventa.tbLista
  */
 public class ConsultorioAsignacion extends javax.swing.JFrame {
 ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacion();
+byte tg;
+byte tge;
+ResultSet r;
+Conexion c=new Conexion();
+Connection conexion=c.conectar();
     /**
      * Creates new form ConsultorioAsignacion
      */
@@ -39,6 +54,13 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
         Consultorios.setLocationRelativeTo(null);//en el centro
         Consultorios.getContentPane().setBackground(new Color(0,153,102)); 
         mensaje.setVisible(false);
+        
+        Nuevo.setVisible(false);
+        btnguardar.setEnabled(false);
+        btneditar.setEnabled(false);
+        btneliminar.setEnabled(false);
+        btnsubir.setEnabled(false);
+        this.cbTurno.setModel(Turno());
         listar();
     
         tb_Detalle.setDefaultRenderer(Object.class,new FormatoTablaMovCONEXT());
@@ -52,18 +74,36 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
        
 
     }
-    
+    public DefaultComboBoxModel Turno(){
+       DefaultComboBoxModel  listmodel = new DefaultComboBoxModel ();        
+       String   sql = null;
+       ResultSet rs = null;
+       Statement  st = null;   
+        try {
+              st = conexion.createStatement();
+              r = st.executeQuery ("Select DISTINCT  Nombre From CONSULTORIO_EXT_TURNO"); 
+              listmodel.addElement("Seleccionar...");
+            while( r.next() ){
+                listmodel.addElement( r.getString( "Nombre" ) );                
+             }
+            r.close();
+        } catch (SQLException ex) {            
+            System.err.println( "Error consulta :" + ex.getMessage() );
+        }        
+        return listmodel;
+    }
     public void enviarDatosTbMedico(){
         int fila = tb_medicos.getSelectedRow();
             Medicos.dispose();
             codmed.setText(String.valueOf(tb_medicos.getValueAt(fila, 0)));
-            buscartodo.setText(String.valueOf(tb_medicos.getValueAt(fila, 1)));
+            txtMedico.setText(String.valueOf(tb_medicos.getValueAt(fila, 1)));
+            btnguardar.setEnabled(true);
     }
     public void enviarDatosTbConsultorio(){
         int fila = tb_consultorios.getSelectedRow();
         Consultorios.dispose();
             codcons.setText(String.valueOf(tb_consultorios.getValueAt(fila, 0)));
-            buscartodo1.setText(String.valueOf(tb_consultorios.getValueAt(fila, 1))+"    "+String.valueOf(tb_consultorios.getValueAt(fila, 2)));
+            txtConsultorio.setText(String.valueOf(tb_consultorios.getValueAt(fila, 1))+"    "+String.valueOf(tb_consultorios.getValueAt(fila, 2)));
     }
     public void listar(){
         try {
@@ -72,17 +112,28 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
         }
        
     }
+    public void Limpiar(){
+        txtMedico.setText("");
+        txtConsultorio.setText("");
+        Natenciones.setText("");
+        Fecha.setDate(null);
+       
+    }
+    
      public static String fechaActual(){
         java.sql.Date now = new java.sql.Date(System.currentTimeMillis());
         SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
         return date.format(now);
     }
      public String determinarFecha(JDateChooser calendario){
+         
         String fecha = "";
+        try {
         int dia = calendario.getCalendar().get(Calendar.DAY_OF_MONTH);
         int mes = calendario.getCalendar().get(Calendar.MONTH)+1;
         int anio = calendario.getCalendar().get(Calendar.YEAR); 
-        if(dia < 10 && mes < 10){
+        
+            if(dia < 10 && mes < 10){
             fecha = String.valueOf("0" + dia + "/" + "0" + mes + "/" + anio);
         }else 
             if(dia < 10 || mes < 10){
@@ -93,54 +144,57 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                         fecha = String.valueOf(dia + "/" + "0" + mes + "/" + anio);
                     } 
             } else 
-                fecha = String.valueOf(dia + "/" + mes + "/" + anio);
+                fecha = String.valueOf(dia + "/" + mes + "/" + anio); 
+         } catch (Exception e) {
+                           mensaje.setVisible(true);
+                           mensaje.setBackground(new Color(255,91,70)); 
+                           men.setText("Ingrese una fecha correcta");
+                           b.setVisible(false);
+                           b1.setVisible(false); 
+         }
+        
         return fecha;
     }
      
      
 
      public void Guardar(){
-        if(jTextField2.getText().equals("")){
+        if(Natenciones.getText().equals("")|| Fecha.equals("")){
             mensaje.setVisible(true);
             mensaje.setBackground(new Color(255,91,70)); 
             men.setText("Asegurese de completar todos los campos");
             b.setVisible(false);
             b1.setVisible(false);
         } else {
-            ConsultorioExConsultorioAsignacion CA = new ConsultorioExConsultorioAsignacion();
-            if(CA.MismoMedicoMismoTurno(codmed.getText(),tur.getText(),determinarFecha(Fecha))>0){
+            ConsultorioExConsultorioAsignacion CA1 = new ConsultorioExConsultorioAsignacion();
+            if(CA1.MismoMedicoMismoTurno(codmed.getText(),tur.getText(),determinarFecha(Fecha))>0){
                  mensaje.setVisible(true);
                  mensaje.setBackground(new Color(255,91,70)); 
-                 men.setText(buscartodo.getText()+" ya se encuantra asiganado en el turno de "+tur.getText()+" para el dia "+determinarFecha(Fecha)+" ,Verique");
+                 men.setText(txtMedico.getText()+" ya se encuantra asiganado en el turno de "+tur.getText()+" para el dia "+determinarFecha(Fecha)+" ,Verique");
                  b.setVisible(false);
                  b1.setVisible(false);
-                  
           
-                }else
-          
-                 if(CA.MiscoConsultorioMismoTurno(codcons.getText(),tur.getText(),determinarFecha(Fecha))>0){
-                 mensaje.setVisible(true);
-                 mensaje.setBackground(new Color(255,91,70)); 
-                 men.setText("El consultorio de "+buscartodo1.getText()+" ya se encuantra asiganado en el turno de "+tur.getText()+" para el dia "+determinarFecha(Fecha)+" ,Verique");
-                 b.setVisible(false);
-                 b1.setVisible(false);
+//                }else
+//          
+//                 if(CA.MiscoConsultorioMismoTurno(codcons.getText(),tur.getText(),determinarFecha(Fecha))>0){
+//                 mensaje.setVisible(true);
+//                 mensaje.setBackground(new Color(255,91,70)); 
+//                 men.setText("El consultorio de "+buscartodo1.getText()+" ya se encuantra asiganado en el turno de "+tur.getText()+" para el dia "+determinarFecha(Fecha)+" ,Verique");
+//                 b.setVisible(false);
+//                 b1.setVisible(false);
                   
           
                 }else{      
-           
+                
+                        ConsultorioExConsultorioAsignacion CA = new ConsultorioExConsultorioAsignacion();
+                        String Hinicio = (String) HoraFN.getSelectedItem();
+                        String Hfin = (String) HoraIN.getSelectedItem();
                             CA.setId(0);
                             CA.setConsultorio_id(Integer.parseInt(codcons.getText()));
-                            CA.setNro_cita(Integer.parseInt(jTextField2.getText()));
-                            if (cbTurno.getSelectedIndex()==0){
-                                CA.setTurno("Mañana");
-                            } else if(cbTurno.getSelectedIndex()==1){
-                                CA.setTurno("Tarde");  
-                            }
+                            CA.setNro_cita(Integer.parseInt(Natenciones.getText()));
                             CA.setCod_rol(Integer.parseInt(codmed.getText()));
                             CA.setFecha(determinarFecha(Fecha));
-                            CA.setHora(Hora.getText()+":"+Minutos.getText());
-                            CA.setHoraf(Hora1.getText()+":"+Minutos1.getText());
-                            
+                            CA.setId_Turno(Integer.parseInt(turid.getText()));/////
                             CA.setUsuario(CA.codUsuario(lblusu.getText()));
 
                             if(CA.mantenimientoConsultorioExConsultorioAsignacion("I")==true){
@@ -150,45 +204,44 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                                 b.setText("OK");
                                 b.setVisible(true);
                                 b1.setVisible(false);
-                           
-                                ConsA.listarDetalle(tb_Detalle);
-                            
-                        }else {
-                           
+                                Nuevo.setVisible(false);
+                                btnguardar.setEnabled(false);
+                                btnsubir.setEnabled(false);
+                                tge=1;
+                                listar();
+                            }else {
                                 mensaje.setVisible(true);
                                 mensaje.setBackground(new Color(255,91,70)); 
                                 men.setText("Ocurrio un error, Verifique");
                                 b.setVisible(false);
                                 b1.setVisible(false);
- 
+                            }
                         }
-                             }
-      }
+                    }
     }
      
          public void Modificar(){
  
                         ConsultorioExConsultorioAsignacion CAM = new ConsultorioExConsultorioAsignacion();
+                        String Hinicio = (String) HoraFN.getSelectedItem();
+                        String Hfin = (String) HoraIN.getSelectedItem();
                         CAM.setId(Integer.parseInt(id.getText()));
                         CAM.setConsultorio_id(Integer.parseInt(codcons.getText()));
-                            CAM.setNro_cita(Integer.parseInt(jTextField2.getText()));
-                            if (cbTurno.getSelectedIndex()==0){
-                                CAM.setTurno("Mañana");
-                            } else if(cbTurno.getSelectedIndex()==1){
-                                CAM.setTurno("Tarde");  
-                            }
-                            CAM.setCod_rol(Integer.parseInt(codmed.getText()));
-                            CAM.setFecha(determinarFecha(Fecha));
-                            CAM.setHora(Hora.getText()+":"+Minutos.getText());
-                            CAM.setHoraf(Hora1.getText()+":"+Minutos1.getText());
+                        CAM.setNro_cita(Integer.parseInt(Natenciones.getText()));
+                        CAM.setCod_rol(Integer.parseInt(codmed.getText()));
+                        CAM.setFecha(determinarFecha(Fecha));
+                        CAM.setId_Turno(Integer.parseInt(turid.getText()));/////
+                      
                         if(CAM.mantenimientoConsultorioExConsultorioAsignacion("U")==true){
                                 mensaje.setVisible(true);
                                 mensaje.setBackground(new Color(33,115,70)); 
-                                men.setText("Datos Guardados de forma correcta");
-                         
+                                men.setText("Datos Actualizados de forma correcta");
+                                btnguardar.setEnabled(false);
                                 b.setText("OK");
                                 b.setVisible(true);
                                 b1.setVisible(false);
+                                tge=1;
+                                
                                 listar();
                 
                             }else {
@@ -211,6 +264,7 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                                 b.setText("OK");
                                 b1.setVisible(true);
                                 b1.setVisible(false);
+                                tge=9;
                                 listar();
                                 
         }   
@@ -265,50 +319,55 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                 btneditar = new javax.swing.JButton();
                 btnguardar = new javax.swing.JButton();
                 btneliminar = new javax.swing.JButton();
-                btnbuscar = new javax.swing.JButton();
                 lblusu = new javax.swing.JLabel();
                 btneliminar1 = new javax.swing.JButton();
+                btnsubir = new javax.swing.JButton();
                 mensaje = new javax.swing.JPanel();
                 men = new javax.swing.JLabel();
                 b = new javax.swing.JButton();
                 b1 = new javax.swing.JButton();
-                jPanel3 = new javax.swing.JPanel();
+                Nuevo = new javax.swing.JPanel();
                 jLabel2 = new javax.swing.JLabel();
                 cbTurno = new javax.swing.JComboBox();
                 jPanel27 = new javax.swing.JPanel();
-                buscartodo = new javax.swing.JTextField();
+                txtMedico = new javax.swing.JTextField();
                 T3 = new javax.swing.JLabel();
                 jLabel5 = new javax.swing.JLabel();
                 jLabel4 = new javax.swing.JLabel();
-                jTextField2 = new javax.swing.JTextField();
+                Natenciones = new javax.swing.JTextField();
                 jLabel6 = new javax.swing.JLabel();
                 jLabel7 = new javax.swing.JLabel();
                 jPanel28 = new javax.swing.JPanel();
-                buscartodo1 = new javax.swing.JTextField();
+                txtConsultorio = new javax.swing.JTextField();
                 T4 = new javax.swing.JLabel();
                 Fecha = new com.toedter.calendar.JDateChooser();
+                codmed = new javax.swing.JLabel();
+                codcons = new javax.swing.JLabel();
+                jLabel8 = new javax.swing.JLabel();
+                jLabel10 = new javax.swing.JLabel();
+                jLabel12 = new javax.swing.JLabel();
+                id = new javax.swing.JLabel();
+                tur = new javax.swing.JLabel();
+                HoraFN = new javax.swing.JComboBox();
+                HoraIN = new javax.swing.JComboBox();
+                turid = new javax.swing.JLabel();
+                jPanel2 = new javax.swing.JPanel();
                 jScrollPane4 = new javax.swing.JScrollPane();
                 tb_Detalle = new javax.swing.JTable(){
                     public boolean isCellEditable(int rowIndex, int colIndex){
                         return false; //Disallow the editing of any cell
                     }};
-                    codmed = new javax.swing.JLabel();
-                    codcons = new javax.swing.JLabel();
-                    jLabel8 = new javax.swing.JLabel();
-                    Hora = new javax.swing.JTextField();
-                    jLabel9 = new javax.swing.JLabel();
-                    Minutos = new javax.swing.JTextField();
-                    jLabel10 = new javax.swing.JLabel();
-                    Hora1 = new javax.swing.JTextField();
-                    jLabel11 = new javax.swing.JLabel();
-                    Minutos1 = new javax.swing.JTextField();
-                    jLabel12 = new javax.swing.JLabel();
-                    id = new javax.swing.JLabel();
-                    tur = new javax.swing.JLabel();
+                    jPanel29 = new javax.swing.JPanel();
+                    fechai = new com.toedter.calendar.JDateChooser();
+                    fechaf = new com.toedter.calendar.JDateChooser();
+                    T5 = new javax.swing.JLabel();
+                    txtBuscar = new javax.swing.JTextField();
+                    jLabel13 = new javax.swing.JLabel();
 
                     Medicos.setAlwaysOnTop(true);
                     Medicos.setMinimumSize(new java.awt.Dimension(900, 398));
                     Medicos.setPreferredSize(new java.awt.Dimension(900, 398));
+                    Medicos.setResizable(false);
                     Medicos.getContentPane().setLayout(null);
 
                     jPanel46.setBackground(new java.awt.Color(0, 153, 102));
@@ -489,7 +548,6 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
 
                     Consultorios.setAlwaysOnTop(true);
                     Consultorios.setMinimumSize(new java.awt.Dimension(497, 398));
-                    Consultorios.setPreferredSize(new java.awt.Dimension(497, 398));
                     Consultorios.setResizable(false);
                     Consultorios.getContentPane().setLayout(null);
 
@@ -735,20 +793,6 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                         }
                     });
 
-                    btnbuscar.setForeground(new java.awt.Color(240, 240, 240));
-                    btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                    btnbuscar.setMnemonic('N');
-                    btnbuscar.setContentAreaFilled(false);
-                    btnbuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                    btnbuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                    btnbuscar.setIconTextGap(30);
-                    btnbuscar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-                    btnbuscar.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            btnbuscarActionPerformed(evt);
-                        }
-                    });
-
                     lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
                     lblusu.setForeground(new java.awt.Color(255, 255, 255));
                     lblusu.setText("Silvana");
@@ -768,6 +812,20 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                         }
                     });
 
+                    btnsubir.setForeground(new java.awt.Color(240, 240, 240));
+                    btnsubir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Subir-30.png"))); // NOI18N
+                    btnsubir.setMnemonic('N');
+                    btnsubir.setContentAreaFilled(false);
+                    btnsubir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                    btnsubir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                    btnsubir.setIconTextGap(30);
+                    btnsubir.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+                    btnsubir.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                            btnsubirActionPerformed(evt);
+                        }
+                    });
+
                     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                     jPanel1.setLayout(jPanel1Layout);
                     jPanel1Layout.setHorizontalGroup(
@@ -777,7 +835,7 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 635, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 824, Short.MAX_VALUE)
                                     .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(lblusu)
@@ -791,7 +849,7 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnsubir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     );
                     jPanel1Layout.setVerticalGroup(
@@ -809,12 +867,13 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                                     .addComponent(lblusu)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btneditar, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btneliminar)
-                                    .addComponent(btnbuscar))
-                                .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnguardar, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btneditar, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btneliminar))
+                                    .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnguardar, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addComponent(btnsubir))
                             .addGap(552, 552, 552))
                     );
 
@@ -874,13 +933,12 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
-                    jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+                    Nuevo.setBackground(new java.awt.Color(255, 255, 255));
 
                     jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                     jLabel2.setForeground(new java.awt.Color(51, 51, 51));
                     jLabel2.setText("Médico");
 
-                    cbTurno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mañana", "Tarde" }));
                     cbTurno.addItemListener(new java.awt.event.ItemListener() {
                         public void itemStateChanged(java.awt.event.ItemEvent evt) {
                             cbTurnoItemStateChanged(evt);
@@ -889,27 +947,27 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
 
                     jPanel27.setBackground(new java.awt.Color(204, 204, 204));
 
-                    buscartodo.setEditable(false);
-                    buscartodo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                    buscartodo.setBorder(null);
-                    buscartodo.addCaretListener(new javax.swing.event.CaretListener() {
+                    txtMedico.setEditable(false);
+                    txtMedico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                    txtMedico.setBorder(null);
+                    txtMedico.addCaretListener(new javax.swing.event.CaretListener() {
                         public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                            buscartodoCaretUpdate(evt);
+                            txtMedicoCaretUpdate(evt);
                         }
                     });
-                    buscartodo.addMouseListener(new java.awt.event.MouseAdapter() {
+                    txtMedico.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
-                            buscartodoMouseClicked(evt);
+                            txtMedicoMouseClicked(evt);
                         }
                     });
-                    buscartodo.addActionListener(new java.awt.event.ActionListener() {
+                    txtMedico.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            buscartodoActionPerformed(evt);
+                            txtMedicoActionPerformed(evt);
                         }
                     });
-                    buscartodo.addKeyListener(new java.awt.event.KeyAdapter() {
+                    txtMedico.addKeyListener(new java.awt.event.KeyAdapter() {
                         public void keyPressed(java.awt.event.KeyEvent evt) {
-                            buscartodoKeyPressed(evt);
+                            txtMedicoKeyPressed(evt);
                         }
                     });
 
@@ -927,7 +985,7 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                         jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel27Layout.createSequentialGroup()
                             .addGap(1, 1, 1)
-                            .addComponent(buscartodo, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
+                            .addComponent(txtMedico, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
                             .addGap(0, 0, 0)
                             .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0))
@@ -938,7 +996,7 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                             .addGap(0, 1, Short.MAX_VALUE)
                             .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(T3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(buscartodo))
+                                .addComponent(txtMedico))
                             .addGap(0, 0, 0))
                     );
 
@@ -950,9 +1008,9 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                     jLabel4.setForeground(new java.awt.Color(51, 51, 51));
                     jLabel4.setText("Turno");
 
-                    jTextField2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-                    jTextField2.setForeground(new java.awt.Color(102, 102, 102));
-                    jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
+                    Natenciones.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+                    Natenciones.setForeground(new java.awt.Color(102, 102, 102));
+                    Natenciones.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
 
                     jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
                     jLabel6.setForeground(new java.awt.Color(51, 51, 51));
@@ -964,26 +1022,27 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
 
                     jPanel28.setBackground(new java.awt.Color(204, 204, 204));
 
-                    buscartodo1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                    buscartodo1.setBorder(null);
-                    buscartodo1.addCaretListener(new javax.swing.event.CaretListener() {
+                    txtConsultorio.setEditable(false);
+                    txtConsultorio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                    txtConsultorio.setBorder(null);
+                    txtConsultorio.addCaretListener(new javax.swing.event.CaretListener() {
                         public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                            buscartodo1CaretUpdate(evt);
+                            txtConsultorioCaretUpdate(evt);
                         }
                     });
-                    buscartodo1.addMouseListener(new java.awt.event.MouseAdapter() {
+                    txtConsultorio.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
-                            buscartodo1MouseClicked(evt);
+                            txtConsultorioMouseClicked(evt);
                         }
                     });
-                    buscartodo1.addActionListener(new java.awt.event.ActionListener() {
+                    txtConsultorio.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            buscartodo1ActionPerformed(evt);
+                            txtConsultorioActionPerformed(evt);
                         }
                     });
-                    buscartodo1.addKeyListener(new java.awt.event.KeyAdapter() {
+                    txtConsultorio.addKeyListener(new java.awt.event.KeyAdapter() {
                         public void keyPressed(java.awt.event.KeyEvent evt) {
-                            buscartodo1KeyPressed(evt);
+                            txtConsultorioKeyPressed(evt);
                         }
                     });
 
@@ -1001,7 +1060,7 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                         jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
                             .addGap(1, 1, 1)
-                            .addComponent(buscartodo1)
+                            .addComponent(txtConsultorio)
                             .addGap(0, 0, 0)
                             .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     );
@@ -1011,13 +1070,138 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                             .addGap(0, 1, Short.MAX_VALUE)
                             .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(T4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(buscartodo1))
+                                .addComponent(txtConsultorio))
                             .addGap(0, 0, 0))
                     );
 
                     Fecha.setBackground(new java.awt.Color(255, 255, 255));
                     Fecha.setDateFormatString("dd/MM/yyyy");
                     Fecha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+                    codmed.setForeground(new java.awt.Color(255, 255, 255));
+                    codmed.setText("jLabel3");
+
+                    codcons.setForeground(new java.awt.Color(255, 255, 255));
+                    codcons.setText("jLabel3");
+
+                    jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                    jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+                    jLabel8.setText("Inicio");
+
+                    jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                    jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+                    jLabel10.setText("Termino");
+
+                    jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                    jLabel12.setForeground(new java.awt.Color(51, 51, 51));
+                    jLabel12.setText("Fecha");
+
+                    id.setForeground(new java.awt.Color(255, 255, 255));
+                    id.setText("jLabel3");
+
+                    tur.setForeground(new java.awt.Color(255, 255, 255));
+                    tur.setText("jLabel3");
+
+                    HoraFN.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "8:00", "9:00", "10:00", "11:00" }));
+
+                    HoraIN.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "9:00", "10:00", "11:00", "12:00" }));
+
+                    turid.setText("jLabel3");
+
+                    javax.swing.GroupLayout NuevoLayout = new javax.swing.GroupLayout(Nuevo);
+                    Nuevo.setLayout(NuevoLayout);
+                    NuevoLayout.setHorizontalGroup(
+                        NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(NuevoLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(NuevoLayout.createSequentialGroup()
+                                    .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(NuevoLayout.createSequentialGroup()
+                                            .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, NuevoLayout.createSequentialGroup()
+                                                    .addComponent(jLabel2)
+                                                    .addGap(94, 94, 94)
+                                                    .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(NuevoLayout.createSequentialGroup()
+                                                            .addComponent(Natenciones, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addGap(91, 91, 91)
+                                                            .addComponent(turid))
+                                                        .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                            .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                            .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                            .addGap(67, 67, 67)
+                                            .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel4)
+                                                .addComponent(jLabel8)
+                                                .addComponent(jLabel12))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(cbTurno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(NuevoLayout.createSequentialGroup()
+                                                    .addComponent(HoraIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                                    .addComponent(jLabel10)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(HoraFN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(jLabel6))
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(NuevoLayout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addGap(144, 144, 144)
+                                    .addComponent(codcons)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(id)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(codmed)
+                                    .addGap(61, 61, 61)
+                                    .addComponent(tur)
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    );
+                    NuevoLayout.setVerticalGroup(
+                        NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(NuevoLayout.createSequentialGroup()
+                            .addContainerGap(17, Short.MAX_VALUE)
+                            .addComponent(jLabel6)
+                            .addGap(22, 22, 22)
+                            .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)
+                                .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(cbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(HoraIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10)
+                                    .addComponent(HoraFN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(18, 18, 18)
+                            .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(NuevoLayout.createSequentialGroup()
+                                    .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel12))
+                                    .addGap(12, 12, 12)
+                                    .addComponent(codmed)
+                                    .addGap(3, 3, 3)
+                                    .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(id)
+                                        .addComponent(tur)))
+                                .addGroup(NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(codcons)
+                                    .addComponent(turid))
+                                .addComponent(Natenciones, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    );
+
+                    jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
                     jScrollPane4.setBorder(null);
                     jScrollPane4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -1039,6 +1223,7 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                     tb_Detalle.setRowHeight(25);
                     tb_Detalle.setSelectionBackground(new java.awt.Color(33, 102, 78));
                     tb_Detalle.setShowVerticalLines(false);
+                    tb_Detalle.getTableHeader().setReorderingAllowed(false);
                     tb_Detalle.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                             tb_DetalleMouseClicked(evt);
@@ -1051,146 +1236,77 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                         public void keyPressed(java.awt.event.KeyEvent evt) {
                             tb_DetalleKeyPressed(evt);
                         }
+                        public void keyReleased(java.awt.event.KeyEvent evt) {
+                            tb_DetalleKeyReleased(evt);
+                        }
                     });
                     jScrollPane4.setViewportView(tb_Detalle);
 
-                    codmed.setForeground(new java.awt.Color(255, 255, 255));
-                    codmed.setText("jLabel3");
+                    jPanel29.setBackground(new java.awt.Color(255, 255, 255));
 
-                    codcons.setForeground(new java.awt.Color(255, 255, 255));
-                    codcons.setText("jLabel3");
+                    fechai.setBackground(new java.awt.Color(255, 255, 255));
+                    fechai.setDateFormatString("dd-MM-yyyy");
 
-                    jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                    jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-                    jLabel8.setText("Hora");
+                    fechaf.setBackground(new java.awt.Color(255, 255, 255));
+                    fechaf.setDateFormatString("dd-MM-yyyy");
 
-                    jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                    jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-                    jLabel9.setText(":");
+                    T5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
+                    T5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                    T5.addMouseListener(new java.awt.event.MouseAdapter() {
+                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+                            T5MouseClicked(evt);
+                        }
+                    });
 
-                    jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                    jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-                    jLabel10.setText("Hora");
+                    jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                    jLabel13.setForeground(new java.awt.Color(51, 51, 51));
+                    jLabel13.setText("Busqueda");
 
-                    jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                    jLabel11.setForeground(new java.awt.Color(51, 51, 51));
-                    jLabel11.setText(":");
-
-                    jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                    jLabel12.setForeground(new java.awt.Color(51, 51, 51));
-                    jLabel12.setText("Fecha");
-
-                    id.setForeground(new java.awt.Color(255, 255, 255));
-                    id.setText("jLabel3");
-
-                    tur.setText("jLabel3");
-
-                    javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-                    jPanel3.setLayout(jPanel3Layout);
-                    jPanel3Layout.setHorizontalGroup(
-                        jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel7)
-                                                .addComponent(jLabel2))
-                                            .addGap(64, 64, 64)
-                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addComponent(jLabel5)
-                                            .addGap(29, 29, 29)
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(43, 43, 43)
-                                            .addComponent(codcons)
-                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                                    .addGap(52, 52, 52)
-                                                    .addComponent(jLabel12))
-                                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(id)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(codmed)
-                                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                            .addGap(226, 226, 226)
-                                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jLabel4)
-                                                                .addComponent(jLabel8)))
-                                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                            .addGap(36, 36, 36)
-                                                            .addComponent(tur)))))))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addComponent(Hora, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel9)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(Minutos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jLabel10)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(Hora1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel11)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(Minutos1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(cbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(jScrollPane4)
-                    );
-                    jPanel3Layout.setVerticalGroup(
-                        jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(17, 17, 17)
-                            .addComponent(jLabel6)
-                            .addGap(22, 22, 22)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(cbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
+                    jPanel29.setLayout(jPanel29Layout);
+                    jPanel29Layout.setHorizontalGroup(
+                        jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(jLabel13)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Hora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(Minutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(Hora1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11)
-                                    .addComponent(Minutos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8)))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(codcons)
-                                    .addComponent(codmed))
-                                .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel12)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(id)
-                                        .addComponent(tur))))
-                            .addGap(18, 18, 18)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                            .addContainerGap())
+                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(fechai, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(fechaf, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(T5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 515, Short.MAX_VALUE))
+                    );
+                    jPanel29Layout.setVerticalGroup(
+                        jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel29Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(T5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                                .addComponent(fechaf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(fechai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtBuscar)))
+                    );
+
+                    javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+                    jPanel2.setLayout(jPanel2Layout);
+                    jPanel2Layout.setHorizontalGroup(
+                        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE))
+                    );
+                    jPanel2Layout.setVerticalGroup(
+                        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addGap(0, 0, 0)
+                            .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))
                     );
 
                     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1199,7 +1315,8 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Nuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     );
                     layout.setVerticalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1208,72 +1325,109 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
                             .addGap(0, 0, 0)
                             .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(Nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
                     pack();
                 }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-   
+        Nuevo.setVisible(true);
+        btnguardar.setEnabled(false);
+        btnsubir.setEnabled(true);
+        btneditar.setEnabled(false);
+        btneliminar.setEnabled(false);
+        Limpiar();
+        tg=1;
+        try {
+            ConsA.ListarMedicos(BMedicos.getText(),tb_medicos,"","","A");
+            Medicos.setVisible(true);
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-
+             tg=2;
+             btnNuevo.setEnabled(true);
+             btnguardar.setEnabled(true);
+             btneditar.setEnabled(false);
+             btneliminar.setEnabled(false);
+             Nuevo.setVisible(true);
+//             jScrollPane4.setEnabled(false);
+//             tb_Detalle.setEnabled(false);
+             btnsubir.setEnabled(true);
+             Natenciones.setEditable(true);
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-       Guardar();
+         if(tg==1){
+             Guardar();  
+        }
+        if(tg==2){
+           mensaje.setVisible(true);
+           mensaje.setBackground(new Color(255,153,51)); 
+           men.setText("Desea Actualizar el Registro ?");
+           b.setText("Si");
+           b.setVisible(true);
+           b1.setVisible(true); 
+           tge=2;
+        }       
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        mensaje.setVisible(true);
+        mensaje.setBackground(new Color(255,91,70)); 
+        //men.setText("Desea Eliminar este registro?");
+        men.setText("ELIMINAR esta asiganción de consultorio para, "+txtMedico.getText()+" , "+tur.getText()+" , "+determinarFecha(Fecha)+" ?");
 
+        b.setText("Si");
+        b.setVisible(true);
+        b1.setVisible(true);
+        tge=8;
     }//GEN-LAST:event_btneliminarActionPerformed
-
-    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-
-    }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btneliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btneliminar1ActionPerformed
 
-    private void buscartodoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodoCaretUpdate
+    private void txtMedicoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtMedicoCaretUpdate
      
-    }//GEN-LAST:event_buscartodoCaretUpdate
+    }//GEN-LAST:event_txtMedicoCaretUpdate
 
-    private void buscartodoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscartodoMouseClicked
+    private void txtMedicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMedicoMouseClicked
 
-    }//GEN-LAST:event_buscartodoMouseClicked
+    }//GEN-LAST:event_txtMedicoMouseClicked
 
-    private void buscartodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscartodoActionPerformed
+    private void txtMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buscartodoActionPerformed
+    }//GEN-LAST:event_txtMedicoActionPerformed
 
-    private void buscartodoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscartodoKeyPressed
+    private void txtMedicoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMedicoKeyPressed
       
-    }//GEN-LAST:event_buscartodoKeyPressed
+    }//GEN-LAST:event_txtMedicoKeyPressed
 
     private void T3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T3MouseClicked
        ConsA.ListarMedicos(BMedicos.getText(),tb_medicos,"","","A");
        Medicos.setVisible(true);
     }//GEN-LAST:event_T3MouseClicked
 
-    private void buscartodo1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodo1CaretUpdate
+    private void txtConsultorioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtConsultorioCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_buscartodo1CaretUpdate
+    }//GEN-LAST:event_txtConsultorioCaretUpdate
 
-    private void buscartodo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscartodo1MouseClicked
+    private void txtConsultorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtConsultorioMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_buscartodo1MouseClicked
+    }//GEN-LAST:event_txtConsultorioMouseClicked
 
-    private void buscartodo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscartodo1ActionPerformed
+    private void txtConsultorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConsultorioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buscartodo1ActionPerformed
+    }//GEN-LAST:event_txtConsultorioActionPerformed
 
-    private void buscartodo1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscartodo1KeyPressed
+    private void txtConsultorioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConsultorioKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buscartodo1KeyPressed
+    }//GEN-LAST:event_txtConsultorioKeyPressed
 
     private void T4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T4MouseClicked
         ConsA.listarConsultorios(Bcons.getText(),tb_consultorios);
@@ -1282,6 +1436,44 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
 
     private void tb_DetalleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_DetalleMouseClicked
         
+        int fila=tb_Detalle.getSelectedRow();
+        if(evt.getClickCount()==1){
+            try {
+            String fechaSeleccionada = (String) tb_Detalle.getModel().getValueAt(fila, 1);
+             try {
+             DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+             Date fecha = dfo.parse(fechaSeleccionada);
+             Fecha.setDate(fecha);
+            } catch (Exception e) {
+            }
+            txtConsultorio.setText(String.valueOf(tb_Detalle.getValueAt(fila, 4)));
+            Natenciones.setText(String.valueOf(tb_Detalle.getValueAt(fila, 5)));
+            txtMedico.setText(String.valueOf(tb_Detalle.getValueAt(fila, 7)));
+            cbTurno.setSelectedItem(String.valueOf(tb_Detalle.getValueAt(fila, 6)));
+            tur.setText(String.valueOf(tb_Detalle.getValueAt(fila, 6)));//mensajes
+            codcons.setText(String.valueOf(tb_Detalle.getValueAt(fila, 8)));
+            codmed.setText(String.valueOf(tb_Detalle.getValueAt(fila, 9)));
+            id.setText(String.valueOf(tb_Detalle.getValueAt(fila, 0)));  
+            btneliminar.setEnabled(true);
+            btneditar.setEnabled(true);
+            btnguardar.setEnabled(false);
+            } catch (Exception e) {
+            }
+
+
+     
+        }
+        if(evt.getClickCount()==2){
+            Nuevo.setVisible(true);
+            btnguardar.setEnabled(false);
+            btneliminar.setEnabled(true);
+            btneditar.setEnabled(true);
+            btnsubir.setEnabled(true);
+            T3.setEnabled(false);
+            T4.setEnabled(false);
+            Natenciones.setEditable(false);
+        
+        }
     }//GEN-LAST:event_tb_DetalleMouseClicked
 
     private void tb_DetalleMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_DetalleMousePressed
@@ -1379,7 +1571,25 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
     }//GEN-LAST:event_tb_consultoriosKeyPressed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
+ if (tge==3 || tge==1 || tge==9){
+   mensaje.setVisible(false);  
 
+    
+   }
+        
+        if (tge==2){
+        Modificar();
+
+        btneditar.setEnabled(false);
+        btneliminar.setEnabled(false);
+
+   }  
+     if (tge==8){
+        Eliminar();
+        btnguardar.setEnabled(false);
+        btneditar.setEnabled(false);
+        btneliminar.setEnabled(false);
+   }  
     }//GEN-LAST:event_bActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
@@ -1388,8 +1598,122 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
 
     private void cbTurnoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbTurnoItemStateChanged
 
-        tur.setText((cbTurno.getSelectedItem().toString()));
+           ConsultorioExConsultorioAsignacion cno2 = new ConsultorioExConsultorioAsignacion();
+        turid.setText((cno2.TurnosId(cbTurno.getSelectedItem().toString())));
+        try{  
+                if(evt.getStateChange()==ItemEvent.SELECTED){
+                    if(this.cbTurno.getSelectedIndex()>0){
+                        this.HoraIN.removeAllItems(); 
+                        this.HoraFN.removeAllItems(); 
+                    Statement sta=conexion.createStatement();
+                    Statement sta1=conexion.createStatement();
+                    String dpto=cbTurno.getSelectedItem().toString();
+                    String dpto1=cbTurno.getSelectedItem().toString();
+                    ResultSet rs=sta.executeQuery("EXEC CONSULTORIO_EXT_BUSCAR_HORAS '"+dpto+"'");
+                    ResultSet rs1=sta1.executeQuery("EXEC CONSULTORIO_EXT_BUSCAR_HORAS1 '"+dpto1+"'");
+                    
+                    while(rs.next()){
+                     this.HoraIN.addItem(rs.getString("HoraI"));
+                  //  this.cbxProvincia.setModel(null);
+                    }
+                    while(rs1.next()){
+                     this.HoraFN.addItem(rs1.getString("HoraF"));
+                  //  this.cbxProvincia.setModel(null);
+                    }
+                    
+                     }else{
+                            this.HoraIN.removeAllItems();
+                            this.HoraFN.removeAllItems();
+
+                        this.HoraIN.addItem("Seleccione");
+                        this.HoraFN.addItem("Seleccione");
+                            }
+
+            }}
+            catch(Exception ex) 
+            {
+                System.out.println("Error: " + ex.getMessage());
+            }
+        
+       
+        
+//        tur.setText((cbTurno.getSelectedItem().toString()));
+//        if(Turno.equals("Mañana")){
+//           this.HoraI.removeAllItems(); 
+//            HoraI.addItem("8:00");
+//            HoraI.addItem("9:00");
+//            HoraI.addItem("10:00");
+//            HoraI.addItem("11:00");
+//            this.HoraF.removeAllItems(); 
+//            HoraF.addItem("9:00");
+//            HoraF.addItem("10:00");
+//            HoraF.addItem("11:00");
+//            HoraF.addItem("12:00");
+//
+//       }
+//       if(Turno.equals("Tarde")){
+//            this.HoraI.removeAllItems(); 
+//            HoraI.addItem("2:00");
+//            HoraI.addItem("3:00");
+//            HoraI.addItem("4:00");
+//            this.HoraF.removeAllItems(); 
+//            HoraF.addItem("3:00");
+//            HoraF.addItem("4:00");
+//            HoraF.addItem("5:00");
+//
+//       }
+//        if(Turno.equals("Noche")){
+//            this.HoraI.removeAllItems(); 
+//            HoraI.addItem("6:00");
+//            HoraI.addItem("7:00");
+//            HoraI.addItem("8:00");
+//            this.HoraF.removeAllItems(); 
+//            HoraF.addItem("7:00");
+//            HoraF.addItem("8:00");
+//            HoraF.addItem("9:00");
+//
+//       }
+           
+            
+      
     }//GEN-LAST:event_cbTurnoItemStateChanged
+
+    private void btnsubirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubirActionPerformed
+        Nuevo.setVisible(false);
+        btnsubir.setEnabled(false);
+    }//GEN-LAST:event_btnsubirActionPerformed
+
+    private void tb_DetalleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_DetalleKeyReleased
+         if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN || evt.getExtendedKeyCode()==KeyEvent.VK_UP){
+            int fila = tb_Detalle.getSelectedRow();
+           try {
+            String fechaSeleccionada = (String) tb_Detalle.getModel().getValueAt(fila, 1);
+             try {
+             DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+             Date fecha = dfo.parse(fechaSeleccionada);
+             Fecha.setDate(fecha);
+            } catch (Exception e) {
+            }
+            txtConsultorio.setText(String.valueOf(tb_Detalle.getValueAt(fila, 4)));
+            Natenciones.setText(String.valueOf(tb_Detalle.getValueAt(fila, 5)));
+            txtMedico.setText(String.valueOf(tb_Detalle.getValueAt(fila, 7)));
+            cbTurno.setSelectedItem(String.valueOf(tb_Detalle.getValueAt(fila, 6)));
+            tur.setText(String.valueOf(tb_Detalle.getValueAt(fila, 6)));//mensajes
+            codcons.setText(String.valueOf(tb_Detalle.getValueAt(fila, 8)));
+            codmed.setText(String.valueOf(tb_Detalle.getValueAt(fila, 9)));
+            id.setText(String.valueOf(tb_Detalle.getValueAt(fila, 0)));  
+            btneliminar.setEnabled(true);
+            btneditar.setEnabled(true);
+            btnguardar.setEnabled(false);
+            } catch (Exception e) {
+            }
+        }
+    }//GEN-LAST:event_tb_DetalleKeyReleased
+
+    private void T5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T5MouseClicked
+//        adEmerTr.TriajeListarReporte(txtBuscar.getText(),tbTriaje,determinarFecha(fechai),determinarFecha(fechaf),"T");
+//        txtBuscar.setEnabled(true);
+    }//GEN-LAST:event_T5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1431,33 +1755,34 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
     private javax.swing.JTextField Bcons;
     private javax.swing.JDialog Consultorios;
     private com.toedter.calendar.JDateChooser Fecha;
-    private javax.swing.JTextField Hora;
-    private javax.swing.JTextField Hora1;
+    private javax.swing.JComboBox HoraFN;
+    private javax.swing.JComboBox HoraIN;
     private javax.swing.JDialog Medicos;
-    private javax.swing.JTextField Minutos;
-    private javax.swing.JTextField Minutos1;
+    private javax.swing.JTextField Natenciones;
+    private javax.swing.JPanel Nuevo;
     private javax.swing.JLabel T3;
     private javax.swing.JLabel T4;
+    private javax.swing.JLabel T5;
     private javax.swing.JLabel T8;
     private javax.swing.JLabel T9;
     private javax.swing.JButton b;
     private javax.swing.JButton b1;
     private javax.swing.JButton btnNuevo;
-    private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btneliminar1;
     private javax.swing.JButton btnguardar;
-    private javax.swing.JTextField buscartodo;
-    private javax.swing.JTextField buscartodo1;
+    private javax.swing.JButton btnsubir;
     private javax.swing.JComboBox cbTurno;
     private javax.swing.JLabel codcons;
     private javax.swing.JLabel codmed;
+    private com.toedter.calendar.JDateChooser fechaf;
+    private com.toedter.calendar.JDateChooser fechai;
     private javax.swing.JLabel id;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1472,11 +1797,11 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel46;
     private javax.swing.JPanel jPanel47;
     private javax.swing.JPanel jPanel48;
@@ -1490,7 +1815,6 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTabbedPane jTabbedPane8;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblusu;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
@@ -1498,5 +1822,9 @@ ConsultorioExConsultorioAsignacion ConsA = new ConsultorioExConsultorioAsignacio
     private javax.swing.JTable tb_consultorios;
     private javax.swing.JTable tb_medicos;
     private javax.swing.JLabel tur;
+    private javax.swing.JLabel turid;
+    private javax.swing.JTextField txtBuscar;
+    private javax.swing.JTextField txtConsultorio;
+    private javax.swing.JTextField txtMedico;
     // End of variables declaration//GEN-END:variables
 }

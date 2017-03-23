@@ -1196,6 +1196,7 @@ byte tga;
                         txtcod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         txtcod.setForeground(new java.awt.Color(255, 255, 255));
                         txtcod.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+                        txtcod.setSelectionColor(new java.awt.Color(255, 255, 255));
 
                         lblvisa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         lblvisa.setText("Enviar H.C. al modulo de admisión");

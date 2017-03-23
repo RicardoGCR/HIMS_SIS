@@ -26,11 +26,9 @@ public class ConsultorioExConsultorioAsignacion {
     private int id;
     private int consultorio_id;
     private int nro_cita;
-    private String turno;
     private int cod_rol;
     private String fecha;
-    private String hora;
-    private String horaf;
+    private int id_Turno;
     private String fecha_actu;
     private String hora_actu;
     private String nom_pc;
@@ -54,6 +52,29 @@ public class ConsultorioExConsultorioAsignacion {
         catch(Exception ex)
         {
             System.out.println("Error_codUsuario: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public String TurnosId(String tipo)
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT id_Turno \n" +
+                        "FROM cONSULTORIO_EXT_TURNO\n" +
+                        "WHERE Nombre = ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, tipo);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_codDistrito: " + ex.getMessage());
         }
         return cod;
     }
@@ -111,18 +132,16 @@ public class ConsultorioExConsultorioAsignacion {
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_CONSULTORIO_ASIGNACION_MANTENIMIENTO ?,?,?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_CONSULTORIO_ASIGNACION_MANTENIMIENTO ?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId());
             cmd.setInt(2, getConsultorio_id());
             cmd.setInt(3, getNro_cita());
-            cmd.setString(4, getTurno());
-            cmd.setInt(5, getCod_rol());
-            cmd.setString(6, getFecha());
-            cmd.setString(7, getHora());
-            cmd.setString(8, getHoraf());
-            cmd.setString(9, getUsuario());
-            cmd.setString(10, tipo);
+            cmd.setInt(4, getCod_rol());
+            cmd.setString(5, getFecha());
+            cmd.setInt(6, getId_Turno());
+            cmd.setString(7, getUsuario());
+            cmd.setString(8, tipo);
             if(!cmd.execute())
             {
                 resp = true;
@@ -195,10 +214,10 @@ public class ConsultorioExConsultorioAsignacion {
     String consulta="";
         try {
                 tabla.setModel(new DefaultTableModel());
-                String titulos[]={"ID","Fecha","Hora Inicio","Hora Termino","Consultorio","Nº de Citas","Turno","Médico"};
+                String titulos[]={"ID","Fecha","Hora Inicio","Hora Termino","Consultorio","Nº de Citas","Turno","Médico","","",""};
                 m=new DefaultTableModel(null,titulos);
                 JTable p=new JTable(m);
-                String fila[]=new String[8];
+                String fila[]=new String[11];
                 //int index = cbxTipoBusqueda.getSelectedIndex();
                 consulta="EXEC CONSULTORIO_EXT_LISTAR_CONSULASIGNA";
                 PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -213,6 +232,9 @@ public class ConsultorioExConsultorioAsignacion {
                     fila[5]=r.getString(6); 
                     fila[6]=r.getString(7); 
                     fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
+                    fila[9]=r.getString(10); 
+                    fila[10]=r.getString(11); 
      
                         m.addRow(fila);
                         c++;
@@ -281,6 +303,12 @@ public class ConsultorioExConsultorioAsignacion {
         tabla.getColumnModel().getColumn(5).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(6).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(7).setPreferredWidth(500);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(10).setMinWidth(0);
+        tabla.getColumnModel().getColumn(10).setMaxWidth(0);
    
 
 //        COLUMNAS OCULTAS
@@ -289,7 +317,7 @@ public class ConsultorioExConsultorioAsignacion {
 //            columna.setMinWidth(0);
 //            columna.setPreferredWidth(0);
 //            tabla.doLayout();
-        tabla.setRowHeight(40);
+        tabla.setRowHeight(45);
     }
     public ConsultorioExConsultorioAsignacion()
     {
@@ -356,16 +384,6 @@ public class ConsultorioExConsultorioAsignacion {
     /**
      * @return the turno
      */
-    public String getTurno() {
-        return turno;
-    }
-
-    /**
-     * @param turno the turno to set
-     */
-    public void setTurno(String turno) {
-        this.turno = turno;
-    }
 
     /**
      * @return the cod_rol
@@ -389,21 +407,14 @@ public class ConsultorioExConsultorioAsignacion {
         this.fecha = fecha;
     }
 
-    public String getHora() {
-        return hora;
+    public int getId_Turno() {
+        return id_Turno;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
+    public void setId_Turno(int id_Turno) {
+        this.id_Turno = id_Turno;
     }
 
-    public String getHoraf() {
-        return horaf;
-    }
-
-    public void setHoraf(String horaf) {
-        this.horaf = horaf;
-    }
 
     /**
      * @return the fecha_actu

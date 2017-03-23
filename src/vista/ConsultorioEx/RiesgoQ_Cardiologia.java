@@ -68,6 +68,8 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
         conexion = c.conectar();
         this.cbxProcedencia.setModel(areas());
         txtId1.setVisible(false);
+        cbxMedico.setModel(medicos());
+        txtMedico.setVisible(false);
     }
 
     public void cerrar (){
@@ -91,6 +93,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
         lblEdad.setText("_____");
         lblOcupacion.setText("_________________________________________");
         cbxProcedencia.setSelectedIndex(0);
+        cbxMedico.setSelectedIndex(0);
         DefaultTableModel modelo1 = (DefaultTableModel)tbDiagnostico.getModel(); 
         int b=tbDiagnostico.getRowCount();
         for(int j=0;j<b;j++){
@@ -135,6 +138,8 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
         txtOtrosSintomas.setEnabled(opcion);
         txtRq.setEnabled(opcion);
         txtSugerencia.setEnabled(opcion);
+        cbxMedico.setEnabled(opcion);
+        txtMedico.setEnabled(true);
     }
     
     public DefaultComboBoxModel areas(){
@@ -152,6 +157,25 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
             r.close();
         } catch (SQLException ex) {            
             System.err.println( "Error servicios :" + ex.getMessage() );
+        }        
+        return listmodel;
+    }
+    
+    public DefaultComboBoxModel medicos(){
+       DefaultComboBoxModel  listmodel = new DefaultComboBoxModel ();        
+       String   sql = null;
+       ResultSet rs = null;
+       Statement  st = null;   
+        try {
+              st = conexion.createStatement();
+              r = st.executeQuery ("EXEC CONSULTORIO_EXT_MEDICO_TURNO_LISTAR "+ Integer.parseInt(lblArea.getText()) +""); 
+              listmodel.addElement("Seleccionar...");
+            while( r.next() ){
+                listmodel.addElement( r.getString( "MEDICO" ) );                
+             }
+            r.close();
+        } catch (SQLException ex) {            
+            System.err.println( "Error: medicos " + ex.getMessage() );
         }        
         return listmodel;
     }
@@ -315,8 +339,8 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
             consultorio3.setDesc(txtRq.getText());
             consultorio3.setSugerencia(txtSugerencia.getText());
             consultorio3.setUsuario(adEmerCab5.codUsuario(lblusu.getText()));
-            consultorio3.setAlergia(cbxAlergia.getSelectedItem().toString());
             consultorio3.setId_triaje(lblTriaje.getText());
+            consultorio3.setCod_per(consultorio3.medicoID(cbxMedico.getSelectedItem().toString()));
             //
             if(chkHta.isSelected())
                 consultorio3.setHta("X");
@@ -347,6 +371,11 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                 consultorio3.setTos("X");
             else
                 consultorio3.setTos("");
+            //
+            if(cbxAlergia.getSelectedItem().equals("SI"))
+                consultorio3.setAlergia("X");
+            else
+                consultorio3.setAlergia("");
             //
             if(guardarPreventa()==true){
             int id = Integer.parseInt(consultorio3.preventaID());
@@ -434,6 +463,161 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
         return retorna;
     }
     
+    public boolean modificarDatos(){
+        boolean retorna = false;
+        try {
+            ConsultorioExRiesgoQuirurgico consultorio3 = new ConsultorioExRiesgoQuirurgico();
+            consultorio3.setId(Integer.parseInt(txtId.getText()));
+            consultorio3.setAr_id(Integer.parseInt(lblArea.getText()));
+            consultorio3.setProcedencia(Integer.parseInt(consultorio3.areaID(cbxProcedencia.getSelectedItem().toString())));
+            consultorio3.setEx_fisico(txtExamenFisico.getText());
+            consultorio3.setQx(txtQxAnteriores.getText());
+            consultorio3.setOtros(txtOtros.getText());
+            consultorio3.setSint_otros(txtOtrosSintomas.getText());
+            consultorio3.setDesc(txtRq.getText());
+            consultorio3.setSugerencia(txtSugerencia.getText());
+            consultorio3.setPreventa(Integer.parseInt(lblPreventa.getText()));
+            //
+            if(chkHta.isSelected())
+                consultorio3.setHta("X");
+            else
+                consultorio3.setHta("");
+            //
+            if(chkDm.isSelected())
+                consultorio3.setDm("X");
+            else
+                consultorio3.setDm("");
+            //
+            if(chkEnfRenal.isSelected())
+                consultorio3.setRenal("X");
+            else
+                consultorio3.setRenal("");
+            //
+            if(chkDisnea.isSelected())
+                consultorio3.setDisnea("X");
+            else
+                consultorio3.setDisnea("");
+            //
+            if(chkPalpitaciones.isSelected())
+                consultorio3.setPalpit("X");
+            else
+                consultorio3.setPalpit("");
+            //
+            if(chkTos.isSelected())
+                consultorio3.setTos("X");
+            else
+                consultorio3.setTos("");
+            //
+            if(cbxAlergia.getSelectedItem().equals("SI"))
+                consultorio3.setAlergia("X");
+            else
+                consultorio3.setAlergia("");
+            //
+                if(consultorio3.mantenimientoConsultorioExRQ(lblMant.getText())==true){
+                    pnlMensaje.setVisible(true);
+                    lblMensaje.setText("Datos guardados de forma correcta");
+                    if(tbDiagnostico.getRowCount()!=0 && tbCpt.getRowCount()!=0){
+                        if(guardarDiagnostico(Integer.parseInt(txtId.getText()))&& guardarNomenclatura(Integer.parseInt(lblPreventa.getText()))){
+                            pnlMensaje.setVisible(true);
+                            lblMensaje.setText("Datos guardados de forma correcta");
+                            limpiar();
+                            habilitarCampos(false);
+                            btnGuardar.setEnabled(false);
+                            pnlMensaje.setBackground(new Color(33,115,70));
+                            btnSi.setVisible(true);
+                            btnSi.setText("OK");
+                            btnNo.setVisible(false);
+                            txtMedico.setVisible(false);
+                            cbxMedico.setVisible(true);
+                        } else {
+                            pnlMensaje.setVisible(true);
+                            lblMensaje.setText("Ocurrió un error, verifique");
+                            pnlMensaje.setBackground(new Color(255,91,70));
+                            btnSi.setVisible(false);
+                            btnNo.setVisible(false);
+                        }
+                    } else
+                    if(tbDiagnostico.getRowCount()==0 && tbCpt.getRowCount()!=0){
+                        if(guardarNomenclatura(Integer.parseInt(lblPreventa.getText()))){
+                            pnlMensaje.setVisible(true);
+                            lblMensaje.setText("Datos guardados de forma correcta");
+                            limpiar();
+                            habilitarCampos(false);
+                            btnGuardar.setEnabled(false);
+                            pnlMensaje.setBackground(new Color(33,115,70));
+                            btnSi.setVisible(true);
+                            btnSi.setText("OK");
+                            btnNo.setVisible(false);
+                        } else {
+                            pnlMensaje.setVisible(true);
+                            lblMensaje.setText("Ocurrió un error, verifique");
+                            pnlMensaje.setBackground(new Color(255,91,70));
+                            btnSi.setVisible(false);
+                            btnNo.setVisible(false);
+                        }
+                    } else
+                    if(tbDiagnostico.getRowCount()!=0 && tbCpt.getRowCount()==0){
+                        if(guardarDiagnostico(Integer.parseInt(txtId.getText()))){
+                            pnlMensaje.setVisible(true);
+                            lblMensaje.setText("Datos guardados de forma correcta");
+                            limpiar();
+                            habilitarCampos(false);
+                            btnGuardar.setEnabled(false);
+                            pnlMensaje.setBackground(new Color(33,115,70));
+                            btnSi.setVisible(true);
+                            btnSi.setText("OK");
+                            btnNo.setVisible(false);
+                        } else {
+                            pnlMensaje.setVisible(true);
+                            lblMensaje.setText("Ocurrió un error, verifique");
+                            pnlMensaje.setBackground(new Color(255,91,70));
+                            btnSi.setVisible(false);
+                            btnNo.setVisible(false);
+                        }
+                    } else
+                    if(tbDiagnostico.getRowCount()==0 && tbCpt.getRowCount()==0){
+                        pnlMensaje.setVisible(true);
+                        lblMensaje.setText("Datos guardados de forma correcta");
+                        limpiar();
+                        habilitarCampos(false);
+                        btnGuardar.setEnabled(false);
+                        pnlMensaje.setBackground(new Color(33,115,70));
+                        btnSi.setVisible(true);
+                        btnSi.setText("OK");
+                        btnNo.setVisible(false);
+                    } 
+                } else {
+                    pnlMensaje.setVisible(true);
+                     lblMensaje.setText("error");
+                }
+        } catch (Exception e) {
+            System.out.println("Error: modificarDatos" + e.getMessage());
+        }
+        return retorna;
+    }
+    
+    public void eliminarDatos(){
+        ConsultorioExRiesgoQuirurgico consultorio3 = new ConsultorioExRiesgoQuirurgico();
+            consultorio3.setId(Integer.parseInt(txtId.getText()));
+            if(consultorio3.mantenimientoConsultorioExRQ("E")){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Datos guardados de forma correcta");
+                limpiar();
+                habilitarCampos(false);
+                btnGuardar.setEnabled(false);
+                pnlMensaje.setBackground(new Color(33,115,70));
+                btnSi.setVisible(true);
+                btnSi.setText("OK");
+                btnNo.setVisible(false);
+            } else{
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Ocurrió un error, verifique");
+                pnlMensaje.setBackground(new Color(255,91,70));
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+            }
+    }
+    
     public String determinarFecha(JDateChooser calendario){
         String fecha = "";
         int dia = calendario.getCalendar().get(Calendar.DAY_OF_MONTH);
@@ -463,6 +647,51 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
         RiesgoQ_Cardiologia.lblEdad.setText(String.valueOf(tbRQ.getValueAt(fila, 5)));
         RiesgoQ_Cardiologia.lblOcupacion.setText(String.valueOf(tbRQ.getValueAt(fila, 6)));
         RiesgoQ_Cardiologia.cbxProcedencia.setSelectedItem(String.valueOf(tbRQ.getValueAt(fila, 7)));
+        RiesgoQ_Cardiologia.txtQxAnteriores.setText(String.valueOf(tbRQ.getValueAt(fila, 12)));
+        RiesgoQ_Cardiologia.txtOtros.setText(String.valueOf(tbRQ.getValueAt(fila, 13)));
+        RiesgoQ_Cardiologia.txtOtrosSintomas.setText(String.valueOf(tbRQ.getValueAt(fila, 17)));
+        RiesgoQ_Cardiologia.txtExamenFisico.setText(String.valueOf(tbRQ.getValueAt(fila, 18)));
+        RiesgoQ_Cardiologia.txtRq.setText(String.valueOf(tbRQ.getValueAt(fila, 19)));
+        RiesgoQ_Cardiologia.txtSugerencia.setText(String.valueOf(tbRQ.getValueAt(fila, 20)));
+        RiesgoQ_Cardiologia.lblPreventa.setText(String.valueOf(tbRQ.getValueAt(fila, 23)));
+        RiesgoQ_Cardiologia.txtMedico.setText(String.valueOf(tbRQ.getValueAt(fila, 21)));
+        cbxMedico.setVisible(false);
+        txtMedico.setVisible(true);
+        String hta = String.valueOf(tbRQ.getValueAt(fila, 8));
+        String dm = String.valueOf(tbRQ.getValueAt(fila, 9));
+        String enf = String.valueOf(tbRQ.getValueAt(fila, 10));
+        String alergia = String.valueOf(tbRQ.getValueAt(fila, 11));
+        String disnea = String.valueOf(tbRQ.getValueAt(fila, 14));
+        String palp = String.valueOf(tbRQ.getValueAt(fila, 15));
+        String tos = String.valueOf(tbRQ.getValueAt(fila, 16));
+        if(hta.equals("X"))
+            chkHta.setSelected(true);
+        else
+            chkHta.setSelected(false);
+        if(dm.equals("X"))
+            chkDm.setSelected(true);
+        else
+            chkDm.setSelected(false);
+        if(enf.equals("X"))
+            chkEnfRenal.setSelected(true);
+        else
+            chkEnfRenal.setSelected(false);
+        if(alergia.equals("X"))
+            cbxAlergia.setSelectedItem("SI");
+        else
+            cbxAlergia.setSelectedItem("NO");
+        if(disnea.equals("X"))
+            chkDisnea.setSelected(true);
+        else
+            chkDisnea.setSelected(false);
+        if(palp.equals("X"))
+            chkPalpitaciones.setSelected(true);
+        else
+            chkPalpitaciones.setSelected(false);
+        if(tos.equals("X"))
+            chkTos.setSelected(true);
+        else
+            chkTos.setSelected(false);
         FrmRiesgoQuirurgico.dispose();
         btnModificar.setEnabled(true);
         btnEliminar.setEnabled(true);
@@ -590,6 +819,9 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                     jLabel24 = new javax.swing.JLabel();
                     jScrollPane7 = new javax.swing.JScrollPane();
                     txtSugerencia = new javax.swing.JEditorPane();
+                    jLabel10 = new javax.swing.JLabel();
+                    cbxMedico = new javax.swing.JComboBox();
+                    txtMedico = new javax.swing.JTextField();
                     pnlMensaje = new javax.swing.JPanel();
                     lblMensaje = new javax.swing.JLabel();
                     btnSi = new javax.swing.JButton();
@@ -870,7 +1102,6 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
 
                     FrmRiesgoQuirurgico.setAlwaysOnTop(true);
                     FrmRiesgoQuirurgico.setMinimumSize(new java.awt.Dimension(1110, 650));
-                    FrmRiesgoQuirurgico.setPreferredSize(new java.awt.Dimension(1110, 650));
 
                     jPanel6.setBackground(new java.awt.Color(0, 153, 102));
 
@@ -956,12 +1187,10 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(dtFechaFin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(dtFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(txtBuscarRq, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnBuscarRQ, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(dtFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBuscarRQ, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtBuscarRq, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(555, 555, 555))
                     );
 
@@ -969,6 +1198,11 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
 
                     jScrollPane9.setBorder(null);
 
+                    tbRQ = new javax.swing.JTable(){
+                        public boolean isCellEditable(int rowIndex, int colIndex){
+                            return false;
+                        }
+                    };
                     tbRQ.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
                             {null, null, null, null},
@@ -982,6 +1216,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                     ));
                     tbRQ.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                     tbRQ.setSelectionBackground(new java.awt.Color(0, 153, 102));
+                    tbRQ.getTableHeader().setReorderingAllowed(false);
                     tbRQ.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                             tbRQMouseClicked(evt);
@@ -999,6 +1234,11 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
 
                     jScrollPane10.setBorder(null);
 
+                    tbRqCie = new javax.swing.JTable(){
+                        public boolean isCellEditable(int rowIndex, int colIndex){
+                            return false;
+                        }
+                    };
                     tbRqCie.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
                             {null, null, null, null},
@@ -1016,6 +1256,11 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
 
                     jScrollPane11.setBorder(null);
 
+                    tbRqCpt = new javax.swing.JTable(){
+                        public boolean isCellEditable(int rowIndex, int colIndex){
+                            return false;
+                        }
+                    };
                     tbRqCpt.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
                             {null, null, null, null},
@@ -1160,6 +1405,12 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
 
                     lblMant.setText("Mantenimiento");
 
+                    txtId.addCaretListener(new javax.swing.event.CaretListener() {
+                        public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                            txtIdCaretUpdate(evt);
+                        }
+                    });
+
                     lblArea.setText("60");
 
                     lblTriaje.setText("Triaje");
@@ -1202,7 +1453,8 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                                             .addComponent(lblTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
                                             .addComponent(lblPreventa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(lblHc, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(lblHc, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(40, 40, 40))))
                     );
                     jPanel1Layout.setVerticalGroup(
                         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1594,7 +1846,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                             .addComponent(chkDm)
                             .addGap(67, 67, 67)
                             .addComponent(chkEnfRenal)
-                            .addGap(0, 0, Short.MAX_VALUE))
+                            .addGap(0, 107, Short.MAX_VALUE))
                     );
                     jPanel3Layout.setVerticalGroup(
                         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1649,7 +1901,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                             .addComponent(chkPalpitaciones)
                             .addGap(67, 67, 67)
                             .addComponent(chkTos)
-                            .addGap(0, 362, Short.MAX_VALUE))
+                            .addContainerGap(42, Short.MAX_VALUE))
                     );
                     jPanel4Layout.setVerticalGroup(
                         jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1698,7 +1950,8 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                     });
                     jScrollPane4.setViewportView(txtOtrosSintomas);
 
-                    cbxAlergia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "No" }));
+                    cbxAlergia.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+                    cbxAlergia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO" }));
                     cbxAlergia.setEnabled(false);
 
                     jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1731,6 +1984,16 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                     });
                     jScrollPane7.setViewportView(txtSugerencia);
 
+                    jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                    jLabel10.setText("Médico");
+
+                    cbxMedico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                    cbxMedico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
+                    cbxMedico.setEnabled(false);
+
+                    txtMedico.setEditable(false);
+                    txtMedico.setEnabled(false);
+
                     javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
                     jPanel5.setLayout(jPanel5Layout);
                     jPanel5Layout.setHorizontalGroup(
@@ -1739,60 +2002,65 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                             .addContainerGap()
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(59, 59, 59))
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel19)
+                                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel20))
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(jPanel5Layout.createSequentialGroup()
-                                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel20))
-                                            .addGap(65, 65, 65)
+                                            .addGap(33, 33, 33)
+                                            .addComponent(jLabel16)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cbxAlergia, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel17)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabel18)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                            .addGap(43, 43, 43)
                                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel19))
-                                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                                            .addGap(39, 39, 39)
-                                                            .addComponent(jLabel16)
-                                                            .addGap(0, 0, 0)
-                                                            .addComponent(cbxAlergia, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addGap(0, 0, 0)
-                                                            .addComponent(jLabel17)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                            .addComponent(jLabel18)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                                            .addGap(43, 43, 43)
-                                                            .addComponent(jScrollPane1))))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel23)
-                                                        .addComponent(jLabel24))
-                                                    .addGap(74, 74, 74)
-                                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                            .addGap(0, 0, Short.MAX_VALUE)))
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                                    .addGap(0, 10, Short.MAX_VALUE))
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                            .addGap(138, 138, 138)
+                                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                                    .addComponent(cbxMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(txtMedico))))
+                                        .addComponent(jLabel10)
+                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel23)
+                                                .addComponent(jLabel24))
+                                            .addGap(74, 74, 74)
+                                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jScrollPane6)
+                                                .addComponent(jScrollPane7))))
+                                    .addContainerGap())))
                     );
                     jPanel5Layout.setVerticalGroup(
                         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                            .addGap(28, 28, 28)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel10)
+                                .addComponent(cbxMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1803,24 +2071,23 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                                     .addComponent(cbxAlergia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jLabel19)
-                                    .addGap(61, 61, 61))
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jScrollPane1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel19)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(4, 4, 4)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel20)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel20)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel23)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel23)
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel24))
@@ -1891,8 +2158,8 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 28, Short.MAX_VALUE))
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 21, Short.MAX_VALUE))
                         .addComponent(pnlMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     );
                     layout.setVerticalGroup(
@@ -1902,9 +2169,12 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                             .addGap(0, 0, 0)
                             .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(0, 0, 0))
                     );
 
                     pack();
@@ -1919,18 +2189,24 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
             btnModificar.setEnabled(false);
             btnEliminar.setEnabled(false);
             pnlMensaje.setVisible(false);
+            txtMedico.setVisible(false);
         } catch (Exception e) {
             System.out.println("Error: btnNuevo" + e.getMessage());
         }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-
+        lblMant.setText("U");
+        habilitarCampos(true);
+        btnGuardar.setEnabled(true);
+        btnModificar.setEnabled(false);
+        btnEliminar.setEnabled(false);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if(lblMant.getText().equals("I")){
-            if(txtNhc.getText().equals("") || cbxProcedencia.getSelectedIndex()==0){
+            if(txtNhc.getText().equals("") || cbxProcedencia.getSelectedIndex()==0
+                    || cbxMedico.getSelectedIndex()==0){
                 pnlMensaje.setVisible(true);
                 lblMensaje.setText("Verifique, que los datos estén correctos");
                 btnSi.setVisible(false);
@@ -1946,12 +2222,29 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
             }
         } else 
         if(lblMant.getText().equals("U")){
-            //MODIFICAR
+            if(txtNhc.getText().equals("") || cbxProcedencia.getSelectedIndex()==0){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Verifique, que los datos estén correctos");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else {
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("¿Guardar los datos?");
+                btnSi.setText("Si");
+                btnSi.setVisible(true);
+                btnNo.setVisible(true);
+                pnlMensaje.setBackground(new Color(255,153,51));
+            }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
+        lblMant.setText("E");
+        pnlMensaje.setVisible(true);
+        lblMensaje.setText("Desea ELIMINAR el registro?");
+        btnSi.setVisible(true);
+        btnNo.setVisible(true);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -1961,6 +2254,11 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
         FrmRiesgoQuirurgico.getContentPane().setBackground(Color.WHITE);
         ConsultorioExRiesgoQuirurgico consult2 = new ConsultorioExRiesgoQuirurgico();
         consult2.listarRQ("","","",tbRQ);
+        btnGuardar.setEnabled(false);
+        btnModificar.setEnabled(false);
+        btnEliminar.setEnabled(false);
+        limpiar();
+        habilitarCampos(false);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void chkDisneaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkDisneaActionPerformed
@@ -1979,8 +2277,12 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
 
     private void tbDiagnosticoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbDiagnosticoKeyPressed
         char teclaPresionada = evt.getKeyChar(); 
-        if(teclaPresionada==KeyEvent.VK_DELETE){
-            quitarRegistro(tbDiagnostico);
+            if(teclaPresionada==KeyEvent.VK_DELETE){
+                if(btnAgregarDiagnostico.isEnabled())
+                    quitarRegistro(tbDiagnostico);
+                else
+                    JOptionPane.showMessageDialog(this, "Debe habilitar la opción modificar");
+            
         }
     }//GEN-LAST:event_tbDiagnosticoKeyPressed
 
@@ -2052,7 +2354,10 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
     private void tbCptKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCptKeyPressed
         char teclaPresionada = evt.getKeyChar(); 
         if(teclaPresionada==KeyEvent.VK_DELETE){
-            quitarRegistro(tbCpt);
+            if(btnAgregarDiagnostico.isEnabled())
+                quitarRegistro(tbCpt);
+            else
+                JOptionPane.showMessageDialog(this, "Debe habilitar la opción modificar");
         }
     }//GEN-LAST:event_tbCptKeyPressed
 
@@ -2150,6 +2455,12 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
         if(btnSi.getText().equals("Si")){ // Al guardar
             if(lblMant.getText().equals("I")){
                 guardarDatos();
+            } else 
+            if(lblMant.getText().equals("U")){
+                modificarDatos();
+            }
+            if(lblMant.getText().equals("E")){
+                eliminarDatos();
             }
         } else
         if(btnSi.getText().equals("OK")){ // Al hacer OK hacerloinvisible
@@ -2239,6 +2550,13 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tbRQKeyPressed
 
+    private void txtIdCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtIdCaretUpdate
+        ConsultorioExRQDetalle detalle1 = new ConsultorioExRQDetalle();
+        detalle1.listarDiagnosticos(txtId.getText(), tbDiagnostico);
+        detalle1.listarNomenclatura(txtId.getText(), tbCpt);
+        formatoTablaNomenclatura(tbCpt);
+    }//GEN-LAST:event_txtIdCaretUpdate
+
     /**
      * @param args the command line arguments
      */
@@ -2294,6 +2612,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
     private javax.swing.JLabel btnPaciente;
     private javax.swing.JButton btnSi;
     public static javax.swing.JComboBox cbxAlergia;
+    public static javax.swing.JComboBox cbxMedico;
     public static javax.swing.JComboBox cbxProcedencia;
     public static javax.swing.JCheckBox chkDisnea;
     public static javax.swing.JCheckBox chkDm;
@@ -2304,6 +2623,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dtFechaFin;
     private com.toedter.calendar.JDateChooser dtFechaInicio;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -2360,7 +2680,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
     private javax.swing.JLabel lblMensaje;
     public static javax.swing.JLabel lblOcupacion;
     public static javax.swing.JLabel lblPaciente;
-    private javax.swing.JLabel lblPreventa;
+    public static javax.swing.JLabel lblPreventa;
     public static javax.swing.JLabel lblTriaje;
     private javax.swing.JLabel lblusu;
     private javax.swing.JLabel lblusu1;
@@ -2382,6 +2702,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
     public static javax.swing.JTextField txtExamenFisico;
     public static javax.swing.JTextField txtId;
     private javax.swing.JTextField txtId1;
+    public static javax.swing.JTextField txtMedico;
     public static javax.swing.JTextField txtNhc;
     public static javax.swing.JEditorPane txtOtros;
     public static javax.swing.JEditorPane txtOtrosSintomas;

@@ -181,6 +181,30 @@ public class ConsultorioExRiesgoQuirurgico {
         }
         return cod;
     }
+    
+    public String medicoID(String medico)
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT COD_PER\n" +
+                        "FROM PERSONAL_PERSONAL\n" +
+                        "WHERE ape_pat_per + ' ' + ape_mat_per + ' ' + "
+                        + "nombres_per = ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, medico);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: servicioID " + ex.getMessage());
+        }
+        return cod;
+    }
    
     
     public void formatoTablaDiagnostico(JTable tabla){
@@ -295,9 +319,29 @@ public class ConsultorioExRiesgoQuirurgico {
     }
     
     public void formatoTablaRQ(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(20);
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(30);
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(30);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(180);
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(11).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(12).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(13).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(14).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(15).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(16).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(17).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(18).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(19).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(20).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(21).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(22).setPreferredWidth(100);
 //        COLUMNAS OCULTAS
 //        TableColumn columna = tabla.getColumnModel().getColumn(0);
 //            columna.setMaxWidth(0);
@@ -309,7 +353,10 @@ public class ConsultorioExRiesgoQuirurgico {
     
     public void inicializarTablRQ(JTable tabla){
         tabla.setModel(new DefaultTableModel());
-        String titulos[]={"ID","Nº Consultorio","Descripción"};
+        String titulos[]={"ID","Acto Médico","DNI","Nº H.C.","Paciente","Edad","Ocupación","Area",
+                "HTA","DM","ENF RENAL","ALERGIA A MEDICAMENTOS","Qx Anteriores","Otros","DISNEA",
+                "PALPITACIONES","TOS","Otros sintomas","Examen fisico preferencial","RQ","Sugerencia",
+                "Médico","Fecha"};
         m=new DefaultTableModel(null,titulos);
         tabla.setModel(m);
         TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
@@ -325,10 +372,10 @@ public class ConsultorioExRiesgoQuirurgico {
                 String titulos[]={"ID","Acto Médico","DNI","Nº H.C.","Paciente","Edad","Ocupación","Area",
                 "HTA","DM","ENF RENAL","ALERGIA A MEDICAMENTOS","Qx Anteriores","Otros","DISNEA",
                 "PALPITACIONES","TOS","Otros sintomas","Examen fisico preferencial","RQ","Sugerencia",
-                "Médico","Fecha"};
+                "Médico","Fecha","Preventa"};
                 m=new DefaultTableModel(null,titulos);
                 JTable p=new JTable(m);
-                String fila[]=new String[23];
+                String fila[]=new String[24];
                 consulta="EXEC CONSULTORIO_EXT_RIESGO_QUIRURGICO_LISTAR ?,?,?";
                 PreparedStatement cmd = getCn().prepareStatement(consulta);
                 cmd.setString(1, busqueda);
@@ -360,6 +407,7 @@ public class ConsultorioExRiesgoQuirurgico {
                     fila[20]=r.getString(21); 
                     fila[21]=r.getString(22); 
                     fila[22]=r.getString(23); 
+                    fila[23]=r.getString(24); 
                         m.addRow(fila);
                         c++;
                 }

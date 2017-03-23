@@ -582,11 +582,7 @@
       <Properties>
         <Property name="alwaysOnTop" type="boolean" value="true"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-<<<<<<< HEAD
           <Dimension value="[891, 735]"/>
-=======
-          <Dimension value="[844, 639]"/>
->>>>>>> 8f61105520e6748d6da02380a058c05aea36c42c
         </Property>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
@@ -612,11 +608,7 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-<<<<<<< HEAD
                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-=======
-                  <EmptySpace max="-2" attributes="0"/>
->>>>>>> 8f61105520e6748d6da02380a058c05aea36c42c
               </Group>
           </Group>
         </DimensionLayout>
@@ -638,11 +630,7 @@
                       <Component id="panelRecepcion" max="32767" attributes="0"/>
                       <Component id="panelEntrega" max="32767" attributes="0"/>
                   </Group>
-<<<<<<< HEAD
                   <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-=======
-                  <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
->>>>>>> 8f61105520e6748d6da02380a058c05aea36c42c
               </Group>
           </Group>
         </DimensionLayout>
@@ -1473,11 +1461,7 @@
             </Component>
           </SubComponents>
         </Container>
-<<<<<<< HEAD
         <Container class="javax.swing.JPanel" name="panelEntrega">
-=======
-        <Container class="javax.swing.JPanel" name="panelResultado1">
->>>>>>> 8f61105520e6748d6da02380a058c05aea36c42c
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">

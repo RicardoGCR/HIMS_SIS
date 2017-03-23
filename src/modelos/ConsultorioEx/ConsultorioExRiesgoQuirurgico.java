@@ -45,33 +45,36 @@ public class ConsultorioExRiesgoQuirurgico {
     private String nom_pc;
     private String estado;
     private String usuario;
+    private int preventa;
+    private String id_triaje;
           
     public boolean mantenimientoConsultorioExRQ(String tipo)
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_RIESGO_QUIRURGICO_MANTENIMIENTO ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_RIESGO_QUIRURGICO_MANTENIMIENTO ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId());
             cmd.setInt(2, getAr_id());
-            cmd.setString(3, getId_hc());
-            cmd.setInt(4, getProcedencia());
-            cmd.setString(5, getHta());
-            cmd.setString(6, getDm());
-            cmd.setString(7, getRenal());
-            cmd.setString(8, getAlergia());
-            cmd.setString(9, getQx());
-            cmd.setString(10, getOtros());
-            cmd.setString(11, getDisnea());
-            cmd.setString(12, getPalpit());
-            cmd.setString(13, getTos());
-            cmd.setString(14, getSint_otros());
-            cmd.setString(15, getEx_fisico());
-            cmd.setString(16, getDesc());
-            cmd.setString(17, getSugerencia());
-            cmd.setString(18, getCod_per());
-            cmd.setString(19, getUsuario());
-            cmd.setString(20, tipo);
+            cmd.setInt(3, getProcedencia());
+            cmd.setString(4, getHta());
+            cmd.setString(5, getDm());
+            cmd.setString(6, getRenal());
+            cmd.setString(7, getAlergia());
+            cmd.setString(8, getQx());
+            cmd.setString(9, getOtros());
+            cmd.setString(10, getDisnea());
+            cmd.setString(11, getPalpit());
+            cmd.setString(12, getTos());
+            cmd.setString(13, getSint_otros());
+            cmd.setString(14, getEx_fisico());
+            cmd.setString(15, getDesc());
+            cmd.setString(16, getSugerencia());
+            cmd.setString(17, getCod_per());
+            cmd.setString(18, getUsuario());
+            cmd.setInt(19, getPreventa());
+            cmd.setString(20, getId_triaje());
+            cmd.setString(21, tipo);
             if(!cmd.execute())
             {
                 resp = true;
@@ -84,6 +87,101 @@ public class ConsultorioExRiesgoQuirurgico {
         }
         return resp;
     }
+    
+    public boolean mantenimientoPreventa(String tipo,String id_hc)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CAJA_PREVENTA_MANTENIMIENTO_CONSULTORIO_EXT ?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId());
+            cmd.setString(2, id_hc);
+            cmd.setString(3, getUsuario());
+            cmd.setString(4, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoPreventa: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public String preventaID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 Id_Preventa\n" +
+                        "FROM CAJA_PREVENTA \n" +
+                        "WHERE Pc_Registro = HOST_NAME()\n" +
+                        "ORDER BY Id_Preventa DESC ";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("preventaID: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public String rqID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 RQ_ID\n" +
+                        "FROM CONSULTORIO_EXT_RIESGO_QUIRURGICO \n" +
+                        "WHERE NOM_PC = HOST_NAME()\n" +
+                        "ORDER BY RQ_ID DESC";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("rqID: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public String areaID(String servicio)
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT AR.AR_ID,ar.AR_DESC\n" +
+                        "FROM SISTEMA_AREAS AR, SISTEMA_SERVICIO SS\n" +
+                        "WHERE SS.SE_ID = AR.SE_ID\n" +
+                        "AND AR.AR_DESC = ?\n" +
+                        "AND UP_ID IN (01)";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, servicio);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: servicioID " + ex.getMessage());
+        }
+        return cod;
+    }
+   
     
     public void formatoTablaDiagnostico(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(40);
@@ -193,6 +291,85 @@ public class ConsultorioExRiesgoQuirurgico {
             formatoTablaNomenclatura(tabla);
         } catch (Exception e) {
             System.out.println("Error: listarDiagnosticoNomenclatura: " + e.getMessage());
+        }
+    }
+    
+    public void formatoTablaRQ(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(20);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(30);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(60);
+//        COLUMNAS OCULTAS
+//        TableColumn columna = tabla.getColumnModel().getColumn(0);
+//            columna.setMaxWidth(0);
+//            columna.setMinWidth(0);
+//            columna.setPreferredWidth(0);
+//            tabla.doLayout();
+        tabla.setRowHeight(30);
+    }
+    
+    public void inicializarTablRQ(JTable tabla){
+        tabla.setModel(new DefaultTableModel());
+        String titulos[]={"ID","Nº Consultorio","Descripción"};
+        m=new DefaultTableModel(null,titulos);
+        tabla.setModel(m);
+        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+        tabla.setRowSorter(elQueOrdena);
+        tabla.setModel(m);
+        formatoTablaRQ(tabla);
+    }
+    
+    public void listarRQ(String busqueda, String fechaInicio, String fechaFin,JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID","Acto Médico","DNI","Nº H.C.","Paciente","Edad","Ocupación","Area",
+                "HTA","DM","ENF RENAL","ALERGIA A MEDICAMENTOS","Qx Anteriores","Otros","DISNEA",
+                "PALPITACIONES","TOS","Otros sintomas","Examen fisico preferencial","RQ","Sugerencia",
+                "Médico","Fecha"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[23];
+                consulta="EXEC CONSULTORIO_EXT_RIESGO_QUIRURGICO_LISTAR ?,?,?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, busqueda);
+                cmd.setString(2, fechaInicio);
+                cmd.setString(3, fechaFin);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                    fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
+                    fila[9]=r.getString(10); 
+                    fila[10]=r.getString(11); 
+                    fila[11]=r.getString(12); 
+                    fila[12]=r.getString(13); 
+                    fila[13]=r.getString(14); 
+                    fila[14]=r.getString(15); 
+                    fila[15]=r.getString(16); 
+                    fila[16]=r.getString(17); 
+                    fila[17]=r.getString(18); 
+                    fila[18]=r.getString(19); 
+                    fila[19]=r.getString(20); 
+                    fila[20]=r.getString(21); 
+                    fila[21]=r.getString(22); 
+                    fila[22]=r.getString(23); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaRQ(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarConsultorios: " + e.getMessage());
         }
     }
     
@@ -536,5 +713,33 @@ public class ConsultorioExRiesgoQuirurgico {
      */
     public void setUsuario(String usuario) {
         this.usuario = usuario;
+    }
+
+    /**
+     * @return the preventa
+     */
+    public int getPreventa() {
+        return preventa;
+    }
+
+    /**
+     * @param preventa the preventa to set
+     */
+    public void setPreventa(int preventa) {
+        this.preventa = preventa;
+    }
+
+    /**
+     * @return the id_triaje
+     */
+    public String getId_triaje() {
+        return id_triaje;
+    }
+
+    /**
+     * @param id_triaje the id_triaje to set
+     */
+    public void setId_triaje(String id_triaje) {
+        this.id_triaje = id_triaje;
     }
 }

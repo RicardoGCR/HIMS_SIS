@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-<<<<<<< HEAD
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_ENTREGA_RESULTADO.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/modelos/admisionEmergencia/AdmisionEmergenciaTriaje.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioEXTriaje.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/Triaje.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/Caja/Caja_Abono.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/admisionEmergencia/FrmFormatoEmergencia.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/admisionEmergencia/FrmListFormatoEmergencia.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionExamenClinico.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExRiesgoQuirurgico.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionExClinico.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExConsultorio.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExConsultorioAsignacion.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/Consultorio.java</file>
-=======
-            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionExClinico.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/Consultorio.java</file>
-            <file>file:/D:/pry/SISGESH/src/servicios/Conexion.java</file>
->>>>>>> e638eb51576fb01b6aafa77cca0772f29e028948
-            <file>file:/D:/pry/SISGESH/src/vista/Caja/Caja_Nomenclaturas.java</file>
->>>>>>> d628b809d0ff79c93eb7af4c82cbcfc57bfc24b4
->>>>>>> 8f61105520e6748d6da02380a058c05aea36c42c
-        </group>
+        <group/>
     </open-files>
 </project-private>

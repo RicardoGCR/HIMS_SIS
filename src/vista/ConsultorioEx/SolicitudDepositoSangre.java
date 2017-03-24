@@ -16,8 +16,49 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
      */
     public SolicitudDepositoSangre() {
         initComponents();
+        txtMedico.setVisible(false);
+        cbxMedico.setVisible(true);
+        habilitarCampos(false);
+        pnlMensaje.setVisible(false);
     }
 
+    public void limpiar(){
+        txtNhc.setText("");
+        lblActoMedico.setText("");
+        lblApeNom.setText("");
+        lblEdad.setText("");
+        txtCantidad.setText("");
+        txtDonantes.setText("");
+        txtHematocrito.setText("");
+        cbxGS.setSelectedIndex(0);
+        txtRH.setText("");
+        txtHemoglobina.setText("");
+        cbxMedico.setSelectedIndex(0);
+        txtMedico.setText("");
+        chkPaqGlobular.setSelected(false);
+        chkPlaquetas.setSelected(false);
+        chkPlasma.setSelected(false);
+    }
+    
+    public void habilitarCampos(boolean opcion){
+        txtNhc.setEnabled(opcion);
+        lblActoMedico.setEnabled(opcion);
+        lblApeNom.setEnabled(opcion);
+        lblEdad.setEnabled(opcion);
+        txtCantidad.setEnabled(opcion);
+        txtDonantes.setEnabled(opcion);
+        txtHematocrito.setEnabled(opcion);
+        cbxGS.setEnabled(opcion);
+        txtRH.setEnabled(opcion);
+        txtHemoglobina.setEnabled(opcion);
+        cbxMedico.setEnabled(opcion);
+        txtMedico.setEnabled(opcion);
+        chkPaqGlobular.setEnabled(opcion);
+        chkPlaquetas.setEnabled(opcion);
+        chkPlasma.setEnabled(opcion);
+        btnPaciente.setEnabled(opcion);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,15 +71,16 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
-        btneditar = new javax.swing.JButton();
-        btnguardar = new javax.swing.JButton();
-        btneliminar = new javax.swing.JButton();
-        btnbuscar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         lblusu = new javax.swing.JLabel();
-        cargareliminar = new javax.swing.JPanel();
-        Mensaje = new javax.swing.JLabel();
-        eli = new javax.swing.JButton();
-        noeli = new javax.swing.JButton();
+        lblMant = new javax.swing.JLabel();
+        pnlMensaje = new javax.swing.JPanel();
+        lblMensaje = new javax.swing.JLabel();
+        btnSi = new javax.swing.JButton();
+        btnNo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel29 = new javax.swing.JPanel();
         txtNhc = new javax.swing.JTextField();
@@ -50,7 +92,25 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         lblActoMedico = new javax.swing.JLabel();
         lblEdad = new javax.swing.JLabel();
         lblApeNom = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtCantidad = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtDonantes = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        txtHematocrito = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        txtRH = new javax.swing.JTextField();
+        txtHemoglobina = new javax.swing.JTextField();
+        cbxGS = new javax.swing.JComboBox();
+        chkPaqGlobular = new javax.swing.JCheckBox();
+        chkPlasma = new javax.swing.JCheckBox();
+        chkPlaquetas = new javax.swing.JCheckBox();
+        jLabel10 = new javax.swing.JLabel();
+        cbxMedico = new javax.swing.JComboBox();
+        txtMedico = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,62 +135,62 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
             }
         });
 
-        btneditar.setForeground(new java.awt.Color(240, 240, 240));
-        btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
-        btneditar.setMnemonic('N');
-        btneditar.setContentAreaFilled(false);
-        btneditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btneditar.setEnabled(false);
-        btneditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btneditar.setIconTextGap(30);
-        btneditar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btneditar.addActionListener(new java.awt.event.ActionListener() {
+        btnModificar.setForeground(new java.awt.Color(240, 240, 240));
+        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
+        btnModificar.setMnemonic('N');
+        btnModificar.setContentAreaFilled(false);
+        btnModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnModificar.setEnabled(false);
+        btnModificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnModificar.setIconTextGap(30);
+        btnModificar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditarActionPerformed(evt);
+                btnModificarActionPerformed(evt);
             }
         });
 
-        btnguardar.setForeground(new java.awt.Color(240, 240, 240));
-        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
-        btnguardar.setMnemonic('N');
-        btnguardar.setContentAreaFilled(false);
-        btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnguardar.setEnabled(false);
-        btnguardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnguardar.setIconTextGap(30);
-        btnguardar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setForeground(new java.awt.Color(240, 240, 240));
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
+        btnGuardar.setMnemonic('N');
+        btnGuardar.setContentAreaFilled(false);
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar.setEnabled(false);
+        btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGuardar.setIconTextGap(30);
+        btnGuardar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardarActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
-        btneliminar.setForeground(new java.awt.Color(240, 240, 240));
-        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Basura-32.png"))); // NOI18N
-        btneliminar.setMnemonic('N');
-        btneliminar.setContentAreaFilled(false);
-        btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btneliminar.setEnabled(false);
-        btneliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btneliminar.setIconTextGap(30);
-        btneliminar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setForeground(new java.awt.Color(240, 240, 240));
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Basura-32.png"))); // NOI18N
+        btnEliminar.setMnemonic('N');
+        btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.setEnabled(false);
+        btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEliminar.setIconTextGap(30);
+        btnEliminar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneliminarActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
 
-        btnbuscar.setForeground(new java.awt.Color(240, 240, 240));
-        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-        btnbuscar.setMnemonic('N');
-        btnbuscar.setContentAreaFilled(false);
-        btnbuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnbuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnbuscar.setIconTextGap(30);
-        btnbuscar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setForeground(new java.awt.Color(240, 240, 240));
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
+        btnBuscar.setMnemonic('N');
+        btnBuscar.setContentAreaFilled(false);
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBuscar.setIconTextGap(30);
+        btnBuscar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbuscarActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
@@ -138,6 +198,8 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         lblusu.setForeground(new java.awt.Color(255, 255, 255));
         lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
         lblusu.setText("Usuario");
+
+        lblMant.setText("Mant");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -149,14 +211,16 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblMant)
+                        .addGap(145, 145, 145)
                         .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -171,70 +235,75 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                     .addComponent(lblusu)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(23, 23, 23)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btneditar, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btneliminar)
-                                .addComponent(btnbuscar))
-                            .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnguardar, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnModificar, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btnEliminar)
+                                        .addComponent(btnBuscar))
+                                    .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(lblMant)))))
                 .addGap(552, 552, 552))
         );
 
-        cargareliminar.setBackground(new java.awt.Color(255, 153, 51));
+        pnlMensaje.setBackground(new java.awt.Color(255, 153, 51));
 
-        Mensaje.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Mensaje.setForeground(new java.awt.Color(255, 255, 255));
-        Mensaje.setText("Mensaje");
+        lblMensaje.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblMensaje.setForeground(new java.awt.Color(255, 255, 255));
+        lblMensaje.setText("Mensaje");
 
-        eli.setForeground(new java.awt.Color(240, 240, 240));
-        eli.setText("Si");
-        eli.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        eli.setContentAreaFilled(false);
-        eli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        eli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        eli.setIconTextGap(30);
-        eli.addActionListener(new java.awt.event.ActionListener() {
+        btnSi.setForeground(new java.awt.Color(240, 240, 240));
+        btnSi.setText("Si");
+        btnSi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnSi.setContentAreaFilled(false);
+        btnSi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSi.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSi.setIconTextGap(30);
+        btnSi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliActionPerformed(evt);
+                btnSiActionPerformed(evt);
             }
         });
 
-        noeli.setForeground(new java.awt.Color(240, 240, 240));
-        noeli.setText("No");
-        noeli.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        noeli.setContentAreaFilled(false);
-        noeli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        noeli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        noeli.setIconTextGap(30);
-        noeli.addActionListener(new java.awt.event.ActionListener() {
+        btnNo.setForeground(new java.awt.Color(240, 240, 240));
+        btnNo.setText("No");
+        btnNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnNo.setContentAreaFilled(false);
+        btnNo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNo.setIconTextGap(30);
+        btnNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                noeliActionPerformed(evt);
+                btnNoActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout cargareliminarLayout = new javax.swing.GroupLayout(cargareliminar);
-        cargareliminar.setLayout(cargareliminarLayout);
-        cargareliminarLayout.setHorizontalGroup(
-            cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cargareliminarLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlMensajeLayout = new javax.swing.GroupLayout(pnlMensaje);
+        pnlMensaje.setLayout(pnlMensajeLayout);
+        pnlMensajeLayout.setHorizontalGroup(
+            pnlMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMensajeLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(Mensaje)
+                .addComponent(lblMensaje)
                 .addGap(46, 46, 46)
-                .addComponent(eli, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSi, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(noeli, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        cargareliminarLayout.setVerticalGroup(
-            cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cargareliminarLayout.createSequentialGroup()
+        pnlMensajeLayout.setVerticalGroup(
+            pnlMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMensajeLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(cargareliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Mensaje)
-                    .addComponent(eli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(noeli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMensaje)
+                    .addComponent(btnSi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -308,18 +377,75 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Edad");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 153, 102));
         jLabel5.setText("Acto Médico");
 
-        lblActoMedico.setText("jLabel6");
+        lblActoMedico.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblActoMedico.setForeground(new java.awt.Color(0, 153, 102));
+        lblActoMedico.setText("Acto");
 
+        lblEdad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblEdad.setText("jLabel7");
 
+        lblApeNom.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblApeNom.setText("jLabel8");
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setText("Cantidad");
+
+        txtCantidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setText("Donantes");
+
+        txtDonantes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setText("Hematocrito");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel6.setText("Donar______________________________________________________________________________________________________________________________");
+        jLabel6.setText("Donar_____________________________________________________________________________________________________________________");
+
+        txtHematocrito.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setText("Grupo Sanguíneo");
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel12.setText("RH");
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setText("Hemoglobina");
+
+        txtRH.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txtHemoglobina.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        cbxGS.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbxGS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione" }));
+
+        chkPaqGlobular.setBackground(new java.awt.Color(255, 255, 255));
+        chkPaqGlobular.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        chkPaqGlobular.setText("Paquete Globular");
+
+        chkPlasma.setBackground(new java.awt.Color(255, 255, 255));
+        chkPlasma.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        chkPlasma.setText("Plasma");
+
+        chkPlaquetas.setBackground(new java.awt.Color(255, 255, 255));
+        chkPlaquetas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        chkPlaquetas.setText("Plaquetas");
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel10.setText("Médico");
+
+        cbxMedico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbxMedico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione..." }));
+
+        txtMedico.setEditable(false);
+        txtMedico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -329,27 +455,61 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCantidad)
+                            .addComponent(txtDonantes, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(txtHematocrito))
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtRH)
+                            .addComponent(txtHemoglobina, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(cbxGS, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkPaqGlobular)
+                            .addComponent(chkPlasma)
+                            .addComponent(chkPlaquetas))
+                        .addGap(70, 70, 70))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblApeNom, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
-                                .addComponent(lblApeNom))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEdad)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(32, 32, 32)
-                                .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblActoMedico))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblEdad))))
-                    .addComponent(jLabel6))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbxMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,9 +527,44 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(lblEdad)
                     .addComponent(lblApeNom))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(7, 7, 7)
                 .addComponent(jLabel6)
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtDonantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(txtHematocrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel11)
+                                .addComponent(cbxGS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(chkPaqGlobular, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtRH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)
+                            .addComponent(chkPlasma))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(txtHemoglobina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkPlaquetas))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(cbxMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -377,7 +572,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -388,62 +583,69 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(cargareliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-
+        try {
+            limpiar();
+            habilitarCampos(true);
+            btnGuardar.setEnabled(true);
+            btnModificar.setEnabled(true);
+            btnEliminar.setEnabled(true);
+            lblMant.setText("I");
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
-    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 
-    }//GEN-LAST:event_btneditarActionPerformed
+    }//GEN-LAST:event_btnModificarActionPerformed
 
-    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
-    }//GEN-LAST:event_btnguardarActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
-    }//GEN-LAST:event_btneliminarActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        pnlMensaje.setVisible(true);
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
-    }//GEN-LAST:event_btnbuscarActionPerformed
+    private void btnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiActionPerformed
 
-    private void eliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliActionPerformed
+    }//GEN-LAST:event_btnSiActionPerformed
 
-    }//GEN-LAST:event_eliActionPerformed
+    private void btnNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoActionPerformed
 
-    private void noeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noeliActionPerformed
+    }//GEN-LAST:event_btnNoActionPerformed
 
-    }//GEN-LAST:event_noeliActionPerformed
+    private void btnPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPacienteMouseClicked
 
-    private void txtNhcCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtNhcCaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNhcCaretUpdate
-
-    private void txtNhcMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNhcMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNhcMouseClicked
-
-    private void txtNhcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNhcActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNhcActionPerformed
+    }//GEN-LAST:event_btnPacienteMouseClicked
 
     private void txtNhcKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNhcKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNhcKeyPressed
 
-    private void btnPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPacienteMouseClicked
-      
-    }//GEN-LAST:event_btnPacienteMouseClicked
+    private void txtNhcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNhcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNhcActionPerformed
+
+    private void txtNhcMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNhcMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNhcMouseClicked
+
+    private void txtNhcCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtNhcCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNhcCaretUpdate
 
     /**
      * @param args the command line arguments
@@ -481,29 +683,48 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Mensaje;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnNo;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JLabel btnPaciente;
-    private javax.swing.JButton btnbuscar;
-    private javax.swing.JButton btneditar;
-    private javax.swing.JButton btneliminar;
-    private javax.swing.JButton btnguardar;
-    private javax.swing.JPanel cargareliminar;
-    private javax.swing.JButton eli;
+    private javax.swing.JButton btnSi;
+    private javax.swing.JComboBox cbxGS;
+    private javax.swing.JComboBox cbxMedico;
+    private javax.swing.JCheckBox chkPaqGlobular;
+    private javax.swing.JCheckBox chkPlaquetas;
+    private javax.swing.JCheckBox chkPlasma;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JLabel lblActoMedico;
     private javax.swing.JLabel lblApeNom;
     private javax.swing.JLabel lblEdad;
+    private javax.swing.JLabel lblMant;
+    private javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblusu;
-    private javax.swing.JButton noeli;
-    public static javax.swing.JTextField txtNhc;
+    private javax.swing.JPanel pnlMensaje;
+    private javax.swing.JTextField txtCantidad;
+    private javax.swing.JTextField txtDonantes;
+    private javax.swing.JTextField txtHematocrito;
+    private javax.swing.JTextField txtHemoglobina;
+    private javax.swing.JTextField txtMedico;
+    private javax.swing.JTextField txtNhc;
+    private javax.swing.JTextField txtRH;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,6 +17,7 @@ public class FormatoTablaMovHC extends DefaultTableCellRenderer{
         //if(table.getValueAt(row, 6).equals("Salida")){
             //componente.setBackground(new Color(255,85,64));
         //}
+        
         if(table.getValueAt(row, 13).equals("S")){
             componente.setBackground(new Color(248,151,131));
         } else

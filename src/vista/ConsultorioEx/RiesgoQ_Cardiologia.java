@@ -2230,7 +2230,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                 pnlMensaje.setBackground(new Color(255,91,70));
             } else {
                 pnlMensaje.setVisible(true);
-                lblMensaje.setText("¿Guardar los datos?");
+                lblMensaje.setText("¿Modificar los datos?");
                 btnSi.setText("Si");
                 btnSi.setVisible(true);
                 btnNo.setVisible(true);

@@ -5,6 +5,13 @@
  */
 package vista.ConsultorioEx;
 
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import modelos.admisionEmergencia.AdmisionEmergenciaTriaje;
+
 /**
  *
  * @author PC02
@@ -16,12 +23,41 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
      */
     public SolicitudDepositoSangre() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setLocationRelativeTo(null);
+        this.getContentPane().setBackground(Color.WHITE);
+        //BOTON CERRAR
+        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
+        // BOTON ESCAPE (ESC)
+        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e)
+            {
+                dispose();
+            }
+        });
+        cerrar();
         txtMedico.setVisible(false);
         cbxMedico.setVisible(true);
         habilitarCampos(false);
         pnlMensaje.setVisible(false);
     }
-
+    
+    public void cerrar (){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e){
+                    dispose();
+                }
+});
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void limpiar(){
         txtNhc.setText("");
         lblActoMedico.setText("");
@@ -59,6 +95,309 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         btnPaciente.setEnabled(opcion);
     }
     
+    public void enviarDatosPaciente(){
+        int fila = tbPacientes.getSelectedRow();
+        SolicitudDepositoSangre.lblActoMedico.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
+        SolicitudDepositoSangre.txtNhc.setText(String.valueOf(tbPacientes.getValueAt(fila, 3)));
+        SolicitudDepositoSangre.lblApeNom.setText(String.valueOf(tbPacientes.getValueAt(fila, 4)));
+        SolicitudDepositoSangre.lblEdad.setText(String.valueOf(tbPacientes.getValueAt(fila, 5)));
+        SolicitudDepositoSangre.lblHc.setText(String.valueOf(tbPacientes.getValueAt(fila, 13)));
+        FrmPacientes.dispose();
+    }
+    
+//    public boolean guardarDatos(){
+//        boolean retorna = false;
+//        try {
+//            AdmisionEmergenciaCabecera adEmerCab5 = new AdmisionEmergenciaCabecera();
+//            ConsultorioExRiesgoQuirurgico consultorio3 = new ConsultorioExRiesgoQuirurgico();
+//            consultorio3.setAr_id(Integer.parseInt(lblArea.getText()));
+//            consultorio3.setProcedencia(Integer.parseInt(consultorio3.areaID(cbxProcedencia.getSelectedItem().toString())));
+//            consultorio3.setEx_fisico(txtExamenFisico.getText());
+//            consultorio3.setQx(txtQxAnteriores.getText());
+//            consultorio3.setOtros(txtOtros.getText());
+//            consultorio3.setSint_otros(txtOtrosSintomas.getText());
+//            consultorio3.setDesc(txtRq.getText());
+//            consultorio3.setSugerencia(txtSugerencia.getText());
+//            consultorio3.setUsuario(adEmerCab5.codUsuario(lblusu.getText()));
+//            consultorio3.setId_triaje(lblTriaje.getText());
+//            consultorio3.setCod_per(consultorio3.medicoID(cbxMedico.getSelectedItem().toString()));
+//            //
+//            if(chkHta.isSelected())
+//                consultorio3.setHta("X");
+//            else
+//                consultorio3.setHta("");
+//            //
+//            if(chkDm.isSelected())
+//                consultorio3.setDm("X");
+//            else
+//                consultorio3.setDm("");
+//            //
+//            if(chkEnfRenal.isSelected())
+//                consultorio3.setRenal("X");
+//            else
+//                consultorio3.setRenal("");
+//            //
+//            if(chkDisnea.isSelected())
+//                consultorio3.setDisnea("X");
+//            else
+//                consultorio3.setDisnea("");
+//            //
+//            if(chkPalpitaciones.isSelected())
+//                consultorio3.setPalpit("X");
+//            else
+//                consultorio3.setPalpit("");
+//            //
+//            if(chkTos.isSelected())
+//                consultorio3.setTos("X");
+//            else
+//                consultorio3.setTos("");
+//            //
+//            if(cbxAlergia.getSelectedItem().equals("SI"))
+//                consultorio3.setAlergia("X");
+//            else
+//                consultorio3.setAlergia("");
+//            //
+//            if(guardarPreventa()==true){
+//            int id = Integer.parseInt(consultorio3.preventaID());
+//            consultorio3.setPreventa(id);
+//                if(consultorio3.mantenimientoConsultorioExRQ(lblMant.getText())==true){
+//                    if(tbDiagnostico.getRowCount()!=0 && tbCpt.getRowCount()!=0){
+//                        if(guardarDiagnostico(Integer.parseInt(consultorio3.rqID()))&& guardarNomenclatura(id)){
+//                            pnlMensaje.setVisible(true);
+//                            lblMensaje.setText("Datos guardados de forma correcta");
+//                            limpiar();
+//                            habilitarCampos(false);
+//                            btnGuardar.setEnabled(false);
+//                            pnlMensaje.setBackground(new Color(33,115,70));
+//                            btnSi.setVisible(true);
+//                            btnSi.setText("OK");
+//                            btnNo.setVisible(false);
+//                        } else {
+//                            pnlMensaje.setVisible(true);
+//                            lblMensaje.setText("Ocurrió un error, verifique");
+//                            pnlMensaje.setBackground(new Color(255,91,70));
+//                            btnSi.setVisible(false);
+//                            btnNo.setVisible(false);
+//                        }
+//                    } else
+//                    if(tbDiagnostico.getRowCount()==0 && tbCpt.getRowCount()!=0){
+//                        if(guardarNomenclatura(id)){
+//                            pnlMensaje.setVisible(true);
+//                            lblMensaje.setText("Datos guardados de forma correcta");
+//                            limpiar();
+//                            habilitarCampos(false);
+//                            btnGuardar.setEnabled(false);
+//                            pnlMensaje.setBackground(new Color(33,115,70));
+//                            btnSi.setVisible(true);
+//                            btnSi.setText("OK");
+//                            btnNo.setVisible(false);
+//                        } else {
+//                            pnlMensaje.setVisible(true);
+//                            lblMensaje.setText("Ocurrió un error, verifique");
+//                            pnlMensaje.setBackground(new Color(255,91,70));
+//                            btnSi.setVisible(false);
+//                            btnNo.setVisible(false);
+//                        }
+//                    } else
+//                    if(tbDiagnostico.getRowCount()!=0 && tbCpt.getRowCount()==0){
+//                        if(guardarDiagnostico(Integer.parseInt(consultorio3.rqID()))){
+//                            pnlMensaje.setVisible(true);
+//                            lblMensaje.setText("Datos guardados de forma correcta");
+//                            limpiar();
+//                            habilitarCampos(false);
+//                            btnGuardar.setEnabled(false);
+//                            pnlMensaje.setBackground(new Color(33,115,70));
+//                            btnSi.setVisible(true);
+//                            btnSi.setText("OK");
+//                            btnNo.setVisible(false);
+//                        } else {
+//                            pnlMensaje.setVisible(true);
+//                            lblMensaje.setText("Ocurrió un error, verifique");
+//                            pnlMensaje.setBackground(new Color(255,91,70));
+//                            btnSi.setVisible(false);
+//                            btnNo.setVisible(false);
+//                        }
+//                    } else
+//                    if(tbDiagnostico.getRowCount()==0 && tbCpt.getRowCount()==0){
+//                        pnlMensaje.setVisible(true);
+//                        lblMensaje.setText("Datos guardados de forma correcta");
+//                        limpiar();
+//                        habilitarCampos(false);
+//                        btnGuardar.setEnabled(false);
+//                        pnlMensaje.setBackground(new Color(33,115,70));
+//                        btnSi.setVisible(true);
+//                        btnSi.setText("OK");
+//                        btnNo.setVisible(false);
+//                    } 
+//                }
+//            } else {
+//                pnlMensaje.setVisible(true);
+//                lblMensaje.setText("Ocurrió un error, verifique");
+//                pnlMensaje.setBackground(new Color(255,91,70));
+//                btnSi.setVisible(false);
+//                btnNo.setVisible(false);
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Error: guardarDatos" + e.getMessage());
+//        }
+//        return retorna;
+//    }
+//    
+//    public boolean modificarDatos(){
+//        boolean retorna = false;
+//        try {
+//            ConsultorioExRiesgoQuirurgico consultorio3 = new ConsultorioExRiesgoQuirurgico();
+//            consultorio3.setId(Integer.parseInt(txtId.getText()));
+//            consultorio3.setAr_id(Integer.parseInt(lblArea.getText()));
+//            consultorio3.setProcedencia(Integer.parseInt(consultorio3.areaID(cbxProcedencia.getSelectedItem().toString())));
+//            consultorio3.setEx_fisico(txtExamenFisico.getText());
+//            consultorio3.setQx(txtQxAnteriores.getText());
+//            consultorio3.setOtros(txtOtros.getText());
+//            consultorio3.setSint_otros(txtOtrosSintomas.getText());
+//            consultorio3.setDesc(txtRq.getText());
+//            consultorio3.setSugerencia(txtSugerencia.getText());
+//            consultorio3.setPreventa(Integer.parseInt(lblPreventa.getText()));
+//            //
+//            if(chkHta.isSelected())
+//                consultorio3.setHta("X");
+//            else
+//                consultorio3.setHta("");
+//            //
+//            if(chkDm.isSelected())
+//                consultorio3.setDm("X");
+//            else
+//                consultorio3.setDm("");
+//            //
+//            if(chkEnfRenal.isSelected())
+//                consultorio3.setRenal("X");
+//            else
+//                consultorio3.setRenal("");
+//            //
+//            if(chkDisnea.isSelected())
+//                consultorio3.setDisnea("X");
+//            else
+//                consultorio3.setDisnea("");
+//            //
+//            if(chkPalpitaciones.isSelected())
+//                consultorio3.setPalpit("X");
+//            else
+//                consultorio3.setPalpit("");
+//            //
+//            if(chkTos.isSelected())
+//                consultorio3.setTos("X");
+//            else
+//                consultorio3.setTos("");
+//            //
+//            if(cbxAlergia.getSelectedItem().equals("SI"))
+//                consultorio3.setAlergia("X");
+//            else
+//                consultorio3.setAlergia("");
+//            //
+//                if(consultorio3.mantenimientoConsultorioExRQ(lblMant.getText())==true){
+//                    pnlMensaje.setVisible(true);
+//                    lblMensaje.setText("Datos guardados de forma correcta");
+//                    if(tbDiagnostico.getRowCount()!=0 && tbCpt.getRowCount()!=0){
+//                        if(guardarDiagnostico(Integer.parseInt(txtId.getText()))&& guardarNomenclatura(Integer.parseInt(lblPreventa.getText()))){
+//                            pnlMensaje.setVisible(true);
+//                            lblMensaje.setText("Datos guardados de forma correcta");
+//                            limpiar();
+//                            habilitarCampos(false);
+//                            btnGuardar.setEnabled(false);
+//                            pnlMensaje.setBackground(new Color(33,115,70));
+//                            btnSi.setVisible(true);
+//                            btnSi.setText("OK");
+//                            btnNo.setVisible(false);
+//                            txtMedico.setVisible(false);
+//                            cbxMedico.setVisible(true);
+//                        } else {
+//                            pnlMensaje.setVisible(true);
+//                            lblMensaje.setText("Ocurrió un error, verifique");
+//                            pnlMensaje.setBackground(new Color(255,91,70));
+//                            btnSi.setVisible(false);
+//                            btnNo.setVisible(false);
+//                        }
+//                    } else
+//                    if(tbDiagnostico.getRowCount()==0 && tbCpt.getRowCount()!=0){
+//                        if(guardarNomenclatura(Integer.parseInt(lblPreventa.getText()))){
+//                            pnlMensaje.setVisible(true);
+//                            lblMensaje.setText("Datos guardados de forma correcta");
+//                            limpiar();
+//                            habilitarCampos(false);
+//                            btnGuardar.setEnabled(false);
+//                            pnlMensaje.setBackground(new Color(33,115,70));
+//                            btnSi.setVisible(true);
+//                            btnSi.setText("OK");
+//                            btnNo.setVisible(false);
+//                        } else {
+//                            pnlMensaje.setVisible(true);
+//                            lblMensaje.setText("Ocurrió un error, verifique");
+//                            pnlMensaje.setBackground(new Color(255,91,70));
+//                            btnSi.setVisible(false);
+//                            btnNo.setVisible(false);
+//                        }
+//                    } else
+//                    if(tbDiagnostico.getRowCount()!=0 && tbCpt.getRowCount()==0){
+//                        if(guardarDiagnostico(Integer.parseInt(txtId.getText()))){
+//                            pnlMensaje.setVisible(true);
+//                            lblMensaje.setText("Datos guardados de forma correcta");
+//                            limpiar();
+//                            habilitarCampos(false);
+//                            btnGuardar.setEnabled(false);
+//                            pnlMensaje.setBackground(new Color(33,115,70));
+//                            btnSi.setVisible(true);
+//                            btnSi.setText("OK");
+//                            btnNo.setVisible(false);
+//                        } else {
+//                            pnlMensaje.setVisible(true);
+//                            lblMensaje.setText("Ocurrió un error, verifique");
+//                            pnlMensaje.setBackground(new Color(255,91,70));
+//                            btnSi.setVisible(false);
+//                            btnNo.setVisible(false);
+//                        }
+//                    } else
+//                    if(tbDiagnostico.getRowCount()==0 && tbCpt.getRowCount()==0){
+//                        pnlMensaje.setVisible(true);
+//                        lblMensaje.setText("Datos guardados de forma correcta");
+//                        limpiar();
+//                        habilitarCampos(false);
+//                        btnGuardar.setEnabled(false);
+//                        pnlMensaje.setBackground(new Color(33,115,70));
+//                        btnSi.setVisible(true);
+//                        btnSi.setText("OK");
+//                        btnNo.setVisible(false);
+//                    } 
+//                } else {
+//                    pnlMensaje.setVisible(true);
+//                     lblMensaje.setText("error");
+//                }
+//        } catch (Exception e) {
+//            System.out.println("Error: modificarDatos" + e.getMessage());
+//        }
+//        return retorna;
+//    }
+//    
+//    public void eliminarDatos(){
+//        ConsultorioExRiesgoQuirurgico consultorio3 = new ConsultorioExRiesgoQuirurgico();
+//            consultorio3.setId(Integer.parseInt(txtId.getText()));
+//            if(consultorio3.mantenimientoConsultorioExRQ("E")){
+//                pnlMensaje.setVisible(true);
+//                lblMensaje.setText("Datos guardados de forma correcta");
+//                limpiar();
+//                habilitarCampos(false);
+//                btnGuardar.setEnabled(false);
+//                pnlMensaje.setBackground(new Color(33,115,70));
+//                btnSi.setVisible(true);
+//                btnSi.setText("OK");
+//                btnNo.setVisible(false);
+//            } else{
+//                pnlMensaje.setVisible(true);
+//                lblMensaje.setText("Ocurrió un error, verifique");
+//                pnlMensaje.setBackground(new Color(255,91,70));
+//                btnSi.setVisible(false);
+//                btnNo.setVisible(false);
+//            }
+//    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,6 +407,14 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        FrmPacientes = new javax.swing.JDialog();
+        jPanel17 = new javax.swing.JPanel();
+        titulo8 = new javax.swing.JLabel();
+        jScrollPane25 = new javax.swing.JScrollPane();
+        tbPacientes = new javax.swing.JTable();
+        txtBuscarPaciente = new javax.swing.JTextField();
+        btnBuscarPaciente = new javax.swing.JButton();
+        jLabel37 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
@@ -77,6 +424,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         lblusu = new javax.swing.JLabel();
         lblMant = new javax.swing.JLabel();
+        lblHc = new javax.swing.JLabel();
         pnlMensaje = new javax.swing.JPanel();
         lblMensaje = new javax.swing.JLabel();
         btnSi = new javax.swing.JButton();
@@ -111,6 +459,100 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         cbxMedico = new javax.swing.JComboBox();
         txtMedico = new javax.swing.JTextField();
+
+        FrmPacientes.setAlwaysOnTop(true);
+        FrmPacientes.setMinimumSize(new java.awt.Dimension(739, 450));
+
+        jPanel17.setBackground(new java.awt.Color(0, 153, 102));
+        jPanel17.setPreferredSize(new java.awt.Dimension(500, 65));
+        jPanel17.setLayout(null);
+
+        titulo8.setBackground(new java.awt.Color(153, 0, 51));
+        titulo8.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        titulo8.setForeground(new java.awt.Color(255, 255, 255));
+        titulo8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        titulo8.setText("Pacientes");
+        titulo8.setToolTipText("");
+        titulo8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel17.add(titulo8);
+        titulo8.setBounds(10, 10, 180, 41);
+
+        jScrollPane25.setBorder(null);
+        jScrollPane25.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane25.setToolTipText("");
+        jScrollPane25.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane25.setOpaque(false);
+
+        tbPacientes = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
+        tbPacientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbPacientes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbPacientes.setSelectionBackground(new java.awt.Color(0, 153, 102));
+        tbPacientes.getTableHeader().setReorderingAllowed(false);
+        tbPacientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbPacientesMouseClicked(evt);
+            }
+        });
+        tbPacientes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbPacientesKeyPressed(evt);
+            }
+        });
+        jScrollPane25.setViewportView(tbPacientes);
+
+        jPanel17.add(jScrollPane25);
+        jScrollPane25.setBounds(0, 110, 735, 313);
+
+        txtBuscarPaciente.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscarPacienteCaretUpdate(evt);
+            }
+        });
+        txtBuscarPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarPacienteKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarPacienteKeyReleased(evt);
+            }
+        });
+        jPanel17.add(txtBuscarPaciente);
+        txtBuscarPaciente.setBounds(10, 60, 230, 30);
+
+        btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Buscar-32.png"))); // NOI18N
+        btnBuscarPaciente.setBorderPainted(false);
+        btnBuscarPaciente.setContentAreaFilled(false);
+        btnBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel17.add(btnBuscarPaciente);
+        btnBuscarPaciente.setBounds(240, 60, 30, 30);
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("Acto Médico/Nº H.C. / DNI / Apellidos y Nombres");
+        jPanel17.add(jLabel37);
+        jLabel37.setBounds(10, 90, 230, 14);
+
+        javax.swing.GroupLayout FrmPacientesLayout = new javax.swing.GroupLayout(FrmPacientes.getContentPane());
+        FrmPacientes.getContentPane().setLayout(FrmPacientesLayout);
+        FrmPacientesLayout.setHorizontalGroup(
+            FrmPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)
+        );
+        FrmPacientesLayout.setVerticalGroup(
+            FrmPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -201,6 +643,8 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
 
         lblMant.setText("Mant");
 
+        lblHc.setText("Hc");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -219,6 +663,8 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblHc)
+                        .addGap(57, 57, 57)
                         .addComponent(lblMant)
                         .addGap(145, 145, 145)
                         .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -247,7 +693,9 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                                     .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
-                                .addComponent(lblMant)))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblMant)
+                                    .addComponent(lblHc))))))
                 .addGap(552, 552, 552))
         );
 
@@ -424,7 +872,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         txtHemoglobina.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         cbxGS.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbxGS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione" }));
+        cbxGS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "1" }));
 
         chkPaqGlobular.setBackground(new java.awt.Color(255, 255, 255));
         chkPaqGlobular.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -442,7 +890,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         jLabel10.setText("Médico");
 
         cbxMedico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbxMedico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione..." }));
+        cbxMedico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione...", "1" }));
 
         txtMedico.setEditable(false);
         txtMedico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -608,7 +1056,44 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-
+        if(lblMant.getText().equals("I")){
+            if(txtNhc.getText().equals("") || txtCantidad.getText().equals("") || txtDonantes.getText().equals("")
+               || txtHematocrito.getText().equals("") || cbxMedico.getSelectedIndex()==0 || cbxGS.getSelectedIndex()==0
+               || txtRH.getText().equals("") || txtHemoglobina.getText().equals("") || chkPaqGlobular.isSelected()==false
+                    && chkPlaquetas.isSelected()==false && chkPlasma.isSelected()==false){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Verifique, que los datos estén correctos");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else {
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("¿Guardar los datos?");
+                btnSi.setText("Si");
+                btnSi.setVisible(true);
+                btnNo.setVisible(true);
+                pnlMensaje.setBackground(new Color(255,153,51));
+            }
+        } else 
+        if(lblMant.getText().equals("U")){
+            if(txtNhc.getText().equals("") || txtCantidad.getText().equals("") || txtDonantes.getText().equals("")
+               || txtHematocrito.getText().equals("") || cbxMedico.getSelectedIndex()==0 || cbxGS.getSelectedIndex()==0
+               || txtRH.getText().equals("") || txtHemoglobina.getText().equals("") || chkPaqGlobular.isSelected()==false
+                    && chkPlaquetas.isSelected()==false && chkPlasma.isSelected()==false){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Verifique, que los datos estén correctos");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else {
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("¿Modificar los datos?");
+                btnSi.setText("Si");
+                btnSi.setVisible(true);
+                btnNo.setVisible(true);
+                pnlMensaje.setBackground(new Color(255,153,51));
+            }
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -620,7 +1105,20 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiActionPerformed
-
+        if(btnSi.getText().equals("Si")){ // Al guardar
+            if(lblMant.getText().equals("I")){
+//                guardarDatos();
+            } else 
+            if(lblMant.getText().equals("U")){
+//                modificarDatos();
+            }
+            if(lblMant.getText().equals("E")){
+//                eliminarDatos();
+            }
+        } else
+        if(btnSi.getText().equals("OK")){ // Al hacer OK hacerloinvisible
+            pnlMensaje.setVisible(false);
+        }
     }//GEN-LAST:event_btnSiActionPerformed
 
     private void btnNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoActionPerformed
@@ -628,7 +1126,12 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNoActionPerformed
 
     private void btnPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPacienteMouseClicked
-
+        FrmPacientes.setVisible(true);
+        FrmPacientes.setLocationRelativeTo(null);//en el centro
+        FrmPacientes.setResizable(false);
+        FrmPacientes.getContentPane().setBackground(Color.WHITE);
+        AdmisionEmergenciaTriaje triaje1 = new AdmisionEmergenciaTriaje();
+        triaje1.consultorioExListar(txtBuscarPaciente.getText(), "Q", tbPacientes);
     }//GEN-LAST:event_btnPacienteMouseClicked
 
     private void txtNhcKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNhcKeyPressed
@@ -646,6 +1149,39 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     private void txtNhcCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtNhcCaretUpdate
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNhcCaretUpdate
+
+    private void tbPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPacientesMouseClicked
+        if(evt.getClickCount()==2){
+            enviarDatosPaciente();
+        }
+    }//GEN-LAST:event_tbPacientesMouseClicked
+
+    private void tbPacientesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPacientesKeyPressed
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_UP && tbPacientes.getSelectedRow()==0){
+            txtBuscarPaciente.requestFocus();
+            tbPacientes.getSelectionModel().setSelectionInterval(0,0);
+        }
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_ENTER){
+            enviarDatosPaciente();
+        }
+    }//GEN-LAST:event_tbPacientesKeyPressed
+
+    private void txtBuscarPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPacienteCaretUpdate
+        AdmisionEmergenciaTriaje triaje1 = new AdmisionEmergenciaTriaje();
+        triaje1.consultorioExListar(txtBuscarPaciente.getText(), "Q", tbPacientes);
+    }//GEN-LAST:event_txtBuscarPacienteCaretUpdate
+
+    private void txtBuscarPacienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPacienteKeyPressed
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
+            tbPacientes.getSelectionModel().setSelectionInterval(0, 0);
+            tbPacientes.requestFocus();
+        }
+    }//GEN-LAST:event_txtBuscarPacienteKeyPressed
+
+    private void txtBuscarPacienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPacienteKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarPacienteKeyReleased
 
     /**
      * @param args the command line arguments
@@ -683,7 +1219,9 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog FrmPacientes;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarPaciente;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
@@ -691,11 +1229,11 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     private javax.swing.JButton btnNuevo;
     private javax.swing.JLabel btnPaciente;
     private javax.swing.JButton btnSi;
-    private javax.swing.JComboBox cbxGS;
-    private javax.swing.JComboBox cbxMedico;
-    private javax.swing.JCheckBox chkPaqGlobular;
-    private javax.swing.JCheckBox chkPlaquetas;
-    private javax.swing.JCheckBox chkPlasma;
+    public static javax.swing.JComboBox cbxGS;
+    public static javax.swing.JComboBox cbxMedico;
+    public static javax.swing.JCheckBox chkPaqGlobular;
+    public static javax.swing.JCheckBox chkPlaquetas;
+    public static javax.swing.JCheckBox chkPlasma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -703,6 +1241,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -710,21 +1249,27 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel29;
-    private javax.swing.JLabel lblActoMedico;
-    private javax.swing.JLabel lblApeNom;
-    private javax.swing.JLabel lblEdad;
+    private javax.swing.JScrollPane jScrollPane25;
+    public static javax.swing.JLabel lblActoMedico;
+    public static javax.swing.JLabel lblApeNom;
+    public static javax.swing.JLabel lblEdad;
+    public static javax.swing.JLabel lblHc;
     private javax.swing.JLabel lblMant;
     private javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblusu;
     private javax.swing.JPanel pnlMensaje;
-    private javax.swing.JTextField txtCantidad;
-    private javax.swing.JTextField txtDonantes;
-    private javax.swing.JTextField txtHematocrito;
-    private javax.swing.JTextField txtHemoglobina;
-    private javax.swing.JTextField txtMedico;
-    private javax.swing.JTextField txtNhc;
-    private javax.swing.JTextField txtRH;
+    private javax.swing.JTable tbPacientes;
+    private javax.swing.JLabel titulo8;
+    private javax.swing.JTextField txtBuscarPaciente;
+    public static javax.swing.JTextField txtCantidad;
+    public static javax.swing.JTextField txtDonantes;
+    public static javax.swing.JTextField txtHematocrito;
+    public static javax.swing.JTextField txtHemoglobina;
+    public static javax.swing.JTextField txtMedico;
+    public static javax.swing.JTextField txtNhc;
+    public static javax.swing.JTextField txtRH;
     // End of variables declaration//GEN-END:variables
 }

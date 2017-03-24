@@ -48,6 +48,15 @@ public class Caja_Preventa {
     private String EMER_OBSERVACION;
     private String ESTADO_CAJAP;
     private String cod_nomen;
+    private String paq_globular;
+    private String plasma;
+    private String plaquetas;
+    private int cantidad;
+    private int donantes;
+    private String hematocrito;
+    private String grupo_sang;
+    private String rh;
+    private String hemoglobina;
 
     private String cod_jerar_forma_pago;
 
@@ -110,6 +119,42 @@ public class Caja_Preventa {
         catch(Exception ex)
         {
             System.out.println("mantenimientoCajaPreventaHospitalizacion: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean mantanimientoCajaPreventaCExDepSangre(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_CONSULT_EXT "
+                        + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+            cmd.setString(2, getId_hc());
+            cmd.setInt(3, getAR_ID());
+            cmd.setString(4, getPaq_globular());
+            cmd.setString(5, getPlasma());
+            cmd.setString(6, getPlaquetas());
+            cmd.setInt(7, getCantidad());
+            cmd.setInt(8, getDonantes());
+            cmd.setString(9, getHematocrito());
+            cmd.setString(10, getGrupo_sang());
+            cmd.setString(11, getRh());
+            cmd.setString(12, getHemoglobina());
+            cmd.setString(13, getCod_usu());
+            cmd.setString(14, getCod_medico());
+            cmd.setString(15, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("mantanimientoCajaPreventaCExDepSangre: " + ex.getMessage());
         }
         return resp;
     }
@@ -890,6 +935,132 @@ public class Caja_Preventa {
      */
     public void setProcedencia(String procedencia) {
         this.procedencia = procedencia;
+    }
+
+    /**
+     * @return the paq_globular
+     */
+    public String getPaq_globular() {
+        return paq_globular;
+    }
+
+    /**
+     * @param paq_globular the paq_globular to set
+     */
+    public void setPaq_globular(String paq_globular) {
+        this.paq_globular = paq_globular;
+    }
+
+    /**
+     * @return the plasma
+     */
+    public String getPlasma() {
+        return plasma;
+    }
+
+    /**
+     * @param plasma the plasma to set
+     */
+    public void setPlasma(String plasma) {
+        this.plasma = plasma;
+    }
+
+    /**
+     * @return the plaquetas
+     */
+    public String getPlaquetas() {
+        return plaquetas;
+    }
+
+    /**
+     * @param plaquetas the plaquetas to set
+     */
+    public void setPlaquetas(String plaquetas) {
+        this.plaquetas = plaquetas;
+    }
+
+    /**
+     * @return the cantidad
+     */
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    /**
+     * @param cantidad the cantidad to set
+     */
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    /**
+     * @return the donantes
+     */
+    public int getDonantes() {
+        return donantes;
+    }
+
+    /**
+     * @param donantes the donantes to set
+     */
+    public void setDonantes(int donantes) {
+        this.donantes = donantes;
+    }
+
+    /**
+     * @return the hematocrito
+     */
+    public String getHematocrito() {
+        return hematocrito;
+    }
+
+    /**
+     * @param hematocrito the hematocrito to set
+     */
+    public void setHematocrito(String hematocrito) {
+        this.hematocrito = hematocrito;
+    }
+
+    /**
+     * @return the grupo_sang
+     */
+    public String getGrupo_sang() {
+        return grupo_sang;
+    }
+
+    /**
+     * @param grupo_sang the grupo_sang to set
+     */
+    public void setGrupo_sang(String grupo_sang) {
+        this.grupo_sang = grupo_sang;
+    }
+
+    /**
+     * @return the rh
+     */
+    public String getRh() {
+        return rh;
+    }
+
+    /**
+     * @param rh the rh to set
+     */
+    public void setRh(String rh) {
+        this.rh = rh;
+    }
+
+    /**
+     * @return the hemoglobina
+     */
+    public String getHemoglobina() {
+        return hemoglobina;
+    }
+
+    /**
+     * @param hemoglobina the hemoglobina to set
+     */
+    public void setHemoglobina(String hemoglobina) {
+        this.hemoglobina = hemoglobina;
     }
 
 }

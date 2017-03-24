@@ -1692,7 +1692,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
 
     private void btnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiActionPerformed
         if(lblMant.getText().equals("I")){
-            guardarDatos();
+            //guardarDatos();
         }
     }//GEN-LAST:event_btnSiActionPerformed
 

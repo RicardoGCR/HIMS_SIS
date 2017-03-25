@@ -542,8 +542,9 @@ public void calcula() {
                 jLabel12 = new javax.swing.JLabel();
                 txtPersonal1 = new javax.swing.JTextField();
                 btnPersonal1 = new javax.swing.JButton();
+                jLabel41 = new javax.swing.JLabel();
                 panelRecepcion = new javax.swing.JPanel();
-                jRadioButton1 = new javax.swing.JRadioButton();
+                rbPersonal = new javax.swing.JRadioButton();
                 jRadioButton2 = new javax.swing.JRadioButton();
                 buttonGroup1 = new javax.swing.ButtonGroup();
                 jpanel = new javax.swing.JPanel();
@@ -1557,6 +1558,9 @@ public void calcula() {
                             }
                         });
 
+                        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                        jLabel41.setText("Personal - Entrega Resultado");
+
                         javax.swing.GroupLayout panelEntregaLayout = new javax.swing.GroupLayout(panelEntrega);
                         panelEntrega.setLayout(panelEntregaLayout);
                         panelEntregaLayout.setHorizontalGroup(
@@ -1580,10 +1584,13 @@ public void calcula() {
                                                 .addComponent(jLabel12))
                                             .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(panelEntregaLayout.createSequentialGroup()
-                                        .addComponent(txtPersonal1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnPersonal1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEntregaLayout.createSequentialGroup()
+                                        .addGroup(panelEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel41, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(panelEntregaLayout.createSequentialGroup()
+                                                .addComponent(txtPersonal1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(btnPersonal1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(18, 18, 18))))
                         );
                         panelEntregaLayout.setVerticalGroup(
@@ -1600,7 +1607,9 @@ public void calcula() {
                                     .addComponent(spMin)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(36, 36, 36)
+                                .addGap(16, 16, 16)
+                                .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(panelEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtPersonal1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnPersonal1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1609,11 +1618,11 @@ public void calcula() {
 
                         panelRecepcion.setBorder(javax.swing.BorderFactory.createTitledBorder("Recepción"));
 
-                        buttonGroup1.add(jRadioButton1);
-                        jRadioButton1.setText("jRadioButton1");
+                        buttonGroup1.add(rbPersonal);
+                        rbPersonal.setText("Usuario Interno");
 
                         buttonGroup1.add(jRadioButton2);
-                        jRadioButton2.setText("jRadioButton2");
+                        jRadioButton2.setText("Usuario Externo");
 
                         javax.swing.GroupLayout panelRecepcionLayout = new javax.swing.GroupLayout(panelRecepcion);
                         panelRecepcion.setLayout(panelRecepcionLayout);
@@ -1622,7 +1631,7 @@ public void calcula() {
                             .addGroup(panelRecepcionLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(panelRecepcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton1)
+                                    .addComponent(rbPersonal)
                                     .addComponent(jRadioButton2))
                                 .addContainerGap(247, Short.MAX_VALUE))
                         );
@@ -1630,7 +1639,7 @@ public void calcula() {
                             panelRecepcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelRecepcionLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jRadioButton1)
+                                .addComponent(rbPersonal)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jRadioButton2)
                                 .addGap(43, 43, 43))
@@ -3375,13 +3384,13 @@ public void buscar_examenes(){
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -3408,6 +3417,7 @@ public void buscar_examenes(){
     private javax.swing.JPanel panelResultado;
     private javax.swing.JPanel panelTM;
     private javax.swing.JDialog personal;
+    private javax.swing.JRadioButton rbPersonal;
     public static javax.swing.JSpinner spHora;
     public static javax.swing.JSpinner spMin;
     public static javax.swing.JTable tbPersonal;

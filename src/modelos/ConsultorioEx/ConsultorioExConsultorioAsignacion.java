@@ -83,7 +83,7 @@ public class ConsultorioExConsultorioAsignacion {
         int resultado=0;
         try
         {
-            String sql = "select * from CONSULTORIO_EXT_CONSULTORIO_ASIGNACION where COD_ROL = ? AND CA_TURNO  =? and FECHA =?";
+            String sql = "select * from CONSULTORIO_EXT_CONSULTORIO_ASIGNACION where COD_ROL = ? AND id_Turno  =? and FECHA =?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, nombre);
             cmd.setString(2, turno);
@@ -107,7 +107,7 @@ public class ConsultorioExConsultorioAsignacion {
         int resultado=0;
         try
         {
-            String sql = "select * from CONSULTORIO_EXT_CONSULTORIO_ASIGNACION where CC_ID = ? AND CA_TURNO  =? and FECHA =?";
+            String sql = "select * from CONSULTORIO_EXT_CONSULTORIO_ASIGNACION where CC_ID = ? AND id_Turno  =? and FECHA =?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, nombre);
             cmd.setString(2, turno);
@@ -214,10 +214,10 @@ public class ConsultorioExConsultorioAsignacion {
     String consulta="";
         try {
                 tabla.setModel(new DefaultTableModel());
-                String titulos[]={"ID","Fecha","Hora Inicio","Hora Termino","Consultorio","Nº de Citas","Turno","Médico","","",""};
+                String titulos[]={"ID","Dia","Hora Inicio","Hora Termino","Consultorio","Nº de Citas","Turno","Médico","","","",""};
                 m=new DefaultTableModel(null,titulos);
                 JTable p=new JTable(m);
-                String fila[]=new String[11];
+                String fila[]=new String[12];
                 //int index = cbxTipoBusqueda.getSelectedIndex();
                 consulta="EXEC CONSULTORIO_EXT_LISTAR_CONSULASIGNA";
                 PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -235,6 +235,7 @@ public class ConsultorioExConsultorioAsignacion {
                     fila[8]=r.getString(9); 
                     fila[9]=r.getString(10); 
                     fila[10]=r.getString(11); 
+                    fila[11]=r.getString(12); 
      
                         m.addRow(fila);
                         c++;
@@ -309,6 +310,8 @@ public class ConsultorioExConsultorioAsignacion {
         tabla.getColumnModel().getColumn(9).setMaxWidth(0);
         tabla.getColumnModel().getColumn(10).setMinWidth(0);
         tabla.getColumnModel().getColumn(10).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(11).setMinWidth(0);
+        tabla.getColumnModel().getColumn(11).setMaxWidth(0);
    
 
 //        COLUMNAS OCULTAS

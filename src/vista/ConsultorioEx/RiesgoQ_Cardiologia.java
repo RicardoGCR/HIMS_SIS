@@ -2230,7 +2230,7 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
                 pnlMensaje.setBackground(new Color(255,91,70));
             } else {
                 pnlMensaje.setVisible(true);
-                lblMensaje.setText("¿Guardar los datos?");
+                lblMensaje.setText("¿Modificar los datos?");
                 btnSi.setText("Si");
                 btnSi.setVisible(true);
                 btnNo.setVisible(true);
@@ -2452,6 +2452,10 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscarPacienteKeyPressed
 
     private void btnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiActionPerformed
+
+        if(lblMant.getText().equals("I"))
+            //guardarDatos();
+
         if(btnSi.getText().equals("Si")){ // Al guardar
             if(lblMant.getText().equals("I")){
                 guardarDatos();

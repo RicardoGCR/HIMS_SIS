@@ -26,6 +26,7 @@ public class Caja_DetallePreventa {
     private String nom_pc;
     private String cod_usu;
     private String id_topico;	
+    private String cod_nome;
 
     public boolean cajaDetallePreventaInsertar()
         {
@@ -69,6 +70,30 @@ public class Caja_DetallePreventa {
         catch(Exception ex)
         {
             System.out.println("Error: modificarDetalleExamen: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean mantenimientoDetallePreventa(String tipo) // DE CONSULTORIOS EXTERNOS
+        {
+        boolean resp = false;
+        try{
+            String sql = "CAJA_DETALLE_PREVENTA_MANTENIMIENTO_CONSULTORIO_EXT ?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getIdDetalle_Preventa());
+            cmd.setInt(2, getId_Preventa());
+            cmd.setString(3, getCod_nome());
+            cmd.setString(4, getCod_usu());
+            cmd.setString(5, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoDetallePreventa: " + ex.getMessage());
         }
         return resp;
     }
@@ -202,6 +227,20 @@ public class Caja_DetallePreventa {
      */
     public void setId_topico(String id_topico) {
         this.id_topico = id_topico;
+    }
+
+    /**
+     * @return the cod_nome
+     */
+    public String getCod_nome() {
+        return cod_nome;
+    }
+
+    /**
+     * @param cod_nome the cod_nome to set
+     */
+    public void setCod_nome(String cod_nome) {
+        this.cod_nome = cod_nome;
     }
 		
 }

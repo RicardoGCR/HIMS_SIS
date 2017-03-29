@@ -1869,6 +1869,7 @@ public void Muestras_cargar(String nomen,String area){
                     Personal_formato();
                     lbltipo.setText("1");
                     txtBuscar.setText("");
+                    cbxBuscar2.setSelectedIndex(0);
                 }
     }//GEN-LAST:event_txtPersonalResponRKeyPressed
 
@@ -1956,6 +1957,7 @@ public void Muestras_cargar(String nomen,String area){
                     Personal_formato();
                     lbltipo.setText("2");
                     txtBuscar.setText("");
+                    cbxBuscar2.setSelectedIndex(0);
                 }
     }//GEN-LAST:event_txtPersonalRegistraRKeyPressed
 

@@ -1763,7 +1763,7 @@ try {
              btneliminar.setEnabled(true);
              btnbuscar.setEnabled(true);
              abono.setEnabled(true);
-              abono.setEditable(true);
+             abono.setEditable(true);
              abono.requestFocus();
              jTabbedPane1.setSelectedIndex(1);
              abono.requestFocus();

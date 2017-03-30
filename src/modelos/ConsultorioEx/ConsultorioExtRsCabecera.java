@@ -10,12 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Collection;
-<<<<<<< HEAD
-=======
-import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.swing.JTable;
->>>>>>> dde6c259003343e5180f214b71a2d25f82d8278e
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
@@ -24,10 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import servicios.Conexion;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> dde6c259003343e5180f214b71a2d25f82d8278e
 public class ConsultorioExtRsCabecera implements Serializable {
     DefaultTableModel m;
     Conexion con = new Conexion();
@@ -43,10 +35,7 @@ public class ConsultorioExtRsCabecera implements Serializable {
     private String usuario;
     private Character estado;
     private Collection<ConsultorioExtRsCcd> consultorioExtRsCcdCollection;
-<<<<<<< HEAD
 
-=======
->>>>>>> dde6c259003343e5180f214b71a2d25f82d8278e
     private Collection<ConsultorioExtRsVacunas> consultorioExtRsVacunasCollection;
 
     public void formatoTablaNinos(JTable tabla){

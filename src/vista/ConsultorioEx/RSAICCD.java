@@ -51,8 +51,6 @@ repaint();
         jLabel17 = new javax.swing.JLabel();
         jPanel29 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        btnguardar1 = new javax.swing.JButton();
-        btneditar1 = new javax.swing.JButton();
         CCDRN = new javax.swing.JPanel();
         jPanel67 = new javax.swing.JPanel();
         jLabel58 = new javax.swing.JLabel();
@@ -233,8 +231,6 @@ repaint();
         jLabel99 = new javax.swing.JLabel();
         jPanel107 = new javax.swing.JPanel();
         jLabel100 = new javax.swing.JLabel();
-        btnguardar2 = new javax.swing.JButton();
-        btneditar2 = new javax.swing.JButton();
         CCDR3A1 = new javax.swing.JPanel();
         jPanel108 = new javax.swing.JPanel();
         jLabel101 = new javax.swing.JLabel();
@@ -266,8 +262,6 @@ repaint();
         jLabel106 = new javax.swing.JLabel();
         jPanel114 = new javax.swing.JPanel();
         jLabel110 = new javax.swing.JLabel();
-        btnguardar3 = new javax.swing.JButton();
-        btneditar3 = new javax.swing.JButton();
         CCDR5A = new javax.swing.JPanel();
         jPanel115 = new javax.swing.JPanel();
         jLabel111 = new javax.swing.JLabel();
@@ -324,6 +318,10 @@ repaint();
         FCCD11A = new com.toedter.calendar.JDateChooser();
         FUACCD11A = new javax.swing.JTextField();
         DXCCD11A = new javax.swing.JLabel();
+        Opciones = new javax.swing.JPanel();
+        jPanel31 = new javax.swing.JPanel();
+        btneditar4 = new javax.swing.JButton();
+        btnguardar4 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -378,34 +376,6 @@ repaint();
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnguardar1.setForeground(new java.awt.Color(240, 240, 240));
-        btnguardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
-        btnguardar1.setMnemonic('N');
-        btnguardar1.setContentAreaFilled(false);
-        btnguardar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnguardar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnguardar1.setIconTextGap(30);
-        btnguardar1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnguardar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardar1ActionPerformed(evt);
-            }
-        });
-
-        btneditar1.setForeground(new java.awt.Color(240, 240, 240));
-        btneditar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
-        btneditar1.setMnemonic('N');
-        btneditar1.setContentAreaFilled(false);
-        btneditar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btneditar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btneditar1.setIconTextGap(30);
-        btneditar1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btneditar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditar1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
         jPanel28Layout.setHorizontalGroup(
@@ -414,10 +384,6 @@ repaint();
                 .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel17)
-                .addGap(32, 32, 32)
-                .addComponent(btnguardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btneditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel28Layout.setVerticalGroup(
@@ -425,8 +391,6 @@ repaint();
             .addGroup(jPanel28Layout.createSequentialGroup()
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnguardar1)
-                    .addComponent(btneditar1)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1325,7 +1289,7 @@ repaint();
         CCD.setLayout(CCDLayout);
         CCDLayout.setHorizontalGroup(
             CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 1115, Short.MAX_VALUE)
+            .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 1275, Short.MAX_VALUE)
             .addGroup(CCDLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1339,7 +1303,7 @@ repaint();
                         .addComponent(CCDRN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(CCDM11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         CCDLayout.setVerticalGroup(
             CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1354,7 +1318,7 @@ repaint();
                 .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(CCDM12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel169, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CCD", CCD);
@@ -2090,34 +2054,6 @@ repaint();
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnguardar2.setForeground(new java.awt.Color(240, 240, 240));
-        btnguardar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
-        btnguardar2.setMnemonic('N');
-        btnguardar2.setContentAreaFilled(false);
-        btnguardar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnguardar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnguardar2.setIconTextGap(30);
-        btnguardar2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnguardar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardar2ActionPerformed(evt);
-            }
-        });
-
-        btneditar2.setForeground(new java.awt.Color(240, 240, 240));
-        btneditar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
-        btneditar2.setMnemonic('N');
-        btneditar2.setContentAreaFilled(false);
-        btneditar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btneditar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btneditar2.setIconTextGap(30);
-        btneditar2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btneditar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditar2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel106Layout = new javax.swing.GroupLayout(jPanel106);
         jPanel106.setLayout(jPanel106Layout);
         jPanel106Layout.setHorizontalGroup(
@@ -2126,10 +2062,6 @@ repaint();
                 .addComponent(jPanel107, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel99)
-                .addGap(32, 32, 32)
-                .addComponent(btnguardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btneditar2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel106Layout.setVerticalGroup(
@@ -2137,8 +2069,6 @@ repaint();
             .addGroup(jPanel106Layout.createSequentialGroup()
                 .addGroup(jPanel106Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel107, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnguardar2)
-                    .addComponent(btneditar2)
                     .addComponent(jLabel99, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -2393,7 +2323,7 @@ repaint();
             CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CCD1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(CCD1Layout.createSequentialGroup()
                         .addComponent(CCD1A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
@@ -2404,8 +2334,8 @@ repaint();
                         .addComponent(CCDR3A1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel170, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel106, javax.swing.GroupLayout.DEFAULT_SIZE, 1229, Short.MAX_VALUE)
+                .addContainerGap(56, Short.MAX_VALUE))
+            .addComponent(jPanel106, javax.swing.GroupLayout.DEFAULT_SIZE, 1275, Short.MAX_VALUE)
         );
         CCD1Layout.setVerticalGroup(
             CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2415,12 +2345,12 @@ repaint();
                 .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(CCD1A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(CCDR2A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 27, Short.MAX_VALUE)
+                .addGap(18, 28, Short.MAX_VALUE)
                 .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(CCDR3A, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(CCDR3A1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel170, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CCD", CCD1);
@@ -2462,34 +2392,6 @@ repaint();
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnguardar3.setForeground(new java.awt.Color(240, 240, 240));
-        btnguardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
-        btnguardar3.setMnemonic('N');
-        btnguardar3.setContentAreaFilled(false);
-        btnguardar3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnguardar3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnguardar3.setIconTextGap(30);
-        btnguardar3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnguardar3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardar3ActionPerformed(evt);
-            }
-        });
-
-        btneditar3.setForeground(new java.awt.Color(240, 240, 240));
-        btneditar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
-        btneditar3.setMnemonic('N');
-        btneditar3.setContentAreaFilled(false);
-        btneditar3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btneditar3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btneditar3.setIconTextGap(30);
-        btneditar3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btneditar3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditar3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel113Layout = new javax.swing.GroupLayout(jPanel113);
         jPanel113.setLayout(jPanel113Layout);
         jPanel113Layout.setHorizontalGroup(
@@ -2498,19 +2400,13 @@ repaint();
                 .addComponent(jPanel114, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel106)
-                .addGap(32, 32, 32)
-                .addComponent(btnguardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btneditar3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(653, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel113Layout.setVerticalGroup(
             jPanel113Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel113Layout.createSequentialGroup()
                 .addGroup(jPanel113Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel114, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnguardar3)
-                    .addComponent(btneditar3)
                     .addComponent(jLabel106, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -3051,7 +2947,7 @@ repaint();
         CCD2.setLayout(CCD2Layout);
         CCD2Layout.setHorizontalGroup(
             CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel113, javax.swing.GroupLayout.DEFAULT_SIZE, 1115, Short.MAX_VALUE)
+            .addComponent(jPanel113, javax.swing.GroupLayout.DEFAULT_SIZE, 1275, Short.MAX_VALUE)
             .addGroup(CCD2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3069,7 +2965,7 @@ repaint();
                         .addComponent(CCDR10A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CCDR11A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(641, Short.MAX_VALUE))
         );
         CCD2Layout.setVerticalGroup(
             CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3086,22 +2982,93 @@ repaint();
                 .addGroup(CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CCDR10A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CCDR11A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CCD", CCD2);
+
+        Opciones.setBackground(new java.awt.Color(45, 204, 112));
+
+        jPanel31.setBackground(new java.awt.Color(39, 174, 97));
+
+        btneditar4.setForeground(new java.awt.Color(240, 240, 240));
+        btneditar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
+        btneditar4.setMnemonic('N');
+        btneditar4.setContentAreaFilled(false);
+        btneditar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btneditar4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btneditar4.setIconTextGap(30);
+        btneditar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneditar4ActionPerformed(evt);
+            }
+        });
+
+        btnguardar4.setForeground(new java.awt.Color(240, 240, 240));
+        btnguardar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
+        btnguardar4.setMnemonic('N');
+        btnguardar4.setText("Guardar");
+        btnguardar4.setContentAreaFilled(false);
+        btnguardar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnguardar4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnguardar4.setIconTextGap(30);
+        btnguardar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardar4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
+        jPanel31.setLayout(jPanel31Layout);
+        jPanel31Layout.setHorizontalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 122, Short.MAX_VALUE)
+            .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel31Layout.createSequentialGroup()
+                    .addGap(15, 15, 15)
+                    .addComponent(btnguardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(btneditar4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(15, Short.MAX_VALUE)))
+        );
+        jPanel31Layout.setVerticalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel31Layout.createSequentialGroup()
+                    .addGap(1, 1, 1)
+                    .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnguardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btneditar4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout OpcionesLayout = new javax.swing.GroupLayout(Opciones);
+        Opciones.setLayout(OpcionesLayout);
+        OpcionesLayout.setHorizontalGroup(
+            OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OpcionesLayout.createSequentialGroup()
+                .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        OpcionesLayout.setVerticalGroup(
+            OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1120, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jTabbedPane1)
+            .addComponent(Opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1)
+                .addGap(0, 0, 0)
+                .addComponent(Opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -3111,14 +3078,6 @@ repaint();
         RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
         this.dispose();
     }//GEN-LAST:event_jLabel20MouseClicked
-
-    private void btnguardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnguardar1ActionPerformed
-
-    private void btneditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btneditar1ActionPerformed
 
     private void jLabel107MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel107MouseClicked
         // TODO add your handling code here:
@@ -3132,14 +3091,6 @@ repaint();
         jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_jLabel100MouseClicked
 
-    private void btnguardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnguardar2ActionPerformed
-
-    private void btneditar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btneditar2ActionPerformed
-
     private void jLabel108MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel108MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel108MouseClicked
@@ -3152,13 +3103,13 @@ repaint();
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jLabel110MouseClicked
 
-    private void btnguardar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnguardar3ActionPerformed
+    private void btneditar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar4ActionPerformed
 
-    private void btneditar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btneditar3ActionPerformed
+    }//GEN-LAST:event_btneditar4ActionPerformed
+
+    private void btnguardar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar4ActionPerformed
+
+    }//GEN-LAST:event_btnguardar4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3300,12 +3251,9 @@ repaint();
     private javax.swing.JTextField FUACCDRN3;
     private javax.swing.JTextField FUACCDRN4;
     private javax.swing.JPanel LEYENDA;
-    private javax.swing.JButton btneditar1;
-    private javax.swing.JButton btneditar2;
-    private javax.swing.JButton btneditar3;
-    private javax.swing.JButton btnguardar1;
-    private javax.swing.JButton btnguardar2;
-    private javax.swing.JButton btnguardar3;
+    private javax.swing.JPanel Opciones;
+    private javax.swing.JButton btneditar4;
+    private javax.swing.JButton btnguardar4;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
@@ -3408,6 +3356,7 @@ repaint();
     private javax.swing.JPanel jPanel170;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
+    private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel67;
     private javax.swing.JPanel jPanel68;
     private javax.swing.JPanel jPanel69;

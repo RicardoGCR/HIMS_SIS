@@ -36,6 +36,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     ResultSet r;
     PreparedStatement pstm;
     ConsultorioExtRsCabecera cabecera = new ConsultorioExtRsCabecera();
+    int id;
     public RegistroSeguimiento() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -61,6 +62,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         pnlPadres.setVisible(false);
         lblPadres.setVisible(false);
         pnlContenedor.setVisible(false);
+        lblTriaje.setVisible(false);
     }
     
     public void cerrar (){
@@ -85,6 +87,14 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         RegistroSeguimiento.txtPaciente.setText(String.valueOf(tbNinos.getValueAt(fila, 4)));
         RegistroSeguimiento.lblHc.setText(String.valueOf(tbNinos.getValueAt(fila, 0)));
         RegistroSeguimiento.lblTriaje.setText(String.valueOf(tbNinos.getValueAt(fila, 9)));
+        RegistroSeguimiento.lblGenero.setText(String.valueOf(tbNinos.getValueAt(fila, 5)));
+        if(String.valueOf(tbNinos.getValueAt(fila, 5)).equals("F")){
+            pnlSexo.setBackground(new Color(255,71,163));
+            pnlSexo.setVisible(true);
+        }   else {
+            pnlSexo.setBackground(new Color(13,183,225));
+            pnlSexo.setVisible(true);
+        }
         BuscarNinos.dispose();
     }
     
@@ -146,7 +156,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             PreparedStatement cmd = cabecera.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_CABECERA WHERE TRIAJE_ID = '"+triaje+"'");
             ResultSet res = cmd.executeQuery();
             if(res.next()){
-                JOptionPane.showMessageDialog(BuscarNinos, "si existe: ");
+                id = Integer.parseInt(res.getString("RS_ID"));
             }else {
                 //btnGuardar();
                 pnlPadres.setVisible(true);
@@ -260,6 +270,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 txtMadre = new javax.swing.JTextField();
                 btnBuscarMadres = new javax.swing.JButton();
                 lblTriaje = new javax.swing.JTextField();
+                lblGenero = new javax.swing.JLabel();
                 jPanel3 = new javax.swing.JPanel();
                 Contenedor = new javax.swing.JDesktopPane();
 
@@ -757,6 +768,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
 
                 jPanel16.setBackground(new java.awt.Color(154, 89, 181));
                 jPanel16.setPreferredSize(new java.awt.Dimension(222, 45));
+                jPanel16.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jPanel16MouseClicked(evt);
+                    }
+                });
 
                 jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -774,7 +790,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel7)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(60, Short.MAX_VALUE))
                 );
                 jPanel16Layout.setVerticalGroup(
                     jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1390,6 +1406,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     }
                 });
 
+                lblGenero.setText("jLabel17");
+
                 javax.swing.GroupLayout txtSisLayout = new javax.swing.GroupLayout(txtSis);
                 txtSis.setLayout(txtSisLayout);
                 txtSisLayout.setHorizontalGroup(
@@ -1423,10 +1441,12 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                         .addGap(46, 46, 46)
                                         .addComponent(lblHc, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(lblTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblGenero))))
                             .addComponent(pnlPadres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPadres, javax.swing.GroupLayout.PREFERRED_SIZE, 1128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(81, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 txtSisLayout.setVerticalGroup(
                     txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1438,7 +1458,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblHc)
-                                .addComponent(lblTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblGenero)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1463,16 +1484,12 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jPanel4Layout.setHorizontalGroup(
                     jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(txtSis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 129, Short.MAX_VALUE))
+                    .addComponent(txtSis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 );
                 jPanel4Layout.setVerticalGroup(
                     jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
                         .addComponent(txtSis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
                         .addComponent(pnlContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(26, Short.MAX_VALUE))
                 );
@@ -1773,6 +1790,11 @@ pnlMensaje.setVisible(false);
         validaTriaje(lblTriaje.getText());
     }//GEN-LAST:event_lblTriajeCaretUpdate
 
+    private void jPanel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel16MouseClicked
+
+            
+    }//GEN-LAST:event_jPanel16MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1882,6 +1904,7 @@ pnlMensaje.setVisible(false);
     public static javax.swing.JTextField lblDireccion;
     public static javax.swing.JLabel lblDni;
     public static javax.swing.JLabel lblFecNac;
+    public static javax.swing.JLabel lblGenero;
     public static javax.swing.JLabel lblHc;
     public static javax.swing.JLabel lblHcMadre;
     private javax.swing.JLabel lblMensaje;

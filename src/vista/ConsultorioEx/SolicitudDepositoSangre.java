@@ -5,6 +5,7 @@
  */
 package vista.ConsultorioEx;
 
+import campos.LimitadorDeDocumento;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
@@ -16,6 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelos.Caja.Caja_Preventa;
 import modelos.ConsultorioEx.ConsultorioExRiesgoQuirurgico;
@@ -34,6 +36,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     Conexion c = new Conexion();
     ResultSet r;
     PreparedStatement pstm;
+    AdmisionEmergenciaCabecera adEmerCab7 = new AdmisionEmergenciaCabecera();
     public SolicitudDepositoSangre() {
         initComponents();
         setLocationRelativeTo(null);
@@ -51,11 +54,18 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         });
         conexion = c.conectar();
         cerrar();
-        txtMedico.setVisible(false);
         cbxMedico.setVisible(true);
         habilitarCampos(false);
         pnlMensaje.setVisible(false);
-        cbxMedico.setModel(medicos());
+        cbxMedico.setModel(medicos());//Validar cajas de texto
+        LimitadorDeDocumento limitObservacion = new LimitadorDeDocumento(5);
+        txtCantidad.setDocument(limitObservacion);
+        txtDonantes.setDocument(limitObservacion);
+        LimitadorDeDocumento limite = new LimitadorDeDocumento(10);
+        txtRH.setDocument(limite);
+        txtHematocrito.setDocument(limite);
+        txtHemoglobina.setDocument(limite);
+        
         
     }
     
@@ -85,7 +95,6 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         txtRH.setText("");
         txtHemoglobina.setText("");
         cbxMedico.setSelectedIndex(0);
-        txtMedico.setText("");
         chkPaqGlobular.setSelected(false);
         chkPlaquetas.setSelected(false);
         chkPlasma.setSelected(false);
@@ -103,7 +112,6 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         txtRH.setEnabled(opcion);
         txtHemoglobina.setEnabled(opcion);
         cbxMedico.setEnabled(opcion);
-        txtMedico.setEnabled(opcion);
         chkPaqGlobular.setEnabled(opcion);
         chkPlaquetas.setEnabled(opcion);
         chkPlasma.setEnabled(opcion);
@@ -142,7 +150,6 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     public boolean guardarDatos(){
         boolean retorna = false;
         try {
-            AdmisionEmergenciaCabecera adEmerCab5 = new AdmisionEmergenciaCabecera();
             Caja_Preventa preventa1 = new Caja_Preventa();
             ConsultorioExRiesgoQuirurgico consultorio1  = new ConsultorioExRiesgoQuirurgico();
             preventa1.setId_hc(lblHc.getText());
@@ -153,7 +160,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
             preventa1.setGrupo_sang(cbxGS.getSelectedItem().toString());
             preventa1.setRh(txtRH.getText());
             preventa1.setHemoglobina(txtHemoglobina.getText());
-            preventa1.setCod_usu(adEmerCab5.codUsuario(lblusu.getText()));
+            preventa1.setCod_usu(adEmerCab7.codUsuario(lblusu.getText()));
             preventa1.setCod_medico(consultorio1.medicoID(cbxMedico.getSelectedItem().toString()));
             if(chkPaqGlobular.isSelected()==true)
                 preventa1.setPaq_globular("X");
@@ -167,6 +174,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                 preventa1.setPlasma("X");
             else
                 preventa1.setPlasma("");
+            preventa1.setACTO_MEDICO(Integer.parseInt(lblActoMedico.getText()));
             if(preventa1.mantanimientoCajaPreventaCExDepSangre(lblMant.getText())==true){
                 System.out.println("ID Preventa: " + Integer.parseInt(consultorio1.preventaID()));
                 pnlMensaje.setVisible(true);
@@ -190,161 +198,26 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         }
         return retorna;
     }
-//    
-//    public boolean modificarDatos(){
-//        boolean retorna = false;
-//        try {
-//            ConsultorioExRiesgoQuirurgico consultorio3 = new ConsultorioExRiesgoQuirurgico();
-//            consultorio3.setId(Integer.parseInt(txtId.getText()));
-//            consultorio3.setAr_id(Integer.parseInt(lblArea.getText()));
-//            consultorio3.setProcedencia(Integer.parseInt(consultorio3.areaID(cbxProcedencia.getSelectedItem().toString())));
-//            consultorio3.setEx_fisico(txtExamenFisico.getText());
-//            consultorio3.setQx(txtQxAnteriores.getText());
-//            consultorio3.setOtros(txtOtros.getText());
-//            consultorio3.setSint_otros(txtOtrosSintomas.getText());
-//            consultorio3.setDesc(txtRq.getText());
-//            consultorio3.setSugerencia(txtSugerencia.getText());
-//            consultorio3.setPreventa(Integer.parseInt(lblPreventa.getText()));
-//            //
-//            if(chkHta.isSelected())
-//                consultorio3.setHta("X");
-//            else
-//                consultorio3.setHta("");
-//            //
-//            if(chkDm.isSelected())
-//                consultorio3.setDm("X");
-//            else
-//                consultorio3.setDm("");
-//            //
-//            if(chkEnfRenal.isSelected())
-//                consultorio3.setRenal("X");
-//            else
-//                consultorio3.setRenal("");
-//            //
-//            if(chkDisnea.isSelected())
-//                consultorio3.setDisnea("X");
-//            else
-//                consultorio3.setDisnea("");
-//            //
-//            if(chkPalpitaciones.isSelected())
-//                consultorio3.setPalpit("X");
-//            else
-//                consultorio3.setPalpit("");
-//            //
-//            if(chkTos.isSelected())
-//                consultorio3.setTos("X");
-//            else
-//                consultorio3.setTos("");
-//            //
-//            if(cbxAlergia.getSelectedItem().equals("SI"))
-//                consultorio3.setAlergia("X");
-//            else
-//                consultorio3.setAlergia("");
-//            //
-//                if(consultorio3.mantenimientoConsultorioExRQ(lblMant.getText())==true){
-//                    pnlMensaje.setVisible(true);
-//                    lblMensaje.setText("Datos guardados de forma correcta");
-//                    if(tbDiagnostico.getRowCount()!=0 && tbCpt.getRowCount()!=0){
-//                        if(guardarDiagnostico(Integer.parseInt(txtId.getText()))&& guardarNomenclatura(Integer.parseInt(lblPreventa.getText()))){
-//                            pnlMensaje.setVisible(true);
-//                            lblMensaje.setText("Datos guardados de forma correcta");
-//                            limpiar();
-//                            habilitarCampos(false);
-//                            btnGuardar.setEnabled(false);
-//                            pnlMensaje.setBackground(new Color(33,115,70));
-//                            btnSi.setVisible(true);
-//                            btnSi.setText("OK");
-//                            btnNo.setVisible(false);
-//                            txtMedico.setVisible(false);
-//                            cbxMedico.setVisible(true);
-//                        } else {
-//                            pnlMensaje.setVisible(true);
-//                            lblMensaje.setText("Ocurrió un error, verifique");
-//                            pnlMensaje.setBackground(new Color(255,91,70));
-//                            btnSi.setVisible(false);
-//                            btnNo.setVisible(false);
-//                        }
-//                    } else
-//                    if(tbDiagnostico.getRowCount()==0 && tbCpt.getRowCount()!=0){
-//                        if(guardarNomenclatura(Integer.parseInt(lblPreventa.getText()))){
-//                            pnlMensaje.setVisible(true);
-//                            lblMensaje.setText("Datos guardados de forma correcta");
-//                            limpiar();
-//                            habilitarCampos(false);
-//                            btnGuardar.setEnabled(false);
-//                            pnlMensaje.setBackground(new Color(33,115,70));
-//                            btnSi.setVisible(true);
-//                            btnSi.setText("OK");
-//                            btnNo.setVisible(false);
-//                        } else {
-//                            pnlMensaje.setVisible(true);
-//                            lblMensaje.setText("Ocurrió un error, verifique");
-//                            pnlMensaje.setBackground(new Color(255,91,70));
-//                            btnSi.setVisible(false);
-//                            btnNo.setVisible(false);
-//                        }
-//                    } else
-//                    if(tbDiagnostico.getRowCount()!=0 && tbCpt.getRowCount()==0){
-//                        if(guardarDiagnostico(Integer.parseInt(txtId.getText()))){
-//                            pnlMensaje.setVisible(true);
-//                            lblMensaje.setText("Datos guardados de forma correcta");
-//                            limpiar();
-//                            habilitarCampos(false);
-//                            btnGuardar.setEnabled(false);
-//                            pnlMensaje.setBackground(new Color(33,115,70));
-//                            btnSi.setVisible(true);
-//                            btnSi.setText("OK");
-//                            btnNo.setVisible(false);
-//                        } else {
-//                            pnlMensaje.setVisible(true);
-//                            lblMensaje.setText("Ocurrió un error, verifique");
-//                            pnlMensaje.setBackground(new Color(255,91,70));
-//                            btnSi.setVisible(false);
-//                            btnNo.setVisible(false);
-//                        }
-//                    } else
-//                    if(tbDiagnostico.getRowCount()==0 && tbCpt.getRowCount()==0){
-//                        pnlMensaje.setVisible(true);
-//                        lblMensaje.setText("Datos guardados de forma correcta");
-//                        limpiar();
-//                        habilitarCampos(false);
-//                        btnGuardar.setEnabled(false);
-//                        pnlMensaje.setBackground(new Color(33,115,70));
-//                        btnSi.setVisible(true);
-//                        btnSi.setText("OK");
-//                        btnNo.setVisible(false);
-//                    } 
-//                } else {
-//                    pnlMensaje.setVisible(true);
-//                     lblMensaje.setText("error");
-//                }
-//        } catch (Exception e) {
-//            System.out.println("Error: modificarDatos" + e.getMessage());
-//        }
-//        return retorna;
-//    }
-//    
-//    public void eliminarDatos(){
-//        ConsultorioExRiesgoQuirurgico consultorio3 = new ConsultorioExRiesgoQuirurgico();
-//            consultorio3.setId(Integer.parseInt(txtId.getText()));
-//            if(consultorio3.mantenimientoConsultorioExRQ("E")){
-//                pnlMensaje.setVisible(true);
-//                lblMensaje.setText("Datos guardados de forma correcta");
-//                limpiar();
-//                habilitarCampos(false);
-//                btnGuardar.setEnabled(false);
-//                pnlMensaje.setBackground(new Color(33,115,70));
-//                btnSi.setVisible(true);
-//                btnSi.setText("OK");
-//                btnNo.setVisible(false);
-//            } else{
-//                pnlMensaje.setVisible(true);
-//                lblMensaje.setText("Ocurrió un error, verifique");
-//                pnlMensaje.setBackground(new Color(255,91,70));
-//                btnSi.setVisible(false);
-//                btnNo.setVisible(false);
-//            }
-//    }
+    
+    public void eliminarDatos(){
+        int fila = tbPendientes.getSelectedRow();
+        Caja_Preventa cajaE = new Caja_Preventa();
+        cajaE.setId_preventa(Integer.parseInt(String.valueOf(tbPendientes.getValueAt(fila, 0))));
+        if(cajaE.mantanimientoCajaPreventaCExDepSangre("E")){
+            pnlMensaje1.setVisible(true);
+            lblMensaje1.setText("Datos eliminados de forma correcta");
+            pnlMensaje1.setBackground(new Color(33,115,70));
+            btnSi1.setVisible(true);
+            btnSi1.setText("OK");
+            btnNo1.setVisible(false);
+        } else{
+            pnlMensaje1.setVisible(true);
+            lblMensaje1.setText("Ocurrió un error, verifique");
+            pnlMensaje1.setBackground(new Color(255,91,70));
+            btnSi1.setVisible(false);
+            btnNo1.setVisible(false);
+        }
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -364,12 +237,29 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         btnBuscarPaciente = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
         FrmSolicitudDeposito = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        btnBuscarDep = new javax.swing.JButton();
+        lblusu1 = new javax.swing.JLabel();
+        lblMant1 = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
+        lblArea1 = new javax.swing.JLabel();
+        txtBuscar = new javax.swing.JTextField();
+        chkHoy = new javax.swing.JCheckBox();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbCancelados = new javax.swing.JTable();
+        pnlMensaje1 = new javax.swing.JPanel();
+        lblMensaje1 = new javax.swing.JLabel();
+        btnSi1 = new javax.swing.JButton();
+        btnNo1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbPendientes = new javax.swing.JTable();
+        b5 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         lblusu = new javax.swing.JLabel();
         lblMant = new javax.swing.JLabel();
@@ -408,9 +298,6 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         chkPlaquetas = new javax.swing.JCheckBox();
         jLabel10 = new javax.swing.JLabel();
         cbxMedico = new javax.swing.JComboBox();
-        txtMedico = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
 
         FrmPacientes.setAlwaysOnTop(true);
         FrmPacientes.setMinimumSize(new java.awt.Dimension(739, 450));
@@ -506,15 +393,268 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
             .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
         );
 
+        FrmSolicitudDeposito.setAlwaysOnTop(true);
+        FrmSolicitudDeposito.setMinimumSize(new java.awt.Dimension(845, 655));
+
+        jPanel3.setBackground(new java.awt.Color(0, 153, 102));
+        jPanel3.setEnabled(false);
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 0, 26)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Solicitud de Deposito de Sangre y/o Hemocomponentes");
+
+        btnBuscarDep.setForeground(new java.awt.Color(240, 240, 240));
+        btnBuscarDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
+        btnBuscarDep.setMnemonic('N');
+        btnBuscarDep.setContentAreaFilled(false);
+        btnBuscarDep.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarDep.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBuscarDep.setIconTextGap(30);
+        btnBuscarDep.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBuscarDep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarDepActionPerformed(evt);
+            }
+        });
+
+        lblusu1.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        lblusu1.setForeground(new java.awt.Color(255, 255, 255));
+        lblusu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
+        lblusu1.setText("Silvana");
+
+        lblMant1.setText("Mant");
+
+        lblID.setText("id");
+
+        lblArea1.setText("60");
+
+        txtBuscar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtBuscar.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscarCaretUpdate(evt);
+            }
+        });
+
+        chkHoy.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        chkHoy.setForeground(new java.awt.Color(255, 255, 255));
+        chkHoy.setText("Hoy");
+        chkHoy.setContentAreaFilled(false);
+        chkHoy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chkHoy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkHoyActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Acto Médico/Nº H.C./DNI o Apellidos y Nombres del paciente");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblMant1)
+                        .addGap(45, 45, 45)
+                        .addComponent(lblArea1)
+                        .addGap(60, 60, 60)
+                        .addComponent(lblusu1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(btnBuscarDep, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(chkHoy))
+                                    .addComponent(jLabel15))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblID))
+                            .addComponent(jLabel14))
+                        .addContainerGap(215, Short.MAX_VALUE))))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblusu1)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblID)
+                                .addGap(19, 19, 19)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblMant1)
+                                    .addComponent(lblArea1)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnBuscarDep)
+                                    .addComponent(chkHoy, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel15)))))
+                .addGap(552, 552, 552))
+        );
+
+        jScrollPane2.setBorder(null);
+
+        tbCancelados = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
+        tbCancelados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbCancelados.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbCancelados.setSelectionBackground(new java.awt.Color(0, 153, 102));
+        jScrollPane2.setViewportView(tbCancelados);
+
+        pnlMensaje1.setBackground(new java.awt.Color(255, 153, 51));
+
+        lblMensaje1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblMensaje1.setForeground(new java.awt.Color(255, 255, 255));
+        lblMensaje1.setText("Mensaje");
+
+        btnSi1.setForeground(new java.awt.Color(240, 240, 240));
+        btnSi1.setText("Si");
+        btnSi1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnSi1.setContentAreaFilled(false);
+        btnSi1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSi1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSi1.setIconTextGap(30);
+        btnSi1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSi1ActionPerformed(evt);
+            }
+        });
+
+        btnNo1.setForeground(new java.awt.Color(240, 240, 240));
+        btnNo1.setText("No");
+        btnNo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnNo1.setContentAreaFilled(false);
+        btnNo1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNo1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNo1.setIconTextGap(30);
+        btnNo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNo1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlMensaje1Layout = new javax.swing.GroupLayout(pnlMensaje1);
+        pnlMensaje1.setLayout(pnlMensaje1Layout);
+        pnlMensaje1Layout.setHorizontalGroup(
+            pnlMensaje1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMensaje1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblMensaje1)
+                .addGap(46, 46, 46)
+                .addComponent(btnSi1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnNo1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlMensaje1Layout.setVerticalGroup(
+            pnlMensaje1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMensaje1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(pnlMensaje1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMensaje1)
+                    .addComponent(btnSi1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNo1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jScrollPane3.setBorder(null);
+
+        tbPendientes = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
+        tbPendientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbPendientes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbPendientes.setSelectionBackground(new java.awt.Color(0, 153, 102));
+        tbPendientes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbPendientesKeyPressed(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tbPendientes);
+
+        b5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        b5.setForeground(new java.awt.Color(0, 153, 102));
+        b5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Eliminar archivo-40.png"))); // NOI18N
+        b5.setMnemonic('N');
+        b5.setText("Quitar");
+        b5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        b5.setContentAreaFilled(false);
+        b5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        b5.setIconTextGap(20);
+        b5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        b5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        b5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout FrmSolicitudDepositoLayout = new javax.swing.GroupLayout(FrmSolicitudDeposito.getContentPane());
         FrmSolicitudDeposito.getContentPane().setLayout(FrmSolicitudDepositoLayout);
         FrmSolicitudDepositoLayout.setHorizontalGroup(
             FrmSolicitudDepositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlMensaje1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(FrmSolicitudDepositoLayout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane2)
         );
         FrmSolicitudDepositoLayout.setVerticalGroup(
             FrmSolicitudDepositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(FrmSolicitudDepositoLayout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(pnlMensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addGroup(FrmSolicitudDepositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -540,21 +680,6 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
             }
         });
 
-        btnModificar.setForeground(new java.awt.Color(240, 240, 240));
-        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
-        btnModificar.setMnemonic('N');
-        btnModificar.setContentAreaFilled(false);
-        btnModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnModificar.setEnabled(false);
-        btnModificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnModificar.setIconTextGap(30);
-        btnModificar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
-            }
-        });
-
         btnGuardar.setForeground(new java.awt.Color(240, 240, 240));
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
         btnGuardar.setMnemonic('N');
@@ -567,21 +692,6 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
-            }
-        });
-
-        btnEliminar.setForeground(new java.awt.Color(240, 240, 240));
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Basura-32.png"))); // NOI18N
-        btnEliminar.setMnemonic('N');
-        btnEliminar.setContentAreaFilled(false);
-        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEliminar.setEnabled(false);
-        btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnEliminar.setIconTextGap(30);
-        btnEliminar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -602,7 +712,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         lblusu.setForeground(new java.awt.Color(255, 255, 255));
         lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
-        lblusu.setText("Usuario");
+        lblusu.setText("Silvana");
 
         lblMant.setText("Mant");
 
@@ -621,10 +731,6 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                         .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -652,10 +758,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(23, 23, 23)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnModificar, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(btnEliminar)
-                                        .addComponent(btnBuscar))
+                                    .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -840,7 +943,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         txtHemoglobina.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         cbxGS.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbxGS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "1" }));
+        cbxGS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "A", "B", "O", "AB" }));
 
         chkPaqGlobular.setBackground(new java.awt.Color(255, 255, 255));
         chkPaqGlobular.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -860,9 +963,6 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         cbxMedico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxMedico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione..." }));
 
-        txtMedico.setEditable(false);
-        txtMedico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -871,7 +971,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 977, Short.MAX_VALUE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 967, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -894,44 +994,41 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCantidad)
+                            .addComponent(txtDonantes, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel13))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtHematocrito)
+                            .addComponent(txtHemoglobina, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12))
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtRH)
+                            .addComponent(cbxGS, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkPaqGlobular)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbxMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtCantidad)
-                                    .addComponent(txtDonantes, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(37, 37, 37)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel13))
-                                .addGap(30, 30, 30)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtHematocrito)
-                                    .addComponent(txtHemoglobina, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(43, 43, 43)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12))
-                                .addGap(36, 36, 36)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtRH)
-                                    .addComponent(cbxGS, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(37, 37, 37)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(chkPaqGlobular)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(chkPlasma)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(chkPlaquetas)))))
-                        .addContainerGap(63, Short.MAX_VALUE))))
+                                .addComponent(chkPlasma)
+                                .addGap(27, 27, 27)
+                                .addComponent(chkPlaquetas)))
+                        .addGap(45, 45, 45))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -954,15 +1051,15 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtHematocrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(txtHematocrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(txtHemoglobina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
+                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtDonantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -982,28 +1079,12 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                             .addComponent(txtRH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(chkPlasma)
                             .addComponent(chkPlaquetas))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(cbxMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbxMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
-
-        jScrollPane1.setBorder(null);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1012,10 +1093,9 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
+                .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1024,9 +1104,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -1037,16 +1115,10 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
             limpiar();
             habilitarCampos(true);
             btnGuardar.setEnabled(true);
-            btnModificar.setEnabled(true);
-            btnEliminar.setEnabled(true);
             lblMant.setText("I");
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnNuevoActionPerformed
-
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-
-    }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if(lblMant.getText().equals("I")){
@@ -1089,24 +1161,28 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        pnlMensaje.setVisible(true);
+        FrmSolicitudDeposito.setVisible(true);
+        FrmSolicitudDeposito.setLocationRelativeTo(null);//en el centro
+        FrmSolicitudDeposito.setResizable(false);
+        FrmSolicitudDeposito.getContentPane().setBackground(Color.WHITE);
+        pnlMensaje1.setVisible(false);
+        Caja_Preventa cp = new Caja_Preventa();
+        cp.listarDepositoSangre("", "C", "T", tbCancelados);
+        cp.listarDepositoSangre("", "P", "T", tbPendientes);
+//        if(tbCancelados.getSelectedRowCount()==0)
+//            cp.inicializarTablaDepositoSangre(tbPendientes);
+//        if(tbPendientes.getSelectedRowCount()==0)
+//            cp.inicializarTablaDepositoSangre(tbPendientes);
+//        AdmisionEmergenciaTriaje triaje1 = new AdmisionEmergenciaTriaje();
+//        triaje1.consultorioExListar("", "Q", tbPacientes);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiActionPerformed
         if(btnSi.getText().equals("Si")){ // Al guardar
             if(lblMant.getText().equals("I")){
-                guardarDatos();
-            } else 
-            if(lblMant.getText().equals("U")){
-//                modificarDatos();
-            }
-            if(lblMant.getText().equals("E")){
-//                eliminarDatos();
+                if(guardarDatos()==true)
+                    JOptionPane.showMessageDialog(this, "ok");
             }
         } else
         if(btnSi.getText().equals("OK")){ // Al hacer OK hacerloinvisible
@@ -1124,7 +1200,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         FrmPacientes.setResizable(false);
         FrmPacientes.getContentPane().setBackground(Color.WHITE);
         AdmisionEmergenciaTriaje triaje1 = new AdmisionEmergenciaTriaje();
-        triaje1.consultorioExListar(txtBuscarPaciente.getText(), "Q", tbPacientes);
+        triaje1.consultorioExListar("", "Q", tbPacientes);
     }//GEN-LAST:event_btnPacienteMouseClicked
 
     private void txtNhcKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNhcKeyPressed
@@ -1176,6 +1252,74 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarPacienteKeyReleased
 
+    private void btnBuscarDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarDepActionPerformed
+
+    private void btnSi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSi1ActionPerformed
+        if(btnSi1.getText().equals("Si"))
+            eliminarDatos();
+        else
+            pnlMensaje1.setVisible(false);
+    }//GEN-LAST:event_btnSi1ActionPerformed
+
+    private void btnNo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNo1ActionPerformed
+        pnlMensaje1.setVisible(false);
+    }//GEN-LAST:event_btnNo1ActionPerformed
+
+    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
+        if(tbPendientes.getSelectedRowCount()!=0){
+                pnlMensaje1.setVisible(true);
+                lblMensaje1.setText("Desea ELIMINAR el registro?");
+                btnSi1.setVisible(true);
+                btnNo1.setVisible(true);
+        } else {
+            pnlMensaje1.setVisible(true);
+            pnlMensaje1.setBackground(new Color(255,91,70));
+            lblMensaje1.setText("Seleccione un registro");
+            btnSi1.setVisible(true);
+            btnSi1.setText("OK");
+            btnNo1.setVisible(false);
+        }
+    }//GEN-LAST:event_b5ActionPerformed
+
+    private void chkHoyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkHoyActionPerformed
+        Caja_Preventa cp = new Caja_Preventa();
+        if(chkHoy.isSelected()){
+            cp.listarDepositoSangre("", "C", "H", tbCancelados);
+            cp.listarDepositoSangre("", "P", "H", tbPendientes);
+        } else
+        if(chkHoy.isSelected()==false){
+            cp.listarDepositoSangre("", "C", "T", tbCancelados);
+            cp.listarDepositoSangre("", "P", "T", tbPendientes);
+        }
+    }//GEN-LAST:event_chkHoyActionPerformed
+
+    private void tbPendientesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPendientesKeyPressed
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_DELETE){
+            if(tbPendientes.getSelectedRowCount()!=0){
+                pnlMensaje1.setVisible(true);
+                lblMensaje1.setText("Desea ELIMINAR el registro?");
+                btnSi1.setVisible(true);
+                btnNo1.setVisible(true);
+            } else {
+                pnlMensaje1.setVisible(true);
+                pnlMensaje1.setBackground(new Color(255,91,70));
+                lblMensaje1.setText("Seleccione un registro");
+                btnSi1.setVisible(true);
+                btnSi1.setText("OK");
+                btnNo1.setVisible(false);
+            }
+        }
+    }//GEN-LAST:event_tbPendientesKeyPressed
+
+    private void txtBuscarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCaretUpdate
+        Caja_Preventa cp = new Caja_Preventa();
+        cp.listarDepositoSangre(txtBuscar.getText(), "C", "T", tbCancelados);
+        cp.listarDepositoSangre(txtBuscar.getText(), "P", "T", tbPendientes);
+    }//GEN-LAST:event_txtBuscarCaretUpdate
+
     /**
      * @param args the command line arguments
      */
@@ -1214,17 +1358,20 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog FrmPacientes;
     private javax.swing.JDialog FrmSolicitudDeposito;
+    private javax.swing.JButton b5;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarDep;
     private javax.swing.JButton btnBuscarPaciente;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNo;
+    private javax.swing.JButton btnNo1;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JLabel btnPaciente;
     private javax.swing.JButton btnSi;
+    private javax.swing.JButton btnSi1;
     public static javax.swing.JComboBox cbxGS;
     public static javax.swing.JComboBox cbxMedico;
+    private javax.swing.JCheckBox chkHoy;
     public static javax.swing.JCheckBox chkPaqGlobular;
     public static javax.swing.JCheckBox chkPlaquetas;
     public static javax.swing.JCheckBox chkPlasma;
@@ -1233,6 +1380,8 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel37;
@@ -1246,26 +1395,35 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel29;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane25;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JLabel lblActoMedico;
     public static javax.swing.JLabel lblApeNom;
     private javax.swing.JLabel lblArea;
+    private javax.swing.JLabel lblArea1;
     public static javax.swing.JLabel lblEdad;
     public static javax.swing.JLabel lblHc;
+    public static javax.swing.JLabel lblID;
     private javax.swing.JLabel lblMant;
+    private javax.swing.JLabel lblMant1;
     private javax.swing.JLabel lblMensaje;
+    private javax.swing.JLabel lblMensaje1;
     private javax.swing.JLabel lblusu;
+    private javax.swing.JLabel lblusu1;
     private javax.swing.JPanel pnlMensaje;
+    private javax.swing.JPanel pnlMensaje1;
+    private javax.swing.JTable tbCancelados;
     private javax.swing.JTable tbPacientes;
+    private javax.swing.JTable tbPendientes;
     private javax.swing.JLabel titulo8;
+    private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtBuscarPaciente;
     public static javax.swing.JTextField txtCantidad;
     public static javax.swing.JTextField txtDonantes;
     public static javax.swing.JTextField txtHematocrito;
     public static javax.swing.JTextField txtHemoglobina;
-    public static javax.swing.JTextField txtMedico;
     public static javax.swing.JTextField txtNhc;
     public static javax.swing.JTextField txtRH;
     // End of variables declaration//GEN-END:variables

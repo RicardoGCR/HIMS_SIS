@@ -315,7 +315,6 @@ Connection conexion=c.conectar();
             jPanel49 = new javax.swing.JPanel();
             Bcons = new javax.swing.JTextField();
             T9 = new javax.swing.JLabel();
-            jLabel57 = new javax.swing.JLabel();
             jTabbedPane8 = new javax.swing.JTabbedPane();
             jPanel52 = new javax.swing.JPanel();
             jScrollPane17 = new javax.swing.JScrollPane();
@@ -620,10 +619,6 @@ Connection conexion=c.conectar();
                                 .addComponent(T9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     );
 
-                    jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-                    jLabel57.setForeground(new java.awt.Color(255, 255, 255));
-                    jLabel57.setText("Búsqueda por nombres y apellidos");
-
                     javax.swing.GroupLayout jPanel48Layout = new javax.swing.GroupLayout(jPanel48);
                     jPanel48.setLayout(jPanel48Layout);
                     jPanel48Layout.setHorizontalGroup(
@@ -631,7 +626,6 @@ Connection conexion=c.conectar();
                         .addGroup(jPanel48Layout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel57)
                                 .addComponent(jLabel63)
                                 .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addContainerGap(634, Short.MAX_VALUE))
@@ -639,13 +633,11 @@ Connection conexion=c.conectar();
                     jPanel48Layout.setVerticalGroup(
                         jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel48Layout.createSequentialGroup()
-                            .addContainerGap(13, Short.MAX_VALUE)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel63)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(2, 2, 2)
-                            .addComponent(jLabel57)
-                            .addGap(333, 333, 333))
+                            .addGap(353, 353, 353))
                     );
 
                     Consultorios.getContentPane().add(jPanel48);
@@ -1032,9 +1024,14 @@ Connection conexion=c.conectar();
                     tur.setForeground(new java.awt.Color(255, 255, 255));
                     tur.setText("jLabel3");
 
-                    HoraFN.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "8:00", "9:00", "10:00", "11:00" }));
+                    HoraFN.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione.." }));
 
-                    HoraIN.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "9:00", "10:00", "11:00", "12:00" }));
+                    HoraIN.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione.." }));
+                    HoraIN.addMouseListener(new java.awt.event.MouseAdapter() {
+                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+                            HoraINMouseClicked(evt);
+                        }
+                    });
                     HoraIN.addItemListener(new java.awt.event.ItemListener() {
                         public void itemStateChanged(java.awt.event.ItemEvent evt) {
                             HoraINItemStateChanged(evt);
@@ -1172,7 +1169,7 @@ Connection conexion=c.conectar();
                                                     .addComponent(HoraFN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addComponent(jLabel6))
-                                    .addContainerGap(291, Short.MAX_VALUE))
+                                    .addContainerGap(231, Short.MAX_VALUE))
                                 .addGroup(NuevoLayout.createSequentialGroup()
                                     .addComponent(jLabel5)
                                     .addGap(144, 144, 144)
@@ -1370,6 +1367,7 @@ Connection conexion=c.conectar();
         btneliminar.setEnabled(false);
         jPanel29.setVisible(false);
         btnbuscar.setEnabled(true);
+        Natenciones.setEditable(true);
         T3.setEnabled(true);
         T4.setEnabled(true);
         Limpiar();
@@ -1398,7 +1396,9 @@ Connection conexion=c.conectar();
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-         if(tg==1){
+        ConsultorioExConsultorioAsignacion cno2 = new ConsultorioExConsultorioAsignacion();
+        turid.setText((cno2.TurnosId(HoraIN.getSelectedItem().toString())));
+        if(tg==1){
              Guardar();  
         }
         if(tg==2){
@@ -1594,8 +1594,7 @@ Connection conexion=c.conectar();
 
     private void cbTurnoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbTurnoItemStateChanged
 
-           ConsultorioExConsultorioAsignacion cno2 = new ConsultorioExConsultorioAsignacion();
-        turid.setText((cno2.TurnosId(cbTurno.getSelectedItem().toString())));
+          
         try{  
                 if(evt.getStateChange()==ItemEvent.SELECTED){
                     if(this.cbTurno.getSelectedIndex()>0){
@@ -1719,7 +1718,7 @@ Connection conexion=c.conectar();
     }//GEN-LAST:event_T5MouseClicked
 
     private void HoraINItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_HoraINItemStateChanged
-
+       
       
     }//GEN-LAST:event_HoraINItemStateChanged
 
@@ -1801,6 +1800,10 @@ mensaje.setVisible(false);
         Consultorios.setVisible(true);
     }//GEN-LAST:event_T4ActionPerformed
 
+    private void HoraINMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HoraINMouseClicked
+         
+    }//GEN-LAST:event_HoraINMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1874,7 +1877,6 @@ mensaje.setVisible(false);
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;

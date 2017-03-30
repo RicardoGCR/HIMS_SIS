@@ -9,8 +9,19 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+import modelos.Caja.Caja_Preventa;
+import modelos.ConsultorioEx.ConsultorioExRiesgoQuirurgico;
+import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.admisionEmergencia.AdmisionEmergenciaTriaje;
+import servicios.Conexion;
 
 /**
  *
@@ -18,12 +29,13 @@ import modelos.admisionEmergencia.AdmisionEmergenciaTriaje;
  */
 public class SolicitudDepositoSangre extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SolicitudDepositoSangre
-     */
+    DefaultTableModel m;
+    Connection conexion=null;
+    Conexion c = new Conexion();
+    ResultSet r;
+    PreparedStatement pstm;
     public SolicitudDepositoSangre() {
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.WHITE);
         //BOTON CERRAR
@@ -37,11 +49,14 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                 dispose();
             }
         });
+        conexion = c.conectar();
         cerrar();
         txtMedico.setVisible(false);
         cbxMedico.setVisible(true);
         habilitarCampos(false);
         pnlMensaje.setVisible(false);
+        cbxMedico.setModel(medicos());
+        
     }
     
     public void cerrar (){
@@ -105,143 +120,76 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         FrmPacientes.dispose();
     }
     
-//    public boolean guardarDatos(){
-//        boolean retorna = false;
-//        try {
-//            AdmisionEmergenciaCabecera adEmerCab5 = new AdmisionEmergenciaCabecera();
-//            ConsultorioExRiesgoQuirurgico consultorio3 = new ConsultorioExRiesgoQuirurgico();
-//            consultorio3.setAr_id(Integer.parseInt(lblArea.getText()));
-//            consultorio3.setProcedencia(Integer.parseInt(consultorio3.areaID(cbxProcedencia.getSelectedItem().toString())));
-//            consultorio3.setEx_fisico(txtExamenFisico.getText());
-//            consultorio3.setQx(txtQxAnteriores.getText());
-//            consultorio3.setOtros(txtOtros.getText());
-//            consultorio3.setSint_otros(txtOtrosSintomas.getText());
-//            consultorio3.setDesc(txtRq.getText());
-//            consultorio3.setSugerencia(txtSugerencia.getText());
-//            consultorio3.setUsuario(adEmerCab5.codUsuario(lblusu.getText()));
-//            consultorio3.setId_triaje(lblTriaje.getText());
-//            consultorio3.setCod_per(consultorio3.medicoID(cbxMedico.getSelectedItem().toString()));
-//            //
-//            if(chkHta.isSelected())
-//                consultorio3.setHta("X");
-//            else
-//                consultorio3.setHta("");
-//            //
-//            if(chkDm.isSelected())
-//                consultorio3.setDm("X");
-//            else
-//                consultorio3.setDm("");
-//            //
-//            if(chkEnfRenal.isSelected())
-//                consultorio3.setRenal("X");
-//            else
-//                consultorio3.setRenal("");
-//            //
-//            if(chkDisnea.isSelected())
-//                consultorio3.setDisnea("X");
-//            else
-//                consultorio3.setDisnea("");
-//            //
-//            if(chkPalpitaciones.isSelected())
-//                consultorio3.setPalpit("X");
-//            else
-//                consultorio3.setPalpit("");
-//            //
-//            if(chkTos.isSelected())
-//                consultorio3.setTos("X");
-//            else
-//                consultorio3.setTos("");
-//            //
-//            if(cbxAlergia.getSelectedItem().equals("SI"))
-//                consultorio3.setAlergia("X");
-//            else
-//                consultorio3.setAlergia("");
-//            //
-//            if(guardarPreventa()==true){
-//            int id = Integer.parseInt(consultorio3.preventaID());
-//            consultorio3.setPreventa(id);
-//                if(consultorio3.mantenimientoConsultorioExRQ(lblMant.getText())==true){
-//                    if(tbDiagnostico.getRowCount()!=0 && tbCpt.getRowCount()!=0){
-//                        if(guardarDiagnostico(Integer.parseInt(consultorio3.rqID()))&& guardarNomenclatura(id)){
-//                            pnlMensaje.setVisible(true);
-//                            lblMensaje.setText("Datos guardados de forma correcta");
-//                            limpiar();
-//                            habilitarCampos(false);
-//                            btnGuardar.setEnabled(false);
-//                            pnlMensaje.setBackground(new Color(33,115,70));
-//                            btnSi.setVisible(true);
-//                            btnSi.setText("OK");
-//                            btnNo.setVisible(false);
-//                        } else {
-//                            pnlMensaje.setVisible(true);
-//                            lblMensaje.setText("Ocurrió un error, verifique");
-//                            pnlMensaje.setBackground(new Color(255,91,70));
-//                            btnSi.setVisible(false);
-//                            btnNo.setVisible(false);
-//                        }
-//                    } else
-//                    if(tbDiagnostico.getRowCount()==0 && tbCpt.getRowCount()!=0){
-//                        if(guardarNomenclatura(id)){
-//                            pnlMensaje.setVisible(true);
-//                            lblMensaje.setText("Datos guardados de forma correcta");
-//                            limpiar();
-//                            habilitarCampos(false);
-//                            btnGuardar.setEnabled(false);
-//                            pnlMensaje.setBackground(new Color(33,115,70));
-//                            btnSi.setVisible(true);
-//                            btnSi.setText("OK");
-//                            btnNo.setVisible(false);
-//                        } else {
-//                            pnlMensaje.setVisible(true);
-//                            lblMensaje.setText("Ocurrió un error, verifique");
-//                            pnlMensaje.setBackground(new Color(255,91,70));
-//                            btnSi.setVisible(false);
-//                            btnNo.setVisible(false);
-//                        }
-//                    } else
-//                    if(tbDiagnostico.getRowCount()!=0 && tbCpt.getRowCount()==0){
-//                        if(guardarDiagnostico(Integer.parseInt(consultorio3.rqID()))){
-//                            pnlMensaje.setVisible(true);
-//                            lblMensaje.setText("Datos guardados de forma correcta");
-//                            limpiar();
-//                            habilitarCampos(false);
-//                            btnGuardar.setEnabled(false);
-//                            pnlMensaje.setBackground(new Color(33,115,70));
-//                            btnSi.setVisible(true);
-//                            btnSi.setText("OK");
-//                            btnNo.setVisible(false);
-//                        } else {
-//                            pnlMensaje.setVisible(true);
-//                            lblMensaje.setText("Ocurrió un error, verifique");
-//                            pnlMensaje.setBackground(new Color(255,91,70));
-//                            btnSi.setVisible(false);
-//                            btnNo.setVisible(false);
-//                        }
-//                    } else
-//                    if(tbDiagnostico.getRowCount()==0 && tbCpt.getRowCount()==0){
-//                        pnlMensaje.setVisible(true);
-//                        lblMensaje.setText("Datos guardados de forma correcta");
-//                        limpiar();
-//                        habilitarCampos(false);
-//                        btnGuardar.setEnabled(false);
-//                        pnlMensaje.setBackground(new Color(33,115,70));
-//                        btnSi.setVisible(true);
-//                        btnSi.setText("OK");
-//                        btnNo.setVisible(false);
-//                    } 
-//                }
-//            } else {
-//                pnlMensaje.setVisible(true);
-//                lblMensaje.setText("Ocurrió un error, verifique");
-//                pnlMensaje.setBackground(new Color(255,91,70));
-//                btnSi.setVisible(false);
-//                btnNo.setVisible(false);
-//            }
-//        } catch (Exception e) {
-//            System.out.println("Error: guardarDatos" + e.getMessage());
-//        }
-//        return retorna;
-//    }
+    public DefaultComboBoxModel medicos(){
+       DefaultComboBoxModel  listmodel = new DefaultComboBoxModel ();        
+       String   sql = null;
+       ResultSet rs = null;
+       Statement  st = null;   
+        try {
+              st = conexion.createStatement();
+              r = st.executeQuery ("EXEC CONSULTORIO_EXT_MEDICO_TURNO_LISTAR "+ Integer.parseInt(lblArea.getText()) +""); 
+              listmodel.addElement("Seleccionar...");
+            while( r.next() ){
+                listmodel.addElement( r.getString( "MEDICO" ) );                
+             }
+            r.close();
+        } catch (SQLException ex) {            
+            System.err.println( "Error: medicos " + ex.getMessage() );
+        }        
+        return listmodel;
+    }
+    
+    public boolean guardarDatos(){
+        boolean retorna = false;
+        try {
+            AdmisionEmergenciaCabecera adEmerCab5 = new AdmisionEmergenciaCabecera();
+            Caja_Preventa preventa1 = new Caja_Preventa();
+            ConsultorioExRiesgoQuirurgico consultorio1  = new ConsultorioExRiesgoQuirurgico();
+            preventa1.setId_hc(lblHc.getText());
+            preventa1.setAR_ID(Integer.parseInt(lblArea.getText()));
+            preventa1.setCantidad(Integer.parseInt(txtCantidad.getText()));
+            preventa1.setDonantes(Integer.parseInt(txtDonantes.getText()));
+            preventa1.setHematocrito(txtHematocrito.getText());
+            preventa1.setGrupo_sang(cbxGS.getSelectedItem().toString());
+            preventa1.setRh(txtRH.getText());
+            preventa1.setHemoglobina(txtHemoglobina.getText());
+            preventa1.setCod_usu(adEmerCab5.codUsuario(lblusu.getText()));
+            preventa1.setCod_medico(consultorio1.medicoID(cbxMedico.getSelectedItem().toString()));
+            if(chkPaqGlobular.isSelected()==true)
+                preventa1.setPaq_globular("X");
+            else
+                preventa1.setPaq_globular("");
+            if(chkPlaquetas.isSelected()==true)
+                preventa1.setPlaquetas("X");
+            else
+                preventa1.setPlaquetas("");
+            if(chkPlasma.isSelected()==true)
+                preventa1.setPlasma("X");
+            else
+                preventa1.setPlasma("");
+            if(preventa1.mantanimientoCajaPreventaCExDepSangre(lblMant.getText())==true){
+                System.out.println("ID Preventa: " + Integer.parseInt(consultorio1.preventaID()));
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Datos guardados de forma correcta");
+                limpiar();
+                habilitarCampos(false);
+                btnGuardar.setEnabled(false);
+                pnlMensaje.setBackground(new Color(33,115,70));
+                btnSi.setVisible(true);
+                btnSi.setText("OK");
+                btnNo.setVisible(false);
+            } else {
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Ocurrió un error, verifique");
+                pnlMensaje.setBackground(new Color(255,91,70));
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+            }
+        } catch (Exception e) {
+            System.out.println("Error: guardarDatos" + e.getMessage());
+        }
+        return retorna;
+    }
 //    
 //    public boolean modificarDatos(){
 //        boolean retorna = false;
@@ -415,6 +363,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         txtBuscarPaciente = new javax.swing.JTextField();
         btnBuscarPaciente = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
+        FrmSolicitudDeposito = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
@@ -425,6 +374,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         lblusu = new javax.swing.JLabel();
         lblMant = new javax.swing.JLabel();
         lblHc = new javax.swing.JLabel();
+        lblArea = new javax.swing.JLabel();
         pnlMensaje = new javax.swing.JPanel();
         lblMensaje = new javax.swing.JLabel();
         btnSi = new javax.swing.JButton();
@@ -459,6 +409,8 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         cbxMedico = new javax.swing.JComboBox();
         txtMedico = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         FrmPacientes.setAlwaysOnTop(true);
         FrmPacientes.setMinimumSize(new java.awt.Dimension(739, 450));
@@ -554,6 +506,17 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
             .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
         );
 
+        javax.swing.GroupLayout FrmSolicitudDepositoLayout = new javax.swing.GroupLayout(FrmSolicitudDeposito.getContentPane());
+        FrmSolicitudDeposito.getContentPane().setLayout(FrmSolicitudDepositoLayout);
+        FrmSolicitudDepositoLayout.setHorizontalGroup(
+            FrmSolicitudDepositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        FrmSolicitudDepositoLayout.setVerticalGroup(
+            FrmSolicitudDepositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 102));
@@ -645,6 +608,8 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
 
         lblHc.setText("Hc");
 
+        lblArea.setText("60");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -666,11 +631,13 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                         .addComponent(lblHc)
                         .addGap(57, 57, 57)
                         .addComponent(lblMant)
-                        .addGap(145, 145, 145)
+                        .addGap(45, 45, 45)
+                        .addComponent(lblArea)
+                        .addGap(60, 60, 60)
                         .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 367, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -695,7 +662,8 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                                 .addGap(32, 32, 32)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblMant)
-                                    .addComponent(lblHc))))))
+                                    .addComponent(lblHc)
+                                    .addComponent(lblArea))))))
                 .addGap(552, 552, 552))
         );
 
@@ -890,7 +858,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         jLabel10.setText("Médico");
 
         cbxMedico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbxMedico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione...", "1" }));
+        cbxMedico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione..." }));
 
         txtMedico.setEditable(false);
         txtMedico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -903,61 +871,67 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 977, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addGap(46, 46, 46)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCantidad)
-                            .addComponent(txtDonantes, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                            .addComponent(txtHematocrito))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13))
-                        .addGap(46, 46, 46)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtRH)
-                            .addComponent(txtHemoglobina, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                            .addComponent(cbxGS, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chkPaqGlobular)
-                            .addComponent(chkPlasma)
-                            .addComponent(chkPlaquetas))
-                        .addGap(70, 70, 70))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(32, 32, 32)
-                                        .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblApeNom, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4))
+                                .addComponent(jLabel2)
+                                .addGap(32, 32, 32)
+                                .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblEdad)))
+                                .addComponent(lblApeNom, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEdad))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cbxMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCantidad)
+                                    .addComponent(txtDonantes, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(37, 37, 37)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel13))
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtHematocrito)
+                                    .addComponent(txtHemoglobina, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(43, 43, 43)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12))
+                                .addGap(36, 36, 36)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtRH)
+                                    .addComponent(cbxGS, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(37, 37, 37)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(chkPaqGlobular)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(chkPlasma)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(chkPlaquetas)))))
+                        .addContainerGap(63, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -977,43 +951,59 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                     .addComponent(lblApeNom))
                 .addGap(7, 7, 7)
                 .addComponent(jLabel6)
-                .addGap(20, 20, 20)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtHematocrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtDonantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(txtHematocrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel8)
+                            .addComponent(txtHemoglobina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel11)
-                                .addComponent(cbxGS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(chkPaqGlobular, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDonantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel13))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel12))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbxGS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11)
+                            .addComponent(chkPaqGlobular, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtRH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12)
-                            .addComponent(chkPlasma))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(txtHemoglobina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkPlasma)
                             .addComponent(chkPlaquetas))))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(cbxMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jScrollPane1.setBorder(null);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1022,9 +1012,10 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1033,7 +1024,9 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE))
         );
 
         pack();
@@ -1107,7 +1100,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     private void btnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiActionPerformed
         if(btnSi.getText().equals("Si")){ // Al guardar
             if(lblMant.getText().equals("I")){
-//                guardarDatos();
+                guardarDatos();
             } else 
             if(lblMant.getText().equals("U")){
 //                modificarDatos();
@@ -1220,6 +1213,7 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog FrmPacientes;
+    private javax.swing.JDialog FrmSolicitudDeposito;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscarPaciente;
     private javax.swing.JButton btnEliminar;
@@ -1252,9 +1246,12 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel29;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane25;
+    private javax.swing.JTable jTable1;
     public static javax.swing.JLabel lblActoMedico;
     public static javax.swing.JLabel lblApeNom;
+    private javax.swing.JLabel lblArea;
     public static javax.swing.JLabel lblEdad;
     public static javax.swing.JLabel lblHc;
     private javax.swing.JLabel lblMant;

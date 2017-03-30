@@ -38,6 +38,9 @@ byte tge;
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(2, false);
         HC_ID.setText(RegistroSeguimiento.lblHc.getText());
+        if(){
+            
+        }
         lblnina.setText(RegistroSeguimiento.txtPaciente.getText());
         lblnino.setText(RegistroSeguimiento.txtPaciente.getText());
     }
@@ -90,12 +93,18 @@ repaint();
 
                             ConsultorioExtRsCcd GCCD= new ConsultorioExtRsCcd();
            
+
                             GCCD.setRsCcd(0);
                             GCCD.setRS_ID(Integer.parseInt(HC_ID.getText()));
                             GCCD.setDescripcion(TxtDes.getText());
                             GCCD.setFecha(TxtFecha.getText());
                             GCCD.setID_CIE10(Integer.parseInt(CIE10_ID.getText()));
                             GCCD.setFua(TxtFua.getText());
+//                            GCCD.setRsCcd(0);
+//                            GCCD.setRS_ID(txtPA.getText());
+//                            GCCD.setFecha(txtFC.getText());
+//                            GCCD.setID_CIE10(txtT.getText());
+//                            GCCD.setFua(txtPeso.getText());
 
                             if(GCCD.mantenimientoCCD("I")==true){
                                 mensaje.setBackground(new Color(33,115,70)); 

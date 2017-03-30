@@ -7,13 +7,27 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Collection;
+<<<<<<< HEAD
+=======
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.swing.JTable;
+>>>>>>> dde6c259003343e5180f214b71a2d25f82d8278e
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import servicios.Conexion;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> dde6c259003343e5180f214b71a2d25f82d8278e
 public class ConsultorioExtRsCabecera implements Serializable {
     DefaultTableModel m;
     Conexion con = new Conexion();
@@ -29,9 +43,93 @@ public class ConsultorioExtRsCabecera implements Serializable {
     private String usuario;
     private Character estado;
     private Collection<ConsultorioExtRsCcd> consultorioExtRsCcdCollection;
+<<<<<<< HEAD
 
+=======
+>>>>>>> dde6c259003343e5180f214b71a2d25f82d8278e
     private Collection<ConsultorioExtRsVacunas> consultorioExtRsVacunasCollection;
 
+    public void formatoTablaNinos(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(00);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(30);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(0);
+        //COLUMNAS OCULTAS
+        TableColumn columna0 = tabla.getColumnModel().getColumn(0);
+            columna0.setMaxWidth(0);
+            columna0.setMinWidth(0);
+            columna0.setPreferredWidth(0);
+            tabla.doLayout();
+        TableColumn columna8 = tabla.getColumnModel().getColumn(8);
+            columna8.setMaxWidth(0);
+            columna8.setMinWidth(0);
+            columna8.setPreferredWidth(0);
+            tabla.doLayout();
+        TableColumn columna9 = tabla.getColumnModel().getColumn(9);
+        columna9.setMaxWidth(0);
+        columna9.setMinWidth(0);
+        columna9.setPreferredWidth(0);
+        tabla.doLayout();
+        tabla.setRowHeight(30);
+    }
+    
+    public void inicializarTablaNinos(JTable tabla){
+        tabla.setModel(new DefaultTableModel());
+        String titulos[]={"ID","Acto Médico","DNI","Nº H.C.","Paciente","Genero",
+        "Fecha de Nacimiento","Edad","Establecimiento","Triaje"};
+        m=new DefaultTableModel(null,titulos);
+        tabla.setModel(m);
+        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+        tabla.setRowSorter(elQueOrdena);
+        tabla.setModel(m);
+        formatoTablaNinos(tabla);
+    }
+    
+    public void listarNinos(JTable tabla,String busqueda){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID","Acto Médico","DNI","Nº H.C.","Paciente","Genero",
+                "Fecha de Nacimiento","Edad","Establecimiento","Triaje"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[10];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC CONSULTORIO_EXT_LISTAR_NINOS ?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, busqueda);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                    fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
+                    fila[9]=r.getString(10); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaNinos(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarNinos: " + e.getMessage());
+        }
+    }
+    
     public ConsultorioExtRsCabecera()
     {
         Conexion con = new Conexion();

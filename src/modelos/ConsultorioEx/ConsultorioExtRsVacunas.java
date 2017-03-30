@@ -6,50 +6,17 @@
 package modelos.ConsultorioEx;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_VACUNAS")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsVacunas.findAll", query = "SELECT c FROM ConsultorioExtRsVacunas c"),
-    @NamedQuery(name = "ConsultorioExtRsVacunas.findByVacId", query = "SELECT c FROM ConsultorioExtRsVacunas c WHERE c.vacId = :vacId"),
-    @NamedQuery(name = "ConsultorioExtRsVacunas.findByVacDesc", query = "SELECT c FROM ConsultorioExtRsVacunas c WHERE c.vacDesc = :vacDesc"),
-    @NamedQuery(name = "ConsultorioExtRsVacunas.findByVacFecha", query = "SELECT c FROM ConsultorioExtRsVacunas c WHERE c.vacFecha = :vacFecha"),
-    @NamedQuery(name = "ConsultorioExtRsVacunas.findByVacFua", query = "SELECT c FROM ConsultorioExtRsVacunas c WHERE c.vacFua = :vacFua"),
-    @NamedQuery(name = "ConsultorioExtRsVacunas.findByNomPc", query = "SELECT c FROM ConsultorioExtRsVacunas c WHERE c.nomPc = :nomPc"),
-    @NamedQuery(name = "ConsultorioExtRsVacunas.findByUsuario", query = "SELECT c FROM ConsultorioExtRsVacunas c WHERE c.usuario = :usuario")})
 public class ConsultorioExtRsVacunas implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "VAC_ID")
+
     private Long vacId;
-    @Column(name = "VAC_DESC")
     private String vacDesc;
-    @Column(name = "VAC_FECHA")
     private String vacFecha;
-    @Column(name = "VAC_FUA")
     private String vacFua;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "USUARIO")
     private String usuario;
-    @JoinColumn(name = "RS_ID", referencedColumnName = "RS_ID")
-    @ManyToOne
     private ConsultorioExtRsCabecera rsId;
 
     public ConsultorioExtRsVacunas() {

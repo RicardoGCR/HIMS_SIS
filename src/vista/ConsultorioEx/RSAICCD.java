@@ -48,11 +48,11 @@ repaint();
 
                             ConsultorioExtRsCcd GCCD= new ConsultorioExtRsCcd();
            
-                            GCCD.setRsCcd(0);
-                            GCCD.setRS_ID(txtPA.getText());
-                            GCCD.setFecha(txtFC.getText());
-                            GCCD.setID_CIE10(txtT.getText());
-                            GCCD.setFua(txtPeso.getText());
+//                            GCCD.setRsCcd(0);
+//                            GCCD.setRS_ID(txtPA.getText());
+//                            GCCD.setFecha(txtFC.getText());
+//                            GCCD.setID_CIE10(txtT.getText());
+//                            GCCD.setFua(txtPeso.getText());
 
                             if(GCCD.mantenimientoCXTriaje("I")==true){
                                 mensaje.setBackground(new Color(33,115,70)); 

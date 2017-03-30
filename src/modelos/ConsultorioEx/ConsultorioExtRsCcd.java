@@ -6,58 +6,69 @@
 package modelos.ConsultorioEx;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Collection;
+import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import servicios.Conexion;
 
 /**
  *
  * @author PC02
  */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_CCD")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsCcd.findAll", query = "SELECT c FROM ConsultorioExtRsCcd c"),
-    @NamedQuery(name = "ConsultorioExtRsCcd.findByRsCcd", query = "SELECT c FROM ConsultorioExtRsCcd c WHERE c.rsCcd = :rsCcd"),
-    @NamedQuery(name = "ConsultorioExtRsCcd.findByFecha", query = "SELECT c FROM ConsultorioExtRsCcd c WHERE c.fecha = :fecha"),
-    @NamedQuery(name = "ConsultorioExtRsCcd.findByFua", query = "SELECT c FROM ConsultorioExtRsCcd c WHERE c.fua = :fua"),
-    @NamedQuery(name = "ConsultorioExtRsCcd.findByEstado", query = "SELECT c FROM ConsultorioExtRsCcd c WHERE c.estado = :estado")})
+
 public class ConsultorioExtRsCcd implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "RS_CCD")
-    private Long rsCcd;
-    @Column(name = "Fecha")
+     static DefaultTableModel m;
+    Conexion con = new Conexion();
+    private Connection cn;
+    private int rsCcd;
     private String fecha;
-    @Column(name = "Fua")
     private String fua;
-    @Column(name = "Estado")
-    private Character estado;
-    @JoinColumn(name = "RS_ID", referencedColumnName = "RS_ID")
-    @ManyToOne
-    private ConsultorioExtRsCabecera rsId;
+    private int ID_CIE10;
+    private int RS_ID;
+    private String estado;
 
+    
+    public boolean mantenimientoCXTriaje(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CX_TRIAJE_MANTANIMIENTO ?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getRsCcd());
+            cmd.setInt(2, getRS_ID());
+            cmd.setString(3, getFecha());
+            cmd.setInt(4, getID_CIE10());
+            cmd.setString(5, getFua());
+ 
+            cmd.setString(12, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoAdmisionemergenciaTriaje: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public ConsultorioExtRsCcd() {
+        Conexion con = new Conexion();
+        cn = con.conectar();
     }
 
-    public ConsultorioExtRsCcd(Long rsCcd) {
-        this.rsCcd = rsCcd;
-    }
-
-    public Long getRsCcd() {
+    public int getRsCcd() {
         return rsCcd;
     }
 
-    public void setRsCcd(Long rsCcd) {
+    public void setRsCcd(int rsCcd) {
         this.rsCcd = rsCcd;
     }
 
@@ -77,45 +88,41 @@ public class ConsultorioExtRsCcd implements Serializable {
         this.fua = fua;
     }
 
-    public Character getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Character estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
-    public ConsultorioExtRsCabecera getRsId() {
-        return rsId;
+
+    public int getID_CIE10() {
+        return ID_CIE10;
     }
 
-    public void setRsId(ConsultorioExtRsCabecera rsId) {
-        this.rsId = rsId;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (rsCcd != null ? rsCcd.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ConsultorioExtRsCcd)) {
-            return false;
-        }
-        ConsultorioExtRsCcd other = (ConsultorioExtRsCcd) object;
-        if ((this.rsCcd == null && other.rsCcd != null) || (this.rsCcd != null && !this.rsCcd.equals(other.rsCcd))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "modelos.ConsultorioEx.ConsultorioExtRsCcd[ rsCcd=" + rsCcd + " ]";
+    public void setID_CIE10(int ID_CIE10) {
+        this.ID_CIE10 = ID_CIE10;
     }
     
+
+    public Connection getCn() {
+        return cn;
+    }
+
+    public void setCn(Connection cn) {
+        this.cn = cn;
+    }
+
+    public int getRS_ID() {
+        return RS_ID;
+    }
+
+    public void setRS_ID(int RS_ID) {
+        this.RS_ID = RS_ID;
+    }
+    
+    
+
+
 }

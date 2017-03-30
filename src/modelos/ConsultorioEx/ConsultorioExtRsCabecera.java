@@ -8,65 +8,28 @@ package modelos.ConsultorioEx;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import servicios.Conexion;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_CABECERA")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsCabecera.findAll", query = "SELECT c FROM ConsultorioExtRsCabecera c"),
-    @NamedQuery(name = "ConsultorioExtRsCabecera.findByRsId", query = "SELECT c FROM ConsultorioExtRsCabecera c WHERE c.rsId = :rsId"),
-    @NamedQuery(name = "ConsultorioExtRsCabecera.findByRsTipoRiesgo", query = "SELECT c FROM ConsultorioExtRsCabecera c WHERE c.rsTipoRiesgo = :rsTipoRiesgo"),
-    @NamedQuery(name = "ConsultorioExtRsCabecera.findByRsPadre", query = "SELECT c FROM ConsultorioExtRsCabecera c WHERE c.rsPadre = :rsPadre"),
-    @NamedQuery(name = "ConsultorioExtRsCabecera.findByRsAfilSis", query = "SELECT c FROM ConsultorioExtRsCabecera c WHERE c.rsAfilSis = :rsAfilSis"),
-    @NamedQuery(name = "ConsultorioExtRsCabecera.findByFechaActu", query = "SELECT c FROM ConsultorioExtRsCabecera c WHERE c.fechaActu = :fechaActu"),
-    @NamedQuery(name = "ConsultorioExtRsCabecera.findByHoraActu", query = "SELECT c FROM ConsultorioExtRsCabecera c WHERE c.horaActu = :horaActu"),
-    @NamedQuery(name = "ConsultorioExtRsCabecera.findByNomPc", query = "SELECT c FROM ConsultorioExtRsCabecera c WHERE c.nomPc = :nomPc"),
-    @NamedQuery(name = "ConsultorioExtRsCabecera.findByUsuario", query = "SELECT c FROM ConsultorioExtRsCabecera c WHERE c.usuario = :usuario"),
-    @NamedQuery(name = "ConsultorioExtRsCabecera.findByEstado", query = "SELECT c FROM ConsultorioExtRsCabecera c WHERE c.estado = :estado")})
+
 public class ConsultorioExtRsCabecera implements Serializable {
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "RS_ID")
     private Long rsId;
-    @Column(name = "RS_TIPO_RIESGO")
     private String rsTipoRiesgo;
-    @Column(name = "RS_PADRE")
     private String rsPadre;
-    @Column(name = "RS_AFIL_SIS")
     private String rsAfilSis;
-    @Column(name = "FECHA_ACTU")
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "USUARIO")
     private String usuario;
-    @Column(name = "ESTADO")
     private Character estado;
-    @OneToMany(mappedBy = "rsId")
     private Collection<ConsultorioExtRsCcd> consultorioExtRsCcdCollection;
-    @OneToMany(mappedBy = "rsId")
+
     private Collection<ConsultorioExtRsVacunas> consultorioExtRsVacunasCollection;
 
     public ConsultorioExtRsCabecera()

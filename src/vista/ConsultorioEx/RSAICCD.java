@@ -5,8 +5,12 @@
  */
 package vista.ConsultorioEx;
 
+import com.toedter.calendar.JDateChooser;
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JComponent;
+import javax.swing.table.DefaultTableModel;
+import modelos.ConsultorioEx.ConsultorioExtRsCcd;
 import static vista.ConsultorioEx.RegistroSeguimiento.jTabbedPane1;
 
 /**
@@ -16,6 +20,12 @@ import static vista.ConsultorioEx.RegistroSeguimiento.jTabbedPane1;
 public class RSAICCD extends javax.swing.JInternalFrame {
 private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
 private Dimension DimensionBarra = null;
+
+ConsultorioExtRsCcd adCXRSCCD = new ConsultorioExtRsCcd();
+static ConsultorioExtRsCcd adCXRSCCDA = new ConsultorioExtRsCcd();
+static DefaultTableModel m;
+byte tg;
+byte tge;
     /**
      * Creates new form RSAICCD
      */
@@ -34,7 +44,39 @@ Barra.setSize(0,0);
 Barra.setPreferredSize(new Dimension(0,0)); 
 repaint(); 
 }
+    public void Guardar(JDateChooser fecha){
 
+                            ConsultorioExtRsCcd GCCD= new ConsultorioExtRsCcd();
+           
+                            GCCD.setRsCcd(0);
+                            GCCD.setRS_ID(txtPA.getText());
+                            GCCD.setFecha(txtFC.getText());
+                            GCCD.setID_CIE10(txtT.getText());
+                            GCCD.setFua(txtPeso.getText());
+
+                            if(GCCD.mantenimientoCXTriaje("I")==true){
+                                mensaje.setBackground(new Color(33,115,70)); 
+                                men.setText("Datos Guardados de forma correcta");
+//                                b.setText("OK");
+//                                b.setVisible(true);
+//                                b1.setVisible(false);
+
+                                btnGuardar.setEnabled(false);
+                                tge=1;
+//                                listar();
+                            
+                        }else {
+                           
+                                mensaje.setVisible(true);
+                                mensaje.setBackground(new Color(255,91,70)); 
+                                men.setText("Ocurrio un error, Verifique");
+//                                b.setVisible(false);
+//                                b1.setVisible(false);
+                                tge=7;
+                        }
+                             
+      
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -318,10 +360,11 @@ repaint();
         FCCD11A = new com.toedter.calendar.JDateChooser();
         FUACCD11A = new javax.swing.JTextField();
         DXCCD11A = new javax.swing.JLabel();
-        Opciones = new javax.swing.JPanel();
+        mensaje = new javax.swing.JPanel();
         jPanel31 = new javax.swing.JPanel();
         btneditar4 = new javax.swing.JButton();
-        btnguardar4 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        men = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -497,6 +540,12 @@ repaint();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FCCDRN3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        FUACCDRN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FUACCDRNActionPerformed(evt);
+            }
+        });
 
         jPanel71.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -2987,7 +3036,7 @@ repaint();
 
         jTabbedPane1.addTab("CCD", CCD2);
 
-        Opciones.setBackground(new java.awt.Color(45, 204, 112));
+        mensaje.setBackground(new java.awt.Color(45, 204, 112));
 
         jPanel31.setBackground(new java.awt.Color(39, 174, 97));
 
@@ -3004,17 +3053,17 @@ repaint();
             }
         });
 
-        btnguardar4.setForeground(new java.awt.Color(240, 240, 240));
-        btnguardar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
-        btnguardar4.setMnemonic('N');
-        btnguardar4.setText("Guardar");
-        btnguardar4.setContentAreaFilled(false);
-        btnguardar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnguardar4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnguardar4.setIconTextGap(30);
-        btnguardar4.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setForeground(new java.awt.Color(240, 240, 240));
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
+        btnGuardar.setMnemonic('N');
+        btnGuardar.setText("Guardar");
+        btnGuardar.setContentAreaFilled(false);
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGuardar.setIconTextGap(30);
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardar4ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -3026,7 +3075,7 @@ repaint();
             .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel31Layout.createSequentialGroup()
                     .addGap(15, 15, 15)
-                    .addComponent(btnguardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(btneditar4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(15, Short.MAX_VALUE)))
@@ -3038,22 +3087,32 @@ repaint();
                 .addGroup(jPanel31Layout.createSequentialGroup()
                     .addGap(1, 1, 1)
                     .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnguardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btneditar4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout OpcionesLayout = new javax.swing.GroupLayout(Opciones);
-        Opciones.setLayout(OpcionesLayout);
-        OpcionesLayout.setHorizontalGroup(
-            OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OpcionesLayout.createSequentialGroup()
+        men.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        men.setForeground(new java.awt.Color(255, 255, 255));
+        men.setText("jLabel1");
+
+        javax.swing.GroupLayout mensajeLayout = new javax.swing.GroupLayout(mensaje);
+        mensaje.setLayout(mensajeLayout);
+        mensajeLayout.setHorizontalGroup(
+            mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mensajeLayout.createSequentialGroup()
                 .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(men)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        OpcionesLayout.setVerticalGroup(
-            OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        mensajeLayout.setVerticalGroup(
+            mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(mensajeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(men)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -3061,14 +3120,14 @@ repaint();
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
-            .addComponent(Opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1)
                 .addGap(0, 0, 0)
-                .addComponent(Opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -3107,9 +3166,13 @@ repaint();
 
     }//GEN-LAST:event_btneditar4ActionPerformed
 
-    private void btnguardar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar4ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
-    }//GEN-LAST:event_btnguardar4ActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void FUACCDRNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FUACCDRNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FUACCDRNActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3251,9 +3314,8 @@ repaint();
     private javax.swing.JTextField FUACCDRN3;
     private javax.swing.JTextField FUACCDRN4;
     private javax.swing.JPanel LEYENDA;
-    private javax.swing.JPanel Opciones;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btneditar4;
-    private javax.swing.JButton btnguardar4;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
@@ -3391,5 +3453,7 @@ repaint();
     private javax.swing.JPanel jPanel98;
     private javax.swing.JPanel jPanel99;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel men;
+    private javax.swing.JPanel mensaje;
     // End of variables declaration//GEN-END:variables
 }

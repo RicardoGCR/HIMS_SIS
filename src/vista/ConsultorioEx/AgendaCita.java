@@ -37,10 +37,70 @@ Connection conexion=c.conectar();
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
+        LISTAR();
  
     }
     
+public void LISTAR(){
+    try {
+             String titulos[]={"Id","Documento","DNI","Nº H.C.","Paciente","Nº Atención","Fecha","Hora","Total de Citas","arid","Area"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[11];
 
+            Conexion obj = new Conexion();  
+        String consulta="exec CONSULTORIO_EXT_LISTAR_CONSUULTORIO_AGENDA";
+        ResultSet r;
+        r=obj.Listar(consulta);
+        int c=1;
+          while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2); 
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9); 
+                fila[9]=r.getString(10); 
+                fila[10]=r.getString(11);
+      
+                    m.addRow(fila);
+                    c++;
+            }
+            tb_Agenda.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tb_Agenda.setRowSorter(elQueOrdena);
+            this.tb_Agenda.setModel(m);
+            formato();
+            
+    } catch (Exception e) {
+    }
+}
+
+  public void formato(){
+//    tb_Agenda.getColumnModel().getColumn(0).setMinWidth(0);
+//    tb_Agenda.getColumnModel().getColumn(0).setMaxWidth(0);    
+//    tb_Agenda.getColumnModel().getColumn(1).setPreferredWidth(80);
+//    tb_Agenda.getColumnModel().getColumn(2).setPreferredWidth(600);
+//    tb_Agenda.getColumnModel().getColumn(3).setPreferredWidth(80);
+//    tb_Agenda.getColumnModel().getColumn(4).setPreferredWidth(80);
+//    tb_Agenda.getColumnModel().getColumn(5).setPreferredWidth(300);
+//    
+//    tb_Agenda.getColumnModel().getColumn(6).setMinWidth(0);
+//    tb_Agenda.getColumnModel().getColumn(6).setMaxWidth(0); 
+//    tb_Agenda.getColumnModel().getColumn(7).setMinWidth(0);
+//    tb_Agenda.getColumnModel().getColumn(7).setMaxWidth(0); 
+//    tb_Agenda.getColumnModel().getColumn(8).setMinWidth(0);
+//    tb_Agenda.getColumnModel().getColumn(8).setMaxWidth(0); 
+//    tb_Agenda.getColumnModel().getColumn(9).setMinWidth(0);
+//    tb_Agenda.getColumnModel().getColumn(9).setMaxWidth(0); 
+//    tb_Agenda.getColumnModel().getColumn(10).setMinWidth(0);
+//    tb_Agenda.getColumnModel().getColumn(10).setMaxWidth(0); 
+    tb_Agenda.setRowHeight(30);
+    
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,7 +125,7 @@ Connection conexion=c.conectar();
         b = new javax.swing.JButton();
         b1 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tbTriaje = new javax.swing.JTable(){
+        tb_Agenda = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false; //Disallow the editing of any cell
             }};
@@ -275,7 +335,7 @@ Connection conexion=c.conectar();
 
             jScrollPane3.setBorder(null);
 
-            tbTriaje.setModel(new javax.swing.table.DefaultTableModel(
+            tb_Agenda.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
 
                 },
@@ -283,23 +343,23 @@ Connection conexion=c.conectar();
                     "Title 1", "Title 2", "Title 3", "Title 4"
                 }
             ));
-            tbTriaje.setGridColor(new java.awt.Color(255, 255, 255));
-            tbTriaje.setRowHeight(25);
-            tbTriaje.setSelectionBackground(new java.awt.Color(0, 153, 102));
-            tbTriaje.addMouseListener(new java.awt.event.MouseAdapter() {
+            tb_Agenda.setGridColor(new java.awt.Color(255, 255, 255));
+            tb_Agenda.setRowHeight(25);
+            tb_Agenda.setSelectionBackground(new java.awt.Color(0, 153, 102));
+            tb_Agenda.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    tbTriajeMouseClicked(evt);
+                    tb_AgendaMouseClicked(evt);
                 }
                 public void mousePressed(java.awt.event.MouseEvent evt) {
-                    tbTriajeMousePressed(evt);
+                    tb_AgendaMousePressed(evt);
                 }
             });
-            tbTriaje.addKeyListener(new java.awt.event.KeyAdapter() {
+            tb_Agenda.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {
-                    tbTriajeKeyPressed(evt);
+                    tb_AgendaKeyPressed(evt);
                 }
             });
-            jScrollPane3.setViewportView(tbTriaje);
+            jScrollPane3.setViewportView(tb_Agenda);
 
             jPanel3.setBackground(new java.awt.Color(223, 223, 223));
 
@@ -399,20 +459,20 @@ Connection conexion=c.conectar();
         // TODO add your handling code here:
     }//GEN-LAST:event_btneliminar1ActionPerformed
 
-    private void tbTriajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTriajeMouseClicked
+    private void tb_AgendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_AgendaMouseClicked
 
        
 
-    }//GEN-LAST:event_tbTriajeMouseClicked
+    }//GEN-LAST:event_tb_AgendaMouseClicked
 
-    private void tbTriajeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTriajeMousePressed
+    private void tb_AgendaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_AgendaMousePressed
 
-    }//GEN-LAST:event_tbTriajeMousePressed
+    }//GEN-LAST:event_tb_AgendaMousePressed
 
-    private void tbTriajeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbTriajeKeyPressed
+    private void tb_AgendaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_AgendaKeyPressed
 
        
-    }//GEN-LAST:event_tbTriajeKeyPressed
+    }//GEN-LAST:event_tb_AgendaKeyPressed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
        
@@ -476,6 +536,6 @@ Connection conexion=c.conectar();
     private javax.swing.JLabel lblusu;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
-    private javax.swing.JTable tbTriaje;
+    private javax.swing.JTable tb_Agenda;
     // End of variables declaration//GEN-END:variables
 }

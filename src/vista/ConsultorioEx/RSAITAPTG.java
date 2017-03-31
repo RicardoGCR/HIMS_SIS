@@ -32,8 +32,6 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
         jLabel17 = new javax.swing.JLabel();
         jPanel29 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        btnguardar1 = new javax.swing.JButton();
-        btneditar1 = new javax.swing.JButton();
         LEYENDA = new javax.swing.JPanel();
         jPanel72 = new javax.swing.JPanel();
         jPanel73 = new javax.swing.JPanel();
@@ -122,34 +120,6 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnguardar1.setForeground(new java.awt.Color(240, 240, 240));
-        btnguardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
-        btnguardar1.setMnemonic('N');
-        btnguardar1.setContentAreaFilled(false);
-        btnguardar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnguardar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnguardar1.setIconTextGap(30);
-        btnguardar1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnguardar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardar1ActionPerformed(evt);
-            }
-        });
-
-        btneditar1.setForeground(new java.awt.Color(240, 240, 240));
-        btneditar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
-        btneditar1.setMnemonic('N');
-        btneditar1.setContentAreaFilled(false);
-        btneditar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btneditar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btneditar1.setIconTextGap(30);
-        btneditar1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btneditar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditar1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
         jPanel28Layout.setHorizontalGroup(
@@ -158,10 +128,6 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
                 .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel17)
-                .addGap(32, 32, 32)
-                .addComponent(btnguardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btneditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel28Layout.setVerticalGroup(
@@ -169,8 +135,6 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
             .addGroup(jPanel28Layout.createSequentialGroup()
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnguardar1)
-                    .addComponent(btneditar1)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -671,14 +635,6 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel20MouseClicked
 
-    private void btnguardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnguardar1ActionPerformed
-
-    private void btneditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btneditar1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CCD;
@@ -705,8 +661,6 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
     private javax.swing.JTextField FUACCDM8;
     private javax.swing.JTextField FUACCDM9;
     private javax.swing.JPanel LEYENDA;
-    private javax.swing.JButton btneditar1;
-    private javax.swing.JButton btnguardar1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel63;

@@ -47,6 +47,7 @@ public class SolicitudTransfusional extends javax.swing.JFrame {
         conexion = c.conectar();
         cerrar();
         pnlMensaje.setVisible(false);
+        habilitarCampos(false);
         
     }
 
@@ -145,9 +146,9 @@ public class SolicitudTransfusional extends javax.swing.JFrame {
             jPanel1 = new javax.swing.JPanel();
             lblusu = new javax.swing.JLabel();
             btnbuscar = new javax.swing.JButton();
-            btneliminar = new javax.swing.JButton();
-            btneditar = new javax.swing.JButton();
-            btnguardar = new javax.swing.JButton();
+            btnEliminar = new javax.swing.JButton();
+            btnModificar = new javax.swing.JButton();
+            btnGuardar = new javax.swing.JButton();
             btnNuevo = new javax.swing.JButton();
             jLabel4 = new javax.swing.JLabel();
             jPanel2 = new javax.swing.JPanel();
@@ -397,48 +398,48 @@ public class SolicitudTransfusional extends javax.swing.JFrame {
                 }
             });
 
-            btneliminar.setForeground(new java.awt.Color(240, 240, 240));
-            btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Basura-32.png"))); // NOI18N
-            btneliminar.setMnemonic('N');
-            btneliminar.setContentAreaFilled(false);
-            btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btneliminar.setEnabled(false);
-            btneliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            btneliminar.setIconTextGap(30);
-            btneliminar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-            btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            btnEliminar.setForeground(new java.awt.Color(240, 240, 240));
+            btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Basura-32.png"))); // NOI18N
+            btnEliminar.setMnemonic('N');
+            btnEliminar.setContentAreaFilled(false);
+            btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnEliminar.setEnabled(false);
+            btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            btnEliminar.setIconTextGap(30);
+            btnEliminar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+            btnEliminar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btneliminarActionPerformed(evt);
+                    btnEliminarActionPerformed(evt);
                 }
             });
 
-            btneditar.setForeground(new java.awt.Color(240, 240, 240));
-            btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
-            btneditar.setMnemonic('N');
-            btneditar.setContentAreaFilled(false);
-            btneditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btneditar.setEnabled(false);
-            btneditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            btneditar.setIconTextGap(30);
-            btneditar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-            btneditar.addActionListener(new java.awt.event.ActionListener() {
+            btnModificar.setForeground(new java.awt.Color(240, 240, 240));
+            btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
+            btnModificar.setMnemonic('N');
+            btnModificar.setContentAreaFilled(false);
+            btnModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnModificar.setEnabled(false);
+            btnModificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            btnModificar.setIconTextGap(30);
+            btnModificar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+            btnModificar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btneditarActionPerformed(evt);
+                    btnModificarActionPerformed(evt);
                 }
             });
 
-            btnguardar.setForeground(new java.awt.Color(240, 240, 240));
-            btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
-            btnguardar.setMnemonic('N');
-            btnguardar.setContentAreaFilled(false);
-            btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btnguardar.setEnabled(false);
-            btnguardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            btnguardar.setIconTextGap(30);
-            btnguardar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-            btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            btnGuardar.setForeground(new java.awt.Color(240, 240, 240));
+            btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
+            btnGuardar.setMnemonic('N');
+            btnGuardar.setContentAreaFilled(false);
+            btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnGuardar.setEnabled(false);
+            btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            btnGuardar.setIconTextGap(30);
+            btnGuardar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+            btnGuardar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btnguardarActionPerformed(evt);
+                    btnGuardarActionPerformed(evt);
                 }
             });
 
@@ -470,11 +471,11 @@ public class SolicitudTransfusional extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(10, 10, 10)
-                            .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, Short.MAX_VALUE))
@@ -494,11 +495,11 @@ public class SolicitudTransfusional extends javax.swing.JFrame {
                     .addGap(18, 18, 18)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btneditar, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btneliminar)
+                            .addComponent(btnModificar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnEliminar)
                             .addComponent(btnbuscar))
                         .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnguardar, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addGap(510, 510, 510))
             );
 
@@ -1235,20 +1236,26 @@ public class SolicitudTransfusional extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnbuscarActionPerformed
 
-    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
-    }//GEN-LAST:event_btneliminarActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 
-    }//GEN-LAST:event_btneditarActionPerformed
+    }//GEN-LAST:event_btnModificarActionPerformed
 
-    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
-    }//GEN-LAST:event_btnguardarActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-
+        try {
+            limpiar();
+            habilitarCampos(true);
+            btnGuardar.setEnabled(true);
+            lblMant.setText("I");
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void txtPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPacienteCaretUpdate
@@ -1366,13 +1373,13 @@ public class SolicitudTransfusional extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bgpTransPrevias;
     private javax.swing.JButton btnBuscarNino2;
     private javax.swing.JButton btnBuscarPaciente;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNo;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnSi;
     private javax.swing.JButton btnbuscar;
-    private javax.swing.JButton btneditar;
-    private javax.swing.JButton btneliminar;
-    private javax.swing.JButton btnguardar;
     private javax.swing.JComboBox cbxAbortos;
     private javax.swing.JComboBox cbxEmbPrevio;
     private javax.swing.JComboBox cbxIncomp;

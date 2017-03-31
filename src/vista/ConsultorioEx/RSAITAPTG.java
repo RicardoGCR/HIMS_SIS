@@ -74,13 +74,8 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
         FCCDM10 = new com.toedter.calendar.JDateChooser();
         DXCCDM10 = new javax.swing.JLabel();
         FUACCDM10 = new javax.swing.JTextField();
-        jPanel88 = new javax.swing.JPanel();
-        jLabel79 = new javax.swing.JLabel();
-        FCCDM11 = new com.toedter.calendar.JDateChooser();
-        DXCCDM11 = new javax.swing.JLabel();
-        FUACCDM11 = new javax.swing.JTextField();
 
-        setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
 
         CCD.setBackground(new java.awt.Color(255, 255, 255));
@@ -179,6 +174,7 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
 
         jPanel74.setBackground(new java.awt.Color(204, 204, 204));
 
+        jLabel63.setForeground(new java.awt.Color(255, 255, 255));
         jLabel63.setText("ANEMIA");
 
         javax.swing.GroupLayout jPanel74Layout = new javax.swing.GroupLayout(jPanel74);
@@ -199,6 +195,7 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
 
         jPanel75.setBackground(new java.awt.Color(153, 153, 153));
 
+        jLabel65.setForeground(new java.awt.Color(255, 255, 255));
         jLabel65.setText("PARASITOSIS");
 
         javax.swing.GroupLayout jPanel75Layout = new javax.swing.GroupLayout(jPanel75);
@@ -215,6 +212,7 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
             .addComponent(jLabel65, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
         );
 
+        jLabel66.setForeground(new java.awt.Color(255, 255, 255));
         jLabel66.setText("TEST DE GRAM");
 
         javax.swing.GroupLayout LEYENDALayout = new javax.swing.GroupLayout(LEYENDA);
@@ -277,7 +275,7 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
         jLabel73.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel73.setForeground(new java.awt.Color(255, 255, 255));
         jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel73.setText("AÑOS");
+        jLabel73.setText("6m");
 
         FCCDM5.setBackground(new java.awt.Color(204, 204, 204));
         FCCDM5.setDateFormatString("dd/MM/yyyy");
@@ -304,7 +302,7 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
         jLabel74.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel74.setForeground(new java.awt.Color(255, 255, 255));
         jLabel74.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel74.setText("6º");
+        jLabel74.setText("1 AÑO");
 
         FCCDM6.setBackground(new java.awt.Color(204, 204, 204));
         FCCDM6.setDateFormatString("dd/MM/yyyy");
@@ -331,7 +329,7 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
         jLabel75.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel75.setForeground(new java.awt.Color(255, 255, 255));
         jLabel75.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel75.setText("7º");
+        jLabel75.setText("2 AÑOS");
 
         FCCDM7.setBackground(new java.awt.Color(204, 204, 204));
         FCCDM7.setDateFormatString("dd/MM/yyyy");
@@ -373,7 +371,7 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
         jLabel76.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel76.setForeground(new java.awt.Color(255, 255, 255));
         jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel76.setText("8º");
+        jLabel76.setText("3 AÑOS");
 
         FCCDM8.setBackground(new java.awt.Color(204, 204, 204));
         FCCDM8.setDateFormatString("dd/MM/yyyy");
@@ -405,7 +403,7 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
         jLabel77.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel77.setForeground(new java.awt.Color(255, 255, 255));
         jLabel77.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel77.setText("9º");
+        jLabel77.setText("4 AÑOS");
 
         FCCDM9.setBackground(new java.awt.Color(204, 204, 204));
         FCCDM9.setDateFormatString("dd/MM/yyyy");
@@ -437,7 +435,7 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
         jLabel78.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel78.setForeground(new java.awt.Color(255, 255, 255));
         jLabel78.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel78.setText("10º");
+        jLabel78.setText("1-11 AÑOS");
 
         FCCDM10.setBackground(new java.awt.Color(204, 204, 204));
         FCCDM10.setDateFormatString("dd/MM/yyyy");
@@ -462,38 +460,6 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
         DXCCDM10.setText("                                ");
         DXCCDM10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         DXCCDM10.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-
-        jPanel88.setBackground(new java.awt.Color(153, 153, 153));
-
-        jLabel79.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel79.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel79.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel79.setText("11º");
-
-        FCCDM11.setBackground(new java.awt.Color(204, 204, 204));
-        FCCDM11.setDateFormatString("dd/MM/yyyy");
-        FCCDM11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-
-        javax.swing.GroupLayout jPanel88Layout = new javax.swing.GroupLayout(jPanel88);
-        jPanel88.setLayout(jPanel88Layout);
-        jPanel88Layout.setHorizontalGroup(
-            jPanel88Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel79, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FCCDM11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel88Layout.setVerticalGroup(
-            jPanel88Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel88Layout.createSequentialGroup()
-                .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FCCDM11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        DXCCDM11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-        DXCCDM11.setText("                                ");
-        DXCCDM11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        DXCCDM11.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout CCDM12Layout = new javax.swing.GroupLayout(CCDM12);
         CCDM12.setLayout(CCDM12Layout);
@@ -529,13 +495,7 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
                 .addGroup(CCDM12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(FUACCDM10)
                     .addComponent(jPanel87, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DXCCDM10))
-                .addGap(1, 1, 1)
-                .addGroup(CCDM12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(FUACCDM11)
-                    .addComponent(jPanel88, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DXCCDM11))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(DXCCDM10)))
         );
         CCDM12Layout.setVerticalGroup(
             CCDM12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -576,26 +536,20 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(DXCCDM10)
                         .addGap(0, 0, 0)
-                        .addComponent(FUACCDM10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CCDM12Layout.createSequentialGroup()
-                        .addComponent(jPanel88, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(DXCCDM11)
-                        .addGap(0, 0, 0)
-                        .addComponent(FUACCDM11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(FUACCDM10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout CCDLayout = new javax.swing.GroupLayout(CCD);
         CCD.setLayout(CCDLayout);
         CCDLayout.setHorizontalGroup(
             CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 1122, Short.MAX_VALUE)
+            .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 1134, Short.MAX_VALUE)
             .addGroup(CCDLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(LEYENDA, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CCDM12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
         CCDLayout.setVerticalGroup(
             CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -605,26 +559,22 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
                 .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LEYENDA, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CCDM12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(299, Short.MAX_VALUE))
+                .addContainerGap(312, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1132, Short.MAX_VALUE)
+            .addGap(0, 1134, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(CCD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 10, Short.MAX_VALUE)))
+                .addComponent(CCD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
+            .addGap(0, 488, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(CCD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 11, Short.MAX_VALUE)))
+                .addComponent(CCD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -640,21 +590,18 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
     private javax.swing.JPanel CCD;
     private javax.swing.JPanel CCDM12;
     private javax.swing.JLabel DXCCDM10;
-    private javax.swing.JLabel DXCCDM11;
     private javax.swing.JLabel DXCCDM5;
     private javax.swing.JLabel DXCCDM6;
     private javax.swing.JLabel DXCCDM7;
     private javax.swing.JLabel DXCCDM8;
     private javax.swing.JLabel DXCCDM9;
     private com.toedter.calendar.JDateChooser FCCDM10;
-    private com.toedter.calendar.JDateChooser FCCDM11;
     private com.toedter.calendar.JDateChooser FCCDM5;
     private com.toedter.calendar.JDateChooser FCCDM6;
     private com.toedter.calendar.JDateChooser FCCDM7;
     private com.toedter.calendar.JDateChooser FCCDM8;
     private com.toedter.calendar.JDateChooser FCCDM9;
     private javax.swing.JTextField FUACCDM10;
-    private javax.swing.JTextField FUACCDM11;
     private javax.swing.JTextField FUACCDM5;
     private javax.swing.JTextField FUACCDM6;
     private javax.swing.JTextField FUACCDM7;
@@ -674,7 +621,6 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
-    private javax.swing.JLabel jLabel79;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel72;
@@ -688,6 +634,5 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel85;
     private javax.swing.JPanel jPanel86;
     private javax.swing.JPanel jPanel87;
-    private javax.swing.JPanel jPanel88;
     // End of variables declaration//GEN-END:variables
 }

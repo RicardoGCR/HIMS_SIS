@@ -63,6 +63,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         lblPadres.setVisible(false);
         pnlContenedor.setVisible(false);
         lblTriaje.setVisible(false);
+        lblGenero.setVisible(false);
+        lblHcMadre.setVisible(false);
     }
     
     public void cerrar (){
@@ -124,6 +126,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     //              OBTENER ID DEL ULTIMO REGISTRO
                     pnlMensaje.setVisible(true);
                     lblMensaje.setText("Datos guardados de forma correcta");
+                    pnlContenedor.setVisible(true);
     //                limpiar();
     //                habilitarCampos(false);
                     btnGuardar.setEnabled(false);
@@ -150,6 +153,29 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             System.out.println("Error: btnGuardar" + e.getMessage());
         }
     }
+    
+    public void datosPadres(String triaje){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EXT_RS_CABECERA_DATOS_PADRES ?";
+            PreparedStatement cmd = cabecera.getCn().prepareStatement(consulta);
+            cmd.setString(1, triaje);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                txtMadre.setText(r.getString(1)); 
+                txtRiesgo.setText(r.getString(2)); 
+                lblTelefono.setText(r.getString(3)); 
+                lblDireccion.setText(r.getString(4)); 
+                lblSector.setText(r.getString(5)); 
+                cbxTipoSeguro.setSelectedItem(r.getString(6)); 
+                txtPadre.setText(r.getString(7)); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: datosPadres " + e.getMessage());
+        }
+    }
 
     public void validaTriaje(String triaje){
         try {
@@ -157,15 +183,41 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             ResultSet res = cmd.executeQuery();
             if(res.next()){
                 id = Integer.parseInt(res.getString("RS_ID"));
-            }else {
-                //btnGuardar();
+                datosPadres(triaje);
                 pnlPadres.setVisible(true);
                 lblPadres.setVisible(true);
+                btnGuardar.setVisible(false);
                 pnlContenedor.setVisible(true);
+            }else {
+                limpiarDatosPadres();
+                habilitarDatos(true);
+                pnlContenedor.setVisible(false);
+                btnGuardar.setVisible(true);
+                pnlPadres.setVisible(true);
+                lblPadres.setVisible(true);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: validaTriaje: " + e.toString());
         }
+    }
+    
+    public void limpiarDatosPadres(){
+        lblTelefono.setText("_____________________");
+        lblDireccion.setText("_______________________________________________________________");
+        txtMadre.setText("");
+        txtCodigo.setText("");
+        cbxTipoSeguro.setSelectedIndex(0);
+        txtPadre.setText("");
+        lblSector.setText("_______________");
+        txtRiesgo.setText("");
+    }
+    
+    public void habilitarDatos(boolean opcion){
+        txtRiesgo.setEditable(opcion);
+        cbxTipoSeguro.setEditable(opcion);
+        txtPadre.setEditable(opcion);
+        lblDireccion.setEditable(opcion);
+        lblTelefono.setEditable(opcion);
     }
     
     @SuppressWarnings("unchecked")
@@ -269,6 +321,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jPanel10 = new javax.swing.JPanel();
                 txtMadre = new javax.swing.JTextField();
                 btnBuscarMadres = new javax.swing.JButton();
+                lblSector = new javax.swing.JLabel();
+                jLabel17 = new javax.swing.JLabel();
                 lblTriaje = new javax.swing.JTextField();
                 lblGenero = new javax.swing.JLabel();
                 jPanel3 = new javax.swing.JPanel();
@@ -792,7 +846,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel7)
-                        .addContainerGap(60, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel16Layout.setVerticalGroup(
                     jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1036,11 +1090,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                             .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlContenedorLayout.createSequentialGroup()
-                                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                                 .addGap(0, 0, 0)
                                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)))
+                            .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)))
                 );
                 pnlContenedorLayout.setVerticalGroup(
                     pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1317,48 +1371,54 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
+                lblSector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                lblSector.setText("_______________");
+
+                jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                jLabel17.setText("Sector");
+
                 javax.swing.GroupLayout pnlPadresLayout = new javax.swing.GroupLayout(pnlPadres);
                 pnlPadres.setLayout(pnlPadresLayout);
                 pnlPadresLayout.setHorizontalGroup(
                     pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlPadresLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnlPadresLayout.createSequentialGroup()
-                                .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPadresLayout.createSequentialGroup()
-                                        .addComponent(jLabel25)
-                                        .addGap(645, 645, 645))
-                                    .addGroup(pnlPadresLayout.createSequentialGroup()
-                                        .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel23)
-                                            .addComponent(jLabel24))
-                                        .addGap(41, 41, 41)
-                                        .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(pnlPadresLayout.createSequentialGroup()
-                                                .addComponent(txtRiesgo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(28, 28, 28)
-                                                .addComponent(jLabel26)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblHcMadre)
-                                .addGap(71, 71, 71)
-                                .addComponent(btnGuardar))
+                        .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlPadresLayout.createSequentialGroup()
                                 .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
+                                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlPadresLayout.createSequentialGroup()
                                 .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel22)
-                                    .addComponent(jLabel10))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jLabel24)
+                                    .addComponent(jLabel25))
+                                .addGap(41, 41, 41)
                                 .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbxTipoSeguro, 0, 315, Short.MAX_VALUE)
-                                    .addComponent(txtPadre))))
+                                    .addComponent(lblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(lblDireccion)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPadresLayout.createSequentialGroup()
+                                            .addComponent(txtRiesgo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(28, 28, 28)
+                                            .addComponent(jLabel26)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGap(29, 29, 29)
+                        .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlPadresLayout.createSequentialGroup()
+                                .addComponent(lblSector)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                                .addComponent(lblHcMadre)
+                                .addGap(71, 71, 71)
+                                .addComponent(btnGuardar))
+                            .addComponent(cbxTipoSeguro, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPadre, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(0, 0, 0))
                 );
                 pnlPadresLayout.setVerticalGroup(
@@ -1395,9 +1455,12 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                     .addComponent(lblHcMadre)
                                     .addComponent(btnGuardar)))
                             .addGroup(pnlPadresLayout.createSequentialGroup()
-                                .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel25)
-                                    .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblSector)
+                                        .addComponent(jLabel17))
+                                    .addComponent(jLabel25))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                 );
@@ -1448,7 +1511,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                         .addComponent(lblGenero))))
                             .addComponent(pnlPadres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPadres, javax.swing.GroupLayout.PREFERRED_SIZE, 1128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(36, Short.MAX_VALUE))
+                        .addContainerGap(209, Short.MAX_VALUE))
                 );
                 txtSisLayout.setVerticalGroup(
                     txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1494,6 +1557,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(txtSis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(pnlContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(26, Short.MAX_VALUE))
                 );
@@ -1502,7 +1566,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jPanel2.setLayout(jPanel2Layout);
                 jPanel2Layout.setHorizontalGroup(
                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGap(0, 1377, Short.MAX_VALUE)
+                    .addGap(0, 1410, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
@@ -1519,7 +1583,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 Contenedor.setLayout(ContenedorLayout);
                 ContenedorLayout.setHorizontalGroup(
                     ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGap(0, 1377, Short.MAX_VALUE)
+                    .addGap(0, 1410, Short.MAX_VALUE)
                 );
                 ContenedorLayout.setVerticalGroup(
                     ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1568,12 +1632,21 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
 
     private void btnNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoActionPerformed
      
-pnlMensaje.setVisible(false);
+        pnlMensaje.setVisible(false);
     }//GEN-LAST:event_btnNoActionPerformed
 
     private void jPanel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel12MouseClicked
         RSAIVacunas V =new RSAIVacunas();
         Contenedor.add(V);
+        if(lblGenero.getText().equals("F")){
+            RSAIVacunas.lblNina.setText(txtPaciente.getText());
+            RSAIVacunas.lblNina.setVisible(true);
+            RSAIVacunas.lblNino.setVisible(false);
+        } else {
+            RSAIVacunas.lblNino.setText(txtPaciente.getText());
+            RSAIVacunas.lblNino.setVisible(true);
+            RSAIVacunas.lblNina.setVisible(false);
+        }
         try {
             V.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1853,6 +1926,7 @@ pnlMensaje.setVisible(false);
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1912,6 +1986,7 @@ pnlMensaje.setVisible(false);
     private javax.swing.JLabel lblMensaje;
     public static javax.swing.JLabel lblNHC;
     private javax.swing.JLabel lblPadres;
+    public static javax.swing.JLabel lblSector;
     public static javax.swing.JTextField lblTelefono;
     public static javax.swing.JTextField lblTriaje;
     private javax.swing.JLabel lblusu;

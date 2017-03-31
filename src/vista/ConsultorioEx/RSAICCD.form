@@ -1753,6 +1753,9 @@
                   </SubComponents>
                 </Container>
                 <Component class="javax.swing.JTextField" name="FUACCDM7">
+                  <Events>
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="FUACCDM7CaretUpdate"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="FUACCDM5">
                 </Component>

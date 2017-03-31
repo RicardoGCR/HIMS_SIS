@@ -297,6 +297,8 @@
             <Component class="javax.swing.JTextField" name="txtFuaElab">
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaElabCaretUpdate"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtFuaElabMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFuaElabActionPerformed"/>
                 <EventHandler event="ancestorRemoved" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="txtFuaElabAncestorRemoved"/>
               </Events>
             </Component>
@@ -361,6 +363,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaEjec">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaEjecCaretUpdate"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtFuaEjecMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFuaEjecActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -551,8 +558,14 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaBcg">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaBcgCaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaHvb">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaHvbCaretUpdate"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -663,7 +676,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel38" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVN1" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtNeumo1" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -671,7 +684,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel38" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVN1" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtNeumo1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -692,7 +705,7 @@
                     <Property name="text" type="java.lang.String" value="1&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVN1">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtNeumo1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -716,7 +729,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel39" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVN2" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtNeumo2" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -724,7 +737,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel39" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVN2" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtNeumo2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -745,7 +758,7 @@
                     <Property name="text" type="java.lang.String" value="2&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVN2">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtNeumo2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -769,7 +782,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel40" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVN3" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtNeumo3" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -777,7 +790,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel40" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVN3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtNeumo3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -798,7 +811,7 @@
                     <Property name="text" type="java.lang.String" value="3&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVN3">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtNeumo3">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -812,10 +825,19 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaNeumo3">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaNeumo3CaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaNeumo1">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaNeumo1CaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaNeumo2">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaNeumo2CaretUpdate"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -911,7 +933,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel30" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVI1" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtInfl1" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -919,7 +941,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel30" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVI1" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtInfl1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -940,7 +962,7 @@
                     <Property name="text" type="java.lang.String" value="1&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVI1">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtInfl1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -964,7 +986,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel32" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVI2" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtInfl2" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -972,7 +994,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel32" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVI2" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtInfl2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -993,7 +1015,7 @@
                     <Property name="text" type="java.lang.String" value="2&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVI2">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtInfl2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1007,8 +1029,14 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaInfl1">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaInfl1CaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaInfl2">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaInfl2CaretUpdate"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1104,7 +1132,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel42" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVR1" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtRot1" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1112,7 +1140,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel42" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVR1" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtRot1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1133,7 +1161,7 @@
                     <Property name="text" type="java.lang.String" value="1&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVR1">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtRot1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1157,7 +1185,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel43" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVR2" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtRot2" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1165,7 +1193,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel43" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVR2" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtRot2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1186,7 +1214,7 @@
                     <Property name="text" type="java.lang.String" value="2&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVR2">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtRot2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1200,8 +1228,14 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaRot1">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaRot1CaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaRot2">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaRot2CaretUpdate"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1297,7 +1331,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel45" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVSPR1" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtSpr1" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1305,7 +1339,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel45" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVSPR1" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtSpr1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1326,7 +1360,7 @@
                     <Property name="text" type="java.lang.String" value="1&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVSPR1">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtSpr1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1350,7 +1384,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel46" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVSPR2" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtSpr2" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1358,7 +1392,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel46" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVSPR2" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtSpr2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1379,7 +1413,7 @@
                     <Property name="text" type="java.lang.String" value="2&#xba; REF"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVSPR2">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtSpr2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1393,8 +1427,14 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaSpr1">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaSpr1CaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaSpr2">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaSpr2CaretUpdate"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1477,7 +1517,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel48" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVAMA" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtAmadu" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1485,7 +1525,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel48" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVAMA" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtAmadu" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1506,7 +1546,7 @@
                     <Property name="text" type="java.lang.String" value="DU"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVAMA">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtAmadu">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1520,6 +1560,13 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaAmaDu">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaAmaDuCaretUpdate"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtFuaAmaDuMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1779,10 +1826,19 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaIpv3">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaIpv3CaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaIpv1">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaIpv1CaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaIpv2">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaIpv2CaretUpdate"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1946,7 +2002,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel55" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVP2" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtPent2" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1954,7 +2010,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel55" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVP2" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtPent2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1975,7 +2031,7 @@
                     <Property name="text" type="java.lang.String" value="2&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVP2">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtPent2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1999,7 +2055,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel56" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVP3" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtPent3" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -2007,7 +2063,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel56" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVP3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtPent3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2028,7 +2084,7 @@
                     <Property name="text" type="java.lang.String" value="3&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVP3">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtPent3">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -2042,10 +2098,19 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaPent3">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaPent3CaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaPent1">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaPent1CaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaPent2">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaPent2CaretUpdate"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -2141,7 +2206,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel31" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVDPT1" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtDpt1" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -2149,7 +2214,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel31" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVDPT1" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtDpt1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2170,7 +2235,7 @@
                     <Property name="text" type="java.lang.String" value="1&#xba; REF"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVDPT1">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtDpt1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -2194,7 +2259,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel33" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVDPT2" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtDpt2" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -2202,7 +2267,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel33" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVDPT2" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtDpt2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2223,7 +2288,7 @@
                     <Property name="text" type="java.lang.String" value="2&#xba; REF"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVDPT2">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtDpt2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -2237,8 +2302,14 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaDpt1">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaDpt1CaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaDpt2">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaDpt2CaretUpdate"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -2334,7 +2405,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel34" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVIR1" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtInflR1" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -2342,7 +2413,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel34" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVIR1" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtInflR1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2363,7 +2434,7 @@
                     <Property name="text" type="java.lang.String" value="1&#x101; 8m"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVIR1">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtInflR1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -2387,7 +2458,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel35" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVIR2" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtInflR2" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -2395,7 +2466,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel35" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVIR2" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtInflR2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2416,7 +2487,7 @@
                     <Property name="text" type="java.lang.String" value="2&#xba; REF"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVIR2">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtInflR2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -2430,8 +2501,14 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtInflR1">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtInflR1CaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtInflR2">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtInflR2CaretUpdate"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -2527,7 +2604,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel36" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVAR1" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtApoR1" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -2535,7 +2612,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel36" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVAR1" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtApoR1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2556,7 +2633,7 @@
                     <Property name="text" type="java.lang.String" value="1&#xba; REF"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVAR1">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtApoR1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -2580,7 +2657,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel57" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVAR2" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtApoR2" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -2588,7 +2665,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel57" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVAR2" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtApoR2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2609,7 +2686,7 @@
                     <Property name="text" type="java.lang.String" value="2&#xba; REF"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVAR2">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtApoR2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -2623,8 +2700,14 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaApoR1">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaApoR1CaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaApoR2">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaApoR2CaretUpdate"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -1309,6 +1309,12 @@ repaint();
                     .addComponent(FCCDM7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            FUACCDM7.addCaretListener(new javax.swing.event.CaretListener() {
+                public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                    FUACCDM7CaretUpdate(evt);
+                }
+            });
+
             DXCCDM5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDM5.setText("                                ");
             DXCCDM5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -3775,6 +3781,14 @@ repaint();
     private void DXCCDRN10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN10MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_DXCCDRN10MouseClicked
+
+    private void FUACCDM7CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_FUACCDM7CaretUpdate
+        if(FUACCDM7.getText().equals("")){
+            FUACCDM7.setEnabled(true);
+        }else{
+            FUACCDM8.setEnabled(false);
+        }
+    }//GEN-LAST:event_FUACCDM7CaretUpdate
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -19,10 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import servicios.Conexion;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> e5a475ca4a82f37621efca0107df88bbcf40debe
 public class ConsultorioExtRsCabecera implements Serializable {
     DefaultTableModel m;
     Conexion con = new Conexion();

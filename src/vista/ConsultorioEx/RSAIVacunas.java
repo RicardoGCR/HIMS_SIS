@@ -31,14 +31,46 @@ private Dimension DimensionBarra = null;
 
 
     }
-public void QuitarLaBarraTitulo()
-{ 
-Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
-DimensionBarra = Barra.getPreferredSize(); 
-Barra.setSize(0,0); 
-Barra.setPreferredSize(new Dimension(0,0)); 
-repaint(); 
-}
+    public void QuitarLaBarraTitulo()
+    { 
+    Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
+    DimensionBarra = Barra.getPreferredSize(); 
+    Barra.setSize(0,0); 
+    Barra.setPreferredSize(new Dimension(0,0)); 
+    repaint(); 
+    }
+    
+    public void habilitarDatos(boolean opcion){
+        txtFuaAmaDu.setEnabled(opcion);
+        txtFuaApoR1.setEnabled(opcion);
+        txtFuaApoR2.setEnabled(opcion);
+        txtFuaBcg.setEnabled(opcion);
+        txtFuaDpt1.setEnabled(opcion);
+        txtFuaDpt2.setEnabled(opcion);
+        txtFuaEjec.setEnabled(opcion);
+        txtFuaElab.setEnabled(opcion);
+        txtFuaHvb.setEnabled(opcion);
+        txtFuaInfl1.setEnabled(opcion);
+        txtFuaInfl2.setEnabled(opcion);
+        txtFuaIpv1.setEnabled(opcion);
+        txtFuaIpv2.setEnabled(opcion);
+        txtFuaIpv3.setEnabled(opcion);
+        txtFuaNeumo1.setEnabled(opcion);
+        txtFuaNeumo2.setEnabled(opcion);
+        txtFuaNeumo3.setEnabled(opcion);
+        txtFuaPent1.setEnabled(opcion);
+        txtFuaPent2.setEnabled(opcion);
+        txtFuaPent3.setEnabled(opcion);
+        txtFuaRot1.setEnabled(opcion);
+        txtFuaRot2.setEnabled(opcion);
+        txtFuaSpr1.setEnabled(opcion);
+        txtFuaSpr2.setEnabled(opcion);
+        txtInflR1.setEnabled(opcion);
+        txtInflR2.setEnabled(opcion);
+        dtBcg.setEnabled(opcion);
+        dtEjec.setEnabled(opcion);
+        dtElab.setEnabled(opcion);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,23 +87,23 @@ repaint();
         jLabel13 = new javax.swing.JLabel();
         ELAB = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        FELAB = new com.toedter.calendar.JDateChooser();
-        FUAELAB = new javax.swing.JTextField();
+        dtElab = new com.toedter.calendar.JDateChooser();
+        txtFuaElab = new javax.swing.JTextField();
         EJEC = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
-        FEJEC = new com.toedter.calendar.JDateChooser();
-        FUAEJEC = new javax.swing.JTextField();
+        dtEjec = new com.toedter.calendar.JDateChooser();
+        txtFuaEjec = new javax.swing.JTextField();
         RN = new javax.swing.JPanel();
         jPanel31 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jPanel35 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
-        FVRNBCG = new com.toedter.calendar.JDateChooser();
+        dtBcg = new com.toedter.calendar.JDateChooser();
         jPanel36 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
-        FVRNHVB = new com.toedter.calendar.JDateChooser();
-        FUABCG = new javax.swing.JTextField();
-        FUAHVB = new javax.swing.JTextField();
+        dtHvb = new com.toedter.calendar.JDateChooser();
+        txtFuaBcg = new javax.swing.JTextField();
+        txtFuaHvb = new javax.swing.JTextField();
         NEUMOCOCO = new javax.swing.JPanel();
         jPanel52 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
@@ -84,9 +116,9 @@ repaint();
         jPanel55 = new javax.swing.JPanel();
         jLabel40 = new javax.swing.JLabel();
         FVN3 = new com.toedter.calendar.JDateChooser();
-        FUAVN3 = new javax.swing.JTextField();
-        FUAVN1 = new javax.swing.JTextField();
-        FUAVN2 = new javax.swing.JTextField();
+        txtFuaNeumo3 = new javax.swing.JTextField();
+        txtFuaNeumo1 = new javax.swing.JTextField();
+        txtFuaNeumo2 = new javax.swing.JTextField();
         INFLUENZA = new javax.swing.JPanel();
         jPanel33 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
@@ -96,8 +128,8 @@ repaint();
         jPanel38 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         FVI2 = new com.toedter.calendar.JDateChooser();
-        FUAVI1 = new javax.swing.JTextField();
-        FUAVI2 = new javax.swing.JTextField();
+        txtFuaInfl1 = new javax.swing.JTextField();
+        txtFuaInfl2 = new javax.swing.JTextField();
         ROTAVIRUS = new javax.swing.JPanel();
         jPanel34 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
@@ -107,8 +139,8 @@ repaint();
         jPanel42 = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
         FVR2 = new com.toedter.calendar.JDateChooser();
-        FUAVR1 = new javax.swing.JTextField();
-        FUAVR2 = new javax.swing.JTextField();
+        txtFuaRot1 = new javax.swing.JTextField();
+        txtFuaRot2 = new javax.swing.JTextField();
         SPR = new javax.swing.JPanel();
         jPanel44 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
@@ -118,45 +150,45 @@ repaint();
         jPanel46 = new javax.swing.JPanel();
         jLabel46 = new javax.swing.JLabel();
         FVSPR2 = new com.toedter.calendar.JDateChooser();
-        FUAVSPR1 = new javax.swing.JTextField();
-        FUAVSPR2 = new javax.swing.JTextField();
+        txtFuaSpr1 = new javax.swing.JTextField();
+        txtFuaSpr2 = new javax.swing.JTextField();
         AMA = new javax.swing.JPanel();
         jPanel51 = new javax.swing.JPanel();
         jLabel47 = new javax.swing.JLabel();
         jPanel56 = new javax.swing.JPanel();
         jLabel48 = new javax.swing.JLabel();
         FVAMA = new com.toedter.calendar.JDateChooser();
-        FUAVAMA = new javax.swing.JTextField();
+        txtFuaAmaDu = new javax.swing.JTextField();
         ANTIPOLIO = new javax.swing.JPanel();
         jPanel57 = new javax.swing.JPanel();
         jLabel49 = new javax.swing.JLabel();
         jPanel58 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
-        FVA1 = new com.toedter.calendar.JDateChooser();
+        dtIpv1 = new com.toedter.calendar.JDateChooser();
         jPanel59 = new javax.swing.JPanel();
         jLabel51 = new javax.swing.JLabel();
-        FVA2 = new com.toedter.calendar.JDateChooser();
+        dtIpv2 = new com.toedter.calendar.JDateChooser();
         jPanel60 = new javax.swing.JPanel();
         jLabel52 = new javax.swing.JLabel();
-        FVA3 = new com.toedter.calendar.JDateChooser();
-        FUAVA3 = new javax.swing.JTextField();
-        FUAVA1 = new javax.swing.JTextField();
-        FUAVA2 = new javax.swing.JTextField();
+        dtIpv3 = new com.toedter.calendar.JDateChooser();
+        txtFuaIpv3 = new javax.swing.JTextField();
+        txtFuaIpv1 = new javax.swing.JTextField();
+        txtFuaIpv2 = new javax.swing.JTextField();
         PENTAVALENTE = new javax.swing.JPanel();
         jPanel61 = new javax.swing.JPanel();
         jLabel53 = new javax.swing.JLabel();
         jPanel62 = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
-        FVP1 = new com.toedter.calendar.JDateChooser();
+        dtPent1 = new com.toedter.calendar.JDateChooser();
         jPanel63 = new javax.swing.JPanel();
         jLabel55 = new javax.swing.JLabel();
         FVP2 = new com.toedter.calendar.JDateChooser();
         jPanel64 = new javax.swing.JPanel();
         jLabel56 = new javax.swing.JLabel();
         FVP3 = new com.toedter.calendar.JDateChooser();
-        FUAVP3 = new javax.swing.JTextField();
-        FUAVP1 = new javax.swing.JTextField();
-        FUAVP2 = new javax.swing.JTextField();
+        txtFuaPent3 = new javax.swing.JTextField();
+        txtFuaPent1 = new javax.swing.JTextField();
+        txtFuaPent2 = new javax.swing.JTextField();
         DPT = new javax.swing.JPanel();
         jPanel40 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
@@ -166,8 +198,8 @@ repaint();
         jPanel43 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         FVDPT2 = new com.toedter.calendar.JDateChooser();
-        FUAVDPT1 = new javax.swing.JTextField();
-        FUAVDPT2 = new javax.swing.JTextField();
+        txtFuaDpt1 = new javax.swing.JTextField();
+        txtFuaDpt2 = new javax.swing.JTextField();
         INFLUENZA_REF = new javax.swing.JPanel();
         jPanel47 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
@@ -177,8 +209,8 @@ repaint();
         jPanel49 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         FVIR2 = new com.toedter.calendar.JDateChooser();
-        FUAVIR1 = new javax.swing.JTextField();
-        FUAVIR2 = new javax.swing.JTextField();
+        txtInflR1 = new javax.swing.JTextField();
+        txtInflR2 = new javax.swing.JTextField();
         INFLUENZA_REF1 = new javax.swing.JPanel();
         jPanel50 = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
@@ -188,13 +220,13 @@ repaint();
         jPanel66 = new javax.swing.JPanel();
         jLabel57 = new javax.swing.JLabel();
         FVAR2 = new com.toedter.calendar.JDateChooser();
-        FUAVAR1 = new javax.swing.JTextField();
-        FUAVAR2 = new javax.swing.JTextField();
+        txtFuaApoR1 = new javax.swing.JTextField();
+        txtFuaApoR2 = new javax.swing.JTextField();
         Opciones = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
         btneditar = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
-        lblnino = new javax.swing.JLabel();
+        lblNino = new javax.swing.JLabel();
         lblNina = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -266,17 +298,32 @@ repaint();
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("ELAB");
 
-        FELAB.setBackground(new java.awt.Color(204, 204, 204));
-        FELAB.setDateFormatString("dd/MM/yyyy");
-        FELAB.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        dtElab.setBackground(new java.awt.Color(204, 204, 204));
+        dtElab.setDateFormatString("dd/MM/yyyy");
+        dtElab.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        txtFuaElab.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtFuaElabCaretUpdate(evt);
+            }
+        });
+        txtFuaElab.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                txtFuaElabAncestorRemoved(evt);
+            }
+        });
 
         javax.swing.GroupLayout ELABLayout = new javax.swing.GroupLayout(ELAB);
         ELAB.setLayout(ELABLayout);
         ELABLayout.setHorizontalGroup(
             ELABLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FUAELAB, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(FELAB, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+            .addComponent(txtFuaElab, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(dtElab, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         ELABLayout.setVerticalGroup(
             ELABLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,9 +331,9 @@ repaint();
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(FELAB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dtElab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(FUAELAB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtFuaElab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         EJEC.setBackground(new java.awt.Color(153, 153, 153));
@@ -298,17 +345,17 @@ repaint();
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("EJEC");
 
-        FEJEC.setBackground(new java.awt.Color(204, 204, 204));
-        FEJEC.setDateFormatString("dd/MM/yyyy");
-        FEJEC.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        dtEjec.setBackground(new java.awt.Color(204, 204, 204));
+        dtEjec.setDateFormatString("dd/MM/yyyy");
+        dtEjec.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout EJECLayout = new javax.swing.GroupLayout(EJEC);
         EJEC.setLayout(EJECLayout);
         EJECLayout.setHorizontalGroup(
             EJECLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FUAEJEC, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(FEJEC, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+            .addComponent(txtFuaEjec, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(dtEjec, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         EJECLayout.setVerticalGroup(
             EJECLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,9 +363,9 @@ repaint();
                 .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(FEJEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dtEjec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(FUAEJEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtFuaEjec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         RN.setBackground(new java.awt.Color(204, 204, 204));
@@ -351,23 +398,23 @@ repaint();
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("BCG");
 
-        FVRNBCG.setBackground(new java.awt.Color(204, 204, 204));
-        FVRNBCG.setDateFormatString("dd/MM/yyyy");
-        FVRNBCG.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        dtBcg.setBackground(new java.awt.Color(204, 204, 204));
+        dtBcg.setDateFormatString("dd/MM/yyyy");
+        dtBcg.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
         jPanel35.setLayout(jPanel35Layout);
         jPanel35Layout.setHorizontalGroup(
             jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FVRNBCG, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+            .addComponent(dtBcg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         jPanel35Layout.setVerticalGroup(
             jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel35Layout.createSequentialGroup()
                 .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FVRNBCG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(dtBcg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel36.setBackground(new java.awt.Color(153, 153, 153));
@@ -378,23 +425,23 @@ repaint();
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setText("HvB");
 
-        FVRNHVB.setBackground(new java.awt.Color(204, 204, 204));
-        FVRNHVB.setDateFormatString("dd/MM/yyyy");
-        FVRNHVB.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        dtHvb.setBackground(new java.awt.Color(204, 204, 204));
+        dtHvb.setDateFormatString("dd/MM/yyyy");
+        dtHvb.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
         jPanel36.setLayout(jPanel36Layout);
         jPanel36Layout.setHorizontalGroup(
             jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FVRNHVB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+            .addComponent(dtHvb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         jPanel36Layout.setVerticalGroup(
             jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel36Layout.createSequentialGroup()
                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FVRNHVB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(dtHvb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout RNLayout = new javax.swing.GroupLayout(RN);
@@ -404,12 +451,12 @@ repaint();
             .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(RNLayout.createSequentialGroup()
                 .addGroup(RNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(FUABCG, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFuaBcg, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel35, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(1, 1, 1)
                 .addGroup(RNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAHVB)))
+                    .addComponent(txtFuaHvb)))
         );
         RNLayout.setVerticalGroup(
             RNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -421,8 +468,8 @@ repaint();
                     .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0)
                 .addGroup(RNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FUABCG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAHVB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtFuaBcg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFuaHvb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         NEUMOCOCO.setBackground(new java.awt.Color(204, 204, 204));
@@ -538,13 +585,13 @@ repaint();
                     .addGroup(NEUMOCOCOLayout.createSequentialGroup()
                         .addComponent(jPanel53, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1))
-                    .addComponent(FUAVN1))
+                    .addComponent(txtFuaNeumo1))
                 .addGroup(NEUMOCOCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVN2))
+                    .addComponent(txtFuaNeumo2))
                 .addGap(1, 1, 1)
                 .addGroup(NEUMOCOCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(FUAVN3)
+                    .addComponent(txtFuaNeumo3)
                     .addComponent(jPanel55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         NEUMOCOCOLayout.setVerticalGroup(
@@ -559,9 +606,9 @@ repaint();
                             .addComponent(jPanel54, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(NEUMOCOCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(FUAVN3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FUAVN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FUAVN2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtFuaNeumo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFuaNeumo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFuaNeumo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(NEUMOCOCOLayout.createSequentialGroup()
                         .addComponent(jPanel53, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -650,12 +697,12 @@ repaint();
             .addComponent(jPanel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(INFLUENZALayout.createSequentialGroup()
                 .addGroup(INFLUENZALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(FUAVI1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFuaInfl1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel37, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(1, 1, 1)
                 .addGroup(INFLUENZALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVI2)))
+                    .addComponent(txtFuaInfl2)))
         );
         INFLUENZALayout.setVerticalGroup(
             INFLUENZALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -667,8 +714,8 @@ repaint();
                     .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(INFLUENZALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FUAVI1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVI2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFuaInfl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFuaInfl2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );
 
@@ -755,12 +802,12 @@ repaint();
             .addComponent(jPanel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ROTAVIRUSLayout.createSequentialGroup()
                 .addGroup(ROTAVIRUSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(FUAVR1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFuaRot1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel39, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(1, 1, 1)
                 .addGroup(ROTAVIRUSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVR2)))
+                    .addComponent(txtFuaRot2)))
         );
         ROTAVIRUSLayout.setVerticalGroup(
             ROTAVIRUSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -772,8 +819,8 @@ repaint();
                     .addComponent(jPanel42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(ROTAVIRUSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FUAVR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFuaRot1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFuaRot2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );
 
@@ -860,12 +907,12 @@ repaint();
             .addComponent(jPanel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(SPRLayout.createSequentialGroup()
                 .addGroup(SPRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(FUAVSPR1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFuaSpr1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel45, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(1, 1, 1)
                 .addGroup(SPRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVSPR2)))
+                    .addComponent(txtFuaSpr2)))
         );
         SPRLayout.setVerticalGroup(
             SPRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -877,8 +924,8 @@ repaint();
                     .addComponent(jPanel46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(SPRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FUAVSPR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVSPR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFuaSpr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFuaSpr2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );
 
@@ -937,7 +984,7 @@ repaint();
             AMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(AMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                .addComponent(FUAVAMA, javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(txtFuaAmaDu, javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel56, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AMALayout.setVerticalGroup(
@@ -947,7 +994,7 @@ repaint();
                 .addGap(1, 1, 1)
                 .addComponent(jPanel56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(FUAVAMA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtFuaAmaDu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -981,23 +1028,23 @@ repaint();
         jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel50.setText("IPV 1º");
 
-        FVA1.setBackground(new java.awt.Color(204, 204, 204));
-        FVA1.setDateFormatString("dd/MM/yyyy");
-        FVA1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        dtIpv1.setBackground(new java.awt.Color(204, 204, 204));
+        dtIpv1.setDateFormatString("dd/MM/yyyy");
+        dtIpv1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel58Layout = new javax.swing.GroupLayout(jPanel58);
         jPanel58.setLayout(jPanel58Layout);
         jPanel58Layout.setHorizontalGroup(
             jPanel58Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel50, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FVA1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+            .addComponent(dtIpv1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         jPanel58Layout.setVerticalGroup(
             jPanel58Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel58Layout.createSequentialGroup()
                 .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FVA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(dtIpv1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel59.setBackground(new java.awt.Color(153, 153, 153));
@@ -1008,23 +1055,23 @@ repaint();
         jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel51.setText("IPV 2º");
 
-        FVA2.setBackground(new java.awt.Color(204, 204, 204));
-        FVA2.setDateFormatString("dd/MM/yyyy");
-        FVA2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        dtIpv2.setBackground(new java.awt.Color(204, 204, 204));
+        dtIpv2.setDateFormatString("dd/MM/yyyy");
+        dtIpv2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel59Layout = new javax.swing.GroupLayout(jPanel59);
         jPanel59.setLayout(jPanel59Layout);
         jPanel59Layout.setHorizontalGroup(
             jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel51, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FVA2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+            .addComponent(dtIpv2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         jPanel59Layout.setVerticalGroup(
             jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel59Layout.createSequentialGroup()
                 .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FVA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(dtIpv2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel60.setBackground(new java.awt.Color(153, 153, 153));
@@ -1035,23 +1082,23 @@ repaint();
         jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel52.setText("IPV 3º");
 
-        FVA3.setBackground(new java.awt.Color(204, 204, 204));
-        FVA3.setDateFormatString("dd/MM/yyyy");
-        FVA3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        dtIpv3.setBackground(new java.awt.Color(204, 204, 204));
+        dtIpv3.setDateFormatString("dd/MM/yyyy");
+        dtIpv3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel60Layout = new javax.swing.GroupLayout(jPanel60);
         jPanel60.setLayout(jPanel60Layout);
         jPanel60Layout.setHorizontalGroup(
             jPanel60Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel52, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FVA3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+            .addComponent(dtIpv3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         jPanel60Layout.setVerticalGroup(
             jPanel60Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel60Layout.createSequentialGroup()
                 .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FVA3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(dtIpv3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout ANTIPOLIOLayout = new javax.swing.GroupLayout(ANTIPOLIO);
@@ -1064,13 +1111,13 @@ repaint();
                     .addGroup(ANTIPOLIOLayout.createSequentialGroup()
                         .addComponent(jPanel58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1))
-                    .addComponent(FUAVA1))
+                    .addComponent(txtFuaIpv1))
                 .addGroup(ANTIPOLIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVA2))
+                    .addComponent(txtFuaIpv2))
                 .addGap(1, 1, 1)
                 .addGroup(ANTIPOLIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(FUAVA3)
+                    .addComponent(txtFuaIpv3)
                     .addComponent(jPanel60, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         ANTIPOLIOLayout.setVerticalGroup(
@@ -1085,9 +1132,9 @@ repaint();
                             .addComponent(jPanel59, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(ANTIPOLIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(FUAVA3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FUAVA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FUAVA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtFuaIpv3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFuaIpv1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFuaIpv2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(ANTIPOLIOLayout.createSequentialGroup()
                         .addComponent(jPanel58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -1123,23 +1170,23 @@ repaint();
         jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel54.setText("1º");
 
-        FVP1.setBackground(new java.awt.Color(204, 204, 204));
-        FVP1.setDateFormatString("dd/MM/yyyy");
-        FVP1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        dtPent1.setBackground(new java.awt.Color(204, 204, 204));
+        dtPent1.setDateFormatString("dd/MM/yyyy");
+        dtPent1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel62Layout = new javax.swing.GroupLayout(jPanel62);
         jPanel62.setLayout(jPanel62Layout);
         jPanel62Layout.setHorizontalGroup(
             jPanel62Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel54, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FVP1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+            .addComponent(dtPent1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         jPanel62Layout.setVerticalGroup(
             jPanel62Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel62Layout.createSequentialGroup()
                 .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(FVP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(dtPent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel63.setBackground(new java.awt.Color(153, 153, 153));
@@ -1206,13 +1253,13 @@ repaint();
                     .addGroup(PENTAVALENTELayout.createSequentialGroup()
                         .addComponent(jPanel62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1))
-                    .addComponent(FUAVP1))
+                    .addComponent(txtFuaPent1))
                 .addGroup(PENTAVALENTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel63, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVP2))
+                    .addComponent(txtFuaPent2))
                 .addGap(1, 1, 1)
                 .addGroup(PENTAVALENTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(FUAVP3)
+                    .addComponent(txtFuaPent3)
                     .addComponent(jPanel64, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         PENTAVALENTELayout.setVerticalGroup(
@@ -1227,9 +1274,9 @@ repaint();
                             .addComponent(jPanel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(PENTAVALENTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(FUAVP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FUAVP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FUAVP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtFuaPent3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFuaPent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFuaPent2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PENTAVALENTELayout.createSequentialGroup()
                         .addComponent(jPanel62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -1318,12 +1365,12 @@ repaint();
             .addComponent(jPanel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(DPTLayout.createSequentialGroup()
                 .addGroup(DPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(FUAVDPT1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFuaDpt1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel41, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(1, 1, 1)
                 .addGroup(DPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVDPT2)))
+                    .addComponent(txtFuaDpt2)))
         );
         DPTLayout.setVerticalGroup(
             DPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1335,8 +1382,8 @@ repaint();
                     .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(DPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FUAVDPT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVDPT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFuaDpt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFuaDpt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );
 
@@ -1423,12 +1470,12 @@ repaint();
             .addComponent(jPanel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(INFLUENZA_REFLayout.createSequentialGroup()
                 .addGroup(INFLUENZA_REFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(FUAVIR1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtInflR1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel48, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(1, 1, 1)
                 .addGroup(INFLUENZA_REFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVIR2)))
+                    .addComponent(txtInflR2)))
         );
         INFLUENZA_REFLayout.setVerticalGroup(
             INFLUENZA_REFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1440,8 +1487,8 @@ repaint();
                     .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(INFLUENZA_REFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FUAVIR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVIR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtInflR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtInflR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );
 
@@ -1528,12 +1575,12 @@ repaint();
             .addComponent(jPanel50, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(INFLUENZA_REF1Layout.createSequentialGroup()
                 .addGroup(INFLUENZA_REF1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(FUAVAR1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFuaApoR1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel65, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(1, 1, 1)
                 .addGroup(INFLUENZA_REF1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVAR2)))
+                    .addComponent(txtFuaApoR2)))
         );
         INFLUENZA_REF1Layout.setVerticalGroup(
             INFLUENZA_REF1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1545,8 +1592,8 @@ repaint();
                     .addComponent(jPanel66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(INFLUENZA_REF1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FUAVAR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FUAVAR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFuaApoR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFuaApoR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );
 
@@ -1619,12 +1666,12 @@ repaint();
             .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        lblnino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblnino.setForeground(new java.awt.Color(102, 102, 102));
-        lblnino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
-        lblnino.setText("NIÑOS");
-        lblnino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblnino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        lblNino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblNino.setForeground(new java.awt.Color(102, 102, 102));
+        lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
+        lblNino.setText("NIÑOS");
+        lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblNino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         lblNina.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblNina.setForeground(new java.awt.Color(102, 102, 102));
@@ -1673,7 +1720,7 @@ repaint();
                     .addGroup(VACUNASLayout.createSequentialGroup()
                         .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblnino, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         VACUNASLayout.setVerticalGroup(
@@ -1682,7 +1729,7 @@ repaint();
                 .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblnino)
+                    .addComponent(lblNino)
                     .addComponent(lblNina))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1742,6 +1789,20 @@ repaint();
 
     }//GEN-LAST:event_btneditarActionPerformed
 
+    private void txtFuaElabCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtFuaElabCaretUpdate
+        if(txtFuaElab.getText().equals("")){
+            habilitarDatos(true);
+        }else {
+            habilitarDatos(false);
+            txtFuaElab.setEnabled(true);
+            dtElab.setEnabled(true);
+        }
+    }//GEN-LAST:event_txtFuaElabCaretUpdate
+
+    private void txtFuaElabAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtFuaElabAncestorRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFuaElabAncestorRemoved
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AMA;
@@ -1749,37 +1810,6 @@ repaint();
     private javax.swing.JPanel DPT;
     private javax.swing.JPanel EJEC;
     private javax.swing.JPanel ELAB;
-    private com.toedter.calendar.JDateChooser FEJEC;
-    private com.toedter.calendar.JDateChooser FELAB;
-    private javax.swing.JTextField FUABCG;
-    private javax.swing.JTextField FUAEJEC;
-    private javax.swing.JTextField FUAELAB;
-    private javax.swing.JTextField FUAHVB;
-    private javax.swing.JTextField FUAVA1;
-    private javax.swing.JTextField FUAVA2;
-    private javax.swing.JTextField FUAVA3;
-    private javax.swing.JTextField FUAVAMA;
-    private javax.swing.JTextField FUAVAR1;
-    private javax.swing.JTextField FUAVAR2;
-    private javax.swing.JTextField FUAVDPT1;
-    private javax.swing.JTextField FUAVDPT2;
-    private javax.swing.JTextField FUAVI1;
-    private javax.swing.JTextField FUAVI2;
-    private javax.swing.JTextField FUAVIR1;
-    private javax.swing.JTextField FUAVIR2;
-    private javax.swing.JTextField FUAVN1;
-    private javax.swing.JTextField FUAVN2;
-    private javax.swing.JTextField FUAVN3;
-    private javax.swing.JTextField FUAVP1;
-    private javax.swing.JTextField FUAVP2;
-    private javax.swing.JTextField FUAVP3;
-    private javax.swing.JTextField FUAVR1;
-    private javax.swing.JTextField FUAVR2;
-    private javax.swing.JTextField FUAVSPR1;
-    private javax.swing.JTextField FUAVSPR2;
-    private com.toedter.calendar.JDateChooser FVA1;
-    private com.toedter.calendar.JDateChooser FVA2;
-    private com.toedter.calendar.JDateChooser FVA3;
     private com.toedter.calendar.JDateChooser FVAMA;
     private com.toedter.calendar.JDateChooser FVAR1;
     private com.toedter.calendar.JDateChooser FVAR2;
@@ -1792,13 +1822,10 @@ repaint();
     private com.toedter.calendar.JDateChooser FVN1;
     private com.toedter.calendar.JDateChooser FVN2;
     private com.toedter.calendar.JDateChooser FVN3;
-    private com.toedter.calendar.JDateChooser FVP1;
     private com.toedter.calendar.JDateChooser FVP2;
     private com.toedter.calendar.JDateChooser FVP3;
     private com.toedter.calendar.JDateChooser FVR1;
     private com.toedter.calendar.JDateChooser FVR2;
-    private com.toedter.calendar.JDateChooser FVRNBCG;
-    private com.toedter.calendar.JDateChooser FVRNHVB;
     private com.toedter.calendar.JDateChooser FVSPR1;
     private com.toedter.calendar.JDateChooser FVSPR2;
     private javax.swing.JPanel INFLUENZA;
@@ -1813,6 +1840,14 @@ repaint();
     private javax.swing.JPanel VACUNAS;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btnguardar;
+    private com.toedter.calendar.JDateChooser dtBcg;
+    private com.toedter.calendar.JDateChooser dtEjec;
+    private com.toedter.calendar.JDateChooser dtElab;
+    private com.toedter.calendar.JDateChooser dtHvb;
+    private com.toedter.calendar.JDateChooser dtIpv1;
+    private com.toedter.calendar.JDateChooser dtIpv2;
+    private com.toedter.calendar.JDateChooser dtIpv3;
+    private com.toedter.calendar.JDateChooser dtPent1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel21;
@@ -1890,7 +1925,33 @@ repaint();
     private javax.swing.JPanel jPanel64;
     private javax.swing.JPanel jPanel65;
     private javax.swing.JPanel jPanel66;
-    private javax.swing.JLabel lblNina;
-    private javax.swing.JLabel lblnino;
+    public static javax.swing.JLabel lblNina;
+    public static javax.swing.JLabel lblNino;
+    private javax.swing.JTextField txtFuaAmaDu;
+    private javax.swing.JTextField txtFuaApoR1;
+    private javax.swing.JTextField txtFuaApoR2;
+    private javax.swing.JTextField txtFuaBcg;
+    private javax.swing.JTextField txtFuaDpt1;
+    private javax.swing.JTextField txtFuaDpt2;
+    private javax.swing.JTextField txtFuaEjec;
+    private javax.swing.JTextField txtFuaElab;
+    private javax.swing.JTextField txtFuaHvb;
+    private javax.swing.JTextField txtFuaInfl1;
+    private javax.swing.JTextField txtFuaInfl2;
+    private javax.swing.JTextField txtFuaIpv1;
+    private javax.swing.JTextField txtFuaIpv2;
+    private javax.swing.JTextField txtFuaIpv3;
+    private javax.swing.JTextField txtFuaNeumo1;
+    private javax.swing.JTextField txtFuaNeumo2;
+    private javax.swing.JTextField txtFuaNeumo3;
+    private javax.swing.JTextField txtFuaPent1;
+    private javax.swing.JTextField txtFuaPent2;
+    private javax.swing.JTextField txtFuaPent3;
+    private javax.swing.JTextField txtFuaRot1;
+    private javax.swing.JTextField txtFuaRot2;
+    private javax.swing.JTextField txtFuaSpr1;
+    private javax.swing.JTextField txtFuaSpr2;
+    private javax.swing.JTextField txtInflR1;
+    private javax.swing.JTextField txtInflR2;
     // End of variables declaration//GEN-END:variables
 }

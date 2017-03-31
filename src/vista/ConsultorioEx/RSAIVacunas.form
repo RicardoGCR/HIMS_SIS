@@ -91,7 +91,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblNina" min="-2" pref="457" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblnino" min="-2" pref="365" max="-2" attributes="0"/>
+                          <Component id="lblNino" min="-2" pref="365" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -104,7 +104,7 @@
                   <Component id="jPanel26" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblnino" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNino" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblNina" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -250,8 +250,8 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel21" alignment="1" max="32767" attributes="0"/>
-                  <Component id="FUAELAB" alignment="1" max="32767" attributes="0"/>
-                  <Component id="FELAB" alignment="0" pref="120" max="32767" attributes="0"/>
+                  <Component id="txtFuaElab" alignment="1" max="32767" attributes="0"/>
+                  <Component id="dtElab" alignment="0" pref="120" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -260,9 +260,9 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel21" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="FELAB" min="-2" max="-2" attributes="0"/>
+                      <Component id="dtElab" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="FUAELAB" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFuaElab" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -283,7 +283,7 @@
                 <Property name="text" type="java.lang.String" value="ELAB"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="FELAB">
+            <Component class="com.toedter.calendar.JDateChooser" name="dtElab">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -294,7 +294,11 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAELAB">
+            <Component class="javax.swing.JTextField" name="txtFuaElab">
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaElabCaretUpdate"/>
+                <EventHandler event="ancestorRemoved" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="txtFuaElabAncestorRemoved"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -312,8 +316,8 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel22" alignment="1" max="32767" attributes="0"/>
-                  <Component id="FUAEJEC" alignment="1" max="32767" attributes="0"/>
-                  <Component id="FEJEC" alignment="0" pref="120" max="32767" attributes="0"/>
+                  <Component id="txtFuaEjec" alignment="1" max="32767" attributes="0"/>
+                  <Component id="dtEjec" alignment="0" pref="120" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -322,9 +326,9 @@
                       <EmptySpace pref="15" max="32767" attributes="0"/>
                       <Component id="jLabel22" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="FEJEC" min="-2" max="-2" attributes="0"/>
+                      <Component id="dtEjec" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="FUAEJEC" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFuaEjec" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -345,7 +349,7 @@
                 <Property name="text" type="java.lang.String" value="EJEC"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="FEJEC">
+            <Component class="com.toedter.calendar.JDateChooser" name="dtEjec">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -356,7 +360,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAEJEC">
+            <Component class="javax.swing.JTextField" name="txtFuaEjec">
             </Component>
           </SubComponents>
         </Container>
@@ -373,13 +377,13 @@
                   <Component id="jPanel31" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="FUABCG" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaBcg" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel35" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel36" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAHVB" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaHvb" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -395,8 +399,8 @@
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FUABCG" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAHVB" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFuaBcg" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFuaHvb" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -451,7 +455,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel26" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVRNBCG" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtBcg" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -459,7 +463,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel26" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVRNBCG" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtBcg" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -480,7 +484,7 @@
                     <Property name="text" type="java.lang.String" value="BCG"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVRNBCG">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtBcg">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -504,7 +508,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel27" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVRNHVB" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtHvb" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -512,7 +516,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel27" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVRNHVB" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtHvb" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -533,7 +537,7 @@
                     <Property name="text" type="java.lang.String" value="HvB"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVRNHVB">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtHvb">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -546,9 +550,9 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="FUABCG">
+            <Component class="javax.swing.JTextField" name="txtFuaBcg">
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAHVB">
+            <Component class="javax.swing.JTextField" name="txtFuaHvb">
             </Component>
           </SubComponents>
         </Container>
@@ -569,15 +573,15 @@
                               <Component id="jPanel53" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="FUAVN1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaNeumo1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel54" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVN2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaNeumo2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="FUAVN3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaNeumo3" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel55" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -596,9 +600,9 @@
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="FUAVN3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="FUAVN1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="FUAVN2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtFuaNeumo3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtFuaNeumo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtFuaNeumo2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -807,11 +811,11 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="FUAVN3">
+            <Component class="javax.swing.JTextField" name="txtFuaNeumo3">
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAVN1">
+            <Component class="javax.swing.JTextField" name="txtFuaNeumo1">
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAVN2">
+            <Component class="javax.swing.JTextField" name="txtFuaNeumo2">
             </Component>
           </SubComponents>
         </Container>
@@ -828,13 +832,13 @@
                   <Component id="jPanel33" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="FUAVI1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaInfl1" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel37" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel38" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVI2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaInfl2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -850,8 +854,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FUAVI1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVI2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFuaInfl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFuaInfl2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
@@ -1002,9 +1006,9 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="FUAVI1">
+            <Component class="javax.swing.JTextField" name="txtFuaInfl1">
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAVI2">
+            <Component class="javax.swing.JTextField" name="txtFuaInfl2">
             </Component>
           </SubComponents>
         </Container>
@@ -1021,13 +1025,13 @@
                   <Component id="jPanel34" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="FUAVR1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaRot1" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel39" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel42" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVR2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaRot2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -1043,8 +1047,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FUAVR1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVR2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFuaRot1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFuaRot2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
@@ -1195,9 +1199,9 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="FUAVR1">
+            <Component class="javax.swing.JTextField" name="txtFuaRot1">
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAVR2">
+            <Component class="javax.swing.JTextField" name="txtFuaRot2">
             </Component>
           </SubComponents>
         </Container>
@@ -1214,13 +1218,13 @@
                   <Component id="jPanel44" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="FUAVSPR1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaSpr1" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel45" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel46" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVSPR2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaSpr2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -1236,8 +1240,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FUAVSPR1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVSPR2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFuaSpr1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFuaSpr2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
@@ -1388,9 +1392,9 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="FUAVSPR1">
+            <Component class="javax.swing.JTextField" name="txtFuaSpr1">
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAVSPR2">
+            <Component class="javax.swing.JTextField" name="txtFuaSpr2">
             </Component>
           </SubComponents>
         </Container>
@@ -1406,7 +1410,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel51" alignment="0" max="32767" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="FUAVAMA" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtFuaAmaDu" alignment="0" max="32767" attributes="0"/>
                       <Component id="jPanel56" alignment="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -1418,7 +1422,7 @@
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Component id="jPanel56" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                      <Component id="FUAVAMA" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFuaAmaDu" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1515,7 +1519,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="FUAVAMA">
+            <Component class="javax.swing.JTextField" name="txtFuaAmaDu">
             </Component>
           </SubComponents>
         </Container>
@@ -1536,15 +1540,15 @@
                               <Component id="jPanel58" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="FUAVA1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaIpv1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel59" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVA2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaIpv2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="FUAVA3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaIpv3" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel60" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -1563,9 +1567,9 @@
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="FUAVA3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="FUAVA1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="FUAVA2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtFuaIpv3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtFuaIpv1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtFuaIpv2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -1626,7 +1630,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel50" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVA1" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtIpv1" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1634,7 +1638,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel50" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVA1" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtIpv1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1655,7 +1659,7 @@
                     <Property name="text" type="java.lang.String" value="IPV 1&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVA1">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtIpv1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1679,7 +1683,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel51" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVA2" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtIpv2" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1687,7 +1691,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel51" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVA2" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtIpv2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1708,7 +1712,7 @@
                     <Property name="text" type="java.lang.String" value="IPV 2&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVA2">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtIpv2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1732,7 +1736,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel52" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVA3" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtIpv3" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1740,7 +1744,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel52" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVA3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtIpv3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1761,7 +1765,7 @@
                     <Property name="text" type="java.lang.String" value="IPV 3&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVA3">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtIpv3">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1774,11 +1778,11 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="FUAVA3">
+            <Component class="javax.swing.JTextField" name="txtFuaIpv3">
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAVA1">
+            <Component class="javax.swing.JTextField" name="txtFuaIpv1">
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAVA2">
+            <Component class="javax.swing.JTextField" name="txtFuaIpv2">
             </Component>
           </SubComponents>
         </Container>
@@ -1799,15 +1803,15 @@
                               <Component id="jPanel62" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="FUAVP1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaPent1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel63" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVP2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaPent2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="FUAVP3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaPent3" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel64" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -1826,9 +1830,9 @@
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="FUAVP3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="FUAVP1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="FUAVP2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtFuaPent3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtFuaPent1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtFuaPent2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -1889,7 +1893,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel54" alignment="1" max="32767" attributes="0"/>
-                      <Component id="FVP1" alignment="1" pref="120" max="32767" attributes="0"/>
+                      <Component id="dtPent1" alignment="1" pref="120" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1897,7 +1901,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel54" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FVP1" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtPent1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1918,7 +1922,7 @@
                     <Property name="text" type="java.lang.String" value="1&#xba;"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="FVP1">
+                <Component class="com.toedter.calendar.JDateChooser" name="dtPent1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -2037,11 +2041,11 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="FUAVP3">
+            <Component class="javax.swing.JTextField" name="txtFuaPent3">
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAVP1">
+            <Component class="javax.swing.JTextField" name="txtFuaPent1">
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAVP2">
+            <Component class="javax.swing.JTextField" name="txtFuaPent2">
             </Component>
           </SubComponents>
         </Container>
@@ -2058,13 +2062,13 @@
                   <Component id="jPanel40" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="FUAVDPT1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaDpt1" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel41" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel43" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVDPT2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaDpt2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -2080,8 +2084,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FUAVDPT1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVDPT2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFuaDpt1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFuaDpt2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
@@ -2232,9 +2236,9 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="FUAVDPT1">
+            <Component class="javax.swing.JTextField" name="txtFuaDpt1">
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAVDPT2">
+            <Component class="javax.swing.JTextField" name="txtFuaDpt2">
             </Component>
           </SubComponents>
         </Container>
@@ -2251,13 +2255,13 @@
                   <Component id="jPanel47" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="FUAVIR1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtInflR1" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel48" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel49" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVIR2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtInflR2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -2273,8 +2277,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FUAVIR1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVIR2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtInflR1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtInflR2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
@@ -2425,9 +2429,9 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="FUAVIR1">
+            <Component class="javax.swing.JTextField" name="txtInflR1">
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAVIR2">
+            <Component class="javax.swing.JTextField" name="txtInflR2">
             </Component>
           </SubComponents>
         </Container>
@@ -2444,13 +2448,13 @@
                   <Component id="jPanel50" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="FUAVAR1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaApoR1" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel65" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel66" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVAR2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFuaApoR2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -2466,8 +2470,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FUAVAR1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="FUAVAR2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFuaApoR1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFuaApoR2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
@@ -2618,9 +2622,9 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="FUAVAR1">
+            <Component class="javax.swing.JTextField" name="txtFuaApoR1">
             </Component>
-            <Component class="javax.swing.JTextField" name="FUAVAR2">
+            <Component class="javax.swing.JTextField" name="txtFuaApoR2">
             </Component>
           </SubComponents>
         </Container>
@@ -2731,7 +2735,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="lblnino">
+        <Component class="javax.swing.JLabel" name="lblNino">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
@@ -2748,6 +2752,9 @@
             </Property>
             <Property name="horizontalTextPosition" type="int" value="4"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNina">
           <Properties>
@@ -2766,6 +2773,9 @@
             </Property>
             <Property name="horizontalTextPosition" type="int" value="4"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

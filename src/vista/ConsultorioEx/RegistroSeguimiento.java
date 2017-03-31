@@ -748,15 +748,12 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                 );
                 jPanel12Layout.setVerticalGroup(
                     jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4)
-                        .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                 );
 
                 jPanel13.setBackground(new java.awt.Color(45, 204, 112));
@@ -787,10 +784,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 );
                 jPanel13Layout.setVerticalGroup(
                     jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel5)
-                        .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                 );
 
                 jPanel15.setBackground(new java.awt.Color(50, 151, 219));
@@ -816,10 +810,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 );
                 jPanel15Layout.setVerticalGroup(
                     jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6)
-                        .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                 );
 
                 jPanel16.setBackground(new java.awt.Color(154, 89, 181));
@@ -845,19 +836,21 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel7)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel16Layout.setVerticalGroup(
                     jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7)
-                        .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                 );
 
                 jPanel17.setBackground(new java.awt.Color(67, 94, 120));
                 jPanel17.setPreferredSize(new java.awt.Dimension(238, 45));
+                jPanel17.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jPanel17MouseClicked(evt);
+                    }
+                });
 
                 jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -873,16 +866,13 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jPanel17Layout.setHorizontalGroup(
                     jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel8)
-                        .addContainerGap(176, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(75, Short.MAX_VALUE))
                 );
                 jPanel17Layout.setVerticalGroup(
                     jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel8)
-                        .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                 );
 
                 jPanel18.setBackground(new java.awt.Color(23, 160, 134));
@@ -890,6 +880,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel9.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel9.setText("TAMIZAJE NEONATAL");
+                jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jLabel9MouseClicked(evt);
+                    }
+                });
 
                 javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
                 jPanel18.setLayout(jPanel18Layout);
@@ -902,10 +897,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 );
                 jPanel18Layout.setVerticalGroup(
                     jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel18Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel9)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 );
 
                 jPanel19.setBackground(new java.awt.Color(39, 174, 97));
@@ -913,6 +905,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel19.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel19.setText("<html>TAMIZAJE DE ANEMIA PARASITOSIS<br>Y TEST DE GRAHAM</br></html>");
+                jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jLabel19MouseClicked(evt);
+                    }
+                });
 
                 javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
                 jPanel19.setLayout(jPanel19Layout);
@@ -925,9 +922,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 );
                 jPanel19Layout.setVerticalGroup(
                     jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel19Layout.createSequentialGroup()
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel19)
                 );
 
                 jPanel20.setBackground(new java.awt.Color(41, 127, 184));
@@ -947,10 +942,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 );
                 jPanel20Layout.setVerticalGroup(
                     jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel11)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 );
 
                 jPanel21.setBackground(new java.awt.Color(141, 68, 173));
@@ -1081,7 +1073,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addGap(0, 0, 0)
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 294, Short.MAX_VALUE)
                             .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, 0)
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1668,6 +1660,15 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         
         RSAICCD CCD =new RSAICCD();
         Contenedor.add(CCD);
+        if(lblGenero.getText().equals("F")){
+            CCD.lblNina.setText(txtPaciente.getText());
+            CCD.lblNina.setVisible(true);
+            CCD.lblNino.setVisible(false);
+        } else {
+            CCD.lblNino.setText(txtPaciente.getText());
+            CCD.lblNino.setVisible(true);
+            CCD.lblNina.setVisible(false);
+        }
         try {
             CCD.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1680,6 +1681,15 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
           
         RSAIDN DN =new RSAIDN();
         Contenedor.add(DN);
+        if(lblGenero.getText().equals("F")){
+            DN.lblNina.setText(txtPaciente.getText());
+            DN.lblNina.setVisible(true);
+            DN.lblNino.setVisible(false);
+        } else {
+            DN.lblNino.setText(txtPaciente.getText());
+            DN.lblNino.setVisible(true);
+            DN.lblNina.setVisible(false);
+        }
         try {
             DN.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1691,6 +1701,15 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         RSAIDD DD =new RSAIDD();
         Contenedor.add(DD);
+        if(lblGenero.getText().equals("F")){
+            DD.lblNina.setText(txtPaciente.getText());
+            DD.lblNina.setVisible(true);
+            DD.lblNino.setVisible(false);
+        } else {
+            DD.lblNino.setText(txtPaciente.getText());
+            DD.lblNino.setVisible(true);
+            DD.lblNina.setVisible(false);
+        }
         try {
             DD.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1702,6 +1721,15 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         RSAIET ET =new RSAIET();
         Contenedor.add(ET);
+        if(lblGenero.getText().equals("F")){
+            ET.lblNina.setText(txtPaciente.getText());
+            ET.lblNina.setVisible(true);
+            ET.lblNino.setVisible(false);
+        } else {
+            ET.lblNino.setText(txtPaciente.getText());
+            ET.lblNino.setVisible(true);
+            ET.lblNina.setVisible(false);
+        }
         try {
             ET.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1869,6 +1897,50 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
 
             
     }//GEN-LAST:event_jPanel16MouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+       RSAITAPTG TAPTG =new RSAITAPTG();
+        Contenedor.add(TAPTG);
+        if(lblGenero.getText().equals("F")){
+            RSAITAPTG.lblNina.setText(txtPaciente.getText());
+            RSAITAPTG.lblNina.setVisible(true);
+            RSAITAPTG.lblNino.setVisible(false);
+        } else {
+            RSAITAPTG.lblNino.setText(txtPaciente.getText());
+            RSAITAPTG.lblNino.setVisible(true);
+            RSAITAPTG.lblNina.setVisible(false);
+        }
+        try {
+            TAPTG.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        RSAITN TN =new RSAITN();
+        Contenedor.add(TN);
+        if(lblGenero.getText().equals("F")){
+            TN.lblNina.setText(txtPaciente.getText());
+            TN.lblNina.setVisible(true);
+            TN.lblNino.setVisible(false);
+        } else {
+            TN.lblNino.setText(txtPaciente.getText());
+            TN.lblNino.setVisible(true);
+            TN.lblNina.setVisible(false);
+        }
+        try {
+            TN.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jPanel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel17MouseClicked
+       
+    }//GEN-LAST:event_jPanel17MouseClicked
 
     /**
      * @param args the command line arguments

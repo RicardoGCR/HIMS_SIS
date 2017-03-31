@@ -336,9 +336,9 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblnina" min="-2" pref="361" max="-2" attributes="0"/>
+                              <Component id="lblNina" min="-2" pref="361" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblnino" min="-2" pref="356" max="-2" attributes="0"/>
+                              <Component id="lblNino" min="-2" pref="356" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="180" max="32767" attributes="0"/>
@@ -351,8 +351,8 @@
                       <Component id="jPanel28" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblnina" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblnino" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNina" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNino" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -2158,7 +2158,7 @@
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblnina">
+            <Component class="javax.swing.JLabel" name="lblNina">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -2176,10 +2176,13 @@
                 <Property name="horizontalTextPosition" type="int" value="4"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblninaMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblNinaMouseClicked"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblnino">
+            <Component class="javax.swing.JLabel" name="lblNino">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -2197,8 +2200,11 @@
                 <Property name="horizontalTextPosition" type="int" value="4"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblninoMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblNinoMouseClicked"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

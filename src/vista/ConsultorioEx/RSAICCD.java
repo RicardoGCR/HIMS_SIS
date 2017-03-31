@@ -38,19 +38,11 @@ byte tge;
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(2, false);
         HC_ID.setText(RegistroSeguimiento.lblHc.getText());
-
-        if(RegistroSeguimiento.lblGenero.getText()=="M"){
-            lblnino.setVisible(true);
-            lblnina.setVisible(false);
-            }else if(RegistroSeguimiento.lblGenero.getText()=="F"){
-            lblnino.setVisible(false);
-            lblnina.setVisible(true);
-           
         
-        }
+        FUACCDRN1.setText("Pienso");
+        FUACCDRN2.setText("Digo");
 
-        lblnina.setText(RegistroSeguimiento.txtPaciente.getText());
-        lblnino.setText(RegistroSeguimiento.txtPaciente.getText());
+       
     }
     public void QuitarLaBarraTitulo()
 { 
@@ -266,8 +258,8 @@ repaint();
             TxtFecha = new javax.swing.JLabel();
             TxtFua = new javax.swing.JLabel();
             TxtDes = new javax.swing.JLabel();
-            lblnina = new javax.swing.JLabel();
-            lblnino = new javax.swing.JLabel();
+            lblNina = new javax.swing.JLabel();
+            lblNino = new javax.swing.JLabel();
             CCD1 = new javax.swing.JPanel();
             CCD1A = new javax.swing.JPanel();
             jPanel89 = new javax.swing.JPanel();
@@ -450,7 +442,6 @@ repaint();
             men = new javax.swing.JLabel();
 
             FrmCie10.setMinimumSize(new java.awt.Dimension(750, 400));
-            FrmCie10.setPreferredSize(new java.awt.Dimension(750, 400));
             FrmCie10.setResizable(false);
 
             jPanel10.setBackground(new java.awt.Color(102, 102, 102));
@@ -1604,27 +1595,27 @@ repaint();
 
             TxtDes.setText("jLabel1");
 
-            lblnina.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            lblnina.setForeground(new java.awt.Color(102, 102, 102));
-            lblnina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
-            lblnina.setText("NIÑOS");
-            lblnina.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-            lblnina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-            lblnina.addMouseListener(new java.awt.event.MouseAdapter() {
+            lblNina.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            lblNina.setForeground(new java.awt.Color(102, 102, 102));
+            lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
+            lblNina.setText("NIÑOS");
+            lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+            lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+            lblNina.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    lblninaMouseClicked(evt);
+                    lblNinaMouseClicked(evt);
                 }
             });
 
-            lblnino.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            lblnino.setForeground(new java.awt.Color(102, 102, 102));
-            lblnino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
-            lblnino.setText("NIÑOS");
-            lblnino.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-            lblnino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-            lblnino.addMouseListener(new java.awt.event.MouseAdapter() {
+            lblNino.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            lblNino.setForeground(new java.awt.Color(102, 102, 102));
+            lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
+            lblNino.setText("NIÑOS");
+            lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+            lblNino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+            lblNino.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    lblninoMouseClicked(evt);
+                    lblNinoMouseClicked(evt);
                 }
             });
 
@@ -1657,9 +1648,9 @@ repaint();
                                 .addComponent(TxtFua)
                                 .addComponent(TxtDes)))
                         .addGroup(CCDLayout.createSequentialGroup()
-                            .addComponent(lblnina, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(lblnino, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(180, Short.MAX_VALUE))
             );
             CCDLayout.setVerticalGroup(
@@ -1668,8 +1659,8 @@ repaint();
                     .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblnina)
-                        .addComponent(lblnino))
+                        .addComponent(lblNina)
+                        .addComponent(lblNino))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCDRN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -3554,13 +3545,15 @@ repaint();
 
     private void FUACCDRN1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_FUACCDRN1CaretUpdate
         if (FUACCDRN1.getText().equals("")){
-        FUACCDRN2.setEnabled(true);
-        FCCDRN2.setEnabled(true);
-        DXCCDRN2.setEnabled(true);
-        
+
+        FUACCDRN1.setEditable(true);
         FUACCDRN1.setEnabled(true);
         FCCDRN1.setEnabled(true);
         DXCCDRN1.setEnabled(true);
+        
+        FUACCDRN2.setEnabled(true);
+        FCCDRN2.setEnabled(true);
+        DXCCDRN2.setEnabled(true);
         
         FUACCDRN3.setEnabled(true);
         FCCDRN3.setEnabled(true);
@@ -3584,20 +3577,28 @@ repaint();
         
         FUACCDRN4.setEnabled(false);
         FCCDRN4.setEnabled(false);
-        DXCCDRN4.setEnabled(false);   
+        DXCCDRN4.setEnabled(false); 
+        
+        FUACCDRN2.setEditable(false);
+        FUACCDRN3.setEditable(false);
+        FUACCDRN4.setEditable(false);
+        
        }
             
     }//GEN-LAST:event_FUACCDRN1CaretUpdate
 
     private void FUACCDRN2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_FUACCDRN2CaretUpdate
         if (FUACCDRN2.getText().equals("")){
-        FUACCDRN1.setEnabled(true);
-        FCCDRN1.setEnabled(true);
-        DXCCDRN1.setEnabled(true);
-        
+            
+        FUACCDRN2.setEditable(true);
         FUACCDRN2.setEnabled(true);
         FCCDRN2.setEnabled(true);
         DXCCDRN2.setEnabled(true);
+        
+        FUACCDRN1.setEnabled(true);
+        FCCDRN1.setEnabled(true);
+        DXCCDRN1.setEnabled(true);
+      
         
         FUACCDRN3.setEnabled(true);
         FCCDRN3.setEnabled(true);
@@ -3611,15 +3612,15 @@ repaint();
         TxtFecha.setText(determinarFecha(FCCDRN2));
         TxtDes.setText("RN2");
         
-        FUACCDRN1.setEnabled(false);
+        FUACCDRN1.setEditable(false);
         FCCDRN1.setEnabled(false);
         DXCCDRN1.setEnabled(false);
         
-        FUACCDRN3.setEnabled(false);
+        FUACCDRN3.setEditable(false);
         FCCDRN3.setEnabled(false);
         DXCCDRN3.setEnabled(false);
         
-        FUACCDRN4.setEnabled(false);
+        FUACCDRN4.setEditable(false);
         FCCDRN4.setEnabled(false);
         DXCCDRN4.setEnabled(false);   
        }
@@ -3627,18 +3628,20 @@ repaint();
 
     private void FUACCDRN3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_FUACCDRN3CaretUpdate
        if (FUACCDRN3.getText().equals("")){
-           
+        FUACCDRN3.setEditable(true);
+        FUACCDRN1.setEnabled(true);
+        FCCDRN1.setEnabled(true);
+        DXCCDRN1.setEnabled(true);
+      
+        
         FUACCDRN2.setEnabled(true);
         FCCDRN2.setEnabled(true);
         DXCCDRN2.setEnabled(true);
         
         FUACCDRN3.setEnabled(true);
-        FCCDRN3.setEnabled(true);
-        DXCCDRN3.setEnabled(true);
-        
-        FUACCDRN1.setEnabled(true);
-        FCCDRN1.setEnabled(true);
-        DXCCDRN1.setEnabled(true);
+        FCCDRN2.setEnabled(true);
+        DXCCDRN2.setEnabled(true);
+     
         
         FUACCDRN4.setEnabled(true);
         FCCDRN4.setEnabled(true);
@@ -3648,15 +3651,15 @@ repaint();
         TxtFecha.setText(determinarFecha(FCCDRN3));
         TxtDes.setText("RN3");
         
-        FUACCDRN2.setEnabled(false);
+        FUACCDRN2.setEditable(false);
         FCCDRN2.setEnabled(false);
         DXCCDRN2.setEnabled(false);
         
-        FUACCDRN1.setEnabled(false);
+        FUACCDRN1.setEditable(false);
         FCCDRN1.setEnabled(false);
         DXCCDRN1.setEnabled(false);
         
-        FUACCDRN4.setEnabled(false);
+        FUACCDRN4.setEditable(false);
         FCCDRN4.setEnabled(false);
         DXCCDRN4.setEnabled(false);   
        }
@@ -3664,21 +3667,25 @@ repaint();
 
     private void FUACCDRN4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_FUACCDRN4CaretUpdate
         if (FUACCDRN4.getText().equals("")){
+            FUACCDRN4.setEditable(true);
+       FUACCDRN1.setEnabled(true);
+        FCCDRN1.setEnabled(true);
+        DXCCDRN1.setEnabled(true);
+
+        
         FUACCDRN2.setEnabled(true);
         FCCDRN2.setEnabled(true);
         DXCCDRN2.setEnabled(true);
-        
-        FUACCDRN4.setEnabled(true);
-        FCCDRN4.setEnabled(true);
-        DXCCDRN4.setEnabled(true);
         
         FUACCDRN3.setEnabled(true);
         FCCDRN3.setEnabled(true);
         DXCCDRN3.setEnabled(true);
         
-        FUACCDRN1.setEnabled(true);
-        FCCDRN1.setEnabled(true);
-        DXCCDRN1.setEnabled(true);    
+        FUACCDRN4.setEnabled(true);
+        FCCDRN4.setEnabled(true);
+        DXCCDRN4.setEnabled(true);
+        
+      
         } else {
         TxtFua.setText(FUACCDRN4.getText());
         TxtFecha.setText(determinarFecha(FCCDRN4));
@@ -3745,13 +3752,13 @@ repaint();
         }
     }//GEN-LAST:event_tbCiePresunKeyPressed
 
-    private void lblninaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblninaMouseClicked
+    private void lblNinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNinaMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblninaMouseClicked
+    }//GEN-LAST:event_lblNinaMouseClicked
 
-    private void lblninoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblninoMouseClicked
+    private void lblNinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNinoMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblninoMouseClicked
+    }//GEN-LAST:event_lblNinoMouseClicked
 
     private void DXCCDRN7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN7MouseClicked
         // TODO add your handling code here:
@@ -4063,8 +4070,8 @@ repaint();
     private javax.swing.JPanel jPanel99;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel lblnina;
-    private javax.swing.JLabel lblnino;
+    public static javax.swing.JLabel lblNina;
+    public static javax.swing.JLabel lblNino;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
     private javax.swing.JTable tbCiePresun;

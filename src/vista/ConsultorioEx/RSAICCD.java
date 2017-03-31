@@ -38,6 +38,7 @@ byte tge;
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(2, false);
         HC_ID.setText(RegistroSeguimiento.lblHc.getText());
+
         if(RegistroSeguimiento.lblGenero.getText()=="M"){
             lblnino.setVisible(true);
             lblnina.setVisible(false);
@@ -47,6 +48,7 @@ byte tge;
            
         
         }
+
         lblnina.setText(RegistroSeguimiento.txtPaciente.getText());
         lblnino.setText(RegistroSeguimiento.txtPaciente.getText());
     }

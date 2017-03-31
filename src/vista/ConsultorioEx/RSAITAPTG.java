@@ -80,14 +80,14 @@ public class RSAITAPTG extends javax.swing.JInternalFrame {
 
         CCD.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel28.setBackground(new java.awt.Color(39, 174, 97));
+        jPanel28.setBackground(new java.awt.Color(232, 76, 61));
         jPanel28.setPreferredSize(new java.awt.Dimension(83, 45));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("CONTROL DE CRECIMIENTO Y DESARROLLO");
+        jLabel17.setText("TAMIZAJE DE ANEMIA PARASITOSIS Y TES DE GRAM");
 
-        jPanel29.setBackground(new java.awt.Color(45, 204, 112));
+        jPanel29.setBackground(new java.awt.Color(193, 57, 45));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));

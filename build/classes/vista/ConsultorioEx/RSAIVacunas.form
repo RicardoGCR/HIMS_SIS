@@ -294,6 +294,8 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
+<<<<<<< HEAD
+=======
             </Component>
             <Component class="javax.swing.JRadioButton" name="Relab">
               <Properties>
@@ -315,6 +317,7 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RelabMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RelabActionPerformed"/>
               </Events>
+>>>>>>> 6460ef2839fd1a8caa3286e69fa79f690d5c9845
             </Component>
           </SubComponents>
         </Container>

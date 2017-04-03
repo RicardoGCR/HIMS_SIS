@@ -39,6 +39,7 @@ public class ConsultorioEXTriaje {
     private String triaje_talla;
     private String modulo;  
     private String id_doc;
+    private String TRIAJE_IDM;
     
     public String codUsuario(String nombreUsuario){
         String cod="";
@@ -64,7 +65,7 @@ public class ConsultorioEXTriaje {
         {
         boolean resp = false;
         try{
-            String sql = "EXEC CX_TRIAJE_MANTANIMIENTO ?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "EXEC CX_TRIAJE_MANTANIMIENTO ?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getTriaje_id());
          
@@ -77,7 +78,8 @@ public class ConsultorioEXTriaje {
             cmd.setString(8, getTriaje_talla());
             cmd.setString(9, getModulo());
             cmd.setString(10,getId_doc());
-            cmd.setString(11, tipo);
+            cmd.setString(11,getTRIAJE_IDM());
+            cmd.setString(12, tipo);
             if(!cmd.execute())
             {
                 resp = true;
@@ -396,6 +398,14 @@ public class ConsultorioEXTriaje {
 
     public void setId_doc(String id_doc) {
         this.id_doc = id_doc;
+    }
+
+    public String getTRIAJE_IDM() {
+        return TRIAJE_IDM;
+    }
+
+    public void setTRIAJE_IDM(String TRIAJE_IDM) {
+        this.TRIAJE_IDM = TRIAJE_IDM;
     }
 
    

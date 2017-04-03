@@ -4438,7 +4438,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
                                                                                             setIconImage(getIconImage());
 
-                                                                                            jPanel1.setBackground(new java.awt.Color(58, 168, 178));
+                                                                                            jPanel1.setBackground(new java.awt.Color(25, 188, 157));
 
                                                                                             jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
                                                                                             jLabel1.setForeground(new java.awt.Color(255, 255, 255));

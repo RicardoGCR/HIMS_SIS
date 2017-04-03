@@ -63,7 +63,7 @@ public class ConsultorioExConsultorioAsignacion {
         {
             String sql = "SELECT id_Turno \n" +
                         "FROM cONSULTORIO_EXT_TURNO\n" +
-                        "WHERE Nombre = ?";
+                        "WHERE HoraI = ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, tipo);
             ResultSet rs = cmd.executeQuery();

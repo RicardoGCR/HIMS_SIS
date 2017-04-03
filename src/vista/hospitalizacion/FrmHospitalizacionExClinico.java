@@ -862,6 +862,11 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         btnBuscarCie10.setBorderPainted(false);
         btnBuscarCie10.setContentAreaFilled(false);
         btnBuscarCie10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarCie10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCie10ActionPerformed(evt);
+            }
+        });
         jPanel10.add(btnBuscarCie10);
         btnBuscarCie10.setBounds(240, 60, 30, 30);
 
@@ -2794,6 +2799,10 @@ public class FrmHospitalizacionExClinico extends javax.swing.JFrame {
         hosDefi.listarDiagnosticos(txtIDMod.getText(), "S", tbDiagSindromico,"M");
         hosDefi.listarDiagnosticos(txtIDMod.getText(), "R", tbDiagPrincipal,"M");
     }//GEN-LAST:event_txtIDModCaretUpdate
+
+    private void btnBuscarCie10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCie10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarCie10ActionPerformed
 
     /**
      * @param args the command line arguments

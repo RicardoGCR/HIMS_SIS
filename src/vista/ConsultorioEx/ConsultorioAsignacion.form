@@ -372,7 +372,6 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel57" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel63" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jPanel49" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -383,13 +382,11 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="13" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel63" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel49" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="333" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="353" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -468,17 +465,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLabel57">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="12" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="B&#xfa;squeda por nombres y apellidos"/>
-              </Properties>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JTabbedPane" name="jTabbedPane8">
@@ -1116,7 +1102,7 @@
                               </Group>
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="291" max="32767" attributes="0"/>
+                          <EmptySpace pref="231" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -1362,11 +1348,8 @@
         <Component class="javax.swing.JComboBox" name="HoraFN">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="8:00"/>
-                <StringItem index="1" value="9:00"/>
-                <StringItem index="2" value="10:00"/>
-                <StringItem index="3" value="11:00"/>
+              <StringArray count="1">
+                <StringItem index="0" value="Seleccione.."/>
               </StringArray>
             </Property>
           </Properties>
@@ -1374,15 +1357,13 @@
         <Component class="javax.swing.JComboBox" name="HoraIN">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="9:00"/>
-                <StringItem index="1" value="10:00"/>
-                <StringItem index="2" value="11:00"/>
-                <StringItem index="3" value="12:00"/>
+              <StringArray count="1">
+                <StringItem index="0" value="Seleccione.."/>
               </StringArray>
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="HoraINMouseClicked"/>
             <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="HoraINItemStateChanged"/>
           </Events>
         </Component>

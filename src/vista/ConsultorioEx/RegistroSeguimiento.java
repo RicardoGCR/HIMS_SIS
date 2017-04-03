@@ -1647,7 +1647,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             RSAIVacunas.lblNina.setVisible(false);
         }
         ConsultorioExtRsVacunas vacunas1 = new ConsultorioExtRsVacunas();
-        vacunas1.ConsultoriosExtVacunasListar(1);
+        vacunas1.ConsultoriosExtVacunasListar(id);
         try {
             V.setMaximum(true);
         } catch (PropertyVetoException ex) {

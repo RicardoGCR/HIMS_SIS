@@ -12,13 +12,7 @@ import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+
 import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
@@ -99,38 +93,193 @@ public class ConsultorioExtRsVacunas implements Serializable {
                 Date fecha = dfo.parse(fechaSeleccionada);
                 RSAIVacunas.dtElab.setDate(fecha);
                 RSAIVacunas.txtFuaElab.setText(r.getString(4));
-//                lblDNI.setText(r.getString(3)); 
-//                lblPaciente.setText(r.getString(4)); 
-//                lblGenero.setText(r.getString(5)); 
-//                lblFecNac.setText(r.getString(6)); 
-//                lblEdad.setText(r.getString(7)); 
-//                lblDireccion.setText(r.getString(8)); 
-//                lblSector.setText(r.getString(9)); 
-//                lblServicio.setText(r.getString(10)); 
-//                lblConsultorio.setText(r.getString(11)); 
-//                lblTurno.setText(r.getString(12)); 
-//                lblNAtencion.setText(r.getString(13)); 
-//                //lblTipoEdad.setText(r.getString(14)); 
-//                lblMedico.setText(r.getString(14)); 
-//                lblFechaPen.setText(r.getString(15)); 
-//                lblHoraPen.setText(r.getString(16)); 
-//                lblUsuarioPen.setText(r.getString(17)); 
-//                lblPcPen.setText(r.getString(18)); 
-//                lblFechaSal.setText(r.getString(19)); 
-//                lblHoraSal.setText(r.getString(20)); 
-//                lblUsuarioSal.setText(r.getString(21)); 
-//                lblPcSal.setText(r.getString(22)); 
-//                lblFechaRet.setText(r.getString(23)); 
-//                lblHorraRet.setText(r.getString(24)); 
-//                lblUsuarioRet.setText(r.getString(25)); 
-//                lblPcRet.setText(r.getString(26)); 
-//                lblEstado.setText(r.getString(27));
-//                lblFechaSG.setText(r.getString(28)); 
-//                lblHoraSG.setText(r.getString(29));
+                
+                String fechaSeleccionadaejec = (String)(r.getString(5));
+                DateFormat dfoejec = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechaejec = dfoejec.parse(fechaSeleccionadaejec);
+                RSAIVacunas.dtEjec.setDate(fechaejec);
+                RSAIVacunas.txtFuaEjec.setText(r.getString(6));
+                
+                String fechaSeleccionadarnbcg = (String)(r.getString(7));
+                DateFormat dfornbcg = new SimpleDateFormat("dd/MM/yyyy");
+                Date fecharnbcg = dfornbcg.parse(fechaSeleccionadarnbcg);
+                RSAIVacunas.dtBcg.setDate(fecharnbcg);
+                RSAIVacunas.txtFuaBcg.setText(r.getString(8));
+                
+                String fechaSeleccionadarnhvb = (String)(r.getString(9));
+                DateFormat dfornhvb = new SimpleDateFormat("dd/MM/yyyy");
+                Date fecharnhvb = dfornhvb.parse(fechaSeleccionadarnhvb);
+                RSAIVacunas.dtHvb.setDate(fecharnhvb);
+                RSAIVacunas.txtFuaHvb.setText(r.getString(10));
+                
+                String fechaSeleccionadapv1 = (String)(r.getString(11));
+                DateFormat dfopv1 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechapv1 = dfopv1.parse(fechaSeleccionadapv1);
+                RSAIVacunas.dtIpv1.setDate(fechapv1);
+                RSAIVacunas.txtFuaIpv1.setText(r.getString(12));
+                
+                String fechaSeleccionadapv2 = (String)(r.getString(13));
+                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+                RSAIVacunas.dtIpv2.setDate(fechapv2);
+                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+                
+                String fechaSeleccionadapv3 = (String)(r.getString(15));
+                DateFormat dfopv3 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechapv3 = dfopv3.parse(fechaSeleccionadapv3);
+                RSAIVacunas.dtIpv3.setDate(fechapv3);
+                RSAIVacunas.txtFuaIpv3.setText(r.getString(16));
+                
+                String fechaSeleccionadap1 = (String)(r.getString(17));
+                DateFormat dfop1 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechap1 = dfop1.parse(fechaSeleccionadap1);
+                RSAIVacunas.dtPent1.setDate(fechap1);
+                RSAIVacunas.txtFuaPent1.setText(r.getString(18));
+                
+                String fechaSeleccionadap2 = (String)(r.getString(19));
+                DateFormat dfop2 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechap2 = dfop2.parse(fechaSeleccionadap2);
+                RSAIVacunas.dtIpv2.setDate(fechap2);
+                RSAIVacunas.txtFuaIpv2.setText(r.getString(20));
+                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+//                String fechaSeleccionadapv2 = (String)(r.getString(13));
+//                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+//                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+//                RSAIVacunas.dtIpv2.setDate(fechapv2);
+//                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+//                
+                
+
             }
             //
         } catch (Exception e) {
-            System.out.println("Error_mostrar_MovHC: " + e.getMessage());
+            System.out.println("Error: ConsultoriosExtVacunasListar " + e.getMessage());
         }
     }
     

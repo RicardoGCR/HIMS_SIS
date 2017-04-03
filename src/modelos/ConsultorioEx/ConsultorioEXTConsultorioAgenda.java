@@ -13,6 +13,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
+import vista.ConsultorioEx.AgendaCita;
 /**
  *
  * @author MYS1
@@ -22,6 +23,29 @@ public class ConsultorioEXTConsultorioAgenda {
     Conexion con = new Conexion();
     private Connection cn;   
     
+  
+     public String mostrarDatosPaciente()
+    {
+        String cod="";
+        try
+        {
+            String sql = "CONSULTORIO_EXT_LISTAR_CONSUULTORIO_AGENDA_CONTAR";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            //cmd.setString(1, nombreUsuario);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_codUsuario: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+        
     public ConsultorioEXTConsultorioAgenda()
     {
         Conexion con = new Conexion();

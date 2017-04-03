@@ -90,6 +90,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         RegistroSeguimiento.lblHc.setText(String.valueOf(tbNinos.getValueAt(fila, 0)));
         RegistroSeguimiento.lblTriaje.setText(String.valueOf(tbNinos.getValueAt(fila, 9)));
         RegistroSeguimiento.lblGenero.setText(String.valueOf(tbNinos.getValueAt(fila, 5)));
+        RegistroSeguimiento.lblFecNac.setText(String.valueOf(tbNinos.getValueAt(fila, 6)));
         if(String.valueOf(tbNinos.getValueAt(fila, 5)).equals("F")){
             pnlSexo.setBackground(new Color(255,71,163));
             pnlSexo.setVisible(true);

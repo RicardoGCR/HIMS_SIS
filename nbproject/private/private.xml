@@ -3,10 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/AgendaCita.java</file>
             <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExConsultorioAsignacion.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioAsignacion.java</file>
             <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioEXTConsultorioAgenda.java</file>
+=======
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/SolicitudDepositoSangre.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/SolicitudTransfusional.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsCabecera.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtSolicitudTransfucional.java</file>
+>>>>>>> 76ed12ea44493dded1c44529ef5adf555981ec5a
         </group>
     </open-files>
 </project-private>

@@ -1952,6 +1952,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         }
         ConsultorioExtRsVacunas vacunas1 = new ConsultorioExtRsVacunas();
         vacunas1.ConsultoriosExtVacunasListar(id);
+       
+        RSAIVacunas.lblId.setText(String.valueOf(id));
         try {
             V.setMaximum(true);
         } catch (PropertyVetoException ex) {

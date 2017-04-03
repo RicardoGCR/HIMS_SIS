@@ -11,6 +11,7 @@ import static java.awt.Frame.MAXIMIZED_BOTH;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import modelos.ConsultorioEx.ConsultorioExtRsVacunas;
 
 /**
  *
@@ -29,7 +30,6 @@ private Dimension DimensionBarra = null;
         initComponents();
         QuitarLaBarraTitulo();
         habilitarDatos(false);
-      
 
 
     }
@@ -312,6 +312,7 @@ private Dimension DimensionBarra = null;
         btnguardar = new javax.swing.JButton();
         lblNino = new javax.swing.JLabel();
         lblNina = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setMinimumSize(new java.awt.Dimension(1381, 430));
@@ -376,7 +377,7 @@ private Dimension DimensionBarra = null;
         ELAB.setBackground(new java.awt.Color(153, 153, 153));
         ELAB.setPreferredSize(new java.awt.Dimension(120, 88));
 
-        dtElab.setBackground(new java.awt.Color(204, 204, 204));
+        dtElab.setBackground(new java.awt.Color(255, 255, 255));
         dtElab.setDateFormatString("dd/MM/yyyy");
         dtElab.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -446,7 +447,7 @@ private Dimension DimensionBarra = null;
         EJEC.setBackground(new java.awt.Color(153, 153, 153));
         EJEC.setPreferredSize(new java.awt.Dimension(120, 88));
 
-        dtEjec.setBackground(new java.awt.Color(204, 204, 204));
+        dtEjec.setBackground(new java.awt.Color(255, 255, 255));
         dtEjec.setDateFormatString("dd/MM/yyyy");
         dtEjec.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -523,7 +524,7 @@ private Dimension DimensionBarra = null;
 
         jPanel35.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtBcg.setBackground(new java.awt.Color(204, 204, 204));
+        dtBcg.setBackground(new java.awt.Color(255, 255, 255));
         dtBcg.setDateFormatString("dd/MM/yyyy");
         dtBcg.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -558,7 +559,7 @@ private Dimension DimensionBarra = null;
 
         jPanel36.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtHvb.setBackground(new java.awt.Color(204, 204, 204));
+        dtHvb.setBackground(new java.awt.Color(255, 255, 255));
         dtHvb.setDateFormatString("dd/MM/yyyy");
         dtHvb.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -655,7 +656,7 @@ private Dimension DimensionBarra = null;
 
         jPanel53.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtNeumo1.setBackground(new java.awt.Color(204, 204, 204));
+        dtNeumo1.setBackground(new java.awt.Color(255, 255, 255));
         dtNeumo1.setDateFormatString("dd/MM/yyyy");
         dtNeumo1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -690,7 +691,7 @@ private Dimension DimensionBarra = null;
 
         jPanel54.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtNeumo2.setBackground(new java.awt.Color(204, 204, 204));
+        dtNeumo2.setBackground(new java.awt.Color(255, 255, 255));
         dtNeumo2.setDateFormatString("dd/MM/yyyy");
         dtNeumo2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -725,7 +726,7 @@ private Dimension DimensionBarra = null;
 
         jPanel55.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtNeumo3.setBackground(new java.awt.Color(204, 204, 204));
+        dtNeumo3.setBackground(new java.awt.Color(255, 255, 255));
         dtNeumo3.setDateFormatString("dd/MM/yyyy");
         dtNeumo3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -839,7 +840,7 @@ private Dimension DimensionBarra = null;
 
         jPanel37.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtInfl1.setBackground(new java.awt.Color(204, 204, 204));
+        dtInfl1.setBackground(new java.awt.Color(255, 255, 255));
         dtInfl1.setDateFormatString("dd/MM/yyyy");
         dtInfl1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -874,7 +875,7 @@ private Dimension DimensionBarra = null;
 
         jPanel38.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtInfl2.setBackground(new java.awt.Color(204, 204, 204));
+        dtInfl2.setBackground(new java.awt.Color(255, 255, 255));
         dtInfl2.setDateFormatString("dd/MM/yyyy");
         dtInfl2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -972,7 +973,7 @@ private Dimension DimensionBarra = null;
 
         jPanel39.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtRot1.setBackground(new java.awt.Color(204, 204, 204));
+        dtRot1.setBackground(new java.awt.Color(255, 255, 255));
         dtRot1.setDateFormatString("dd/MM/yyyy");
         dtRot1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1007,7 +1008,7 @@ private Dimension DimensionBarra = null;
 
         jPanel42.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtRot2.setBackground(new java.awt.Color(204, 204, 204));
+        dtRot2.setBackground(new java.awt.Color(255, 255, 255));
         dtRot2.setDateFormatString("dd/MM/yyyy");
         dtRot2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1105,7 +1106,7 @@ private Dimension DimensionBarra = null;
 
         jPanel45.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtSpr1.setBackground(new java.awt.Color(204, 204, 204));
+        dtSpr1.setBackground(new java.awt.Color(255, 255, 255));
         dtSpr1.setDateFormatString("dd/MM/yyyy");
         dtSpr1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1140,7 +1141,7 @@ private Dimension DimensionBarra = null;
 
         jPanel46.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtSpr2.setBackground(new java.awt.Color(204, 204, 204));
+        dtSpr2.setBackground(new java.awt.Color(255, 255, 255));
         dtSpr2.setDateFormatString("dd/MM/yyyy");
         dtSpr2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1238,7 +1239,7 @@ private Dimension DimensionBarra = null;
 
         jPanel56.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtAmadu.setBackground(new java.awt.Color(204, 204, 204));
+        dtAmadu.setBackground(new java.awt.Color(255, 255, 255));
         dtAmadu.setDateFormatString("dd/MM/yyyy");
         dtAmadu.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1326,7 +1327,7 @@ private Dimension DimensionBarra = null;
 
         jPanel58.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtIpv1.setBackground(new java.awt.Color(204, 204, 204));
+        dtIpv1.setBackground(new java.awt.Color(255, 255, 255));
         dtIpv1.setDateFormatString("dd/MM/yyyy");
         dtIpv1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1361,7 +1362,7 @@ private Dimension DimensionBarra = null;
 
         jPanel59.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtIpv2.setBackground(new java.awt.Color(204, 204, 204));
+        dtIpv2.setBackground(new java.awt.Color(255, 255, 255));
         dtIpv2.setDateFormatString("dd/MM/yyyy");
         dtIpv2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1396,7 +1397,7 @@ private Dimension DimensionBarra = null;
 
         jPanel60.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtIpv3.setBackground(new java.awt.Color(204, 204, 204));
+        dtIpv3.setBackground(new java.awt.Color(255, 255, 255));
         dtIpv3.setDateFormatString("dd/MM/yyyy");
         dtIpv3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1510,7 +1511,7 @@ private Dimension DimensionBarra = null;
 
         jPanel62.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtPent1.setBackground(new java.awt.Color(204, 204, 204));
+        dtPent1.setBackground(new java.awt.Color(255, 255, 255));
         dtPent1.setDateFormatString("dd/MM/yyyy");
         dtPent1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1545,7 +1546,7 @@ private Dimension DimensionBarra = null;
 
         jPanel63.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtPent2.setBackground(new java.awt.Color(204, 204, 204));
+        dtPent2.setBackground(new java.awt.Color(255, 255, 255));
         dtPent2.setDateFormatString("dd/MM/yyyy");
         dtPent2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1580,7 +1581,7 @@ private Dimension DimensionBarra = null;
 
         jPanel64.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtPent3.setBackground(new java.awt.Color(204, 204, 204));
+        dtPent3.setBackground(new java.awt.Color(255, 255, 255));
         dtPent3.setDateFormatString("dd/MM/yyyy");
         dtPent3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1694,7 +1695,7 @@ private Dimension DimensionBarra = null;
 
         jPanel41.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtDpt1.setBackground(new java.awt.Color(204, 204, 204));
+        dtDpt1.setBackground(new java.awt.Color(255, 255, 255));
         dtDpt1.setDateFormatString("dd/MM/yyyy");
         dtDpt1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1729,7 +1730,7 @@ private Dimension DimensionBarra = null;
 
         jPanel43.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtDpt2.setBackground(new java.awt.Color(204, 204, 204));
+        dtDpt2.setBackground(new java.awt.Color(255, 255, 255));
         dtDpt2.setDateFormatString("dd/MM/yyyy");
         dtDpt2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1827,7 +1828,7 @@ private Dimension DimensionBarra = null;
 
         jPanel48.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtInflR1.setBackground(new java.awt.Color(204, 204, 204));
+        dtInflR1.setBackground(new java.awt.Color(255, 255, 255));
         dtInflR1.setDateFormatString("dd/MM/yyyy");
         dtInflR1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1862,7 +1863,7 @@ private Dimension DimensionBarra = null;
 
         jPanel49.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtInflR2.setBackground(new java.awt.Color(204, 204, 204));
+        dtInflR2.setBackground(new java.awt.Color(255, 255, 255));
         dtInflR2.setDateFormatString("dd/MM/yyyy");
         dtInflR2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1960,7 +1961,7 @@ private Dimension DimensionBarra = null;
 
         jPanel65.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtApoR1.setBackground(new java.awt.Color(204, 204, 204));
+        dtApoR1.setBackground(new java.awt.Color(255, 255, 255));
         dtApoR1.setDateFormatString("dd/MM/yyyy");
         dtApoR1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1995,7 +1996,7 @@ private Dimension DimensionBarra = null;
 
         jPanel66.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtApoR2.setBackground(new java.awt.Color(204, 204, 204));
+        dtApoR2.setBackground(new java.awt.Color(255, 255, 255));
         dtApoR2.setDateFormatString("dd/MM/yyyy");
         dtApoR2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -2089,7 +2090,6 @@ private Dimension DimensionBarra = null;
         btnguardar.setForeground(new java.awt.Color(240, 240, 240));
         btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
         btnguardar.setMnemonic('N');
-        btnguardar.setText("Guardar");
         btnguardar.setContentAreaFilled(false);
         btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnguardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -2152,6 +2152,8 @@ private Dimension DimensionBarra = null;
         lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
+        lblId.setText("jLabel1");
+
         javax.swing.GroupLayout VACUNASLayout = new javax.swing.GroupLayout(VACUNAS);
         VACUNAS.setLayout(VACUNASLayout);
         VACUNASLayout.setHorizontalGroup(
@@ -2184,7 +2186,9 @@ private Dimension DimensionBarra = null;
                                 .addGap(1, 1, 1)
                                 .addComponent(INFLUENZA_REF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(1, 1, 1)
-                                .addComponent(INFLUENZA_REF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(INFLUENZA_REF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblId)))
                         .addGap(1, 1, 1)
                         .addComponent(SPR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
@@ -2221,7 +2225,8 @@ private Dimension DimensionBarra = null;
                 .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(INFLUENZA_REF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(INFLUENZA_REF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(INFLUENZA_REF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblId))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -2248,7 +2253,10 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        ConsultorioExtRsVacunas vacunas2 = new ConsultorioExtRsVacunas();
+        vacunas2.ConsultoriosExtVacunasListar(1);
         habilitarRadio(true);
+        habilitarDatos(false);
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
@@ -2384,46 +2392,62 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_txtFuaEjecMouseClicked
 
     private void Rp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rp1ActionPerformed
-        if(Rp1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaPent1.setEnabled(true);
-            dtPent1.setEnabled(true);
-            txtFuaPent1.requestFocus();
-            txtFuaPent1.setEditable(true);  
+        if(dtPent1.getDate()==null){
+            if(Rp1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaPent1.setEnabled(true);
+                dtPent1.setEnabled(true);
+                txtFuaPent1.requestFocus();
+                txtFuaPent1.setEditable(true);  
+            }
+        } else {
+            Rp1.setEnabled(false);
         }
     }//GEN-LAST:event_Rp1ActionPerformed
 
     private void Rdpt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rdpt2ActionPerformed
-      if(Rdpt2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaDpt2.setEnabled(true);
-            dtDpt2.setEnabled(true);
-            txtFuaDpt2.requestFocus();
-            txtFuaDpt2.setEditable(true);  
+        if(dtDpt2.getDate()==null){
+            if(Rdpt2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaDpt2.setEnabled(true);
+                dtDpt2.setEnabled(true);
+                txtFuaDpt2.requestFocus();
+                txtFuaDpt2.setEditable(true);  
+            }
+        } else {
+            Rdpt2.setEnabled(false);
         }
     }//GEN-LAST:event_Rdpt2ActionPerformed
 
     private void Rir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rir2ActionPerformed
-        if(Rir2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtInflR2.setEnabled(true);
-            dtInflR2.setEnabled(true);
-            txtInflR2.requestFocus();
-            txtInflR2.setEditable(true);  
+        if(dtInflR2.getDate()==null){
+            if(Rir2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtInflR2.setEnabled(true);
+                dtInflR2.setEnabled(true);
+                txtInflR2.requestFocus();
+                txtInflR2.setEditable(true);  
+            }
+        } else {
+            Rir2.setEnabled(false);
         }
     }//GEN-LAST:event_Rir2ActionPerformed
 
     private void Rapo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rapo2ActionPerformed
-        if(Rapo2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaApoR2.setEnabled(true);
-            dtApoR2.setEnabled(true);
-            txtFuaApoR2.requestFocus();
-            txtFuaApoR2.setEditable(true);  
+        if(dtApoR2.getDate()==null){
+            if(Rapo2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaApoR2.setEnabled(true);
+                dtApoR2.setEnabled(true);
+                txtFuaApoR2.requestFocus();
+                txtFuaApoR2.setEditable(true);  
+            }
+        } else {
+            Rapo2.setEnabled(false);
         }
     }//GEN-LAST:event_Rapo2ActionPerformed
 
@@ -2432,42 +2456,52 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_RelabMouseClicked
 
     private void RelabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelabActionPerformed
-        if(Relab.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaElab.setEnabled(true);
-            dtElab.setEnabled(true);
-            txtFuaElab.requestFocus();
-            txtFuaElab.setEditable(true); 
-            
+        if(dtElab.getDate()==null){
+            if(Relab.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaElab.setEnabled(true);
+                dtElab.setEnabled(true);
+                txtFuaElab.requestFocus();
+                txtFuaElab.setEditable(true); 
+            }
+        } else {
+            Relab.setEnabled(false);
         }
     }//GEN-LAST:event_RelabActionPerformed
 
     private void RejecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RejecActionPerformed
-         if(Rejec.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaEjec.setEnabled(true);
-            dtEjec.setEnabled(true);
-            txtFuaEjec.requestFocus();
-            txtFuaEjec.setEditable(true); 
-            
+        if(dtEjec.getDate()==null){
+            if(Rejec.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaEjec.setEnabled(true);
+                dtEjec.setEnabled(true);
+                txtFuaEjec.requestFocus();
+                txtFuaEjec.setEditable(true); 
+            }
+        } else {
+            Rejec.setEnabled(false);
         }
     }//GEN-LAST:event_RejecActionPerformed
 
     private void RbcgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RbcgActionPerformed
-           if(Rbcg.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaBcg.setEnabled(true);
-            dtBcg.setEnabled(true);
-            txtFuaBcg.requestFocus();
-            txtFuaBcg.setEditable(true); 
-            
+        if(dtBcg.getDate()==null){
+            if(Rbcg.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaBcg.setEnabled(true);
+                dtBcg.setEnabled(true);
+                txtFuaBcg.requestFocus();
+                txtFuaBcg.setEditable(true); 
+            }
+        } else {
+            Rbcg.setEnabled(false);
         }
     }//GEN-LAST:event_RbcgActionPerformed
 
     private void RhvbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RhvbActionPerformed
+        if(dtHvb.getDate()==null){
             if(Rhvb.isSelected()){
             habilitarDatos(false);
             habilitarRadio(false);
@@ -2476,31 +2510,43 @@ private Dimension DimensionBarra = null;
             txtFuaHvb.requestFocus();
             txtFuaHvb.setEditable(true);  
             }
+        } else {
+            Rhvb.setEnabled(false);
+        }
     }//GEN-LAST:event_RhvbActionPerformed
 
     private void Rp3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rp3ActionPerformed
-        if(Rp3.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaPent3.setEnabled(true);
-            dtPent3.setEnabled(true);
-            txtFuaPent3.requestFocus();
-            txtFuaPent3.setEditable(true);  
+        if(dtPent3.getDate()==null){
+            if(Rp3.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaPent3.setEnabled(true);
+                dtPent3.setEnabled(true);
+                txtFuaPent3.requestFocus();
+                txtFuaPent3.setEditable(true);  
+            }
+        } else {
+            Rp3.setEnabled(false);
         }
     }//GEN-LAST:event_Rp3ActionPerformed
 
     private void Rp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rp2ActionPerformed
-        if(Rp2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaPent2.setEnabled(true);
-            dtPent2.setEnabled(true);
-            txtFuaPent2.requestFocus();
-            txtFuaPent2.setEditable(true);  
+        if(dtPent2.getDate()==null){
+            if(Rp2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaPent2.setEnabled(true);
+                dtPent2.setEnabled(true);
+                txtFuaPent2.requestFocus();
+                txtFuaPent2.setEditable(true);  
+            }
+        } else {
+            Rp2.setEnabled(false);
         }
     }//GEN-LAST:event_Rp2ActionPerformed
 
     private void Ripv3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ripv3ActionPerformed
+
         if(Ripv3.isSelected()){
             habilitarDatos(false);
             habilitarRadio(false);
@@ -2508,171 +2554,245 @@ private Dimension DimensionBarra = null;
             dtIpv3.setEnabled(true);
             txtFuaIpv3.requestFocus();
             txtFuaIpv3.setEditable(true);  
+
+        if(dtIpv3.getDate()==null){
+            if(Ripv3.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaIpv3.setEnabled(true);
+                dtIpv3.setEnabled(true);
+                txtFuaIpv3.requestFocus();
+                txtFuaIpv3.setEditable(true);  
+            }
+        } else {
+            Ripv3.setEnabled(false);
+
+        }
         }
     }//GEN-LAST:event_Ripv3ActionPerformed
 
     private void Ripv2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ripv2ActionPerformed
-        if(Ripv2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaIpv2.setEnabled(true);
-            dtIpv2.setEnabled(true);
-            txtFuaIpv2.requestFocus();
-            txtFuaIpv2.setEditable(true);  
+        if(dtIpv2.getDate()==null){
+            if(Ripv2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaIpv2.setEnabled(true);
+                dtIpv2.setEnabled(true);
+                txtFuaIpv2.requestFocus();
+                txtFuaIpv2.setEditable(true);  
+            }
+        } else {
+            Ripv2.setEnabled(false);
         }
     }//GEN-LAST:event_Ripv2ActionPerformed
 
     private void Ripv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ripv1ActionPerformed
-        if(Ripv1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaIpv1.setEnabled(true);
-            dtIpv1.setEnabled(true);
-            txtFuaIpv1.requestFocus();
-            txtFuaIpv1.setEditable(true);  
+        if(dtIpv1.getDate()==null){
+            if(Ripv1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaIpv1.setEnabled(true);
+                dtIpv1.setEnabled(true);
+                txtFuaIpv1.requestFocus();
+                txtFuaIpv1.setEditable(true);  
+            }
+        } else {
+            Ripv1.setEnabled(false);
         }
     }//GEN-LAST:event_Ripv1ActionPerformed
 
     private void Rn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rn1ActionPerformed
-        if(Rn1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaNeumo1.setEnabled(true);
-            dtNeumo1.setEnabled(true);
-            txtFuaNeumo1.requestFocus();
-            txtFuaNeumo1.setEditable(true);  
+        if(dtNeumo1.getDate()==null){
+            if(Rn1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaNeumo1.setEnabled(true);
+                dtNeumo1.setEnabled(true);
+                txtFuaNeumo1.requestFocus();
+                txtFuaNeumo1.setEditable(true);  
+            }
+        } else {
+            Rn1.setEnabled(false);
         }
     }//GEN-LAST:event_Rn1ActionPerformed
 
     private void Rn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rn2ActionPerformed
-        if(Rn2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaNeumo2.setEnabled(true);
-            dtNeumo2.setEnabled(true);
-            txtFuaNeumo2.requestFocus();
-            txtFuaNeumo2.setEditable(true);  
+        if(dtNeumo2.getDate()==null){
+            if(Rn2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaNeumo2.setEnabled(true);
+                dtNeumo2.setEnabled(true);
+                txtFuaNeumo2.requestFocus();
+                txtFuaNeumo2.setEditable(true);  
+            }
+        } else {
+            Rn2.setEnabled(false);
         }
     }//GEN-LAST:event_Rn2ActionPerformed
 
     private void Rn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rn3ActionPerformed
-        if(Rn3.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaNeumo3.setEnabled(true);
-            dtNeumo3.setEnabled(true);
-            txtFuaNeumo3.requestFocus();
-            txtFuaNeumo3.setEditable(true);  
+        if(dtNeumo3.getDate()==null){
+            if(Rn3.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaNeumo3.setEnabled(true);
+                dtNeumo3.setEnabled(true);
+                txtFuaNeumo3.requestFocus();
+                txtFuaNeumo3.setEditable(true);  
+            }
+        } else {
+            Rn3.setEnabled(false);
         }
     }//GEN-LAST:event_Rn3ActionPerformed
 
     private void Ri1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ri1ActionPerformed
-        if(Ri1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaInfl1.setEnabled(true);
-            dtInfl1.setEnabled(true);
-            txtFuaInfl1.requestFocus();
-            txtFuaInfl1.setEditable(true);  
+        if(dtInfl1.getDate()==null){
+            if(Ri1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaInfl1.setEnabled(true);
+                dtInfl1.setEnabled(true);
+                txtFuaInfl1.requestFocus();
+                txtFuaInfl1.setEditable(true);  
+            }
+        } else {
+            Ri1.setEnabled(false);
         }
     }//GEN-LAST:event_Ri1ActionPerformed
 
     private void Ri2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ri2ActionPerformed
-         if(Ri2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaInfl2.setEnabled(true);
-            dtInfl2.setEnabled(true);
-            txtFuaInfl2.requestFocus();
-            txtFuaInfl2.setEditable(true);  
+        if(dtInfl2.getDate()==null){ 
+            if(Ri2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaInfl2.setEnabled(true);
+                dtInfl2.setEnabled(true);
+                txtFuaInfl2.requestFocus();
+                txtFuaInfl2.setEditable(true);  
+            }
+        } else {
+            Ri2.setEnabled(false);
         }
     }//GEN-LAST:event_Ri2ActionPerformed
 
     private void Rr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rr1ActionPerformed
-         if(Rr1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaRot1.setEnabled(true);
-            dtRot1.setEnabled(true);
-            txtFuaRot1.requestFocus();
-            txtFuaRot1.setEditable(true);  
+        if(dtRot1.getDate()==null){
+            if(Rr1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaRot1.setEnabled(true);
+                dtRot1.setEnabled(true);
+                txtFuaRot1.requestFocus();
+                txtFuaRot1.setEditable(true);  
+            }
+        } else {
+            Rr1.setEnabled(false);
         }
     }//GEN-LAST:event_Rr1ActionPerformed
 
     private void Rr2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rr2ActionPerformed
-        if(Rr2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaRot2.setEnabled(true);
-            dtRot2.setEnabled(true);
-            txtFuaRot2.requestFocus();
-            txtFuaRot2.setEditable(true);  
+        if(dtRot2.getDate()==null){
+            if(Rr2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaRot2.setEnabled(true);
+                dtRot2.setEnabled(true);
+                txtFuaRot2.requestFocus();
+                txtFuaRot2.setEditable(true);  
+            }
+        } else {
+            Rr2.setEnabled(false);
         }
     }//GEN-LAST:event_Rr2ActionPerformed
 
     private void Rspr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rspr1ActionPerformed
-        if(Rspr1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaSpr1.setEnabled(true);
-            dtSpr1.setEnabled(true);
-            txtFuaSpr1.requestFocus();
-            txtFuaSpr1.setEditable(true);  
+        if(dtSpr1.getDate()==null){
+            if(Rspr1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaSpr1.setEnabled(true);
+                dtSpr1.setEnabled(true);
+                txtFuaSpr1.requestFocus();
+                txtFuaSpr1.setEditable(true);  
+            }
+        } else {
+            Rspr1.setEnabled(false);
         }
     }//GEN-LAST:event_Rspr1ActionPerformed
 
     private void Rspr2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rspr2ActionPerformed
-        if(Rspr2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaSpr2.setEnabled(true);
-            dtSpr2.setEnabled(true);
-            txtFuaSpr2.requestFocus();
-            txtFuaSpr2.setEditable(true);  
+        if(dtSpr2.getDate()==null){
+            if(Rspr2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaSpr2.setEnabled(true);
+                dtSpr2.setEnabled(true);
+                txtFuaSpr2.requestFocus();
+                txtFuaSpr2.setEditable(true);  
+            }
+        } else {
+            Rspr2.setEnabled(false);
         }
     }//GEN-LAST:event_Rspr2ActionPerformed
 
     private void RamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RamaActionPerformed
-        if(Rama.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaAmaDu.setEnabled(true);
-            dtAmadu.setEnabled(true);
-            txtFuaAmaDu.requestFocus();
-            txtFuaAmaDu.setEditable(true);  
+        if(dtAmadu.getDate()==null){
+            if(Rama.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaAmaDu.setEnabled(true);
+                dtAmadu.setEnabled(true);
+                txtFuaAmaDu.requestFocus();
+                txtFuaAmaDu.setEditable(true);  
+            }
+        } else {
+            Rama.setEnabled(false);
         }
     }//GEN-LAST:event_RamaActionPerformed
 
     private void Rdpt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rdpt1ActionPerformed
-        if(Rdpt1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaDpt1.setEnabled(true);
-            dtDpt1.setEnabled(true);
-            txtFuaDpt1.requestFocus();
-            txtFuaDpt1.setEditable(true);  
+        if(dtDpt1.getDate()==null){
+            if(Rdpt1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaDpt1.setEnabled(true);
+                dtDpt1.setEnabled(true);
+                txtFuaDpt1.requestFocus();
+                txtFuaDpt1.setEditable(true);  
+            }
+        } else {
+            Rdpt1.setEnabled(false);
         }
     }//GEN-LAST:event_Rdpt1ActionPerformed
 
     private void Rir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rir1ActionPerformed
-        if(Rir1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtInflR1.setEnabled(true);
-            dtInflR1.setEnabled(true);
-            txtInflR1.requestFocus();
-            txtInflR1.setEditable(true);  
+        if(dtInflR1.getDate()==null){
+            if(Rir1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtInflR1.setEnabled(true);
+                dtInflR1.setEnabled(true);
+                txtInflR1.requestFocus();
+                txtInflR1.setEditable(true);  
+            }
+        } else {
+            Rir1.setEnabled(false);
         }
     }//GEN-LAST:event_Rir1ActionPerformed
 
     private void Rapo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rapo1ActionPerformed
-        if(Rapo1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaApoR1.setEnabled(true);
-            dtApoR1.setEnabled(true);
-            txtFuaApoR1.requestFocus();
-            txtFuaApoR1.setEditable(true);  
+        if(dtApoR1.getDate()==null){
+            if(Rapo1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaApoR1.setEnabled(true);
+                dtApoR1.setEnabled(true);
+                txtFuaApoR1.requestFocus();
+                txtFuaApoR1.setEditable(true);  
+            }
+        } else {
+            Rapo1.setEnabled(false);
         }
     }//GEN-LAST:event_Rapo1ActionPerformed
 
@@ -2799,6 +2919,7 @@ private Dimension DimensionBarra = null;
     private javax.swing.JPanel jPanel64;
     private javax.swing.JPanel jPanel65;
     private javax.swing.JPanel jPanel66;
+    public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
     public static javax.swing.JTextField txtFuaAmaDu;

@@ -14,15 +14,20 @@ import java.beans.PropertyVetoException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelos.ConsultorioEx.ConsultorioExtRsCabecera;
+import modelos.ConsultorioEx.ConsultorioExtRsVacunas;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
 import servicios.Conexion;
+import static vista.ConsultorioEx.RSAIVacunas.dtElab;
 
 /**
  *
@@ -1640,6 +1645,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             RSAIVacunas.lblNino.setVisible(true);
             RSAIVacunas.lblNina.setVisible(false);
         }
+        ConsultorioExtRsVacunas vacunas1 = new ConsultorioExtRsVacunas();
+        vacunas1.ConsultoriosExtVacunasListar(1);
         try {
             V.setMaximum(true);
         } catch (PropertyVetoException ex) {

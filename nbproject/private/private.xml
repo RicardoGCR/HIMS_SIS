@@ -3,18 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsCcd.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/REGSEGSEGD.java</file>
-=======
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExConsultorio.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/SolicitudDepositoSangre.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/admisionCentral/FrmNuevaHistoriaC.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsCabecera.java</file>
->>>>>>> d1f8cd0fe6660f730293ddf98b24e9cdd239ebad
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAICCD.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/AgendaCita.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExConsultorioAsignacion.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioAsignacion.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioEXTConsultorioAgenda.java</file>
         </group>
     </open-files>
 </project-private>

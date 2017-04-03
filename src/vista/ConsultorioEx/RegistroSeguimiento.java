@@ -1119,7 +1119,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
 
                 txtPaciente.setEditable(false);
                 txtPaciente.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-                txtPaciente.setForeground(new java.awt.Color(51, 51, 51));
+                txtPaciente.setForeground(new java.awt.Color(102, 102, 102));
                 txtPaciente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtPaciente.setToolTipText("");
                 txtPaciente.setBorder(null);
@@ -1224,7 +1224,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel23.setText("Tipo de Riesgo Perinatal");
 
                 txtPadre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-                txtPadre.setForeground(new java.awt.Color(51, 51, 51));
+                txtPadre.setForeground(new java.awt.Color(102, 102, 102));
                 txtPadre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
                 txtPadre.setToolTipText("");
                 txtPadre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -1271,7 +1271,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 });
 
                 txtCodigo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-                txtCodigo.setForeground(new java.awt.Color(51, 51, 51));
+                txtCodigo.setForeground(new java.awt.Color(102, 102, 102));
                 txtCodigo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
                 txtCodigo.setToolTipText("");
                 txtCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -1284,7 +1284,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 lblHcMadre.setText("jLabel10");
 
                 txtRiesgo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-                txtRiesgo.setForeground(new java.awt.Color(51, 51, 51));
+                txtRiesgo.setForeground(new java.awt.Color(102, 102, 102));
                 txtRiesgo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
                 txtRiesgo.setToolTipText("");
                 txtRiesgo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -1321,7 +1321,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
 
                 txtMadre.setEditable(false);
                 txtMadre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-                txtMadre.setForeground(new java.awt.Color(51, 51, 51));
+                txtMadre.setForeground(new java.awt.Color(102, 102, 102));
                 txtMadre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtMadre.setToolTipText("");
                 txtMadre.setBorder(null);
@@ -1364,6 +1364,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 );
 
                 lblSector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                lblSector.setForeground(new java.awt.Color(102, 102, 102));
                 lblSector.setText("_______________");
 
                 jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N

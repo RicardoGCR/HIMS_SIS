@@ -2505,7 +2505,7 @@ private Dimension DimensionBarra = null;
             habilitarDatos(false);
             habilitarRadio(false);
             txtFuaIpv3.setEnabled(true);
-            dtIpv1.setEnabled(true);
+            dtIpv3.setEnabled(true);
             txtFuaIpv3.requestFocus();
             txtFuaIpv3.setEditable(true);  
         }

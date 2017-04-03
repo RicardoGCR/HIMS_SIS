@@ -747,6 +747,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel4.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel4.setText("VACUNAS");
+                jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jLabel4MouseClicked(evt);
+                    }
+                });
 
                 javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
                 jPanel12.setLayout(jPanel12Layout);
@@ -1416,8 +1421,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                 .addComponent(lblHcMadre)
                                 .addGap(71, 71, 71)
                                 .addComponent(btnGuardar))
-                            .addComponent(cbxTipoSeguro, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtPadre, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(txtPadre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxTipoSeguro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, 0))
                 );
                 pnlPadresLayout.setVerticalGroup(
@@ -1635,25 +1640,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNoActionPerformed
 
     private void jPanel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel12MouseClicked
-        RSAIVacunas V =new RSAIVacunas();
-        Contenedor.add(V);
-        if(lblGenero.getText().equals("F")){
-            RSAIVacunas.lblNina.setText(txtPaciente.getText());
-            RSAIVacunas.lblNina.setVisible(true);
-            RSAIVacunas.lblNino.setVisible(false);
-        } else {
-            RSAIVacunas.lblNino.setText(txtPaciente.getText());
-            RSAIVacunas.lblNino.setVisible(true);
-            RSAIVacunas.lblNina.setVisible(false);
-        }
-        ConsultorioExtRsVacunas vacunas1 = new ConsultorioExtRsVacunas();
-        vacunas1.ConsultoriosExtVacunasListar(id);
-        try {
-            V.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        jTabbedPane1.setSelectedIndex(1);
+       
         
     }//GEN-LAST:event_jPanel12MouseClicked
 
@@ -1950,6 +1937,28 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     private void jPanel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel17MouseClicked
        
     }//GEN-LAST:event_jPanel17MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+         RSAIVacunas V =new RSAIVacunas();
+        Contenedor.add(V);
+        if(lblGenero.getText().equals("F")){
+            RSAIVacunas.lblNina.setText(txtPaciente.getText());
+            RSAIVacunas.lblNina.setVisible(true);
+            RSAIVacunas.lblNino.setVisible(false);
+        } else {
+            RSAIVacunas.lblNino.setText(txtPaciente.getText());
+            RSAIVacunas.lblNino.setVisible(true);
+            RSAIVacunas.lblNina.setVisible(false);
+        }
+        ConsultorioExtRsVacunas vacunas1 = new ConsultorioExtRsVacunas();
+        vacunas1.ConsultoriosExtVacunasListar(id);
+        try {
+            V.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments

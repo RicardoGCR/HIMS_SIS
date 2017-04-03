@@ -823,6 +823,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="VACUNAS"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel4MouseClicked"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -1715,8 +1718,8 @@
                                           <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                                           <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="cbxTipoSeguro" alignment="0" max="32767" attributes="0"/>
                                       <Component id="txtPadre" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cbxTipoSeguro" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               </Group>

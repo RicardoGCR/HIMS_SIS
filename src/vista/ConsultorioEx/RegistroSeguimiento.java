@@ -62,14 +62,14 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             }
         });
         conexion = c.conectar();
-//        lblHc.setVisible(false);
-//        txtPaciente.requestFocus();
-//        pnlPadres.setVisible(false);
-//        lblPadres.setVisible(false);
-//        pnlContenedor.setVisible(false);
-//        lblTriaje.setVisible(false);
-//        lblGenero.setVisible(false);
-//        lblHcMadre.setVisible(false);
+        lblHc.setVisible(false);
+        txtPaciente.requestFocus();
+        pnlPadres.setVisible(false);
+        lblPadres.setVisible(false);
+        pnlContenedor.setVisible(false);
+        lblTriaje.setVisible(false);
+        lblGenero.setVisible(false);
+        lblHcMadre.setVisible(false);
     }
     
     public void cerrar (){
@@ -741,9 +741,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jPanel12.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
                         jPanel12MouseClicked(evt);
-                    }
-                    public void mouseEntered(java.awt.event.MouseEvent evt) {
-                        jPanel12MouseEntered(evt);
                     }
                 });
 
@@ -1953,10 +1950,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     private void jPanel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel17MouseClicked
        
     }//GEN-LAST:event_jPanel17MouseClicked
-
-    private void jPanel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel12MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel12MouseEntered
 
     /**
      * @param args the command line arguments

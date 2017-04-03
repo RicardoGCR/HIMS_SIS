@@ -2721,34 +2721,6 @@ private Dimension DimensionBarra = null;
     private javax.swing.JPanel VACUNAS;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btnguardar;
-<<<<<<< HEAD
-    private com.toedter.calendar.JDateChooser dtAmadu;
-    private com.toedter.calendar.JDateChooser dtApoR1;
-    private com.toedter.calendar.JDateChooser dtApoR2;
-    private com.toedter.calendar.JDateChooser dtBcg;
-    private com.toedter.calendar.JDateChooser dtDpt1;
-    private com.toedter.calendar.JDateChooser dtDpt2;
-    private com.toedter.calendar.JDateChooser dtEjec;
-    public static com.toedter.calendar.JDateChooser dtElab;
-    private com.toedter.calendar.JDateChooser dtHvb;
-    private com.toedter.calendar.JDateChooser dtInfl1;
-    private com.toedter.calendar.JDateChooser dtInfl2;
-    private com.toedter.calendar.JDateChooser dtInflR1;
-    private com.toedter.calendar.JDateChooser dtInflR2;
-    private com.toedter.calendar.JDateChooser dtIpv1;
-    private com.toedter.calendar.JDateChooser dtIpv2;
-    private com.toedter.calendar.JDateChooser dtIpv3;
-    private com.toedter.calendar.JDateChooser dtNeumo1;
-    private com.toedter.calendar.JDateChooser dtNeumo2;
-    private com.toedter.calendar.JDateChooser dtNeumo3;
-    private com.toedter.calendar.JDateChooser dtPent1;
-    private com.toedter.calendar.JDateChooser dtPent2;
-    private com.toedter.calendar.JDateChooser dtPent3;
-    private com.toedter.calendar.JDateChooser dtRot1;
-    private com.toedter.calendar.JDateChooser dtRot2;
-    private com.toedter.calendar.JDateChooser dtSpr1;
-    private com.toedter.calendar.JDateChooser dtSpr2;
-=======
     private javax.swing.ButtonGroup buttonGroup1;
     public static com.toedter.calendar.JDateChooser dtAmadu;
     public static com.toedter.calendar.JDateChooser dtApoR1;
@@ -2776,7 +2748,6 @@ private Dimension DimensionBarra = null;
     public static com.toedter.calendar.JDateChooser dtRot2;
     public static com.toedter.calendar.JDateChooser dtSpr1;
     public static com.toedter.calendar.JDateChooser dtSpr2;
->>>>>>> 6460ef2839fd1a8caa3286e69fa79f690d5c9845
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel23;
@@ -2830,34 +2801,6 @@ private Dimension DimensionBarra = null;
     private javax.swing.JPanel jPanel66;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
-<<<<<<< HEAD
-    private javax.swing.JTextField txtFuaAmaDu;
-    private javax.swing.JTextField txtFuaApoR1;
-    private javax.swing.JTextField txtFuaApoR2;
-    private javax.swing.JTextField txtFuaBcg;
-    private javax.swing.JTextField txtFuaDpt1;
-    private javax.swing.JTextField txtFuaDpt2;
-    private javax.swing.JTextField txtFuaEjec;
-    public static javax.swing.JTextField txtFuaElab;
-    private javax.swing.JTextField txtFuaHvb;
-    private javax.swing.JTextField txtFuaInfl1;
-    private javax.swing.JTextField txtFuaInfl2;
-    private javax.swing.JTextField txtFuaIpv1;
-    private javax.swing.JTextField txtFuaIpv2;
-    private javax.swing.JTextField txtFuaIpv3;
-    private javax.swing.JTextField txtFuaNeumo1;
-    private javax.swing.JTextField txtFuaNeumo2;
-    private javax.swing.JTextField txtFuaNeumo3;
-    private javax.swing.JTextField txtFuaPent1;
-    private javax.swing.JTextField txtFuaPent2;
-    private javax.swing.JTextField txtFuaPent3;
-    private javax.swing.JTextField txtFuaRot1;
-    private javax.swing.JTextField txtFuaRot2;
-    private javax.swing.JTextField txtFuaSpr1;
-    private javax.swing.JTextField txtFuaSpr2;
-    private javax.swing.JTextField txtInflR1;
-    private javax.swing.JTextField txtInflR2;
-=======
     public static javax.swing.JTextField txtFuaAmaDu;
     public static javax.swing.JTextField txtFuaApoR1;
     public static javax.swing.JTextField txtFuaApoR2;
@@ -2884,6 +2827,5 @@ private Dimension DimensionBarra = null;
     public static javax.swing.JTextField txtFuaSpr2;
     public static javax.swing.JTextField txtInflR1;
     public static javax.swing.JTextField txtInflR2;
->>>>>>> 6460ef2839fd1a8caa3286e69fa79f690d5c9845
     // End of variables declaration//GEN-END:variables
 }

@@ -1663,11 +1663,11 @@ repaint();
                 CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(CCDLayout.createSequentialGroup()
                     .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGap(18, 18, 18)
                     .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblNina)
                         .addComponent(lblNino))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGap(18, 18, 18)
                     .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCDRN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LEYENDA, javax.swing.GroupLayout.PREFERRED_SIZE, 116, Short.MAX_VALUE)
@@ -1686,10 +1686,10 @@ repaint();
                         .addComponent(TxtDes))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(TxtFua)
-                    .addContainerGap(35, Short.MAX_VALUE))
+                    .addContainerGap(16, Short.MAX_VALUE))
             );
 
-            jTabbedPane1.addTab("CCD", CCD);
+            jTabbedPane1.addTab("Menores de 1 año", CCD);
 
             CCD1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2750,7 +2750,7 @@ repaint();
                     .addContainerGap(120, Short.MAX_VALUE))
             );
 
-            jTabbedPane1.addTab("CCD", CCD1);
+            jTabbedPane1.addTab("1 a 4 años", CCD1);
 
             CCD2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -3410,7 +3410,7 @@ repaint();
                     .addContainerGap(136, Short.MAX_VALUE))
             );
 
-            jTabbedPane1.addTab("CCD", CCD2);
+            jTabbedPane1.addTab("5 a 11 años", CCD2);
 
             mensaje.setBackground(new java.awt.Color(102, 102, 102));
 

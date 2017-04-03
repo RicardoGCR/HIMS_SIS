@@ -1253,7 +1253,7 @@ public class SolicitudTransfusional extends javax.swing.JFrame {
             limpiar();
             habilitarCampos(true);
             btnGuardar.setEnabled(true);
-            lblMant.setText("I");
+//            lblMant.setText("I");
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnNuevoActionPerformed

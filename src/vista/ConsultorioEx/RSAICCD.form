@@ -296,8 +296,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="CCD">
-                <Property name="tabTitle" type="java.lang.String" value="CCD"/>
+              <JTabbedPaneConstraints tabName="Menores de 1 a&#xf1;o">
+                <Property name="tabTitle" type="java.lang.String" value="Menores de 1 a&#xf1;o"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -349,12 +349,12 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel28" min="-2" pref="39" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblNina" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblNino" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="CCDRN" alignment="0" max="32767" attributes="0"/>
                           <Component id="LEYENDA" alignment="0" pref="116" max="32767" attributes="0"/>
@@ -377,7 +377,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="TxtFua" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
+                      <EmptySpace pref="16" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2219,8 +2219,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="CCD">
-                <Property name="tabTitle" type="java.lang.String" value="CCD"/>
+              <JTabbedPaneConstraints tabName="1 a 4 a&#xf1;os">
+                <Property name="tabTitle" type="java.lang.String" value="1 a 4 a&#xf1;os"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -4160,8 +4160,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="CCD">
-                <Property name="tabTitle" type="java.lang.String" value="CCD"/>
+              <JTabbedPaneConstraints tabName="5 a 11 a&#xf1;os">
+                <Property name="tabTitle" type="java.lang.String" value="5 a 11 a&#xf1;os"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>

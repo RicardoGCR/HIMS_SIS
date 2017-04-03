@@ -29,7 +29,6 @@ private Dimension DimensionBarra = null;
         initComponents();
         QuitarLaBarraTitulo();
         habilitarDatos(false);
-      
 
 
     }
@@ -2432,14 +2431,17 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_RelabMouseClicked
 
     private void RelabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelabActionPerformed
-        if(Relab.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaElab.setEnabled(true);
-            dtElab.setEnabled(true);
-            txtFuaElab.requestFocus();
-            txtFuaElab.setEditable(true); 
-            
+        if(dtElab.getDate()==null){
+            if(Relab.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaElab.setEnabled(true);
+                dtElab.setEnabled(true);
+                txtFuaElab.requestFocus();
+                txtFuaElab.setEditable(true); 
+            }
+        } else {
+            Relab.setEnabled(false);
         }
     }//GEN-LAST:event_RelabActionPerformed
 

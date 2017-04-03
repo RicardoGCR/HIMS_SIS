@@ -5,9 +5,11 @@
  */
 package vista.ConsultorioEx;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.util.Calendar;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -21,6 +23,8 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
 //defino dos métodosdentro del JInternalFrame y lo instanciamos de la siguiente manera.
 private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
 private Dimension DimensionBarra = null; 
+byte tg;
+byte tge;
 //A continuación creamos una función dentro del mismo JInternalFrame como el ejemplo siguiente:
 
     /**
@@ -30,6 +34,7 @@ private Dimension DimensionBarra = null;
         initComponents();
         QuitarLaBarraTitulo();
         habilitarDatos(false);
+        mensaje.setVisible(false);
 
 
     }
@@ -153,6 +158,378 @@ private Dimension DimensionBarra = null;
         txtFuaSpr2.setEditable(opcion);
         txtInflR1.setEditable(opcion);
         txtInflR2.setEditable(opcion);
+    }
+    public String determinarFecha(JDateChooser calendario){
+         
+        String fecha = "";
+        try {
+        int dia = calendario.getCalendar().get(Calendar.DAY_OF_MONTH);
+        int mes = calendario.getCalendar().get(Calendar.MONTH)+1;
+        int anio = calendario.getCalendar().get(Calendar.YEAR); 
+        
+            if(dia < 10 && mes < 10){
+            fecha = String.valueOf("0" + dia + "/" + "0" + mes + "/" + anio);
+        }else 
+            if(dia < 10 || mes < 10){
+                if(dia < 10 && mes >=10){
+                    fecha = String.valueOf("0" + dia + "/" + mes + "/" + anio);
+                } else 
+                    if(dia >= 10 && mes < 10){
+                        fecha = String.valueOf(dia + "/" + "0" + mes + "/" + anio);
+                    } 
+            } else 
+                fecha = String.valueOf(dia + "/" + mes + "/" + anio); 
+         } catch (Exception e) {
+                           mensaje.setVisible(true);
+                           mensaje.setBackground(new Color(255,91,70)); 
+                           men.setText("Ingrese una fecha correcta");
+                           b.setVisible(false);
+                           b1.setVisible(false); 
+         }
+        
+        return fecha;
+    }
+    
+    public void Guardar(){
+//        if(txtPA.getText().equals("")|| txtFR.getText().equals("")){
+//            mensaje.setVisible(true);
+//            mensaje.setBackground(new Color(255,91,70)); 
+//            men.setText("Asegurese de completar todos los campos");
+//            b.setVisible(false);
+//            b1.setVisible(false);
+//        } else {
+                            ConsultorioExtRsVacunas CXRsVacunas = new ConsultorioExtRsVacunas();
+
+                            CXRsVacunas.setVacId(Integer.parseInt(lblId.getText()));
+                            
+                            CXRsVacunas.setElabFecha(determinarFecha(dtElab));
+                            CXRsVacunas.setElabFua(txtFuaElab.getText());
+                            
+                            CXRsVacunas.setEjecFecha(determinarFecha(dtEjec));
+                            CXRsVacunas.setEjecFua(txtFuaEjec.getText());
+                            //BCG/HVB
+                            CXRsVacunas.setRnbcgFecha(determinarFecha(dtBcg));
+                            CXRsVacunas.setRnbcgFua(txtFuaBcg.getText());
+                            CXRsVacunas.setRnhvbFecha(determinarFecha(dtHvb));
+                            CXRsVacunas.setRnhvbFua(txtFuaHvb.getText());
+                            //ANTIPOLIO
+                            CXRsVacunas.setAnt1Fecha(determinarFecha(dtIpv1));
+                            CXRsVacunas.setAnt1Fua(txtFuaIpv1.getText());
+                            CXRsVacunas.setAnt2Fecha(determinarFecha(dtIpv2));
+                            CXRsVacunas.setAnt2Fua(txtFuaIpv2.getText());
+                            CXRsVacunas.setAnt3Fecha(determinarFecha(dtIpv3));
+                            CXRsVacunas.setAnt3Fua(txtFuaIpv3.getText());
+                            
+                            CXRsVacunas.setPent1Fecha(determinarFecha(dtPent1));
+                            CXRsVacunas.setPent1Fua(txtFuaPent1.getText());
+                            CXRsVacunas.setPent2Fecha(determinarFecha(dtPent2));
+                            CXRsVacunas.setPent2Fua(txtFuaPent2.getText());
+                            CXRsVacunas.setPent3Fecha(determinarFecha(dtPent3));
+                            CXRsVacunas.setPent3Fua(txtFuaPent3.getText());
+                            //NEOMONCOCO
+                            CXRsVacunas.setNeu1Fecha(determinarFecha(dtNeumo1));
+                            CXRsVacunas.setNeu1Fua(txtFuaNeumo1.getText());
+                            CXRsVacunas.setNeu2Fecha(determinarFecha(dtNeumo2));
+                            CXRsVacunas.setNeu2Fua(txtFuaNeumo2.getText());
+                            CXRsVacunas.setNeu3Fecha(determinarFecha(dtNeumo3));
+                            CXRsVacunas.setNeu3Fua(txtFuaNeumo3.getText());
+                            //INFLUENZA
+                            CXRsVacunas.setInfl1Fecha(determinarFecha(dtInfl1));
+                            CXRsVacunas.setInfl1Fua(txtFuaInfl1.getText());
+                            CXRsVacunas.setInfl2Fecha(determinarFecha(dtInfl2));
+                            CXRsVacunas.setInfl2Fua2(txtFuaInfl2.getText());
+                            //ROTAVIRUS
+                            CXRsVacunas.setRot1Fecha(determinarFecha(dtRot1));
+                            CXRsVacunas.setRot1Fua(txtFuaRot1.getText());
+                            CXRsVacunas.setRot2Fecha(determinarFecha(dtRot2));
+                            CXRsVacunas.setRot2Fua(txtFuaRot2.getText());
+                            //SPR
+                            CXRsVacunas.setSpr1Fecha(determinarFecha(dtSpr1));
+                            CXRsVacunas.setSpr1Fua(txtFuaSpr1.getText());
+                            CXRsVacunas.setSpr2Fecha(determinarFecha(dtSpr2));
+                            CXRsVacunas.setSpr2Fua(txtFuaSpr2.getText());
+                            //AMA
+                            CXRsVacunas.setAma1Fecha(determinarFecha(dtAmadu));
+                            CXRsVacunas.setAma1Fua(txtFuaAmaDu.getText());
+                            CXRsVacunas.setAma2Fecha(determinarFecha(dtAmadu));
+                            CXRsVacunas.setAma2Fua("");
+                            //DPT
+                            CXRsVacunas.setDpt1Fecha(determinarFecha(dtDpt1));
+                            CXRsVacunas.setDpt1Fua(txtFuaDpt1.getText());
+                            CXRsVacunas.setDpt2Fecha(determinarFecha(dtDpt2));
+                            CXRsVacunas.setDpt2Fua(txtFuaDpt2.getText());
+                            //INFLUENZA REF.
+                            CXRsVacunas.setInflr1Fecha(determinarFecha(dtInflR1));
+                            CXRsVacunas.setInflr1Fua(txtInflR1.getText());
+                            CXRsVacunas.setInflr2Fecha(determinarFecha(dtInflR2));
+                            CXRsVacunas.setInflr2Fua(txtInflR2.getText());
+                            //APO
+                            CXRsVacunas.setApor1Fecha(determinarFecha(dtApoR1));
+                            CXRsVacunas.setApor1Fua(txtFuaApoR1.getText());
+                            CXRsVacunas.setApor2Fecha(determinarFecha(dtApoR2));
+                            CXRsVacunas.setApor2Fua(txtFuaApoR2.getText());
+
+                           
+                            if(CXRsVacunas.mantenimientoRSAIVacunas("I")==true){
+                                mensaje.setVisible(true);
+                                mensaje.setBackground(new Color(33,115,70)); 
+                                men.setText("Datos Guardados de forma correcta");
+                                b.setText("OK");
+                                b.setVisible(true);
+                                b1.setVisible(false);
+
+                                btnguardar.setEnabled(false);
+                                tge=1;
+                                CXRsVacunas.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
+                            
+                        }else {
+                           
+                                mensaje.setVisible(true);
+                                mensaje.setBackground(new Color(255,91,70)); 
+                                men.setText("Ocurrio un error, Verifique");
+                                b.setVisible(false);
+                                b1.setVisible(false);
+                                tge=7;
+                        }
+//                             }
+      
+    }
+    
+     public void Modificar(){
+ 
+                        ConsultorioExtRsVacunas CXRsVacunas = new ConsultorioExtRsVacunas();
+                        ConsultorioExtRsVacunas CXRsVacunas2 = new ConsultorioExtRsVacunas();
+                        try {
+             
+        
+                            
+                            CXRsVacunas.setRsId(Integer.parseInt(lblId.getText()));
+                            if(dtElab.getDate()!=null){
+                            CXRsVacunas.setElabFecha(determinarFecha(dtElab));    
+                            }else {
+                            CXRsVacunas.setElabFecha("");
+                            }
+                            CXRsVacunas.setElabFua(txtFuaElab.getText());
+                            
+                            if(dtEjec.getDate()!=null){
+                            CXRsVacunas.setEjecFecha(determinarFecha(dtEjec));    
+                            }else {
+                            CXRsVacunas.setEjecFecha("");
+                            }
+                            CXRsVacunas.setEjecFua(txtFuaEjec.getText());
+                            //BCG/HVB
+                            if(dtBcg.getDate()!=null){
+                            CXRsVacunas.setRnbcgFecha(determinarFecha(dtBcg));   
+                            }else {
+                            CXRsVacunas.setRnbcgFecha("");
+                            }
+                            
+                            CXRsVacunas.setRnbcgFua(txtFuaBcg.getText());
+                            if(dtHvb.getDate()!=null){
+                            CXRsVacunas.setRnhvbFecha(determinarFecha(dtHvb));  
+                            }else {
+                            CXRsVacunas.setRnhvbFecha("");
+                            }
+                            
+                            CXRsVacunas.setRnhvbFua("012345678958478");
+                            //ANTIPOLIO
+                            if(dtIpv1.getDate()!=null){
+                            CXRsVacunas.setAnt1Fecha("06/09/2014");
+                            }else {
+                            CXRsVacunas.setAnt1Fecha("");
+                            }
+                            CXRsVacunas.setAnt1Fua(txtFuaIpv1.getText());
+                            if(dtIpv2.getDate()!=null){
+                            CXRsVacunas.setAnt2Fecha(determinarFecha(dtIpv2));
+                            }else {
+                            CXRsVacunas.setAnt2Fecha("");
+                            }
+                            
+                            CXRsVacunas.setAnt2Fua(txtFuaIpv2.getText());
+                            if(dtIpv3.getDate()!=null){
+                            CXRsVacunas.setAnt3Fecha(determinarFecha(dtIpv3));
+                            }else {
+                            CXRsVacunas.setAnt3Fecha("");
+                            }
+                            
+                            CXRsVacunas.setAnt3Fua(txtFuaIpv3.getText());
+                            
+                            if(dtPent1.getDate()!=null){
+                            CXRsVacunas.setPent1Fecha(determinarFecha(dtPent1));
+                            }else {
+                            CXRsVacunas.setPent1Fecha("");
+                            }
+                            
+                            CXRsVacunas.setPent1Fua(txtFuaPent1.getText());
+
+                            if(dtPent2.getDate()!=null){
+                            CXRsVacunas.setPent2Fecha(determinarFecha(dtPent2));
+                            }else {
+                            CXRsVacunas.setPent2Fecha("");
+                            }
+                            
+                            CXRsVacunas.setPent2Fua(txtFuaPent2.getText());
+                            
+                            if(dtPent3.getDate()!=null){
+                            CXRsVacunas.setPent3Fecha(determinarFecha(dtPent3));
+                            }else {
+                            CXRsVacunas.setPent3Fecha("");
+                            }
+                            
+                            CXRsVacunas.setPent3Fua(txtFuaPent3.getText());
+                            //NEOMONCOCO
+                            if(dtNeumo1.getDate()!=null){
+                            CXRsVacunas.setNeu1Fecha(determinarFecha(dtNeumo1));
+                            }else {
+                            CXRsVacunas.setNeu1Fecha("");
+                            }
+                            
+                            CXRsVacunas.setNeu1Fua(txtFuaNeumo1.getText());
+                            if(dtNeumo2.getDate()!=null){
+                            CXRsVacunas.setNeu2Fecha(determinarFecha(dtNeumo2));
+                            }else {
+                            CXRsVacunas.setNeu2Fecha("");
+                            }
+                            
+                            CXRsVacunas.setNeu2Fua(txtFuaNeumo2.getText());
+                            if(dtNeumo3.getDate()!=null){
+                            CXRsVacunas.setNeu3Fecha(determinarFecha(dtNeumo3));
+                            }else {
+                            CXRsVacunas.setNeu3Fecha("");
+                            }
+                            
+                            CXRsVacunas.setNeu3Fua(txtFuaNeumo3.getText());
+                            //INFLUENZA
+                            if(dtInfl1.getDate()!=null){
+                            CXRsVacunas.setInfl1Fecha(determinarFecha(dtInfl1));
+                            }else {
+                            CXRsVacunas.setInfl1Fecha("");
+                            }
+                            CXRsVacunas.setInfl1Fua(txtFuaInfl1.getText());
+                            if(dtInfl2.getDate()!=null){
+                            CXRsVacunas.setInfl2Fecha(determinarFecha(dtInfl2));
+                            }else {
+                            CXRsVacunas.setInfl2Fecha("");
+                            }
+                            
+                            CXRsVacunas.setInfl2Fua2(txtFuaInfl2.getText());
+                            //ROTAVIRUS
+                            if(dtRot1.getDate()!=null){
+                            CXRsVacunas.setRot1Fecha(determinarFecha(dtRot1));
+                            }else {
+                            CXRsVacunas.setRot1Fecha("");
+                            }
+                            
+                            CXRsVacunas.setRot1Fua(txtFuaRot1.getText());
+                            if(dtRot2.getDate()!=null){
+                            CXRsVacunas.setRot2Fecha(determinarFecha(dtRot2));
+                            }else {
+                            CXRsVacunas.setRot2Fecha("");
+                            }
+                            
+                            CXRsVacunas.setRot2Fua(txtFuaRot2.getText());
+                            //SPR
+                            if(dtSpr1.getDate()!=null){
+                            CXRsVacunas.setSpr1Fecha(determinarFecha(dtSpr1));
+                            }else {
+                            CXRsVacunas.setSpr1Fecha("");
+                            }
+                            
+                            CXRsVacunas.setSpr1Fua(txtFuaSpr1.getText());
+                            if(dtSpr2.getDate()!=null){
+                            CXRsVacunas.setSpr2Fecha(determinarFecha(dtSpr2));
+                            }else {
+                            CXRsVacunas.setSpr2Fecha("");
+                            }
+                            
+                            CXRsVacunas.setSpr2Fua(txtFuaSpr2.getText());
+                            //AMA
+                            if(dtAmadu.getDate()!=null){
+                            CXRsVacunas.setAma1Fecha(determinarFecha(dtAmadu));
+                            }else {
+                            CXRsVacunas.setAma1Fecha("");
+                            }
+                            
+                            CXRsVacunas.setAma1Fua(txtFuaAmaDu.getText());
+                            if(dtAmadu.getDate()!=null){
+                            CXRsVacunas.setAma2Fecha("02/06/2014");
+                            }else {
+                            CXRsVacunas.setAma2Fecha("02/06/2014");
+                            }
+                            CXRsVacunas.setAma2Fua("");
+                            //DPT
+                            if(dtDpt1.getDate()!=null){
+                            CXRsVacunas.setDpt1Fecha(determinarFecha(dtDpt1));
+                            }else {
+                            CXRsVacunas.setDpt1Fecha("");
+                            }
+                            
+                            CXRsVacunas.setDpt1Fua(txtFuaDpt1.getText());
+                            if(dtDpt2.getDate()!=null){
+                            CXRsVacunas.setDpt2Fecha(determinarFecha(dtDpt2));
+                            }else {
+                            CXRsVacunas.setDpt2Fecha("");
+                            }
+                            
+                            CXRsVacunas.setDpt2Fua(txtFuaDpt2.getText());
+                            //INFLUENZA REF.
+                            if(dtInflR1.getDate()!=null){
+                            CXRsVacunas.setInflr1Fecha(determinarFecha(dtInflR1));
+                            }else {
+                            CXRsVacunas.setInflr1Fecha("");
+                            }
+                            
+                            CXRsVacunas.setInflr1Fua(txtInflR1.getText());
+                            if(dtInflR2.getDate()!=null){
+                            CXRsVacunas.setInflr2Fecha(determinarFecha(dtInflR2));
+                            }else {
+                            CXRsVacunas.setInflr2Fecha("");
+                            }
+                            
+                            CXRsVacunas.setInflr2Fua(txtInflR2.getText());
+                            //APO
+                            if(dtApoR1.getDate()!=null){
+                            CXRsVacunas.setApor1Fecha(determinarFecha(dtApoR1));
+                            }else {
+                            CXRsVacunas.setApor1Fecha("");
+                            }
+                            
+                            CXRsVacunas.setApor1Fua(txtFuaApoR1.getText());
+                            if(dtApoR2.getDate()!=null){
+                            CXRsVacunas.setApor2Fecha(determinarFecha(dtApoR2));
+                            }else {
+                            CXRsVacunas.setApor2Fecha("");
+                            }
+                            
+                            CXRsVacunas.setApor2Fua(txtFuaApoR2.getText());
+                            
+                        if(CXRsVacunas.mantenimientoRSAIVacunas("U")==true){
+                                mensaje.setVisible(true);
+                                mensaje.setBackground(new Color(33,115,70)); 
+                                men.setText("Datos Actualizados de forma correcta");
+                         
+                                b.setText("OK");
+                                b.setVisible(true);
+                                b1.setVisible(false);
+                              
+                      
+                                btnguardar.setEnabled(false);
+                                tge=1;
+                                CXRsVacunas2.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
+                
+                            }else {
+                           
+                                mensaje.setVisible(true);
+                                mensaje.setBackground(new Color(255,91,70)); 
+                                men.setText("Ocurrio un error, Verifique");
+                                b.setVisible(false);
+                                b1.setVisible(false);
+                                tge=5;
+                   
+                    }  
+                         } catch (Exception e) {
+                           System.out.println("Error: modificar " + e.getMessage());
+         }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -310,6 +687,10 @@ private Dimension DimensionBarra = null;
         jPanel28 = new javax.swing.JPanel();
         btneditar = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
+        mensaje = new javax.swing.JPanel();
+        men = new javax.swing.JLabel();
+        b = new javax.swing.JButton();
+        b1 = new javax.swing.JButton();
         lblNino = new javax.swing.JLabel();
         lblNina = new javax.swing.JLabel();
         lblId = new javax.swing.JLabel();
@@ -2125,17 +2506,78 @@ private Dimension DimensionBarra = null;
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        mensaje.setBackground(new java.awt.Color(33, 115, 70));
+
+        men.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        men.setForeground(new java.awt.Color(255, 255, 255));
+        men.setText("Desea Actualizar el Registro ?");
+
+        b.setForeground(new java.awt.Color(240, 240, 240));
+        b.setText("Si");
+        b.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        b.setContentAreaFilled(false);
+        b.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        b.setIconTextGap(30);
+        b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bActionPerformed(evt);
+            }
+        });
+
+        b1.setForeground(new java.awt.Color(240, 240, 240));
+        b1.setText("No");
+        b1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        b1.setContentAreaFilled(false);
+        b1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        b1.setIconTextGap(30);
+        b1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout mensajeLayout = new javax.swing.GroupLayout(mensaje);
+        mensaje.setLayout(mensajeLayout);
+        mensajeLayout.setHorizontalGroup(
+            mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mensajeLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(men)
+                .addGap(46, 46, 46)
+                .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        mensajeLayout.setVerticalGroup(
+            mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mensajeLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(men)
+                    .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout OpcionesLayout = new javax.swing.GroupLayout(Opciones);
         Opciones.setLayout(OpcionesLayout);
         OpcionesLayout.setHorizontalGroup(
             OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OpcionesLayout.createSequentialGroup()
                 .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         OpcionesLayout.setVerticalGroup(
             OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(OpcionesLayout.createSequentialGroup()
+                .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         lblNino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -2174,21 +2616,11 @@ private Dimension DimensionBarra = null;
                         .addGap(1, 1, 1)
                         .addComponent(PENTAVALENTE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(VACUNASLayout.createSequentialGroup()
-                        .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(VACUNASLayout.createSequentialGroup()
-                                .addComponent(NEUMOCOCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
-                                .addComponent(INFLUENZA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
-                                .addComponent(ROTAVIRUS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(VACUNASLayout.createSequentialGroup()
-                                .addComponent(DPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
-                                .addComponent(INFLUENZA_REF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
-                                .addComponent(INFLUENZA_REF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblId)))
+                        .addComponent(NEUMOCOCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(INFLUENZA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(ROTAVIRUS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(SPR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
@@ -2196,7 +2628,15 @@ private Dimension DimensionBarra = null;
                     .addGroup(VACUNASLayout.createSequentialGroup()
                         .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(VACUNASLayout.createSequentialGroup()
+                        .addComponent(DPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(INFLUENZA_REF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(INFLUENZA_REF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblId)))
                 .addContainerGap(164, Short.MAX_VALUE))
         );
         VACUNASLayout.setVerticalGroup(
@@ -2253,8 +2693,8 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        ConsultorioExtRsVacunas vacunas2 = new ConsultorioExtRsVacunas();
-        vacunas2.ConsultoriosExtVacunasListar(1);
+        Modificar();
+        
         habilitarRadio(true);
         habilitarDatos(false);
     }//GEN-LAST:event_btnguardarActionPerformed
@@ -2796,6 +3236,26 @@ private Dimension DimensionBarra = null;
         }
     }//GEN-LAST:event_Rapo1ActionPerformed
 
+    private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
+        if (tge==3 || tge==1 || tge==9){
+            mensaje.setVisible(false);
+
+        }
+
+        if (tge==2){
+            Modificar();
+
+            btneditar.setEnabled(false);
+           ;
+
+        }
+      
+    }//GEN-LAST:event_bActionPerformed
+
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
+        mensaje.setVisible(false);
+    }//GEN-LAST:event_b1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AMA;
@@ -2839,6 +3299,8 @@ private Dimension DimensionBarra = null;
     private javax.swing.JRadioButton Rspr2;
     private javax.swing.JPanel SPR;
     private javax.swing.JPanel VACUNAS;
+    private javax.swing.JButton b;
+    private javax.swing.JButton b1;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btnguardar;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -2922,6 +3384,8 @@ private Dimension DimensionBarra = null;
     public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
+    private javax.swing.JLabel men;
+    private javax.swing.JPanel mensaje;
     public static javax.swing.JTextField txtFuaAmaDu;
     public static javax.swing.JTextField txtFuaApoR1;
     public static javax.swing.JTextField txtFuaApoR2;

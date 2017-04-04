@@ -14,6 +14,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import modelos.ConsultorioEx.ConsultorioExtRsVacunas;
+import static vista.ConsultorioEx.ConsultorioAsignacion.txtMedico;
 
 /**
  *
@@ -33,7 +34,10 @@ byte tge;
     public RSAIVacunas() {
         initComponents();
         QuitarLaBarraTitulo();
+        
         habilitarDatos(false);
+        this.Habilitar();
+
         mensaje.setVisible(false);
 
 
@@ -47,7 +51,119 @@ byte tge;
     repaint(); 
     }
     
+    public void Habilitar(){
+        if(dtPent1.getDate()!=null){
+            Rp1.setEnabled(false);
+    }
 
+        if(dtDpt2.getDate()!=null){
+            Rdpt2.setEnabled(false);
+    }                                     
+        if(dtInflR2.getDate()!=null){
+            Rir2.setEnabled(false);
+    }
+
+        if(dtApoR2.getDate()!=null){
+            Rapo2.setEnabled(false);
+    }                                     
+
+
+        if(dtElab.getDate()!=null){
+            Relab.setEnabled(false);
+    }                                     
+
+
+        if(dtEjec.getDate()!=null){
+            Rejec.setEnabled(false);
+    }                                     
+
+        if(dtBcg.getDate()!=null){
+            Rbcg.setEnabled(false);
+    }                                    
+
+        if(dtHvb.getDate()!=null){
+         
+            Rhvb.setEnabled(false);
+    }                                    
+
+        if(dtPent3.getDate()!=null){
+            Rp3.setEnabled(false);
+    }                                   
+
+    
+        if(dtPent2.getDate()!=null){
+            Rp2.setEnabled(false);
+    }                                   
+
+
+        if(dtIpv3.getDate()!=null){
+            Ripv3.setEnabled(false);     
+    }                                     
+
+        if(dtIpv2.getDate()!=null){
+            Ripv2.setEnabled(false);
+    }                                     
+
+        if(dtIpv1.getDate()!=null){
+            Ripv1.setEnabled(false);
+    }                                     
+
+        if(dtNeumo1.getDate()!=null){
+            Rn1.setEnabled(false);
+    }                                   
+
+        if(dtNeumo2.getDate()!=null){
+           
+            Rn2.setEnabled(false);
+    }                                   
+
+        if(dtNeumo3.getDate()!=null){
+            Rn3.setEnabled(false);
+    }                                   
+
+        if(dtInfl1.getDate()==null){
+            Ri1.setEnabled(false);
+    }                                   
+
+        if(dtInfl2.getDate()!=null){ 
+            Ri2.setEnabled(false);
+    }                                   
+
+        if(dtRot1.getDate()!=null){
+            Rr1.setEnabled(false);
+    }                                   
+
+        if(dtRot2.getDate()!=null){
+            Rr2.setEnabled(false);
+    }                                   
+
+        if(dtSpr1.getDate()!=null){
+            Rspr1.setEnabled(false);
+    }                                     
+
+        if(dtSpr2.getDate()!=null){
+            Rspr2.setEnabled(false);
+    }                                     
+
+        if(dtAmadu.getDate()!=null){
+            
+            Rama.setEnabled(false);
+    }                                    
+
+        if(dtDpt1.getDate()!=null){
+            Rdpt1.setEnabled(false);
+    }                                     
+
+        if(dtInflR1.getDate()!=null){
+            Rir1.setEnabled(false);
+    }                                    
+
+        if(dtApoR1.getDate()!=null){
+            Rapo1.setEnabled(false);
+    }                  
+    
+    }
+    
     public void habilitarRadio(boolean opcion){
       Relab.setEnabled(opcion);  
       Rejec.setEnabled(opcion);  
@@ -77,6 +193,7 @@ byte tge;
       Rir2.setEnabled(opcion);  
       Rapo1.setEnabled(opcion);  
       Rapo2.setEnabled(opcion);
+      btnguardar.setEnabled(true);
       
     }
     public void habilitarDatos(boolean opcion){
@@ -307,7 +424,11 @@ byte tge;
                             if(dtElab.getDate()!=null){
                             CXRsVacunas.setElabFecha(determinarFecha(dtElab));    
                             }else {
-                            CXRsVacunas.setElabFecha("");
+                            mensaje.setVisible(true);
+                            mensaje.setBackground(new Color(255,91,70)); 
+                            men.setText("Ingrese una fecha valida");
+                            b.setVisible(false);
+                            b1.setVisible(false);
                             }
                             CXRsVacunas.setElabFua(txtFuaElab.getText());
                             
@@ -687,6 +808,7 @@ byte tge;
         jPanel28 = new javax.swing.JPanel();
         btneditar = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
+        btnCaccnelar = new javax.swing.JButton();
         mensaje = new javax.swing.JPanel();
         men = new javax.swing.JLabel();
         b = new javax.swing.JButton();
@@ -2481,22 +2603,40 @@ byte tge;
             }
         });
 
+        btnCaccnelar.setForeground(new java.awt.Color(240, 240, 240));
+        btnCaccnelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Deshacer-30.png"))); // NOI18N
+        btnCaccnelar.setMnemonic('N');
+        btnCaccnelar.setContentAreaFilled(false);
+        btnCaccnelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaccnelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCaccnelar.setIconTextGap(30);
+        btnCaccnelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaccnelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
         jPanel28Layout.setHorizontalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 122, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
+                .addContainerGap(129, Short.MAX_VALUE)
+                .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel28Layout.createSequentialGroup()
                     .addGap(15, 15, 15)
                     .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(15, Short.MAX_VALUE)))
+                    .addContainerGap(69, Short.MAX_VALUE)))
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel28Layout.createSequentialGroup()
                     .addGap(1, 1, 1)
@@ -2549,7 +2689,7 @@ byte tge;
                 .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(871, Short.MAX_VALUE))
         );
         mensajeLayout.setVerticalGroup(
             mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2987,13 +3127,7 @@ byte tge;
 
     private void Ripv3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ripv3ActionPerformed
 
-        if(Ripv3.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaIpv3.setEnabled(true);
-            dtIpv3.setEnabled(true);
-            txtFuaIpv3.requestFocus();
-            txtFuaIpv3.setEditable(true);  
+ 
 
         if(dtIpv3.getDate()==null){
             if(Ripv3.isSelected()){
@@ -3008,7 +3142,7 @@ byte tge;
             Ripv3.setEnabled(false);
 
         }
-        }
+     
     }//GEN-LAST:event_Ripv3ActionPerformed
 
     private void Ripv2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ripv2ActionPerformed
@@ -3256,6 +3390,12 @@ byte tge;
         mensaje.setVisible(false);
     }//GEN-LAST:event_b1ActionPerformed
 
+    private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
+        habilitarRadio(true);
+        habilitarDatos(false);
+                
+    }//GEN-LAST:event_btnCaccnelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AMA;
@@ -3301,6 +3441,7 @@ byte tge;
     private javax.swing.JPanel VACUNAS;
     private javax.swing.JButton b;
     private javax.swing.JButton b1;
+    private javax.swing.JButton btnCaccnelar;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btnguardar;
     private javax.swing.ButtonGroup buttonGroup1;

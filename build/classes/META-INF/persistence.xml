@@ -8,6 +8,8 @@
     <class>modelos.ConsultorioEx.ConsultorioExtSolicitudTransfucional</class>
     <class>modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoNutricional</class>
     <class>modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoDesarrollo</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsEstimulacionTemprana</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsTamizajeNeonatal</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://192.168.1.36:1433;databaseName=SISGESH_NET"/>
       <property name="javax.persistence.jdbc.password" value="sistemas"/>

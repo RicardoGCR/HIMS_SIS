@@ -1689,7 +1689,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             CCD.lblNino.setVisible(true);
             CCD.lblNina.setVisible(false);
         }
-        RSAIVacunas.lblId.setText(String.valueOf(id));
+        RSAICCD.lblId.setText(String.valueOf(id));
         try {
             CCD.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1715,7 +1715,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             CCD.lblNino.setVisible(true);
             CCD.lblNina.setVisible(false);
         }
-        RSAIVacunas.lblId.setText(String.valueOf(id));
+        RSAICCD.lblId.setText(String.valueOf(id));
         try {
             CCD.setMaximum(true);
         } catch (PropertyVetoException ex) {

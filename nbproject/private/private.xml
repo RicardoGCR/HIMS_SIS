@@ -4,7 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIVacunas.java</file>
+<<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
             <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsVacunas.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtSolicitudTransfucional.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAICCD.java</file>
+=======
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsVacunas.java</file>
+>>>>>>> 14e1da68aaa8dd31094ce8b9339624e01386c9c3
         </group>
     </open-files>
 </project-private>

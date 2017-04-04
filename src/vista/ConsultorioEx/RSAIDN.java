@@ -21,6 +21,7 @@ private Dimension DimensionBarra = null;
     public RSAIDN() {
         initComponents();
         QuitarLaBarraTitulo();
+        habilitarCampos(false);
     }
     public void QuitarLaBarraTitulo() // ocultar borde de fomrulario interno
     { 
@@ -32,12 +33,42 @@ private Dimension DimensionBarra = null;
     }
     
     public void habilitarCampos(boolean opcion){
-        
+        FDN1.setEnabled(opcion);
+        FDN2.setEnabled(opcion);
+        FDN3.setEnabled(opcion);
+        FDN4.setEnabled(opcion);
+        FDN5.setEnabled(opcion);
+        FDN6.setEnabled(opcion);
+        FDN7.setEnabled(opcion);
+        FDN8.setEnabled(opcion);
+        FDN9.setEnabled(opcion);
+        FDN10.setEnabled(opcion);
+        DXDN1.setEnabled(opcion);
+        DXDN2.setEnabled(opcion);
+        DXDN3.setEnabled(opcion);
+        DXDN4.setEnabled(opcion);
+        DXDN5.setEnabled(opcion);
+        DXDN6.setEnabled(opcion);
+        DXDN7.setEnabled(opcion);
+        DXDN8.setEnabled(opcion);
+        DXDN9.setEnabled(opcion);
+        DXDN10.setEnabled(opcion);
+        FUADN1.setEnabled(opcion);
+        FUADN2.setEnabled(opcion);
+        FUADN3.setEnabled(opcion);
+        FUADN4.setEnabled(opcion);
+        FUADN5.setEnabled(opcion);
+        FUADN6.setEnabled(opcion);
+        FUADN7.setEnabled(opcion);
+        FUADN8.setEnabled(opcion);
+        FUADN9.setEnabled(opcion);
+        FUADN10.setEnabled(opcion);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         DN = new javax.swing.JPanel();
         jPanel202 = new javax.swing.JPanel();
         jLabel126 = new javax.swing.JLabel();
@@ -47,14 +78,14 @@ private Dimension DimensionBarra = null;
         jPanel133 = new javax.swing.JPanel();
         jLabel129 = new javax.swing.JLabel();
         jPanel134 = new javax.swing.JPanel();
-        jLabel130 = new javax.swing.JLabel();
         FDN1 = new com.toedter.calendar.JDateChooser();
+        rbt1 = new javax.swing.JRadioButton();
         jPanel135 = new javax.swing.JPanel();
-        jLabel131 = new javax.swing.JLabel();
         FDN2 = new com.toedter.calendar.JDateChooser();
+        rbt2 = new javax.swing.JRadioButton();
         jPanel136 = new javax.swing.JPanel();
-        jLabel132 = new javax.swing.JLabel();
         FDN3 = new com.toedter.calendar.JDateChooser();
+        rbt3 = new javax.swing.JRadioButton();
         FUADN3 = new javax.swing.JTextField();
         FUADN1 = new javax.swing.JTextField();
         FUADN2 = new javax.swing.JTextField();
@@ -62,18 +93,18 @@ private Dimension DimensionBarra = null;
         DXDN2 = new javax.swing.JLabel();
         DXDN3 = new javax.swing.JLabel();
         jPanel137 = new javax.swing.JPanel();
-        jLabel133 = new javax.swing.JLabel();
         FDN4 = new com.toedter.calendar.JDateChooser();
+        rbt4 = new javax.swing.JRadioButton();
         DXDN4 = new javax.swing.JLabel();
         FUADN4 = new javax.swing.JTextField();
         jPanel138 = new javax.swing.JPanel();
-        jLabel134 = new javax.swing.JLabel();
         FDN5 = new com.toedter.calendar.JDateChooser();
+        rbt5 = new javax.swing.JRadioButton();
         DXDN5 = new javax.swing.JLabel();
         FUADN5 = new javax.swing.JTextField();
         jPanel139 = new javax.swing.JPanel();
-        jLabel135 = new javax.swing.JLabel();
         FDN6 = new com.toedter.calendar.JDateChooser();
+        rbt6 = new javax.swing.JRadioButton();
         DXDN6 = new javax.swing.JLabel();
         FUADN6 = new javax.swing.JTextField();
         LEYENDA2 = new javax.swing.JPanel();
@@ -89,20 +120,20 @@ private Dimension DimensionBarra = null;
         jPanel129 = new javax.swing.JPanel();
         jLabel125 = new javax.swing.JLabel();
         jPanel130 = new javax.swing.JPanel();
-        jLabel128 = new javax.swing.JLabel();
         FDN7 = new com.toedter.calendar.JDateChooser();
+        rbt7 = new javax.swing.JRadioButton();
         jPanel131 = new javax.swing.JPanel();
-        jLabel136 = new javax.swing.JLabel();
         FDN8 = new com.toedter.calendar.JDateChooser();
+        rbt8 = new javax.swing.JRadioButton();
         jPanel132 = new javax.swing.JPanel();
-        jLabel141 = new javax.swing.JLabel();
         FDN9 = new com.toedter.calendar.JDateChooser();
+        rbt9 = new javax.swing.JRadioButton();
         FUADN9 = new javax.swing.JTextField();
         FUADN7 = new javax.swing.JTextField();
         FUADN8 = new javax.swing.JTextField();
         jPanel140 = new javax.swing.JPanel();
-        jLabel142 = new javax.swing.JLabel();
         FDN10 = new com.toedter.calendar.JDateChooser();
+        rbt10 = new javax.swing.JRadioButton();
         FUADN10 = new javax.swing.JTextField();
         DXDN7 = new javax.swing.JLabel();
         DXDN8 = new javax.swing.JLabel();
@@ -200,81 +231,84 @@ private Dimension DimensionBarra = null;
 
         jPanel134.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel130.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel130.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel130.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel130.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel130.setText("1º");
-
         FDN1.setBackground(new java.awt.Color(204, 204, 204));
         FDN1.setDateFormatString("dd/MM/yyyy");
         FDN1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        rbt1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rbt1.setForeground(new java.awt.Color(255, 255, 255));
+        rbt1.setText("1º");
+        rbt1.setContentAreaFilled(false);
+        rbt1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbt1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel134Layout = new javax.swing.GroupLayout(jPanel134);
         jPanel134.setLayout(jPanel134Layout);
         jPanel134Layout.setHorizontalGroup(
             jPanel134Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel130, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FDN1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FDN1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rbt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel134Layout.setVerticalGroup(
             jPanel134Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel134Layout.createSequentialGroup()
-                .addComponent(jLabel130, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rbt1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FDN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel135.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel131.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel131.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel131.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel131.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel131.setText("2º");
-
         FDN2.setBackground(new java.awt.Color(204, 204, 204));
         FDN2.setDateFormatString("dd/MM/yyyy");
         FDN2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        rbt2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rbt2.setForeground(new java.awt.Color(255, 255, 255));
+        rbt2.setText("2º");
+        rbt2.setContentAreaFilled(false);
+        rbt2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbt2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel135Layout = new javax.swing.GroupLayout(jPanel135);
         jPanel135.setLayout(jPanel135Layout);
         jPanel135Layout.setHorizontalGroup(
             jPanel135Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel131, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FDN2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FDN2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rbt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel135Layout.setVerticalGroup(
             jPanel135Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel135Layout.createSequentialGroup()
-                .addComponent(jLabel131, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rbt2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FDN2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel136.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel132.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel132.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel132.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel132.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel132.setText("3º");
-
         FDN3.setBackground(new java.awt.Color(204, 204, 204));
         FDN3.setDateFormatString("dd/MM/yyyy");
         FDN3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        rbt3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rbt3.setForeground(new java.awt.Color(255, 255, 255));
+        rbt3.setText("3º");
+        rbt3.setContentAreaFilled(false);
+        rbt3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbt3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel136Layout = new javax.swing.GroupLayout(jPanel136);
         jPanel136.setLayout(jPanel136Layout);
         jPanel136Layout.setHorizontalGroup(
             jPanel136Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel132, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FDN3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FDN3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rbt3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel136Layout.setVerticalGroup(
             jPanel136Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel136Layout.createSequentialGroup()
-                .addComponent(jLabel132, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rbt3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FDN3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -296,27 +330,28 @@ private Dimension DimensionBarra = null;
 
         jPanel137.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel133.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel133.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel133.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel133.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel133.setText("4º");
-
         FDN4.setBackground(new java.awt.Color(204, 204, 204));
         FDN4.setDateFormatString("dd/MM/yyyy");
         FDN4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        rbt4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rbt4.setForeground(new java.awt.Color(255, 255, 255));
+        rbt4.setText("4º");
+        rbt4.setContentAreaFilled(false);
+        rbt4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbt4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel137Layout = new javax.swing.GroupLayout(jPanel137);
         jPanel137.setLayout(jPanel137Layout);
         jPanel137Layout.setHorizontalGroup(
             jPanel137Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel133, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FDN4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FDN4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rbt4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel137Layout.setVerticalGroup(
             jPanel137Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel137Layout.createSequentialGroup()
-                .addComponent(jLabel133, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rbt4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FDN4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -328,27 +363,28 @@ private Dimension DimensionBarra = null;
 
         jPanel138.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel134.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel134.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel134.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel134.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel134.setText("5º");
-
         FDN5.setBackground(new java.awt.Color(204, 204, 204));
         FDN5.setDateFormatString("dd/MM/yyyy");
         FDN5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        rbt5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rbt5.setForeground(new java.awt.Color(255, 255, 255));
+        rbt5.setText("5º");
+        rbt5.setContentAreaFilled(false);
+        rbt5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbt5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel138Layout = new javax.swing.GroupLayout(jPanel138);
         jPanel138.setLayout(jPanel138Layout);
         jPanel138Layout.setHorizontalGroup(
             jPanel138Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel134, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FDN5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FDN5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rbt5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel138Layout.setVerticalGroup(
             jPanel138Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel138Layout.createSequentialGroup()
-                .addComponent(jLabel134, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rbt5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FDN5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -360,27 +396,28 @@ private Dimension DimensionBarra = null;
 
         jPanel139.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel135.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel135.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel135.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel135.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel135.setText("6º");
-
         FDN6.setBackground(new java.awt.Color(204, 204, 204));
         FDN6.setDateFormatString("dd/MM/yyyy");
         FDN6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        rbt6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rbt6.setForeground(new java.awt.Color(255, 255, 255));
+        rbt6.setText("6º");
+        rbt6.setContentAreaFilled(false);
+        rbt6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbt6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel139Layout = new javax.swing.GroupLayout(jPanel139);
         jPanel139.setLayout(jPanel139Layout);
         jPanel139Layout.setHorizontalGroup(
             jPanel139Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel135, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FDN6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FDN6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rbt6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel139Layout.setVerticalGroup(
             jPanel139Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel139Layout.createSequentialGroup()
-                .addComponent(jLabel135, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rbt6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FDN6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -604,108 +641,112 @@ private Dimension DimensionBarra = null;
 
         jPanel130.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel128.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel128.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel128.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel128.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel128.setText("7º");
-
         FDN7.setBackground(new java.awt.Color(204, 204, 204));
         FDN7.setDateFormatString("dd/MM/yyyy");
         FDN7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        rbt7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rbt7.setForeground(new java.awt.Color(255, 255, 255));
+        rbt7.setText("7º");
+        rbt7.setContentAreaFilled(false);
+        rbt7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbt7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel130Layout = new javax.swing.GroupLayout(jPanel130);
         jPanel130.setLayout(jPanel130Layout);
         jPanel130Layout.setHorizontalGroup(
             jPanel130Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel128, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FDN7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FDN7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rbt7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel130Layout.setVerticalGroup(
             jPanel130Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel130Layout.createSequentialGroup()
-                .addComponent(jLabel128, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rbt7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FDN7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel131.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel136.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel136.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel136.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel136.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel136.setText("8º");
-
         FDN8.setBackground(new java.awt.Color(204, 204, 204));
         FDN8.setDateFormatString("dd/MM/yyyy");
         FDN8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        rbt8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rbt8.setForeground(new java.awt.Color(255, 255, 255));
+        rbt8.setText("8º");
+        rbt8.setContentAreaFilled(false);
+        rbt8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbt8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel131Layout = new javax.swing.GroupLayout(jPanel131);
         jPanel131.setLayout(jPanel131Layout);
         jPanel131Layout.setHorizontalGroup(
             jPanel131Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel136, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FDN8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FDN8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rbt8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel131Layout.setVerticalGroup(
             jPanel131Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel131Layout.createSequentialGroup()
-                .addComponent(jLabel136, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rbt8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FDN8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel132.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel141.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel141.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel141.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel141.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel141.setText("9º");
-
         FDN9.setBackground(new java.awt.Color(204, 204, 204));
         FDN9.setDateFormatString("dd/MM/yyyy");
         FDN9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        rbt9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rbt9.setForeground(new java.awt.Color(255, 255, 255));
+        rbt9.setText("9º");
+        rbt9.setContentAreaFilled(false);
+        rbt9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbt9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel132Layout = new javax.swing.GroupLayout(jPanel132);
         jPanel132.setLayout(jPanel132Layout);
         jPanel132Layout.setHorizontalGroup(
             jPanel132Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel141, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FDN9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FDN9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rbt9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel132Layout.setVerticalGroup(
             jPanel132Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel132Layout.createSequentialGroup()
-                .addComponent(jLabel141, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rbt9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FDN9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel140.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel142.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel142.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel142.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel142.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel142.setText("10º");
-
         FDN10.setBackground(new java.awt.Color(204, 204, 204));
         FDN10.setDateFormatString("dd/MM/yyyy");
         FDN10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        rbt10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rbt10.setForeground(new java.awt.Color(255, 255, 255));
+        rbt10.setText("10º");
+        rbt10.setContentAreaFilled(false);
+        rbt10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbt10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel140Layout = new javax.swing.GroupLayout(jPanel140);
         jPanel140.setLayout(jPanel140Layout);
         jPanel140Layout.setHorizontalGroup(
             jPanel140Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel142, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(FDN10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FDN10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rbt10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel140Layout.setVerticalGroup(
             jPanel140Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel140Layout.createSequentialGroup()
-                .addComponent(jLabel142, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rbt10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FDN10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -997,24 +1038,15 @@ private Dimension DimensionBarra = null;
     private javax.swing.JPanel Opciones;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btnguardar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel125;
     private javax.swing.JLabel jLabel126;
     private javax.swing.JLabel jLabel127;
-    private javax.swing.JLabel jLabel128;
     private javax.swing.JLabel jLabel129;
-    private javax.swing.JLabel jLabel130;
-    private javax.swing.JLabel jLabel131;
-    private javax.swing.JLabel jLabel132;
-    private javax.swing.JLabel jLabel133;
-    private javax.swing.JLabel jLabel134;
-    private javax.swing.JLabel jLabel135;
-    private javax.swing.JLabel jLabel136;
     private javax.swing.JLabel jLabel137;
     private javax.swing.JLabel jLabel138;
     private javax.swing.JLabel jLabel139;
     private javax.swing.JLabel jLabel140;
-    private javax.swing.JLabel jLabel141;
-    private javax.swing.JLabel jLabel142;
     private javax.swing.JPanel jPanel129;
     private javax.swing.JPanel jPanel130;
     private javax.swing.JPanel jPanel131;
@@ -1037,5 +1069,15 @@ private Dimension DimensionBarra = null;
     public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
+    private javax.swing.JRadioButton rbt1;
+    private javax.swing.JRadioButton rbt10;
+    private javax.swing.JRadioButton rbt2;
+    private javax.swing.JRadioButton rbt3;
+    private javax.swing.JRadioButton rbt4;
+    private javax.swing.JRadioButton rbt5;
+    private javax.swing.JRadioButton rbt6;
+    private javax.swing.JRadioButton rbt7;
+    private javax.swing.JRadioButton rbt8;
+    private javax.swing.JRadioButton rbt9;
     // End of variables declaration//GEN-END:variables
 }

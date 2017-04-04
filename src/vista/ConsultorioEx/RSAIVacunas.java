@@ -5,16 +5,22 @@
  */
 package vista.ConsultorioEx;
 
+import campos.LimitadorDeDocumento;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Calendar;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import modelos.ConsultorioEx.ConsultorioExtRsVacunas;
 import static vista.ConsultorioEx.ConsultorioAsignacion.txtMedico;
+import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
 
 /**
  *
@@ -26,22 +32,67 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 private Dimension DimensionBarra = null; 
 byte tg;
 byte tge;
-//A continuación creamos una función dentro del mismo JInternalFrame como el ejemplo siguiente:
-
-    /**
-     * Creates new form RSAIVacunas
-     */
 JDateChooser fecha;
+JTextField fua;
+ConsultorioExtRsVacunas vacunas26 = new ConsultorioExtRsVacunas();
     public RSAIVacunas() {
         initComponents();
         QuitarLaBarraTitulo();
-        
         habilitarDatos(false);
         this.Habilitar();
-
         mensaje.setVisible(false);
-
-
+        LimitadorDeDocumento limiteFuaAmadu = new LimitadorDeDocumento(13);
+        txtFuaAmaDu.setDocument(limiteFuaAmadu);
+        LimitadorDeDocumento limiteFuaR1 = new LimitadorDeDocumento(13);
+        txtFuaApoR1.setDocument(limiteFuaR1);
+        LimitadorDeDocumento limiteFuaR2 = new LimitadorDeDocumento(13);
+        txtFuaApoR2.setDocument(limiteFuaR2);
+        LimitadorDeDocumento limiteFuaBcg = new LimitadorDeDocumento(13);
+        txtFuaBcg.setDocument(limiteFuaBcg);
+        LimitadorDeDocumento limiteFuaDpt1 = new LimitadorDeDocumento(13);
+        txtFuaDpt1.setDocument(limiteFuaDpt1);
+        LimitadorDeDocumento limiteFuaDpt2 = new LimitadorDeDocumento(13);
+        txtFuaDpt2.setDocument(limiteFuaDpt2);
+        LimitadorDeDocumento limiteFuaEjec = new LimitadorDeDocumento(13);
+        txtFuaEjec.setDocument(limiteFuaEjec);
+        LimitadorDeDocumento limiteFuaElab = new LimitadorDeDocumento(13);
+        txtFuaElab.setDocument(limiteFuaElab);
+        LimitadorDeDocumento limiteFuaHvb = new LimitadorDeDocumento(13);
+        txtFuaHvb.setDocument(limiteFuaHvb);
+        LimitadorDeDocumento limiteFuaInfl1 = new LimitadorDeDocumento(13);
+        txtFuaInfl1.setDocument(limiteFuaInfl1);
+        LimitadorDeDocumento limiteFuaInfl2 = new LimitadorDeDocumento(13);
+        txtFuaInfl2.setDocument(limiteFuaInfl2);
+        LimitadorDeDocumento limiteFuaIpv1 = new LimitadorDeDocumento(13);
+        txtFuaIpv1.setDocument(limiteFuaIpv1);
+        LimitadorDeDocumento limiteFuaIpv2 = new LimitadorDeDocumento(13);
+        txtFuaIpv2.setDocument(limiteFuaIpv2);
+        LimitadorDeDocumento limiteFuaIpv3 = new LimitadorDeDocumento(13);
+        txtFuaIpv3.setDocument(limiteFuaIpv3);
+        LimitadorDeDocumento limiteFuaNeumo1 = new LimitadorDeDocumento(13);
+        txtFuaNeumo1.setDocument(limiteFuaNeumo1);
+        LimitadorDeDocumento limiteFuaNeumo2 = new LimitadorDeDocumento(13);
+        txtFuaNeumo2.setDocument(limiteFuaNeumo2);
+        LimitadorDeDocumento limiteFuaNeumo3 = new LimitadorDeDocumento(13);
+        txtFuaNeumo3.setDocument(limiteFuaNeumo3);
+        LimitadorDeDocumento limiteFuaPent1 = new LimitadorDeDocumento(13);
+        txtFuaPent1.setDocument(limiteFuaPent1);
+        LimitadorDeDocumento limiteFuaPent2 = new LimitadorDeDocumento(13);
+        txtFuaPent2.setDocument(limiteFuaPent2);
+        LimitadorDeDocumento limiteFuaPent3 = new LimitadorDeDocumento(13);
+        txtFuaPent3.setDocument(limiteFuaPent3);
+        LimitadorDeDocumento limiteFuaRot1 = new LimitadorDeDocumento(13);
+        txtFuaRot1.setDocument(limiteFuaRot1);
+        LimitadorDeDocumento limiteFuaRot2 = new LimitadorDeDocumento(13);
+        txtFuaRot2.setDocument(limiteFuaRot2);
+        LimitadorDeDocumento limiteFuaSpr1 = new LimitadorDeDocumento(13);
+        txtFuaSpr1.setDocument(limiteFuaSpr1);
+        LimitadorDeDocumento limiteFuaSpr2 = new LimitadorDeDocumento(13);
+        txtFuaSpr2.setDocument(limiteFuaSpr2);
+        LimitadorDeDocumento limiteFuaInflR1 = new LimitadorDeDocumento(13);
+        txtInflR1.setDocument(limiteFuaInflR1);
+        LimitadorDeDocumento limiteFuaInflR2 = new LimitadorDeDocumento(13);
+        txtInflR2.setDocument(limiteFuaInflR2);
     }
     public void QuitarLaBarraTitulo()
     { 
@@ -470,42 +521,44 @@ JDateChooser fecha;
                 CXRsVacunas.setApor2Fua(txtFuaApoR2.getText());
             }
                            
-                            if(CXRsVacunas.mantenimientoRSAIVacunas("I")==true){
-                                mensaje.setVisible(true);
-                                mensaje.setBackground(new Color(33,115,70)); 
-                                men.setText("Datos Guardados de forma correcta");
-                                b.setText("OK");
-                                b.setVisible(true);
-                                b1.setVisible(false);
+            if(CXRsVacunas.mantenimientoRSAIVacunas("I")==true){
+                mensaje.setVisible(true);
+                mensaje.setBackground(new Color(33,115,70)); 
+                men.setText("Datos Guardados de forma correcta");
+                b.setText("OK");
+                b.setVisible(true);
+                b1.setVisible(false);
 
-                                btnguardar.setEnabled(false);
-                                tge=1;
-                                CXRsVacunas.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
-                            
-                        }else {
-                           
-                                mensaje.setVisible(true);
-                                mensaje.setBackground(new Color(255,91,70)); 
-                                men.setText("Ocurrio un error, Verifique");
-                                b.setVisible(false);
-                                b1.setVisible(false);
-                                tge=7;
-                     }  
-                         } catch (Exception e) {
-                           System.out.println("Error: modificar " + e.getMessage());
-         }
+                btnguardar.setEnabled(false);
+                tge=1;
+                CXRsVacunas.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
+                habilitarDatos(false);
+                habilitarRadio(true);
+            }else {
+
+                    mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(255,91,70)); 
+                    men.setText("Ocurrio un error, Verifique");
+                    b.setVisible(false);
+                    b1.setVisible(false);
+                    tge=7;
+            }  
+         } catch (Exception e) {
+            System.out.println("Error: guardar " + e.getMessage());
+        }
     }
     }
 
     public void Modificar(JDateChooser fecha){
     if(fecha.getDate()==null){
+        fecha.setEnabled(true);
+        //fua.setEnabled(true);
         mensaje.setVisible(true);
         mensaje.setBackground(new Color(255,91,70)); 
         men.setText("Ingrese una fecha valida");
         b.setVisible(false);
         b1.setVisible(false);
     } else {
-            
         ConsultorioExtRsVacunas CXRsVacunas = new ConsultorioExtRsVacunas();
         ConsultorioExtRsVacunas CXRsVacunas2 = new ConsultorioExtRsVacunas();
         try {
@@ -649,7 +702,6 @@ JDateChooser fecha;
                 CXRsVacunas.setInflr2Fecha(determinarFecha(dtInflR2));
                 CXRsVacunas.setInflr2Fua(txtInflR2.getText());
             }
-
         //APO
             if(dtApoR1.getDate()!=null){
                 CXRsVacunas.setApor1Fecha(determinarFecha(dtApoR1));
@@ -661,31 +713,45 @@ JDateChooser fecha;
                 CXRsVacunas.setApor2Fua(txtFuaApoR2.getText());
             }
             if(CXRsVacunas.mantenimientoRSAIVacunas("U")==true){
-                    mensaje.setVisible(true);
-                    mensaje.setBackground(new Color(33,115,70)); 
-                    men.setText("Datos Actualizados de forma correcta");
-                    b.setText("OK");
-                    b.setVisible(true);
-                    b1.setVisible(false);
-                    btnguardar.setEnabled(false);
-                    tge=1;
-                    CXRsVacunas2.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
+                mensaje.setVisible(true);
+                mensaje.setBackground(new Color(33,115,70)); 
+                men.setText("Datos Actualizados de forma correcta");
+                b.setText("OK");
+                b.setVisible(true);
+                b1.setVisible(false);
+                btnguardar.setEnabled(false);
+                tge=1;
+                CXRsVacunas2.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
+                habilitarDatos(false);
+                habilitarRadio(true);
+            }else {
+                mensaje.setVisible(true);
+                mensaje.setBackground(new Color(255,91,70)); 
+                men.setText("Ocurrio un error, Verifique");
+                b.setVisible(false);
+                b1.setVisible(false);
+                tge=5;
+            }  
 
-                }else {
-
-                    mensaje.setVisible(true);
-                    mensaje.setBackground(new Color(255,91,70)); 
-                    men.setText("Ocurrio un error, Verifique");
-                    b.setVisible(false);
-                    b1.setVisible(false);
-                    tge=5;
-
-                }  
-
-             } catch (Exception e) {
+            } catch (Exception e) {
                System.out.println("Error: modificar " + e.getMessage());
-}
-    }}
+            }
+        }
+    }
+    
+    public void validaRegistro(int rs_id){
+        try {
+            PreparedStatement cmd = vacunas26.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_VACUNAS WHERE RS_ID ='"+rs_id+"'");
+            ResultSet res = cmd.executeQuery();
+            if(res.next()){ // si existe
+                Modificar(fecha);
+            }else { // no existe
+                Guardar(fecha);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: validaRegistro: " + e.toString());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -2867,11 +2933,7 @@ JDateChooser fecha;
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-       
-        Modificar(fecha);
-        
-        habilitarRadio(true);
-        habilitarDatos(false);
+        validaRegistro(Integer.parseInt(lblId.getText()));
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
@@ -3016,6 +3078,7 @@ JDateChooser fecha;
                 txtFuaPent1.requestFocus();
                 txtFuaPent1.setEditable(true); 
                 fecha=dtPent1;
+                fua = txtFuaPent1;
             }
         } else {
             Rp1.setEnabled(false);
@@ -3032,6 +3095,7 @@ JDateChooser fecha;
                 txtFuaDpt2.requestFocus();
                 txtFuaDpt2.setEditable(true); 
                 fecha=dtDpt2;
+                fua = txtFuaDpt2;
             }
         } else {
             Rdpt2.setEnabled(false);
@@ -3048,6 +3112,7 @@ JDateChooser fecha;
                 txtInflR2.requestFocus();
                 txtInflR2.setEditable(true);  
                 fecha=dtInflR2;
+                fua = txtInflR2;
             }
         } else {
             Rir2.setEnabled(false);
@@ -3064,6 +3129,7 @@ JDateChooser fecha;
                 txtFuaApoR2.requestFocus();
                 txtFuaApoR2.setEditable(true); 
                 fecha=dtApoR2;
+                fua = txtFuaApoR2;
             }
         } else {
             Rapo2.setEnabled(false);
@@ -3084,6 +3150,7 @@ JDateChooser fecha;
                 txtFuaElab.requestFocus();
                 txtFuaElab.setEditable(true); 
                 fecha=dtElab;
+                fua = txtFuaElab;
             }
         } else {
             Relab.setEnabled(false);
@@ -3100,6 +3167,7 @@ JDateChooser fecha;
                 txtFuaEjec.requestFocus();
                 txtFuaEjec.setEditable(true); 
                 fecha=dtEjec;
+                fua = txtFuaEjec;
             }
         } else {
             Rejec.setEnabled(false);
@@ -3116,6 +3184,7 @@ JDateChooser fecha;
                 txtFuaBcg.requestFocus();
                 txtFuaBcg.setEditable(true); 
                 fecha=dtBcg;
+                fua = txtFuaBcg;
             }
         } else {
             Rbcg.setEnabled(false);
@@ -3125,13 +3194,14 @@ JDateChooser fecha;
     private void RhvbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RhvbActionPerformed
         if(dtHvb.getDate()==null){
             if(Rhvb.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaHvb.setEnabled(true);
-            dtHvb.setEnabled(true);
-            txtFuaHvb.requestFocus();
-            txtFuaHvb.setEditable(true);  
-            fecha=dtHvb;
+                habilitarDatos(false);
+                habilitarRadio(false);
+                txtFuaHvb.setEnabled(true);
+                dtHvb.setEnabled(true);
+                txtFuaHvb.requestFocus();
+                txtFuaHvb.setEditable(true);  
+                fecha=dtHvb;
+                fua = txtFuaHvb;
             }
         } else {
             Rhvb.setEnabled(false);
@@ -3148,6 +3218,7 @@ JDateChooser fecha;
                 txtFuaPent3.requestFocus();
                 txtFuaPent3.setEditable(true);  
                 fecha=dtPent3;
+                fua = txtFuaPent3;
             }
         } else {
             Rp3.setEnabled(false);
@@ -3164,6 +3235,7 @@ JDateChooser fecha;
                 txtFuaPent2.requestFocus();
                 txtFuaPent2.setEditable(true);  
                 fecha=dtPent2;
+                fua = txtFuaPent2;
             }
         } else {
             Rp2.setEnabled(false);
@@ -3171,9 +3243,6 @@ JDateChooser fecha;
     }//GEN-LAST:event_Rp2ActionPerformed
 
     private void Ripv3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ripv3ActionPerformed
-
- 
-
         if(dtIpv3.getDate()==null){
             if(Ripv3.isSelected()){
                 habilitarDatos(false);
@@ -3183,6 +3252,7 @@ JDateChooser fecha;
                 txtFuaIpv3.requestFocus();
                 txtFuaIpv3.setEditable(true); 
                 fecha=dtIpv3;
+                fua = txtFuaIpv3;
             }
         } else {
             Ripv3.setEnabled(false);
@@ -3201,6 +3271,7 @@ JDateChooser fecha;
                 txtFuaIpv2.requestFocus();
                 txtFuaIpv2.setEditable(true);  
                 fecha=dtIpv2;
+                fua = txtFuaIpv2;
             }
         } else {
             Ripv2.setEnabled(false);
@@ -3217,6 +3288,7 @@ JDateChooser fecha;
                 txtFuaIpv1.requestFocus();
                 txtFuaIpv1.setEditable(true); 
                 fecha=dtIpv1;
+                fua = txtFuaIpv1;
             }
         } else {
             Ripv1.setEnabled(false);
@@ -3233,6 +3305,7 @@ JDateChooser fecha;
                 txtFuaNeumo1.requestFocus();
                 txtFuaNeumo1.setEditable(true);  
                 fecha=dtNeumo1;
+                fua = txtFuaNeumo1;
             }
         } else {
             Rn1.setEnabled(false);
@@ -3249,6 +3322,7 @@ JDateChooser fecha;
                 txtFuaNeumo2.requestFocus();
                 txtFuaNeumo2.setEditable(true); 
                 fecha=dtNeumo2;
+                fua = txtFuaNeumo2;
             }
         } else {
             Rn2.setEnabled(false);
@@ -3265,6 +3339,7 @@ JDateChooser fecha;
                 txtFuaNeumo3.requestFocus();
                 txtFuaNeumo3.setEditable(true); 
                 fecha=dtNeumo3;
+                fua = txtFuaNeumo3;
             }
         } else {
             Rn3.setEnabled(false);
@@ -3281,6 +3356,7 @@ JDateChooser fecha;
                 txtFuaInfl1.requestFocus();
                 txtFuaInfl1.setEditable(true);  
                 fecha=dtInfl1;
+                fua = txtFuaInfl1;
             }
         } else {
             Ri1.setEnabled(false);
@@ -3297,6 +3373,7 @@ JDateChooser fecha;
                 txtFuaInfl2.requestFocus();
                 txtFuaInfl2.setEditable(true); 
                 fecha=dtInfl2;
+                fua = txtFuaInfl2;
             }
         } else {
             Ri2.setEnabled(false);
@@ -3313,6 +3390,7 @@ JDateChooser fecha;
                 txtFuaRot1.requestFocus();
                 txtFuaRot1.setEditable(true);  
                 fecha=dtRot1;
+                fua = txtFuaRot1;
             }
         } else {
             Rr1.setEnabled(false);
@@ -3329,6 +3407,7 @@ JDateChooser fecha;
                 txtFuaRot2.requestFocus();
                 txtFuaRot2.setEditable(true); 
                 fecha=dtRot2;
+                fua = txtFuaRot2;
             }
         } else {
             Rr2.setEnabled(false);
@@ -3345,6 +3424,7 @@ JDateChooser fecha;
                 txtFuaSpr1.requestFocus();
                 txtFuaSpr1.setEditable(true); 
                 fecha=dtSpr1;
+                fua = txtFuaSpr1;
             }
         } else {
             Rspr1.setEnabled(false);
@@ -3361,6 +3441,7 @@ JDateChooser fecha;
                 txtFuaSpr2.requestFocus();
                 txtFuaSpr2.setEditable(true);  
                 fecha=dtSpr2;
+                fua = txtFuaSpr2;
             }
         } else {
             Rspr2.setEnabled(false);
@@ -3377,6 +3458,7 @@ JDateChooser fecha;
                 txtFuaAmaDu.requestFocus();
                 txtFuaAmaDu.setEditable(true); 
                 fecha=dtAmadu;
+                fua = txtFuaAmaDu;
             }
         } else {
             Rama.setEnabled(false);
@@ -3393,6 +3475,7 @@ JDateChooser fecha;
                 txtFuaDpt1.requestFocus();
                 txtFuaDpt1.setEditable(true);  
                 fecha=dtDpt1;
+                fua = txtFuaDpt1;
             }
         } else {
             Rdpt1.setEnabled(false);
@@ -3409,6 +3492,7 @@ JDateChooser fecha;
                 txtInflR1.requestFocus();
                 txtInflR1.setEditable(true);  
                 fecha=dtInflR1;
+                fua = txtInflR1;
             }
         } else {
             Rir1.setEnabled(false);
@@ -3425,6 +3509,7 @@ JDateChooser fecha;
                 txtFuaApoR1.requestFocus();
                 txtFuaApoR1.setEditable(true);  
                 fecha=dtApoR1;
+                fua = txtFuaApoR1;
             }
         } else {
             Rapo1.setEnabled(false);

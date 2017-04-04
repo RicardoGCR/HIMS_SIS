@@ -219,6 +219,21 @@ public class ConsultorioExtRsCabecera implements Serializable {
         return resp;
     }
     
+    public int idCabecera(){
+        int id = 0;
+        try {
+            String consulta = "EXEC CONSULTORIO_EXT_RS_CABECERA_ID";
+            ResultSet r;
+            r=con.Listar(consulta);
+        if(r.next()){
+               id = r.getInt(1);
+        }
+        }catch(Exception ex){
+            System.out.println("Error: idVacunas: " + ex.getMessage());
+        }
+        return id;
+    }
+    
     public ConsultorioExtRsCabecera()
     {
         Conexion con = new Conexion();

@@ -89,46 +89,46 @@ repaint();
         DXCCDRN1.setText(String.valueOf(tbCiePresun.getValueAt(fila, 1)));
     }
     
-    public void Guardar(){
-
-                            ConsultorioExtRsCcd GCCD= new ConsultorioExtRsCcd();
-           
-
-                            GCCD.setRsCcd(0);
-                            GCCD.setRS_ID(Integer.parseInt(HC_ID.getText()));
-                            GCCD.setDescripcion(TxtDes.getText());
-                            GCCD.setFecha(TxtFecha.getText());
-                            GCCD.setID_CIE10(Integer.parseInt(CIE10_ID.getText()));
-                            GCCD.setFua(TxtFua.getText());
+//    public void Guardar(){
+//
+//                            ConsultorioExtRsCcd GCCD= new ConsultorioExtRsCcd();
+//           
+//
 //                            GCCD.setRsCcd(0);
-//                            GCCD.setRS_ID(txtPA.getText());
-//                            GCCD.setFecha(txtFC.getText());
-//                            GCCD.setID_CIE10(txtT.getText());
-//                            GCCD.setFua(txtPeso.getText());
-
-                            if(GCCD.mantenimientoCCD("I")==true){
-                                mensaje.setBackground(new Color(33,115,70)); 
-                                men.setText("Datos Guardados de forma correcta");
-//                                b.setText("OK");
-//                                b.setVisible(true);
-//                                b1.setVisible(false);
-
-                                btnGuardar.setEnabled(false);
-                                tge=1;
-//                                listar();
-                            
-                        }else {
-                           
-                                mensaje.setVisible(true);
-                                mensaje.setBackground(new Color(255,91,70)); 
-                                men.setText("Ocurrio un error, Verifique");
-//                                b.setVisible(false);
-//                                b1.setVisible(false);
-                                tge=7;
-                        }
-                             
-      
-    }
+//                            GCCD.setRS_ID(Integer.parseInt(HC_ID.getText()));
+//                            GCCD.setDescripcion(TxtDes.getText());
+//                            GCCD.setFecha(TxtFecha.getText());
+//                            GCCD.setID_CIE10(Integer.parseInt(CIE10_ID.getText()));
+//                            GCCD.setFua(TxtFua.getText());
+////                            GCCD.setRsCcd(0);
+////                            GCCD.setRS_ID(txtPA.getText());
+////                            GCCD.setFecha(txtFC.getText());
+////                            GCCD.setID_CIE10(txtT.getText());
+////                            GCCD.setFua(txtPeso.getText());
+//
+//                            if(GCCD.mantenimientoCCD("I")==true){
+//                                mensaje.setBackground(new Color(33,115,70)); 
+//                                men.setText("Datos Guardados de forma correcta");
+////                                b.setText("OK");
+////                                b.setVisible(true);
+////                                b1.setVisible(false);
+//
+//                                btnGuardar.setEnabled(false);
+//                                tge=1;
+////                                listar();
+//                            
+//                        }else {
+//                           
+//                                mensaje.setVisible(true);
+//                                mensaje.setBackground(new Color(255,91,70)); 
+//                                men.setText("Ocurrio un error, Verifique");
+////                                b.setVisible(false);
+////                                b1.setVisible(false);
+//                                tge=7;
+//                        }
+//                             
+//      
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -3690,7 +3690,7 @@ repaint();
     }//GEN-LAST:event_btneditar4ActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-            Guardar();
+//            Guardar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void FUACCDRN2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FUACCDRN2ActionPerformed
@@ -3866,7 +3866,7 @@ repaint();
 
     private void txtBuscarCie10CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCie10CaretUpdate
         ConsultorioExtRsCcd adTopico = new ConsultorioExtRsCcd();
-        adTopico.cargarDatosCie10(txtBuscarCie10.getText(), tbCiePresun);
+//        adTopico.cargarDatosCie10(txtBuscarCie10.getText(), tbCiePresun);
     }//GEN-LAST:event_txtBuscarCie10CaretUpdate
 
     private void txtBuscarCie10KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarCie10KeyPressed
@@ -3882,7 +3882,7 @@ repaint();
 
     private void DXCCDRN1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN1MouseClicked
         ConsultorioExtRsCcd adTopico = new ConsultorioExtRsCcd();
-        adTopico.cargarDatosCie10("", tbCiePresun);
+//        adTopico.cargarDatosCie10("", tbCiePresun);
         FrmCie10.setVisible(true);
     }//GEN-LAST:event_DXCCDRN1MouseClicked
 

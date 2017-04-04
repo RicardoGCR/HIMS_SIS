@@ -12,7 +12,10 @@ import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
@@ -969,6 +972,43 @@ public class ConsultorioExtRsCcd implements Serializable {
             System.out.println("Error: mantenimiento CCD " + ex.getMessage());
         }
         return resp;
+    }
+    
+    public void cargarDatosCie10(String descripcion,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Nro","Código","Diagnóstico"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[3];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CIE10_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, descripcion);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // clasificacion
+                fila[1]=r.getString(2); //codigo
+                fila[2]=r.getString(3); //codigo
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaCargarCie10(tabla);
+        } catch (Exception e) {
+            System.out.println("Error_cargarDatosCie10: " + e.getMessage());
+        }
+    }
+     public void formatoTablaCargarCie10(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//CODIGO
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);//CODIGO
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(500);//CODIGO
+        tabla.setRowHeight(30);
     }
 
     public ConsultorioExtRsCcd() {

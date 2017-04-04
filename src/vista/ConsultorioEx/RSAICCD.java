@@ -9,8 +9,13 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Calendar;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import modelos.ConsultorioEx.ConsultorioExtRsCcd;
 import static vista.ConsultorioEx.RegistroSeguimiento.jTabbedPane1;
@@ -32,12 +37,19 @@ byte tge;
      * Creates new form RSAICCD
      */
 JDateChooser fecha;
+JTextField fua;
+JLabel cie10;
+ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     public RSAICCD() {
         initComponents();
         QuitarLaBarraTitulo();
         jTabbedPane1.setEnabledAt(0,false);
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(2, false);
+        habilitarDatos(false);
+        mensaje1.setVisible(false);
+        FrmCie10.setLocationRelativeTo(null);//en el centro
+        FrmCie10.getContentPane().setBackground(new Color(0,153,102));
        
     }
     public void QuitarLaBarraTitulo(){ 
@@ -47,7 +59,224 @@ JDateChooser fecha;
         Barra.setPreferredSize(new Dimension(0,0)); 
         repaint(); 
     }
-    
+    public void habilitarDatos(boolean opcion){
+        //RECIEN NACIEDO
+        FUACCDRN1.setEnabled(opcion);
+        FUACCDRN2.setEnabled(opcion);
+        FUACCDRN3.setEnabled(opcion);
+        FUACCDRN4.setEnabled(opcion);
+        
+        FCCDRN1.setEnabled(opcion);
+        FCCDRN2.setEnabled(opcion);
+        FCCDRN3.setEnabled(opcion);
+        FCCDRN4.setEnabled(opcion);
+        
+        DXCCDRN1.setEnabled(opcion);
+        DXCCDRN2.setEnabled(opcion);
+        DXCCDRN3.setEnabled(opcion);
+        DXCCDRN4.setEnabled(opcion);
+        
+        
+        //MENORES DE UN AÑO
+        FCCDM1.setEnabled(opcion);
+        FCCDM2.setEnabled(opcion);
+        FCCDM3.setEnabled(opcion);
+        FCCDM4.setEnabled(opcion);
+        FCCDM5.setEnabled(opcion);
+        FCCDM6.setEnabled(opcion);
+        FCCDM7.setEnabled(opcion);
+        FCCDM8.setEnabled(opcion);
+        FCCDM9.setEnabled(opcion);
+        FCCDM10.setEnabled(opcion);
+        FCCDM11.setEnabled(opcion);
+        
+        DXCCDM1.setEnabled(opcion);
+        DXCCDM2.setEnabled(opcion);
+        DXCCDM3.setEnabled(opcion);
+        DXCCDM4.setEnabled(opcion);
+        DXCCDM5.setEnabled(opcion);
+        DXCCDM6.setEnabled(opcion);
+        DXCCDM7.setEnabled(opcion);
+        DXCCDM8.setEnabled(opcion);
+        DXCCDM9.setEnabled(opcion);
+        DXCCDM10.setEnabled(opcion);
+        DXCCDM11.setEnabled(opcion);
+        
+        FUACCDM1.setEnabled(opcion);
+        FUACCDM2.setEnabled(opcion);
+        FUACCDM3.setEnabled(opcion);
+        FUACCDM4.setEnabled(opcion);
+        FUACCDM5.setEnabled(opcion);
+        FUACCDM6.setEnabled(opcion);
+        FUACCDM7.setEnabled(opcion);
+        FUACCDM8.setEnabled(opcion);
+        FUACCDM9.setEnabled(opcion);
+        FUACCDM10.setEnabled(opcion);
+        FUACCDM11.setEnabled(opcion);
+        //1 AÑO
+        FCCD11.setEnabled(opcion);
+        FCCD12.setEnabled(opcion);
+        FCCD13.setEnabled(opcion);
+        FCCD14.setEnabled(opcion);
+        FCCD15.setEnabled(opcion);
+        FCCD16.setEnabled(opcion);
+        
+        DXCCD11.setEnabled(opcion);
+        DXCCD12.setEnabled(opcion);
+        DXCCD13.setEnabled(opcion);
+        DXCCD14.setEnabled(opcion);
+        DXCCD15.setEnabled(opcion);
+        DXCCD16.setEnabled(opcion);
+        
+        FUACCD11.setEnabled(opcion);
+        FUACCD12.setEnabled(opcion);
+        FUACCD13.setEnabled(opcion);
+        FUACCD14.setEnabled(opcion);
+        FUACCD15.setEnabled(opcion);
+        FUACCD16.setEnabled(opcion);
+        //2 AÑOS
+        FCCD21.setEnabled(opcion);
+        FCCD22.setEnabled(opcion);
+        FCCD23.setEnabled(opcion);
+        FCCD24.setEnabled(opcion);
+        
+        DXCCD21.setEnabled(opcion);
+        DXCCD22.setEnabled(opcion);
+        DXCCD23.setEnabled(opcion);
+        DXCCD24.setEnabled(opcion);
+        
+        FUACCD21.setEnabled(opcion);
+        FUACCD22.setEnabled(opcion);
+        FUACCD23.setEnabled(opcion);
+        FUACCD24.setEnabled(opcion);
+        //3 AÑOS
+        FCCD3A1.setEnabled(opcion);
+        FCCD3A2.setEnabled(opcion);
+        FCCD3A2.setEnabled(opcion);
+        FCCD3A2.setEnabled(opcion);
+        
+        DXCCD3A1.setEnabled(opcion);
+        DXCCD3A2.setEnabled(opcion);
+        DXCCD3A3.setEnabled(opcion);
+        DXCCD3A4.setEnabled(opcion);
+        
+        FUACCD3A1.setEnabled(opcion);
+        FUACCD3A2.setEnabled(opcion);
+        FUACCD3A3.setEnabled(opcion);
+        FUACCD3A4.setEnabled(opcion);
+        //4 AÑOS
+        FCCD4A1.setEnabled(opcion);
+        FCCD4A2.setEnabled(opcion);
+        FCCD4A2.setEnabled(opcion);
+        FCCD4A2.setEnabled(opcion);
+        
+        DXCCD4A1.setEnabled(opcion);
+        DXCCD4A2.setEnabled(opcion);
+        DXCCD4A3.setEnabled(opcion);
+        DXCCD4A4.setEnabled(opcion);
+        
+        FUACCD4A1.setEnabled(opcion);
+        FUACCD4A2.setEnabled(opcion);
+        FUACCD4A3.setEnabled(opcion);
+        FUACCD4A4.setEnabled(opcion);
+        //5 AÑOS
+        FCCD5A.setEnabled(opcion);
+        DXCCD5A.setEnabled(opcion);   
+        FUACCD5A.setEnabled(opcion);
+        //6 AÑOS
+        FCCD6A.setEnabled(opcion);
+        DXCCD6A.setEnabled(opcion);   
+        FUACCD6A.setEnabled(opcion);
+        //7 AÑOS
+        FCCD7A.setEnabled(opcion);
+        DXCCD7A.setEnabled(opcion);   
+        FUACCD7A.setEnabled(opcion);
+        //8 AÑOS
+        FCCD8A.setEnabled(opcion);
+        DXCCD8A.setEnabled(opcion);   
+        FUACCD8A.setEnabled(opcion);
+        //9 AÑOS
+        FCCD9A.setEnabled(opcion);
+        DXCCD9A.setEnabled(opcion);   
+        FUACCD9A.setEnabled(opcion);
+        //10 AÑOS
+        FCCD10A.setEnabled(opcion);
+        DXCCD10A.setEnabled(opcion);   
+        FUACCD10A.setEnabled(opcion);
+        //11 AÑOS
+        FCCD11A.setEnabled(opcion);
+        DXCCD11A.setEnabled(opcion);   
+        FUACCD11A.setEnabled(opcion);
+    }
+    public void habilitarRadio(boolean opcion){
+        //RECIEN NACIDO
+        Rrn1.setEnabled(opcion);  
+        Rrn2.setEnabled(opcion); 
+        Rrn3.setEnabled(opcion); 
+        Rrn4.setEnabled(opcion); 
+        //MENORES DE UN AÑO
+        Rm11.setEnabled(opcion); 
+        Rm12.setEnabled(opcion); 
+        Rm13.setEnabled(opcion); 
+        Rm14.setEnabled(opcion); 
+        Rm15.setEnabled(opcion); 
+        Rm16.setEnabled(opcion); 
+        Rm17.setEnabled(opcion); 
+        Rm18.setEnabled(opcion); 
+        Rm19.setEnabled(opcion); 
+        Rm110.setEnabled(opcion); 
+        Rm111.setEnabled(opcion); 
+        //1 AÑO
+        R11.setEnabled(opcion); 
+        R12.setEnabled(opcion); 
+        R13.setEnabled(opcion); 
+        R14.setEnabled(opcion); 
+        R15.setEnabled(opcion); 
+        R16.setEnabled(opcion); 
+        // 2 AÑOS
+        R21.setEnabled(opcion); 
+        R22.setEnabled(opcion); 
+        R23.setEnabled(opcion); 
+        R24.setEnabled(opcion); 
+        //3 AÑOS
+        R31.setEnabled(opcion); 
+        R32.setEnabled(opcion); 
+        R33.setEnabled(opcion); 
+        R34.setEnabled(opcion); 
+        //4 AÑOS
+        R41.setEnabled(opcion); 
+        R42.setEnabled(opcion); 
+        R43.setEnabled(opcion); 
+        R44.setEnabled(opcion); 
+        //5 AÑOS
+        R5.setEnabled(opcion); 
+        //6 AÑOS
+        R6.setEnabled(opcion); 
+        //7 AÑOS
+        R7.setEnabled(opcion); 
+        //8 AÑOS
+        R8.setEnabled(opcion); 
+        //9 AÑOS
+        R9.setEnabled(opcion); 
+        //10 AÑOS
+        R10.setEnabled(opcion); 
+        //11 AÑOS
+        R11.setEnabled(opcion); 
+ 
+    }
+    public void validaRegistro(int rs_id){
+        try {
+            PreparedStatement cmd = CCD01.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_VACUNAS WHERE RS_ID ='"+rs_id+"'");
+            ResultSet res = cmd.executeQuery();
+            if(res.next()){ // si existe
+                Modificar(fecha);
+            }else { // no existe
+                Guardar(fecha);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: validaRegistro: " + e.toString());
+        }
+    }
     public String determinarFecha(JDateChooser calendario){
          
         String fecha = "";
@@ -69,8 +298,8 @@ JDateChooser fecha;
             } else 
                 fecha = String.valueOf(dia + "/" + mes + "/" + anio); 
          } catch (Exception e) {
-                           mensaje.setVisible(true);
-                           mensaje.setBackground(new Color(255,91,70)); 
+                           mensaje1.setVisible(true);
+                           mensaje1.setBackground(new Color(255,91,70)); 
                            men.setText("Ingrese una fecha correcta");
                           
          }
@@ -80,13 +309,13 @@ JDateChooser fecha;
     public void enviarDiagnosticos(){
         int fila = tbCiePresun.getSelectedRow();
         FrmCie10.dispose();
-        DXCCDRN1.setText(String.valueOf(tbCiePresun.getValueAt(fila, 1)));
+        DXCCDRN2.setText(String.valueOf(tbCiePresun.getValueAt(fila, 1)));
     }
     
     public void Guardar(JDateChooser fecha){
         if(fecha.getDate()==null){
-            mensaje.setVisible(true);
-            mensaje.setBackground(new Color(255,91,70)); 
+            mensaje1.setVisible(true);
+            mensaje1.setBackground(new Color(255,91,70)); 
             men.setText("Ingrese una fecha valida");
             b.setVisible(false);
             b1.setVisible(false);
@@ -96,17 +325,234 @@ JDateChooser fecha;
             try {
 
                     CXRsCCD.setRsId(Integer.parseInt(lblId.getText()));
+                    //RECIEN NACIDO
                     if(FCCDRN1.getDate()!=null){
                         CXRsCCD.setRn1Fecha(determinarFecha(FCCDRN1)); 
                         CXRsCCD.setRn1Cie10(DXCCDRN1.getText());
                         CXRsCCD.setRn1Fua(FUACCDRN1.getText());
                     }
-
-
-
+                    if(FCCDRN2.getDate()!=null){
+                        CXRsCCD.setRn2Fecha(determinarFecha(FCCDRN2)); 
+                        CXRsCCD.setRn2Cie10(DXCCDRN2.getText());
+                        CXRsCCD.setRn2Fua(FUACCDRN2.getText());
+                    }
+                    if(FCCDRN3.getDate()!=null){
+                        CXRsCCD.setRn3Fecha(determinarFecha(FCCDRN3)); 
+                        CXRsCCD.setRn3Cie10(DXCCDRN3.getText());
+                        CXRsCCD.setRn3Fua(FUACCDRN3.getText());
+                    }
+                    if(FCCDRN4.getDate()!=null){
+                        CXRsCCD.setRn4Fecha(determinarFecha(FCCDRN4)); 
+                        CXRsCCD.setRn4Cie10(DXCCDRN4.getText());
+                        CXRsCCD.setRn4Fua(FUACCDRN4.getText());
+                    }
+                    /// MENORES DE UN AÑO
+                    if(FCCDM1.getDate()!=null){
+                        CXRsCCD.setM1Fecha(determinarFecha(FCCDM1)); 
+                        CXRsCCD.setM1Cie10(DXCCDM1.getText());
+                        CXRsCCD.setM1Fua(FUACCDM1.getText());
+                    }
+                    if(FCCDM2.getDate()!=null){
+                        CXRsCCD.setM2Fecha(determinarFecha(FCCDM2)); 
+                        CXRsCCD.setM2Cie10(DXCCDM2.getText());
+                        CXRsCCD.setM2Fua(FUACCDM2.getText());
+                    }
+                    if(FCCDM3.getDate()!=null){
+                        CXRsCCD.setM3Fecha(determinarFecha(FCCDM3)); 
+                        CXRsCCD.setM3Cie10(DXCCDM3.getText());
+                        CXRsCCD.setM3Fua(FUACCDM3.getText());
+                    }
+                    if(FCCDM4.getDate()!=null){
+                        CXRsCCD.setM4Fecha(determinarFecha(FCCDM4)); 
+                        CXRsCCD.setM4Cie10(DXCCDM4.getText());
+                        CXRsCCD.setM4Fua(FUACCDM4.getText());
+                    }
+                    if(FCCDM5.getDate()!=null){
+                        CXRsCCD.setM5Fecha(determinarFecha(FCCDM5)); 
+                        CXRsCCD.setM5Cie10(DXCCDM5.getText());
+                        CXRsCCD.setM5Fua(FUACCDM5.getText());
+                    }
+                    if(FCCDM6.getDate()!=null){
+                        CXRsCCD.setM6Fecha(determinarFecha(FCCDM6)); 
+                        CXRsCCD.setM6Cie10(DXCCDM6.getText());
+                        CXRsCCD.setM6Fua(FUACCDM6.getText());
+                    }
+                    if(FCCDM7.getDate()!=null){
+                        CXRsCCD.setM7Fecha(determinarFecha(FCCDM7)); 
+                        CXRsCCD.setM7Cie10(DXCCDM7.getText());
+                        CXRsCCD.setM7Fua(FUACCDM7.getText());
+                    }
+                    if(FCCDM8.getDate()!=null){
+                        CXRsCCD.setM8Fecha(determinarFecha(FCCDM8)); 
+                        CXRsCCD.setM8Cie10(DXCCDM8.getText());
+                        CXRsCCD.setM8Fua(FUACCDM8.getText());
+                    }
+                    if(FCCDM9.getDate()!=null){
+                        CXRsCCD.setM7Fecha(determinarFecha(FCCDM9)); 
+                        CXRsCCD.setM7Cie10(DXCCDM9.getText());
+                        CXRsCCD.setM7Fua(FUACCDM9.getText());
+                    }
+                    if(FCCDM10.getDate()!=null){
+                        CXRsCCD.setM10Fecha(determinarFecha(FCCDM10)); 
+                        CXRsCCD.setM10Cie10(DXCCDM10.getText());
+                        CXRsCCD.setM10Fua(FUACCDM10.getText());
+                    }
+                    if(FCCDM11.getDate()!=null){
+                        CXRsCCD.setM11Fecha(determinarFecha(FCCDM11)); 
+                        CXRsCCD.setM11Cie10(DXCCDM11.getText());
+                        CXRsCCD.setM11Fua(FUACCDM11.getText());
+                    }
+                    ////////////////////////////////////////////////////////
+                    //1 AÑO
+                    if(FCCD11.getDate()!=null){
+                        CXRsCCD.setM11Fecha1(determinarFecha(FCCD11)); 
+                        CXRsCCD.setM11Cie101(DXCCD11.getText());
+                        CXRsCCD.setM11Fua1(FUACCD11.getText());
+                    }
+                    if(FCCD12.getDate()!=null){
+                        CXRsCCD.setM12Fecha(determinarFecha(FCCD12)); 
+                        CXRsCCD.setM12Cie10(DXCCD12.getText());
+                        CXRsCCD.setM12Fua(FUACCD12.getText());
+                    }
+                    if(FCCD13.getDate()!=null){
+                        CXRsCCD.setM13Fecha(determinarFecha(FCCD13)); 
+                        CXRsCCD.setM13Cie10(DXCCD13.getText());
+                        CXRsCCD.setM13Fua(FUACCD13.getText());
+                    }
+                    if(FCCD14.getDate()!=null){
+                        CXRsCCD.setM14Fecha(determinarFecha(FCCD14)); 
+                        CXRsCCD.setM14Cie10(DXCCD14.getText());
+                        CXRsCCD.setM14Fua(FUACCD14.getText());
+                    }
+                    if(FCCD15.getDate()!=null){
+                        CXRsCCD.setM15Fecha(determinarFecha(FCCD15)); 
+                        CXRsCCD.setM15Cie10(DXCCD15.getText());
+                        CXRsCCD.setM15Fua(FUACCD15.getText());
+                    }
+                    if(FCCD16.getDate()!=null){
+                        CXRsCCD.setM16Fecha(determinarFecha(FCCD16)); 
+                        CXRsCCD.setM16Cie10(DXCCD16.getText());
+                        CXRsCCD.setM16Fua(FUACCD16.getText());
+                    }
+                    
+                    //////////////////////////////////////////////////
+                    //2 AÑOS
+                    if(FCCD21.getDate()!=null){
+                        CXRsCCD.setM21Fecha(determinarFecha(FCCD21)); 
+                        CXRsCCD.setM21Cie10(DXCCD21.getText());
+                        CXRsCCD.setM21Fua(FUACCD21.getText());
+                    }
+                    if(FCCD22.getDate()!=null){
+                        CXRsCCD.setM22Fecha(determinarFecha(FCCD22)); 
+                        CXRsCCD.setM22Cie10(DXCCD22.getText());
+                        CXRsCCD.setM22Fua(FUACCD22.getText());
+                    }
+                    if(FCCD23.getDate()!=null){
+                        CXRsCCD.setM23Fecha(determinarFecha(FCCD23)); 
+                        CXRsCCD.setM23Cie10(DXCCD23.getText());
+                        CXRsCCD.setM23Fua(FUACCD23.getText());
+                    }
+                    if(FCCD24.getDate()!=null){
+                        CXRsCCD.setM24Fecha(determinarFecha(FCCD24)); 
+                        CXRsCCD.setM24Cie10(DXCCD24.getText());
+                        CXRsCCD.setM24Fua(FUACCD24.getText());
+                    }
+                    //////////////////////////////////////////////////
+                    //3 AÑOS
+                    if(FCCD3A1.getDate()!=null){
+                        CXRsCCD.setM31Fecha(determinarFecha(FCCD3A1)); 
+                        CXRsCCD.setM31Cie10(DXCCD3A1.getText());
+                        CXRsCCD.setM31Fua(FUACCD3A1.getText());
+                    }
+                    if(FCCD3A2.getDate()!=null){
+                        CXRsCCD.setM32Fecha(determinarFecha(FCCD3A2)); 
+                        CXRsCCD.setM32Cie10(DXCCD3A2.getText());
+                        CXRsCCD.setM32Fua(FUACCD3A2.getText());
+                    }
+                    if(FCCD3A3.getDate()!=null){
+                        CXRsCCD.setM33Fecha(determinarFecha(FCCD3A3)); 
+                        CXRsCCD.setM33Cie10(DXCCD3A3.getText());
+                        CXRsCCD.setM33Fua(FUACCD3A3.getText());
+                    }
+                    if(FCCD3A4.getDate()!=null){
+                        CXRsCCD.setM34Fecha(determinarFecha(FCCD3A4)); 
+                        CXRsCCD.setM34Cie10(DXCCD3A4.getText());
+                        CXRsCCD.setM34Fua(FUACCD3A4.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //4 AÑOS
+                    if(FCCD4A1.getDate()!=null){
+                        CXRsCCD.setM41Fecha(determinarFecha(FCCD4A1)); 
+                        CXRsCCD.setM41Cie10(DXCCD4A1.getText());
+                        CXRsCCD.setM41Fua(FUACCD4A1.getText());
+                    }
+                    if(FCCD4A2.getDate()!=null){
+                        CXRsCCD.setM42Fecha(determinarFecha(FCCD4A2)); 
+                        CXRsCCD.setM42Cie10(DXCCD4A2.getText());
+                        CXRsCCD.setM42Fua(FUACCD4A2.getText());
+                    }
+                    if(FCCD4A3.getDate()!=null){
+                        CXRsCCD.setM43Fecha(determinarFecha(FCCD4A3)); 
+                        CXRsCCD.setM43Cie10(DXCCD4A3.getText());
+                        CXRsCCD.setM43Fua(FUACCD4A3.getText());
+                    }
+                    if(FCCD4A4.getDate()!=null){
+                        CXRsCCD.setM44Fecha(determinarFecha(FCCD4A4)); 
+                        CXRsCCD.setM44Cie10(DXCCD4A4.getText());
+                        CXRsCCD.setM44Fua(FUACCD4A4.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //5 AÑOS
+                    if(FCCD5A.getDate()!=null){
+                        CXRsCCD.setM5Fecha(determinarFecha(FCCD5A)); 
+                        CXRsCCD.setM5Cie10(DXCCD5A.getText());
+                        CXRsCCD.setM5Fua(FUACCD5A.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //6 AÑOS
+                    if(FCCD6A.getDate()!=null){
+                        CXRsCCD.setM6Fecha(determinarFecha(FCCD6A)); 
+                        CXRsCCD.setM6Cie10(DXCCD6A.getText());
+                        CXRsCCD.setM6Fua(FUACCD6A.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //7 AÑOS
+                    if(FCCD7A.getDate()!=null){
+                        CXRsCCD.setM7Fecha(determinarFecha(FCCD7A)); 
+                        CXRsCCD.setM7Cie10(DXCCD7A.getText());
+                        CXRsCCD.setM7Fua(FUACCD7A.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //8 AÑOS
+                    if(FCCD8A.getDate()!=null){
+                        CXRsCCD.setM8Fecha(determinarFecha(FCCD8A)); 
+                        CXRsCCD.setM8Cie10(DXCCD8A.getText());
+                        CXRsCCD.setM8Fua(FUACCD8A.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //9 AÑOS
+                    if(FCCD9A.getDate()!=null){
+                        CXRsCCD.setM9Fecha(determinarFecha(FCCD9A)); 
+                        CXRsCCD.setM9Cie10(DXCCD9A.getText());
+                        CXRsCCD.setM9Fua(FUACCD9A.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //10 AÑOS
+                    if(FCCD10A.getDate()!=null){
+                        CXRsCCD.setM10Fecha1(determinarFecha(FCCD10A)); 
+                        CXRsCCD.setM10Cie101(DXCCD10A.getText());
+                        CXRsCCD.setM10Fua1(FUACCD10A.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //10 AÑOS
+                    if(FCCD11A.getDate()!=null){
+                        CXRsCCD.setM11Fecha2(determinarFecha(FCCD11A)); 
+                        CXRsCCD.setM11Cie102(DXCCD11A.getText());
+                        CXRsCCD.setM11Fua2(FUACCD11A.getText());
+                    }
                                     if(CXRsCCD.mantenimientoRSAICCD("I")==true){
-                                        mensaje.setVisible(true);
-                                        mensaje.setBackground(new Color(33,115,70)); 
+                                        mensaje1.setVisible(true);
+                                        mensaje1.setBackground(new Color(33,115,70)); 
                                         men.setText("Datos Guardados de forma correcta");
                                         b.setText("OK");
                                         b.setVisible(true);
@@ -115,11 +561,13 @@ JDateChooser fecha;
                                         btnGuardar.setEnabled(false);
                                         tge=1;
                                         CXRsCCD2.ConsultoriosExtCCDListar(Integer.parseInt(lblId.getText()));
+                                        habilitarDatos(false);
+                                        habilitarRadio(true);
 
                                 }else {
 
-                                        mensaje.setVisible(true);
-                                        mensaje.setBackground(new Color(255,91,70)); 
+                                        mensaje1.setVisible(true);
+                                        mensaje1.setBackground(new Color(255,91,70)); 
                                         men.setText("Ocurrio un error, Verifique");
                                         b.setVisible(false);
                                         b1.setVisible(false);
@@ -129,6 +577,273 @@ JDateChooser fecha;
                                    System.out.println("Error: modificar " + e.getMessage());
                  }
     }
+    }
+    
+    public void Modificar(JDateChooser fecha){
+    if(fecha.getDate()==null){
+        fecha.setEnabled(true);
+        //fua.setEnabled(true);
+        mensaje1.setVisible(true);
+        mensaje1.setBackground(new Color(255,91,70)); 
+        men.setText("Ingrese una fecha valida");
+        b.setVisible(false);
+        b1.setVisible(false);
+    } else {
+            ConsultorioExtRsCcd CXRsCCD = new ConsultorioExtRsCcd();
+            ConsultorioExtRsCcd CXRsCCD2 = new ConsultorioExtRsCcd();
+        try {
+    
+            CXRsCCD.setRsId(Integer.parseInt(lblId.getText()));
+                    //RECIEN NACIDO
+                    if(FCCDRN1.getDate()!=null){
+                        CXRsCCD.setRn1Fecha(determinarFecha(FCCDRN1)); 
+                        CXRsCCD.setRn1Cie10(DXCCDRN1.getText());
+                        CXRsCCD.setRn1Fua(FUACCDRN1.getText());
+                    }
+                    if(FCCDRN2.getDate()!=null){
+                        CXRsCCD.setRn2Fecha(determinarFecha(FCCDRN2)); 
+                        CXRsCCD.setRn2Cie10(DXCCDRN2.getText());
+                        CXRsCCD.setRn2Fua(FUACCDRN2.getText());
+                    }
+                    if(FCCDRN3.getDate()!=null){
+                        CXRsCCD.setRn3Fecha(determinarFecha(FCCDRN3)); 
+                        CXRsCCD.setRn3Cie10(DXCCDRN3.getText());
+                        CXRsCCD.setRn3Fua(FUACCDRN3.getText());
+                    }
+                    if(FCCDRN4.getDate()!=null){
+                        CXRsCCD.setRn4Fecha(determinarFecha(FCCDRN4)); 
+                        CXRsCCD.setRn4Cie10(DXCCDRN4.getText());
+                        CXRsCCD.setRn4Fua(FUACCDRN4.getText());
+                    }
+                    /// MENORES DE UN AÑO
+                    if(FCCDM1.getDate()!=null){
+                        CXRsCCD.setM1Fecha(determinarFecha(FCCDM1)); 
+                        CXRsCCD.setM1Cie10(DXCCDM1.getText());
+                        CXRsCCD.setM1Fua(FUACCDM1.getText());
+                    }
+                    if(FCCDM2.getDate()!=null){
+                        CXRsCCD.setM2Fecha(determinarFecha(FCCDM2)); 
+                        CXRsCCD.setM2Cie10(DXCCDM2.getText());
+                        CXRsCCD.setM2Fua(FUACCDM2.getText());
+                    }
+                    if(FCCDM3.getDate()!=null){
+                        CXRsCCD.setM3Fecha(determinarFecha(FCCDM3)); 
+                        CXRsCCD.setM3Cie10(DXCCDM3.getText());
+                        CXRsCCD.setM3Fua(FUACCDM3.getText());
+                    }
+                    if(FCCDM4.getDate()!=null){
+                        CXRsCCD.setM4Fecha(determinarFecha(FCCDM4)); 
+                        CXRsCCD.setM4Cie10(DXCCDM4.getText());
+                        CXRsCCD.setM4Fua(FUACCDM4.getText());
+                    }
+                    if(FCCDM5.getDate()!=null){
+                        CXRsCCD.setM5Fecha(determinarFecha(FCCDM5)); 
+                        CXRsCCD.setM5Cie10(DXCCDM5.getText());
+                        CXRsCCD.setM5Fua(FUACCDM5.getText());
+                    }
+                    if(FCCDM6.getDate()!=null){
+                        CXRsCCD.setM6Fecha(determinarFecha(FCCDM6)); 
+                        CXRsCCD.setM6Cie10(DXCCDM6.getText());
+                        CXRsCCD.setM6Fua(FUACCDM6.getText());
+                    }
+                    if(FCCDM7.getDate()!=null){
+                        CXRsCCD.setM7Fecha(determinarFecha(FCCDM7)); 
+                        CXRsCCD.setM7Cie10(DXCCDM7.getText());
+                        CXRsCCD.setM7Fua(FUACCDM7.getText());
+                    }
+                    if(FCCDM8.getDate()!=null){
+                        CXRsCCD.setM8Fecha(determinarFecha(FCCDM8)); 
+                        CXRsCCD.setM8Cie10(DXCCDM8.getText());
+                        CXRsCCD.setM8Fua(FUACCDM8.getText());
+                    }
+                    if(FCCDM9.getDate()!=null){
+                        CXRsCCD.setM7Fecha(determinarFecha(FCCDM9)); 
+                        CXRsCCD.setM7Cie10(DXCCDM9.getText());
+                        CXRsCCD.setM7Fua(FUACCDM9.getText());
+                    }
+                    if(FCCDM10.getDate()!=null){
+                        CXRsCCD.setM10Fecha(determinarFecha(FCCDM10)); 
+                        CXRsCCD.setM10Cie10(DXCCDM10.getText());
+                        CXRsCCD.setM10Fua(FUACCDM10.getText());
+                    }
+                    if(FCCDM11.getDate()!=null){
+                        CXRsCCD.setM11Fecha(determinarFecha(FCCDM11)); 
+                        CXRsCCD.setM11Cie10(DXCCDM11.getText());
+                        CXRsCCD.setM11Fua(FUACCDM11.getText());
+                    }
+                    ////////////////////////////////////////////////////////
+                    //1 AÑO
+                    if(FCCD11.getDate()!=null){
+                        CXRsCCD.setM11Fecha1(determinarFecha(FCCD11)); 
+                        CXRsCCD.setM11Cie101(DXCCD11.getText());
+                        CXRsCCD.setM11Fua1(FUACCD11.getText());
+                    }
+                    if(FCCD12.getDate()!=null){
+                        CXRsCCD.setM12Fecha(determinarFecha(FCCD12)); 
+                        CXRsCCD.setM12Cie10(DXCCD12.getText());
+                        CXRsCCD.setM12Fua(FUACCD12.getText());
+                    }
+                    if(FCCD13.getDate()!=null){
+                        CXRsCCD.setM13Fecha(determinarFecha(FCCD13)); 
+                        CXRsCCD.setM13Cie10(DXCCD13.getText());
+                        CXRsCCD.setM13Fua(FUACCD13.getText());
+                    }
+                    if(FCCD14.getDate()!=null){
+                        CXRsCCD.setM14Fecha(determinarFecha(FCCD14)); 
+                        CXRsCCD.setM14Cie10(DXCCD14.getText());
+                        CXRsCCD.setM14Fua(FUACCD14.getText());
+                    }
+                    if(FCCD15.getDate()!=null){
+                        CXRsCCD.setM15Fecha(determinarFecha(FCCD15)); 
+                        CXRsCCD.setM15Cie10(DXCCD15.getText());
+                        CXRsCCD.setM15Fua(FUACCD15.getText());
+                    }
+                    if(FCCD16.getDate()!=null){
+                        CXRsCCD.setM16Fecha(determinarFecha(FCCD16)); 
+                        CXRsCCD.setM16Cie10(DXCCD16.getText());
+                        CXRsCCD.setM16Fua(FUACCD16.getText());
+                    }
+                    
+                    //////////////////////////////////////////////////
+                    //2 AÑOS
+                    if(FCCD21.getDate()!=null){
+                        CXRsCCD.setM21Fecha(determinarFecha(FCCD21)); 
+                        CXRsCCD.setM21Cie10(DXCCD21.getText());
+                        CXRsCCD.setM21Fua(FUACCD21.getText());
+                    }
+                    if(FCCD22.getDate()!=null){
+                        CXRsCCD.setM22Fecha(determinarFecha(FCCD22)); 
+                        CXRsCCD.setM22Cie10(DXCCD22.getText());
+                        CXRsCCD.setM22Fua(FUACCD22.getText());
+                    }
+                    if(FCCD23.getDate()!=null){
+                        CXRsCCD.setM23Fecha(determinarFecha(FCCD23)); 
+                        CXRsCCD.setM23Cie10(DXCCD23.getText());
+                        CXRsCCD.setM23Fua(FUACCD23.getText());
+                    }
+                    if(FCCD24.getDate()!=null){
+                        CXRsCCD.setM24Fecha(determinarFecha(FCCD24)); 
+                        CXRsCCD.setM24Cie10(DXCCD24.getText());
+                        CXRsCCD.setM24Fua(FUACCD24.getText());
+                    }
+                    //////////////////////////////////////////////////
+                    //3 AÑOS
+                    if(FCCD3A1.getDate()!=null){
+                        CXRsCCD.setM31Fecha(determinarFecha(FCCD3A1)); 
+                        CXRsCCD.setM31Cie10(DXCCD3A1.getText());
+                        CXRsCCD.setM31Fua(FUACCD3A1.getText());
+                    }
+                    if(FCCD3A2.getDate()!=null){
+                        CXRsCCD.setM32Fecha(determinarFecha(FCCD3A2)); 
+                        CXRsCCD.setM32Cie10(DXCCD3A2.getText());
+                        CXRsCCD.setM32Fua(FUACCD3A2.getText());
+                    }
+                    if(FCCD3A3.getDate()!=null){
+                        CXRsCCD.setM33Fecha(determinarFecha(FCCD3A3)); 
+                        CXRsCCD.setM33Cie10(DXCCD3A3.getText());
+                        CXRsCCD.setM33Fua(FUACCD3A3.getText());
+                    }
+                    if(FCCD3A4.getDate()!=null){
+                        CXRsCCD.setM34Fecha(determinarFecha(FCCD3A4)); 
+                        CXRsCCD.setM34Cie10(DXCCD3A4.getText());
+                        CXRsCCD.setM34Fua(FUACCD3A4.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //4 AÑOS
+                    if(FCCD4A1.getDate()!=null){
+                        CXRsCCD.setM41Fecha(determinarFecha(FCCD4A1)); 
+                        CXRsCCD.setM41Cie10(DXCCD4A1.getText());
+                        CXRsCCD.setM41Fua(FUACCD4A1.getText());
+                    }
+                    if(FCCD4A2.getDate()!=null){
+                        CXRsCCD.setM42Fecha(determinarFecha(FCCD4A2)); 
+                        CXRsCCD.setM42Cie10(DXCCD4A2.getText());
+                        CXRsCCD.setM42Fua(FUACCD4A2.getText());
+                    }
+                    if(FCCD4A3.getDate()!=null){
+                        CXRsCCD.setM43Fecha(determinarFecha(FCCD4A3)); 
+                        CXRsCCD.setM43Cie10(DXCCD4A3.getText());
+                        CXRsCCD.setM43Fua(FUACCD4A3.getText());
+                    }
+                    if(FCCD4A4.getDate()!=null){
+                        CXRsCCD.setM44Fecha(determinarFecha(FCCD4A4)); 
+                        CXRsCCD.setM44Cie10(DXCCD4A4.getText());
+                        CXRsCCD.setM44Fua(FUACCD4A4.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //5 AÑOS
+                    if(FCCD5A.getDate()!=null){
+                        CXRsCCD.setM5Fecha(determinarFecha(FCCD5A)); 
+                        CXRsCCD.setM5Cie10(DXCCD5A.getText());
+                        CXRsCCD.setM5Fua(FUACCD5A.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //6 AÑOS
+                    if(FCCD6A.getDate()!=null){
+                        CXRsCCD.setM6Fecha(determinarFecha(FCCD6A)); 
+                        CXRsCCD.setM6Cie10(DXCCD6A.getText());
+                        CXRsCCD.setM6Fua(FUACCD6A.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //7 AÑOS
+                    if(FCCD7A.getDate()!=null){
+                        CXRsCCD.setM7Fecha(determinarFecha(FCCD7A)); 
+                        CXRsCCD.setM7Cie10(DXCCD7A.getText());
+                        CXRsCCD.setM7Fua(FUACCD7A.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //8 AÑOS
+                    if(FCCD8A.getDate()!=null){
+                        CXRsCCD.setM8Fecha(determinarFecha(FCCD8A)); 
+                        CXRsCCD.setM8Cie10(DXCCD8A.getText());
+                        CXRsCCD.setM8Fua(FUACCD8A.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //9 AÑOS
+                    if(FCCD9A.getDate()!=null){
+                        CXRsCCD.setM9Fecha(determinarFecha(FCCD9A)); 
+                        CXRsCCD.setM9Cie10(DXCCD9A.getText());
+                        CXRsCCD.setM9Fua(FUACCD9A.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //10 AÑOS
+                    if(FCCD10A.getDate()!=null){
+                        CXRsCCD.setM10Fecha1(determinarFecha(FCCD10A)); 
+                        CXRsCCD.setM10Cie101(DXCCD10A.getText());
+                        CXRsCCD.setM10Fua1(FUACCD10A.getText());
+                    }
+                    ////////////////////////////////////////////////
+                    //10 AÑOS
+                    if(FCCD11A.getDate()!=null){
+                        CXRsCCD.setM11Fecha2(determinarFecha(FCCD11A)); 
+                        CXRsCCD.setM11Cie102(DXCCD11A.getText());
+                        CXRsCCD.setM11Fua2(FUACCD11A.getText());
+                    }
+            if(CXRsCCD.mantenimientoRSAICCD("U")==true){
+                mensaje1.setVisible(true);
+                mensaje1.setBackground(new Color(33,115,70)); 
+                men.setText("Datos Actualizados de forma correcta");
+                b.setText("OK");
+                b.setVisible(true);
+                b1.setVisible(false);
+                btnGuardar.setEnabled(false);
+                tge=1;
+                CXRsCCD2.ConsultoriosExtCCDListar(Integer.parseInt(lblId.getText()));
+                habilitarDatos(false);
+                habilitarRadio(true);
+            }else {
+                mensaje1.setVisible(true);
+                mensaje1.setBackground(new Color(255,91,70)); 
+                men.setText("Ocurrio un error, Verifique");
+                b.setVisible(false);
+                b1.setVisible(false);
+                tge=5;
+            }  
+
+            } catch (Exception e) {
+               System.out.println("Error: modificar " + e.getMessage());
+            }
+        }
     }
     
 
@@ -549,7 +1264,7 @@ JDateChooser fecha;
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(127, 127, 127)
                         .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap(184, Short.MAX_VALUE)))
             );
 
             jScrollPane4.setBorder(null);
@@ -689,6 +1404,11 @@ JDateChooser fecha;
             Rrn1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rrn1.setForeground(new java.awt.Color(255, 255, 255));
             Rrn1.setText("1");
+            Rrn1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rrn1ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel68Layout = new javax.swing.GroupLayout(jPanel68);
             jPanel68.setLayout(jPanel68Layout);
@@ -720,6 +1440,11 @@ JDateChooser fecha;
             Rrn2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rrn2.setForeground(new java.awt.Color(255, 255, 255));
             Rrn2.setText("2");
+            Rrn2.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rrn2ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel69Layout = new javax.swing.GroupLayout(jPanel69);
             jPanel69.setLayout(jPanel69Layout);
@@ -750,6 +1475,11 @@ JDateChooser fecha;
             Rrn3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rrn3.setForeground(new java.awt.Color(255, 255, 255));
             Rrn3.setText("3");
+            Rrn3.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rrn3ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel70Layout = new javax.swing.GroupLayout(jPanel70);
             jPanel70.setLayout(jPanel70Layout);
@@ -808,6 +1538,11 @@ JDateChooser fecha;
             Rrn4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rrn4.setForeground(new java.awt.Color(255, 255, 255));
             Rrn4.setText("4");
+            Rrn4.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rrn4ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel71Layout = new javax.swing.GroupLayout(jPanel71);
             jPanel71.setLayout(jPanel71Layout);
@@ -847,6 +1582,11 @@ JDateChooser fecha;
             DXCCDRN2.setText("                                ");
             DXCCDRN2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDRN2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDRN2.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDRN2MouseClicked(evt);
+                }
+            });
 
             DXCCDRN3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDRN3.setText("                                ");
@@ -895,7 +1635,7 @@ JDateChooser fecha;
                             .addComponent(jPanel69, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel71, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(jPanel68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 10, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addGroup(CCDRNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(DXCCDRN1)
                         .addComponent(DXCCDRN2)
@@ -1055,6 +1795,11 @@ JDateChooser fecha;
             Rm11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rm11.setForeground(new java.awt.Color(255, 255, 255));
             Rm11.setText("1º");
+            Rm11.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rm11ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel77Layout = new javax.swing.GroupLayout(jPanel77);
             jPanel77.setLayout(jPanel77Layout);
@@ -1085,6 +1830,11 @@ JDateChooser fecha;
             Rm12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rm12.setForeground(new java.awt.Color(255, 255, 255));
             Rm12.setText("2º");
+            Rm12.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rm12ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel78Layout = new javax.swing.GroupLayout(jPanel78);
             jPanel78.setLayout(jPanel78Layout);
@@ -1115,6 +1865,11 @@ JDateChooser fecha;
             Rm13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rm13.setForeground(new java.awt.Color(255, 255, 255));
             Rm13.setText("3º");
+            Rm13.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rm13ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel79Layout = new javax.swing.GroupLayout(jPanel79);
             jPanel79.setLayout(jPanel79Layout);
@@ -1145,6 +1900,11 @@ JDateChooser fecha;
             Rm14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rm14.setForeground(new java.awt.Color(255, 255, 255));
             Rm14.setText("4º");
+            Rm14.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rm14ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel80Layout = new javax.swing.GroupLayout(jPanel80);
             jPanel80.setLayout(jPanel80Layout);
@@ -1221,7 +1981,7 @@ JDateChooser fecha;
                             .addComponent(jPanel78, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel80, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(jPanel77, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 10, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addGroup(CCDM11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(DXCCDM1)
                         .addComponent(DXCCDM2)
@@ -1268,6 +2028,11 @@ JDateChooser fecha;
             Rm15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rm15.setForeground(new java.awt.Color(255, 255, 255));
             Rm15.setText("5º");
+            Rm15.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rm15ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel82Layout = new javax.swing.GroupLayout(jPanel82);
             jPanel82.setLayout(jPanel82Layout);
@@ -1298,6 +2063,11 @@ JDateChooser fecha;
             Rm16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rm16.setForeground(new java.awt.Color(255, 255, 255));
             Rm16.setText("6º");
+            Rm16.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rm16ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel83Layout = new javax.swing.GroupLayout(jPanel83);
             jPanel83.setLayout(jPanel83Layout);
@@ -1328,6 +2098,11 @@ JDateChooser fecha;
             Rm17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rm17.setForeground(new java.awt.Color(255, 255, 255));
             Rm17.setText("7º");
+            Rm17.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rm17ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel84Layout = new javax.swing.GroupLayout(jPanel84);
             jPanel84.setLayout(jPanel84Layout);
@@ -1379,6 +2154,11 @@ JDateChooser fecha;
             Rm18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rm18.setForeground(new java.awt.Color(255, 255, 255));
             Rm18.setText("8º");
+            Rm18.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rm18ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel85Layout = new javax.swing.GroupLayout(jPanel85);
             jPanel85.setLayout(jPanel85Layout);
@@ -1454,6 +2234,11 @@ JDateChooser fecha;
             Rm110.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rm110.setForeground(new java.awt.Color(255, 255, 255));
             Rm110.setText("10º");
+            Rm110.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rm110ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel87Layout = new javax.swing.GroupLayout(jPanel87);
             jPanel87.setLayout(jPanel87Layout);
@@ -1489,6 +2274,11 @@ JDateChooser fecha;
             Rm111.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             Rm111.setForeground(new java.awt.Color(255, 255, 255));
             Rm111.setText("11º");
+            Rm111.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Rm111ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel88Layout = new javax.swing.GroupLayout(jPanel88);
             jPanel88.setLayout(jPanel88Layout);
@@ -1707,17 +2497,17 @@ JDateChooser fecha;
                         .addComponent(lblNina)
                         .addComponent(lblNino))
                     .addGap(18, 18, 18)
-                    .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(CCDRN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LEYENDA, javax.swing.GroupLayout.PREFERRED_SIZE, 122, Short.MAX_VALUE)
-                        .addComponent(CCDM11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(CCDM11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CCDRN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LEYENDA, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                     .addGap(27, 27, 27)
                     .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCDM12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel169, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGap(18, 18, 18)
                     .addComponent(lblId)
-                    .addContainerGap(77, Short.MAX_VALUE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
             jTabbedPane1.addTab("Menores de 1 año", CCD);
@@ -1757,6 +2547,11 @@ JDateChooser fecha;
             R11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R11.setForeground(new java.awt.Color(255, 255, 255));
             R11.setText("1º");
+            R11.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R11ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel90Layout = new javax.swing.GroupLayout(jPanel90);
             jPanel90.setLayout(jPanel90Layout);
@@ -1788,6 +2583,11 @@ JDateChooser fecha;
             R12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R12.setForeground(new java.awt.Color(255, 255, 255));
             R12.setText("2º");
+            R12.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R12ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel91Layout = new javax.swing.GroupLayout(jPanel91);
             jPanel91.setLayout(jPanel91Layout);
@@ -1818,6 +2618,11 @@ JDateChooser fecha;
             R13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R13.setForeground(new java.awt.Color(255, 255, 255));
             R13.setText("3º");
+            R13.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R13ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel92Layout = new javax.swing.GroupLayout(jPanel92);
             jPanel92.setLayout(jPanel92Layout);
@@ -1903,6 +2708,11 @@ JDateChooser fecha;
             R15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R15.setForeground(new java.awt.Color(255, 255, 255));
             R15.setText("5º");
+            R15.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R15ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel94Layout = new javax.swing.GroupLayout(jPanel94);
             jPanel94.setLayout(jPanel94Layout);
@@ -1938,6 +2748,11 @@ JDateChooser fecha;
             R16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R16.setForeground(new java.awt.Color(255, 255, 255));
             R16.setText("6º");
+            R16.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R16ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel95Layout = new javax.swing.GroupLayout(jPanel95);
             jPanel95.setLayout(jPanel95Layout);
@@ -2073,6 +2888,11 @@ JDateChooser fecha;
             R21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R21.setForeground(new java.awt.Color(255, 255, 255));
             R21.setText("1º");
+            R21.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R21ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel97Layout = new javax.swing.GroupLayout(jPanel97);
             jPanel97.setLayout(jPanel97Layout);
@@ -2103,6 +2923,11 @@ JDateChooser fecha;
             R22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R22.setForeground(new java.awt.Color(255, 255, 255));
             R22.setText("2º");
+            R22.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R22ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel98Layout = new javax.swing.GroupLayout(jPanel98);
             jPanel98.setLayout(jPanel98Layout);
@@ -2133,6 +2958,11 @@ JDateChooser fecha;
             R23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R23.setForeground(new java.awt.Color(255, 255, 255));
             R23.setText("3º");
+            R23.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R23ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel99Layout = new javax.swing.GroupLayout(jPanel99);
             jPanel99.setLayout(jPanel99Layout);
@@ -2291,6 +3121,11 @@ JDateChooser fecha;
             R31.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R31.setForeground(new java.awt.Color(255, 255, 255));
             R31.setText("1º");
+            R31.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R31ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel102Layout = new javax.swing.GroupLayout(jPanel102);
             jPanel102.setLayout(jPanel102Layout);
@@ -2321,6 +3156,11 @@ JDateChooser fecha;
             R32.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R32.setForeground(new java.awt.Color(255, 255, 255));
             R32.setText("2º");
+            R32.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R32ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel103Layout = new javax.swing.GroupLayout(jPanel103);
             jPanel103.setLayout(jPanel103Layout);
@@ -2351,6 +3191,11 @@ JDateChooser fecha;
             R33.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R33.setForeground(new java.awt.Color(255, 255, 255));
             R33.setText("3º");
+            R33.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R33ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel104Layout = new javax.swing.GroupLayout(jPanel104);
             jPanel104.setLayout(jPanel104Layout);
@@ -2563,6 +3408,11 @@ JDateChooser fecha;
             R41.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R41.setForeground(new java.awt.Color(255, 255, 255));
             R41.setText("1º");
+            R41.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R41ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel109Layout = new javax.swing.GroupLayout(jPanel109);
             jPanel109.setLayout(jPanel109Layout);
@@ -2593,6 +3443,11 @@ JDateChooser fecha;
             R42.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R42.setForeground(new java.awt.Color(255, 255, 255));
             R42.setText("2º");
+            R42.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R42ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel110Layout = new javax.swing.GroupLayout(jPanel110);
             jPanel110.setLayout(jPanel110Layout);
@@ -2623,6 +3478,11 @@ JDateChooser fecha;
             R43.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R43.setForeground(new java.awt.Color(255, 255, 255));
             R43.setText("3º");
+            R43.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R43ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel111Layout = new javax.swing.GroupLayout(jPanel111);
             jPanel111.setLayout(jPanel111Layout);
@@ -2848,12 +3708,12 @@ JDateChooser fecha;
                     .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCD1A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CCDR2A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGap(18, 34, Short.MAX_VALUE)
+                    .addGap(18, 18, Short.MAX_VALUE)
                     .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCDR3A, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CCDR3A1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel170, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(112, Short.MAX_VALUE))
+                    .addContainerGap(52, Short.MAX_VALUE))
             );
 
             jTabbedPane1.addTab("1 a 4 años", CCD1);
@@ -2947,6 +3807,11 @@ JDateChooser fecha;
             R5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R5.setForeground(new java.awt.Color(255, 255, 255));
             R5.setText("1º");
+            R5.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R5ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel116Layout = new javax.swing.GroupLayout(jPanel116);
             jPanel116.setLayout(jPanel116Layout);
@@ -3026,6 +3891,11 @@ JDateChooser fecha;
             R6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R6.setForeground(new java.awt.Color(255, 255, 255));
             R6.setText("1º");
+            R6.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R6ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel118Layout = new javax.swing.GroupLayout(jPanel118);
             jPanel118.setLayout(jPanel118Layout);
@@ -3105,6 +3975,11 @@ JDateChooser fecha;
             R7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R7.setForeground(new java.awt.Color(255, 255, 255));
             R7.setText("1º");
+            R7.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R7ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel120Layout = new javax.swing.GroupLayout(jPanel120);
             jPanel120.setLayout(jPanel120Layout);
@@ -3184,6 +4059,11 @@ JDateChooser fecha;
             R8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R8.setForeground(new java.awt.Color(255, 255, 255));
             R8.setText("1º");
+            R8.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R8ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel122Layout = new javax.swing.GroupLayout(jPanel122);
             jPanel122.setLayout(jPanel122Layout);
@@ -3263,6 +4143,11 @@ JDateChooser fecha;
             R9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R9.setForeground(new java.awt.Color(255, 255, 255));
             R9.setText("1º");
+            R9.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R9ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel124Layout = new javax.swing.GroupLayout(jPanel124);
             jPanel124.setLayout(jPanel124Layout);
@@ -3342,6 +4227,11 @@ JDateChooser fecha;
             R10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R10.setForeground(new java.awt.Color(255, 255, 255));
             R10.setText("1º");
+            R10.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R10ActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel126Layout = new javax.swing.GroupLayout(jPanel126);
             jPanel126.setLayout(jPanel126Layout);
@@ -3421,6 +4311,11 @@ JDateChooser fecha;
             R11a.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             R11a.setForeground(new java.awt.Color(255, 255, 255));
             R11a.setText("1º");
+            R11a.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    R11aActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel128Layout = new javax.swing.GroupLayout(jPanel128);
             jPanel128.setLayout(jPanel128Layout);
@@ -3534,7 +4429,7 @@ JDateChooser fecha;
                     .addGroup(CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(CCDR10A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(CCDR11A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(144, Short.MAX_VALUE))
+                    .addContainerGap(68, Short.MAX_VALUE))
             );
 
             jTabbedPane1.addTab("5 a 11 años", CCD2);
@@ -3737,7 +4632,7 @@ JDateChooser fecha;
     }//GEN-LAST:event_btneditar4ActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-//            Guardar();
+     validaRegistro(Integer.parseInt(lblId.getText()));
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void FUACCDRN2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FUACCDRN2ActionPerformed
@@ -3766,8 +4661,8 @@ JDateChooser fecha;
     }//GEN-LAST:event_FUACCDRN1MouseClicked
 
     private void txtBuscarCie10CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCie10CaretUpdate
-        ConsultorioExtRsCcd adTopico = new ConsultorioExtRsCcd();
-//        adTopico.cargarDatosCie10(txtBuscarCie10.getText(), tbCiePresun);
+        ConsultorioExtRsCcd CCDBUSCAR = new ConsultorioExtRsCcd();
+        CCDBUSCAR.cargarDatosCie10(txtBuscarCie10.getText(), tbCiePresun);
     }//GEN-LAST:event_txtBuscarCie10CaretUpdate
 
     private void txtBuscarCie10KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarCie10KeyPressed
@@ -3840,33 +4735,104 @@ JDateChooser fecha;
     }//GEN-LAST:event_FUACCDM7CaretUpdate
 
     private void Rm19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rm19ActionPerformed
-        // TODO add your handling code here:
+        if(FCCDM9.getDate()==null){
+            if(Rm19.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDM9.setEnabled(true);
+                FCCDM9.setEnabled(true);
+                DXCCDM9.requestFocus();
+                FUACCDM9.setEditable(true); 
+                fecha=FCCDM9;
+                fua = FUACCDM9;
+                cie10=DXCCDM9;
+            }
+        } else {
+            FCCDM9.setEnabled(false);
+        }
     }//GEN-LAST:event_Rm19ActionPerformed
 
     private void R14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R14ActionPerformed
-        // TODO add your handling code here:
+         if(FCCD14.getDate()==null){
+            if(R14.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD14.setEnabled(true);
+                FCCD14.setEnabled(true);
+                DXCCD14.requestFocus();
+                FUACCD14.setEditable(true); 
+                fecha=FCCD14;
+                fua = FUACCD14;
+                cie10=DXCCD14;
+            }
+        } else {
+            FCCD14.setEnabled(false);
+        }
     }//GEN-LAST:event_R14ActionPerformed
 
     private void R24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R24ActionPerformed
-        // TODO add your handling code here:
+         if(FCCD24.getDate()==null){
+            if(R24.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD24.setEnabled(true);
+                FCCD24.setEnabled(true);
+                DXCCD24.requestFocus();
+                FUACCD24.setEditable(true); 
+                fecha=FCCD24;
+                fua = FUACCD24;
+                cie10=DXCCD24;
+            }
+        } else {
+            FCCD21.setEnabled(false);
+        }
     }//GEN-LAST:event_R24ActionPerformed
 
     private void R34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R34ActionPerformed
-        // TODO add your handling code here:
+        if(FCCD3A4.getDate()==null){
+            if(R34.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD3A4.setEnabled(true);
+                FCCD3A4.setEnabled(true);
+                DXCCD3A4.requestFocus();
+                FUACCD3A4.setEditable(true); 
+                fecha=FCCD3A4;
+                fua = FUACCD3A4;
+                cie10=DXCCD3A4;
+            }
+        } else {
+            FCCD3A4.setEnabled(false);
+        }
     }//GEN-LAST:event_R34ActionPerformed
 
     private void R44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R44ActionPerformed
-        // TODO add your handling code here:
+        if(FCCD4A4.getDate()==null){
+            if(R44.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD4A4.setEnabled(true);
+                FCCD4A4.setEnabled(true);
+                DXCCD4A4.requestFocus();
+                FUACCD4A4.setEditable(true); 
+                fecha=FCCD4A4;
+                fua = FUACCD4A4;
+                cie10=DXCCD4A4;
+            }
+        } else {
+            FCCD4A4.setEnabled(false);
+        }
     }//GEN-LAST:event_R44ActionPerformed
 
     private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
        
-
+        habilitarRadio(true);
+        habilitarDatos(false);
     }//GEN-LAST:event_btnCaccnelarActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
         if (tge==3 || tge==1 || tge==9){
-            mensaje.setVisible(false);
+            mensaje1.setVisible(false);
 
         }
 
@@ -3881,8 +4847,644 @@ JDateChooser fecha;
     }//GEN-LAST:event_bActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
-        mensaje.setVisible(false);
+        mensaje1.setVisible(false);
     }//GEN-LAST:event_b1ActionPerformed
+
+    private void R11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R11ActionPerformed
+        if(FCCD11.getDate()==null){
+            if(R11.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD11.setEnabled(true);
+                FCCD11.setEnabled(true);
+                DXCCD11.requestFocus();
+                FUACCD11.setEditable(true); 
+                fecha=FCCD11;
+                fua = FUACCD11;
+                cie10=DXCCD11;
+            }
+        } else {
+            FCCD11.setEnabled(false);
+        }
+    }//GEN-LAST:event_R11ActionPerformed
+
+    private void R12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R12ActionPerformed
+         if(FCCD12.getDate()==null){
+            if(R12.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD12.setEnabled(true);
+                FCCD12.setEnabled(true);
+                DXCCD12.requestFocus();
+                FUACCD12.setEditable(true); 
+                fecha=FCCD12;
+                fua = FUACCD12;
+                cie10=DXCCD12;
+            }
+        } else {
+            FCCD12.setEnabled(false);
+        }
+    }//GEN-LAST:event_R12ActionPerformed
+
+    private void R13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R13ActionPerformed
+         if(FCCD13.getDate()==null){
+            if(R13.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD13.setEnabled(true);
+                FCCD13.setEnabled(true);
+                DXCCD13.requestFocus();
+                FUACCD13.setEditable(true); 
+                fecha=FCCD13;
+                fua = FUACCD13;
+                cie10=DXCCD13;
+            }
+        } else {
+            FCCD13.setEnabled(false);
+        }
+    }//GEN-LAST:event_R13ActionPerformed
+
+    private void R15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R15ActionPerformed
+        if(FCCD15.getDate()==null){
+            if(R15.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD15.setEnabled(true);
+                FCCD15.setEnabled(true);
+                DXCCD15.requestFocus();
+                FUACCD15.setEditable(true); 
+                fecha=FCCD15;
+                fua = FUACCD15;
+                cie10=DXCCD15;
+            }
+        } else {
+            FCCD15.setEnabled(false);
+        }
+    }//GEN-LAST:event_R15ActionPerformed
+
+    private void R16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R16ActionPerformed
+         if(FCCD16.getDate()==null){
+            if(R16.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD16.setEnabled(true);
+                FCCD16.setEnabled(true);
+                DXCCD16.requestFocus();
+                FUACCD16.setEditable(true); 
+                fecha=FCCD16;
+                fua = FUACCD16;
+                cie10=DXCCD16;
+            }
+        } else {
+            FCCD16.setEnabled(false);
+        }
+    }//GEN-LAST:event_R16ActionPerformed
+
+    private void Rrn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rrn1ActionPerformed
+        if(FCCDRN1.getDate()==null){
+            if(Rrn1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDRN1.setEnabled(true);
+                FCCDRN1.setEnabled(true);
+                DXCCDRN1.requestFocus();
+                FUACCDRN1.setEditable(true); 
+                fecha=FCCDRN1;
+                fua = FUACCD11;
+                cie10=DXCCD11;
+            }
+        } else {
+            FCCDRN1.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rrn1ActionPerformed
+
+    private void Rrn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rrn2ActionPerformed
+        if(FCCDRN2.getDate()==null){
+            if(Rrn2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDRN2.setEnabled(true);
+                FCCDRN2.setEnabled(true);
+                DXCCDRN2.requestFocus();
+                FUACCDRN2.setEditable(true); 
+                fecha=FCCDRN2;
+                fua = FUACCDRN2;
+                cie10=DXCCDRN2;
+            }
+        } else {
+            FCCDRN2.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rrn2ActionPerformed
+
+    private void Rrn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rrn3ActionPerformed
+        if(FCCDRN3.getDate()==null){
+            if(Rrn3.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDRN3.setEnabled(true);
+                FCCDRN3.setEnabled(true);
+                DXCCDRN3.requestFocus();
+                FUACCDRN3.setEditable(true); 
+                fecha=FCCDRN3;
+                fua = FUACCDRN3;
+                cie10=DXCCDRN3;
+            }
+        } else {
+            FCCDRN3.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rrn3ActionPerformed
+
+    private void Rrn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rrn4ActionPerformed
+         if(FCCDRN4.getDate()==null){
+            if(Rrn4.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDRN4.setEnabled(true);
+                FCCDRN4.setEnabled(true);
+                DXCCDRN4.requestFocus();
+                FUACCDRN4.setEditable(true); 
+                fecha=FCCDRN4;
+                fua = FUACCDRN4;
+                cie10=DXCCDRN4;
+            }
+        } else {
+            FCCDRN4.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rrn4ActionPerformed
+
+    private void Rm11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rm11ActionPerformed
+        if(FCCDM1.getDate()==null){
+            if(Rm11.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDM1.setEnabled(true);
+                FCCDM1.setEnabled(true);
+                DXCCDM1.requestFocus();
+                FUACCDM1.setEditable(true); 
+                fecha=FCCDM1;
+                fua = FUACCDM1;
+                cie10=DXCCDM1;
+            }
+        } else {
+            FCCDM1.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rm11ActionPerformed
+
+    private void Rm12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rm12ActionPerformed
+        if(FCCDM2.getDate()==null){
+            if(Rm12.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDM2.setEnabled(true);
+                FCCDM2.setEnabled(true);
+                DXCCDM2.requestFocus();
+                FUACCDM2.setEditable(true); 
+                fecha=FCCDM2;
+                fua = FUACCDM2;
+                cie10=DXCCDM2;
+            }
+        } else {
+            FCCDM2.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rm12ActionPerformed
+
+    private void Rm13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rm13ActionPerformed
+        if(FCCDM3.getDate()==null){
+            if(Rm13.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDM3.setEnabled(true);
+                FCCDM3.setEnabled(true);
+                DXCCDM3.requestFocus();
+                FUACCDM3.setEditable(true); 
+                fecha=FCCDM3;
+                fua = FUACCDM3;
+                cie10=DXCCDM3;
+            }
+        } else {
+            FCCDM3.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rm13ActionPerformed
+
+    private void Rm14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rm14ActionPerformed
+        if(FCCDM4.getDate()==null){
+            if(Rm14.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDM4.setEnabled(true);
+                FCCDM4.setEnabled(true);
+                DXCCDM4.requestFocus();
+                FUACCDM4.setEditable(true); 
+                fecha=FCCDM4;
+                fua = FUACCDM4;
+                cie10=DXCCDM4;
+            }
+        } else {
+            FCCDM4.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rm14ActionPerformed
+
+    private void Rm15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rm15ActionPerformed
+        if(FCCDM5.getDate()==null){
+            if(Rm15.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDM5.setEnabled(true);
+                FCCDM5.setEnabled(true);
+                DXCCDM5.requestFocus();
+                FUACCDM5.setEditable(true); 
+                fecha=FCCDM5;
+                fua = FUACCDM5;
+                cie10=DXCCDM5;
+            }
+        } else {
+            FCCDM5.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rm15ActionPerformed
+
+    private void Rm16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rm16ActionPerformed
+        if(FCCDM6.getDate()==null){
+            if(Rm16.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDM6.setEnabled(true);
+                FCCDM6.setEnabled(true);
+                DXCCDM6.requestFocus();
+                FUACCDM6.setEditable(true); 
+                fecha=FCCDM6;
+                fua = FUACCDM6;
+                cie10=DXCCDM6;
+            }
+        } else {
+            FCCDM6.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rm16ActionPerformed
+
+    private void Rm17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rm17ActionPerformed
+       if(FCCDM7.getDate()==null){
+            if(Rm17.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDM7.setEnabled(true);
+                FCCDM7.setEnabled(true);
+                DXCCDM7.requestFocus();
+                FUACCDM7.setEditable(true); 
+                fecha=FCCDM7;
+                fua = FUACCDM7;
+                cie10=DXCCDM7;
+            }
+        } else {
+            FCCDM7.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rm17ActionPerformed
+
+    private void Rm18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rm18ActionPerformed
+        if(FCCDM8.getDate()==null){
+            if(Rm18.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDM8.setEnabled(true);
+                FCCDM8.setEnabled(true);
+                DXCCDM8.requestFocus();
+                FUACCDM8.setEditable(true); 
+                fecha=FCCDM8;
+                fua = FUACCDM8;
+                cie10=DXCCDM8;
+            }
+        } else {
+            FCCDM8.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rm18ActionPerformed
+
+    private void Rm110ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rm110ActionPerformed
+        if(FCCDM10.getDate()==null){
+            if(Rm110.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDM10.setEnabled(true);
+                FCCDM10.setEnabled(true);
+                DXCCDM10.requestFocus();
+                FUACCDM10.setEditable(true); 
+                fecha=FCCDM10;
+                fua = FUACCDM10;
+                cie10=DXCCDM10;
+            }
+        } else {
+            FCCDM10.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rm110ActionPerformed
+
+    private void Rm111ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rm111ActionPerformed
+        if(FCCDM11.getDate()==null){
+            if(Rm111.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCDM11.setEnabled(true);
+                FCCDM11.setEnabled(true);
+                DXCCDM11.requestFocus();
+                FUACCDM11.setEditable(true); 
+                fecha=FCCDM11;
+                fua = FUACCDM11;
+                cie10=DXCCDM11;
+            }
+        } else {
+            FCCDM11.setEnabled(false);
+        }
+    }//GEN-LAST:event_Rm111ActionPerformed
+
+    private void R21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R21ActionPerformed
+        if(FCCD21.getDate()==null){
+            if(R21.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD21.setEnabled(true);
+                FCCD21.setEnabled(true);
+                DXCCD21.requestFocus();
+                FUACCD21.setEditable(true); 
+                fecha=FCCD21;
+                fua = FUACCD21;
+                cie10=DXCCD21;
+            }
+        } else {
+            FCCD21.setEnabled(false);
+        }
+    }//GEN-LAST:event_R21ActionPerformed
+
+    private void R22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R22ActionPerformed
+         if(FCCD22.getDate()==null){
+            if(R22.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD22.setEnabled(true);
+                FCCD22.setEnabled(true);
+                DXCCD22.requestFocus();
+                FUACCD22.setEditable(true); 
+                fecha=FCCD22;
+                fua = FUACCD22;
+                cie10=DXCCD22;
+            }
+        } else {
+            FCCD22.setEnabled(false);
+        }
+    }//GEN-LAST:event_R22ActionPerformed
+
+    private void R23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R23ActionPerformed
+         if(FCCD23.getDate()==null){
+            if(R23.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD23.setEnabled(true);
+                FCCD23.setEnabled(true);
+                DXCCD23.requestFocus();
+                FUACCD23.setEditable(true); 
+                fecha=FCCD23;
+                fua = FUACCD23;
+                cie10=DXCCD23;
+            }
+        } else {
+            FCCD23.setEnabled(false);
+        }
+    }//GEN-LAST:event_R23ActionPerformed
+
+    private void R31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R31ActionPerformed
+        if(FCCD3A1.getDate()==null){
+            if(R31.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD3A1.setEnabled(true);
+                FCCD3A1.setEnabled(true);
+                DXCCD3A1.requestFocus();
+                FUACCD3A1.setEditable(true); 
+                fecha=FCCD3A1;
+                fua = FUACCD3A1;
+                cie10=DXCCD3A1;
+            }
+        } else {
+            FCCD3A1.setEnabled(false);
+        }
+    }//GEN-LAST:event_R31ActionPerformed
+
+    private void R32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R32ActionPerformed
+        if(FCCD3A2.getDate()==null){
+            if(R32.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD3A2.setEnabled(true);
+                FCCD3A2.setEnabled(true);
+                DXCCD3A2.requestFocus();
+                FUACCD3A2.setEditable(true); 
+                fecha=FCCD3A2;
+                fua = FUACCD3A2;
+                cie10=DXCCD3A2;
+            }
+        } else {
+            FCCD3A2.setEnabled(false);
+        }
+    }//GEN-LAST:event_R32ActionPerformed
+
+    private void R33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R33ActionPerformed
+       if(FCCD3A3.getDate()==null){
+            if(R33.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD3A3.setEnabled(true);
+                FCCD3A3.setEnabled(true);
+                DXCCD3A3.requestFocus();
+                FUACCD3A3.setEditable(true); 
+                fecha=FCCD3A3;
+                fua = FUACCD3A3;
+                cie10=DXCCD3A3;
+            }
+        } else {
+            FCCD3A3.setEnabled(false);
+        }
+    }//GEN-LAST:event_R33ActionPerformed
+
+    private void R41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R41ActionPerformed
+        if(FCCD4A1.getDate()==null){
+            if(R41.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD4A1.setEnabled(true);
+                FCCD4A1.setEnabled(true);
+                DXCCD4A1.requestFocus();
+                FUACCD4A1.setEditable(true); 
+                fecha=FCCD4A1;
+                fua = FUACCD4A1;
+                cie10=DXCCD4A1;
+            }
+        } else {
+            FCCD4A1.setEnabled(false);
+        }
+    }//GEN-LAST:event_R41ActionPerformed
+
+    private void R42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R42ActionPerformed
+        if(FCCD4A2.getDate()==null){
+            if(R42.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD4A2.setEnabled(true);
+                FCCD4A2.setEnabled(true);
+                DXCCD4A2.requestFocus();
+                FUACCD4A2.setEditable(true); 
+                fecha=FCCD4A2;
+                fua = FUACCD4A2;
+                cie10=DXCCD4A2;
+            }
+        } else {
+            FCCD4A2.setEnabled(false);
+        }
+    }//GEN-LAST:event_R42ActionPerformed
+
+    private void R43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R43ActionPerformed
+        if(FCCD4A3.getDate()==null){
+            if(R43.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD4A3.setEnabled(true);
+                FCCD4A3.setEnabled(true);
+                DXCCD4A3.requestFocus();
+                FUACCD4A3.setEditable(true); 
+                fecha=FCCD4A3;
+                fua = FUACCD4A3;
+                cie10=DXCCD4A3;
+            }
+        } else {
+            FCCD4A3.setEnabled(false);
+        }
+    }//GEN-LAST:event_R43ActionPerformed
+
+    private void R5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R5ActionPerformed
+        if(FCCD5A.getDate()==null){
+            if(R5.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD5A.setEnabled(true);
+                FCCD5A.setEnabled(true);
+                DXCCD5A.requestFocus();
+                FUACCD5A.setEditable(true); 
+                fecha=FCCD5A;
+                fua = FUACCD5A;
+                cie10=DXCCD5A;
+            }
+        } else {
+            FCCD5A.setEnabled(false);
+        }
+    }//GEN-LAST:event_R5ActionPerformed
+
+    private void R6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R6ActionPerformed
+         if(FCCD6A.getDate()==null){
+            if(R6.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD6A.setEnabled(true);
+                FCCD6A.setEnabled(true);
+                DXCCD6A.requestFocus();
+                FUACCD6A.setEditable(true); 
+                fecha=FCCD6A;
+                fua = FUACCD6A;
+                cie10=DXCCD6A;
+            }
+        } else {
+            FCCD6A.setEnabled(false);
+        }
+    }//GEN-LAST:event_R6ActionPerformed
+
+    private void R7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R7ActionPerformed
+         if(FCCD7A.getDate()==null){
+            if(R7.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD7A.setEnabled(true);
+                FCCD7A.setEnabled(true);
+                DXCCD7A.requestFocus();
+                FUACCD7A.setEditable(true); 
+                fecha=FCCD7A;
+                fua = FUACCD7A;
+                cie10=DXCCD7A;
+            }
+        } else {
+            FCCD7A.setEnabled(false);
+        }
+    }//GEN-LAST:event_R7ActionPerformed
+
+    private void R8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R8ActionPerformed
+         if(FCCD8A.getDate()==null){
+            if(R8.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD8A.setEnabled(true);
+                FCCD8A.setEnabled(true);
+                DXCCD8A.requestFocus();
+                FUACCD8A.setEditable(true); 
+                fecha=FCCD8A;
+                fua = FUACCD8A;
+                cie10=DXCCD8A;
+            }
+        } else {
+            FCCD8A.setEnabled(false);
+        }
+    }//GEN-LAST:event_R8ActionPerformed
+
+    private void R9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R9ActionPerformed
+         if(FCCD9A.getDate()==null){
+            if(R9.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD9A.setEnabled(true);
+                FCCD9A.setEnabled(true);
+                DXCCD9A.requestFocus();
+                FUACCD9A.setEditable(true); 
+                fecha=FCCD9A;
+                fua = FUACCD9A;
+                cie10=DXCCD9A;
+            }
+        } else {
+            FCCD9A.setEnabled(false);
+        }
+    }//GEN-LAST:event_R9ActionPerformed
+
+    private void R10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R10ActionPerformed
+         if(FCCD10A.getDate()==null){
+            if(R10.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD10A.setEnabled(true);
+                FCCD10A.setEnabled(true);
+                DXCCD10A.requestFocus();
+                FUACCD10A.setEditable(true); 
+                fecha=FCCD10A;
+                fua = FUACCD10A;
+                cie10=DXCCD10A;
+            }
+        } else {
+            FCCD10A.setEnabled(false);
+        }
+    }//GEN-LAST:event_R10ActionPerformed
+
+    private void R11aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R11aActionPerformed
+         if(FCCD11A.getDate()==null){
+            if(R11.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FUACCD11A.setEnabled(true);
+                FCCD11A.setEnabled(true);
+                DXCCD11A.requestFocus();
+                FUACCD11A.setEditable(true); 
+                fecha=FCCD11A;
+                fua = FUACCD11A;
+                cie10=DXCCD11A;
+            }
+        } else {
+            FCCD11A.setEnabled(false);
+        }
+    }//GEN-LAST:event_R11aActionPerformed
+
+    private void DXCCDRN2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN2MouseClicked
+            ConsultorioExtRsCcd adTopico = new ConsultorioExtRsCcd();
+//        adTopico.cargarDatosCie10("", tbCiePresun);
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDRN2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1678,7 +1678,24 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel12MouseClicked
 
     private void jPanel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel13MouseClicked
-
+        RSAICCD CCD =new RSAICCD();
+        Contenedor.add(CCD);
+        if(lblGenero.getText().equals("F")){
+            CCD.lblNina.setText(txtPaciente.getText());
+            CCD.lblNina.setVisible(true);
+            CCD.lblNino.setVisible(false);
+        } else {
+            CCD.lblNino.setText(txtPaciente.getText());
+            CCD.lblNino.setVisible(true);
+            CCD.lblNina.setVisible(false);
+        }
+        RSAIVacunas.lblId.setText(String.valueOf(id));
+        try {
+            CCD.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jPanel13MouseClicked
 
     private void txtPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPacienteCaretUpdate
@@ -1698,6 +1715,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             CCD.lblNino.setVisible(true);
             CCD.lblNina.setVisible(false);
         }
+        RSAIVacunas.lblId.setText(String.valueOf(id));
         try {
             CCD.setMaximum(true);
         } catch (PropertyVetoException ex) {

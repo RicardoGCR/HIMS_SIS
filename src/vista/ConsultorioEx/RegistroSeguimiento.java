@@ -202,6 +202,23 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             System.out.println("Error: porcentajeVacunas " + e.getMessage());
         }
     }
+    
+    public void porcentajeCCD(int rs_id){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EXT_RS_CCD_PORCENTAJE ?";
+            PreparedStatement cmd = cabecera.getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblPorcentajeCCD.setText(r.getString(1) + " %"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeCCD " + e.getMessage());
+        }
+    }
 
     public void validaTriaje(String triaje){
         try {
@@ -210,6 +227,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             if(res.next()){
                 id = Integer.parseInt(res.getString("RS_ID"));
                 porcentajeVacunas(id);
+                porcentajeCCD(id);
                 datosPadres(triaje);
                 pnlPadres.setVisible(true);
                 lblPadres.setVisible(true);
@@ -292,6 +310,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 lblPorcentajeVacunas = new javax.swing.JLabel();
                 jPanel13 = new javax.swing.JPanel();
                 jLabel5 = new javax.swing.JLabel();
+                lblPorcentajeCCD = new javax.swing.JLabel();
                 jPanel15 = new javax.swing.JPanel();
                 jLabel6 = new javax.swing.JLabel();
                 jPanel16 = new javax.swing.JPanel();
@@ -826,17 +845,25 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     }
                 });
 
+                lblPorcentajeCCD.setText("jLabel20");
+
                 javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
                 jPanel13.setLayout(jPanel13Layout);
                 jPanel13Layout.setHorizontalGroup(
                     jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel5)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(lblPorcentajeCCD)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel13Layout.setVerticalGroup(
                     jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(lblPorcentajeCCD)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 );
 
@@ -888,7 +915,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(30, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel16Layout.setVerticalGroup(
                     jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1055,7 +1082,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel23Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel14)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(53, Short.MAX_VALUE))
                 );
                 jPanel23Layout.setVerticalGroup(
                     jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1158,7 +1185,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                             .addComponent(jPanel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 18, Short.MAX_VALUE)
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1604,9 +1631,9 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(txtSis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(pnlContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(78, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                 );
 
                 javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -2170,6 +2197,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     private javax.swing.JLabel lblMensaje;
     public static javax.swing.JLabel lblNHC;
     private javax.swing.JLabel lblPadres;
+    private javax.swing.JLabel lblPorcentajeCCD;
     private javax.swing.JLabel lblPorcentajeVacunas;
     public static javax.swing.JLabel lblSector;
     public static javax.swing.JTextField lblTelefono;

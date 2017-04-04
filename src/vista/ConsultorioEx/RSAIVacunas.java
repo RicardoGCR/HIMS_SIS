@@ -31,6 +31,7 @@ byte tge;
     /**
      * Creates new form RSAIVacunas
      */
+JDateChooser fecha;
     public RSAIVacunas() {
         initComponents();
         QuitarLaBarraTitulo();
@@ -307,85 +308,167 @@ byte tge;
         return fecha;
     }
     
-    public void Guardar(){
-//        if(txtPA.getText().equals("")|| txtFR.getText().equals("")){
-//            mensaje.setVisible(true);
-//            mensaje.setBackground(new Color(255,91,70)); 
-//            men.setText("Asegurese de completar todos los campos");
-//            b.setVisible(false);
-//            b1.setVisible(false);
-//        } else {
-                            ConsultorioExtRsVacunas CXRsVacunas = new ConsultorioExtRsVacunas();
+    public void Guardar(JDateChooser fecha){
+        if(fecha.getDate()==null){
+            mensaje.setVisible(true);
+            mensaje.setBackground(new Color(255,91,70)); 
+            men.setText("Ingrese una fecha valida");
+            b.setVisible(false);
+            b1.setVisible(false);
+        } else {
+    ConsultorioExtRsVacunas CXRsVacunas = new ConsultorioExtRsVacunas();
+    ConsultorioExtRsVacunas CXRsVacunas2 = new ConsultorioExtRsVacunas();
+    try {
+                 
+            CXRsVacunas.setRsId(Integer.parseInt(lblId.getText()));
+            if(dtElab.getDate()!=null){
+                CXRsVacunas.setElabFecha(determinarFecha(dtElab));  
+                CXRsVacunas.setElabFua(txtFuaElab.getText());
+            }
 
-                            CXRsVacunas.setVacId(Integer.parseInt(lblId.getText()));
-                            
-                            CXRsVacunas.setElabFecha(determinarFecha(dtElab));
-                            CXRsVacunas.setElabFua(txtFuaElab.getText());
-                            
-                            CXRsVacunas.setEjecFecha(determinarFecha(dtEjec));
-                            CXRsVacunas.setEjecFua(txtFuaEjec.getText());
-                            //BCG/HVB
-                            CXRsVacunas.setRnbcgFecha(determinarFecha(dtBcg));
-                            CXRsVacunas.setRnbcgFua(txtFuaBcg.getText());
-                            CXRsVacunas.setRnhvbFecha(determinarFecha(dtHvb));
-                            CXRsVacunas.setRnhvbFua(txtFuaHvb.getText());
-                            //ANTIPOLIO
-                            CXRsVacunas.setAnt1Fecha(determinarFecha(dtIpv1));
-                            CXRsVacunas.setAnt1Fua(txtFuaIpv1.getText());
-                            CXRsVacunas.setAnt2Fecha(determinarFecha(dtIpv2));
-                            CXRsVacunas.setAnt2Fua(txtFuaIpv2.getText());
-                            CXRsVacunas.setAnt3Fecha(determinarFecha(dtIpv3));
-                            CXRsVacunas.setAnt3Fua(txtFuaIpv3.getText());
-                            
-                            CXRsVacunas.setPent1Fecha(determinarFecha(dtPent1));
-                            CXRsVacunas.setPent1Fua(txtFuaPent1.getText());
-                            CXRsVacunas.setPent2Fecha(determinarFecha(dtPent2));
-                            CXRsVacunas.setPent2Fua(txtFuaPent2.getText());
-                            CXRsVacunas.setPent3Fecha(determinarFecha(dtPent3));
-                            CXRsVacunas.setPent3Fua(txtFuaPent3.getText());
-                            //NEOMONCOCO
-                            CXRsVacunas.setNeu1Fecha(determinarFecha(dtNeumo1));
-                            CXRsVacunas.setNeu1Fua(txtFuaNeumo1.getText());
-                            CXRsVacunas.setNeu2Fecha(determinarFecha(dtNeumo2));
-                            CXRsVacunas.setNeu2Fua(txtFuaNeumo2.getText());
-                            CXRsVacunas.setNeu3Fecha(determinarFecha(dtNeumo3));
-                            CXRsVacunas.setNeu3Fua(txtFuaNeumo3.getText());
-                            //INFLUENZA
-                            CXRsVacunas.setInfl1Fecha(determinarFecha(dtInfl1));
-                            CXRsVacunas.setInfl1Fua(txtFuaInfl1.getText());
-                            CXRsVacunas.setInfl2Fecha(determinarFecha(dtInfl2));
-                            CXRsVacunas.setInfl2Fua2(txtFuaInfl2.getText());
-                            //ROTAVIRUS
-                            CXRsVacunas.setRot1Fecha(determinarFecha(dtRot1));
-                            CXRsVacunas.setRot1Fua(txtFuaRot1.getText());
-                            CXRsVacunas.setRot2Fecha(determinarFecha(dtRot2));
-                            CXRsVacunas.setRot2Fua(txtFuaRot2.getText());
-                            //SPR
-                            CXRsVacunas.setSpr1Fecha(determinarFecha(dtSpr1));
-                            CXRsVacunas.setSpr1Fua(txtFuaSpr1.getText());
-                            CXRsVacunas.setSpr2Fecha(determinarFecha(dtSpr2));
-                            CXRsVacunas.setSpr2Fua(txtFuaSpr2.getText());
-                            //AMA
-                            CXRsVacunas.setAma1Fecha(determinarFecha(dtAmadu));
-                            CXRsVacunas.setAma1Fua(txtFuaAmaDu.getText());
-                            CXRsVacunas.setAma2Fecha(determinarFecha(dtAmadu));
-                            CXRsVacunas.setAma2Fua("");
-                            //DPT
-                            CXRsVacunas.setDpt1Fecha(determinarFecha(dtDpt1));
-                            CXRsVacunas.setDpt1Fua(txtFuaDpt1.getText());
-                            CXRsVacunas.setDpt2Fecha(determinarFecha(dtDpt2));
-                            CXRsVacunas.setDpt2Fua(txtFuaDpt2.getText());
-                            //INFLUENZA REF.
-                            CXRsVacunas.setInflr1Fecha(determinarFecha(dtInflR1));
-                            CXRsVacunas.setInflr1Fua(txtInflR1.getText());
-                            CXRsVacunas.setInflr2Fecha(determinarFecha(dtInflR2));
-                            CXRsVacunas.setInflr2Fua(txtInflR2.getText());
-                            //APO
-                            CXRsVacunas.setApor1Fecha(determinarFecha(dtApoR1));
-                            CXRsVacunas.setApor1Fua(txtFuaApoR1.getText());
-                            CXRsVacunas.setApor2Fecha(determinarFecha(dtApoR2));
-                            CXRsVacunas.setApor2Fua(txtFuaApoR2.getText());
+            if(dtEjec.getDate()!=null){
+                CXRsVacunas.setEjecFecha(determinarFecha(dtEjec));
+                CXRsVacunas.setEjecFua(txtFuaEjec.getText());
+            }
+        //BCG/HVB
+            if(dtBcg.getDate()!=null){
+                CXRsVacunas.setRnbcgFecha(determinarFecha(dtBcg));   
+                CXRsVacunas.setRnbcgFua(txtFuaBcg.getText());
+            }
 
+            if(dtHvb.getDate()!=null){
+                CXRsVacunas.setRnhvbFecha(determinarFecha(dtHvb)); 
+                CXRsVacunas.setRnhvbFua(txtFuaHvb.getText());
+            }
+
+        //ANTIPOLIO
+            if(dtIpv1.getDate()!=null){
+                CXRsVacunas.setRnhvbFecha(determinarFecha(dtHvb));
+                CXRsVacunas.setAnt1Fua(txtFuaIpv1.getText());
+            }
+
+            if(dtIpv2.getDate()!=null){
+                CXRsVacunas.setAnt2Fecha(determinarFecha(dtIpv2));
+                CXRsVacunas.setAnt2Fua(txtFuaIpv2.getText());
+            }
+
+            if(dtIpv3.getDate()!=null){
+                CXRsVacunas.setAnt3Fecha(determinarFecha(dtIpv3));
+                CXRsVacunas.setAnt3Fua(txtFuaIpv3.getText());
+            }
+
+            if(dtPent1.getDate()!=null){
+                CXRsVacunas.setPent1Fecha(determinarFecha(dtPent1));
+                CXRsVacunas.setPent1Fua(txtFuaPent1.getText());
+            }
+
+            if(dtPent2.getDate()!=null){
+                CXRsVacunas.setPent2Fecha(determinarFecha(dtPent2));
+                CXRsVacunas.setPent2Fua(txtFuaPent2.getText());
+            }
+
+            if(dtPent3.getDate()!=null){
+                CXRsVacunas.setPent3Fecha(determinarFecha(dtPent3));
+                CXRsVacunas.setPent3Fua(txtFuaPent3.getText());
+            }
+
+        //NEOMONCOCO
+            if(dtNeumo1.getDate()!=null){
+                CXRsVacunas.setNeu1Fecha(determinarFecha(dtNeumo1));
+                CXRsVacunas.setNeu1Fua(txtFuaNeumo1.getText());
+            }
+
+            if(dtNeumo2.getDate()!=null){
+                CXRsVacunas.setNeu2Fecha(determinarFecha(dtNeumo2));
+                CXRsVacunas.setNeu2Fua(txtFuaNeumo2.getText());
+            }
+            
+            if(dtNeumo3.getDate()!=null){
+                CXRsVacunas.setNeu3Fecha(determinarFecha(dtNeumo3));
+                CXRsVacunas.setNeu3Fua(txtFuaNeumo3.getText());
+            }
+
+        //INFLUENZA
+            if(dtInfl1.getDate()!=null){
+                CXRsVacunas.setInfl1Fecha(determinarFecha(dtInfl1));
+                CXRsVacunas.setInfl1Fua(txtFuaInfl1.getText());
+            }
+
+            if(dtInfl2.getDate()!=null){
+                CXRsVacunas.setInfl2Fecha(determinarFecha(dtInfl2));
+                CXRsVacunas.setInfl2Fua2(txtFuaInfl2.getText());
+            }
+
+        //ROTAVIRUS
+            if(dtRot1.getDate()!=null){
+                CXRsVacunas.setRot1Fecha(determinarFecha(dtRot1));
+                CXRsVacunas.setRot1Fua(txtFuaRot1.getText());
+            }
+
+            if(dtRot2.getDate()!=null){
+                CXRsVacunas.setRot2Fecha(determinarFecha(dtRot2));
+                CXRsVacunas.setRot2Fua(txtFuaRot2.getText());
+            }
+
+        //SPR
+            if(dtSpr1.getDate()!=null){
+                CXRsVacunas.setSpr1Fecha(determinarFecha(dtSpr1));
+                CXRsVacunas.setSpr1Fua(txtFuaSpr1.getText());
+            }
+
+
+            if(dtSpr2.getDate()!=null){
+                CXRsVacunas.setSpr2Fecha(determinarFecha(dtSpr2));
+                CXRsVacunas.setSpr2Fua(txtFuaSpr2.getText());
+            }
+
+        //AMA
+            if(dtAmadu.getDate()!=null){
+                CXRsVacunas.setAma1Fecha(determinarFecha(dtAmadu));
+                CXRsVacunas.setAma1Fua(txtFuaAmaDu.getText());
+            }
+
+
+            if(dtAmadu.getDate()!=null){
+                CXRsVacunas.setAma2Fecha("02/06/2014");
+                CXRsVacunas.setAma2Fua("");
+            }else if(dtAmadu.getDate()==null){
+                CXRsVacunas.setAma2Fecha("02/06/2014");
+            }
+
+        //DPT
+            if(dtDpt1.getDate()!=null){
+                CXRsVacunas.setDpt1Fecha(determinarFecha(dtDpt1));
+                CXRsVacunas.setDpt1Fua(txtFuaDpt1.getText());
+            }
+
+
+            if(dtDpt2.getDate()!=null){
+                CXRsVacunas.setDpt2Fecha(determinarFecha(dtDpt2));
+                CXRsVacunas.setDpt2Fua(txtFuaDpt2.getText());
+            }
+
+        //INFLUENZA REF.
+            if(dtInflR1.getDate()!=null){
+                CXRsVacunas.setInflr1Fecha(determinarFecha(dtInflR1));
+                CXRsVacunas.setInflr1Fua(txtInflR1.getText());
+            }
+
+            if(dtInflR2.getDate()!=null){
+                CXRsVacunas.setInflr2Fecha(determinarFecha(dtInflR2));
+                CXRsVacunas.setInflr2Fua(txtInflR2.getText());
+            }
+
+        //APO
+            if(dtApoR1.getDate()!=null){
+                CXRsVacunas.setApor1Fecha(determinarFecha(dtApoR1));
+                CXRsVacunas.setApor1Fua(txtFuaApoR1.getText());
+            }
+
+            if(dtApoR2.getDate()!=null){
+                CXRsVacunas.setApor2Fecha(determinarFecha(dtApoR2));
+                CXRsVacunas.setApor2Fua(txtFuaApoR2.getText());
+            }
                            
                             if(CXRsVacunas.mantenimientoRSAIVacunas("I")==true){
                                 mensaje.setVisible(true);
@@ -407,251 +490,202 @@ byte tge;
                                 b.setVisible(false);
                                 b1.setVisible(false);
                                 tge=7;
-                        }
-//                             }
-      
-    }
-    
-     public void Modificar(){
- 
-                        ConsultorioExtRsVacunas CXRsVacunas = new ConsultorioExtRsVacunas();
-                        ConsultorioExtRsVacunas CXRsVacunas2 = new ConsultorioExtRsVacunas();
-                        try {
-             
-        
-                            
-                            CXRsVacunas.setRsId(Integer.parseInt(lblId.getText()));
-                            if(dtElab.getDate()!=null){
-                            CXRsVacunas.setElabFecha(determinarFecha(dtElab));    
-                            }else {
-                            mensaje.setVisible(true);
-                            mensaje.setBackground(new Color(255,91,70)); 
-                            men.setText("Ingrese una fecha valida");
-                            b.setVisible(false);
-                            b1.setVisible(false);
-                            }
-                            CXRsVacunas.setElabFua(txtFuaElab.getText());
-                            
-                            if(dtEjec.getDate()!=null){
-                            CXRsVacunas.setEjecFecha(determinarFecha(dtEjec));    
-                            }else {
-                            CXRsVacunas.setEjecFecha("");
-                            }
-                            CXRsVacunas.setEjecFua(txtFuaEjec.getText());
-                            //BCG/HVB
-                            if(dtBcg.getDate()!=null){
-                            CXRsVacunas.setRnbcgFecha(determinarFecha(dtBcg));   
-                            }else {
-                            CXRsVacunas.setRnbcgFecha("");
-                            }
-                            
-                            CXRsVacunas.setRnbcgFua(txtFuaBcg.getText());
-                            if(dtHvb.getDate()!=null){
-                            CXRsVacunas.setRnhvbFecha(determinarFecha(dtHvb));  
-                            }else {
-                            CXRsVacunas.setRnhvbFecha("");
-                            }
-                            
-                            CXRsVacunas.setRnhvbFua("012345678958478");
-                            //ANTIPOLIO
-                            if(dtIpv1.getDate()!=null){
-                            CXRsVacunas.setAnt1Fecha("06/09/2014");
-                            }else {
-                            CXRsVacunas.setAnt1Fecha("");
-                            }
-                            CXRsVacunas.setAnt1Fua(txtFuaIpv1.getText());
-                            if(dtIpv2.getDate()!=null){
-                            CXRsVacunas.setAnt2Fecha(determinarFecha(dtIpv2));
-                            }else {
-                            CXRsVacunas.setAnt2Fecha("");
-                            }
-                            
-                            CXRsVacunas.setAnt2Fua(txtFuaIpv2.getText());
-                            if(dtIpv3.getDate()!=null){
-                            CXRsVacunas.setAnt3Fecha(determinarFecha(dtIpv3));
-                            }else {
-                            CXRsVacunas.setAnt3Fecha("");
-                            }
-                            
-                            CXRsVacunas.setAnt3Fua(txtFuaIpv3.getText());
-                            
-                            if(dtPent1.getDate()!=null){
-                            CXRsVacunas.setPent1Fecha(determinarFecha(dtPent1));
-                            }else {
-                            CXRsVacunas.setPent1Fecha("");
-                            }
-                            
-                            CXRsVacunas.setPent1Fua(txtFuaPent1.getText());
-
-                            if(dtPent2.getDate()!=null){
-                            CXRsVacunas.setPent2Fecha(determinarFecha(dtPent2));
-                            }else {
-                            CXRsVacunas.setPent2Fecha("");
-                            }
-                            
-                            CXRsVacunas.setPent2Fua(txtFuaPent2.getText());
-                            
-                            if(dtPent3.getDate()!=null){
-                            CXRsVacunas.setPent3Fecha(determinarFecha(dtPent3));
-                            }else {
-                            CXRsVacunas.setPent3Fecha("");
-                            }
-                            
-                            CXRsVacunas.setPent3Fua(txtFuaPent3.getText());
-                            //NEOMONCOCO
-                            if(dtNeumo1.getDate()!=null){
-                            CXRsVacunas.setNeu1Fecha(determinarFecha(dtNeumo1));
-                            }else {
-                            CXRsVacunas.setNeu1Fecha("");
-                            }
-                            
-                            CXRsVacunas.setNeu1Fua(txtFuaNeumo1.getText());
-                            if(dtNeumo2.getDate()!=null){
-                            CXRsVacunas.setNeu2Fecha(determinarFecha(dtNeumo2));
-                            }else {
-                            CXRsVacunas.setNeu2Fecha("");
-                            }
-                            
-                            CXRsVacunas.setNeu2Fua(txtFuaNeumo2.getText());
-                            if(dtNeumo3.getDate()!=null){
-                            CXRsVacunas.setNeu3Fecha(determinarFecha(dtNeumo3));
-                            }else {
-                            CXRsVacunas.setNeu3Fecha("");
-                            }
-                            
-                            CXRsVacunas.setNeu3Fua(txtFuaNeumo3.getText());
-                            //INFLUENZA
-                            if(dtInfl1.getDate()!=null){
-                            CXRsVacunas.setInfl1Fecha(determinarFecha(dtInfl1));
-                            }else {
-                            CXRsVacunas.setInfl1Fecha("");
-                            }
-                            CXRsVacunas.setInfl1Fua(txtFuaInfl1.getText());
-                            if(dtInfl2.getDate()!=null){
-                            CXRsVacunas.setInfl2Fecha(determinarFecha(dtInfl2));
-                            }else {
-                            CXRsVacunas.setInfl2Fecha("");
-                            }
-                            
-                            CXRsVacunas.setInfl2Fua2(txtFuaInfl2.getText());
-                            //ROTAVIRUS
-                            if(dtRot1.getDate()!=null){
-                            CXRsVacunas.setRot1Fecha(determinarFecha(dtRot1));
-                            }else {
-                            CXRsVacunas.setRot1Fecha("");
-                            }
-                            
-                            CXRsVacunas.setRot1Fua(txtFuaRot1.getText());
-                            if(dtRot2.getDate()!=null){
-                            CXRsVacunas.setRot2Fecha(determinarFecha(dtRot2));
-                            }else {
-                            CXRsVacunas.setRot2Fecha("");
-                            }
-                            
-                            CXRsVacunas.setRot2Fua(txtFuaRot2.getText());
-                            //SPR
-                            if(dtSpr1.getDate()!=null){
-                            CXRsVacunas.setSpr1Fecha(determinarFecha(dtSpr1));
-                            }else {
-                            CXRsVacunas.setSpr1Fecha("");
-                            }
-                            
-                            CXRsVacunas.setSpr1Fua(txtFuaSpr1.getText());
-                            if(dtSpr2.getDate()!=null){
-                            CXRsVacunas.setSpr2Fecha(determinarFecha(dtSpr2));
-                            }else {
-                            CXRsVacunas.setSpr2Fecha("");
-                            }
-                            
-                            CXRsVacunas.setSpr2Fua(txtFuaSpr2.getText());
-                            //AMA
-                            if(dtAmadu.getDate()!=null){
-                            CXRsVacunas.setAma1Fecha(determinarFecha(dtAmadu));
-                            }else {
-                            CXRsVacunas.setAma1Fecha("");
-                            }
-                            
-                            CXRsVacunas.setAma1Fua(txtFuaAmaDu.getText());
-                            if(dtAmadu.getDate()!=null){
-                            CXRsVacunas.setAma2Fecha("02/06/2014");
-                            }else {
-                            CXRsVacunas.setAma2Fecha("02/06/2014");
-                            }
-                            CXRsVacunas.setAma2Fua("");
-                            //DPT
-                            if(dtDpt1.getDate()!=null){
-                            CXRsVacunas.setDpt1Fecha(determinarFecha(dtDpt1));
-                            }else {
-                            CXRsVacunas.setDpt1Fecha("");
-                            }
-                            
-                            CXRsVacunas.setDpt1Fua(txtFuaDpt1.getText());
-                            if(dtDpt2.getDate()!=null){
-                            CXRsVacunas.setDpt2Fecha(determinarFecha(dtDpt2));
-                            }else {
-                            CXRsVacunas.setDpt2Fecha("");
-                            }
-                            
-                            CXRsVacunas.setDpt2Fua(txtFuaDpt2.getText());
-                            //INFLUENZA REF.
-                            if(dtInflR1.getDate()!=null){
-                            CXRsVacunas.setInflr1Fecha(determinarFecha(dtInflR1));
-                            }else {
-                            CXRsVacunas.setInflr1Fecha("");
-                            }
-                            
-                            CXRsVacunas.setInflr1Fua(txtInflR1.getText());
-                            if(dtInflR2.getDate()!=null){
-                            CXRsVacunas.setInflr2Fecha(determinarFecha(dtInflR2));
-                            }else {
-                            CXRsVacunas.setInflr2Fecha("");
-                            }
-                            
-                            CXRsVacunas.setInflr2Fua(txtInflR2.getText());
-                            //APO
-                            if(dtApoR1.getDate()!=null){
-                            CXRsVacunas.setApor1Fecha(determinarFecha(dtApoR1));
-                            }else {
-                            CXRsVacunas.setApor1Fecha("");
-                            }
-                            
-                            CXRsVacunas.setApor1Fua(txtFuaApoR1.getText());
-                            if(dtApoR2.getDate()!=null){
-                            CXRsVacunas.setApor2Fecha(determinarFecha(dtApoR2));
-                            }else {
-                            CXRsVacunas.setApor2Fecha("");
-                            }
-                            
-                            CXRsVacunas.setApor2Fua(txtFuaApoR2.getText());
-                            
-                        if(CXRsVacunas.mantenimientoRSAIVacunas("U")==true){
-                                mensaje.setVisible(true);
-                                mensaje.setBackground(new Color(33,115,70)); 
-                                men.setText("Datos Actualizados de forma correcta");
-                         
-                                b.setText("OK");
-                                b.setVisible(true);
-                                b1.setVisible(false);
-                              
-                      
-                                btnguardar.setEnabled(false);
-                                tge=1;
-                                CXRsVacunas2.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
-                
-                            }else {
-                           
-                                mensaje.setVisible(true);
-                                mensaje.setBackground(new Color(255,91,70)); 
-                                men.setText("Ocurrio un error, Verifique");
-                                b.setVisible(false);
-                                b1.setVisible(false);
-                                tge=5;
-                   
-                    }  
+                     }  
                          } catch (Exception e) {
                            System.out.println("Error: modificar " + e.getMessage());
          }
     }
+    }
+
+    public void Modificar(JDateChooser fecha){
+    if(fecha.getDate()==null){
+        mensaje.setVisible(true);
+        mensaje.setBackground(new Color(255,91,70)); 
+        men.setText("Ingrese una fecha valida");
+        b.setVisible(false);
+        b1.setVisible(false);
+    } else {
+            
+        ConsultorioExtRsVacunas CXRsVacunas = new ConsultorioExtRsVacunas();
+        ConsultorioExtRsVacunas CXRsVacunas2 = new ConsultorioExtRsVacunas();
+        try {
+    
+            CXRsVacunas.setRsId(Integer.parseInt(lblId.getText()));
+            
+            if(dtElab.getDate()!=null){
+                CXRsVacunas.setElabFecha(determinarFecha(dtElab));  
+                CXRsVacunas.setElabFua(txtFuaElab.getText());
+             }
+
+            if(dtEjec.getDate()!=null){
+                CXRsVacunas.setEjecFecha(determinarFecha(dtEjec));
+                CXRsVacunas.setEjecFua(txtFuaEjec.getText());
+            }
+        //BCG/HVB
+            if(dtBcg.getDate()!=null){
+                CXRsVacunas.setRnbcgFecha(determinarFecha(dtBcg));   
+                CXRsVacunas.setRnbcgFua(txtFuaBcg.getText());
+            }
+
+            if(dtHvb.getDate()!=null){
+                CXRsVacunas.setRnhvbFecha(determinarFecha(dtHvb)); 
+                CXRsVacunas.setRnhvbFua(txtFuaHvb.getText());
+            }
+
+        //ANTIPOLIO
+            if(dtIpv1.getDate()!=null){
+                CXRsVacunas.setRnhvbFecha(determinarFecha(dtHvb));
+                CXRsVacunas.setAnt1Fua(txtFuaIpv1.getText());
+            }
+
+            if(dtIpv2.getDate()!=null){
+                CXRsVacunas.setAnt2Fecha(determinarFecha(dtIpv2));
+                CXRsVacunas.setAnt2Fua(txtFuaIpv2.getText());
+            }
+
+            if(dtIpv3.getDate()!=null){
+                CXRsVacunas.setAnt3Fecha(determinarFecha(dtIpv3));
+                CXRsVacunas.setAnt3Fua(txtFuaIpv3.getText());
+            }
+
+            if(dtPent1.getDate()!=null){
+                CXRsVacunas.setPent1Fecha(determinarFecha(dtPent1));
+                CXRsVacunas.setPent1Fua(txtFuaPent1.getText());
+            }
+
+            if(dtPent2.getDate()!=null){
+                CXRsVacunas.setPent2Fecha(determinarFecha(dtPent2));
+                CXRsVacunas.setPent2Fua(txtFuaPent2.getText());
+            }
+
+            if(dtPent3.getDate()!=null){
+                CXRsVacunas.setPent3Fecha(determinarFecha(dtPent3));
+                CXRsVacunas.setPent3Fua(txtFuaPent3.getText());
+            }
+
+        //NEOMONCOCO
+            if(dtNeumo1.getDate()!=null){
+                CXRsVacunas.setNeu1Fecha(determinarFecha(dtNeumo1));
+                CXRsVacunas.setNeu1Fua(txtFuaNeumo1.getText());
+            }
+
+            if(dtNeumo2.getDate()!=null){
+                CXRsVacunas.setNeu2Fecha(determinarFecha(dtNeumo2));
+                CXRsVacunas.setNeu2Fua(txtFuaNeumo2.getText());
+            }
+            
+            if(dtNeumo3.getDate()!=null){
+                CXRsVacunas.setNeu3Fecha(determinarFecha(dtNeumo3));
+                CXRsVacunas.setNeu3Fua(txtFuaNeumo3.getText());
+            }
+
+        //INFLUENZA
+            if(dtInfl1.getDate()!=null){
+                CXRsVacunas.setInfl1Fecha(determinarFecha(dtInfl1));
+                CXRsVacunas.setInfl1Fua(txtFuaInfl1.getText());
+            }
+
+            if(dtInfl2.getDate()!=null){
+                CXRsVacunas.setInfl2Fecha(determinarFecha(dtInfl2));
+                CXRsVacunas.setInfl2Fua2(txtFuaInfl2.getText());
+            }
+
+        //ROTAVIRUS
+            if(dtRot1.getDate()!=null){
+                CXRsVacunas.setRot1Fecha(determinarFecha(dtRot1));
+                CXRsVacunas.setRot1Fua(txtFuaRot1.getText());
+            }
+
+            if(dtRot2.getDate()!=null){
+                CXRsVacunas.setRot2Fecha(determinarFecha(dtRot2));
+                CXRsVacunas.setRot2Fua(txtFuaRot2.getText());
+            }
+
+        //SPR
+            if(dtSpr1.getDate()!=null){
+                CXRsVacunas.setSpr1Fecha(determinarFecha(dtSpr1));
+                CXRsVacunas.setSpr1Fua(txtFuaSpr1.getText());
+            }
+
+
+            if(dtSpr2.getDate()!=null){
+                CXRsVacunas.setSpr2Fecha(determinarFecha(dtSpr2));
+                CXRsVacunas.setSpr2Fua(txtFuaSpr2.getText());
+            }
+
+        //AMA
+            if(dtAmadu.getDate()!=null){
+                CXRsVacunas.setAma1Fecha(determinarFecha(dtAmadu));
+                CXRsVacunas.setAma1Fua(txtFuaAmaDu.getText());
+            }
+
+
+            if(dtAmadu.getDate()!=null){
+                CXRsVacunas.setAma2Fecha("02/06/2014");
+                CXRsVacunas.setAma2Fua("");
+            }else if(dtAmadu.getDate()==null){
+                CXRsVacunas.setAma2Fecha("02/06/2014");
+            }
+
+        //DPT
+            if(dtDpt1.getDate()!=null){
+                CXRsVacunas.setDpt1Fecha(determinarFecha(dtDpt1));
+                CXRsVacunas.setDpt1Fua(txtFuaDpt1.getText());
+            }
+
+
+            if(dtDpt2.getDate()!=null){
+                CXRsVacunas.setDpt2Fecha(determinarFecha(dtDpt2));
+                CXRsVacunas.setDpt2Fua(txtFuaDpt2.getText());
+            }
+
+        //INFLUENZA REF.
+            if(dtInflR1.getDate()!=null){
+                CXRsVacunas.setInflr1Fecha(determinarFecha(dtInflR1));
+                CXRsVacunas.setInflr1Fua(txtInflR1.getText());
+            }
+
+            if(dtInflR2.getDate()!=null){
+                CXRsVacunas.setInflr2Fecha(determinarFecha(dtInflR2));
+                CXRsVacunas.setInflr2Fua(txtInflR2.getText());
+            }
+
+        //APO
+            if(dtApoR1.getDate()!=null){
+                CXRsVacunas.setApor1Fecha(determinarFecha(dtApoR1));
+                CXRsVacunas.setApor1Fua(txtFuaApoR1.getText());
+            }
+
+            if(dtApoR2.getDate()!=null){
+                CXRsVacunas.setApor2Fecha(determinarFecha(dtApoR2));
+                CXRsVacunas.setApor2Fua(txtFuaApoR2.getText());
+            }
+            if(CXRsVacunas.mantenimientoRSAIVacunas("U")==true){
+                    mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(33,115,70)); 
+                    men.setText("Datos Actualizados de forma correcta");
+                    b.setText("OK");
+                    b.setVisible(true);
+                    b1.setVisible(false);
+                    btnguardar.setEnabled(false);
+                    tge=1;
+                    CXRsVacunas2.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
+
+                }else {
+
+                    mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(255,91,70)); 
+                    men.setText("Ocurrio un error, Verifique");
+                    b.setVisible(false);
+                    b1.setVisible(false);
+                    tge=5;
+
+                }  
+
+             } catch (Exception e) {
+               System.out.println("Error: modificar " + e.getMessage());
+}
+    }}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -2833,7 +2867,8 @@ byte tge;
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        Modificar();
+       
+        Modificar(fecha);
         
         habilitarRadio(true);
         habilitarDatos(false);
@@ -2979,7 +3014,8 @@ byte tge;
                 txtFuaPent1.setEnabled(true);
                 dtPent1.setEnabled(true);
                 txtFuaPent1.requestFocus();
-                txtFuaPent1.setEditable(true);  
+                txtFuaPent1.setEditable(true); 
+                fecha=dtPent1;
             }
         } else {
             Rp1.setEnabled(false);
@@ -2994,7 +3030,8 @@ byte tge;
                 txtFuaDpt2.setEnabled(true);
                 dtDpt2.setEnabled(true);
                 txtFuaDpt2.requestFocus();
-                txtFuaDpt2.setEditable(true);  
+                txtFuaDpt2.setEditable(true); 
+                fecha=dtDpt2;
             }
         } else {
             Rdpt2.setEnabled(false);
@@ -3010,6 +3047,7 @@ byte tge;
                 dtInflR2.setEnabled(true);
                 txtInflR2.requestFocus();
                 txtInflR2.setEditable(true);  
+                fecha=dtInflR2;
             }
         } else {
             Rir2.setEnabled(false);
@@ -3024,7 +3062,8 @@ byte tge;
                 txtFuaApoR2.setEnabled(true);
                 dtApoR2.setEnabled(true);
                 txtFuaApoR2.requestFocus();
-                txtFuaApoR2.setEditable(true);  
+                txtFuaApoR2.setEditable(true); 
+                fecha=dtApoR2;
             }
         } else {
             Rapo2.setEnabled(false);
@@ -3044,6 +3083,7 @@ byte tge;
                 dtElab.setEnabled(true);
                 txtFuaElab.requestFocus();
                 txtFuaElab.setEditable(true); 
+                fecha=dtElab;
             }
         } else {
             Relab.setEnabled(false);
@@ -3059,6 +3099,7 @@ byte tge;
                 dtEjec.setEnabled(true);
                 txtFuaEjec.requestFocus();
                 txtFuaEjec.setEditable(true); 
+                fecha=dtEjec;
             }
         } else {
             Rejec.setEnabled(false);
@@ -3074,6 +3115,7 @@ byte tge;
                 dtBcg.setEnabled(true);
                 txtFuaBcg.requestFocus();
                 txtFuaBcg.setEditable(true); 
+                fecha=dtBcg;
             }
         } else {
             Rbcg.setEnabled(false);
@@ -3089,6 +3131,7 @@ byte tge;
             dtHvb.setEnabled(true);
             txtFuaHvb.requestFocus();
             txtFuaHvb.setEditable(true);  
+            fecha=dtHvb;
             }
         } else {
             Rhvb.setEnabled(false);
@@ -3104,6 +3147,7 @@ byte tge;
                 dtPent3.setEnabled(true);
                 txtFuaPent3.requestFocus();
                 txtFuaPent3.setEditable(true);  
+                fecha=dtPent3;
             }
         } else {
             Rp3.setEnabled(false);
@@ -3119,6 +3163,7 @@ byte tge;
                 dtPent2.setEnabled(true);
                 txtFuaPent2.requestFocus();
                 txtFuaPent2.setEditable(true);  
+                fecha=dtPent2;
             }
         } else {
             Rp2.setEnabled(false);
@@ -3136,7 +3181,8 @@ byte tge;
                 txtFuaIpv3.setEnabled(true);
                 dtIpv3.setEnabled(true);
                 txtFuaIpv3.requestFocus();
-                txtFuaIpv3.setEditable(true);  
+                txtFuaIpv3.setEditable(true); 
+                fecha=dtIpv3;
             }
         } else {
             Ripv3.setEnabled(false);
@@ -3154,6 +3200,7 @@ byte tge;
                 dtIpv2.setEnabled(true);
                 txtFuaIpv2.requestFocus();
                 txtFuaIpv2.setEditable(true);  
+                fecha=dtIpv2;
             }
         } else {
             Ripv2.setEnabled(false);
@@ -3168,7 +3215,8 @@ byte tge;
                 txtFuaIpv1.setEnabled(true);
                 dtIpv1.setEnabled(true);
                 txtFuaIpv1.requestFocus();
-                txtFuaIpv1.setEditable(true);  
+                txtFuaIpv1.setEditable(true); 
+                fecha=dtIpv1;
             }
         } else {
             Ripv1.setEnabled(false);
@@ -3184,6 +3232,7 @@ byte tge;
                 dtNeumo1.setEnabled(true);
                 txtFuaNeumo1.requestFocus();
                 txtFuaNeumo1.setEditable(true);  
+                fecha=dtNeumo1;
             }
         } else {
             Rn1.setEnabled(false);
@@ -3198,7 +3247,8 @@ byte tge;
                 txtFuaNeumo2.setEnabled(true);
                 dtNeumo2.setEnabled(true);
                 txtFuaNeumo2.requestFocus();
-                txtFuaNeumo2.setEditable(true);  
+                txtFuaNeumo2.setEditable(true); 
+                fecha=dtNeumo2;
             }
         } else {
             Rn2.setEnabled(false);
@@ -3213,7 +3263,8 @@ byte tge;
                 txtFuaNeumo3.setEnabled(true);
                 dtNeumo3.setEnabled(true);
                 txtFuaNeumo3.requestFocus();
-                txtFuaNeumo3.setEditable(true);  
+                txtFuaNeumo3.setEditable(true); 
+                fecha=dtNeumo3;
             }
         } else {
             Rn3.setEnabled(false);
@@ -3229,6 +3280,7 @@ byte tge;
                 dtInfl1.setEnabled(true);
                 txtFuaInfl1.requestFocus();
                 txtFuaInfl1.setEditable(true);  
+                fecha=dtInfl1;
             }
         } else {
             Ri1.setEnabled(false);
@@ -3243,7 +3295,8 @@ byte tge;
                 txtFuaInfl2.setEnabled(true);
                 dtInfl2.setEnabled(true);
                 txtFuaInfl2.requestFocus();
-                txtFuaInfl2.setEditable(true);  
+                txtFuaInfl2.setEditable(true); 
+                fecha=dtInfl2;
             }
         } else {
             Ri2.setEnabled(false);
@@ -3259,6 +3312,7 @@ byte tge;
                 dtRot1.setEnabled(true);
                 txtFuaRot1.requestFocus();
                 txtFuaRot1.setEditable(true);  
+                fecha=dtRot1;
             }
         } else {
             Rr1.setEnabled(false);
@@ -3273,7 +3327,8 @@ byte tge;
                 txtFuaRot2.setEnabled(true);
                 dtRot2.setEnabled(true);
                 txtFuaRot2.requestFocus();
-                txtFuaRot2.setEditable(true);  
+                txtFuaRot2.setEditable(true); 
+                fecha=dtRot2;
             }
         } else {
             Rr2.setEnabled(false);
@@ -3288,7 +3343,8 @@ byte tge;
                 txtFuaSpr1.setEnabled(true);
                 dtSpr1.setEnabled(true);
                 txtFuaSpr1.requestFocus();
-                txtFuaSpr1.setEditable(true);  
+                txtFuaSpr1.setEditable(true); 
+                fecha=dtSpr1;
             }
         } else {
             Rspr1.setEnabled(false);
@@ -3304,6 +3360,7 @@ byte tge;
                 dtSpr2.setEnabled(true);
                 txtFuaSpr2.requestFocus();
                 txtFuaSpr2.setEditable(true);  
+                fecha=dtSpr2;
             }
         } else {
             Rspr2.setEnabled(false);
@@ -3318,7 +3375,8 @@ byte tge;
                 txtFuaAmaDu.setEnabled(true);
                 dtAmadu.setEnabled(true);
                 txtFuaAmaDu.requestFocus();
-                txtFuaAmaDu.setEditable(true);  
+                txtFuaAmaDu.setEditable(true); 
+                fecha=dtAmadu;
             }
         } else {
             Rama.setEnabled(false);
@@ -3334,6 +3392,7 @@ byte tge;
                 dtDpt1.setEnabled(true);
                 txtFuaDpt1.requestFocus();
                 txtFuaDpt1.setEditable(true);  
+                fecha=dtDpt1;
             }
         } else {
             Rdpt1.setEnabled(false);
@@ -3349,6 +3408,7 @@ byte tge;
                 dtInflR1.setEnabled(true);
                 txtInflR1.requestFocus();
                 txtInflR1.setEditable(true);  
+                fecha=dtInflR1;
             }
         } else {
             Rir1.setEnabled(false);
@@ -3364,6 +3424,7 @@ byte tge;
                 dtApoR1.setEnabled(true);
                 txtFuaApoR1.requestFocus();
                 txtFuaApoR1.setEditable(true);  
+                fecha=dtApoR1;
             }
         } else {
             Rapo1.setEnabled(false);
@@ -3377,7 +3438,7 @@ byte tge;
         }
 
         if (tge==2){
-            Modificar();
+//            Modificar();
 
             btneditar.setEnabled(false);
            ;

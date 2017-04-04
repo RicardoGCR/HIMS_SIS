@@ -266,7 +266,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }
     public void validaRegistro(int rs_id){
         try {
-            PreparedStatement cmd = CCD01.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_VACUNAS WHERE RS_ID ='"+rs_id+"'");
+            PreparedStatement cmd = CCD01.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_CCD WHERE RS_ID ='"+rs_id+"'");
             ResultSet res = cmd.executeQuery();
             if(res.next()){ // si existe
                 Modificar(fecha);
@@ -593,7 +593,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             ConsultorioExtRsCcd CXRsCCD2 = new ConsultorioExtRsCcd();
         try {
     
-            CXRsCCD.setRsId(Integer.parseInt(lblId.getText()));
+                        CXRsCCD.setRsId(Integer.parseInt(lblId.getText()));
                     //RECIEN NACIDO
                     if(FCCDRN1.getDate()!=null){
                         CXRsCCD.setRn1Fecha(determinarFecha(FCCDRN1)); 

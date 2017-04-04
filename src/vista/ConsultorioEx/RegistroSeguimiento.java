@@ -130,6 +130,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 consultorio1.setUsuario(adEmerCab7.codUsuario(lblusu.getText()));
                 if(consultorio1.mantenimientoConsultorioRsCabecera("I")==true){
     //              OBTENER ID DEL ULTIMO REGISTRO
+                    id = cabecera.idCabecera();
                     pnlMensaje.setVisible(true);
                     lblMensaje.setText("Datos guardados de forma correcta");
                     pnlContenedor.setVisible(true);
@@ -182,6 +183,25 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             System.out.println("Error: datosPadres " + e.getMessage());
         }
     }
+    
+    public void porcentajeVacunas(int rs_id){
+        String consulta="";
+        double porcentaje = 0.0;
+        try {
+            consulta="EXEC PRUEBA_VACUNAS ?";
+            PreparedStatement cmd = cabecera.getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                porcentaje = Double.parseDouble(r.getString(1));
+                lblPorcentajeVacunas.setText(String.valueOf(Math.rint(porcentaje*100)/100) + " %"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeVacunas " + e.getMessage());
+        }
+    }
 
     public void validaTriaje(String triaje){
         try {
@@ -189,6 +209,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             ResultSet res = cmd.executeQuery();
             if(res.next()){
                 id = Integer.parseInt(res.getString("RS_ID"));
+                porcentajeVacunas(id);
                 datosPadres(triaje);
                 pnlPadres.setVisible(true);
                 lblPadres.setVisible(true);
@@ -268,6 +289,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 pnlContenedor = new javax.swing.JPanel();
                 jPanel12 = new javax.swing.JPanel();
                 jLabel4 = new javax.swing.JLabel();
+                lblPorcentajeVacunas = new javax.swing.JLabel();
                 jPanel13 = new javax.swing.JPanel();
                 jLabel5 = new javax.swing.JLabel();
                 jPanel15 = new javax.swing.JPanel();
@@ -753,6 +775,13 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     }
                 });
 
+                lblPorcentajeVacunas.setText("0 %");
+                lblPorcentajeVacunas.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        lblPorcentajeVacunasMouseClicked(evt);
+                    }
+                });
+
                 javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
                 jPanel12.setLayout(jPanel12Layout);
                 jPanel12Layout.setHorizontalGroup(
@@ -760,11 +789,15 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPorcentajeVacunas)
+                        .addGap(32, 32, 32))
                 );
                 jPanel12Layout.setVerticalGroup(
                     jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                        .addComponent(lblPorcentajeVacunas))
                 );
 
                 jPanel13.setBackground(new java.awt.Color(45, 204, 112));
@@ -1858,6 +1891,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         BuscarNinos.getContentPane().setBackground(Color.WHITE);
         ConsultorioExtRsCabecera consultorio1 = new ConsultorioExtRsCabecera();
         consultorio1.listarNinos(tbNinos, txtBuscarNino.getText());
+        pnlMensaje.setVisible(false);
     }//GEN-LAST:event_btnBuscarNinoActionPerformed
 
     private void btnBuscarMadresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarMadresActionPerformed
@@ -1939,7 +1973,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel17MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-         RSAIVacunas V =new RSAIVacunas();
+        RSAIVacunas V =new RSAIVacunas();
         Contenedor.add(V);
         if(lblGenero.getText().equals("F")){
             RSAIVacunas.lblNina.setText(txtPaciente.getText());
@@ -1962,6 +1996,31 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         }
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void lblPorcentajeVacunasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPorcentajeVacunasMouseClicked
+        RSAIVacunas V =new RSAIVacunas();
+        Contenedor.add(V);
+        if(lblGenero.getText().equals("F")){
+            RSAIVacunas.lblNina.setText(txtPaciente.getText());
+            RSAIVacunas.lblNina.setVisible(true);
+            RSAIVacunas.lblNino.setVisible(false);
+        } else {
+            RSAIVacunas.lblNino.setText(txtPaciente.getText());
+            RSAIVacunas.lblNino.setVisible(true);
+            RSAIVacunas.lblNina.setVisible(false);
+        }
+        ConsultorioExtRsVacunas vacunas1 = new ConsultorioExtRsVacunas();
+        vacunas1.ConsultoriosExtVacunasListar(id);
+       
+        RSAIVacunas.lblId.setText(String.valueOf(id));
+    
+        try {
+            V.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_lblPorcentajeVacunasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2079,6 +2138,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     private javax.swing.JLabel lblMensaje;
     public static javax.swing.JLabel lblNHC;
     private javax.swing.JLabel lblPadres;
+    private javax.swing.JLabel lblPorcentajeVacunas;
     public static javax.swing.JLabel lblSector;
     public static javax.swing.JTextField lblTelefono;
     public static javax.swing.JTextField lblTriaje;

@@ -28,13 +28,13 @@ import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
  */
 public class RSAIVacunas extends javax.swing.JInternalFrame {
 //defino dos métodosdentro del JInternalFrame y lo instanciamos de la siguiente manera.
-private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
-private Dimension DimensionBarra = null; 
-byte tg;
-byte tge;
-JDateChooser fecha;
-JTextField fua;
-ConsultorioExtRsVacunas vacunas26 = new ConsultorioExtRsVacunas();
+    private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
+    private Dimension DimensionBarra = null; 
+    byte tg;
+    byte tge;
+    JDateChooser fecha;
+    JTextField fua;
+    ConsultorioExtRsVacunas vacunas26 = new ConsultorioExtRsVacunas();
     public RSAIVacunas() {
         initComponents();
         QuitarLaBarraTitulo();
@@ -248,6 +248,7 @@ ConsultorioExtRsVacunas vacunas26 = new ConsultorioExtRsVacunas();
       btnguardar.setEnabled(true);
       
     }
+    
     public void habilitarDatos(boolean opcion){
         txtFuaAmaDu.setEnabled(opcion);
         txtFuaApoR1.setEnabled(opcion);

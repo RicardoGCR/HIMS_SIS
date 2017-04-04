@@ -188,7 +188,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         String consulta="";
         double porcentaje = 0.0;
         try {
-            consulta="EXEC PRUEBA_VACUNAS ?";
+            consulta="EXEC CONSULTORIO_EXT_RS_VACUNAS_PORCENTAJE ?";
             PreparedStatement cmd = cabecera.getCn().prepareStatement(consulta);
             cmd.setInt(1, rs_id);
             ResultSet r= cmd.executeQuery();
@@ -836,6 +836,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
 
                 jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+                jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel6.setText("DIAGNOSTICO NUTRICIONAL");
                 jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -847,10 +848,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jPanel15.setLayout(jPanel15Layout);
                 jPanel15Layout.setHorizontalGroup(
                     jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                 );
                 jPanel15Layout.setVerticalGroup(
                     jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1725,7 +1723,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-          
         RSAIDN DN =new RSAIDN();
         Contenedor.add(DN);
         if(lblGenero.getText().equals("F")){
@@ -1737,6 +1734,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             DN.lblNino.setVisible(true);
             DN.lblNina.setVisible(false);
         }
+        RSAIDN.lblId.setText(String.valueOf(id));
         try {
             DN.setMaximum(true);
         } catch (PropertyVetoException ex) {

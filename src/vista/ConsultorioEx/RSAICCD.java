@@ -31,27 +31,22 @@ byte tge;
     /**
      * Creates new form RSAICCD
      */
+JDateChooser fecha;
     public RSAICCD() {
         initComponents();
         QuitarLaBarraTitulo();
         jTabbedPane1.setEnabledAt(0,false);
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(2, false);
-        HC_ID.setText(RegistroSeguimiento.lblHc.getText());
-        
-        FUACCDRN1.setText("Pienso");
-        FUACCDRN2.setText("Digo");
-
        
     }
-    public void QuitarLaBarraTitulo()
-{ 
-Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
-DimensionBarra = Barra.getPreferredSize(); 
-Barra.setSize(0,0); 
-Barra.setPreferredSize(new Dimension(0,0)); 
-repaint(); 
-}
+    public void QuitarLaBarraTitulo(){ 
+        Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
+        DimensionBarra = Barra.getPreferredSize(); 
+        Barra.setSize(0,0); 
+        Barra.setPreferredSize(new Dimension(0,0)); 
+        repaint(); 
+    }
     
     public String determinarFecha(JDateChooser calendario){
          
@@ -75,8 +70,8 @@ repaint();
                 fecha = String.valueOf(dia + "/" + mes + "/" + anio); 
          } catch (Exception e) {
                            mensaje.setVisible(true);
-//                           mensaje.setBackground(new Color(255,91,70)); 
-//                           men.setText("Ingrese una fecha correcta");
+                           mensaje.setBackground(new Color(255,91,70)); 
+                           men.setText("Ingrese una fecha correcta");
                           
          }
         
@@ -85,50 +80,58 @@ repaint();
     public void enviarDiagnosticos(){
         int fila = tbCiePresun.getSelectedRow();
         FrmCie10.dispose();
-        CIE10_ID.setText(String.valueOf(tbCiePresun.getValueAt(fila, 0)));
         DXCCDRN1.setText(String.valueOf(tbCiePresun.getValueAt(fila, 1)));
     }
     
-//    public void Guardar(){
-//
-//                            ConsultorioExtRsCcd GCCD= new ConsultorioExtRsCcd();
-//           
-//
-//                            GCCD.setRsCcd(0);
-//                            GCCD.setRS_ID(Integer.parseInt(HC_ID.getText()));
-//                            GCCD.setDescripcion(TxtDes.getText());
-//                            GCCD.setFecha(TxtFecha.getText());
-//                            GCCD.setID_CIE10(Integer.parseInt(CIE10_ID.getText()));
-//                            GCCD.setFua(TxtFua.getText());
-////                            GCCD.setRsCcd(0);
-////                            GCCD.setRS_ID(txtPA.getText());
-////                            GCCD.setFecha(txtFC.getText());
-////                            GCCD.setID_CIE10(txtT.getText());
-////                            GCCD.setFua(txtPeso.getText());
-//
-//                            if(GCCD.mantenimientoCCD("I")==true){
-//                                mensaje.setBackground(new Color(33,115,70)); 
-//                                men.setText("Datos Guardados de forma correcta");
-////                                b.setText("OK");
-////                                b.setVisible(true);
-////                                b1.setVisible(false);
-//
-//                                btnGuardar.setEnabled(false);
-//                                tge=1;
-////                                listar();
-//                            
-//                        }else {
-//                           
-//                                mensaje.setVisible(true);
-//                                mensaje.setBackground(new Color(255,91,70)); 
-//                                men.setText("Ocurrio un error, Verifique");
-////                                b.setVisible(false);
-////                                b1.setVisible(false);
-//                                tge=7;
-//                        }
-//                             
-//      
-//    }
+    public void Guardar(JDateChooser fecha){
+        if(fecha.getDate()==null){
+            mensaje.setVisible(true);
+            mensaje.setBackground(new Color(255,91,70)); 
+            men.setText("Ingrese una fecha valida");
+            b.setVisible(false);
+            b1.setVisible(false);
+        } else {
+            ConsultorioExtRsCcd CXRsCCD = new ConsultorioExtRsCcd();
+            ConsultorioExtRsCcd CXRsCCD2 = new ConsultorioExtRsCcd();
+            try {
+
+                    CXRsCCD.setRsId(Integer.parseInt(lblId.getText()));
+                    if(FCCDRN1.getDate()!=null){
+                        CXRsCCD.setRn1Fecha(determinarFecha(FCCDRN1)); 
+                        CXRsCCD.setRn1Cie10(DXCCDRN1.getText());
+                        CXRsCCD.setRn1Fua(FUACCDRN1.getText());
+                    }
+
+
+
+                                    if(CXRsCCD.mantenimientoRSAICCD("I")==true){
+                                        mensaje.setVisible(true);
+                                        mensaje.setBackground(new Color(33,115,70)); 
+                                        men.setText("Datos Guardados de forma correcta");
+                                        b.setText("OK");
+                                        b.setVisible(true);
+                                        b1.setVisible(false);
+
+                                        btnGuardar.setEnabled(false);
+                                        tge=1;
+                                        CXRsCCD2.ConsultoriosExtCCDListar(Integer.parseInt(lblId.getText()));
+
+                                }else {
+
+                                        mensaje.setVisible(true);
+                                        mensaje.setBackground(new Color(255,91,70)); 
+                                        men.setText("Ocurrio un error, Verifique");
+                                        b.setVisible(false);
+                                        b1.setVisible(false);
+                                        tge=7;
+                             }  
+                                 } catch (Exception e) {
+                                   System.out.println("Error: modificar " + e.getMessage());
+                 }
+    }
+    }
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -254,13 +257,9 @@ repaint();
             jPanel169 = new javax.swing.JPanel();
             jLabel107 = new javax.swing.JLabel();
             jLabel3 = new javax.swing.JLabel();
-            CIE10_ID = new javax.swing.JLabel();
-            HC_ID = new javax.swing.JLabel();
-            TxtFecha = new javax.swing.JLabel();
-            TxtFua = new javax.swing.JLabel();
-            TxtDes = new javax.swing.JLabel();
             lblNina = new javax.swing.JLabel();
             lblNino = new javax.swing.JLabel();
+            lblId = new javax.swing.JLabel();
             CCD1 = new javax.swing.JPanel();
             CCD1A = new javax.swing.JPanel();
             jPanel89 = new javax.swing.JPanel();
@@ -440,7 +439,11 @@ repaint();
             jPanel31 = new javax.swing.JPanel();
             btneditar4 = new javax.swing.JButton();
             btnGuardar = new javax.swing.JButton();
+            btnCaccnelar = new javax.swing.JButton();
+            mensaje1 = new javax.swing.JPanel();
             men = new javax.swing.JLabel();
+            b = new javax.swing.JButton();
+            b1 = new javax.swing.JButton();
 
             FrmCie10.setMinimumSize(new java.awt.Dimension(750, 400));
             FrmCie10.setResizable(false);
@@ -1643,16 +1646,6 @@ repaint();
                             .addGap(45, 45, 45))))
             );
 
-            CIE10_ID.setText("jLabel1");
-
-            HC_ID.setText("jLabel1");
-
-            TxtFecha.setText("jLabel1");
-
-            TxtFua.setText("jLabel4");
-
-            TxtDes.setText("jLabel1");
-
             lblNina.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             lblNina.setForeground(new java.awt.Color(102, 102, 102));
             lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
@@ -1677,6 +1670,8 @@ repaint();
                 }
             });
 
+            lblId.setText("jLabel1");
+
             javax.swing.GroupLayout CCDLayout = new javax.swing.GroupLayout(CCD);
             CCD.setLayout(CCDLayout);
             CCDLayout.setHorizontalGroup(
@@ -1697,18 +1692,10 @@ repaint();
                                 .addGap(1, 1, 1)
                                 .addComponent(CCDM11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(CCDLayout.createSequentialGroup()
-                            .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(CIE10_ID)
-                                .addComponent(HC_ID))
-                            .addGap(141, 141, 141)
-                            .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(TxtFecha)
-                                .addComponent(TxtFua)
-                                .addComponent(TxtDes)))
-                        .addGroup(CCDLayout.createSequentialGroup()
                             .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblId))
                     .addContainerGap(180, Short.MAX_VALUE))
             );
             CCDLayout.setVerticalGroup(
@@ -1728,17 +1715,9 @@ repaint();
                     .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCDM12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel169, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGap(34, 34, 34)
-                    .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CIE10_ID)
-                        .addComponent(TxtFecha))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(HC_ID)
-                        .addComponent(TxtDes))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(TxtFua)
-                    .addContainerGap(16, Short.MAX_VALUE))
+                    .addGap(18, 18, 18)
+                    .addComponent(lblId)
+                    .addContainerGap(77, Short.MAX_VALUE))
             );
 
             jTabbedPane1.addTab("Menores de 1 año", CCD);
@@ -3591,22 +3570,40 @@ repaint();
                 }
             });
 
+            btnCaccnelar.setForeground(new java.awt.Color(240, 240, 240));
+            btnCaccnelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Deshacer-30.png"))); // NOI18N
+            btnCaccnelar.setMnemonic('N');
+            btnCaccnelar.setContentAreaFilled(false);
+            btnCaccnelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnCaccnelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            btnCaccnelar.setIconTextGap(30);
+            btnCaccnelar.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnCaccnelarActionPerformed(evt);
+                }
+            });
+
             javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
             jPanel31.setLayout(jPanel31Layout);
             jPanel31Layout.setHorizontalGroup(
                 jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 122, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel31Layout.createSequentialGroup()
+                    .addContainerGap(124, Short.MAX_VALUE)
+                    .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap())
                 .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel31Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btneditar4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(15, Short.MAX_VALUE)))
+                        .addContainerGap(64, Short.MAX_VALUE)))
             );
             jPanel31Layout.setVerticalGroup(
                 jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel31Layout.createSequentialGroup()
+                    .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE))
                 .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel31Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
@@ -3616,9 +3613,61 @@ repaint();
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             );
 
+            mensaje1.setBackground(new java.awt.Color(33, 115, 70));
+
             men.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
             men.setForeground(new java.awt.Color(255, 255, 255));
-            men.setText("jLabel1");
+            men.setText("Desea Actualizar el Registro ?");
+
+            b.setForeground(new java.awt.Color(240, 240, 240));
+            b.setText("Si");
+            b.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+            b.setContentAreaFilled(false);
+            b.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            b.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            b.setIconTextGap(30);
+            b.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    bActionPerformed(evt);
+                }
+            });
+
+            b1.setForeground(new java.awt.Color(240, 240, 240));
+            b1.setText("No");
+            b1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+            b1.setContentAreaFilled(false);
+            b1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            b1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            b1.setIconTextGap(30);
+            b1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    b1ActionPerformed(evt);
+                }
+            });
+
+            javax.swing.GroupLayout mensaje1Layout = new javax.swing.GroupLayout(mensaje1);
+            mensaje1.setLayout(mensaje1Layout);
+            mensaje1Layout.setHorizontalGroup(
+                mensaje1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mensaje1Layout.createSequentialGroup()
+                    .addGap(19, 19, 19)
+                    .addComponent(men)
+                    .addGap(46, 46, 46)
+                    .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+            mensaje1Layout.setVerticalGroup(
+                mensaje1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mensaje1Layout.createSequentialGroup()
+                    .addGap(14, 14, 14)
+                    .addGroup(mensaje1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(men)
+                        .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
 
             javax.swing.GroupLayout mensajeLayout = new javax.swing.GroupLayout(mensaje);
             mensaje.setLayout(mensajeLayout);
@@ -3626,16 +3675,14 @@ repaint();
                 mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(mensajeLayout.createSequentialGroup()
                     .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(men)
-                    .addGap(0, 0, Short.MAX_VALUE))
+                    .addGap(0, 0, 0)
+                    .addComponent(mensaje1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(0, 0, 0))
             );
             mensajeLayout.setVerticalGroup(
                 mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(mensajeLayout.createSequentialGroup()
-                    .addComponent(men, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap())
+                .addComponent(mensaje1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -3648,7 +3695,7 @@ repaint();
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1)
                     .addGap(0, 0, 0)
                     .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
@@ -3698,165 +3745,19 @@ repaint();
     }//GEN-LAST:event_FUACCDRN2ActionPerformed
 
     private void FUACCDRN1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_FUACCDRN1CaretUpdate
-        if (FUACCDRN1.getText().equals("")){
-
-        FUACCDRN1.setEditable(true);
-        FUACCDRN1.setEnabled(true);
-        FCCDRN1.setEnabled(true);
-        DXCCDRN1.setEnabled(true);
-        
-        FUACCDRN2.setEnabled(true);
-        FCCDRN2.setEnabled(true);
-        DXCCDRN2.setEnabled(true);
-        
-        FUACCDRN3.setEnabled(true);
-        FCCDRN3.setEnabled(true);
-        DXCCDRN3.setEnabled(true);
-        
-        FUACCDRN4.setEnabled(true);
-        FCCDRN4.setEnabled(true);
-        DXCCDRN4.setEnabled(true);    
-        } else {
-        TxtFua.setText(FUACCDRN1.getText());
-        TxtFecha.setText(determinarFecha(FCCDRN1));
-        TxtDes.setText("RN1");
-        
-        FUACCDRN2.setEnabled(false);
-        FCCDRN2.setEnabled(false);
-        DXCCDRN2.setEnabled(false);
-        
-        FUACCDRN3.setEnabled(false);
-        FCCDRN3.setEnabled(false);
-        DXCCDRN3.setEnabled(false);
-        
-        FUACCDRN4.setEnabled(false);
-        FCCDRN4.setEnabled(false);
-        DXCCDRN4.setEnabled(false); 
-        
-        FUACCDRN2.setEditable(false);
-        FUACCDRN3.setEditable(false);
-        FUACCDRN4.setEditable(false);
-        
-       }
-            
+      
     }//GEN-LAST:event_FUACCDRN1CaretUpdate
 
     private void FUACCDRN2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_FUACCDRN2CaretUpdate
-        if (FUACCDRN2.getText().equals("")){
-            
-        FUACCDRN2.setEditable(true);
-        FUACCDRN2.setEnabled(true);
-        FCCDRN2.setEnabled(true);
-        DXCCDRN2.setEnabled(true);
-        
-        FUACCDRN1.setEnabled(true);
-        FCCDRN1.setEnabled(true);
-        DXCCDRN1.setEnabled(true);
-      
-        
-        FUACCDRN3.setEnabled(true);
-        FCCDRN3.setEnabled(true);
-        DXCCDRN3.setEnabled(true);
-        
-        FUACCDRN4.setEnabled(true);
-        FCCDRN4.setEnabled(true);
-        DXCCDRN4.setEnabled(true);    
-        } else {
-        TxtFua.setText(FUACCDRN2.getText());
-        TxtFecha.setText(determinarFecha(FCCDRN2));
-        TxtDes.setText("RN2");
-        
-        FUACCDRN1.setEditable(false);
-        FCCDRN1.setEnabled(false);
-        DXCCDRN1.setEnabled(false);
-        
-        FUACCDRN3.setEditable(false);
-        FCCDRN3.setEnabled(false);
-        DXCCDRN3.setEnabled(false);
-        
-        FUACCDRN4.setEditable(false);
-        FCCDRN4.setEnabled(false);
-        DXCCDRN4.setEnabled(false);   
-       }
+       
     }//GEN-LAST:event_FUACCDRN2CaretUpdate
 
     private void FUACCDRN3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_FUACCDRN3CaretUpdate
-       if (FUACCDRN3.getText().equals("")){
-        FUACCDRN3.setEditable(true);
-        FUACCDRN1.setEnabled(true);
-        FCCDRN1.setEnabled(true);
-        DXCCDRN1.setEnabled(true);
-      
-        
-        FUACCDRN2.setEnabled(true);
-        FCCDRN2.setEnabled(true);
-        DXCCDRN2.setEnabled(true);
-        
-        FUACCDRN3.setEnabled(true);
-        FCCDRN2.setEnabled(true);
-        DXCCDRN2.setEnabled(true);
      
-        
-        FUACCDRN4.setEnabled(true);
-        FCCDRN4.setEnabled(true);
-        DXCCDRN4.setEnabled(true);    
-        } else {
-        TxtFua.setText(FUACCDRN3.getText());
-        TxtFecha.setText(determinarFecha(FCCDRN3));
-        TxtDes.setText("RN3");
-        
-        FUACCDRN2.setEditable(false);
-        FCCDRN2.setEnabled(false);
-        DXCCDRN2.setEnabled(false);
-        
-        FUACCDRN1.setEditable(false);
-        FCCDRN1.setEnabled(false);
-        DXCCDRN1.setEnabled(false);
-        
-        FUACCDRN4.setEditable(false);
-        FCCDRN4.setEnabled(false);
-        DXCCDRN4.setEnabled(false);   
-       }
     }//GEN-LAST:event_FUACCDRN3CaretUpdate
 
     private void FUACCDRN4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_FUACCDRN4CaretUpdate
-        if (FUACCDRN4.getText().equals("")){
-            FUACCDRN4.setEditable(true);
-       FUACCDRN1.setEnabled(true);
-        FCCDRN1.setEnabled(true);
-        DXCCDRN1.setEnabled(true);
-
         
-        FUACCDRN2.setEnabled(true);
-        FCCDRN2.setEnabled(true);
-        DXCCDRN2.setEnabled(true);
-        
-        FUACCDRN3.setEnabled(true);
-        FCCDRN3.setEnabled(true);
-        DXCCDRN3.setEnabled(true);
-        
-        FUACCDRN4.setEnabled(true);
-        FCCDRN4.setEnabled(true);
-        DXCCDRN4.setEnabled(true);
-        
-      
-        } else {
-        TxtFua.setText(FUACCDRN4.getText());
-        TxtFecha.setText(determinarFecha(FCCDRN4));
-        TxtDes.setText("RN4");
-        
-        FUACCDRN2.setEnabled(false);
-        FCCDRN2.setEnabled(false);
-        DXCCDRN2.setEnabled(false);
-        
-        FUACCDRN3.setEnabled(false);
-        FCCDRN3.setEnabled(false);
-        DXCCDRN3.setEnabled(false);
-        
-        FUACCDRN1.setEnabled(false);
-        FCCDRN1.setEnabled(false);
-        DXCCDRN1.setEnabled(false);   
-       }
     }//GEN-LAST:event_FUACCDRN4CaretUpdate
 
     private void FUACCDRN1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FUACCDRN1MouseClicked
@@ -3958,6 +3859,31 @@ repaint();
         // TODO add your handling code here:
     }//GEN-LAST:event_R44ActionPerformed
 
+    private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
+       
+
+    }//GEN-LAST:event_btnCaccnelarActionPerformed
+
+    private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
+        if (tge==3 || tge==1 || tge==9){
+            mensaje.setVisible(false);
+
+        }
+
+        if (tge==2){
+            //            Modificar();
+
+            btneditar4.setEnabled(false);
+            ;
+
+        }
+
+    }//GEN-LAST:event_bActionPerformed
+
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
+        mensaje.setVisible(false);
+    }//GEN-LAST:event_b1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CCD;
@@ -3977,133 +3903,131 @@ repaint();
     private javax.swing.JPanel CCDR8A;
     private javax.swing.JPanel CCDR9A;
     private javax.swing.JPanel CCDRN;
-    private javax.swing.JLabel CIE10_ID;
-    private javax.swing.JLabel DXCCD10A;
-    private javax.swing.JLabel DXCCD11;
-    private javax.swing.JLabel DXCCD11A;
-    private javax.swing.JLabel DXCCD12;
-    private javax.swing.JLabel DXCCD13;
-    private javax.swing.JLabel DXCCD14;
-    private javax.swing.JLabel DXCCD15;
-    private javax.swing.JLabel DXCCD16;
-    private javax.swing.JLabel DXCCD21;
-    private javax.swing.JLabel DXCCD22;
-    private javax.swing.JLabel DXCCD23;
-    private javax.swing.JLabel DXCCD24;
-    private javax.swing.JLabel DXCCD3A1;
-    private javax.swing.JLabel DXCCD3A2;
-    private javax.swing.JLabel DXCCD3A3;
-    private javax.swing.JLabel DXCCD3A4;
-    private javax.swing.JLabel DXCCD4A1;
-    private javax.swing.JLabel DXCCD4A2;
-    private javax.swing.JLabel DXCCD4A3;
-    private javax.swing.JLabel DXCCD4A4;
-    private javax.swing.JLabel DXCCD5A;
-    private javax.swing.JLabel DXCCD6A;
-    private javax.swing.JLabel DXCCD7A;
-    private javax.swing.JLabel DXCCD8A;
-    private javax.swing.JLabel DXCCD9A;
-    private javax.swing.JLabel DXCCDM1;
-    private javax.swing.JLabel DXCCDM10;
-    private javax.swing.JLabel DXCCDM11;
-    private javax.swing.JLabel DXCCDM2;
-    private javax.swing.JLabel DXCCDM3;
-    private javax.swing.JLabel DXCCDM4;
-    private javax.swing.JLabel DXCCDM5;
-    private javax.swing.JLabel DXCCDM6;
-    private javax.swing.JLabel DXCCDM7;
-    private javax.swing.JLabel DXCCDM8;
-    private javax.swing.JLabel DXCCDM9;
-    private javax.swing.JLabel DXCCDRN1;
+    public static javax.swing.JLabel DXCCD10A;
+    public static javax.swing.JLabel DXCCD11;
+    public static javax.swing.JLabel DXCCD11A;
+    public static javax.swing.JLabel DXCCD12;
+    public static javax.swing.JLabel DXCCD13;
+    public static javax.swing.JLabel DXCCD14;
+    public static javax.swing.JLabel DXCCD15;
+    public static javax.swing.JLabel DXCCD16;
+    public static javax.swing.JLabel DXCCD21;
+    public static javax.swing.JLabel DXCCD22;
+    public static javax.swing.JLabel DXCCD23;
+    public static javax.swing.JLabel DXCCD24;
+    public static javax.swing.JLabel DXCCD3A1;
+    public static javax.swing.JLabel DXCCD3A2;
+    public static javax.swing.JLabel DXCCD3A3;
+    public static javax.swing.JLabel DXCCD3A4;
+    public static javax.swing.JLabel DXCCD4A1;
+    public static javax.swing.JLabel DXCCD4A2;
+    public static javax.swing.JLabel DXCCD4A3;
+    public static javax.swing.JLabel DXCCD4A4;
+    public static javax.swing.JLabel DXCCD5A;
+    public static javax.swing.JLabel DXCCD6A;
+    public static javax.swing.JLabel DXCCD7A;
+    public static javax.swing.JLabel DXCCD8A;
+    public static javax.swing.JLabel DXCCD9A;
+    public static javax.swing.JLabel DXCCDM1;
+    public static javax.swing.JLabel DXCCDM10;
+    public static javax.swing.JLabel DXCCDM11;
+    public static javax.swing.JLabel DXCCDM2;
+    public static javax.swing.JLabel DXCCDM3;
+    public static javax.swing.JLabel DXCCDM4;
+    public static javax.swing.JLabel DXCCDM5;
+    public static javax.swing.JLabel DXCCDM6;
+    public static javax.swing.JLabel DXCCDM7;
+    public static javax.swing.JLabel DXCCDM8;
+    public static javax.swing.JLabel DXCCDM9;
+    public static javax.swing.JLabel DXCCDRN1;
     private javax.swing.JLabel DXCCDRN10;
-    private javax.swing.JLabel DXCCDRN2;
-    private javax.swing.JLabel DXCCDRN3;
-    private javax.swing.JLabel DXCCDRN4;
+    public static javax.swing.JLabel DXCCDRN2;
+    public static javax.swing.JLabel DXCCDRN3;
+    public static javax.swing.JLabel DXCCDRN4;
     private javax.swing.JLabel DXCCDRN7;
     private javax.swing.JLabel DXCCDRN8;
     private javax.swing.JLabel DXCCDRN9;
-    private com.toedter.calendar.JDateChooser FCCD10A;
-    private com.toedter.calendar.JDateChooser FCCD11;
-    private com.toedter.calendar.JDateChooser FCCD11A;
-    private com.toedter.calendar.JDateChooser FCCD12;
-    private com.toedter.calendar.JDateChooser FCCD13;
-    private com.toedter.calendar.JDateChooser FCCD14;
-    private com.toedter.calendar.JDateChooser FCCD15;
-    private com.toedter.calendar.JDateChooser FCCD16;
-    private com.toedter.calendar.JDateChooser FCCD21;
-    private com.toedter.calendar.JDateChooser FCCD22;
-    private com.toedter.calendar.JDateChooser FCCD23;
-    private com.toedter.calendar.JDateChooser FCCD24;
-    private com.toedter.calendar.JDateChooser FCCD3A1;
-    private com.toedter.calendar.JDateChooser FCCD3A2;
-    private com.toedter.calendar.JDateChooser FCCD3A3;
-    private com.toedter.calendar.JDateChooser FCCD3A4;
-    private com.toedter.calendar.JDateChooser FCCD4A1;
-    private com.toedter.calendar.JDateChooser FCCD4A2;
-    private com.toedter.calendar.JDateChooser FCCD4A3;
-    private com.toedter.calendar.JDateChooser FCCD4A4;
-    private com.toedter.calendar.JDateChooser FCCD5A;
-    private com.toedter.calendar.JDateChooser FCCD6A;
-    private com.toedter.calendar.JDateChooser FCCD7A;
-    private com.toedter.calendar.JDateChooser FCCD8A;
-    private com.toedter.calendar.JDateChooser FCCD9A;
-    private com.toedter.calendar.JDateChooser FCCDM1;
-    private com.toedter.calendar.JDateChooser FCCDM10;
-    private com.toedter.calendar.JDateChooser FCCDM11;
-    private com.toedter.calendar.JDateChooser FCCDM2;
-    private com.toedter.calendar.JDateChooser FCCDM3;
-    private com.toedter.calendar.JDateChooser FCCDM4;
-    private com.toedter.calendar.JDateChooser FCCDM5;
-    private com.toedter.calendar.JDateChooser FCCDM6;
-    private com.toedter.calendar.JDateChooser FCCDM7;
-    private com.toedter.calendar.JDateChooser FCCDM8;
-    private com.toedter.calendar.JDateChooser FCCDM9;
-    private com.toedter.calendar.JDateChooser FCCDRN1;
-    private com.toedter.calendar.JDateChooser FCCDRN2;
-    private com.toedter.calendar.JDateChooser FCCDRN3;
-    private com.toedter.calendar.JDateChooser FCCDRN4;
-    private javax.swing.JTextField FUACCD10A;
-    private javax.swing.JTextField FUACCD11;
-    private javax.swing.JTextField FUACCD11A;
-    private javax.swing.JTextField FUACCD12;
-    private javax.swing.JTextField FUACCD13;
-    private javax.swing.JTextField FUACCD14;
-    private javax.swing.JTextField FUACCD15;
-    private javax.swing.JTextField FUACCD16;
-    private javax.swing.JTextField FUACCD21;
-    private javax.swing.JTextField FUACCD22;
-    private javax.swing.JTextField FUACCD23;
-    private javax.swing.JTextField FUACCD24;
-    private javax.swing.JTextField FUACCD3A1;
-    private javax.swing.JTextField FUACCD3A2;
-    private javax.swing.JTextField FUACCD3A3;
-    private javax.swing.JTextField FUACCD3A4;
-    private javax.swing.JTextField FUACCD4A1;
-    private javax.swing.JTextField FUACCD4A2;
-    private javax.swing.JTextField FUACCD4A3;
-    private javax.swing.JTextField FUACCD4A4;
-    private javax.swing.JTextField FUACCD5A;
-    private javax.swing.JTextField FUACCD6A;
-    private javax.swing.JTextField FUACCD7A;
-    private javax.swing.JTextField FUACCD8A;
-    private javax.swing.JTextField FUACCD9A;
-    private javax.swing.JTextField FUACCDM1;
-    private javax.swing.JTextField FUACCDM10;
-    private javax.swing.JTextField FUACCDM11;
-    private javax.swing.JTextField FUACCDM2;
-    private javax.swing.JTextField FUACCDM3;
-    private javax.swing.JTextField FUACCDM4;
-    private javax.swing.JTextField FUACCDM5;
-    private javax.swing.JTextField FUACCDM6;
-    private javax.swing.JTextField FUACCDM7;
-    private javax.swing.JTextField FUACCDM8;
-    private javax.swing.JTextField FUACCDM9;
-    private javax.swing.JTextField FUACCDRN1;
-    private javax.swing.JTextField FUACCDRN2;
-    private javax.swing.JTextField FUACCDRN3;
-    private javax.swing.JTextField FUACCDRN4;
+    public static com.toedter.calendar.JDateChooser FCCD10A;
+    public static com.toedter.calendar.JDateChooser FCCD11;
+    public static com.toedter.calendar.JDateChooser FCCD11A;
+    public static com.toedter.calendar.JDateChooser FCCD12;
+    public static com.toedter.calendar.JDateChooser FCCD13;
+    public static com.toedter.calendar.JDateChooser FCCD14;
+    public static com.toedter.calendar.JDateChooser FCCD15;
+    public static com.toedter.calendar.JDateChooser FCCD16;
+    public static com.toedter.calendar.JDateChooser FCCD21;
+    public static com.toedter.calendar.JDateChooser FCCD22;
+    public static com.toedter.calendar.JDateChooser FCCD23;
+    public static com.toedter.calendar.JDateChooser FCCD24;
+    public static com.toedter.calendar.JDateChooser FCCD3A1;
+    public static com.toedter.calendar.JDateChooser FCCD3A2;
+    public static com.toedter.calendar.JDateChooser FCCD3A3;
+    public static com.toedter.calendar.JDateChooser FCCD3A4;
+    public static com.toedter.calendar.JDateChooser FCCD4A1;
+    public static com.toedter.calendar.JDateChooser FCCD4A2;
+    public static com.toedter.calendar.JDateChooser FCCD4A3;
+    public static com.toedter.calendar.JDateChooser FCCD4A4;
+    public static com.toedter.calendar.JDateChooser FCCD5A;
+    public static com.toedter.calendar.JDateChooser FCCD6A;
+    public static com.toedter.calendar.JDateChooser FCCD7A;
+    public static com.toedter.calendar.JDateChooser FCCD8A;
+    public static com.toedter.calendar.JDateChooser FCCD9A;
+    public static com.toedter.calendar.JDateChooser FCCDM1;
+    public static com.toedter.calendar.JDateChooser FCCDM10;
+    public static com.toedter.calendar.JDateChooser FCCDM11;
+    public static com.toedter.calendar.JDateChooser FCCDM2;
+    public static com.toedter.calendar.JDateChooser FCCDM3;
+    public static com.toedter.calendar.JDateChooser FCCDM4;
+    public static com.toedter.calendar.JDateChooser FCCDM5;
+    public static com.toedter.calendar.JDateChooser FCCDM6;
+    public static com.toedter.calendar.JDateChooser FCCDM7;
+    public static com.toedter.calendar.JDateChooser FCCDM8;
+    public static com.toedter.calendar.JDateChooser FCCDM9;
+    public static com.toedter.calendar.JDateChooser FCCDRN1;
+    public static com.toedter.calendar.JDateChooser FCCDRN2;
+    public static com.toedter.calendar.JDateChooser FCCDRN3;
+    public static com.toedter.calendar.JDateChooser FCCDRN4;
+    public static javax.swing.JTextField FUACCD10A;
+    public static javax.swing.JTextField FUACCD11;
+    public static javax.swing.JTextField FUACCD11A;
+    public static javax.swing.JTextField FUACCD12;
+    public static javax.swing.JTextField FUACCD13;
+    public static javax.swing.JTextField FUACCD14;
+    public static javax.swing.JTextField FUACCD15;
+    public static javax.swing.JTextField FUACCD16;
+    public static javax.swing.JTextField FUACCD21;
+    public static javax.swing.JTextField FUACCD22;
+    public static javax.swing.JTextField FUACCD23;
+    public static javax.swing.JTextField FUACCD24;
+    public static javax.swing.JTextField FUACCD3A1;
+    public static javax.swing.JTextField FUACCD3A2;
+    public static javax.swing.JTextField FUACCD3A3;
+    public static javax.swing.JTextField FUACCD3A4;
+    public static javax.swing.JTextField FUACCD4A1;
+    public static javax.swing.JTextField FUACCD4A2;
+    public static javax.swing.JTextField FUACCD4A3;
+    public static javax.swing.JTextField FUACCD4A4;
+    public static javax.swing.JTextField FUACCD5A;
+    public static javax.swing.JTextField FUACCD6A;
+    public static javax.swing.JTextField FUACCD7A;
+    public static javax.swing.JTextField FUACCD8A;
+    public static javax.swing.JTextField FUACCD9A;
+    public static javax.swing.JTextField FUACCDM1;
+    public static javax.swing.JTextField FUACCDM10;
+    public static javax.swing.JTextField FUACCDM11;
+    public static javax.swing.JTextField FUACCDM2;
+    public static javax.swing.JTextField FUACCDM3;
+    public static javax.swing.JTextField FUACCDM4;
+    public static javax.swing.JTextField FUACCDM5;
+    public static javax.swing.JTextField FUACCDM6;
+    public static javax.swing.JTextField FUACCDM7;
+    public static javax.swing.JTextField FUACCDM8;
+    public static javax.swing.JTextField FUACCDM9;
+    public static javax.swing.JTextField FUACCDRN1;
+    public static javax.swing.JTextField FUACCDRN2;
+    public static javax.swing.JTextField FUACCDRN3;
+    public static javax.swing.JTextField FUACCDRN4;
     private javax.swing.JDialog FrmCie10;
-    private javax.swing.JLabel HC_ID;
     private javax.swing.JPanel LEYENDA;
     private javax.swing.JRadioButton R10;
     private javax.swing.JRadioButton R11;
@@ -4146,9 +4070,9 @@ repaint();
     private javax.swing.JRadioButton Rrn3;
     private javax.swing.JRadioButton Rrn4;
     private javax.swing.JLabel T7;
-    private javax.swing.JLabel TxtDes;
-    private javax.swing.JLabel TxtFecha;
-    private javax.swing.JLabel TxtFua;
+    private javax.swing.JButton b;
+    private javax.swing.JButton b1;
+    private javax.swing.JButton btnCaccnelar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btneditar4;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -4253,10 +4177,12 @@ repaint();
     private javax.swing.JPanel jPanel99;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
+    private javax.swing.JPanel mensaje1;
     private javax.swing.JTable tbCiePresun;
     private javax.swing.JLabel titulo7;
     private javax.swing.JTextField txtBuscarCie10;

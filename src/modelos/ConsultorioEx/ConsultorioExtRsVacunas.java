@@ -393,23 +393,51 @@ public class ConsultorioExtRsVacunas implements Serializable {
                 } catch (Exception e) {
                     System.out.println("Eror fecha:  " + e.getMessage());
                 }
+                
+                try {
+ 
+                if(r.getString(51).equals("")){
+                  RSAIVacunas.dtInflR2.setDate(null);
+                } else {
                 String fechaSeleccionadair2 = (String)(r.getString(51));
                 DateFormat dfoir2 = new SimpleDateFormat("dd/MM/yyyy");
                 Date fechair2 = dfoir2.parse(fechaSeleccionadair2);
                 RSAIVacunas.dtInflR2.setDate(fechair2);
                 RSAIVacunas.txtInflR2.setText(r.getString(52));
+                }
+                } catch (Exception e) {
+                    System.out.println("Eror fecha:  " + e.getMessage());
+                }
                 
+                try {
+ 
+                if(r.getString(53).equals("")){
+                  RSAIVacunas.dtApoR1.setDate(null);
+                } else {
                 String fechaSeleccionadaapo = (String)(r.getString(53));
                 DateFormat dfoapo = new SimpleDateFormat("dd/MM/yyyy");
                 Date fechaapo = dfoapo.parse(fechaSeleccionadaapo);
                 RSAIVacunas.dtApoR1.setDate(fechaapo);
                 RSAIVacunas.txtFuaApoR1.setText(r.getString(54));
+                }
+                } catch (Exception e) {
+                    System.out.println("Eror fecha:  " + e.getMessage());
+                }
                 
+                try {
+ 
+                if(r.getString(55).equals("")){
+                  RSAIVacunas.dtApoR2.setDate(null);
+                } else {
                 String fechaSeleccionadaapo2 = (String)(r.getString(55));
                 DateFormat dfoapo2 = new SimpleDateFormat("dd/MM/yyyy");
                 Date fechaapo2 = dfoapo2.parse(fechaSeleccionadaapo2);
                 RSAIVacunas.dtApoR2.setDate(fechaapo2);
                 RSAIVacunas.txtFuaApoR2.setText(r.getString(56));
+                }
+                } catch (Exception e) {
+                    System.out.println("Eror fecha:  " + e.getMessage());
+                }
              
             }
             //

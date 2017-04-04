@@ -7,16 +7,23 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
+import vista.ConsultorioEx.RSAICCD;
 
 public class ConsultorioExtRsCcd implements Serializable {
     private static final long serialVersionUID = 1L;
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
+    private int RsId;
     private int rsCcd;
     private String rn1Fecha;
     private String rn1Cie10;
@@ -138,10 +145,843 @@ public class ConsultorioExtRsCcd implements Serializable {
     private String m11Fecha2;
     private String m11Cie102;
     private String m11Fua2;
+    
+    public void ConsultoriosExtCCDListar(int rs_id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_RS_CCD_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){  
+                //RECIEN NACIDO
+                try {
+                    if(r.getString(3).equals("")){
+                            RSAICCD.FCCDRN1.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionada = (String)(r.getString(3));
+                            DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fecha = dfo.parse(fechaSeleccionada);
+                            RSAICCD.FCCDRN1.setDate(fecha);
+                            RSAICCD.DXCCDRN1.setText(r.getString(4));
+                            RSAICCD.FUACCDRN1.setText(r.getString(5));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(6).equals("")){
+                            RSAICCD.FCCDRN2.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionada2 = (String)(r.getString(6));
+                            DateFormat dfo2 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fecha2 = dfo2.parse(fechaSeleccionada2);
+                            RSAICCD.FCCDRN2.setDate(fecha2);
+                            RSAICCD.DXCCDRN2.setText(r.getString(7));
+                            RSAICCD.FUACCDRN2.setText(r.getString(8));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(9).equals("")){
+                            RSAICCD.FCCDRN3.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionada3 = (String)(r.getString(9));
+                            DateFormat dfo3 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fecha3 = dfo3.parse(fechaSeleccionada3);
+                            RSAICCD.FCCDRN3.setDate(fecha3);
+                            RSAICCD.DXCCDRN3.setText(r.getString(10));
+                            RSAICCD.FUACCDRN3.setText(r.getString(11));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(12).equals("")){
+                            RSAICCD.FCCDRN4.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionada4 = (String)(r.getString(12));
+                            DateFormat dfo4 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fecha4 = dfo4.parse(fechaSeleccionada4);
+                            RSAICCD.FCCDRN4.setDate(fecha4);
+                            RSAICCD.DXCCDRN4.setText(r.getString(13));
+                            RSAICCD.FUACCDRN4.setText(r.getString(14));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //MENORES DE UN AÑO
+                
+                try {
+                    if(r.getString(15).equals("")){
+                            RSAICCD.FCCDM1.setDate(null);
+                    } else {
+                
+                            String fechaSellecionadaM1 = (String)(r.getString(15));
+                            DateFormat dfoM1 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM1 = dfoM1.parse(fechaSellecionadaM1);
+                            RSAICCD.FCCDM1.setDate(fechaM1);
+                            RSAICCD.DXCCDM1.setText(r.getString(16));
+                            RSAICCD.FUACCDM1.setText(r.getString(17));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(18).equals("")){
+                            RSAICCD.FCCDM2.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM2 = (String)(r.getString(18));
+                            DateFormat dfoM2 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM2 = dfoM2.parse(fechaSeleccionadaM2);
+                            RSAICCD.FCCDM2.setDate(fechaM2);
+                            RSAICCD.DXCCDM2.setText(r.getString(19));
+                            RSAICCD.FUACCDM2.setText(r.getString(20));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(21).equals("")){
+                            RSAICCD.FCCDM3.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM3 = (String)(r.getString(21));
+                            DateFormat dfoM3 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM3 = dfoM3.parse(fechaSeleccionadaM3);
+                            RSAICCD.FCCDM3.setDate(fechaM3);
+                            RSAICCD.DXCCDM3.setText(r.getString(22));
+                            RSAICCD.FUACCDM3.setText(r.getString(23));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(24).equals("")){
+                            RSAICCD.FCCDM4.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM4 = (String)(r.getString(24));
+                            DateFormat dfoM4 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM4 = dfoM4.parse(fechaSeleccionadaM4);
+                            RSAICCD.FCCDM4.setDate(fechaM4);
+                            RSAICCD.DXCCDM4.setText(r.getString(25));
+                            RSAICCD.FUACCDM4.setText(r.getString(26));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(27).equals("")){
+                            RSAICCD.FCCDM5.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM5 = (String)(r.getString(27));
+                            DateFormat dfoM5 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM5 = dfoM5.parse(fechaSeleccionadaM5);
+                            RSAICCD.FCCDM5.setDate(fechaM5);
+                            RSAICCD.DXCCDM5.setText(r.getString(28));
+                            RSAICCD.FUACCDM5.setText(r.getString(29));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(30).equals("")){
+                            RSAICCD.FCCDM6.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM6 = (String)(r.getString(30));
+                            DateFormat dfoM6 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM6 = dfoM6.parse(fechaSeleccionadaM6);
+                            RSAICCD.FCCDM6.setDate(fechaM6);
+                            RSAICCD.DXCCDM6.setText(r.getString(31));
+                            RSAICCD.FUACCDM6.setText(r.getString(32));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(33).equals("")){
+                            RSAICCD.FCCDM7.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM7 = (String)(r.getString(33));
+                            DateFormat dfoM7 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM7 = dfoM7.parse(fechaSeleccionadaM7);
+                            RSAICCD.FCCDM7.setDate(fechaM7);
+                            RSAICCD.DXCCDM7.setText(r.getString(34));
+                            RSAICCD.FUACCDM7.setText(r.getString(35));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(36).equals("")){
+                            RSAICCD.FCCDM8.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM8 = (String)(r.getString(36));
+                            DateFormat dfoM8 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM8 = dfoM8.parse(fechaSeleccionadaM8);
+                            RSAICCD.FCCDM8.setDate(fechaM8);
+                            RSAICCD.DXCCDM8.setText(r.getString(37));
+                            RSAICCD.FUACCDM8.setText(r.getString(38));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(39).equals("")){
+                            RSAICCD.FCCDM9.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM9 = (String)(r.getString(39));
+                            DateFormat dfoM9 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM9 = dfoM9.parse(fechaSeleccionadaM9);
+                            RSAICCD.FCCDM9.setDate(fechaM9);
+                            RSAICCD.DXCCDM9.setText(r.getString(40));
+                            RSAICCD.FUACCDM9.setText(r.getString(41));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(42).equals("")){
+                            RSAICCD.FCCDM10.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM10 = (String)(r.getString(42));
+                            DateFormat dfoM10 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM10 = dfoM10.parse(fechaSeleccionadaM10);
+                            RSAICCD.FCCDM10.setDate(fechaM10);
+                            RSAICCD.DXCCDM10.setText(r.getString(43));
+                            RSAICCD.FUACCDM10.setText(r.getString(44));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(45).equals("")){
+                            RSAICCD.FCCDM11.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM11 = (String)(r.getString(45));
+                            DateFormat dfoM11 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM11 = dfoM11.parse(fechaSeleccionadaM11);
+                            RSAICCD.FCCDM11.setDate(fechaM11);
+                            RSAICCD.DXCCDM11.setText(r.getString(46));
+                            RSAICCD.FUACCDM11.setText(r.getString(47));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //1 AÑO
+                try {
+                    if(r.getString(48).equals("")){
+                            RSAICCD.FCCD11.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM1A = (String)(r.getString(48));
+                            DateFormat dfoM1A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM1A = dfoM1A.parse(fechaSeleccionadaM1A);
+                            RSAICCD.FCCD11.setDate(fechaM1A);
+                            RSAICCD.DXCCD11.setText(r.getString(49));
+                            RSAICCD.FUACCD11.setText(r.getString(50));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(51).equals("")){
+                            RSAICCD.FCCD12.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM12A = (String)(r.getString(51));
+                            DateFormat dfoM12A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM12A = dfoM12A.parse(fechaSeleccionadaM12A);
+                            RSAICCD.FCCD12.setDate(fechaM12A);
+                            RSAICCD.DXCCD12.setText(r.getString(52));
+                            RSAICCD.FUACCD12.setText(r.getString(53));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(54).equals("")){
+                            RSAICCD.FCCD13.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM13A = (String)(r.getString(54));
+                            DateFormat dfoM13A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM13A = dfoM13A.parse(fechaSeleccionadaM13A);
+                            RSAICCD.FCCD13.setDate(fechaM13A);
+                            RSAICCD.DXCCD13.setText(r.getString(55));
+                            RSAICCD.FUACCD13.setText(r.getString(56));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(57).equals("")){
+                            RSAICCD.FCCD14.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM14A = (String)(r.getString(57));
+                            DateFormat dfoM14A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM14A = dfoM14A.parse(fechaSeleccionadaM14A);
+                            RSAICCD.FCCD14.setDate(fechaM14A);
+                            RSAICCD.DXCCD14.setText(r.getString(58));
+                            RSAICCD.FUACCD14.setText(r.getString(59));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(60).equals("")){
+                            RSAICCD.FCCD15.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM15A = (String)(r.getString(60));
+                            DateFormat dfoM15A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM15A = dfoM15A.parse(fechaSeleccionadaM15A);
+                            RSAICCD.FCCD15.setDate(fechaM15A);
+                            RSAICCD.DXCCD15.setText(r.getString(61));
+                            RSAICCD.FUACCD15.setText(r.getString(62));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(63).equals("")){
+                            RSAICCD.FCCD16.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM16A = (String)(r.getString(63));
+                            DateFormat dfoM16A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM16A = dfoM16A.parse(fechaSeleccionadaM16A);
+                            RSAICCD.FCCD16.setDate(fechaM16A);
+                            RSAICCD.DXCCD16.setText(r.getString(64));
+                            RSAICCD.FUACCD16.setText(r.getString(65));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //2 AÑOS
+                try {
+                    if(r.getString(66).equals("")){
+                            RSAICCD.FCCD21.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM21A = (String)(r.getString(66));
+                            DateFormat dfoM21A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM21A = dfoM21A.parse(fechaSeleccionadaM21A);
+                            RSAICCD.FCCD21.setDate(fechaM21A);
+                            RSAICCD.DXCCD21.setText(r.getString(67));
+                            RSAICCD.FUACCD21.setText(r.getString(68));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(69).equals("")){
+                            RSAICCD.FCCD22.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM22A = (String)(r.getString(69));
+                            DateFormat dfoM22A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM22A = dfoM22A.parse(fechaSeleccionadaM22A);
+                            RSAICCD.FCCD22.setDate(fechaM22A);
+                            RSAICCD.DXCCD22.setText(r.getString(70));
+                            RSAICCD.FUACCD22.setText(r.getString(71));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(72).equals("")){
+                            RSAICCD.FCCD23.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM23A = (String)(r.getString(72));
+                            DateFormat dfoM23A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM23A = dfoM23A.parse(fechaSeleccionadaM23A);
+                            RSAICCD.FCCD23.setDate(fechaM23A);
+                            RSAICCD.DXCCD23.setText(r.getString(73));
+                            RSAICCD.FUACCD23.setText(r.getString(74));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(75).equals("")){
+                            RSAICCD.FCCD24.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM24A = (String)(r.getString(75));
+                            DateFormat dfoM24A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM24A = dfoM24A.parse(fechaSeleccionadaM24A);
+                            RSAICCD.FCCD24.setDate(fechaM24A);
+                            RSAICCD.DXCCD24.setText(r.getString(76));
+                            RSAICCD.FUACCD24.setText(r.getString(77));
+                    }
+                } catch (Exception e) {
+                }
+                
+                // 3 AÑOS
+                try {
+                    if(r.getString(78).equals("")){
+                            RSAICCD.FCCD3A1.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM3A1 = (String)(r.getString(78));
+                            DateFormat dfoM3A1 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM3A1 = dfoM3A1.parse(fechaSeleccionadaM3A1);
+                            RSAICCD.FCCD3A1.setDate(fechaM3A1);
+                            RSAICCD.DXCCD3A1.setText(r.getString(79));
+                            RSAICCD.FUACCD3A1.setText(r.getString(80));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(81).equals("")){
+                            RSAICCD.FCCD3A2.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM3A2 = (String)(r.getString(81));
+                            DateFormat dfoM3A2 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM3A2 = dfoM3A2.parse(fechaSeleccionadaM3A2);
+                            RSAICCD.FCCD3A2.setDate(fechaM3A2);
+                            RSAICCD.DXCCD3A2.setText(r.getString(82));
+                            RSAICCD.FUACCD3A2.setText(r.getString(83));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(84).equals("")){
+                            RSAICCD.FCCD3A3.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM3A3 = (String)(r.getString(84));
+                            DateFormat dfoM3A3 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM3A3 = dfoM3A3.parse(fechaSeleccionadaM3A3);
+                            RSAICCD.FCCD3A3.setDate(fechaM3A3);
+                            RSAICCD.DXCCD3A3.setText(r.getString(85));
+                            RSAICCD.FUACCD3A3.setText(r.getString(86));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(87).equals("")){
+                            RSAICCD.FCCD3A4.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM3A4 = (String)(r.getString(87));
+                            DateFormat dfoM3A4 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM3A4 = dfoM3A4.parse(fechaSeleccionadaM3A4);
+                            RSAICCD.FCCD3A4.setDate(fechaM3A4);
+                            RSAICCD.DXCCD3A4.setText(r.getString(88));
+                            RSAICCD.FUACCD3A4.setText(r.getString(89));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //4 AÑOS
+                
+                try {
+                    if(r.getString(90).equals("")){
+                            RSAICCD.FCCD4A1.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM4A1 = (String)(r.getString(90));
+                            DateFormat dfoM34A1 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM4A1 = dfoM34A1.parse(fechaSeleccionadaM4A1);
+                            RSAICCD.FCCD4A1.setDate(fechaM4A1);
+                            RSAICCD.DXCCD4A1.setText(r.getString(91));
+                            RSAICCD.FUACCD4A1.setText(r.getString(92));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(93).equals("")){
+                            RSAICCD.FCCD4A2.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM4A2 = (String)(r.getString(93));
+                            DateFormat dfoM4A2 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM4A2 = dfoM4A2.parse(fechaSeleccionadaM4A2);
+                            RSAICCD.FCCD4A2.setDate(fechaM4A2);
+                            RSAICCD.DXCCD4A2.setText(r.getString(94));
+                            RSAICCD.FUACCD4A2.setText(r.getString(95));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(96).equals("")){
+                            RSAICCD.FCCD3A3.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM4A3 = (String)(r.getString(96));
+                            DateFormat dfoM4A3 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM4A3 = dfoM4A3.parse(fechaSeleccionadaM4A3);
+                            RSAICCD.FCCD4A3.setDate(fechaM4A3);
+                            RSAICCD.DXCCD4A3.setText(r.getString(97));
+                            RSAICCD.FUACCD4A3.setText(r.getString(98));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(99).equals("")){
+                            RSAICCD.FCCD4A4.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM4A4 = (String)(r.getString(99));
+                            DateFormat dfoM4A4 = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM4A4 = dfoM4A4.parse(fechaSeleccionadaM4A4);
+                            RSAICCD.FCCD4A4.setDate(fechaM4A4);
+                            RSAICCD.DXCCD4A4.setText(r.getString(100));
+                            RSAICCD.FUACCD4A4.setText(r.getString(101));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //5 AÑOS
+                try {
+                    if(r.getString(102).equals("")){
+                            RSAICCD.FCCD5A.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM5A = (String)(r.getString(102));
+                            DateFormat dfoM5A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM5A = dfoM5A.parse(fechaSeleccionadaM5A);
+                            RSAICCD.FCCD5A.setDate(fechaM5A);
+                            RSAICCD.DXCCD5A.setText(r.getString(103));
+                            RSAICCD.FUACCD5A.setText(r.getString(104));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //6 AÑOS
+                try {
+                    if(r.getString(105).equals("")){
+                            RSAICCD.FCCD6A.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM6A = (String)(r.getString(105));
+                            DateFormat dfoM6A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM6A = dfoM6A.parse(fechaSeleccionadaM6A);
+                            RSAICCD.FCCD6A.setDate(fechaM6A);
+                            RSAICCD.DXCCD6A.setText(r.getString(106));
+                            RSAICCD.FUACCD6A.setText(r.getString(107));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //7 AÑOS
+                try {
+                    if(r.getString(108).equals("")){
+                            RSAICCD.FCCD7A.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM7A = (String)(r.getString(108));
+                            DateFormat dfoM7A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM7A = dfoM7A.parse(fechaSeleccionadaM7A);
+                            RSAICCD.FCCD7A.setDate(fechaM7A);
+                            RSAICCD.DXCCD7A.setText(r.getString(109));
+                            RSAICCD.FUACCD7A.setText(r.getString(110));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //8 AÑOS
+                try {
+                    if(r.getString(111).equals("")){
+                            RSAICCD.FCCD8A.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM8A = (String)(r.getString(111));
+                            DateFormat dfoM8A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM8A = dfoM8A.parse(fechaSeleccionadaM8A);
+                            RSAICCD.FCCD8A.setDate(fechaM8A);
+                            RSAICCD.DXCCD8A.setText(r.getString(112));
+                            RSAICCD.FUACCD8A.setText(r.getString(113));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //9 AÑOS
+                try {
+                    if(r.getString(114).equals("")){
+                            RSAICCD.FCCD9A.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM9A = (String)(r.getString(114));
+                            DateFormat dfoM9A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM9A = dfoM9A.parse(fechaSeleccionadaM9A);
+                            RSAICCD.FCCD9A.setDate(fechaM9A);
+                            RSAICCD.DXCCD9A.setText(r.getString(115));
+                            RSAICCD.FUACCD9A.setText(r.getString(116));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //10 AÑOS
+                try {
+                    if(r.getString(117).equals("")){
+                            RSAICCD.FCCD10A.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM10A = (String)(r.getString(117));
+                            DateFormat dfoM10A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM10A = dfoM10A.parse(fechaSeleccionadaM10A);
+                            RSAICCD.FCCD10A.setDate(fechaM10A);
+                            RSAICCD.DXCCD10A.setText(r.getString(115));
+                            RSAICCD.FUACCD10A.setText(r.getString(116));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //10 AÑOS
+                try {
+                    if(r.getString(118).equals("")){
+                            RSAICCD.FCCD11A.setDate(null);
+                    } else {
+                
+                            String fechaSeleccionadaM11A = (String)(r.getString(118));
+                            DateFormat dfoM11A = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fechaM11A = dfoM11A.parse(fechaSeleccionadaM11A);
+                            RSAICCD.FCCD11A.setDate(fechaM11A);
+                            RSAICCD.DXCCD11A.setText(r.getString(119));
+                            RSAICCD.FUACCD11A.setText(r.getString(120));
+                    }
+                } catch (Exception e) {
+                }
+              
+                
+
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: ConsultoriosExtVacunasListar " + e.getMessage());
+        }
+    }
+    
+    public boolean mantenimientoRSAICCD(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CONSULTORIO_EXT_RS_CCD_MANTENIMIENTO ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getRsId());
+            //RECIEN NACIDO
+            cmd.setString(2, getRn1Fecha());
+            cmd.setString(3, getRn1Cie10());            
+            cmd.setString(4, getRn1Fua());
+            cmd.setString(5, getRn2Fecha()); 
+            cmd.setString(6, getRn2Cie10());
+            cmd.setString(7, getRn2Fua());    
+            cmd.setString(8, getRn3Fecha());
+            cmd.setString(9, getRn3Cie10());    
+            cmd.setString(10, getRn3Fua());
+            cmd.setString(11, getRn4Fecha());     
+            cmd.setString(12, getRn4Cie10());
+            cmd.setString(13, getRn4Fua());
+            
+            //MENORES DE UN AÑO
+            cmd.setString(14, getM1Fecha());
+            cmd.setString(15, getM1Cie10());
+            cmd.setString(16, getM1Fua());
+            
+            cmd.setString(17, getM2Fecha());          
+            cmd.setString(18, getM2Cie10());
+            cmd.setString(19, getM2Fua());
+            
+            cmd.setString(20, getM3Fecha());
+            cmd.setString(21, getM3Cie10());           
+            cmd.setString(22, getM3Fua());
+            
+            cmd.setString(23, getM4Fecha());           
+            cmd.setString(24, getM4Cie10());
+            cmd.setString(25, getM4Fua());
+            
+            cmd.setString(26, getM5Fecha());
+            cmd.setString(27, getM5Cie10());          
+            cmd.setString(28, getM5Fua());
+            
+            cmd.setString(29, getM6Fecha());           
+            cmd.setString(30, getM6Cie10());
+            cmd.setString(31, getM6Fua());
+            
+            cmd.setString(32, getM7Fecha());           
+            cmd.setString(33, getM7Cie10());           
+            cmd.setString(34, getM7Fua());
+            
+            cmd.setString(35, getM8Fecha());           
+            cmd.setString(36, getM8Cie10());
+            cmd.setString(37, getM8Fua());
+            
+            cmd.setString(38, getM9Fecha());
+            cmd.setString(39, getM9Cie10());           
+            cmd.setString(40, getM9Fua());
+            
+            cmd.setString(41, getM10Fecha());           
+            cmd.setString(42, getM10Cie10()); 
+            cmd.setString(43, getM10Fua()); 
+            
+            cmd.setString(44, getM11Fecha());
+            cmd.setString(45, getM11Cie10());
+            cmd.setString(46, getM11Fua());
+            
+            //1 AÑO
+            cmd.setString(47, getM11Fecha1());
+            cmd.setString(48, getM11Cie101());
+            cmd.setString(49, getM11Fua1());
+            
+            cmd.setString(50, getM12Fecha());
+            cmd.setString(51, getM12Cie10());
+            cmd.setString(52, getM12Fua());
+            
+            cmd.setString(53, getM13Fecha()); 
+            cmd.setString(54, getM13Cie10());
+            cmd.setString(55, getM13Fua());
+            
+            cmd.setString(56, getM14Fecha());
+            cmd.setString(57, getM14Cie10());
+            cmd.setString(58, getM14Fua());
+            
+            cmd.setString(59, getM15Fecha());
+            cmd.setString(60, getM15Cie10());
+            cmd.setString(61, getM15Fua());
+            
+            cmd.setString(62, getM16Fecha()); 
+            cmd.setString(63, getM16Cie10());
+            cmd.setString(64, getM16Fua());
+            
+            //2 AÑOS
+            cmd.setString(65, getM21Fecha());
+            cmd.setString(66, getM21Cie10());
+            cmd.setString(67, getM21Fua());
+            
+            cmd.setString(68, getM22Fecha());
+            cmd.setString(69, getM22Cie10());
+            cmd.setString(70, getM22Fua());
+            
+            cmd.setString(71, getM23Fecha()); 
+            cmd.setString(72, getM23Cie10());
+            cmd.setString(73, getM23Fua());
+            
+            cmd.setString(74, getM24Fecha()); 
+            cmd.setString(75, getM24Cie10());
+            cmd.setString(76, getM24Fua());
+            
+           //3 AÑOS
+            cmd.setString(77, getM31Fecha());
+            cmd.setString(78, getM31Cie10());
+            cmd.setString(79, getM31Fua());
+            
+            cmd.setString(80, getM32Fecha());
+            cmd.setString(81, getM32Cie10());
+            cmd.setString(82, getM32Fua());
+            
+            cmd.setString(83, getM33Fecha()); 
+            cmd.setString(84, getM33Cie10());
+            cmd.setString(85, getM33Fua());
+            
+            cmd.setString(86, getM34Fecha()); 
+            cmd.setString(87, getM34Cie10());
+            cmd.setString(88, getM34Fua());
+            
+            //4 AÑOS
+            cmd.setString(89, getM41Fecha());
+            cmd.setString(90, getM41Cie10());
+            cmd.setString(91, getM41Fua());
+            
+            cmd.setString(92, getM42Fecha());
+            cmd.setString(93, getM42Cie10());
+            cmd.setString(94, getM42Fua());
+            
+            cmd.setString(95, getM43Fecha()); 
+            cmd.setString(96, getM43Cie10());
+            cmd.setString(97, getM43Fua());
+            
+            cmd.setString(98, getM44Fecha()); 
+            cmd.setString(99, getM44Cie10());
+            cmd.setString(100,getM44Fua());
+            
+            //5 AÑOS
+            cmd.setString(101, getM5Fecha());
+            cmd.setString(102, getM5Cie10());
+            cmd.setString(103, getM5Fua());
+            
+            //6 AÑOS
+            cmd.setString(104, getM6Fecha());
+            cmd.setString(105, getM6Cie10());
+            cmd.setString(106, getM6Fua());
+            
+            //7 AÑOS
+            cmd.setString(107, getM7Fecha());
+            cmd.setString(108, getM7Cie10());
+            cmd.setString(109, getM7Fua());
+            
+            //8 AÑOS
+            cmd.setString(110, getM8Fecha());
+            cmd.setString(111, getM8Cie10());
+            cmd.setString(112, getM8Fua());
+            
+            //9 AÑOS
+            cmd.setString(113, getM9Fecha());
+            cmd.setString(114, getM9Cie10());
+            cmd.setString(115, getM9Fua());
+            
+            //10 AÑOS
+            cmd.setString(116, getM10Fecha1());
+            cmd.setString(117, getM10Cie101());
+            cmd.setString(118, getM10Fua1());
+            
+            //11 AÑOS
+            cmd.setString(119, getM11Fecha2());
+            cmd.setString(120, getM11Cie102());
+            cmd.setString(121, getM11Fua2());
+            
+            cmd.setString(122, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimiento CCD " + ex.getMessage());
+        }
+        return resp;
+    }
 
     public ConsultorioExtRsCcd() {
         Conexion con = new Conexion();
         cn = con.conectar();
+    }
+
+    public int getRsId() {
+        return RsId;
+    }
+
+    public void setRsId(int RsId) {
+        this.RsId = RsId;
     }
 
     public ConsultorioExtRsCcd(int rsCcd) {

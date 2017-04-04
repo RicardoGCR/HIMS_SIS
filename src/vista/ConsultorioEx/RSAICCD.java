@@ -50,6 +50,9 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         mensaje1.setVisible(false);
         FrmCie10.setLocationRelativeTo(null);//en el centro
         FrmCie10.getContentPane().setBackground(new Color(0,153,102));
+        
+        ConsultorioExtRsCcd CCDBUSCAR = new ConsultorioExtRsCcd();
+        CCDBUSCAR.cargarDatosCie10("", tbCiePresun);
        
     }
     public void QuitarLaBarraTitulo(){ 
@@ -269,7 +272,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             PreparedStatement cmd = CCD01.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_CCD WHERE RS_ID ='"+rs_id+"'");
             ResultSet res = cmd.executeQuery();
             if(res.next()){ // si existe
-                Modificar(fecha);
+                Modificar(fecha,cie10);
             }else { // no existe
                 Guardar(fecha);
             }
@@ -579,13 +582,21 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }
     }
     
-    public void Modificar(JDateChooser fecha){
+    public void Modificar(JDateChooser fecha,JLabel cie10){
     if(fecha.getDate()==null){
         fecha.setEnabled(true);
         //fua.setEnabled(true);
         mensaje1.setVisible(true);
         mensaje1.setBackground(new Color(255,91,70)); 
         men.setText("Ingrese una fecha valida");
+        b.setVisible(false);
+        b1.setVisible(false);
+        if(cie10.getText()==""){
+
+        cie10.setEnabled(true);
+        mensaje1.setVisible(true);
+        mensaje1.setBackground(new Color(255,91,70)); 
+        men.setText("Debe de ingresar un Diagnostico");
         b.setVisible(false);
         b1.setVisible(false);
     } else {
@@ -844,7 +855,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                System.out.println("Error: modificar " + e.getMessage());
             }
         }
-    }
+    }}
     
 
     /**

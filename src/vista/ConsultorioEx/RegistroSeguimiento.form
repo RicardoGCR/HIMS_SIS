@@ -767,7 +767,7 @@
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="jPanel13" alignment="0" pref="109" max="32767" attributes="0"/>
                                   <Component id="jPanel15" alignment="0" pref="109" max="32767" attributes="0"/>
-                                  <Component id="jPanel17" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jPanel17" alignment="0" pref="109" max="32767" attributes="0"/>
                                   <Component id="jPanel16" alignment="0" pref="109" max="32767" attributes="0"/>
                                   <Component id="jPanel12" pref="109" max="32767" attributes="0"/>
                               </Group>
@@ -778,7 +778,7 @@
                                       <Component id="jPanel20" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jPanel21" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="jPanel18" min="-2" pref="106" max="-2" attributes="0"/>
+                                  <Component id="jPanel18" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1162,17 +1162,17 @@
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="lblPorcentajeTN" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel9" alignment="1" max="32767" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="lblPorcentajeTN" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel9" alignment="1" pref="106" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblPorcentajeTN" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1194,17 +1194,7 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="lblPorcentajeTN">
                           <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI Light" size="24" style="0"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                            </Property>
-                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                              <Image iconType="3" name="/imagenes/iconos/C&#xed;rculo sin marcar-100 (2).png"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="0 %"/>
-                            <Property name="horizontalTextPosition" type="int" value="0"/>
+                            <Property name="text" type="java.lang.String" value="jLabel7"/>
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

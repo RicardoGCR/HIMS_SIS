@@ -6,6 +6,12 @@
 package modelos.ConsultorioEx;
 
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +20,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import servicios.Conexion;
+import vista.ConsultorioEx.RSAITAPTG;
 
 /**
  *
@@ -59,6 +67,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByTest11Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.test11Fua = :test11Fua")})
 public class ConsultorioExtRsTamizajeAnemiaParasitosis implements Serializable {
     private static final long serialVersionUID = 1L;
+    
+    Conexion con = new Conexion();
+    private Connection cn;
+    private int rs_id;
     @Id
     @Basic(optional = false)
     @Column(name = "TA_ID")
@@ -127,8 +139,325 @@ public class ConsultorioExtRsTamizajeAnemiaParasitosis implements Serializable {
     private String test11Fecha;
     @Column(name = "TEST11_FUA")
     private String test11Fua;
+    
+    public void ConsultoriosExtTAListar(int rs_id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_RS_TAMIZAJE_ANEMIA_PARASITOSIS_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                
+                //////////////////////////////////////////////////
+                //ANEMIA/////////////////////////////////////////////////////////
+                //6 MESES 
+                try {
+                    if(r.getString(3).equals("")){
+                        RSAITAPTG.TNFA1.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD1 = (String)(r.getString(3));
+                        DateFormat dfoD1 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD1 = dfoD1.parse(fechaSeleccionadaD1);
+                        RSAITAPTG.TNFA1.setDate(fechaD1);
+                        RSAITAPTG.TNFUAA1.setText(r.getString(4));
+                    }
+                } catch (Exception e) {
+                }
+                //1 AÑO
+                try {
+                    if(r.getString(5).equals("")){
+                        RSAITAPTG.TNFA2.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD2 = (String)(r.getString(5));
+                        DateFormat dfoD2 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD2 = dfoD2.parse(fechaSeleccionadaD2);
+                        RSAITAPTG.TNFA2.setDate(fechaD2);
+                        RSAITAPTG.TNFUAA2.setText(r.getString(6));
+                    }
+                } catch (Exception e) {
+                }
+                //2 AÑOS
+                try {
+                    if(r.getString(7).equals("")){
+                        RSAITAPTG.TNFA3.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD3 = (String)(r.getString(7));
+                        DateFormat dfoD3 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD3 = dfoD3.parse(fechaSeleccionadaD3);
+                        RSAITAPTG.TNFA3.setDate(fechaD3);
+                        RSAITAPTG.TNFUAA3.setText(r.getString(8));
+                    }
+                } catch (Exception e) {
+                }
+                //3 AÑOS
+                try {
+                    if(r.getString(9).equals("")){
+                        RSAITAPTG.TNFA4.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD4 = (String)(r.getString(9));
+                        DateFormat dfoD4 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD4 = dfoD4.parse(fechaSeleccionadaD4);
+                        RSAITAPTG.TNFA4.setDate(fechaD4);
+                        RSAITAPTG.TNFUAA4.setText(r.getString(10));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //4 AÑOS
+                try {
+                    if(r.getString(11).equals("")){
+                        RSAITAPTG.TNFA5.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD5 = (String)(r.getString(11));
+                        DateFormat dfoD5 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD5 = dfoD5.parse(fechaSeleccionadaD5);
+                        RSAITAPTG.TNFA5.setDate(fechaD5);
+                        RSAITAPTG.TNFUAA5.setText(r.getString(12));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //1 - 11 AÑOS
+                try {
+                    if(r.getString(13).equals("")){
+                        RSAITAPTG.TNFA6.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD6 = (String)(r.getString(13));
+                        DateFormat dfoD6 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD6 = dfoD6.parse(fechaSeleccionadaD6);
+                        RSAITAPTG.TNFA6.setDate(fechaD6);
+                        RSAITAPTG.TNFUAA6.setText(r.getString(14));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //PARASITOSIS/////////////////////////////////////////////////////////
+                //1 AÑO 
+                try {
+                    if(r.getString(15).equals("")){
+                        RSAITAPTG.TNFP1.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD7 = (String)(r.getString(15));
+                        DateFormat dfoD7 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD7 = dfoD7.parse(fechaSeleccionadaD7);
+                        RSAITAPTG.TNFP1.setDate(fechaD7);
+                        RSAITAPTG.TNFUAP1.setText(r.getString(16));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //2 AÑOS 
+                try {
+                    if(r.getString(17).equals("")){
+                        RSAITAPTG.TNFP2.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD8 = (String)(r.getString(17));
+                        DateFormat dfoD8 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD8 = dfoD8.parse(fechaSeleccionadaD8);
+                        RSAITAPTG.TNFP2.setDate(fechaD8);
+                        RSAITAPTG.TNFUAP2.setText(r.getString(18));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //3 AÑOS 
+                try {
+                    if(r.getString(19).equals("")){
+                        RSAITAPTG.TNFP3.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD9 = (String)(r.getString(19));
+                        DateFormat dfoD9 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD9 = dfoD9.parse(fechaSeleccionadaD9);
+                        RSAITAPTG.TNFP3.setDate(fechaD9);
+                        RSAITAPTG.TNFUAP3.setText(r.getString(20));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //4 AÑOS 
+                try {
+                    if(r.getString(21).equals("")){
+                        RSAITAPTG.TNFP4.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD10 = (String)(r.getString(21));
+                        DateFormat dfoD10 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD10 = dfoD10.parse(fechaSeleccionadaD10);
+                        RSAITAPTG.TNFP4.setDate(fechaD10);
+                        RSAITAPTG.TNFUAP4.setText(r.getString(22));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //1 - 11 AÑOS 
+                try {
+                    if(r.getString(23).equals("")){
+                        RSAITAPTG.TNFP5.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD11 = (String)(r.getString(23));
+                        DateFormat dfoD11 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD11 = dfoD11.parse(fechaSeleccionadaD11);
+                        RSAITAPTG.TNFP5.setDate(fechaD11);
+                        RSAITAPTG.TNFUAP5.setText(r.getString(24));
+                    }
+                } catch (Exception e) {
+                }
+                //TEST DE GRHAM/////////////////////////////////////////////////////////
+                //1 AÑO 
+                try {
+                    if(r.getString(25).equals("")){
+                        RSAITAPTG.TNFT1.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD12 = (String)(r.getString(25));
+                        DateFormat dfoD12 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD12 = dfoD12.parse(fechaSeleccionadaD12);
+                        RSAITAPTG.TNFT1.setDate(fechaD12);
+                        RSAITAPTG.TNFUAT1.setText(r.getString(26));
+                    }
+                } catch (Exception e) {
+                }
+                //2 AÑOS 
+                try {
+                    if(r.getString(27).equals("")){
+                        RSAITAPTG.TNFT2.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD13 = (String)(r.getString(27));
+                        DateFormat dfoD13 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD13 = dfoD13.parse(fechaSeleccionadaD13);
+                        RSAITAPTG.TNFT2.setDate(fechaD13);
+                        RSAITAPTG.TNFUAT2.setText(r.getString(28));
+                    }
+                } catch (Exception e) {
+                }
+                //3 AÑOS 
+                try {
+                    if(r.getString(29).equals("")){
+                        RSAITAPTG.TNFT3.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD14 = (String)(r.getString(29));
+                        DateFormat dfoD14 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD14 = dfoD14.parse(fechaSeleccionadaD14);
+                        RSAITAPTG.TNFT3.setDate(fechaD14);
+                        RSAITAPTG.TNFUAT3.setText(r.getString(30));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //4 AÑOS 
+                try {
+                    if(r.getString(31).equals("")){
+                        RSAITAPTG.TNFT4.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD15 = (String)(r.getString(31));
+                        DateFormat dfoD15 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD15 = dfoD15.parse(fechaSeleccionadaD15);
+                        RSAITAPTG.TNFT4.setDate(fechaD15);
+                        RSAITAPTG.TNFUAT4.setText(r.getString(32));
+                    }
+                } catch (Exception e) {
+                }
+                
+                //1- 11 AÑOS 
+                try {
+                    if(r.getString(33).equals("")){
+                        RSAITAPTG.TNFT5.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD16 = (String)(r.getString(33));
+                        DateFormat dfoD16 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD16 = dfoD16.parse(fechaSeleccionadaD16);
+                        RSAITAPTG.TNFT5.setDate(fechaD16);
+                        RSAITAPTG.TNFUAT5.setText(r.getString(34));
+                    }
+                } catch (Exception e) {
+                }
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: Consultorios tam neo " + e.getMessage());
+        }
+    }
+    
+     public boolean mantenimientoRSAITA(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CONSULTORIO_EXT_MANTENIMIENTO_RS_TAMIZAJE_ANEMIA_PARASITOSIS ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getRs_id());
+            //////////////////////////////////////////////////
+            //ANEMIA//////////////////////////////////////////
+            cmd.setString(2, getAnemia6mFecha());
+            cmd.setString(3, getAnemia6mFua());
+           
+            cmd.setString(4, getAnemia1Fecha());
+            cmd.setString(5, getAnemia1Fua());
+            
+            cmd.setString(6, getAnemia2Fecha());
+            cmd.setString(7, getAnemia2Fua());
+            
+            cmd.setString(8, getAnemia3Fecha());
+            cmd.setString(9, getAnemia3Fua());
+            
+            cmd.setString(10, getAnemia4Fecha());
+            cmd.setString(11, getAnemia4Fua());
+            
+            cmd.setString(12, getAnemia11Fecha());
+            cmd.setString(13, getAnemia11Fua());
+            
+            //PARASITOSIS//////////////////////////////////////////
+            
+            cmd.setString(14, getParasit1Fecha());
+            cmd.setString(15, getParasit1Fua());
+            
+            cmd.setString(16, getParasit2Fecha());
+            cmd.setString(17, getParasit2Fua());
+            
+            cmd.setString(18, getParasit3Fecha());
+            cmd.setString(19, getParasit3Fua());
+            
+            cmd.setString(20, getParasit4Fecha());
+            cmd.setString(21, getParasit4Fua());
+            
+            cmd.setString(22, getParasit11Fecha());
+            cmd.setString(23, getParasit11Fua());
+            
+            //TEST DE GRAHAM//////////////////////////////////
+            
+            cmd.setString(24, getTest1Fecha());
+            cmd.setString(25, getTest1Fua());
+            
+            cmd.setString(26, getTest2Fecha());
+            cmd.setString(27, getTest2Fua());
+            
+            cmd.setString(28, getTest3Fecha());
+            cmd.setString(29, getTest3Fua());
+            
+            cmd.setString(30, getTest4Fecha());
+            cmd.setString(31, getTest4Fua());
+            
+            cmd.setString(32, getTest11Fecha());
+            cmd.setString(33, getTest11Fua());
+    
+            cmd.setString(34, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimiento Vacunas " + ex.getMessage());
+        }
+        return resp;
+    }
+    
 
     public ConsultorioExtRsTamizajeAnemiaParasitosis() {
+        Conexion con = new Conexion();
+        cn = con.conectar();
     }
 
     public ConsultorioExtRsTamizajeAnemiaParasitosis(Long taId) {
@@ -422,6 +751,34 @@ public class ConsultorioExtRsTamizajeAnemiaParasitosis implements Serializable {
     @Override
     public String toString() {
         return "modelos.ConsultorioEx.ConsultorioExtRsTamizajeAnemiaParasitosis[ taId=" + taId + " ]";
+    }
+
+    /**
+     * @return the cn
+     */
+    public Connection getCn() {
+        return cn;
+    }
+
+    /**
+     * @param cn the cn to set
+     */
+    public void setCn(Connection cn) {
+        this.cn = cn;
+    }
+
+    /**
+     * @return the rs_id
+     */
+    public int getRs_id() {
+        return rs_id;
+    }
+
+    /**
+     * @param rs_id the rs_id to set
+     */
+    public void setRs_id(int rs_id) {
+        this.rs_id = rs_id;
     }
     
 }

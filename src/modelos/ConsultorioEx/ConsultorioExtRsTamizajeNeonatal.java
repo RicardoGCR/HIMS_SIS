@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RSAITN;
 import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeDD;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeTN;
 
 public class ConsultorioExtRsTamizajeNeonatal implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -137,7 +138,7 @@ public class ConsultorioExtRsTamizajeNeonatal implements Serializable {
         return resp;
     }
      
-     public void porcentajeDD(int rs_id){
+     public void porcentajeTN(int rs_id){
         String consulta="";
         try {
             consulta="EXEC CONSULTORIO_EXT_RS_TAMIZAJE_NEONATAL_PORCENTAJE ?";
@@ -146,11 +147,11 @@ public class ConsultorioExtRsTamizajeNeonatal implements Serializable {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                lblPorcentajeDD.setText(r.getString(1) + " %"); 
+                lblPorcentajeTN.setText(r.getString(1) + " %"); 
             }
             //
         } catch (Exception e) {
-            System.out.println("Error: porcentajeDD " + e.getMessage());
+            System.out.println("Error: porcentajeTN " + e.getMessage());
         }
     }  
      

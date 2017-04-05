@@ -956,8 +956,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                     .addComponent(FDD3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXDD1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDD1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDD1.setText("                                ");
             DXDD1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDD1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDD1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -971,8 +971,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 }
             });
 
+            DXDD2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDD2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDD2.setText("                                ");
             DXDD2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDD2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDD2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -981,8 +981,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 }
             });
 
+            DXDD3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDD3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDD3.setText("                                ");
             DXDD3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDD3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDD3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1026,8 +1026,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                     .addComponent(FDD4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXDD4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDD4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDD4.setText("                                ");
             DXDD4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDD4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDD4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1071,8 +1071,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                     .addComponent(FDD5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXDD5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDD5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDD5.setText("                                ");
             DXDD5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDD5.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDD5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1116,8 +1116,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                     .addComponent(FDD6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXDD6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDD6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDD6.setText("                                ");
             DXDD6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDD6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDD6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1135,32 +1135,32 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                     .addGroup(CCDM14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel150, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUADD1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DXDD1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXDD1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel151, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUADD2)
-                        .addComponent(DXDD2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXDD2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUADD3)
                         .addComponent(jPanel152, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXDD3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXDD3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUADD4)
                         .addComponent(jPanel153, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXDD4))
+                        .addComponent(DXDD4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUADD5)
                         .addComponent(jPanel154, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXDD5))
+                        .addComponent(DXDD5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUADD6)
                         .addComponent(jPanel155, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXDD6)))
+                        .addComponent(DXDD6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
             );
             CCDM14Layout.setVerticalGroup(
                 CCDM14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1337,8 +1337,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 }
             });
 
+            DXDD7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDD7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDD7.setText("                                ");
             DXDD7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDD7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDD7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1347,8 +1347,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 }
             });
 
+            DXDD8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDD8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDD8.setText("                                ");
             DXDD8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDD8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDD8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1357,8 +1357,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 }
             });
 
+            DXDD9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDD9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDD9.setText("                                ");
             DXDD9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDD9.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDD9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1402,8 +1402,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                     .addComponent(FDD10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXDD10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDD10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDD10.setText("                                ");
             DXDD10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDD10.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDD10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1447,8 +1447,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                     .addComponent(FDD11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXDD11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDD11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDD11.setText("                                ");
             DXDD11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDD11.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDD11.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1492,8 +1492,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                     .addComponent(FDD12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXDD12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDD12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDD12.setText("                                ");
             DXDD12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDD12.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDD12.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1511,32 +1511,32 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                     .addGroup(CCDM15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel157, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUADD7, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DXDD7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXDD7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel158, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUADD8)
-                        .addComponent(DXDD8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXDD8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUADD9)
                         .addComponent(jPanel159, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXDD9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXDD9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUADD10)
                         .addComponent(jPanel160, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXDD10))
+                        .addComponent(DXDD10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUADD11)
                         .addComponent(jPanel161, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXDD11))
+                        .addComponent(DXDD11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUADD12)
                         .addComponent(jPanel162, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXDD12)))
+                        .addComponent(DXDD12, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
             );
             CCDM15Layout.setVerticalGroup(
                 CCDM15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1610,7 +1610,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             DD.setLayout(DDLayout);
             DDLayout.setHorizontalGroup(
                 DDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel232, javax.swing.GroupLayout.DEFAULT_SIZE, 1372, Short.MAX_VALUE)
+                .addComponent(jPanel232, javax.swing.GroupLayout.DEFAULT_SIZE, 1494, Short.MAX_VALUE)
                 .addGroup(DDLayout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(DDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1626,7 +1626,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                             .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(517, Short.MAX_VALUE))
+                    .addContainerGap(639, Short.MAX_VALUE))
             );
             DDLayout.setVerticalGroup(
                 DDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1639,7 +1639,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                     .addGap(18, 18, 18)
                     .addGroup(DDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCDM14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LEYENDA3, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(LEYENDA3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(DDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(DDLayout.createSequentialGroup()
                             .addGap(27, 27, 27)
@@ -1836,7 +1836,17 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        validaRegistro(Integer.parseInt(lblId.getText()));
+        if(cie10.getText()!=""){
+            validaRegistro(Integer.parseInt(lblId.getText()));
+        } else{
+            fecha.setEnabled(true);
+            //fua.setEnabled(true);
+            mensaje1.setVisible(true);
+            mensaje1.setBackground(new Color(255,91,70)); 
+            men.setText("Seleccione el diagnóstico");
+            b.setVisible(false);
+            b1.setVisible(false);
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

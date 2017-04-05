@@ -2232,7 +2232,17 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        validaRegistro(Integer.parseInt(lblId.getText()));
+        if(cie10.getText()!=""){
+            validaRegistro(Integer.parseInt(lblId.getText()));
+        } else{
+            fecha.setEnabled(true);
+            //fua.setEnabled(true);
+            mensaje.setVisible(true);
+            mensaje.setBackground(new Color(255,91,70)); 
+            men.setText("Seleccione el diagnóstico");
+            b.setVisible(false);
+            b1.setVisible(false);
+        }
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed

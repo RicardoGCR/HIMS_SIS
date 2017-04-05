@@ -26,6 +26,7 @@ import modelos.ConsultorioEx.ConsultorioExtRsCabecera;
 import modelos.ConsultorioEx.ConsultorioExtRsCcd;
 import modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoDesarrollo;
 import modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoNutricional;
+import modelos.ConsultorioEx.ConsultorioExtRsEstimulacionTemprana;
 import modelos.ConsultorioEx.ConsultorioExtRsVacunas;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
@@ -293,6 +294,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 lblPorcentajeDD = new javax.swing.JLabel();
                 jPanel17 = new javax.swing.JPanel();
                 jLabel8 = new javax.swing.JLabel();
+                jLabel27 = new javax.swing.JLabel();
                 jPanel18 = new javax.swing.JPanel();
                 jLabel9 = new javax.swing.JLabel();
                 jPanel19 = new javax.swing.JPanel();
@@ -939,6 +941,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     }
                 });
 
+                jLabel27.setText("jLabel27");
+
                 javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
                 jPanel17.setLayout(jPanel17Layout);
                 jPanel17Layout.setHorizontalGroup(
@@ -946,11 +950,15 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel17Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(247, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel27)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel17Layout.setVerticalGroup(
                     jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel27))
                 );
 
                 jPanel18.setBackground(new java.awt.Color(23, 160, 134));
@@ -1826,6 +1834,12 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             ET.lblNino.setVisible(true);
             ET.lblNina.setVisible(false);
         }
+        
+        ConsultorioExtRsEstimulacionTemprana ET1 = new ConsultorioExtRsEstimulacionTemprana();
+        ET1.ConsultoriosExtETListar(id);
+       
+        RSAIET.lblId.setText(String.valueOf(id));
+        
         try {
             ET.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -2155,6 +2169,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;

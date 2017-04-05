@@ -734,9 +734,9 @@
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Component id="jPanel15" min="-2" pref="254" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jPanel16" pref="284" max="32767" attributes="0"/>
+                                      <Component id="jPanel16" pref="327" max="32767" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="jPanel17" pref="588" max="32767" attributes="0"/>
+                                      <Component id="jPanel17" pref="545" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1019,12 +1019,19 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel7" min="-2" pref="261" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="lblPorcentajeDD" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel7" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="lblPorcentajeDD" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
@@ -1042,6 +1049,14 @@
                           <Events>
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel7MouseClicked"/>
                           </Events>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lblPorcentajeDD">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="jLabel20"/>
+                          </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                          </AuxValues>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -1064,7 +1079,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel8" min="-2" pref="288" max="-2" attributes="0"/>
-                                  <EmptySpace pref="290" max="32767" attributes="0"/>
+                                  <EmptySpace pref="247" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>

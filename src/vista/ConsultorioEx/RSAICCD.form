@@ -307,7 +307,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel28" alignment="0" pref="1277" max="32767" attributes="0"/>
+                  <Component id="jPanel28" alignment="0" pref="1287" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -332,7 +332,7 @@
                           </Group>
                           <Component id="lblId" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="180" max="32767" attributes="0"/>
+                      <EmptySpace pref="190" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2505,7 +2505,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel106" alignment="0" pref="1277" max="32767" attributes="0"/>
+                  <Component id="jPanel106" alignment="0" pref="1287" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -2529,7 +2529,7 @@
                               <Component id="DXCCDRN8" min="-2" pref="356" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="58" max="32767" attributes="0"/>
+                      <EmptySpace pref="68" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -4771,7 +4771,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel113" alignment="0" pref="1277" max="32767" attributes="0"/>
+                  <Component id="jPanel113" alignment="0" pref="1287" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -4797,7 +4797,7 @@
                               <Component id="DXCCDRN10" min="-2" pref="356" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="544" max="32767" attributes="0"/>
+                      <EmptySpace pref="554" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -6067,9 +6067,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel31" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="mensaje1" max="32767" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="mensaje1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -6206,7 +6206,7 @@
                       <Component id="b" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="b1" min="-2" pref="29" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="765" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

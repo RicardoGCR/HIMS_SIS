@@ -151,7 +151,11 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 Guardar(fecha);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error: validaRegistro: " + e.toString());
+            mensaje.setVisible(true);
+            mensaje.setBackground(new Color(255,91,70)); 
+            men.setText("Ocurrio un error, verifique");
+            b.setVisible(false);
+            b1.setVisible(false);
         }
     }
     
@@ -525,7 +529,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                         .addComponent(txtBuscarCie10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
             );
 
-            jPanel32.setBackground(new java.awt.Color(39, 174, 97));
+            jPanel32.setBackground(new java.awt.Color(41, 127, 184));
 
             javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
             jPanel32.setLayout(jPanel32Layout);
@@ -581,7 +585,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             ));
             tbCiePresun.setGridColor(new java.awt.Color(255, 255, 255));
             tbCiePresun.setRowHeight(25);
-            tbCiePresun.setSelectionBackground(new java.awt.Color(39, 174, 97));
+            tbCiePresun.setSelectionBackground(new java.awt.Color(50, 151, 219));
             tbCiePresun.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                     tbCiePresunMouseClicked(evt);
@@ -1604,7 +1608,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                     .addGap(18, 18, 18)
                     .addGroup(DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCDM13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LEYENDA2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(LEYENDA2, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                     .addGap(18, 18, 18)
                     .addGroup(DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(CCDR3A2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

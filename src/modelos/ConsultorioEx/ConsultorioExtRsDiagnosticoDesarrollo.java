@@ -7,10 +7,21 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import net.sf.jasperreports.components.table.Column;
 import servicios.Conexion;
+import vista.ConsultorioEx.RSAIDD;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeDD;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeDN;
 
 /**
  *
@@ -60,7 +71,316 @@ public class ConsultorioExtRsDiagnosticoDesarrollo implements Serializable {
     private String dn12Fecha;
     private String dn12Cie10;
     private String dn12Fua;
-
+    private int rsId;
+    
+    public void ConsultoriosExtDDListar(int rs_id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_RS_DIAGNOSTICO_DESARROLLO_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+ 
+                try {
+                    if(r.getString(3).equals("")){
+                        RSAIDD.FDD1.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD1 = (String)(r.getString(3));
+                        DateFormat dfoD1 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD1 = dfoD1.parse(fechaSeleccionadaD1);
+                        RSAIDD.FDD1.setDate(fechaD1);
+                        RSAIDD.DXDD1.setText(r.getString(4));
+                        RSAIDD.FUADD1.setText(r.getString(5));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(6).equals("")){
+                        RSAIDD.FDD2.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD2 = (String)(r.getString(6));
+                        DateFormat dfoD2 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD2 = dfoD2.parse(fechaSeleccionadaD2);
+                        RSAIDD.FDD2.setDate(fechaD2);
+                        RSAIDD.DXDD2.setText(r.getString(7));
+                        RSAIDD.FUADD2.setText(r.getString(8));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(9).equals("")){
+                        RSAIDD.FDD3.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD3 = (String)(r.getString(9));
+                        DateFormat dfoD3 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD3 = dfoD3.parse(fechaSeleccionadaD3);
+                        RSAIDD.FDD3.setDate(fechaD3);
+                        RSAIDD.DXDD3.setText(r.getString(10));
+                        RSAIDD.FUADD3.setText(r.getString(11));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(12).equals("")){
+                        RSAIDD.FDD4.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD4 = (String)(r.getString(12));
+                        DateFormat dfoD4 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD4 = dfoD4.parse(fechaSeleccionadaD4);
+                        RSAIDD.FDD4.setDate(fechaD4);
+                        RSAIDD.DXDD4.setText(r.getString(13));
+                        RSAIDD.FUADD4.setText(r.getString(14));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(15).equals("")){
+                        RSAIDD.FDD5.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD5 = (String)(r.getString(15));
+                        DateFormat dfoD5 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD5 = dfoD5.parse(fechaSeleccionadaD5);
+                        RSAIDD.FDD5.setDate(fechaD5);
+                        RSAIDD.DXDD5.setText(r.getString(16));
+                        RSAIDD.FUADD5.setText(r.getString(17));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(18).equals("")){
+                        RSAIDD.FDD6.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD6 = (String)(r.getString(18));
+                        DateFormat dfoD6 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD6 = dfoD6.parse(fechaSeleccionadaD6);
+                        RSAIDD.FDD6.setDate(fechaD6);
+                        RSAIDD.DXDD6.setText(r.getString(19));
+                        RSAIDD.FUADD6.setText(r.getString(20));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(21).equals("")){
+                        RSAIDD.FDD7.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD7 = (String)(r.getString(21));
+                        DateFormat dfoD7 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD7 = dfoD7.parse(fechaSeleccionadaD7);
+                        RSAIDD.FDD7.setDate(fechaD7);
+                        RSAIDD.DXDD7.setText(r.getString(22));
+                        RSAIDD.FUADD7.setText(r.getString(23));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(24).equals("")){
+                        RSAIDD.FDD8.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD8 = (String)(r.getString(24));
+                        DateFormat dfoD8 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD8 = dfoD8.parse(fechaSeleccionadaD8);
+                        RSAIDD.FDD8.setDate(fechaD8);
+                        RSAIDD.DXDD8.setText(r.getString(25));
+                        RSAIDD.FUADD8.setText(r.getString(26));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(27).equals("")){
+                        RSAIDD.FDD9.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD9 = (String)(r.getString(27));
+                        DateFormat dfoD9 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD9 = dfoD9.parse(fechaSeleccionadaD9);
+                        RSAIDD.FDD9.setDate(fechaD9);
+                        RSAIDD.DXDD9.setText(r.getString(28));
+                        RSAIDD.FUADD9.setText(r.getString(29));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(30).equals("")){
+                        RSAIDD.FDD10.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD10 = (String)(r.getString(30));
+                        DateFormat dfoD10 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD10 = dfoD10.parse(fechaSeleccionadaD10);
+                        RSAIDD.FDD10.setDate(fechaD10);
+                        RSAIDD.DXDD10.setText(r.getString(31));
+                        RSAIDD.FUADD10.setText(r.getString(32));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(33).equals("")){
+                        RSAIDD.FDD11.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD11 = (String)(r.getString(33));
+                        DateFormat dfoD11 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD11 = dfoD11.parse(fechaSeleccionadaD11);
+                        RSAIDD.FDD11.setDate(fechaD11);
+                        RSAIDD.DXDD11.setText(r.getString(34));
+                        RSAIDD.FUADD11.setText(r.getString(35));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(36).equals("")){
+                        RSAIDD.FDD12.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD12 = (String)(r.getString(36));
+                        DateFormat dfoD12 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD12 = dfoD12.parse(fechaSeleccionadaD12);
+                        RSAIDD.FDD12.setDate(fechaD12);
+                        RSAIDD.DXDD12.setText(r.getString(37));
+                        RSAIDD.FUADD12.setText(r.getString(38));
+                    }
+                } catch (Exception e) {
+                }
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: ConsultoriosExtVacunasListar " + e.getMessage());
+        }
+    }
+    
+      public boolean mantenimientoRSAIDD(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CONSULTORIO_EXT_MANTENIMIENTO_RS_DIAGNOSTICO_DESARROLLO ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getRs_id());
+            
+            cmd.setString(2, getDn1Fecha());
+            cmd.setString(3, getDn1Cie10());
+            cmd.setString(4, getDn1Fua());
+            
+            cmd.setString(5, getDn2Fecha());
+            cmd.setString(6, getDn2Cie10());
+            cmd.setString(7, getDn2Fua());
+            
+            cmd.setString(8, getDn3Fecha());
+            cmd.setString(9, getDn3Cie10());
+            cmd.setString(10, getDn3Fua());
+            
+            cmd.setString(11, getDn4Fecha());
+            cmd.setString(12, getDn4Cie10());
+            cmd.setString(13, getDn4Fua());
+            
+            cmd.setString(14, getDn5Fecha());
+            cmd.setString(15, getDn5Cie10());
+            cmd.setString(16, getDn5Fua());
+            
+            cmd.setString(17, getDn6Fecha());
+            cmd.setString(18, getDn6Cie10());
+            cmd.setString(19, getDn6Fua());
+            
+            cmd.setString(20, getDn7Fecha());
+            cmd.setString(21, getDn7Cie10());
+            cmd.setString(22, getDn7Fua());
+            
+            cmd.setString(23, getDn8Fecha());
+            cmd.setString(24, getDn8Cie10());
+            cmd.setString(25, getDn8Fua());
+            
+            cmd.setString(26, getDn9Fecha());
+            cmd.setString(27, getDn9Cie10());
+            cmd.setString(28, getDn9Fua());
+            
+            cmd.setString(29, getDn10Fecha());
+            cmd.setString(30, getDn10Cie10());
+            cmd.setString(31, getDn10Fua());
+            
+            cmd.setString(32, getDn11Fecha());
+            cmd.setString(33, getDn11Cie10());
+            cmd.setString(34, getDn11Fua());
+            
+            cmd.setString(35, getDn12Fecha());
+            cmd.setString(36, getDn12Cie10());
+            cmd.setString(37, getDn12Fua());
+            
+            cmd.setString(38, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimiento Vacunas " + ex.getMessage());
+        }
+        return resp;
+    }
+      
+    public void porcentajeDD(int rs_id){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EXT_RS_DIAGNOSTICO_DESARROLLO_PORCENTAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblPorcentajeDD.setText(r.getString(1) + " %"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeDD " + e.getMessage());
+        }
+    }  
+    
+    public void cargarDatosCie10(String descripcion,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Nro","Código","Diagnóstico"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[3];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CIE10_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, descripcion);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // clasificacion
+                fila[1]=r.getString(2); //codigo
+                fila[2]=r.getString(3); //codigo
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaCargarCie10(tabla);
+        } catch (Exception e) {
+            System.out.println("Error_cargarDatosCie10: " + e.getMessage());
+        }
+    }
+     public void formatoTablaCargarCie10(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//CODIGO
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);//CODIGO
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(500);//CODIGO
+        tabla.setRowHeight(30);
+    }  
     public ConsultorioExtRsDiagnosticoDesarrollo() {
         Conexion con = new Conexion();
         cn = con.conectar();

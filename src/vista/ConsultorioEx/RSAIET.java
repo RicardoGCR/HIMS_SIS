@@ -42,8 +42,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
         mensaje.setVisible(false);
         FrmCie10.setLocationRelativeTo(null);//en el centro
         FrmCie10.getContentPane().setBackground(new Color(0,153,102));
-  
-        
+        Botones(false);
         ConsultorioExtRsEstimulacionTemprana CCDBUSCAR = new ConsultorioExtRsEstimulacionTemprana();
         CCDBUSCAR.cargarDatosCie10("", tbCiePresun);
     }
@@ -116,6 +115,12 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
       RM12.setEnabled(opcion);  
       RM13.setEnabled(opcion);  
  
+    }
+     
+    public void Botones(boolean opcion){
+        btnGuardar.setEnabled(opcion);
+        btnEditar.setEnabled(opcion);
+        btnCancelar.setEnabled(opcion);
     }
      
      public void validaRegistro(int rs_id){
@@ -281,7 +286,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 b.setVisible(true);
                 b1.setVisible(false);
 
-                btnguardar.setEnabled(false);
+                btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsET2.ConsultoriosExtETListar(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
@@ -407,7 +412,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 b.setText("OK");
                 b.setVisible(true);
                 b1.setVisible(false);
-                btnguardar.setEnabled(false);
+                btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsET2.ConsultoriosExtETListar(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
@@ -546,9 +551,9 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             lblId = new javax.swing.JLabel();
             Opciones = new javax.swing.JPanel();
             jPanel28 = new javax.swing.JPanel();
-            btneditar = new javax.swing.JButton();
-            btnguardar = new javax.swing.JButton();
-            btnCaccnelar = new javax.swing.JButton();
+            btnEditar = new javax.swing.JButton();
+            btnGuardar = new javax.swing.JButton();
+            btnCancelar = new javax.swing.JButton();
             mensaje = new javax.swing.JPanel();
             men = new javax.swing.JLabel();
             b = new javax.swing.JButton();
@@ -704,7 +709,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
             );
 
-            setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+            setBorder(javax.swing.BorderFactory.createCompoundBorder());
             setVisible(true);
 
             DD.setBackground(new java.awt.Color(255, 255, 255));
@@ -1826,56 +1831,56 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                     .addGap(18, 18, 18)
                     .addGroup(DDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCDM14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LEYENDA3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(LEYENDA3, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                     .addGap(27, 27, 27)
                     .addGroup(DDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(CCDM15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(CCDM16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(CCDM17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblId))
-                    .addGap(0, 57, Short.MAX_VALUE))
+                    .addGap(0, 59, Short.MAX_VALUE))
             );
 
             Opciones.setBackground(new java.awt.Color(102, 102, 102));
 
             jPanel28.setBackground(new java.awt.Color(51, 51, 51));
 
-            btneditar.setForeground(new java.awt.Color(240, 240, 240));
-            btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
-            btneditar.setMnemonic('N');
-            btneditar.setContentAreaFilled(false);
-            btneditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btneditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            btneditar.setIconTextGap(30);
-            btneditar.addActionListener(new java.awt.event.ActionListener() {
+            btnEditar.setForeground(new java.awt.Color(240, 240, 240));
+            btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
+            btnEditar.setMnemonic('N');
+            btnEditar.setContentAreaFilled(false);
+            btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            btnEditar.setIconTextGap(30);
+            btnEditar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btneditarActionPerformed(evt);
+                    btnEditarActionPerformed(evt);
                 }
             });
 
-            btnguardar.setForeground(new java.awt.Color(240, 240, 240));
-            btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
-            btnguardar.setMnemonic('N');
-            btnguardar.setContentAreaFilled(false);
-            btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btnguardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            btnguardar.setIconTextGap(30);
-            btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            btnGuardar.setForeground(new java.awt.Color(240, 240, 240));
+            btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
+            btnGuardar.setMnemonic('N');
+            btnGuardar.setContentAreaFilled(false);
+            btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            btnGuardar.setIconTextGap(30);
+            btnGuardar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btnguardarActionPerformed(evt);
+                    btnGuardarActionPerformed(evt);
                 }
             });
 
-            btnCaccnelar.setForeground(new java.awt.Color(240, 240, 240));
-            btnCaccnelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Deshacer-30.png"))); // NOI18N
-            btnCaccnelar.setMnemonic('N');
-            btnCaccnelar.setContentAreaFilled(false);
-            btnCaccnelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btnCaccnelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            btnCaccnelar.setIconTextGap(30);
-            btnCaccnelar.addActionListener(new java.awt.event.ActionListener() {
+            btnCancelar.setForeground(new java.awt.Color(240, 240, 240));
+            btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Deshacer-30.png"))); // NOI18N
+            btnCancelar.setMnemonic('N');
+            btnCancelar.setContentAreaFilled(false);
+            btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            btnCancelar.setIconTextGap(30);
+            btnCancelar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btnCaccnelarActionPerformed(evt);
+                    btnCancelarActionPerformed(evt);
                 }
             });
 
@@ -1885,27 +1890,27 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
                     .addContainerGap(129, Short.MAX_VALUE)
-                    .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap())
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel28Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(69, Short.MAX_VALUE)))
             );
             jPanel28Layout.setVerticalGroup(
                 jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel28Layout.createSequentialGroup()
-                    .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE))
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel28Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             );
 
@@ -1952,7 +1957,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                     .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(931, Short.MAX_VALUE))
+                    .addContainerGap(933, Short.MAX_VALUE))
             );
             mensajeLayout.setVerticalGroup(
                 mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1995,7 +2000,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 399, Short.MAX_VALUE)
+                    .addGap(0, 401, Short.MAX_VALUE)
                     .addComponent(Opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2006,8 +2011,8 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
 
     private void jLabel145MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel145MouseClicked
         RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
-        ConsultorioExtRsEstimulacionTemprana DN1 = new ConsultorioExtRsEstimulacionTemprana();
-        DN1.porcentajeDN(Integer.parseInt(lblId.getText()));
+        ConsultorioExtRsEstimulacionTemprana ET = new ConsultorioExtRsEstimulacionTemprana();
+        ET.porcentajeET(Integer.parseInt(lblId.getText()));
         this.dispose();
     }//GEN-LAST:event_jLabel145MouseClicked
 
@@ -2024,6 +2029,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             if(RM1.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXETM1.setEnabled(true);
                 FETM1.setEnabled(true);
                 fecha=FETM1;
@@ -2040,6 +2046,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             if(RM2.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXETM2.setEnabled(true);
                 FETM2.setEnabled(true);
                 fecha=FETM2;
@@ -2056,6 +2063,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             if(RM3.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXETM3.setEnabled(true);
                 FETM3.setEnabled(true);
                 fecha=FETM3;
@@ -2072,6 +2080,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             if(RM4.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXETM4.setEnabled(true);
                 FETM4.setEnabled(true);
                 fecha=FETM4;
@@ -2088,6 +2097,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             if(RM5.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXETM5.setEnabled(true);
                 FETM5.setEnabled(true);
                 fecha=FETM5;
@@ -2104,6 +2114,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             if(RM6.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXETM6.setEnabled(true);
                 FETM6.setEnabled(true);
                 fecha=FETM6;
@@ -2120,6 +2131,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             if(RM7.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXET11.setEnabled(true);
                 FET11.setEnabled(true);
                 fecha=FET11;
@@ -2136,6 +2148,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             if(RM8.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXET12.setEnabled(true);
                 FET12.setEnabled(true);
                 fecha=FET12;
@@ -2152,6 +2165,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             if(RM9.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXET13.setEnabled(true);
                 FET13.setEnabled(true);
                 fecha=FET13;
@@ -2168,6 +2182,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             if(RM10.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXET14.setEnabled(true);
                 FET14.setEnabled(true);
                 fecha=FET14;
@@ -2184,6 +2199,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             if(RM11.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXET21.setEnabled(true);
                 FET21.setEnabled(true);
                 fecha=FET21;
@@ -2200,6 +2216,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             if(RM12.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXET22.setEnabled(true);
                 FET22.setEnabled(true);
                 fecha=FET22;
@@ -2216,6 +2233,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             if(RM13.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXET23.setEnabled(true);
                 FET23.setEnabled(true);
                 fecha=FET23;
@@ -2227,11 +2245,11 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
         }
     }//GEN-LAST:event_RM13ActionPerformed
 
-    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
-    }//GEN-LAST:event_btneditarActionPerformed
+    }//GEN-LAST:event_btnEditarActionPerformed
 
-    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if(cie10.getText()!=""){
             validaRegistro(Integer.parseInt(lblId.getText()));
         } else{
@@ -2243,12 +2261,13 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
             b.setVisible(false);
             b1.setVisible(false);
         }
-    }//GEN-LAST:event_btnguardarActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         habilitarRadio(true);
         habilitarCampos(false);
-    }//GEN-LAST:event_btnCaccnelarActionPerformed
+        Botones(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
         if (tge==3 || tge==1 || tge==9){
@@ -2259,7 +2278,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
         if (tge==2){
             //            Modificar();
 
-            btneditar.setEnabled(false);
+            btnEditar.setEnabled(false);
             ;
 
         }
@@ -2422,9 +2441,9 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
     private javax.swing.JLabel T7;
     private javax.swing.JButton b;
     private javax.swing.JButton b1;
-    private javax.swing.JButton btnCaccnelar;
-    private javax.swing.JButton btneditar;
-    private javax.swing.JButton btnguardar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel143;
     private javax.swing.JLabel jLabel144;

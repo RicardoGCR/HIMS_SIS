@@ -50,6 +50,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         mensaje1.setVisible(false);
         FrmCie10.setLocationRelativeTo(null);//en el centro
         FrmCie10.getContentPane().setBackground(new Color(0,153,102));
+        Botones(false);
         
         ConsultorioExtRsCcd CCDBUSCAR = new ConsultorioExtRsCcd();
         CCDBUSCAR.cargarDatosCie10("", tbCiePresun);
@@ -267,17 +268,28 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         R11.setEnabled(opcion); 
  
     }
+    
+    public void Botones(boolean opcion){
+     btnGuardar.setEnabled(opcion);
+     btneditar4.setEnabled(opcion);
+     btnCaccnelar.setEnabled(opcion);
+    }
+    
     public void validaRegistro(int rs_id){
         try {
             PreparedStatement cmd = CCD01.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_CCD WHERE RS_ID ='"+rs_id+"'");
             ResultSet res = cmd.executeQuery();
             if(res.next()){ // si existe
-                Modificar(fecha,cie10);
+                Modificar(fecha);
             }else { // no existe
                 Guardar(fecha);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error: validaRegistro: " + e.toString());
+        mensaje1.setVisible(true);
+        mensaje1.setBackground(new Color(255,91,70)); 
+        men.setText("Ocurrio un error, verifique");
+        b.setVisible(false);
+        b1.setVisible(false);
         }
     }
     public String determinarFecha(JDateChooser calendario){
@@ -309,10 +321,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         
         return fecha;
     }
-    public void enviarDiagnosticos(){
+    public void enviarDiagnosticos(JLabel cie10){
         int fila = tbCiePresun.getSelectedRow();
         FrmCie10.dispose();
-        DXCCDRN2.setText(String.valueOf(tbCiePresun.getValueAt(fila, 1)));
+      
+        cie10.setText(String.valueOf(tbCiePresun.getValueAt(fila, 1)));
     }
     
     public void Guardar(JDateChooser fecha){
@@ -582,21 +595,13 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }
     }
     
-    public void Modificar(JDateChooser fecha,JLabel cie10){
+    public void Modificar(JDateChooser fecha){
     if(fecha.getDate()==null){
         fecha.setEnabled(true);
         //fua.setEnabled(true);
         mensaje1.setVisible(true);
         mensaje1.setBackground(new Color(255,91,70)); 
         men.setText("Ingrese una fecha valida");
-        b.setVisible(false);
-        b1.setVisible(false);
-        if(cie10.getText()==""){
-
-        cie10.setEnabled(true);
-        mensaje1.setVisible(true);
-        mensaje1.setBackground(new Color(255,91,70)); 
-        men.setText("Debe de ingresar un Diagnostico");
         b.setVisible(false);
         b1.setVisible(false);
     } else {
@@ -855,7 +860,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                System.out.println("Error: modificar " + e.getMessage());
             }
         }
-    }}
+    }
     
 
     /**
@@ -1603,11 +1608,21 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDRN3.setText("                                ");
             DXCCDRN3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDRN3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDRN3.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDRN3MouseClicked(evt);
+                }
+            });
 
             DXCCDRN4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDRN4.setText("                                ");
             DXCCDRN4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDRN4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDRN4.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDRN4MouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDRNLayout = new javax.swing.GroupLayout(CCDRN);
             CCDRN.setLayout(CCDRNLayout);
@@ -1939,21 +1954,41 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDM1.setText("                                ");
             DXCCDM1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM1.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM1MouseClicked(evt);
+                }
+            });
 
             DXCCDM2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDM2.setText("                                ");
             DXCCDM2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM2.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM2MouseClicked(evt);
+                }
+            });
 
             DXCCDM3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDM3.setText("                                ");
             DXCCDM3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM3.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM3MouseClicked(evt);
+                }
+            });
 
             DXCCDM4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDM4.setText("                                ");
             DXCCDM4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM4.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM4MouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDM11Layout = new javax.swing.GroupLayout(CCDM11);
             CCDM11.setLayout(CCDM11Layout);
@@ -2143,16 +2178,31 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDM5.setText("                                ");
             DXCCDM5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM5.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM5.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM5MouseClicked(evt);
+                }
+            });
 
             DXCCDM6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDM6.setText("                                ");
             DXCCDM6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM6.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM6MouseClicked(evt);
+                }
+            });
 
             DXCCDM7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDM7.setText("                                ");
             DXCCDM7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM7.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM7MouseClicked(evt);
+                }
+            });
 
             jPanel85.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -2193,6 +2243,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDM8.setText("                                ");
             DXCCDM8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM8.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM8MouseClicked(evt);
+                }
+            });
 
             jPanel86.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -2233,6 +2288,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDM9.setText("                                ");
             DXCCDM9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM9.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM9.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM9MouseClicked(evt);
+                }
+            });
 
             jPanel87.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -2273,6 +2333,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDM10.setText("                                ");
             DXCCDM10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM10.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM10.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM10MouseClicked(evt);
+                }
+            });
 
             jPanel88.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -2313,6 +2378,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDM11.setText("                                ");
             DXCCDM11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM11.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM11.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM11MouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDM12Layout = new javax.swing.GroupLayout(CCDM12);
             CCDM12.setLayout(CCDM12Layout);
@@ -2511,7 +2581,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(CCDM11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CCDRN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LEYENDA, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(LEYENDA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGap(27, 27, 27)
                     .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCDM12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -4688,8 +4758,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }//GEN-LAST:event_T7MouseClicked
 
     private void DXCCDRN1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN1MouseClicked
-        ConsultorioExtRsCcd adTopico = new ConsultorioExtRsCcd();
-//        adTopico.cargarDatosCie10("", tbCiePresun);
+
         FrmCie10.setVisible(true);
     }//GEN-LAST:event_DXCCDRN1MouseClicked
 
@@ -4709,7 +4778,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         }
         char teclaPresionada = evt.getKeyChar(); 
         if(teclaPresionada==KeyEvent.VK_ENTER){
-            enviarDiagnosticos();
+            enviarDiagnosticos(cie10);
         }
     }//GEN-LAST:event_tbCiePresunKeyPressed
 
@@ -4952,10 +5021,12 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }//GEN-LAST:event_R16ActionPerformed
 
     private void Rrn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rrn1ActionPerformed
+       
         if(FCCDRN1.getDate()==null){
             if(Rrn1.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                 Botones(true);
                 FUACCDRN1.setEnabled(true);
                 FCCDRN1.setEnabled(true);
                 DXCCDRN1.requestFocus();
@@ -5492,10 +5563,61 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }//GEN-LAST:event_R11aActionPerformed
 
     private void DXCCDRN2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN2MouseClicked
-            ConsultorioExtRsCcd adTopico = new ConsultorioExtRsCcd();
-//        adTopico.cargarDatosCie10("", tbCiePresun);
+
         FrmCie10.setVisible(true);
     }//GEN-LAST:event_DXCCDRN2MouseClicked
+
+    private void DXCCDRN3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN3MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDRN3MouseClicked
+
+    private void DXCCDRN4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN4MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDRN4MouseClicked
+
+    private void DXCCDM1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM1MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM1MouseClicked
+
+    private void DXCCDM2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM2MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM2MouseClicked
+
+    private void DXCCDM3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM3MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM3MouseClicked
+
+    private void DXCCDM4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM4MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM4MouseClicked
+
+    private void DXCCDM5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM5MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM5MouseClicked
+
+    private void DXCCDM6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM6MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM6MouseClicked
+
+    private void DXCCDM7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM7MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM7MouseClicked
+
+    private void DXCCDM8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM8MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM8MouseClicked
+
+    private void DXCCDM9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM9MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM9MouseClicked
+
+    private void DXCCDM10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM10MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM10MouseClicked
+
+    private void DXCCDM11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM11MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM11MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

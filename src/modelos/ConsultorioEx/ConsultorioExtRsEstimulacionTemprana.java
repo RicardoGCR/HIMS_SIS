@@ -7,9 +7,19 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
+import vista.ConsultorioEx.RSAIET;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeDN;
 
 /**
  *
@@ -62,7 +72,345 @@ public class ConsultorioExtRsEstimulacionTemprana implements Serializable {
     private String m13Fecha;
     private String m13Cie10;
     private String m13Fua;
+    private int rsId;
 
+     public void ConsultoriosExtETListar(int rs_id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_RS_ESTIMULACION_TEMPRANA_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                //////////////////////////////////////////////////////////////
+                //MENORES DE UN AÑO
+                try {
+                    if(r.getString(3).equals("")){
+                        RSAIET.FETM1.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD1 = (String)(r.getString(3));
+                        DateFormat dfoD1 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD1 = dfoD1.parse(fechaSeleccionadaD1);
+                        RSAIET.FETM1.setDate(fechaD1);
+                        RSAIET.DXETM1.setText(r.getString(4));
+                        RSAIET.FUAETM1.setText(r.getString(5));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(6).equals("")){
+                        RSAIET.FETM2.setDate(null);
+                    } else {
+                        String fechaSeleccionadaM2 = (String)(r.getString(6));
+                        DateFormat dfoM2 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaM2 = dfoM2.parse(fechaSeleccionadaM2);
+                        RSAIET.FETM2.setDate(fechaM2);
+                        RSAIET.DXETM2.setText(r.getString(7));
+                        RSAIET.FUAETM2.setText(r.getString(8));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(9).equals("")){
+                        RSAIET.FETM3.setDate(null);
+                    } else {
+                        String fechaSeleccionadaM3 = (String)(r.getString(9));
+                        DateFormat dfoM3 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaM3 = dfoM3.parse(fechaSeleccionadaM3);
+                        RSAIET.FETM3.setDate(fechaM3);
+                        RSAIET.DXETM3.setText(r.getString(10));
+                        RSAIET.FUAETM3.setText(r.getString(11));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(12).equals("")){
+                        RSAIET.FETM4.setDate(null);
+                    } else {
+                        String fechaSeleccionadaM4 = (String)(r.getString(12));
+                        DateFormat dfoM4 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaM4 = dfoM4.parse(fechaSeleccionadaM4);
+                        RSAIET.FETM4.setDate(fechaM4);
+                        RSAIET.DXETM4.setText(r.getString(13));
+                        RSAIET.FUAETM4.setText(r.getString(14));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(15).equals("")){
+                        RSAIET.FETM5.setDate(null);
+                    } else {
+                        String fechaSeleccionadaM5 = (String)(r.getString(15));
+                        DateFormat dfoM5 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaM5 = dfoM5.parse(fechaSeleccionadaM5);
+                        RSAIET.FETM5.setDate(fechaM5);
+                        RSAIET.DXETM5.setText(r.getString(16));
+                        RSAIET.FUAETM5.setText(r.getString(17));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(18).equals("")){
+                        RSAIET.FETM6.setDate(null);
+                    } else {
+                        String fechaSeleccionadaM6 = (String)(r.getString(18));
+                        DateFormat dfoM6 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaM6 = dfoM6.parse(fechaSeleccionadaM6);
+                        RSAIET.FETM6.setDate(fechaM6);
+                        RSAIET.DXETM6.setText(r.getString(19));
+                        RSAIET.FUAETM6.setText(r.getString(20));
+                    }
+                } catch (Exception e) {
+                }
+                //////////////////////////////////////
+                //1 AÑO
+                 try {
+                    if(r.getString(21).equals("")){
+                        RSAIET.FET11.setDate(null);
+                    } else {
+                        String fechaSeleccionadaM7 = (String)(r.getString(21));
+                        DateFormat dfoM7 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaM7 = dfoM7.parse(fechaSeleccionadaM7);
+                        RSAIET.FET11.setDate(fechaM7);
+                        RSAIET.DXET11.setText(r.getString(22));
+                        RSAIET.FUAET11.setText(r.getString(23));
+                    }
+                } catch (Exception e) {
+                }
+                 
+                try {
+                    if(r.getString(24).equals("")){
+                        RSAIET.FET12.setDate(null);
+                    } else {
+                        String fechaSeleccionadaM8 = (String)(r.getString(24));
+                        DateFormat dfoM8 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaM8 = dfoM8.parse(fechaSeleccionadaM8);
+                        RSAIET.FET12.setDate(fechaM8);
+                        RSAIET.DXET12.setText(r.getString(25));
+                        RSAIET.FUAET12.setText(r.getString(26));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(27).equals("")){
+                        RSAIET.FET13.setDate(null);
+                    } else {
+                        String fechaSeleccionadaM9 = (String)(r.getString(27));
+                        DateFormat dfoM9 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaM9 = dfoM9.parse(fechaSeleccionadaM9);
+                        RSAIET.FET13.setDate(fechaM9);
+                        RSAIET.DXET13.setText(r.getString(22));
+                        RSAIET.FUAET13.setText(r.getString(23));
+                    }
+                } catch (Exception e) {
+                }
+                
+                
+                try {
+                    if(r.getString(24).equals("")){
+                        RSAIET.FET14.setDate(null);
+                    } else {
+                        String fechaSeleccionadaM10 = (String)(r.getString(24));
+                        DateFormat dfoM10 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaM10 = dfoM10.parse(fechaSeleccionadaM10);
+                        RSAIET.FET14.setDate(fechaM10);
+                        RSAIET.DXET14.setText(r.getString(25));
+                        RSAIET.FUAET14.setText(r.getString(26));
+                    }
+                } catch (Exception e) {
+                }
+                ////////////////////////////////////////////////////
+                //2 AÑOS
+                try {
+                    if(r.getString(27).equals("")){
+                        RSAIET.FET21.setDate(null);
+                    } else {
+                        String fechaSeleccionadaM11 = (String)(r.getString(27));
+                        DateFormat dfoM11 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaM11 = dfoM11.parse(fechaSeleccionadaM11);
+                        RSAIET.FET21.setDate(fechaM11);
+                        RSAIET.DXET21.setText(r.getString(28));
+                        RSAIET.FUAET21.setText(r.getString(29));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(30).equals("")){
+                        RSAIET.FET22.setDate(null);
+                    } else {
+                        String fechaSeleccionadaM12 = (String)(r.getString(30));
+                        DateFormat dfoM12 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaM12 = dfoM12.parse(fechaSeleccionadaM12);
+                        RSAIET.FET22.setDate(fechaM12);
+                        RSAIET.DXET22.setText(r.getString(31));
+                        RSAIET.FUAET22.setText(r.getString(32));
+                    }
+                } catch (Exception e) {
+                }
+                ///////////////////////////////////////////////////////
+                //3 AÑOS
+                try {
+                    if(r.getString(33).equals("")){
+                        RSAIET.FET23.setDate(null);
+                    } else {
+                        String fechaSeleccionadaM13 = (String)(r.getString(33));
+                        DateFormat dfoM13 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaM13 = dfoM13.parse(fechaSeleccionadaM13);
+                        RSAIET.FET23.setDate(fechaM13);
+                        RSAIET.DXET23.setText(r.getString(34));
+                        RSAIET.FUAET23.setText(r.getString(35));
+                    }
+                } catch (Exception e) {
+                }
+                
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: ConsultoriosExtVacunasListar " + e.getMessage());
+        }
+    }
+     
+    public boolean mantenimientoRSAIET(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CONSULTORIO_EXT_MANTENIMIENTO_RS_ESTIMULACION_TEMPRANA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getRs_id());
+            
+            //////////////////////////////////////////////
+            //MENORES DE UN AÑO
+           
+            cmd.setString(2, getM1Fecha());
+            cmd.setString(3, getM1Cie10());
+            cmd.setString(4, getM1Fua());
+            
+            cmd.setString(5, getM2Fecha());
+            cmd.setString(6, getM2Cie10());
+            cmd.setString(7, getM2Fua());
+            
+            cmd.setString(8, getM3Fecha());
+            cmd.setString(9, getM3Cie10());
+            cmd.setString(10, getM3Fua());
+            
+            cmd.setString(11, getM4Fecha());
+            cmd.setString(12, getM4Cie10());
+            cmd.setString(13, getM4Fua());
+            
+            cmd.setString(14, getM5Fecha());
+            cmd.setString(15, getM5Cie10());
+            cmd.setString(16, getM5Fua());
+            
+            cmd.setString(17, getM6Fecha());
+            cmd.setString(18, getM6Cie10());
+            cmd.setString(19, getM6Fua());
+            //////////////////////////////////////////////
+            //1 AÑO
+            cmd.setString(20, getM7Fecha());
+            cmd.setString(21, getM7Cie10());
+            cmd.setString(22, getM7Fua());
+            
+            cmd.setString(23, getM8Fecha());
+            cmd.setString(24, getM8Cie10());
+            cmd.setString(25, getM8Fua());
+            
+            cmd.setString(26, getM9Fecha());
+            cmd.setString(27, getM9Cie10());
+            cmd.setString(28, getM9Fua());
+            
+            cmd.setString(29, getM10Fecha());
+            cmd.setString(30, getM10Cie10());
+            cmd.setString(31, getM10Fua());
+            /////////////////////////////////////////////////
+            //2 AÑOS
+            cmd.setString(32, getM11Fecha());
+            cmd.setString(33, getM11Cie10());
+            cmd.setString(34, getM11Fua());
+            
+            cmd.setString(35, getM12Fecha());
+            cmd.setString(36, getM12Cie10());
+            cmd.setString(37, getM12Fua());
+            ///////////////////////////////////////////////
+            //3 AÑOS
+            cmd.setString(38, getM13Fecha());
+            cmd.setString(39, getM13Cie10());
+            cmd.setString(40, getM13Fua());
+            
+            cmd.setString(41, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimiento Vacunas " + ex.getMessage());
+        }
+        return resp;
+    }
+    public void porcentajeDN(int rs_id){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EXT_RS_ESTIMULACION_TEMPRANA_PORCENTAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblPorcentajeDN.setText(r.getString(1) + " %"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeDN " + e.getMessage());
+        }
+    }  
+    
+    public void cargarDatosCie10(String descripcion,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Nro","Código","Diagnóstico"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[3];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CIE10_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, descripcion);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // clasificacion
+                fila[1]=r.getString(2); //codigo
+                fila[2]=r.getString(3); //codigo
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaCargarCie10(tabla);
+        } catch (Exception e) {
+            System.out.println("Error_cargarDatosCie10: " + e.getMessage());
+        }
+    }
+     public void formatoTablaCargarCie10(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//CODIGO
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);//CODIGO
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(500);//CODIGO
+        tabla.setRowHeight(30);
+    }  
     public ConsultorioExtRsEstimulacionTemprana() {
         Conexion con = new Conexion();
         cn = con.conectar();
@@ -391,6 +739,15 @@ public class ConsultorioExtRsEstimulacionTemprana implements Serializable {
     public void setM13Fua(String m13Fua) {
         this.m13Fua = m13Fua;
     }
+
+    public int getRsId() {
+        return rsId;
+    }
+
+    public void setRsId(int rsId) {
+        this.rsId = rsId;
+    }
+    
 
     @Override
     public int hashCode() {

@@ -2546,7 +2546,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             CCD.setLayout(CCDLayout);
             CCDLayout.setHorizontalGroup(
                 CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 1277, Short.MAX_VALUE)
+                .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 1287, Short.MAX_VALUE)
                 .addGroup(CCDLayout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2566,7 +2566,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(lblId))
-                    .addContainerGap(180, Short.MAX_VALUE))
+                    .addContainerGap(190, Short.MAX_VALUE))
             );
             CCDLayout.setVerticalGroup(
                 CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3755,7 +3755,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             CCD1.setLayout(CCD1Layout);
             CCD1Layout.setHorizontalGroup(
                 CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel106, javax.swing.GroupLayout.DEFAULT_SIZE, 1277, Short.MAX_VALUE)
+                .addComponent(jPanel106, javax.swing.GroupLayout.DEFAULT_SIZE, 1287, Short.MAX_VALUE)
                 .addGroup(CCD1Layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3774,7 +3774,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                             .addComponent(DXCCDRN7, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(DXCCDRN8, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(58, Short.MAX_VALUE))
+                    .addContainerGap(68, Short.MAX_VALUE))
             );
             CCD1Layout.setVerticalGroup(
                 CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4466,7 +4466,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             CCD2.setLayout(CCD2Layout);
             CCD2Layout.setHorizontalGroup(
                 CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel113, javax.swing.GroupLayout.DEFAULT_SIZE, 1277, Short.MAX_VALUE)
+                .addComponent(jPanel113, javax.swing.GroupLayout.DEFAULT_SIZE, 1287, Short.MAX_VALUE)
                 .addGroup(CCD2Layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4488,7 +4488,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                             .addComponent(DXCCDRN9, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(DXCCDRN10, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(544, Short.MAX_VALUE))
+                    .addContainerGap(554, Short.MAX_VALUE))
             );
             CCD2Layout.setVerticalGroup(
                 CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4630,7 +4630,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap(765, Short.MAX_VALUE))
             );
             mensaje1Layout.setVerticalGroup(
                 mensaje1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4649,9 +4649,9 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(mensajeLayout.createSequentialGroup()
                     .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(mensaje1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(0, 0, 0))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(mensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap())
             );
             mensajeLayout.setVerticalGroup(
                 mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

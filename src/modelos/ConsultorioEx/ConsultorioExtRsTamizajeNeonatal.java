@@ -7,9 +7,16 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
+import vista.ConsultorioEx.RSAITN;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeDD;
 
 public class ConsultorioExtRsTamizajeNeonatal implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -27,6 +34,126 @@ public class ConsultorioExtRsTamizajeNeonatal implements Serializable {
     private String hsrFecha;
     private String hsrFua;
 
+     public void ConsultoriosExtDDListar(int rs_id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_RS_TAMIZAJE_NEONATAL_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+ 
+                try {
+                    if(r.getString(3).equals("")){
+                        RSAITN.FDD7.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD1 = (String)(r.getString(3));
+                        DateFormat dfoD1 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD1 = dfoD1.parse(fechaSeleccionadaD1);
+                        RSAITN.FDD7.setDate(fechaD1);
+                        RSAITN.FUADD7.setText(r.getString(4));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(5).equals("")){
+                        RSAITN.FDD8.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD2 = (String)(r.getString(5));
+                        DateFormat dfoD2 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD2 = dfoD2.parse(fechaSeleccionadaD2);
+                        RSAITN.FDD8.setDate(fechaD2);
+                        RSAITN.FUADD8.setText(r.getString(6));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(7).equals("")){
+                        RSAITN.FDD9.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD3 = (String)(r.getString(7));
+                        DateFormat dfoD3 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD3 = dfoD3.parse(fechaSeleccionadaD3);
+                        RSAITN.FDD9.setDate(fechaD3);
+                        RSAITN.FUADD9.setText(r.getString(8));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(9).equals("")){
+                        RSAITN.FDD10.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD4 = (String)(r.getString(9));
+                        DateFormat dfoD4 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD4 = dfoD4.parse(fechaSeleccionadaD4);
+                        RSAITN.FDD10.setDate(fechaD4);
+                        RSAITN.FUADD10.setText(r.getString(4));
+                    }
+                } catch (Exception e) {
+                }
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: Consultorios tam neo " + e.getMessage());
+        }
+    }
+     
+     public boolean mantenimientoRSAIDD(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CONSULTORIO_EXT_MANTENIMIENTO_RS_TAMIZAJE_NEONATAL ?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getRs_id());
+            
+            cmd.setString(2, getTshFecha());
+            cmd.setString(3, getTshFua());
+            
+            cmd.setString(4, getFcFecha());
+            cmd.setString(5, getFcFua());
+            
+            cmd.setString(6, getFoFecha());
+            cmd.setString(7, getFoFua());
+            
+            cmd.setString(8, getHsrFecha());
+            cmd.setString(9, getHsrFua());
+
+            cmd.setString(10, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimiento Vacunas " + ex.getMessage());
+        }
+        return resp;
+    }
+     
+     public void porcentajeDD(int rs_id){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EXT_RS_TAMIZAJE_NEONATAL_PORCENTAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblPorcentajeDD.setText(r.getString(1) + " %"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeDD " + e.getMessage());
+        }
+    }  
+     
     public ConsultorioExtRsTamizajeNeonatal() {
         Conexion con = new Conexion();
         cn = con.conectar();

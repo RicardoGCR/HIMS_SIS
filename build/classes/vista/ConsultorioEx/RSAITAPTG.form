@@ -423,11 +423,7 @@
             <Container class="javax.swing.JPanel" name="jPanel81">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-<<<<<<< HEAD
                   <Color blue="99" green="99" red="99" type="rgb"/>
-=======
-                  <Color blue="61" green="ae" red="27" type="rgb"/>
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Property>
               </Properties>
 
@@ -450,11 +446,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel72">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-<<<<<<< HEAD
                       <Color blue="99" green="99" red="99" type="rgb"/>
-=======
-                      <Color blue="61" green="ae" red="27" type="rgb"/>
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -514,23 +506,16 @@
                 <Component class="com.toedter.calendar.JDateChooser" name="FCCDM5">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-<<<<<<< HEAD
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
-=======
-                      <Color blue="cc" green="cc" red="cc" type="rgb"/>
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                     </Property>
                     <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
@@ -589,12 +574,9 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
@@ -651,12 +633,9 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
@@ -664,7 +643,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FUACCDM7ActionPerformed"/>
               </Events>
-<<<<<<< HEAD
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -678,12 +656,6 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
-=======
-            </Component>
-            <Component class="javax.swing.JTextField" name="FUACCDM5">
-            </Component>
-            <Component class="javax.swing.JTextField" name="FUACCDM6">
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel85">
               <Properties>
@@ -738,22 +710,16 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="FUACCDM8">
-<<<<<<< HEAD
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
-=======
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel86">
               <Properties>
@@ -805,22 +771,16 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="FUACCDM9">
-<<<<<<< HEAD
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
-=======
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel87">
               <Properties>
@@ -872,22 +832,16 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="FUACCDM10">
-<<<<<<< HEAD
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
-=======
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
             </Component>
           </SubComponents>
         </Container>
@@ -971,7 +925,6 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -980,10 +933,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
-                </Component>
-                <Component class="javax.swing.JTextField" name="FUACCDM12">
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
@@ -1026,7 +975,6 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1035,10 +983,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
-                </Component>
-                <Component class="javax.swing.JTextField" name="FUACCDM13">
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
@@ -1081,7 +1025,6 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1090,10 +1033,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
-                </Component>
-                <Component class="javax.swing.JTextField" name="FUACCDM11">
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
@@ -1133,7 +1072,6 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1142,10 +1080,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
-                </Component>
-                <Component class="javax.swing.JTextField" name="FUACCDM14">
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
@@ -1185,7 +1119,6 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1194,10 +1127,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
-                </Component>
-                <Component class="javax.swing.JTextField" name="FUACCDM15">
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
@@ -1256,13 +1185,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-<<<<<<< HEAD
                       <Component id="jLabel67" min="-2" pref="138" max="-2" attributes="0"/>
                       <EmptySpace pref="113" max="32767" attributes="0"/>
-=======
-                      <Component id="jLabel67" min="-2" pref="102" max="-2" attributes="0"/>
-                      <EmptySpace pref="149" max="32767" attributes="0"/>
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1369,7 +1293,6 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1378,10 +1301,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
-                </Component>
-                <Component class="javax.swing.JTextField" name="FUACCDM16">
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
@@ -1424,7 +1343,6 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1433,10 +1351,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
-                </Component>
-                <Component class="javax.swing.JTextField" name="FUACCDM17">
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
@@ -1479,7 +1393,6 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1488,10 +1401,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
-                </Component>
-                <Component class="javax.swing.JTextField" name="FUACCDM18">
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
@@ -1531,7 +1440,6 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1540,10 +1448,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
-                </Component>
-                <Component class="javax.swing.JTextField" name="FUACCDM19">
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>
@@ -1583,7 +1487,6 @@
                       <Font name="Segoe UI" size="12" style="0"/>
                     </Property>
                   </Properties>
-<<<<<<< HEAD
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -1592,10 +1495,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
-=======
-                </Component>
-                <Component class="javax.swing.JTextField" name="FUACCDM20">
->>>>>>> a9fffb462208fd8e1e7757430e3e8eef27665c80
                 </Component>
               </SubComponents>
             </Container>

@@ -19,6 +19,8 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import modelos.ConsultorioEx.ConsultorioExtRsCcd;
 import static vista.ConsultorioEx.RegistroSeguimiento.jTabbedPane1;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblGenero;
+import static vista.ConsultorioEx.RegistroSeguimiento.txtPaciente;
 
 /**
  *
@@ -1101,8 +1103,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jPanel170 = new javax.swing.JPanel();
             jLabel108 = new javax.swing.JLabel();
             jLabel109 = new javax.swing.JLabel();
-            DXCCDRN7 = new javax.swing.JLabel();
-            DXCCDRN8 = new javax.swing.JLabel();
+            lblNina2 = new javax.swing.JLabel();
+            lblNino2 = new javax.swing.JLabel();
             CCD2 = new javax.swing.JPanel();
             jPanel113 = new javax.swing.JPanel();
             jLabel106 = new javax.swing.JLabel();
@@ -1164,8 +1166,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             R11a = new javax.swing.JRadioButton();
             FUACCD11A = new javax.swing.JTextField();
             DXCCD11A = new javax.swing.JLabel();
-            DXCCDRN9 = new javax.swing.JLabel();
-            DXCCDRN10 = new javax.swing.JLabel();
+            lblNina3 = new javax.swing.JLabel();
+            lblNino3 = new javax.swing.JLabel();
             mensaje = new javax.swing.JPanel();
             jPanel31 = new javax.swing.JPanel();
             btneditar4 = new javax.swing.JButton();
@@ -2493,28 +2495,26 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             jLabel3.setForeground(new java.awt.Color(255, 255, 255));
             jLabel3.setText("1, 2, 3 y 4 AÑOS");
+            jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    jLabel3MouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel169Layout = new javax.swing.GroupLayout(jPanel169);
             jPanel169.setLayout(jPanel169Layout);
             jPanel169Layout.setHorizontalGroup(
                 jPanel169Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel169Layout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(jLabel3)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel107))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(jLabel107)
+                    .addContainerGap())
             );
             jPanel169Layout.setVerticalGroup(
                 jPanel169Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel169Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel169Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel169Layout.createSequentialGroup()
-                            .addComponent(jLabel107, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(21, 21, 21))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel169Layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(45, 45, 45))))
+                .addComponent(jLabel107, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
 
             lblNina.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -2555,7 +2555,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                             .addGroup(CCDLayout.createSequentialGroup()
                                 .addComponent(CCDM12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(1, 1, 1)
-                                .addComponent(jPanel169, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jPanel169, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                             .addGroup(CCDLayout.createSequentialGroup()
                                 .addComponent(LEYENDA, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
@@ -3162,6 +3162,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCD24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCD24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD24.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD24.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD24MouseClicked(evt);
+                }
+            });
             DXCCD24.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     DXCCD24KeyPressed(evt);
@@ -3803,47 +3808,46 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             jLabel109.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
             jLabel109.setForeground(new java.awt.Color(255, 255, 255));
             jLabel109.setText("5 - 11 AÑOS");
+            jLabel109.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    jLabel109MouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel170Layout = new javax.swing.GroupLayout(jPanel170);
             jPanel170.setLayout(jPanel170Layout);
             jPanel170Layout.setHorizontalGroup(
                 jPanel170Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel170Layout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(jLabel109)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel109, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(0, 0, 0)
                     .addComponent(jLabel108))
             );
             jPanel170Layout.setVerticalGroup(
                 jPanel170Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel170Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel170Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel170Layout.createSequentialGroup()
-                            .addComponent(jLabel108, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(21, 21, 21))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel170Layout.createSequentialGroup()
-                            .addComponent(jLabel109)
-                            .addGap(45, 45, 45))))
+                .addComponent(jLabel109, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel108, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
 
-            DXCCDRN7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
-            DXCCDRN7.setText("NIÑOS");
-            DXCCDRN7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            DXCCDRN7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-            DXCCDRN7.addMouseListener(new java.awt.event.MouseAdapter() {
+            lblNina2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            lblNina2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
+            lblNina2.setText("NIÑOS");
+            lblNina2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            lblNina2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+            lblNina2.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    DXCCDRN7MouseClicked(evt);
+                    lblNina2MouseClicked(evt);
                 }
             });
 
-            DXCCDRN8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
-            DXCCDRN8.setText("NIÑOS");
-            DXCCDRN8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            DXCCDRN8.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-            DXCCDRN8.addMouseListener(new java.awt.event.MouseAdapter() {
+            lblNino2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            lblNino2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
+            lblNino2.setText("NIÑOS");
+            lblNino2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            lblNino2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+            lblNino2.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    DXCCDRN8MouseClicked(evt);
+                    lblNino2MouseClicked(evt);
                 }
             });
 
@@ -3867,9 +3871,9 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel170, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(CCD1Layout.createSequentialGroup()
-                            .addComponent(DXCCDRN7, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNina2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(DXCCDRN8, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblNino2, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(523, Short.MAX_VALUE))
             );
             CCD1Layout.setVerticalGroup(
@@ -3878,8 +3882,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(jPanel106, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(DXCCDRN7)
-                        .addComponent(DXCCDRN8))
+                        .addComponent(lblNina2)
+                        .addComponent(lblNino2))
                     .addGap(18, 18, 18)
                     .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCD1A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -4573,23 +4577,25 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FUACCD11A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
-            DXCCDRN9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
-            DXCCDRN9.setText("NIÑOS");
-            DXCCDRN9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            DXCCDRN9.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-            DXCCDRN9.addMouseListener(new java.awt.event.MouseAdapter() {
+            lblNina3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            lblNina3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
+            lblNina3.setText("NIÑOS");
+            lblNina3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            lblNina3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+            lblNina3.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    DXCCDRN9MouseClicked(evt);
+                    lblNina3MouseClicked(evt);
                 }
             });
 
-            DXCCDRN10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
-            DXCCDRN10.setText("NIÑOS");
-            DXCCDRN10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            DXCCDRN10.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-            DXCCDRN10.addMouseListener(new java.awt.event.MouseAdapter() {
+            lblNino3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            lblNino3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
+            lblNino3.setText("NIÑOS");
+            lblNino3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            lblNino3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+            lblNino3.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    DXCCDRN10MouseClicked(evt);
+                    lblNino3MouseClicked(evt);
                 }
             });
 
@@ -4616,9 +4622,9 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(CCDR11A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(CCD2Layout.createSequentialGroup()
-                            .addComponent(DXCCDRN9, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNina3, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(DXCCDRN10, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblNino3, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(1009, Short.MAX_VALUE))
             );
             CCD2Layout.setVerticalGroup(
@@ -4627,8 +4633,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(jPanel113, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(5, 5, 5)
                     .addGroup(CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(DXCCDRN9)
-                        .addComponent(DXCCDRN10))
+                        .addComponent(lblNina3)
+                        .addComponent(lblNino3))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(CCDR5A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4815,12 +4821,17 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         this.dispose();
     }//GEN-LAST:event_jLabel20MouseClicked
 
-    private void jLabel107MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel107MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel107MouseClicked
-
     private void jPanel169MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel169MouseClicked
         jTabbedPane1.setSelectedIndex(1);
+        if(lblNina.isVisible()){
+            lblNina2.setText(txtPaciente.getText());
+            lblNina2.setVisible(true);
+            lblNino2.setVisible(false);
+        } else {
+            lblNino2.setText(txtPaciente.getText());
+            lblNino2.setVisible(true);
+            lblNina2.setVisible(false);
+        }
     }//GEN-LAST:event_jPanel169MouseClicked
 
     private void jLabel100MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel100MouseClicked
@@ -4828,11 +4839,29 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }//GEN-LAST:event_jLabel100MouseClicked
 
     private void jLabel108MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel108MouseClicked
-        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(2);   
+        if(lblNina2.isVisible()){
+            lblNina3.setText(txtPaciente.getText());
+            lblNina3.setVisible(true);
+            lblNino3.setVisible(false);
+        } else {
+            lblNino3.setText(txtPaciente.getText());
+            lblNino3.setVisible(true);
+            lblNina3.setVisible(false);
+        }
     }//GEN-LAST:event_jLabel108MouseClicked
 
     private void jPanel170MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel170MouseClicked
-      jTabbedPane1.setSelectedIndex(2);          
+      jTabbedPane1.setSelectedIndex(2);   
+        if(lblNina2.isVisible()){
+            lblNina3.setText(txtPaciente.getText());
+            lblNina3.setVisible(true);
+            lblNino3.setVisible(false);
+        } else {
+            lblNino3.setText(txtPaciente.getText());
+            lblNino3.setVisible(true);
+            lblNina3.setVisible(false);
+        }
     }//GEN-LAST:event_jPanel170MouseClicked
 
     private void jLabel110MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel110MouseClicked
@@ -4931,21 +4960,21 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         // TODO add your handling code here:
     }//GEN-LAST:event_lblNinoMouseClicked
 
-    private void DXCCDRN7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN7MouseClicked
+    private void lblNina2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNina2MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_DXCCDRN7MouseClicked
+    }//GEN-LAST:event_lblNina2MouseClicked
 
-    private void DXCCDRN8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN8MouseClicked
+    private void lblNino2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNino2MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_DXCCDRN8MouseClicked
+    }//GEN-LAST:event_lblNino2MouseClicked
 
-    private void DXCCDRN9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN9MouseClicked
+    private void lblNina3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNina3MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_DXCCDRN9MouseClicked
+    }//GEN-LAST:event_lblNina3MouseClicked
 
-    private void DXCCDRN10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN10MouseClicked
+    private void lblNino3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNino3MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_DXCCDRN10MouseClicked
+    }//GEN-LAST:event_lblNino3MouseClicked
 
     private void FUACCDM7CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_FUACCDM7CaretUpdate
         if(FUACCDM7.getText().equals("")){
@@ -5906,6 +5935,49 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         FrmCie10.setVisible(true);
     }//GEN-LAST:event_DXCCD11AMouseClicked
 
+    private void jLabel107MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel107MouseClicked
+        jTabbedPane1.setSelectedIndex(1);
+        if(lblNina.isVisible()){
+            lblNina2.setText(txtPaciente.getText());
+            lblNina2.setVisible(true);
+            lblNino2.setVisible(false);
+        } else {
+            lblNino2.setText(txtPaciente.getText());
+            lblNino2.setVisible(true);
+            lblNina2.setVisible(false);
+        }
+    }//GEN-LAST:event_jLabel107MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        jTabbedPane1.setSelectedIndex(1);
+        if(lblNina.isVisible()){
+            lblNina2.setText(txtPaciente.getText());
+            lblNina2.setVisible(true);
+            lblNino2.setVisible(false);
+        } else {
+            lblNino2.setText(txtPaciente.getText());
+            lblNino2.setVisible(true);
+            lblNina2.setVisible(false);
+        }
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel109MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel109MouseClicked
+        jTabbedPane1.setSelectedIndex(2);   
+        if(lblNina2.isVisible()){
+            lblNina3.setText(txtPaciente.getText());
+            lblNina3.setVisible(true);
+            lblNino3.setVisible(false);
+        } else {
+            lblNino3.setText(txtPaciente.getText());
+            lblNino3.setVisible(true);
+            lblNina3.setVisible(false);
+        }
+    }//GEN-LAST:event_jLabel109MouseClicked
+
+    private void DXCCD24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD24MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD24MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CCD;
@@ -5962,13 +6034,9 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     public static javax.swing.JLabel DXCCDM8;
     public static javax.swing.JLabel DXCCDM9;
     public static javax.swing.JLabel DXCCDRN1;
-    private javax.swing.JLabel DXCCDRN10;
     public static javax.swing.JLabel DXCCDRN2;
     public static javax.swing.JLabel DXCCDRN3;
     public static javax.swing.JLabel DXCCDRN4;
-    private javax.swing.JLabel DXCCDRN7;
-    private javax.swing.JLabel DXCCDRN8;
-    private javax.swing.JLabel DXCCDRN9;
     public static com.toedter.calendar.JDateChooser FCCD10A;
     public static com.toedter.calendar.JDateChooser FCCD11;
     public static com.toedter.calendar.JDateChooser FCCD11A;
@@ -6201,7 +6269,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     private javax.swing.JTabbedPane jTabbedPane1;
     public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
+    private javax.swing.JLabel lblNina2;
+    private javax.swing.JLabel lblNina3;
     public static javax.swing.JLabel lblNino;
+    private javax.swing.JLabel lblNino2;
+    private javax.swing.JLabel lblNino3;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
     private javax.swing.JPanel mensaje1;

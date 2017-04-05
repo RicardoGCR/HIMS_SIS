@@ -6156,7 +6156,6 @@
                   <Image iconType="3" name="/imagenes/Icon/Guardar-32.png"/>
                 </Property>
                 <Property name="mnemonic" type="int" value="78"/>
-                <Property name="text" type="java.lang.String" value="Guardar"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Mano"/>

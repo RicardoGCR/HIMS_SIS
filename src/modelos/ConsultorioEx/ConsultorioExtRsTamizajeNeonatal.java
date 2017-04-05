@@ -7,59 +7,24 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_TAMIZAJE_NEONATAL")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsTamizajeNeonatal.findAll", query = "SELECT c FROM ConsultorioExtRsTamizajeNeonatal c"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeNeonatal.findByTnId", query = "SELECT c FROM ConsultorioExtRsTamizajeNeonatal c WHERE c.tnId = :tnId"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeNeonatal.findByTshFecha", query = "SELECT c FROM ConsultorioExtRsTamizajeNeonatal c WHERE c.tshFecha = :tshFecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeNeonatal.findByTshFua", query = "SELECT c FROM ConsultorioExtRsTamizajeNeonatal c WHERE c.tshFua = :tshFua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeNeonatal.findByFcFecha", query = "SELECT c FROM ConsultorioExtRsTamizajeNeonatal c WHERE c.fcFecha = :fcFecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeNeonatal.findByFcFua", query = "SELECT c FROM ConsultorioExtRsTamizajeNeonatal c WHERE c.fcFua = :fcFua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeNeonatal.findByFoFecha", query = "SELECT c FROM ConsultorioExtRsTamizajeNeonatal c WHERE c.foFecha = :foFecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeNeonatal.findByFoFua", query = "SELECT c FROM ConsultorioExtRsTamizajeNeonatal c WHERE c.foFua = :foFua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeNeonatal.findByHsrFecha", query = "SELECT c FROM ConsultorioExtRsTamizajeNeonatal c WHERE c.hsrFecha = :hsrFecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeNeonatal.findByHsrFua", query = "SELECT c FROM ConsultorioExtRsTamizajeNeonatal c WHERE c.hsrFua = :hsrFua")})
 public class ConsultorioExtRsTamizajeNeonatal implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "TN_ID")DefaultTableModel m;
+
     Conexion con = new Conexion();
     private Connection cn;
     private int rs_id;
     private Long tnId;
-    @Column(name = "TSH_FECHA")
     private String tshFecha;
-    @Column(name = "TSH_FUA")
     private String tshFua;
-    @Column(name = "FC_FECHA")
     private String fcFecha;
-    @Column(name = "FC_FUA")
     private String fcFua;
-    @Column(name = "FO_FECHA")
     private String foFecha;
-    @Column(name = "FO_FUA")
     private String foFua;
-    @Column(name = "HSR_FECHA")
     private String hsrFecha;
-    @Column(name = "HSR_FUA")
     private String hsrFua;
 
     public ConsultorioExtRsTamizajeNeonatal() {

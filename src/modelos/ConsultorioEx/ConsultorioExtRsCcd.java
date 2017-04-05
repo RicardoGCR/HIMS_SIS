@@ -20,6 +20,7 @@ import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RSAICCD;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeCCD;
 
 public class ConsultorioExtRsCcd implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -1011,6 +1012,23 @@ public class ConsultorioExtRsCcd implements Serializable {
         tabla.setRowHeight(30);
     }
 
+    public void porcentajeCCD(int rs_id){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EXT_RS_CCD_PORCENTAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblPorcentajeCCD.setText(r.getString(1) + " %"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeCCD " + e.getMessage());
+        }
+    }
+     
     public ConsultorioExtRsCcd() {
         Conexion con = new Conexion();
         cn = con.conectar();

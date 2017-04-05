@@ -7,13 +7,6 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
@@ -22,138 +15,52 @@ import servicios.Conexion;
  *
  * @author PC02
  */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_ESTIMULACION_TEMPRANA")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findAll", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByEtId", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.etId = :etId"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM1Fecha", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m1Fecha = :m1Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM1Cie10", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m1Cie10 = :m1Cie10"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM1Fua", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m1Fua = :m1Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM2Fecha", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m2Fecha = :m2Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM2Cie10", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m2Cie10 = :m2Cie10"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM2Fua", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m2Fua = :m2Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM3Fecha", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m3Fecha = :m3Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM3Cie10", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m3Cie10 = :m3Cie10"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM3Fua", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m3Fua = :m3Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM4Fecha", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m4Fecha = :m4Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM4Cie10", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m4Cie10 = :m4Cie10"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM4Fua", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m4Fua = :m4Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM5Fecha", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m5Fecha = :m5Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM5Cie10", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m5Cie10 = :m5Cie10"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM5Fua", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m5Fua = :m5Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM6Fecha", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m6Fecha = :m6Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM6Cie10", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m6Cie10 = :m6Cie10"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM6Fua", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m6Fua = :m6Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM7Fecha", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m7Fecha = :m7Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM7Cie10", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m7Cie10 = :m7Cie10"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM7Fua", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m7Fua = :m7Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM8Fecha", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m8Fecha = :m8Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM8Cie10", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m8Cie10 = :m8Cie10"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM8Fua", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m8Fua = :m8Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM9Fecha", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m9Fecha = :m9Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM9Cie10", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m9Cie10 = :m9Cie10"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM9Fua", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m9Fua = :m9Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM10Fecha", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m10Fecha = :m10Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM10Cie10", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m10Cie10 = :m10Cie10"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM10Fua", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m10Fua = :m10Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM11Fecha", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m11Fecha = :m11Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM11Cie10", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m11Cie10 = :m11Cie10"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM11Fua", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m11Fua = :m11Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM12Fecha", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m12Fecha = :m12Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM12Cie10", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m12Cie10 = :m12Cie10"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM12Fua", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m12Fua = :m12Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM13Fecha", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m13Fecha = :m13Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM13Cie10", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m13Cie10 = :m13Cie10"),
-    @NamedQuery(name = "ConsultorioExtRsEstimulacionTemprana.findByM13Fua", query = "SELECT c FROM ConsultorioExtRsEstimulacionTemprana c WHERE c.m13Fua = :m13Fua")})
 public class ConsultorioExtRsEstimulacionTemprana implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "ET_ID")
+
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private int rs_id;
     private Long etId;
-    @Column(name = "M1_FECHA")
     private String m1Fecha;
-    @Column(name = "M1_CIE10")
     private String m1Cie10;
-    @Column(name = "M1_FUA")
     private String m1Fua;
-    @Column(name = "M2_FECHA")
     private String m2Fecha;
-    @Column(name = "M2_CIE10")
     private String m2Cie10;
-    @Column(name = "M2_FUA")
     private String m2Fua;
-    @Column(name = "M3_FECHA")
     private String m3Fecha;
-    @Column(name = "M3_CIE10")
     private String m3Cie10;
-    @Column(name = "M3_FUA")
     private String m3Fua;
-    @Column(name = "M4_FECHA")
     private String m4Fecha;
-    @Column(name = "M4_CIE10")
     private String m4Cie10;
-    @Column(name = "M4_FUA")
     private String m4Fua;
-    @Column(name = "M5_FECHA")
     private String m5Fecha;
-    @Column(name = "M5_CIE10")
     private String m5Cie10;
-    @Column(name = "M5_FUA")
     private String m5Fua;
-    @Column(name = "M6_FECHA")
     private String m6Fecha;
-    @Column(name = "M6_CIE10")
     private String m6Cie10;
-    @Column(name = "M6_FUA")
     private String m6Fua;
-    @Column(name = "M7_FECHA")
     private String m7Fecha;
-    @Column(name = "M7_CIE10")
     private String m7Cie10;
-    @Column(name = "M7_FUA")
     private String m7Fua;
-    @Column(name = "M8_FECHA")
     private String m8Fecha;
-    @Column(name = "M8_CIE10")
     private String m8Cie10;
-    @Column(name = "M8_FUA")
     private String m8Fua;
-    @Column(name = "M9_FECHA")
     private String m9Fecha;
-    @Column(name = "M9_CIE10")
     private String m9Cie10;
-    @Column(name = "M9_FUA")
     private String m9Fua;
-    @Column(name = "M10_FECHA")
     private String m10Fecha;
-    @Column(name = "M10_CIE10")
     private String m10Cie10;
-    @Column(name = "M10_FUA")
     private String m10Fua;
-    @Column(name = "M11_FECHA")
     private String m11Fecha;
-    @Column(name = "M11_CIE10")
     private String m11Cie10;
-    @Column(name = "M11_FUA")
     private String m11Fua;
-    @Column(name = "M12_FECHA")
     private String m12Fecha;
-    @Column(name = "M12_CIE10")
     private String m12Cie10;
-    @Column(name = "M12_FUA")
     private String m12Fua;
-    @Column(name = "M13_FECHA")
     private String m13Fecha;
-    @Column(name = "M13_CIE10")
     private String m13Cie10;
-    @Column(name = "M13_FUA")
     private String m13Fua;
 
     public ConsultorioExtRsEstimulacionTemprana() {

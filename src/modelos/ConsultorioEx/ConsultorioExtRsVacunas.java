@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RSAIVacunas;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeVacunas;
 
 public class ConsultorioExtRsVacunas implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -391,7 +392,6 @@ public class ConsultorioExtRsVacunas implements Serializable {
                 RSAIVacunas.txtInflR1.setText(r.getString(50));
                 }
                 } catch (Exception e) {
-                    System.out.println("Eror fecha:  " + e.getMessage());
                 }
                 
                 try {
@@ -406,7 +406,6 @@ public class ConsultorioExtRsVacunas implements Serializable {
                 RSAIVacunas.txtInflR2.setText(r.getString(52));
                 }
                 } catch (Exception e) {
-                    System.out.println("Eror fecha:  " + e.getMessage());
                 }
                 
                 try {
@@ -421,7 +420,6 @@ public class ConsultorioExtRsVacunas implements Serializable {
                 RSAIVacunas.txtFuaApoR1.setText(r.getString(54));
                 }
                 } catch (Exception e) {
-                    System.out.println("Eror fecha:  " + e.getMessage());
                 }
                 
                 try {
@@ -436,7 +434,6 @@ public class ConsultorioExtRsVacunas implements Serializable {
                 RSAIVacunas.txtFuaApoR2.setText(r.getString(56));
                 }
                 } catch (Exception e) {
-                    System.out.println("Eror fecha:  " + e.getMessage());
                 }
              
             }
@@ -547,6 +544,23 @@ public class ConsultorioExtRsVacunas implements Serializable {
             System.out.println("Error: mantenimiento Vacunas " + ex.getMessage());
         }
         return resp;
+    }
+    
+    public void porcentajeVacunas(int rs_id){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EXT_RS_VACUNAS_PORCENTAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblPorcentajeVacunas.setText(r.getString(1) + " %"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeVacunas " + e.getMessage());
+        }
     }
     
     public ConsultorioExtRsVacunas() {

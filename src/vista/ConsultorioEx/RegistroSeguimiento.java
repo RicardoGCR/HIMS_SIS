@@ -184,50 +184,17 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             System.out.println("Error: datosPadres " + e.getMessage());
         }
     }
-    
-    public void porcentajeVacunas(int rs_id){
-        String consulta="";
-        double porcentaje = 0.0;
-        try {
-            consulta="EXEC CONSULTORIO_EXT_RS_VACUNAS_PORCENTAJE ?";
-            PreparedStatement cmd = cabecera.getCn().prepareStatement(consulta);
-            cmd.setInt(1, rs_id);
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-                lblPorcentajeVacunas.setText(r.getString(1) + " %"); 
-            }
-            //
-        } catch (Exception e) {
-            System.out.println("Error: porcentajeVacunas " + e.getMessage());
-        }
-    }
-    
-    public void porcentajeCCD(int rs_id){
-        String consulta="";
-        try {
-            consulta="EXEC CONSULTORIO_EXT_RS_CCD_PORCENTAJE ?";
-            PreparedStatement cmd = cabecera.getCn().prepareStatement(consulta);
-            cmd.setInt(1, rs_id);
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-                lblPorcentajeCCD.setText(r.getString(1) + " %"); 
-            }
-            //
-        } catch (Exception e) {
-            System.out.println("Error: porcentajeCCD " + e.getMessage());
-        }
-    }
 
     public void validaTriaje(String triaje){
         try {
+            ConsultorioExtRsVacunas vacs = new ConsultorioExtRsVacunas();
+            ConsultorioExtRsCcd ccd = new ConsultorioExtRsCcd();
             PreparedStatement cmd = cabecera.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_CABECERA WHERE TRIAJE_ID = '"+triaje+"'");
             ResultSet res = cmd.executeQuery();
             if(res.next()){
                 id = Integer.parseInt(res.getString("RS_ID"));
-                porcentajeVacunas(id);
-                porcentajeCCD(id);
+                vacs.porcentajeVacunas(id);
+                ccd.porcentajeCCD(id);
                 datosPadres(triaje);
                 pnlPadres.setVisible(true);
                 lblPadres.setVisible(true);
@@ -1185,7 +1152,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(pnlContenedorLayout.createSequentialGroup()
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 82, Short.MAX_VALUE)
                             .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                             .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                             .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
@@ -2207,8 +2174,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     private javax.swing.JLabel lblMensaje;
     public static javax.swing.JLabel lblNHC;
     private javax.swing.JLabel lblPadres;
-    private javax.swing.JLabel lblPorcentajeCCD;
-    private javax.swing.JLabel lblPorcentajeVacunas;
+    public static javax.swing.JLabel lblPorcentajeCCD;
+    public static javax.swing.JLabel lblPorcentajeVacunas;
     public static javax.swing.JLabel lblSector;
     public static javax.swing.JTextField lblTelefono;
     public static javax.swing.JTextField lblTriaje;

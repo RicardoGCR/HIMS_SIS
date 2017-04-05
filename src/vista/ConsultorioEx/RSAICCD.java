@@ -156,8 +156,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         //3 AÑOS
         FCCD3A1.setEnabled(opcion);
         FCCD3A2.setEnabled(opcion);
-        FCCD3A2.setEnabled(opcion);
-        FCCD3A2.setEnabled(opcion);
+        FCCD3A3.setEnabled(opcion);
+        FCCD3A4.setEnabled(opcion);
         
         DXCCD3A1.setEnabled(opcion);
         DXCCD3A2.setEnabled(opcion);
@@ -171,8 +171,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         //4 AÑOS
         FCCD4A1.setEnabled(opcion);
         FCCD4A2.setEnabled(opcion);
-        FCCD4A2.setEnabled(opcion);
-        FCCD4A2.setEnabled(opcion);
+        FCCD4A3.setEnabled(opcion);
+        FCCD4A4.setEnabled(opcion);
         
         DXCCD4A1.setEnabled(opcion);
         DXCCD4A2.setEnabled(opcion);
@@ -270,9 +270,9 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }
     
     public void Botones(boolean opcion){
-     btnGuardar.setEnabled(opcion);
-     btneditar4.setEnabled(opcion);
-     btnCaccnelar.setEnabled(opcion);
+        btnGuardar.setEnabled(opcion);
+        btneditar4.setEnabled(opcion);
+        btnCaccnelar.setEnabled(opcion);
     }
     
     public void validaRegistro(int rs_id){
@@ -321,10 +321,9 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         
         return fecha;
     }
-    public void enviarDiagnosticos(JLabel cie10){
+     public void enviarDiagnosticos(JLabel cie10){
         int fila = tbCiePresun.getSelectedRow();
         FrmCie10.dispose();
-      
         cie10.setText(String.valueOf(tbCiePresun.getValueAt(fila, 1)));
     }
     
@@ -4535,7 +4534,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             btnGuardar.setForeground(new java.awt.Color(240, 240, 240));
             btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
             btnGuardar.setMnemonic('N');
-            btnGuardar.setText("Guardar");
             btnGuardar.setContentAreaFilled(false);
             btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -4680,7 +4678,10 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+        
         RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
+        ConsultorioExtRsCcd ccd = new ConsultorioExtRsCcd();
+        ccd.porcentajeCCD(Integer.parseInt(lblId.getText()));
         this.dispose();
     }//GEN-LAST:event_jLabel20MouseClicked
 
@@ -4819,6 +4820,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm19.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM9.setEnabled(true);
                 FCCDM9.setEnabled(true);
                 DXCCDM9.requestFocus();
@@ -4837,6 +4839,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R14.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD14.setEnabled(true);
                 FCCD14.setEnabled(true);
                 DXCCD14.requestFocus();
@@ -4855,6 +4858,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R24.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD24.setEnabled(true);
                 FCCD24.setEnabled(true);
                 DXCCD24.requestFocus();
@@ -4873,6 +4877,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R34.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD3A4.setEnabled(true);
                 FCCD3A4.setEnabled(true);
                 DXCCD3A4.requestFocus();
@@ -4891,6 +4896,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R44.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD4A4.setEnabled(true);
                 FCCD4A4.setEnabled(true);
                 DXCCD4A4.requestFocus();
@@ -4905,9 +4911,12 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }//GEN-LAST:event_R44ActionPerformed
 
     private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
-       
         habilitarRadio(true);
         habilitarDatos(false);
+        Botones(false);
+        fua.setText("");
+        cie10.setText("");
+        fecha.setDate(null);
     }//GEN-LAST:event_btnCaccnelarActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
@@ -4935,6 +4944,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R11.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD11.setEnabled(true);
                 FCCD11.setEnabled(true);
                 DXCCD11.requestFocus();
@@ -4953,6 +4963,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R12.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD12.setEnabled(true);
                 FCCD12.setEnabled(true);
                 DXCCD12.requestFocus();
@@ -4971,6 +4982,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R13.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD13.setEnabled(true);
                 FCCD13.setEnabled(true);
                 DXCCD13.requestFocus();
@@ -4989,6 +5001,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R15.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD15.setEnabled(true);
                 FCCD15.setEnabled(true);
                 DXCCD15.requestFocus();
@@ -5007,6 +5020,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R16.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD16.setEnabled(true);
                 FCCD16.setEnabled(true);
                 DXCCD16.requestFocus();
@@ -5026,7 +5040,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rrn1.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
-                 Botones(true);
+                Botones(true);
                 FUACCDRN1.setEnabled(true);
                 FCCDRN1.setEnabled(true);
                 DXCCDRN1.requestFocus();
@@ -5045,6 +5059,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rrn2.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDRN2.setEnabled(true);
                 FCCDRN2.setEnabled(true);
                 DXCCDRN2.requestFocus();
@@ -5063,6 +5078,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rrn3.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDRN3.setEnabled(true);
                 FCCDRN3.setEnabled(true);
                 DXCCDRN3.requestFocus();
@@ -5081,6 +5097,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rrn4.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDRN4.setEnabled(true);
                 FCCDRN4.setEnabled(true);
                 DXCCDRN4.requestFocus();
@@ -5099,6 +5116,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm11.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM1.setEnabled(true);
                 FCCDM1.setEnabled(true);
                 DXCCDM1.requestFocus();
@@ -5117,6 +5135,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm12.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM2.setEnabled(true);
                 FCCDM2.setEnabled(true);
                 DXCCDM2.requestFocus();
@@ -5135,6 +5154,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm13.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM3.setEnabled(true);
                 FCCDM3.setEnabled(true);
                 DXCCDM3.requestFocus();
@@ -5153,6 +5173,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm14.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM4.setEnabled(true);
                 FCCDM4.setEnabled(true);
                 DXCCDM4.requestFocus();
@@ -5171,6 +5192,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm15.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM5.setEnabled(true);
                 FCCDM5.setEnabled(true);
                 DXCCDM5.requestFocus();
@@ -5189,6 +5211,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm16.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM6.setEnabled(true);
                 FCCDM6.setEnabled(true);
                 DXCCDM6.requestFocus();
@@ -5207,6 +5230,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm17.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM7.setEnabled(true);
                 FCCDM7.setEnabled(true);
                 DXCCDM7.requestFocus();
@@ -5225,6 +5249,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm18.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM8.setEnabled(true);
                 FCCDM8.setEnabled(true);
                 DXCCDM8.requestFocus();
@@ -5243,6 +5268,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm110.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM10.setEnabled(true);
                 FCCDM10.setEnabled(true);
                 DXCCDM10.requestFocus();
@@ -5261,6 +5287,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm111.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM11.setEnabled(true);
                 FCCDM11.setEnabled(true);
                 DXCCDM11.requestFocus();
@@ -5279,6 +5306,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R21.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD21.setEnabled(true);
                 FCCD21.setEnabled(true);
                 DXCCD21.requestFocus();
@@ -5297,6 +5325,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R22.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD22.setEnabled(true);
                 FCCD22.setEnabled(true);
                 DXCCD22.requestFocus();
@@ -5315,6 +5344,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R23.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD23.setEnabled(true);
                 FCCD23.setEnabled(true);
                 DXCCD23.requestFocus();
@@ -5333,6 +5363,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R31.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD3A1.setEnabled(true);
                 FCCD3A1.setEnabled(true);
                 DXCCD3A1.requestFocus();
@@ -5351,6 +5382,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R32.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD3A2.setEnabled(true);
                 FCCD3A2.setEnabled(true);
                 DXCCD3A2.requestFocus();
@@ -5369,6 +5401,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R33.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD3A3.setEnabled(true);
                 FCCD3A3.setEnabled(true);
                 DXCCD3A3.requestFocus();
@@ -5387,6 +5420,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R41.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD4A1.setEnabled(true);
                 FCCD4A1.setEnabled(true);
                 DXCCD4A1.requestFocus();
@@ -5405,6 +5439,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R42.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD4A2.setEnabled(true);
                 FCCD4A2.setEnabled(true);
                 DXCCD4A2.requestFocus();
@@ -5423,6 +5458,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R43.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD4A3.setEnabled(true);
                 FCCD4A3.setEnabled(true);
                 DXCCD4A3.requestFocus();
@@ -5441,6 +5477,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R5.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD5A.setEnabled(true);
                 FCCD5A.setEnabled(true);
                 DXCCD5A.requestFocus();
@@ -5459,6 +5496,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R6.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD6A.setEnabled(true);
                 FCCD6A.setEnabled(true);
                 DXCCD6A.requestFocus();
@@ -5477,6 +5515,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R7.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD7A.setEnabled(true);
                 FCCD7A.setEnabled(true);
                 DXCCD7A.requestFocus();
@@ -5495,6 +5534,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R8.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD8A.setEnabled(true);
                 FCCD8A.setEnabled(true);
                 DXCCD8A.requestFocus();
@@ -5513,6 +5553,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R9.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD9A.setEnabled(true);
                 FCCD9A.setEnabled(true);
                 DXCCD9A.requestFocus();
@@ -5531,6 +5572,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R10.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD10A.setEnabled(true);
                 FCCD10A.setEnabled(true);
                 DXCCD10A.requestFocus();
@@ -5549,6 +5591,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R11.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD11A.setEnabled(true);
                 FCCD11A.setEnabled(true);
                 DXCCD11A.requestFocus();

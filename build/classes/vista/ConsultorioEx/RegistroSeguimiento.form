@@ -764,7 +764,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jPanel12" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
-                                  <Component id="jPanel13" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jPanel13" alignment="0" pref="82" max="32767" attributes="0"/>
                                   <Component id="jPanel15" pref="82" max="32767" attributes="0"/>
                                   <Component id="jPanel16" alignment="0" pref="82" max="32767" attributes="0"/>
                                   <Component id="jPanel17" pref="82" max="32767" attributes="0"/>
@@ -860,6 +860,9 @@
                           <Events>
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPorcentajeVacunasMouseClicked"/>
                           </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                          </AuxValues>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -931,6 +934,9 @@
                             <Property name="text" type="java.lang.String" value="0 %"/>
                             <Property name="horizontalTextPosition" type="int" value="0"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                          </AuxValues>
                         </Component>
                       </SubComponents>
                     </Container>

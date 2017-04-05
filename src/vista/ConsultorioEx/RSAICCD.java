@@ -50,6 +50,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         mensaje1.setVisible(false);
         FrmCie10.setLocationRelativeTo(null);//en el centro
         FrmCie10.getContentPane().setBackground(new Color(0,153,102));
+        Botones(false);
         
         ConsultorioExtRsCcd CCDBUSCAR = new ConsultorioExtRsCcd();
         CCDBUSCAR.cargarDatosCie10("", tbCiePresun);
@@ -155,8 +156,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         //3 AÑOS
         FCCD3A1.setEnabled(opcion);
         FCCD3A2.setEnabled(opcion);
-        FCCD3A2.setEnabled(opcion);
-        FCCD3A2.setEnabled(opcion);
+        FCCD3A3.setEnabled(opcion);
+        FCCD3A4.setEnabled(opcion);
         
         DXCCD3A1.setEnabled(opcion);
         DXCCD3A2.setEnabled(opcion);
@@ -170,8 +171,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         //4 AÑOS
         FCCD4A1.setEnabled(opcion);
         FCCD4A2.setEnabled(opcion);
-        FCCD4A2.setEnabled(opcion);
-        FCCD4A2.setEnabled(opcion);
+        FCCD4A3.setEnabled(opcion);
+        FCCD4A4.setEnabled(opcion);
         
         DXCCD4A1.setEnabled(opcion);
         DXCCD4A2.setEnabled(opcion);
@@ -267,17 +268,28 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         R11.setEnabled(opcion); 
  
     }
+    
+    public void Botones(boolean opcion){
+        btnGuardar.setEnabled(opcion);
+        btneditar4.setEnabled(opcion);
+        btnCaccnelar.setEnabled(opcion);
+    }
+    
     public void validaRegistro(int rs_id){
         try {
             PreparedStatement cmd = CCD01.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_CCD WHERE RS_ID ='"+rs_id+"'");
             ResultSet res = cmd.executeQuery();
             if(res.next()){ // si existe
-                Modificar(fecha,cie10);
+                Modificar(fecha);
             }else { // no existe
                 Guardar(fecha);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error: validaRegistro: " + e.toString());
+        mensaje1.setVisible(true);
+        mensaje1.setBackground(new Color(255,91,70)); 
+        men.setText("Ocurrio un error, verifique");
+        b.setVisible(false);
+        b1.setVisible(false);
         }
     }
     public String determinarFecha(JDateChooser calendario){
@@ -309,10 +321,10 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         
         return fecha;
     }
-    public void enviarDiagnosticos(){
+     public void enviarDiagnosticos(JLabel cie10){
         int fila = tbCiePresun.getSelectedRow();
         FrmCie10.dispose();
-        DXCCDRN2.setText(String.valueOf(tbCiePresun.getValueAt(fila, 1)));
+        cie10.setText(String.valueOf(tbCiePresun.getValueAt(fila, 1)));
     }
     
     public void Guardar(JDateChooser fecha){
@@ -582,21 +594,13 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }
     }
     
-    public void Modificar(JDateChooser fecha,JLabel cie10){
+    public void Modificar(JDateChooser fecha){
     if(fecha.getDate()==null){
         fecha.setEnabled(true);
         //fua.setEnabled(true);
         mensaje1.setVisible(true);
         mensaje1.setBackground(new Color(255,91,70)); 
         men.setText("Ingrese una fecha valida");
-        b.setVisible(false);
-        b1.setVisible(false);
-        if(cie10.getText()==""){
-
-        cie10.setEnabled(true);
-        mensaje1.setVisible(true);
-        mensaje1.setBackground(new Color(255,91,70)); 
-        men.setText("Debe de ingresar un Diagnostico");
         b.setVisible(false);
         b1.setVisible(false);
     } else {
@@ -855,7 +859,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                System.out.println("Error: modificar " + e.getMessage());
             }
         }
-    }}
+    }
     
 
     /**
@@ -1603,11 +1607,21 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDRN3.setText("                                ");
             DXCCDRN3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDRN3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDRN3.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDRN3MouseClicked(evt);
+                }
+            });
 
             DXCCDRN4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDRN4.setText("                                ");
             DXCCDRN4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDRN4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDRN4.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDRN4MouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDRNLayout = new javax.swing.GroupLayout(CCDRN);
             CCDRN.setLayout(CCDRNLayout);
@@ -1939,21 +1953,41 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDM1.setText("                                ");
             DXCCDM1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM1.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM1MouseClicked(evt);
+                }
+            });
 
             DXCCDM2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDM2.setText("                                ");
             DXCCDM2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM2.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM2MouseClicked(evt);
+                }
+            });
 
             DXCCDM3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDM3.setText("                                ");
             DXCCDM3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM3.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM3MouseClicked(evt);
+                }
+            });
 
             DXCCDM4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDM4.setText("                                ");
             DXCCDM4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM4.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM4MouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDM11Layout = new javax.swing.GroupLayout(CCDM11);
             CCDM11.setLayout(CCDM11Layout);
@@ -2143,16 +2177,31 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDM5.setText("                                ");
             DXCCDM5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM5.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM5.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM5MouseClicked(evt);
+                }
+            });
 
             DXCCDM6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDM6.setText("                                ");
             DXCCDM6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM6.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM6MouseClicked(evt);
+                }
+            });
 
             DXCCDM7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXCCDM7.setText("                                ");
             DXCCDM7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM7.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM7MouseClicked(evt);
+                }
+            });
 
             jPanel85.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -2193,6 +2242,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDM8.setText("                                ");
             DXCCDM8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM8.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM8MouseClicked(evt);
+                }
+            });
 
             jPanel86.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -2233,6 +2287,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDM9.setText("                                ");
             DXCCDM9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM9.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM9.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM9MouseClicked(evt);
+                }
+            });
 
             jPanel87.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -2273,6 +2332,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDM10.setText("                                ");
             DXCCDM10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM10.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM10.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM10MouseClicked(evt);
+                }
+            });
 
             jPanel88.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -2313,6 +2377,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             DXCCDM11.setText("                                ");
             DXCCDM11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM11.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCDM11.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCDM11MouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDM12Layout = new javax.swing.GroupLayout(CCDM12);
             CCDM12.setLayout(CCDM12Layout);
@@ -2511,7 +2580,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(CCDM11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CCDRN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LEYENDA, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(LEYENDA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGap(27, 27, 27)
                     .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCDM12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -4465,7 +4534,6 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             btnGuardar.setForeground(new java.awt.Color(240, 240, 240));
             btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
             btnGuardar.setMnemonic('N');
-            btnGuardar.setText("Guardar");
             btnGuardar.setContentAreaFilled(false);
             btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -4610,7 +4678,10 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+        
         RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
+        ConsultorioExtRsCcd ccd = new ConsultorioExtRsCcd();
+        ccd.porcentajeCCD(Integer.parseInt(lblId.getText()));
         this.dispose();
     }//GEN-LAST:event_jLabel20MouseClicked
 
@@ -4688,8 +4759,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }//GEN-LAST:event_T7MouseClicked
 
     private void DXCCDRN1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN1MouseClicked
-        ConsultorioExtRsCcd adTopico = new ConsultorioExtRsCcd();
-//        adTopico.cargarDatosCie10("", tbCiePresun);
+
         FrmCie10.setVisible(true);
     }//GEN-LAST:event_DXCCDRN1MouseClicked
 
@@ -4709,7 +4779,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         }
         char teclaPresionada = evt.getKeyChar(); 
         if(teclaPresionada==KeyEvent.VK_ENTER){
-            enviarDiagnosticos();
+            enviarDiagnosticos(cie10);
         }
     }//GEN-LAST:event_tbCiePresunKeyPressed
 
@@ -4750,6 +4820,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm19.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM9.setEnabled(true);
                 FCCDM9.setEnabled(true);
                 DXCCDM9.requestFocus();
@@ -4768,6 +4839,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R14.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD14.setEnabled(true);
                 FCCD14.setEnabled(true);
                 DXCCD14.requestFocus();
@@ -4786,6 +4858,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R24.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD24.setEnabled(true);
                 FCCD24.setEnabled(true);
                 DXCCD24.requestFocus();
@@ -4804,6 +4877,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R34.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD3A4.setEnabled(true);
                 FCCD3A4.setEnabled(true);
                 DXCCD3A4.requestFocus();
@@ -4822,6 +4896,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R44.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD4A4.setEnabled(true);
                 FCCD4A4.setEnabled(true);
                 DXCCD4A4.requestFocus();
@@ -4836,9 +4911,12 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }//GEN-LAST:event_R44ActionPerformed
 
     private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
-       
         habilitarRadio(true);
         habilitarDatos(false);
+        Botones(false);
+        fua.setText("");
+        cie10.setText("");
+        fecha.setDate(null);
     }//GEN-LAST:event_btnCaccnelarActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
@@ -4866,6 +4944,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R11.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD11.setEnabled(true);
                 FCCD11.setEnabled(true);
                 DXCCD11.requestFocus();
@@ -4884,6 +4963,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R12.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD12.setEnabled(true);
                 FCCD12.setEnabled(true);
                 DXCCD12.requestFocus();
@@ -4902,6 +4982,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R13.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD13.setEnabled(true);
                 FCCD13.setEnabled(true);
                 DXCCD13.requestFocus();
@@ -4920,6 +5001,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R15.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD15.setEnabled(true);
                 FCCD15.setEnabled(true);
                 DXCCD15.requestFocus();
@@ -4938,6 +5020,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R16.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD16.setEnabled(true);
                 FCCD16.setEnabled(true);
                 DXCCD16.requestFocus();
@@ -4952,10 +5035,12 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }//GEN-LAST:event_R16ActionPerformed
 
     private void Rrn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rrn1ActionPerformed
+       
         if(FCCDRN1.getDate()==null){
             if(Rrn1.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDRN1.setEnabled(true);
                 FCCDRN1.setEnabled(true);
                 DXCCDRN1.requestFocus();
@@ -4974,6 +5059,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rrn2.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDRN2.setEnabled(true);
                 FCCDRN2.setEnabled(true);
                 DXCCDRN2.requestFocus();
@@ -4992,6 +5078,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rrn3.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDRN3.setEnabled(true);
                 FCCDRN3.setEnabled(true);
                 DXCCDRN3.requestFocus();
@@ -5010,6 +5097,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rrn4.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDRN4.setEnabled(true);
                 FCCDRN4.setEnabled(true);
                 DXCCDRN4.requestFocus();
@@ -5028,6 +5116,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm11.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM1.setEnabled(true);
                 FCCDM1.setEnabled(true);
                 DXCCDM1.requestFocus();
@@ -5046,6 +5135,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm12.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM2.setEnabled(true);
                 FCCDM2.setEnabled(true);
                 DXCCDM2.requestFocus();
@@ -5064,6 +5154,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm13.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM3.setEnabled(true);
                 FCCDM3.setEnabled(true);
                 DXCCDM3.requestFocus();
@@ -5082,6 +5173,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm14.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM4.setEnabled(true);
                 FCCDM4.setEnabled(true);
                 DXCCDM4.requestFocus();
@@ -5100,6 +5192,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm15.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM5.setEnabled(true);
                 FCCDM5.setEnabled(true);
                 DXCCDM5.requestFocus();
@@ -5118,6 +5211,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm16.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM6.setEnabled(true);
                 FCCDM6.setEnabled(true);
                 DXCCDM6.requestFocus();
@@ -5136,6 +5230,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm17.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM7.setEnabled(true);
                 FCCDM7.setEnabled(true);
                 DXCCDM7.requestFocus();
@@ -5154,6 +5249,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm18.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM8.setEnabled(true);
                 FCCDM8.setEnabled(true);
                 DXCCDM8.requestFocus();
@@ -5172,6 +5268,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm110.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM10.setEnabled(true);
                 FCCDM10.setEnabled(true);
                 DXCCDM10.requestFocus();
@@ -5190,6 +5287,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(Rm111.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCDM11.setEnabled(true);
                 FCCDM11.setEnabled(true);
                 DXCCDM11.requestFocus();
@@ -5208,6 +5306,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R21.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD21.setEnabled(true);
                 FCCD21.setEnabled(true);
                 DXCCD21.requestFocus();
@@ -5226,6 +5325,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R22.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD22.setEnabled(true);
                 FCCD22.setEnabled(true);
                 DXCCD22.requestFocus();
@@ -5244,6 +5344,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R23.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD23.setEnabled(true);
                 FCCD23.setEnabled(true);
                 DXCCD23.requestFocus();
@@ -5262,6 +5363,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R31.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD3A1.setEnabled(true);
                 FCCD3A1.setEnabled(true);
                 DXCCD3A1.requestFocus();
@@ -5280,6 +5382,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R32.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD3A2.setEnabled(true);
                 FCCD3A2.setEnabled(true);
                 DXCCD3A2.requestFocus();
@@ -5298,6 +5401,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R33.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD3A3.setEnabled(true);
                 FCCD3A3.setEnabled(true);
                 DXCCD3A3.requestFocus();
@@ -5316,6 +5420,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R41.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD4A1.setEnabled(true);
                 FCCD4A1.setEnabled(true);
                 DXCCD4A1.requestFocus();
@@ -5334,6 +5439,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R42.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD4A2.setEnabled(true);
                 FCCD4A2.setEnabled(true);
                 DXCCD4A2.requestFocus();
@@ -5352,6 +5458,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R43.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD4A3.setEnabled(true);
                 FCCD4A3.setEnabled(true);
                 DXCCD4A3.requestFocus();
@@ -5370,6 +5477,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R5.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD5A.setEnabled(true);
                 FCCD5A.setEnabled(true);
                 DXCCD5A.requestFocus();
@@ -5388,6 +5496,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R6.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD6A.setEnabled(true);
                 FCCD6A.setEnabled(true);
                 DXCCD6A.requestFocus();
@@ -5406,6 +5515,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R7.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD7A.setEnabled(true);
                 FCCD7A.setEnabled(true);
                 DXCCD7A.requestFocus();
@@ -5424,6 +5534,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R8.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD8A.setEnabled(true);
                 FCCD8A.setEnabled(true);
                 DXCCD8A.requestFocus();
@@ -5442,6 +5553,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R9.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD9A.setEnabled(true);
                 FCCD9A.setEnabled(true);
                 DXCCD9A.requestFocus();
@@ -5460,6 +5572,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R10.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD10A.setEnabled(true);
                 FCCD10A.setEnabled(true);
                 DXCCD10A.requestFocus();
@@ -5478,6 +5591,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             if(R11.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FUACCD11A.setEnabled(true);
                 FCCD11A.setEnabled(true);
                 DXCCD11A.requestFocus();
@@ -5492,10 +5606,61 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }//GEN-LAST:event_R11aActionPerformed
 
     private void DXCCDRN2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN2MouseClicked
-            ConsultorioExtRsCcd adTopico = new ConsultorioExtRsCcd();
-//        adTopico.cargarDatosCie10("", tbCiePresun);
+
         FrmCie10.setVisible(true);
     }//GEN-LAST:event_DXCCDRN2MouseClicked
+
+    private void DXCCDRN3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN3MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDRN3MouseClicked
+
+    private void DXCCDRN4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDRN4MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDRN4MouseClicked
+
+    private void DXCCDM1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM1MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM1MouseClicked
+
+    private void DXCCDM2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM2MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM2MouseClicked
+
+    private void DXCCDM3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM3MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM3MouseClicked
+
+    private void DXCCDM4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM4MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM4MouseClicked
+
+    private void DXCCDM5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM5MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM5MouseClicked
+
+    private void DXCCDM6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM6MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM6MouseClicked
+
+    private void DXCCDM7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM7MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM7MouseClicked
+
+    private void DXCCDM8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM8MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM8MouseClicked
+
+    private void DXCCDM9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM9MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM9MouseClicked
+
+    private void DXCCDM10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM10MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM10MouseClicked
+
+    private void DXCCDM11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM11MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCDM11MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

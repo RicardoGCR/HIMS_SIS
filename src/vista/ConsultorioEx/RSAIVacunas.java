@@ -533,6 +533,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 btnguardar.setEnabled(false);
                 tge=1;
                 CXRsVacunas.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
+                porcentajeV();
                 habilitarDatos(false);
                 habilitarRadio(true);
             }else {
@@ -723,6 +724,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 btnguardar.setEnabled(false);
                 tge=1;
                 CXRsVacunas2.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
+                porcentajeV();
                 habilitarDatos(false);
                 habilitarRadio(true);
             }else {
@@ -753,6 +755,18 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Error: validaRegistro: " + e.toString());
         }
     }
+    
+    public void porcentajeV(){
+        ConsultorioExtRsVacunas vacs = new ConsultorioExtRsVacunas();
+        vacs.porcentajeVacunas(Integer.parseInt(lblId.getText()));
+    }
+    
+     public void Botones(boolean opcion){
+        btnguardar.setEnabled(opcion);
+        btneditar.setEnabled(opcion);
+        btnCaccnelar.setEnabled(opcion);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -2928,7 +2942,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-
         RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
         this.dispose();
     }//GEN-LAST:event_jLabel13MouseClicked
@@ -3074,6 +3087,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rp1.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaPent1.setEnabled(true);
                 dtPent1.setEnabled(true);
                 txtFuaPent1.requestFocus();
@@ -3091,6 +3105,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rdpt2.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaDpt2.setEnabled(true);
                 dtDpt2.setEnabled(true);
                 txtFuaDpt2.requestFocus();
@@ -3108,6 +3123,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rir2.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtInflR2.setEnabled(true);
                 dtInflR2.setEnabled(true);
                 txtInflR2.requestFocus();
@@ -3125,6 +3141,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rapo2.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaApoR2.setEnabled(true);
                 dtApoR2.setEnabled(true);
                 txtFuaApoR2.requestFocus();
@@ -3146,6 +3163,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Relab.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaElab.setEnabled(true);
                 dtElab.setEnabled(true);
                 txtFuaElab.requestFocus();
@@ -3163,6 +3181,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rejec.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaEjec.setEnabled(true);
                 dtEjec.setEnabled(true);
                 txtFuaEjec.requestFocus();
@@ -3180,6 +3199,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rbcg.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaBcg.setEnabled(true);
                 dtBcg.setEnabled(true);
                 txtFuaBcg.requestFocus();
@@ -3197,6 +3217,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rhvb.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaHvb.setEnabled(true);
                 dtHvb.setEnabled(true);
                 txtFuaHvb.requestFocus();
@@ -3214,6 +3235,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rp3.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaPent3.setEnabled(true);
                 dtPent3.setEnabled(true);
                 txtFuaPent3.requestFocus();
@@ -3231,6 +3253,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rp2.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaPent2.setEnabled(true);
                 dtPent2.setEnabled(true);
                 txtFuaPent2.requestFocus();
@@ -3248,6 +3271,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Ripv3.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaIpv3.setEnabled(true);
                 dtIpv3.setEnabled(true);
                 txtFuaIpv3.requestFocus();
@@ -3267,6 +3291,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Ripv2.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaIpv2.setEnabled(true);
                 dtIpv2.setEnabled(true);
                 txtFuaIpv2.requestFocus();
@@ -3284,6 +3309,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Ripv1.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaIpv1.setEnabled(true);
                 dtIpv1.setEnabled(true);
                 txtFuaIpv1.requestFocus();
@@ -3301,6 +3327,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rn1.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaNeumo1.setEnabled(true);
                 dtNeumo1.setEnabled(true);
                 txtFuaNeumo1.requestFocus();
@@ -3318,6 +3345,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rn2.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaNeumo2.setEnabled(true);
                 dtNeumo2.setEnabled(true);
                 txtFuaNeumo2.requestFocus();
@@ -3335,6 +3363,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rn3.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaNeumo3.setEnabled(true);
                 dtNeumo3.setEnabled(true);
                 txtFuaNeumo3.requestFocus();
@@ -3352,6 +3381,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Ri1.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaInfl1.setEnabled(true);
                 dtInfl1.setEnabled(true);
                 txtFuaInfl1.requestFocus();
@@ -3369,6 +3399,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Ri2.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaInfl2.setEnabled(true);
                 dtInfl2.setEnabled(true);
                 txtFuaInfl2.requestFocus();
@@ -3386,6 +3417,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rr1.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaRot1.setEnabled(true);
                 dtRot1.setEnabled(true);
                 txtFuaRot1.requestFocus();
@@ -3403,6 +3435,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rr2.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaRot2.setEnabled(true);
                 dtRot2.setEnabled(true);
                 txtFuaRot2.requestFocus();
@@ -3420,6 +3453,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rspr1.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaSpr1.setEnabled(true);
                 dtSpr1.setEnabled(true);
                 txtFuaSpr1.requestFocus();
@@ -3437,6 +3471,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rspr2.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaSpr2.setEnabled(true);
                 dtSpr2.setEnabled(true);
                 txtFuaSpr2.requestFocus();
@@ -3454,6 +3489,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rama.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaAmaDu.setEnabled(true);
                 dtAmadu.setEnabled(true);
                 txtFuaAmaDu.requestFocus();
@@ -3471,6 +3507,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rdpt1.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaDpt1.setEnabled(true);
                 dtDpt1.setEnabled(true);
                 txtFuaDpt1.requestFocus();
@@ -3488,6 +3525,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rir1.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtInflR1.setEnabled(true);
                 dtInflR1.setEnabled(true);
                 txtInflR1.requestFocus();
@@ -3505,6 +3543,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             if(Rapo1.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 txtFuaApoR1.setEnabled(true);
                 dtApoR1.setEnabled(true);
                 txtFuaApoR1.requestFocus();
@@ -3540,7 +3579,9 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
     private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
         habilitarRadio(true);
         habilitarDatos(false);
-                
+        Botones(false);
+        fua.setText("");
+        fecha.setDate(null);
     }//GEN-LAST:event_btnCaccnelarActionPerformed
 
 

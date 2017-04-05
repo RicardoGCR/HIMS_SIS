@@ -454,37 +454,37 @@
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jPanel134" alignment="0" max="32767" attributes="0"/>
                           <Component id="FUADN1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="DXDN1" alignment="1" max="32767" attributes="0"/>
+                          <Component id="DXDN1" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jPanel135" alignment="0" max="32767" attributes="0"/>
                           <Component id="FUADN2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="DXDN2" alignment="1" max="32767" attributes="0"/>
+                          <Component id="DXDN2" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="FUADN3" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel136" alignment="0" max="32767" attributes="0"/>
-                          <Component id="DXDN3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="DXDN3" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="FUADN4" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel137" alignment="0" max="32767" attributes="0"/>
-                          <Component id="DXDN4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="DXDN4" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="FUADN5" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel138" alignment="0" max="32767" attributes="0"/>
-                          <Component id="DXDN5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="DXDN5" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="FUADN6" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel139" alignment="0" max="32767" attributes="0"/>
-                          <Component id="DXDN6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="DXDN6" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -786,10 +786,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="DXDN1">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-20.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="                                "/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Mano"/>
                 </Property>
@@ -804,10 +804,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="DXDN2">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-20.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="                                "/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Mano"/>
                 </Property>
@@ -822,10 +822,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="DXDN3">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-20.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="                                "/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Mano"/>
                 </Property>
@@ -903,10 +903,10 @@
             </Container>
             <Component class="javax.swing.JLabel" name="DXDN4">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-20.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="                                "/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Mano"/>
                 </Property>
@@ -989,10 +989,10 @@
             </Container>
             <Component class="javax.swing.JLabel" name="DXDN5">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-20.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="                                "/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Mano"/>
                 </Property>
@@ -1075,10 +1075,10 @@
             </Container>
             <Component class="javax.swing.JLabel" name="DXDN6">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-20.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="                                "/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Mano"/>
                 </Property>
@@ -1301,25 +1301,25 @@
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jPanel130" alignment="0" max="32767" attributes="0"/>
                           <Component id="FUADN7" alignment="0" max="32767" attributes="0"/>
-                          <Component id="DXDN7" alignment="1" max="32767" attributes="0"/>
+                          <Component id="DXDN7" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jPanel131" alignment="0" max="32767" attributes="0"/>
                           <Component id="FUADN8" alignment="0" max="32767" attributes="0"/>
-                          <Component id="DXDN8" alignment="1" max="32767" attributes="0"/>
+                          <Component id="DXDN8" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="FUADN9" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel132" alignment="0" max="32767" attributes="0"/>
-                          <Component id="DXDN9" alignment="0" max="32767" attributes="0"/>
+                          <Component id="DXDN9" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel140" alignment="0" max="32767" attributes="0"/>
                           <Component id="FUADN10" alignment="0" max="32767" attributes="0"/>
-                          <Component id="DXDN10" alignment="1" max="32767" attributes="0"/>
+                          <Component id="DXDN10" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -1667,10 +1667,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="DXDN7">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-20.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="                                "/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Mano"/>
                 </Property>
@@ -1685,10 +1685,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="DXDN8">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-20.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="                                "/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Mano"/>
                 </Property>
@@ -1703,10 +1703,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="DXDN9">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-20.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="                                "/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Mano"/>
                 </Property>
@@ -1721,10 +1721,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="DXDN10">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-20.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="                                "/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor de Mano"/>
                 </Property>

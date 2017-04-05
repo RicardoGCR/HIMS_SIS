@@ -800,8 +800,8 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                     .addComponent(FDN3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXDN1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDN1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDN1.setText("                                ");
             DXDN1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDN1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDN1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -810,8 +810,8 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 }
             });
 
+            DXDN2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDN2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDN2.setText("                                ");
             DXDN2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDN2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDN2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -820,8 +820,8 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 }
             });
 
+            DXDN3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDN3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDN3.setText("                                ");
             DXDN3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDN3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDN3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -864,8 +864,8 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                     .addComponent(FDN4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXDN4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDN4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDN4.setText("                                ");
             DXDN4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDN4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDN4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -908,8 +908,8 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                     .addComponent(FDN5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXDN5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDN5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDN5.setText("                                ");
             DXDN5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDN5.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDN5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -952,8 +952,8 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                     .addComponent(FDN6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXDN6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDN6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDN6.setText("                                ");
             DXDN6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDN6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDN6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -971,32 +971,32 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                     .addGroup(CCDM13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel134, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUADN1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DXDN1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXDN1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel135, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUADN2)
-                        .addComponent(DXDN2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXDN2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUADN3)
                         .addComponent(jPanel136, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXDN3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXDN3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUADN4)
                         .addComponent(jPanel137, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXDN4))
+                        .addComponent(DXDN4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUADN5)
                         .addComponent(jPanel138, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXDN5))
+                        .addComponent(DXDN5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUADN6)
                         .addComponent(jPanel139, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXDN6)))
+                        .addComponent(DXDN6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
             );
             CCDM13Layout.setVerticalGroup(
                 CCDM13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1310,8 +1310,8 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                     .addComponent(FDN10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXDN7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDN7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDN7.setText("                                ");
             DXDN7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDN7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDN7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1320,8 +1320,8 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 }
             });
 
+            DXDN8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDN8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDN8.setText("                                ");
             DXDN8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDN8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDN8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1330,8 +1330,8 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 }
             });
 
+            DXDN9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDN9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDN9.setText("                                ");
             DXDN9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDN9.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDN9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1340,8 +1340,8 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 }
             });
 
+            DXDN10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXDN10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXDN10.setText("                                ");
             DXDN10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXDN10.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXDN10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1359,22 +1359,22 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                     .addGroup(CCDR3A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel130, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUADN7, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DXDN7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXDN7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDR3A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel131, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUADN8)
-                        .addComponent(DXDN8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXDN8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDR3A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUADN9)
                         .addComponent(jPanel132, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXDN9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXDN9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDR3A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel140, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUADN10)
-                        .addComponent(DXDN10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(DXDN10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
             );
             CCDR3A2Layout.setVerticalGroup(
                 CCDR3A2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1808,7 +1808,17 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        validaRegistro(Integer.parseInt(lblId.getText()));
+        if(cie10.getText()!=""){
+            validaRegistro(Integer.parseInt(lblId.getText()));
+        } else{
+            fecha.setEnabled(true);
+            //fua.setEnabled(true);
+            mensaje.setVisible(true);
+            mensaje.setBackground(new Color(255,91,70)); 
+            men.setText("Seleccione el diagnóstico");
+            b.setVisible(false);
+            b1.setVisible(false);
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

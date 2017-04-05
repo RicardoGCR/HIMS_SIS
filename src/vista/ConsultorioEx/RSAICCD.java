@@ -328,10 +328,10 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }
     
     public void Guardar(JDateChooser fecha){
-        if(fecha.getDate()==null){
+        if(fecha.getDate()==null || cie10.getText().equals("")){
             mensaje1.setVisible(true);
             mensaje1.setBackground(new Color(255,91,70)); 
-            men.setText("Ingrese una fecha valida");
+            men.setText("Verifique, que los datos estén completos");
             b.setVisible(false);
             b1.setVisible(false);
         } else {
@@ -600,10 +600,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         //fua.setEnabled(true);
         mensaje1.setVisible(true);
         mensaje1.setBackground(new Color(255,91,70)); 
-        men.setText("Ingrese una fecha valida");
+        men.setText("Ingrese la fecha");
         b.setVisible(false);
         b1.setVisible(false);
-    } else {
+    } 
+    else {
             ConsultorioExtRsCcd CXRsCCD = new ConsultorioExtRsCcd();
             ConsultorioExtRsCcd CXRsCCD2 = new ConsultorioExtRsCcd();
         try {
@@ -1583,8 +1584,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 }
             });
 
+            DXCCDRN1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDRN1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDRN1.setText("                                ");
             DXCCDRN1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDRN1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDRN1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1593,8 +1594,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 }
             });
 
+            DXCCDRN2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDRN2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDRN2.setText("                                ");
             DXCCDRN2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDRN2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDRN2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1603,8 +1604,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 }
             });
 
+            DXCCDRN3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDRN3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDRN3.setText("                                ");
             DXCCDRN3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDRN3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDRN3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1613,8 +1614,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 }
             });
 
+            DXCCDRN4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDRN4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDRN4.setText("                                ");
             DXCCDRN4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDRN4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDRN4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1632,22 +1633,22 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCDRNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel68, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCDRN1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DXCCDRN1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCDRN1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDRNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel69, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCDRN2)
-                        .addComponent(DXCCDRN2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCDRN2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDRNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCDRN3)
                         .addComponent(jPanel70, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCDRN3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCDRN3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDRNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel71, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCDRN4)
-                        .addComponent(DXCCDRN4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(DXCCDRN4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
             );
             CCDRNLayout.setVerticalGroup(
                 CCDRNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1949,8 +1950,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCDM4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCDM1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDM1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDM1.setText("                                ");
             DXCCDM1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDM1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1959,8 +1960,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 }
             });
 
+            DXCCDM2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDM2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDM2.setText("                                ");
             DXCCDM2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDM2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1969,8 +1970,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 }
             });
 
+            DXCCDM3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDM3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDM3.setText("                                ");
             DXCCDM3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDM3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1979,8 +1980,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 }
             });
 
+            DXCCDM4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDM4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDM4.setText("                                ");
             DXCCDM4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDM4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1998,22 +1999,22 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCDM11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel77, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCDM1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DXCCDM1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCDM1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel78, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCDM2)
-                        .addComponent(DXCCDM2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCDM2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCDM3)
                         .addComponent(jPanel79, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCDM3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCDM3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel80, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCDM4)
-                        .addComponent(DXCCDM4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(DXCCDM4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
             );
             CCDM11Layout.setVerticalGroup(
                 CCDM11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2173,8 +2174,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 }
             });
 
+            DXCCDM5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDM5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDM5.setText("                                ");
             DXCCDM5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM5.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDM5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2183,8 +2184,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 }
             });
 
+            DXCCDM6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDM6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDM6.setText("                                ");
             DXCCDM6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDM6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2193,8 +2194,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 }
             });
 
+            DXCCDM7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDM7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDM7.setText("                                ");
             DXCCDM7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDM7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2238,8 +2239,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCDM8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCDM8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDM8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDM8.setText("                                ");
             DXCCDM8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDM8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2283,8 +2284,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCDM9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCDM9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDM9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDM9.setText("                                ");
             DXCCDM9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM9.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDM9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2328,8 +2329,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCDM10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCDM10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDM10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDM10.setText("                                ");
             DXCCDM10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM10.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDM10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2373,8 +2374,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCDM11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCDM11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCDM11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCDM11.setText("                                ");
             DXCCDM11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCDM11.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
             DXCCDM11.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2392,37 +2393,37 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCDM12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel82, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCDM5, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DXCCDM5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCDM5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel83, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCDM6)
-                        .addComponent(DXCCDM6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCDM6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCDM7)
                         .addComponent(jPanel84, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCDM7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCDM7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCDM8)
                         .addComponent(jPanel85, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCDM8))
+                        .addComponent(DXCCDM8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCDM9)
                         .addComponent(jPanel86, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCDM9))
+                        .addComponent(DXCCDM9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCDM10)
                         .addComponent(jPanel87, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCDM10))
+                        .addComponent(DXCCDM10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDM12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCDM11)
                         .addComponent(jPanel88, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCDM11))
+                        .addComponent(DXCCDM11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(0, 0, Short.MAX_VALUE))
             );
             CCDM12Layout.setVerticalGroup(
@@ -2546,7 +2547,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             CCD.setLayout(CCDLayout);
             CCDLayout.setHorizontalGroup(
                 CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 1287, Short.MAX_VALUE)
+                .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 1742, Short.MAX_VALUE)
                 .addGroup(CCDLayout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2566,7 +2567,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(lblId))
-                    .addContainerGap(190, Short.MAX_VALUE))
+                    .addContainerGap(645, Short.MAX_VALUE))
             );
             CCDLayout.setVerticalGroup(
                 CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2722,20 +2723,35 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD11.setText("                                ");
             DXCCD11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD11.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD11.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD11MouseClicked(evt);
+                }
+            });
 
+            DXCCD12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD12.setText("                                ");
             DXCCD12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD12.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD12.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD12MouseClicked(evt);
+                }
+            });
 
+            DXCCD13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD13.setText("                                ");
             DXCCD13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD13.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD13.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD13MouseClicked(evt);
+                }
+            });
 
             jPanel93.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -2772,10 +2788,15 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD14.setText("                                ");
             DXCCD14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD14.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD14.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD14MouseClicked(evt);
+                }
+            });
 
             jPanel94.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -2812,10 +2833,15 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD15.setText("                                ");
             DXCCD15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD15.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD15.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD15MouseClicked(evt);
+                }
+            });
 
             jPanel95.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -2852,10 +2878,15 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD16.setText("                                ");
             DXCCD16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD16.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD16.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD16MouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCD1ALayout = new javax.swing.GroupLayout(CCD1A);
             CCD1A.setLayout(CCD1ALayout);
@@ -2866,32 +2897,32 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCD1ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel90, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCD11, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DXCCD11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCD11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCD1ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel91, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCD12)
-                        .addComponent(DXCCD12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCD12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCD1ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCD13)
                         .addComponent(jPanel92, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCD13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCD13, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCD1ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCD14)
                         .addComponent(jPanel93, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCD14))
+                        .addComponent(DXCCD14, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCD1ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCD15)
                         .addComponent(jPanel94, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCD15))
+                        .addComponent(DXCCD15, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCD1ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCD16)
                         .addComponent(jPanel95, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCD16)))
+                        .addComponent(DXCCD16, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
             );
             CCD1ALayout.setVerticalGroup(
                 CCD1ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3097,25 +3128,45 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD21.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD21.setText("                                ");
             DXCCD21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD21.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD21.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD21MouseClicked(evt);
+                }
+            });
 
+            DXCCD22.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD22.setText("                                ");
             DXCCD22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD22.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD22.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD22MouseClicked(evt);
+                }
+            });
 
+            DXCCD23.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD23.setText("                                ");
             DXCCD23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD23.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD23.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD23MouseClicked(evt);
+                }
+            });
 
+            DXCCD24.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD24.setText("                                ");
             DXCCD24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD24.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD24.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    DXCCD24KeyPressed(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDR2ALayout = new javax.swing.GroupLayout(CCDR2A);
             CCDR2A.setLayout(CCDR2ALayout);
@@ -3126,22 +3177,22 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCDR2ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel97, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCD21, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DXCCD21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCD21, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDR2ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel98, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCD22)
-                        .addComponent(DXCCD22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCD22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDR2ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCD23)
                         .addComponent(jPanel99, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCD23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCD23, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDR2ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel100, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCD24)
-                        .addComponent(DXCCD24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(DXCCD24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
             );
             CCDR2ALayout.setVerticalGroup(
                 CCDR2ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3330,25 +3381,50 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD3A4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD3A1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD3A1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD3A1.setText("                                ");
             DXCCD3A1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD3A1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD3A1.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD3A1MouseClicked(evt);
+                }
+            });
+            DXCCD3A1.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    DXCCD3A1KeyPressed(evt);
+                }
+            });
 
+            DXCCD3A2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD3A2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD3A2.setText("                                ");
             DXCCD3A2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD3A2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD3A2.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD3A2MouseClicked(evt);
+                }
+            });
 
+            DXCCD3A3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD3A3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD3A3.setText("                                ");
             DXCCD3A3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD3A3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD3A3.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD3A3MouseClicked(evt);
+                }
+            });
 
+            DXCCD3A4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD3A4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD3A4.setText("                                ");
             DXCCD3A4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD3A4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD3A4.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD3A4MouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDR3ALayout = new javax.swing.GroupLayout(CCDR3A);
             CCDR3A.setLayout(CCDR3ALayout);
@@ -3359,22 +3435,22 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCDR3ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel102, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCD3A1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DXCCD3A1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCD3A1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDR3ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel103, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCD3A2)
-                        .addComponent(DXCCD3A2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCD3A2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDR3ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCD3A3)
                         .addComponent(jPanel104, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCD3A3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCD3A3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDR3ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel105, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCD3A4)
-                        .addComponent(DXCCD3A4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(DXCCD3A4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
             );
             CCDR3ALayout.setVerticalGroup(
                 CCDR3ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3617,25 +3693,45 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD4A4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD4A1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD4A1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD4A1.setText("                                ");
             DXCCD4A1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD4A1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD4A1.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD4A1MouseClicked(evt);
+                }
+            });
 
+            DXCCD4A2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD4A2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD4A2.setText("                                ");
             DXCCD4A2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD4A2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD4A2.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD4A2MouseClicked(evt);
+                }
+            });
 
+            DXCCD4A3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD4A3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD4A3.setText("                                ");
             DXCCD4A3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD4A3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD4A3.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD4A3MouseClicked(evt);
+                }
+            });
 
+            DXCCD4A4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD4A4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD4A4.setText("                                ");
             DXCCD4A4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD4A4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD4A4.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD4A4MouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDR3A1Layout = new javax.swing.GroupLayout(CCDR3A1);
             CCDR3A1.setLayout(CCDR3A1Layout);
@@ -3646,22 +3742,22 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCDR3A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel109, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCD4A1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DXCCD4A1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCD4A1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDR3A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel110, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCD4A2)
-                        .addComponent(DXCCD4A2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCD4A2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDR3A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(FUACCD4A3)
                         .addComponent(jPanel111, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DXCCD4A3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(DXCCD4A3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(1, 1, 1)
                     .addGroup(CCDR3A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel112, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FUACCD4A4)
-                        .addComponent(DXCCD4A4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(DXCCD4A4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
             );
             CCDR3A1Layout.setVerticalGroup(
                 CCDR3A1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3755,7 +3851,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             CCD1.setLayout(CCD1Layout);
             CCD1Layout.setHorizontalGroup(
                 CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel106, javax.swing.GroupLayout.DEFAULT_SIZE, 1287, Short.MAX_VALUE)
+                .addComponent(jPanel106, javax.swing.GroupLayout.DEFAULT_SIZE, 1742, Short.MAX_VALUE)
                 .addGroup(CCD1Layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3774,7 +3870,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                             .addComponent(DXCCDRN7, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(DXCCDRN8, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(68, Short.MAX_VALUE))
+                    .addContainerGap(523, Short.MAX_VALUE))
             );
             CCD1Layout.setVerticalGroup(
                 CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3911,10 +4007,15 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD5A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD5A.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD5A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD5A.setText("                                ");
             DXCCD5A.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD5A.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD5A.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD5AMouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDR5ALayout = new javax.swing.GroupLayout(CCDR5A);
             CCDR5A.setLayout(CCDR5ALayout);
@@ -3924,7 +4025,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 .addGroup(CCDR5ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel116, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(FUACCD5A, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DXCCD5A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(DXCCD5A, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
             CCDR5ALayout.setVerticalGroup(
                 CCDR5ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3995,10 +4096,15 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD6A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD6A.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD6A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD6A.setText("                                ");
             DXCCD6A.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD6A.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD6A.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD6AMouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDR6ALayout = new javax.swing.GroupLayout(CCDR6A);
             CCDR6A.setLayout(CCDR6ALayout);
@@ -4008,7 +4114,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 .addGroup(CCDR6ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel118, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(FUACCD6A, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DXCCD6A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(DXCCD6A, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
             CCDR6ALayout.setVerticalGroup(
                 CCDR6ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4079,10 +4185,15 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD7A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD7A.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD7A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD7A.setText("                                ");
             DXCCD7A.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD7A.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD7A.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD7AMouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDR7ALayout = new javax.swing.GroupLayout(CCDR7A);
             CCDR7A.setLayout(CCDR7ALayout);
@@ -4092,7 +4203,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 .addGroup(CCDR7ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel120, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(FUACCD7A, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DXCCD7A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(DXCCD7A, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
             CCDR7ALayout.setVerticalGroup(
                 CCDR7ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4163,10 +4274,15 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD8A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD8A.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD8A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD8A.setText("                                ");
             DXCCD8A.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD8A.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD8A.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD8AMouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDR8ALayout = new javax.swing.GroupLayout(CCDR8A);
             CCDR8A.setLayout(CCDR8ALayout);
@@ -4176,7 +4292,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 .addGroup(CCDR8ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel122, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(FUACCD8A, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DXCCD8A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(DXCCD8A, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
             CCDR8ALayout.setVerticalGroup(
                 CCDR8ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4247,10 +4363,15 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD9A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD9A.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD9A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD9A.setText("                                ");
             DXCCD9A.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD9A.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD9A.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD9AMouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDR9ALayout = new javax.swing.GroupLayout(CCDR9A);
             CCDR9A.setLayout(CCDR9ALayout);
@@ -4260,7 +4381,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 .addGroup(CCDR9ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel124, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(FUACCD9A, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DXCCD9A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(DXCCD9A, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
             CCDR9ALayout.setVerticalGroup(
                 CCDR9ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4331,10 +4452,15 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD10A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD10A.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD10A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD10A.setText("                                ");
             DXCCD10A.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD10A.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD10A.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD10AMouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDR10ALayout = new javax.swing.GroupLayout(CCDR10A);
             CCDR10A.setLayout(CCDR10ALayout);
@@ -4344,7 +4470,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 .addGroup(CCDR10ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel126, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(FUACCD10A, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DXCCD10A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(DXCCD10A, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
             CCDR10ALayout.setVerticalGroup(
                 CCDR10ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4415,10 +4541,15 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(FCCD11A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            DXCCD11A.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
             DXCCD11A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
-            DXCCD11A.setText("                                ");
             DXCCD11A.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             DXCCD11A.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+            DXCCD11A.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    DXCCD11AMouseClicked(evt);
+                }
+            });
 
             javax.swing.GroupLayout CCDR11ALayout = new javax.swing.GroupLayout(CCDR11A);
             CCDR11A.setLayout(CCDR11ALayout);
@@ -4428,7 +4559,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 .addGroup(CCDR11ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel128, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(FUACCD11A, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DXCCD11A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(DXCCD11A, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
             CCDR11ALayout.setVerticalGroup(
                 CCDR11ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4466,7 +4597,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             CCD2.setLayout(CCD2Layout);
             CCD2Layout.setHorizontalGroup(
                 CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel113, javax.swing.GroupLayout.DEFAULT_SIZE, 1287, Short.MAX_VALUE)
+                .addComponent(jPanel113, javax.swing.GroupLayout.DEFAULT_SIZE, 1742, Short.MAX_VALUE)
                 .addGroup(CCD2Layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4488,7 +4619,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                             .addComponent(DXCCDRN9, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(DXCCDRN10, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(554, Short.MAX_VALUE))
+                    .addContainerGap(1009, Short.MAX_VALUE))
             );
             CCD2Layout.setVerticalGroup(
                 CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4630,7 +4761,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(765, Short.MAX_VALUE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             mensaje1Layout.setVerticalGroup(
                 mensaje1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4649,9 +4780,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(mensajeLayout.createSequentialGroup()
                     .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(mensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap())
+                    .addGap(0, 0, 0)
+                    .addComponent(mensaje1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             mensajeLayout.setVerticalGroup(
                 mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4714,7 +4844,17 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     }//GEN-LAST:event_btneditar4ActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-     validaRegistro(Integer.parseInt(lblId.getText()));
+        if(cie10.getText()!=""){
+            validaRegistro(Integer.parseInt(lblId.getText()));
+        } else{
+            fecha.setEnabled(true);
+            //fua.setEnabled(true);
+            mensaje1.setVisible(true);
+            mensaje1.setBackground(new Color(255,91,70)); 
+            men.setText("Seleccione el diagnóstico");
+            b.setVisible(false);
+            b1.setVisible(false);
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void FUACCDRN2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FUACCDRN2ActionPerformed
@@ -5661,6 +5801,110 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
     private void DXCCDM11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCDM11MouseClicked
         FrmCie10.setVisible(true);
     }//GEN-LAST:event_DXCCDM11MouseClicked
+
+    private void DXCCD11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD11MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD11MouseClicked
+
+    private void DXCCD12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD12MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD12MouseClicked
+
+    private void DXCCD13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD13MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD13MouseClicked
+
+    private void DXCCD14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD14MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD14MouseClicked
+
+    private void DXCCD15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD15MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD15MouseClicked
+
+    private void DXCCD16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD16MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD16MouseClicked
+
+    private void DXCCD21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD21MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD21MouseClicked
+
+    private void DXCCD22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD22MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD22MouseClicked
+
+    private void DXCCD23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD23MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD23MouseClicked
+
+    private void DXCCD24KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DXCCD24KeyPressed
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD24KeyPressed
+
+    private void DXCCD3A1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DXCCD3A1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DXCCD3A1KeyPressed
+
+    private void DXCCD3A1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD3A1MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD3A1MouseClicked
+
+    private void DXCCD3A2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD3A2MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD3A2MouseClicked
+
+    private void DXCCD3A3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD3A3MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD3A3MouseClicked
+
+    private void DXCCD3A4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD3A4MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD3A4MouseClicked
+
+    private void DXCCD4A1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD4A1MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD4A1MouseClicked
+
+    private void DXCCD4A2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD4A2MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD4A2MouseClicked
+
+    private void DXCCD4A3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD4A3MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD4A3MouseClicked
+
+    private void DXCCD4A4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD4A4MouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD4A4MouseClicked
+
+    private void DXCCD5AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD5AMouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD5AMouseClicked
+
+    private void DXCCD6AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD6AMouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD6AMouseClicked
+
+    private void DXCCD7AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD7AMouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD7AMouseClicked
+
+    private void DXCCD8AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD8AMouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD8AMouseClicked
+
+    private void DXCCD9AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD9AMouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD9AMouseClicked
+
+    private void DXCCD10AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD10AMouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD10AMouseClicked
+
+    private void DXCCD11AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DXCCD11AMouseClicked
+        FrmCie10.setVisible(true);
+    }//GEN-LAST:event_DXCCD11AMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

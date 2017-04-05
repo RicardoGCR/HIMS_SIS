@@ -6,8 +6,13 @@
 package vista.ConsultorioEx;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Calendar;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import modelos.ConsultorioEx.ConsultorioExtRsTamizajeNeonatal;
 
@@ -31,8 +36,7 @@ byte tg;
         initComponents();
         QuitarLaBarraTitulo();
         habilitarDatos(false);
-        this.Habilitar();
-        mensaje.setVisible(false);
+        mensaje1.setVisible(false);
     }
     public void QuitarLaBarraTitulo()
     { 
@@ -42,7 +46,198 @@ byte tg;
     Barra.setPreferredSize(new Dimension(0,0)); 
     repaint(); 
     }
+    
+     public void habilitarDatos(boolean opcion){
+        FDD7.setEnabled(opcion);
+        FDD8.setEnabled(opcion);
+        FDD9.setEnabled(opcion);
+        FDD10.setEnabled(opcion);
+        
+        FUADD7.setEnabled(opcion);
+        FUADD8.setEnabled(opcion);
+        FUADD9.setEnabled(opcion);
+        FUADD10.setEnabled(opcion);
+     }
+     
+      public void habilitarRadio(boolean opcion){
+        RDD1.setEnabled(opcion);  
+        RDD2.setEnabled(opcion);  
+        RDD3.setEnabled(opcion);  
+        RDD4.setEnabled(opcion);  
+      }
+      
+      public void validaRegistro(int rs_id){
+        try {
+            PreparedStatement cmd = TN01.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_TAMIZAJE_NEONATAL WHERE RS_ID ='"+rs_id+"'");
+            ResultSet res = cmd.executeQuery();
+            if(res.next()){ // si existe
+                Modificar(fecha);
+            }else { // no existe
+                Guardar(fecha);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: validaRegistro: " + e.toString());
+        }
+    }
+      
+    public String determinarFecha(JDateChooser calendario){
+         
+        String fecha = "";
+        try {
+        int dia = calendario.getCalendar().get(Calendar.DAY_OF_MONTH);
+        int mes = calendario.getCalendar().get(Calendar.MONTH)+1;
+        int anio = calendario.getCalendar().get(Calendar.YEAR); 
+        
+            if(dia < 10 && mes < 10){
+            fecha = String.valueOf("0" + dia + "/" + "0" + mes + "/" + anio);
+        }else 
+            if(dia < 10 || mes < 10){
+                if(dia < 10 && mes >=10){
+                    fecha = String.valueOf("0" + dia + "/" + mes + "/" + anio);
+                } else 
+                    if(dia >= 10 && mes < 10){
+                        fecha = String.valueOf(dia + "/" + "0" + mes + "/" + anio);
+                    } 
+            } else 
+                fecha = String.valueOf(dia + "/" + mes + "/" + anio); 
+         } catch (Exception e) {
+                           mensaje.setVisible(true);
+                           mensaje.setBackground(new Color(255,91,70)); 
+                           men.setText("Ingrese una fecha correcta");
+                           b.setVisible(false);
+                           b1.setVisible(false); 
+         }
+        
+        return fecha;
+    }
+      
+    public void Modificar(JDateChooser fecha){
+    if(fecha.getDate()==null){
+        fecha.setEnabled(true);
+        //fua.setEnabled(true);
+        mensaje1.setVisible(true);
+        mensaje1.setBackground(new Color(255,91,70)); 
+        men.setText("Ingrese una fecha valida");
+        b.setVisible(false);
+        b1.setVisible(false);
+    } else {
+        ConsultorioExtRsTamizajeNeonatal CXRsTN = new ConsultorioExtRsTamizajeNeonatal();
+        ConsultorioExtRsTamizajeNeonatal CXRsTN2 = new ConsultorioExtRsTamizajeNeonatal();
+        try {
+    
+            CXRsTN.setRs_id(Integer.parseInt(lblId.getText()));
+            
+            if(FDD7.getDate()!=null){
+                CXRsTN.setTshFecha(determinarFecha(FDD7));  
+                CXRsTN.setTshFua(FUADD7.getText());
+             }
+            
+            if(FDD8.getDate()!=null){
+                CXRsTN.setFcFecha(determinarFecha(FDD8));  
+                CXRsTN.setFcFua(FUADD8.getText());
+             }
+            
+            if(FDD9.getDate()!=null){
+                CXRsTN.setFoFecha(determinarFecha(FDD9));  
+                CXRsTN.setFoFua(FUADD9.getText());
+             }
+            
+            if(FDD10.getDate()!=null){
+                CXRsTN.setHsrFecha(determinarFecha(FDD10));  
+                CXRsTN.setHsrFua(FUADD10.getText());
+             }
+            
+            if(CXRsTN.mantenimientoRSAITN("U")==true){
+                mensaje1.setVisible(true);
+                mensaje1.setBackground(new Color(33,115,70)); 
+                men.setText("Datos Actualizados de forma correcta");
+                b.setText("OK");
+                b.setVisible(true);
+                b1.setVisible(false);
+                btnGuardar.setEnabled(false);
+                tge=1;
+                CXRsTN2.ConsultoriosExtTNListar(Integer.parseInt(lblId.getText()));
+        
+                habilitarDatos(false);
+                habilitarRadio(true);
+            }else {
+                mensaje1.setVisible(true);
+                mensaje1.setBackground(new Color(255,91,70)); 
+                men.setText("Ocurrio un error, Verifique");
+                b.setVisible(false);
+                b1.setVisible(false);
+                tge=5;
+            }  
 
+            } catch (Exception e) {
+               System.out.println("Error: modificar " + e.getMessage());
+            }
+        }
+    }
+    public void Guardar(JDateChooser fecha){
+        if(fecha.getDate()==null){
+            mensaje1.setVisible(true);
+            mensaje1.setBackground(new Color(255,91,70)); 
+            men.setText("Ingrese una fecha valida");
+            b.setVisible(false);
+            b1.setVisible(false);
+        } else {
+        ConsultorioExtRsTamizajeNeonatal CXRsTN = new ConsultorioExtRsTamizajeNeonatal();
+        ConsultorioExtRsTamizajeNeonatal CXRsTN2 = new ConsultorioExtRsTamizajeNeonatal();
+        try {
+    
+            CXRsTN.setRs_id(Integer.parseInt(lblId.getText()));
+            
+            if(FDD7.getDate()!=null){
+                CXRsTN.setTshFecha(determinarFecha(FDD7));  
+                CXRsTN.setTshFua(FUADD7.getText());
+             }
+            
+            if(FDD8.getDate()!=null){
+                CXRsTN.setFcFecha(determinarFecha(FDD8));  
+                CXRsTN.setFcFua(FUADD8.getText());
+             }
+            
+            if(FDD9.getDate()!=null){
+                CXRsTN.setFoFecha(determinarFecha(FDD9));  
+                CXRsTN.setFoFua(FUADD9.getText());
+             }
+            
+            if(FDD10.getDate()!=null){
+                CXRsTN.setHsrFecha(determinarFecha(FDD10));  
+                CXRsTN.setHsrFua(FUADD10.getText());
+             }    
+            
+        if(CXRsTN.mantenimientoRSAITN("I")==true){
+                mensaje1.setVisible(true);
+                mensaje1.setBackground(new Color(33,115,70)); 
+                men.setText("Datos Guardados de forma correcta");
+                b.setText("OK");
+                b.setVisible(true);
+                b1.setVisible(false);
+
+                btnGuardar.setEnabled(false);
+                tge=1;
+
+                CXRsTN2.ConsultoriosExtTNListar(Integer.parseInt(lblId.getText()));
+
+
+                habilitarDatos(false);
+                habilitarRadio(true);
+            }else {
+
+                    mensaje1.setVisible(true);
+                    mensaje1.setBackground(new Color(255,91,70)); 
+                    men.setText("Ocurrio un error, Verifique");
+                    b.setVisible(false);
+                    b1.setVisible(false);
+                    tge=7;
+            }  
+         } catch (Exception e) {
+            System.out.println("Error: guardar " + e.getMessage());
+        }
+    }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,6 +247,7 @@ byte tg;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel299 = new javax.swing.JPanel();
         jPanel300 = new javax.swing.JPanel();
         jLabel184 = new javax.swing.JLabel();
@@ -150,11 +346,12 @@ byte tg;
 
         jPanel157.setBackground(new java.awt.Color(153, 153, 153));
 
-        FDD7.setBackground(new java.awt.Color(204, 204, 204));
+        FDD7.setBackground(new java.awt.Color(255, 255, 255));
         FDD7.setDateFormatString("dd/MM/yyyy");
         FDD7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         RDD1.setBackground(new java.awt.Color(153, 153, 153));
+        buttonGroup1.add(RDD1);
         RDD1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         RDD1.setForeground(new java.awt.Color(255, 255, 255));
         RDD1.setText("TSH");
@@ -184,7 +381,7 @@ byte tg;
 
         jPanel158.setBackground(new java.awt.Color(153, 153, 153));
 
-        FDD8.setBackground(new java.awt.Color(204, 204, 204));
+        FDD8.setBackground(new java.awt.Color(255, 255, 255));
         FDD8.setDateFormatString("dd/MM/yyyy");
         FDD8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -218,7 +415,7 @@ byte tg;
 
         jPanel159.setBackground(new java.awt.Color(153, 153, 153));
 
-        FDD9.setBackground(new java.awt.Color(204, 204, 204));
+        FDD9.setBackground(new java.awt.Color(255, 255, 255));
         FDD9.setDateFormatString("dd/MM/yyyy");
         FDD9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -252,7 +449,7 @@ byte tg;
 
         jPanel160.setBackground(new java.awt.Color(153, 153, 153));
 
-        FDD10.setBackground(new java.awt.Color(204, 204, 204));
+        FDD10.setBackground(new java.awt.Color(255, 255, 255));
         FDD10.setDateFormatString("dd/MM/yyyy");
         FDD10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -571,10 +768,9 @@ byte tg;
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         habilitarRadio(true);
-        habilitarCampos(false);
-        Botones(false);
+        habilitarDatos(false);
+
         fua.setText("");
-        cie10.setText("");
         fecha.setDate(null);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -598,16 +794,13 @@ byte tg;
     }//GEN-LAST:event_b1ActionPerformed
 
     private void RDD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD1ActionPerformed
-        if(FDD1.getDate()==null){
+        if(FDD7.getDate()==null){
             if(RDD1.isSelected()){
-                habilitarCampos(false);
+                habilitarDatos(false);
                 habilitarRadio(false);
-                Botones(true);
-                DXDD1.setEnabled(true);
-                FDD1.setEnabled(true);
-                fecha=FDD1;
-                fua = FUADD1;
-                cie10=DXDD1;
+                FDD7.setEnabled(true);
+                fecha=FDD7;
+                fua = FUADD7;
             }
         } else {
             RDD1.setEnabled(false);
@@ -616,15 +809,45 @@ byte tg;
     }//GEN-LAST:event_RDD1ActionPerformed
 
     private void RDD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD2ActionPerformed
-        // TODO add your handling code here:
+        if(FDD8.getDate()==null){
+            if(RDD2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FDD8.setEnabled(true);
+                fecha=FDD8;
+                fua = FUADD8;
+            }
+        } else {
+            RDD2.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD2ActionPerformed
 
     private void RDD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD3ActionPerformed
-        // TODO add your handling code here:
+        if(FDD9.getDate()==null){
+            if(RDD3.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FDD9.setEnabled(true);
+                fecha=FDD9;
+                fua = FUADD9;
+            }
+        } else {
+            RDD3.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD3ActionPerformed
 
     private void RDD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD4ActionPerformed
-        // TODO add your handling code here:
+      if(FDD10.getDate()==null){
+            if(RDD4.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                FDD10.setEnabled(true);
+                fecha=FDD10;
+                fua = FUADD10;
+            }
+        } else {
+            RDD4.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD4ActionPerformed
 
 
@@ -647,6 +870,7 @@ byte tg;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel184;
     private javax.swing.JLabel jLabel185;
     private javax.swing.JPanel jPanel157;

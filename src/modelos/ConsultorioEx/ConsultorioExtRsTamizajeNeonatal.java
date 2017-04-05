@@ -34,7 +34,7 @@ public class ConsultorioExtRsTamizajeNeonatal implements Serializable {
     private String hsrFecha;
     private String hsrFua;
 
-     public void ConsultoriosExtDDListar(int rs_id){
+     public void ConsultoriosExtTNListar(int rs_id){
         String consulta="";
         try {
             consulta="CONSULTORIO_EXT_RS_TAMIZAJE_NEONATAL_LISTAR ?";
@@ -102,7 +102,7 @@ public class ConsultorioExtRsTamizajeNeonatal implements Serializable {
         }
     }
      
-     public boolean mantenimientoRSAIDD(String tipo)
+     public boolean mantenimientoRSAITN(String tipo)
         {
         boolean resp = false;
         try{

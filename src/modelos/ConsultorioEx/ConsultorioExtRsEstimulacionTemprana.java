@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RSAIET;
 import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeDN;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeET;
 
 /**
  *
@@ -358,7 +359,7 @@ public class ConsultorioExtRsEstimulacionTemprana implements Serializable {
         }
         return resp;
     }
-    public void porcentajeDN(int rs_id){
+    public void porcentajeET(int rs_id){
         String consulta="";
         try {
             consulta="EXEC CONSULTORIO_EXT_RS_ESTIMULACION_TEMPRANA_PORCENTAJE ?";
@@ -367,7 +368,7 @@ public class ConsultorioExtRsEstimulacionTemprana implements Serializable {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                lblPorcentajeDN.setText(r.getString(1) + " %"); 
+                lblPorcentajeET.setText(r.getString(1) + " %"); 
             }
             //
         } catch (Exception e) {

@@ -746,7 +746,9 @@ byte tg;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel185MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel185MouseClicked
-         RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
+        RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
+        ConsultorioExtRsTamizajeNeonatal TN = new ConsultorioExtRsTamizajeNeonatal();
+        TN.porcentajeTN(Integer.parseInt(lblId.getText()));
         this.dispose();
     }//GEN-LAST:event_jLabel185MouseClicked
 

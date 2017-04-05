@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RSAIDN;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeDN;
 public class ConsultorioExtRsDiagnosticoNutricional implements Serializable {
     private static final long serialVersionUID = 1L;
     private int dnId;
@@ -275,6 +276,23 @@ public class ConsultorioExtRsDiagnosticoNutricional implements Serializable {
         return resp;
     }
 
+    public void porcentajeDN(int rs_id){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EX_RS_DIAGNOSTICO_NUTRICIONAL_PORCENTAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblPorcentajeDN.setText(r.getString(1) + " %"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeDN " + e.getMessage());
+        }
+    }  
+      
     public ConsultorioExtRsDiagnosticoNutricional() {
         Conexion con = new Conexion();
         cn = con.conectar();

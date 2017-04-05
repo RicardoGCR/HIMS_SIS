@@ -190,12 +190,14 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         try {
             ConsultorioExtRsVacunas vacs = new ConsultorioExtRsVacunas();
             ConsultorioExtRsCcd ccd = new ConsultorioExtRsCcd();
+            ConsultorioExtRsDiagnosticoNutricional nutr = new ConsultorioExtRsDiagnosticoNutricional();
             PreparedStatement cmd = cabecera.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_CABECERA WHERE TRIAJE_ID = '"+triaje+"'");
             ResultSet res = cmd.executeQuery();
             if(res.next()){
                 id = Integer.parseInt(res.getString("RS_ID"));
                 vacs.porcentajeVacunas(id);
                 ccd.porcentajeCCD(id);
+                nutr.porcentajeDN(id);
                 datosPadres(triaje);
                 pnlPadres.setVisible(true);
                 lblPadres.setVisible(true);
@@ -281,7 +283,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 lblPorcentajeCCD = new javax.swing.JLabel();
                 jPanel15 = new javax.swing.JPanel();
                 jLabel6 = new javax.swing.JLabel();
-                jLabel20 = new javax.swing.JLabel();
+                lblPorcentajeDN = new javax.swing.JLabel();
                 jPanel16 = new javax.swing.JPanel();
                 jLabel7 = new javax.swing.JLabel();
                 jPanel17 = new javax.swing.JPanel();
@@ -854,7 +856,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     }
                 });
 
-                jLabel20.setText("jLabel20");
+                lblPorcentajeDN.setText("jLabel20");
 
                 javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
                 jPanel15.setLayout(jPanel15Layout);
@@ -864,7 +866,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel20)
+                        .addComponent(lblPorcentajeDN)
                         .addContainerGap(13, Short.MAX_VALUE))
                 );
                 jPanel15Layout.setVerticalGroup(
@@ -872,7 +874,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel20)
+                        .addComponent(lblPorcentajeDN)
                         .addContainerGap())
                 );
 
@@ -2131,7 +2133,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -2189,6 +2190,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     public static javax.swing.JLabel lblNHC;
     private javax.swing.JLabel lblPadres;
     public static javax.swing.JLabel lblPorcentajeCCD;
+    public static javax.swing.JLabel lblPorcentajeDN;
     public static javax.swing.JLabel lblPorcentajeVacunas;
     public static javax.swing.JLabel lblSector;
     public static javax.swing.JTextField lblTelefono;

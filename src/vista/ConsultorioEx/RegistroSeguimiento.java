@@ -193,13 +193,16 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             ConsultorioExtRsVacunas vacs = new ConsultorioExtRsVacunas();
             ConsultorioExtRsCcd ccd = new ConsultorioExtRsCcd();
             ConsultorioExtRsDiagnosticoNutricional nutr = new ConsultorioExtRsDiagnosticoNutricional();
+            ConsultorioExtRsDiagnosticoDesarrollo desarrollo = new ConsultorioExtRsDiagnosticoDesarrollo();
             PreparedStatement cmd = cabecera.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_CABECERA WHERE TRIAJE_ID = '"+triaje+"'");
             ResultSet res = cmd.executeQuery();
             if(res.next()){
                 id = Integer.parseInt(res.getString("RS_ID"));
+                //Porcentajes de avance
                 vacs.porcentajeVacunas(id);
                 ccd.porcentajeCCD(id);
                 nutr.porcentajeDN(id);
+                desarrollo.porcentajeDD(id);
                 datosPadres(triaje);
                 pnlPadres.setVisible(true);
                 lblPadres.setVisible(true);
@@ -288,7 +291,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 lblPorcentajeDN = new javax.swing.JLabel();
                 jPanel16 = new javax.swing.JPanel();
                 jLabel7 = new javax.swing.JLabel();
-                jLabel20 = new javax.swing.JLabel();
+                lblPorcentajeDD = new javax.swing.JLabel();
                 jPanel17 = new javax.swing.JPanel();
                 jLabel8 = new javax.swing.JLabel();
                 jLabel27 = new javax.swing.JLabel();
@@ -899,7 +902,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     }
                 });
 
-                jLabel20.setText("jLabel20");
+                lblPorcentajeDD.setText("jLabel20");
 
                 javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
                 jPanel16.setLayout(jPanel16Layout);
@@ -909,7 +912,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel20)
+                        .addComponent(lblPorcentajeDD)
                         .addContainerGap())
                 );
                 jPanel16Layout.setVerticalGroup(
@@ -917,7 +920,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel20)
+                        .addComponent(lblPorcentajeDD)
                         .addContainerGap())
                 );
 
@@ -1712,7 +1715,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSiActionPerformed
 
     private void btnNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoActionPerformed
-     
         pnlMensaje.setVisible(false);
     }//GEN-LAST:event_btnNoActionPerformed
 
@@ -2161,7 +2163,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -2220,6 +2221,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     public static javax.swing.JLabel lblNHC;
     private javax.swing.JLabel lblPadres;
     public static javax.swing.JLabel lblPorcentajeCCD;
+    public static javax.swing.JLabel lblPorcentajeDD;
     public static javax.swing.JLabel lblPorcentajeDN;
     public static javax.swing.JLabel lblPorcentajeVacunas;
     public static javax.swing.JLabel lblSector;

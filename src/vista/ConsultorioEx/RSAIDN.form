@@ -1836,15 +1836,15 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="129" max="32767" attributes="0"/>
-                          <Component id="btnCaccnelar" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="btnCancelar" min="-2" pref="37" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="btnguardar" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="btnGuardar" min="-2" pref="37" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btneditar" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="btnEditar" min="-2" pref="37" max="-2" attributes="0"/>
                               <EmptySpace pref="69" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1853,15 +1853,15 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnCaccnelar" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="btnCancelar" min="-2" pref="49" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnguardar" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
-                                  <Component id="btneditar" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                                  <Component id="btnGuardar" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                                  <Component id="btnEditar" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -1870,7 +1870,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="btneditar">
+                <Component class="javax.swing.JButton" name="btnEditar">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -1887,10 +1887,10 @@
                     <Property name="iconTextGap" type="int" value="30"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneditarActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnguardar">
+                <Component class="javax.swing.JButton" name="btnGuardar">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -1907,10 +1907,10 @@
                     <Property name="iconTextGap" type="int" value="30"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnguardarActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnCaccnelar">
+                <Component class="javax.swing.JButton" name="btnCancelar">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -1927,7 +1927,7 @@
                     <Property name="iconTextGap" type="int" value="30"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCaccnelarActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

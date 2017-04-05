@@ -42,8 +42,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
         mensaje1.setVisible(false);
         FrmCie10.setLocationRelativeTo(null);//en el centro
         FrmCie10.getContentPane().setBackground(new Color(0,153,102));
-  
-        
+        Botones(false);
         ConsultorioExtRsDiagnosticoDesarrollo CCDBUSCAR = new ConsultorioExtRsDiagnosticoDesarrollo();
         CCDBUSCAR.cargarDatosCie10("", tbCiePresun);
     }
@@ -66,6 +65,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
         FDD8.setEnabled(opcion);
         FDD9.setEnabled(opcion);
         FDD10.setEnabled(opcion);
+        FDD11.setEnabled(opcion);
+        FDD12.setEnabled(opcion);
         DXDD1.setEnabled(opcion);
         DXDD2.setEnabled(opcion);
         DXDD3.setEnabled(opcion);
@@ -76,6 +77,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
         DXDD8.setEnabled(opcion);
         DXDD9.setEnabled(opcion);
         DXDD10.setEnabled(opcion);
+        DXDD11.setEnabled(opcion);
+        DXDD12.setEnabled(opcion);
         
         FUADD1.setEnabled(opcion);
         FUADD2.setEnabled(opcion);
@@ -87,6 +90,8 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
         FUADD8.setEnabled(opcion);
         FUADD9.setEnabled(opcion);
         FUADD10.setEnabled(opcion);
+        FUADD11.setEnabled(opcion);
+        FUADD12.setEnabled(opcion);
     }
     
     public void habilitarRadio(boolean opcion){
@@ -102,6 +107,12 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
       RDD10.setEnabled(opcion); 
       RDD11.setEnabled(opcion);  
       RDD12.setEnabled(opcion);  
+    }
+    
+    public void Botones(boolean opcion){
+        btnGuardar.setEnabled(opcion);
+        btnEditar.setEnabled(opcion);
+        btnCancelar.setEnabled(opcion);
     }
     
     public String determinarFecha(JDateChooser calendario){
@@ -489,9 +500,9 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             lblId = new javax.swing.JLabel();
             mensaje = new javax.swing.JPanel();
             jPanel31 = new javax.swing.JPanel();
-            btneditar4 = new javax.swing.JButton();
+            btnEditar = new javax.swing.JButton();
             btnGuardar = new javax.swing.JButton();
-            btnCaccnelar = new javax.swing.JButton();
+            btnCancelar = new javax.swing.JButton();
             mensaje1 = new javax.swing.JPanel();
             men = new javax.swing.JLabel();
             b = new javax.swing.JButton();
@@ -647,7 +658,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
             );
 
-            setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+            setBorder(javax.swing.BorderFactory.createCompoundBorder());
             setVisible(true);
 
             DD.setBackground(new java.awt.Color(255, 255, 255));
@@ -1320,6 +1331,12 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                     .addComponent(FDD9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
+            FUADD8.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    FUADD8ActionPerformed(evt);
+                }
+            });
+
             DXDD7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
             DXDD7.setText("                                ");
             DXDD7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1630,23 +1647,23 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                         .addGroup(DDLayout.createSequentialGroup()
                             .addGap(36, 36, 36)
                             .addComponent(lblId)))
-                    .addContainerGap(66, Short.MAX_VALUE))
+                    .addContainerGap(68, Short.MAX_VALUE))
             );
 
             mensaje.setBackground(new java.awt.Color(102, 102, 102));
 
             jPanel31.setBackground(new java.awt.Color(51, 51, 51));
 
-            btneditar4.setForeground(new java.awt.Color(240, 240, 240));
-            btneditar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
-            btneditar4.setMnemonic('N');
-            btneditar4.setContentAreaFilled(false);
-            btneditar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btneditar4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            btneditar4.setIconTextGap(30);
-            btneditar4.addActionListener(new java.awt.event.ActionListener() {
+            btnEditar.setForeground(new java.awt.Color(240, 240, 240));
+            btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
+            btnEditar.setMnemonic('N');
+            btnEditar.setContentAreaFilled(false);
+            btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            btnEditar.setIconTextGap(30);
+            btnEditar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btneditar4ActionPerformed(evt);
+                    btnEditarActionPerformed(evt);
                 }
             });
 
@@ -1663,16 +1680,16 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 }
             });
 
-            btnCaccnelar.setForeground(new java.awt.Color(240, 240, 240));
-            btnCaccnelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Deshacer-30.png"))); // NOI18N
-            btnCaccnelar.setMnemonic('N');
-            btnCaccnelar.setContentAreaFilled(false);
-            btnCaccnelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btnCaccnelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            btnCaccnelar.setIconTextGap(30);
-            btnCaccnelar.addActionListener(new java.awt.event.ActionListener() {
+            btnCancelar.setForeground(new java.awt.Color(240, 240, 240));
+            btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Deshacer-30.png"))); // NOI18N
+            btnCancelar.setMnemonic('N');
+            btnCancelar.setContentAreaFilled(false);
+            btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            btnCancelar.setIconTextGap(30);
+            btnCancelar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btnCaccnelarActionPerformed(evt);
+                    btnCancelarActionPerformed(evt);
                 }
             });
 
@@ -1682,27 +1699,27 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel31Layout.createSequentialGroup()
                     .addContainerGap(124, Short.MAX_VALUE)
-                    .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap())
                 .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel31Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btneditar4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(64, Short.MAX_VALUE)))
             );
             jPanel31Layout.setVerticalGroup(
                 jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel31Layout.createSequentialGroup()
-                    .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE))
                 .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel31Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btneditar4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             );
 
@@ -1790,7 +1807,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 390, Short.MAX_VALUE)
+                    .addGap(0, 392, Short.MAX_VALUE)
                     .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1802,7 +1819,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
     private void jLabel145MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel145MouseClicked
         RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
         ConsultorioExtRsDiagnosticoDesarrollo DN1 = new ConsultorioExtRsDiagnosticoDesarrollo();
-        DN1.porcentajeDN(Integer.parseInt(lblId.getText())); 
+        DN1.porcentajeDD(Integer.parseInt(lblId.getText())); 
         this.dispose();
     }//GEN-LAST:event_jLabel145MouseClicked
 
@@ -1814,22 +1831,22 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
         // TODO add your handling code here:
     }//GEN-LAST:event_lblNinoMouseClicked
 
-    private void btneditar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar4ActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
-    }//GEN-LAST:event_btneditar4ActionPerformed
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         validaRegistro(Integer.parseInt(lblId.getText()));
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         habilitarRadio(true);
         habilitarCampos(false);
-       
+        Botones(false);
         fua.setText("");
         cie10.setText("");
         fecha.setDate(null);
-    }//GEN-LAST:event_btnCaccnelarActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
         if (tge==3 || tge==1 || tge==9){
@@ -1840,7 +1857,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
         if (tge==2){
             //            Modificar();
 
-            btneditar4.setEnabled(false);
+            btnEditar.setEnabled(false);
             ;
 
         }
@@ -1855,6 +1872,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             if(RDD1.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDD1.setEnabled(true);
                 FDD1.setEnabled(true);
                 fecha=FDD1;
@@ -1872,6 +1890,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             if(RDD2.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDD2.setEnabled(true);
                 FDD2.setEnabled(true);
                 fecha=FDD2;
@@ -1888,6 +1907,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             if(RDD3.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDD3.setEnabled(true);
                 FDD3.setEnabled(true);
                 fecha=FDD3;
@@ -1904,6 +1924,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             if(RDD4.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDD4.setEnabled(true);
                 FDD4.setEnabled(true);
                 fecha=FDD4;
@@ -1920,6 +1941,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             if(RDD5.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDD5.setEnabled(true);
                 FDD5.setEnabled(true);
                 fecha=FDD5;
@@ -1936,6 +1958,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             if(RDD6.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDD6.setEnabled(true);
                 FDD6.setEnabled(true);
                 fecha=FDD6;
@@ -1952,6 +1975,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             if(RDD7.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDD7.setEnabled(true);
                 FDD7.setEnabled(true);
                 fecha=FDD7;
@@ -1968,6 +1992,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             if(RDD8.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDD8.setEnabled(true);
                 FDD8.setEnabled(true);
                 fecha=FDD8;
@@ -1984,6 +2009,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             if(RDD9.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDD9.setEnabled(true);
                 FDD9.setEnabled(true);
                 fecha=FDD9;
@@ -2000,6 +2026,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             if(RDD10.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDD10.setEnabled(true);
                 FDD10.setEnabled(true);
                 fecha=FDD10;
@@ -2016,6 +2043,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             if(RDD11.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDD11.setEnabled(true);
                 FDD11.setEnabled(true);
                 fecha=FDD11;
@@ -2032,6 +2060,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
             if(RDD12.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDD12.setEnabled(true);
                 FDD12.setEnabled(true);
                 fecha=FDD12;
@@ -2131,6 +2160,10 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
         FrmCie10.setVisible(true);
     }//GEN-LAST:event_DXDD12MouseClicked
 
+    private void FUADD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FUADD8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FUADD8ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CCDM14;
@@ -2189,9 +2222,9 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
     private javax.swing.JLabel T7;
     private javax.swing.JButton b;
     private javax.swing.JButton b1;
-    private javax.swing.JButton btnCaccnelar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btneditar4;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel143;
     private javax.swing.JLabel jLabel144;

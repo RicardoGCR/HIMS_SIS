@@ -44,8 +44,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
         mensaje.setVisible(false);
         FrmCie10.setLocationRelativeTo(null);//en el centro
         FrmCie10.getContentPane().setBackground(new Color(0,153,102));
-  
-        
+        Botones(false);
         ConsultorioExtRsCcd CCDBUSCAR = new ConsultorioExtRsCcd();
         CCDBUSCAR.cargarDatosCie10("", tbCiePresun);
     }
@@ -90,11 +89,8 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
         FUADN8.setEnabled(opcion);
         FUADN9.setEnabled(opcion);
         FUADN10.setEnabled(opcion);
-        
-        
-        
-      
     }
+    
     public void habilitarRadio(boolean opcion){
       rbt1.setEnabled(opcion);  
       rbt2.setEnabled(opcion);
@@ -106,8 +102,14 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
       rbt8.setEnabled(opcion);  
       rbt9.setEnabled(opcion);  
       rbt10.setEnabled(opcion);  
-      
     }
+    
+    public void Botones(boolean opcion){
+        btnGuardar.setEnabled(opcion);
+        btnEditar.setEnabled(opcion);
+        btnCancelar.setEnabled(opcion);
+    }
+    
     public String determinarFecha(JDateChooser calendario){
          
         String fecha = "";
@@ -237,7 +239,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 b.setVisible(true);
                 b1.setVisible(false);
 
-                btnguardar.setEnabled(false);
+                btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsDN2.ConsultoriosExtDNListar(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
@@ -339,7 +341,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 b.setText("OK");
                 b.setVisible(true);
                 b1.setVisible(false);
-                btnguardar.setEnabled(false);
+                btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsDN2.ConsultoriosExtDNListar(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
@@ -456,9 +458,9 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             lblId = new javax.swing.JLabel();
             Opciones = new javax.swing.JPanel();
             jPanel28 = new javax.swing.JPanel();
-            btneditar = new javax.swing.JButton();
-            btnguardar = new javax.swing.JButton();
-            btnCaccnelar = new javax.swing.JButton();
+            btnEditar = new javax.swing.JButton();
+            btnGuardar = new javax.swing.JButton();
+            btnCancelar = new javax.swing.JButton();
             mensaje = new javax.swing.JPanel();
             men = new javax.swing.JLabel();
             b = new javax.swing.JButton();
@@ -1429,42 +1431,42 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
 
             jPanel28.setBackground(new java.awt.Color(51, 51, 51));
 
-            btneditar.setForeground(new java.awt.Color(240, 240, 240));
-            btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
-            btneditar.setMnemonic('N');
-            btneditar.setContentAreaFilled(false);
-            btneditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btneditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            btneditar.setIconTextGap(30);
-            btneditar.addActionListener(new java.awt.event.ActionListener() {
+            btnEditar.setForeground(new java.awt.Color(240, 240, 240));
+            btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
+            btnEditar.setMnemonic('N');
+            btnEditar.setContentAreaFilled(false);
+            btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            btnEditar.setIconTextGap(30);
+            btnEditar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btneditarActionPerformed(evt);
+                    btnEditarActionPerformed(evt);
                 }
             });
 
-            btnguardar.setForeground(new java.awt.Color(240, 240, 240));
-            btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
-            btnguardar.setMnemonic('N');
-            btnguardar.setContentAreaFilled(false);
-            btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btnguardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            btnguardar.setIconTextGap(30);
-            btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            btnGuardar.setForeground(new java.awt.Color(240, 240, 240));
+            btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
+            btnGuardar.setMnemonic('N');
+            btnGuardar.setContentAreaFilled(false);
+            btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            btnGuardar.setIconTextGap(30);
+            btnGuardar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btnguardarActionPerformed(evt);
+                    btnGuardarActionPerformed(evt);
                 }
             });
 
-            btnCaccnelar.setForeground(new java.awt.Color(240, 240, 240));
-            btnCaccnelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Deshacer-30.png"))); // NOI18N
-            btnCaccnelar.setMnemonic('N');
-            btnCaccnelar.setContentAreaFilled(false);
-            btnCaccnelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btnCaccnelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            btnCaccnelar.setIconTextGap(30);
-            btnCaccnelar.addActionListener(new java.awt.event.ActionListener() {
+            btnCancelar.setForeground(new java.awt.Color(240, 240, 240));
+            btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Deshacer-30.png"))); // NOI18N
+            btnCancelar.setMnemonic('N');
+            btnCancelar.setContentAreaFilled(false);
+            btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            btnCancelar.setIconTextGap(30);
+            btnCancelar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btnCaccnelarActionPerformed(evt);
+                    btnCancelarActionPerformed(evt);
                 }
             });
 
@@ -1474,27 +1476,27 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
                     .addContainerGap(129, Short.MAX_VALUE)
-                    .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap())
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel28Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(69, Short.MAX_VALUE)))
             );
             jPanel28Layout.setVerticalGroup(
                 jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel28Layout.createSequentialGroup()
-                    .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE))
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel28Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             );
 
@@ -1653,6 +1655,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             if(rbt1.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDN1.setEnabled(true);
                 FDN1.setEnabled(true);
                 fecha=FDN1;
@@ -1669,6 +1672,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             if(rbt2.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDN2.setEnabled(true);
                 FDN2.setEnabled(true);
                 fecha=FDN2;
@@ -1685,6 +1689,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             if(rbt3.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDN3.setEnabled(true);
                 FDN3.setEnabled(true);
                 fecha=FDN3;
@@ -1701,6 +1706,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             if(rbt4.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDN4.setEnabled(true);
                 FDN4.setEnabled(true);
                 fecha=FDN4;
@@ -1717,6 +1723,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             if(rbt5.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDN5.setEnabled(true);
                 FDN5.setEnabled(true);
                 fecha=FDN5;
@@ -1733,6 +1740,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             if(rbt6.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDN6.setEnabled(true);
                 FDN6.setEnabled(true);
                 fecha=FDN6;
@@ -1749,6 +1757,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             if(rbt8.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDN8.setEnabled(true);
                 FDN8.setEnabled(true);
                 fecha=FDN8;
@@ -1765,6 +1774,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             if(rbt9.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDN9.setEnabled(true);
                 FDN9.setEnabled(true);
                 fecha=FDN9;
@@ -1781,6 +1791,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             if(rbt10.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDN10.setEnabled(true);
                 FDN10.setEnabled(true);
                 fecha=FDN10;
@@ -1792,19 +1803,22 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
         }
     }//GEN-LAST:event_rbt10ActionPerformed
 
-    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
-    }//GEN-LAST:event_btneditarActionPerformed
+    }//GEN-LAST:event_btnEditarActionPerformed
 
-    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         validaRegistro(Integer.parseInt(lblId.getText()));
-    }//GEN-LAST:event_btnguardarActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         habilitarRadio(true);
         habilitarCampos(false);
-
-    }//GEN-LAST:event_btnCaccnelarActionPerformed
+        Botones(false);
+        fua.setText("");
+        cie10.setText("");
+        fecha.setDate(null);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
         if (tge==3 || tge==1 || tge==9){
@@ -1815,7 +1829,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
         if (tge==2){
             //            Modificar();
 
-            btneditar.setEnabled(false);
+            btnEditar.setEnabled(false);
             ;
 
         }
@@ -1907,6 +1921,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             if(rbt7.isSelected()){
                 habilitarCampos(false);
                 habilitarRadio(false);
+                Botones(true);
                 DXDN7.setEnabled(true);
                 FDN7.setEnabled(true);
                 fecha=FDN7;
@@ -1959,9 +1974,9 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
     private javax.swing.JLabel T7;
     private javax.swing.JButton b;
     private javax.swing.JButton b1;
-    private javax.swing.JButton btnCaccnelar;
-    private javax.swing.JButton btneditar;
-    private javax.swing.JButton btnguardar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel125;
     private javax.swing.JLabel jLabel126;

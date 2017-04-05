@@ -263,9 +263,9 @@ public void QuitarLaBarraTitulo()
 
         CCDM12.setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanel81.setBackground(new java.awt.Color(39, 174, 97));
+        jPanel81.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel72.setBackground(new java.awt.Color(39, 174, 97));
+        jLabel72.setBackground(new java.awt.Color(153, 153, 153));
         jLabel72.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel72.setForeground(new java.awt.Color(255, 255, 255));
         jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -292,7 +292,7 @@ public void QuitarLaBarraTitulo()
         jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel73.setText("6m");
 
-        FCCDM5.setBackground(new java.awt.Color(204, 204, 204));
+        FCCDM5.setBackground(new java.awt.Color(255, 255, 255));
         FCCDM5.setDateFormatString("dd/MM/yyyy");
         FCCDM5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -700,8 +700,8 @@ public void QuitarLaBarraTitulo()
             jPanel76Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel76Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         jPanel76Layout.setVerticalGroup(
             jPanel76Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1059,38 +1059,38 @@ public void QuitarLaBarraTitulo()
     private javax.swing.JPanel CCDM12;
     private javax.swing.JPanel CCDM13;
     private javax.swing.JPanel CCDM14;
-    private com.toedter.calendar.JDateChooser FCCDM10;
-    private com.toedter.calendar.JDateChooser FCCDM11;
-    private com.toedter.calendar.JDateChooser FCCDM12;
-    private com.toedter.calendar.JDateChooser FCCDM13;
-    private com.toedter.calendar.JDateChooser FCCDM14;
-    private com.toedter.calendar.JDateChooser FCCDM15;
-    private com.toedter.calendar.JDateChooser FCCDM16;
-    private com.toedter.calendar.JDateChooser FCCDM17;
-    private com.toedter.calendar.JDateChooser FCCDM18;
-    private com.toedter.calendar.JDateChooser FCCDM19;
-    private com.toedter.calendar.JDateChooser FCCDM20;
-    private com.toedter.calendar.JDateChooser FCCDM5;
-    private com.toedter.calendar.JDateChooser FCCDM6;
-    private com.toedter.calendar.JDateChooser FCCDM7;
-    private com.toedter.calendar.JDateChooser FCCDM8;
-    private com.toedter.calendar.JDateChooser FCCDM9;
-    private javax.swing.JTextField FUACCDM10;
-    private javax.swing.JTextField FUACCDM11;
-    private javax.swing.JTextField FUACCDM12;
-    private javax.swing.JTextField FUACCDM13;
-    private javax.swing.JTextField FUACCDM14;
-    private javax.swing.JTextField FUACCDM15;
-    private javax.swing.JTextField FUACCDM16;
-    private javax.swing.JTextField FUACCDM17;
-    private javax.swing.JTextField FUACCDM18;
-    private javax.swing.JTextField FUACCDM19;
-    private javax.swing.JTextField FUACCDM20;
-    private javax.swing.JTextField FUACCDM5;
-    private javax.swing.JTextField FUACCDM6;
-    private javax.swing.JTextField FUACCDM7;
-    private javax.swing.JTextField FUACCDM8;
-    private javax.swing.JTextField FUACCDM9;
+    public static com.toedter.calendar.JDateChooser FCCDM10;
+    public static com.toedter.calendar.JDateChooser FCCDM11;
+    public static com.toedter.calendar.JDateChooser FCCDM12;
+    public static com.toedter.calendar.JDateChooser FCCDM13;
+    public static com.toedter.calendar.JDateChooser FCCDM14;
+    public static com.toedter.calendar.JDateChooser FCCDM15;
+    public static com.toedter.calendar.JDateChooser FCCDM16;
+    public static com.toedter.calendar.JDateChooser FCCDM17;
+    public static com.toedter.calendar.JDateChooser FCCDM18;
+    public static com.toedter.calendar.JDateChooser FCCDM19;
+    public static com.toedter.calendar.JDateChooser FCCDM20;
+    public static com.toedter.calendar.JDateChooser FCCDM5;
+    public static com.toedter.calendar.JDateChooser FCCDM6;
+    public static com.toedter.calendar.JDateChooser FCCDM7;
+    public static com.toedter.calendar.JDateChooser FCCDM8;
+    public static com.toedter.calendar.JDateChooser FCCDM9;
+    public static javax.swing.JTextField FUACCDM10;
+    public static javax.swing.JTextField FUACCDM11;
+    public static javax.swing.JTextField FUACCDM12;
+    public static javax.swing.JTextField FUACCDM13;
+    public static javax.swing.JTextField FUACCDM14;
+    public static javax.swing.JTextField FUACCDM15;
+    public static javax.swing.JTextField FUACCDM16;
+    public static javax.swing.JTextField FUACCDM17;
+    public static javax.swing.JTextField FUACCDM18;
+    public static javax.swing.JTextField FUACCDM19;
+    public static javax.swing.JTextField FUACCDM20;
+    public static javax.swing.JTextField FUACCDM5;
+    public static javax.swing.JTextField FUACCDM6;
+    public static javax.swing.JTextField FUACCDM7;
+    public static javax.swing.JTextField FUACCDM8;
+    public static javax.swing.JTextField FUACCDM9;
     private javax.swing.JPanel LEYENDA;
     private javax.swing.JButton btnGuardar2;
     private javax.swing.JButton btneditar6;

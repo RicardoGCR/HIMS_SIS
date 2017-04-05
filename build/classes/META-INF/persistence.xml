@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="SISGESHPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsCabecera</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsCcd</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsVacunas</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtSolicitudTransfucional</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoNutricional</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoDesarrollo</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsEstimulacionTemprana</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsTamizajeNeonatal</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsTtoAntiparasitario</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsTamizajeAnemiaParasitosis</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://192.168.1.36:1433;databaseName=SISGESH_NET"/>
+      <property name="javax.persistence.jdbc.password" value="sistemas"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+    </properties>
+  </persistence-unit>
+</persistence>

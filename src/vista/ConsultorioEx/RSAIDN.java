@@ -5,8 +5,16 @@
  */
 package vista.ConsultorioEx;
 
+import com.toedter.calendar.JDateChooser;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Calendar;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoNutricional;
 
 /**
  *
@@ -15,6 +23,11 @@ import javax.swing.JComponent;
 public class RSAIDN extends javax.swing.JInternalFrame {
 private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
 private Dimension DimensionBarra = null;
+byte tg;
+byte tge;
+JDateChooser fecha;
+JTextField fua;
+ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNutricional();
     /**
      * Creates new form RSAIDN
      */
@@ -53,16 +66,266 @@ private Dimension DimensionBarra = null;
         DXDN8.setEnabled(opcion);
         DXDN9.setEnabled(opcion);
         DXDN10.setEnabled(opcion);
-        FUADN1.setEnabled(opcion);
-        FUADN2.setEnabled(opcion);
-        FUADN3.setEnabled(opcion);
-        FUADN4.setEnabled(opcion);
-        FUADN5.setEnabled(opcion);
-        FUADN6.setEnabled(opcion);
-        FUADN7.setEnabled(opcion);
-        FUADN8.setEnabled(opcion);
-        FUADN9.setEnabled(opcion);
-        FUADN10.setEnabled(opcion);
+      
+    }
+    public void habilitarRadio(boolean opcion){
+      rbt1.setEnabled(opcion);  
+      rbt2.setEnabled(opcion);
+      rbt3.setEnabled(opcion);  
+      rbt4.setEnabled(opcion);  
+      rbt5.setEnabled(opcion);  
+      rbt6.setEnabled(opcion);   
+      rbt7.setEnabled(opcion);  
+      rbt8.setEnabled(opcion);  
+      rbt9.setEnabled(opcion);  
+      rbt10.setEnabled(opcion);  
+      
+    }
+    public String determinarFecha(JDateChooser calendario){
+         
+        String fecha = "";
+        try {
+        int dia = calendario.getCalendar().get(Calendar.DAY_OF_MONTH);
+        int mes = calendario.getCalendar().get(Calendar.MONTH)+1;
+        int anio = calendario.getCalendar().get(Calendar.YEAR); 
+        
+            if(dia < 10 && mes < 10){
+            fecha = String.valueOf("0" + dia + "/" + "0" + mes + "/" + anio);
+        }else 
+            if(dia < 10 || mes < 10){
+                if(dia < 10 && mes >=10){
+                    fecha = String.valueOf("0" + dia + "/" + mes + "/" + anio);
+                } else 
+                    if(dia >= 10 && mes < 10){
+                        fecha = String.valueOf(dia + "/" + "0" + mes + "/" + anio);
+                    } 
+            } else 
+                fecha = String.valueOf(dia + "/" + mes + "/" + anio); 
+         } catch (Exception e) {
+                           mensaje.setVisible(true);
+                           mensaje.setBackground(new Color(255,91,70)); 
+                           men.setText("Ingrese una fecha correcta");
+                           b.setVisible(false);
+                           b1.setVisible(false); 
+         }
+        
+        return fecha;
+    }
+    
+    public void validaRegistro(int rs_id){
+        try {
+            PreparedStatement cmd = DN01.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_DIAGNOSTICO_NUTRICIONAL WHERE RS_ID ='"+rs_id+"'");
+            ResultSet res = cmd.executeQuery();
+            if(res.next()){ // si existe
+                Modificar(fecha);
+            }else { // no existe
+                Guardar(fecha);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: validaRegistro: " + e.toString());
+        }
+    }
+    
+    public void Guardar(JDateChooser fecha){
+        if(fecha.getDate()==null){
+            mensaje.setVisible(true);
+            mensaje.setBackground(new Color(255,91,70)); 
+            men.setText("Ingrese una fecha valida");
+            b.setVisible(false);
+            b1.setVisible(false);
+        } else {
+    ConsultorioExtRsDiagnosticoNutricional CXRsDN = new ConsultorioExtRsDiagnosticoNutricional();
+    ConsultorioExtRsDiagnosticoNutricional CXRsDN2 = new ConsultorioExtRsDiagnosticoNutricional();
+    try {
+                 
+            CXRsDN.setRsId(Integer.parseInt(lblId.getText()));
+            if(FDN1.getDate()!=null){
+                CXRsDN.setDn1Fecha(determinarFecha(FDN1));  
+                CXRsDN.setDn1Cie10(DXDN1.getText());
+                CXRsDN.setDn1Fua(FUADN1.getText());
+            }
+            
+            if(FDN2.getDate()!=null){
+                CXRsDN.setDn2Fecha(determinarFecha(FDN2));  
+                CXRsDN.setDn2Cie10(DXDN2.getText());
+                CXRsDN.setDn2Fua(FUADN2.getText());
+            }
+             
+            if(FDN3.getDate()!=null){
+                CXRsDN.setDn3Fecha(determinarFecha(FDN3));  
+                CXRsDN.setDn3Cie10(DXDN3.getText());
+                CXRsDN.setDn3Fua(FUADN3.getText());
+            }
+             
+            if(FDN4.getDate()!=null){
+                CXRsDN.setDn4Fecha(determinarFecha(FDN4));  
+                CXRsDN.setDn4Cie10(DXDN4.getText());
+                CXRsDN.setDn4Fua(FUADN4.getText());
+            }
+              
+            if(FDN5.getDate()!=null){
+                CXRsDN.setDn5Fecha(determinarFecha(FDN5));  
+                CXRsDN.setDn5Cie10(DXDN5.getText());
+                CXRsDN.setDn5Fua(FUADN5.getText());
+            }
+               
+            if(FDN6.getDate()!=null){
+                CXRsDN.setDn6Fecha(determinarFecha(FDN6));  
+                CXRsDN.setDn6Cie10(DXDN6.getText());
+                CXRsDN.setDn6Fua(FUADN6.getText());
+            }
+                
+            if(FDN7.getDate()!=null){
+                CXRsDN.setDn1Fecha(determinarFecha(FDN7));  
+                CXRsDN.setDn1Cie10(DXDN7.getText());
+                CXRsDN.setDn1Fua(FUADN7.getText());
+            }
+                 
+            if(FDN8.getDate()!=null){
+                CXRsDN.setDn8Fecha(determinarFecha(FDN8));  
+                CXRsDN.setDn8Cie10(DXDN8.getText());
+                CXRsDN.setDn8Fua(FUADN8.getText());
+            }
+                  
+            if(FDN9.getDate()!=null){
+                CXRsDN.setDn9Fecha(determinarFecha(FDN9));  
+                CXRsDN.setDn9Cie10(DXDN9.getText());
+                CXRsDN.setDn9Fua(FUADN9.getText());
+            }
+                   
+            if(FDN10.getDate()!=null){
+                CXRsDN.setDn10Fecha(determinarFecha(FDN10));  
+                CXRsDN.setDn10Cie10(DXDN10.getText());
+                CXRsDN.setDn10Fua(FUADN10.getText());
+            }
+            if(CXRsDN.mantenimientoRSAIDN("I")==true){
+                mensaje.setVisible(true);
+                mensaje.setBackground(new Color(33,115,70)); 
+                men.setText("Datos Guardados de forma correcta");
+                b.setText("OK");
+                b.setVisible(true);
+                b1.setVisible(false);
+
+                btnguardar.setEnabled(false);
+                tge=1;
+                CXRsDN2.ConsultoriosExtDNListar(Integer.parseInt(lblId.getText()));
+                habilitarCampos(false);
+                habilitarRadio(true);
+            }else {
+
+                    mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(255,91,70)); 
+                    men.setText("Ocurrio un error, Verifique");
+                    b.setVisible(false);
+                    b1.setVisible(false);
+                    tge=7;
+            }  
+         } catch (Exception e) {
+            System.out.println("Error: guardar " + e.getMessage());
+        }
+    }
+    }
+    
+     public void Modificar(JDateChooser fecha){
+    if(fecha.getDate()==null){
+        fecha.setEnabled(true);
+        //fua.setEnabled(true);
+        mensaje.setVisible(true);
+        mensaje.setBackground(new Color(255,91,70)); 
+        men.setText("Ingrese una fecha valida");
+        b.setVisible(false);
+        b1.setVisible(false);
+    } else {
+        ConsultorioExtRsDiagnosticoNutricional CXRsDN = new ConsultorioExtRsDiagnosticoNutricional();
+        ConsultorioExtRsDiagnosticoNutricional CXRsDN2 = new ConsultorioExtRsDiagnosticoNutricional();
+        try {
+    
+            CXRsDN.setRsId(Integer.parseInt(lblId.getText()));
+            if(FDN1.getDate()!=null){
+                CXRsDN.setDn1Fecha(determinarFecha(FDN1));  
+                CXRsDN.setDn1Cie10(DXDN1.getText());
+                CXRsDN.setDn1Fua(FUADN1.getText());
+            }
+            
+            if(FDN2.getDate()!=null){
+                CXRsDN.setDn2Fecha(determinarFecha(FDN2));  
+                CXRsDN.setDn2Cie10(DXDN2.getText());
+                CXRsDN.setDn2Fua(FUADN2.getText());
+            }
+             
+            if(FDN3.getDate()!=null){
+                CXRsDN.setDn3Fecha(determinarFecha(FDN3));  
+                CXRsDN.setDn3Cie10(DXDN3.getText());
+                CXRsDN.setDn3Fua(FUADN3.getText());
+            }
+             
+            if(FDN4.getDate()!=null){
+                CXRsDN.setDn4Fecha(determinarFecha(FDN4));  
+                CXRsDN.setDn4Cie10(DXDN4.getText());
+                CXRsDN.setDn4Fua(FUADN4.getText());
+            }
+              
+            if(FDN5.getDate()!=null){
+                CXRsDN.setDn5Fecha(determinarFecha(FDN5));  
+                CXRsDN.setDn5Cie10(DXDN5.getText());
+                CXRsDN.setDn5Fua(FUADN5.getText());
+            }
+               
+            if(FDN6.getDate()!=null){
+                CXRsDN.setDn6Fecha(determinarFecha(FDN6));  
+                CXRsDN.setDn6Cie10(DXDN6.getText());
+                CXRsDN.setDn6Fua(FUADN6.getText());
+            }
+                
+            if(FDN7.getDate()!=null){
+                CXRsDN.setDn1Fecha(determinarFecha(FDN7));  
+                CXRsDN.setDn1Cie10(DXDN7.getText());
+                CXRsDN.setDn1Fua(FUADN7.getText());
+            }
+                 
+            if(FDN8.getDate()!=null){
+                CXRsDN.setDn8Fecha(determinarFecha(FDN8));  
+                CXRsDN.setDn8Cie10(DXDN8.getText());
+                CXRsDN.setDn8Fua(FUADN8.getText());
+            }
+                  
+            if(FDN9.getDate()!=null){
+                CXRsDN.setDn9Fecha(determinarFecha(FDN9));  
+                CXRsDN.setDn9Cie10(DXDN9.getText());
+                CXRsDN.setDn9Fua(FUADN9.getText());
+            }
+                   
+            if(FDN10.getDate()!=null){
+                CXRsDN.setDn10Fecha(determinarFecha(FDN10));  
+                CXRsDN.setDn10Cie10(DXDN10.getText());
+                CXRsDN.setDn10Fua(FUADN10.getText());
+            }
+            
+            if(CXRsDN.mantenimientoRSAIDN("U")==true){
+                mensaje.setVisible(true);
+                mensaje.setBackground(new Color(33,115,70)); 
+                men.setText("Datos Actualizados de forma correcta");
+                b.setText("OK");
+                b.setVisible(true);
+                b1.setVisible(false);
+                btnguardar.setEnabled(false);
+                tge=1;
+                CXRsDN2.ConsultoriosExtDNListar(Integer.parseInt(lblId.getText()));
+                habilitarCampos(false);
+                habilitarRadio(true);
+            }else {
+                mensaje.setVisible(true);
+                mensaje.setBackground(new Color(255,91,70)); 
+                men.setText("Ocurrio un error, Verifique");
+                b.setVisible(false);
+                b1.setVisible(false);
+                tge=5;
+            }  
+
+            } catch (Exception e) {
+               System.out.println("Error: modificar " + e.getMessage());
+            }
+        }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -139,13 +402,18 @@ private Dimension DimensionBarra = null;
         DXDN8 = new javax.swing.JLabel();
         DXDN9 = new javax.swing.JLabel();
         DXDN10 = new javax.swing.JLabel();
+        lblNina = new javax.swing.JLabel();
+        lblNino = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
         Opciones = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
         btneditar = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
-        lblNina = new javax.swing.JLabel();
-        lblNino = new javax.swing.JLabel();
-        lblId = new javax.swing.JLabel();
+        btnCaccnelar = new javax.swing.JButton();
+        mensaje = new javax.swing.JPanel();
+        men = new javax.swing.JLabel();
+        b = new javax.swing.JButton();
+        b1 = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
@@ -235,12 +503,18 @@ private Dimension DimensionBarra = null;
         FDN1.setDateFormatString("dd/MM/yyyy");
         FDN1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        buttonGroup1.add(rbt1);
         rbt1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rbt1.setForeground(new java.awt.Color(255, 255, 255));
         rbt1.setText("1º");
         rbt1.setContentAreaFilled(false);
         rbt1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbt1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rbt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbt1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel134Layout = new javax.swing.GroupLayout(jPanel134);
         jPanel134.setLayout(jPanel134Layout);
@@ -263,12 +537,18 @@ private Dimension DimensionBarra = null;
         FDN2.setDateFormatString("dd/MM/yyyy");
         FDN2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        buttonGroup1.add(rbt2);
         rbt2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rbt2.setForeground(new java.awt.Color(255, 255, 255));
         rbt2.setText("2º");
         rbt2.setContentAreaFilled(false);
         rbt2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbt2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rbt2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbt2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel135Layout = new javax.swing.GroupLayout(jPanel135);
         jPanel135.setLayout(jPanel135Layout);
@@ -291,12 +571,18 @@ private Dimension DimensionBarra = null;
         FDN3.setDateFormatString("dd/MM/yyyy");
         FDN3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        buttonGroup1.add(rbt3);
         rbt3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rbt3.setForeground(new java.awt.Color(255, 255, 255));
         rbt3.setText("3º");
         rbt3.setContentAreaFilled(false);
         rbt3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbt3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rbt3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbt3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel136Layout = new javax.swing.GroupLayout(jPanel136);
         jPanel136.setLayout(jPanel136Layout);
@@ -334,12 +620,18 @@ private Dimension DimensionBarra = null;
         FDN4.setDateFormatString("dd/MM/yyyy");
         FDN4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        buttonGroup1.add(rbt4);
         rbt4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rbt4.setForeground(new java.awt.Color(255, 255, 255));
         rbt4.setText("4º");
         rbt4.setContentAreaFilled(false);
         rbt4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbt4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rbt4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbt4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel137Layout = new javax.swing.GroupLayout(jPanel137);
         jPanel137.setLayout(jPanel137Layout);
@@ -367,12 +659,18 @@ private Dimension DimensionBarra = null;
         FDN5.setDateFormatString("dd/MM/yyyy");
         FDN5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        buttonGroup1.add(rbt5);
         rbt5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rbt5.setForeground(new java.awt.Color(255, 255, 255));
         rbt5.setText("5º");
         rbt5.setContentAreaFilled(false);
         rbt5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbt5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rbt5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbt5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel138Layout = new javax.swing.GroupLayout(jPanel138);
         jPanel138.setLayout(jPanel138Layout);
@@ -400,12 +698,18 @@ private Dimension DimensionBarra = null;
         FDN6.setDateFormatString("dd/MM/yyyy");
         FDN6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        buttonGroup1.add(rbt6);
         rbt6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rbt6.setForeground(new java.awt.Color(255, 255, 255));
         rbt6.setText("6º");
         rbt6.setContentAreaFilled(false);
         rbt6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbt6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rbt6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbt6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel139Layout = new javax.swing.GroupLayout(jPanel139);
         jPanel139.setLayout(jPanel139Layout);
@@ -645,6 +949,7 @@ private Dimension DimensionBarra = null;
         FDN7.setDateFormatString("dd/MM/yyyy");
         FDN7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        buttonGroup1.add(rbt7);
         rbt7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rbt7.setForeground(new java.awt.Color(255, 255, 255));
         rbt7.setText("7º");
@@ -673,12 +978,18 @@ private Dimension DimensionBarra = null;
         FDN8.setDateFormatString("dd/MM/yyyy");
         FDN8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        buttonGroup1.add(rbt8);
         rbt8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rbt8.setForeground(new java.awt.Color(255, 255, 255));
         rbt8.setText("8º");
         rbt8.setContentAreaFilled(false);
         rbt8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbt8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rbt8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbt8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel131Layout = new javax.swing.GroupLayout(jPanel131);
         jPanel131.setLayout(jPanel131Layout);
@@ -701,12 +1012,18 @@ private Dimension DimensionBarra = null;
         FDN9.setDateFormatString("dd/MM/yyyy");
         FDN9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        buttonGroup1.add(rbt9);
         rbt9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rbt9.setForeground(new java.awt.Color(255, 255, 255));
         rbt9.setText("9º");
         rbt9.setContentAreaFilled(false);
         rbt9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbt9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rbt9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbt9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel132Layout = new javax.swing.GroupLayout(jPanel132);
         jPanel132.setLayout(jPanel132Layout);
@@ -729,12 +1046,18 @@ private Dimension DimensionBarra = null;
         FDN10.setDateFormatString("dd/MM/yyyy");
         FDN10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        buttonGroup1.add(rbt10);
         rbt10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rbt10.setForeground(new java.awt.Color(255, 255, 255));
         rbt10.setText("10º");
         rbt10.setContentAreaFilled(false);
         rbt10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbt10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rbt10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbt10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel140Layout = new javax.swing.GroupLayout(jPanel140);
         jPanel140.setLayout(jPanel140Layout);
@@ -822,75 +1145,6 @@ private Dimension DimensionBarra = null;
                     .addComponent(FUADN10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        Opciones.setBackground(new java.awt.Color(102, 102, 102));
-
-        jPanel28.setBackground(new java.awt.Color(51, 51, 51));
-
-        btneditar.setForeground(new java.awt.Color(240, 240, 240));
-        btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
-        btneditar.setMnemonic('N');
-        btneditar.setContentAreaFilled(false);
-        btneditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btneditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btneditar.setIconTextGap(30);
-        btneditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditarActionPerformed(evt);
-            }
-        });
-
-        btnguardar.setForeground(new java.awt.Color(240, 240, 240));
-        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
-        btnguardar.setMnemonic('N');
-        btnguardar.setText("Guardar");
-        btnguardar.setContentAreaFilled(false);
-        btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnguardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnguardar.setIconTextGap(30);
-        btnguardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
-        jPanel28.setLayout(jPanel28Layout);
-        jPanel28Layout.setHorizontalGroup(
-            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 122, Short.MAX_VALUE)
-            .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel28Layout.createSequentialGroup()
-                    .addGap(15, 15, 15)
-                    .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(15, Short.MAX_VALUE)))
-        );
-        jPanel28Layout.setVerticalGroup(
-            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel28Layout.createSequentialGroup()
-                    .addGap(1, 1, 1)
-                    .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-
-        javax.swing.GroupLayout OpcionesLayout = new javax.swing.GroupLayout(Opciones);
-        Opciones.setLayout(OpcionesLayout);
-        OpcionesLayout.setHorizontalGroup(
-            OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OpcionesLayout.createSequentialGroup()
-                .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        OpcionesLayout.setVerticalGroup(
-            OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
         lblNina.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNina.setForeground(new java.awt.Color(102, 102, 102));
         lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
@@ -917,12 +1171,158 @@ private Dimension DimensionBarra = null;
 
         lblId.setText("jLabel1");
 
+        Opciones.setBackground(new java.awt.Color(102, 102, 102));
+
+        jPanel28.setBackground(new java.awt.Color(51, 51, 51));
+
+        btneditar.setForeground(new java.awt.Color(240, 240, 240));
+        btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
+        btneditar.setMnemonic('N');
+        btneditar.setContentAreaFilled(false);
+        btneditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btneditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btneditar.setIconTextGap(30);
+        btneditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneditarActionPerformed(evt);
+            }
+        });
+
+        btnguardar.setForeground(new java.awt.Color(240, 240, 240));
+        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
+        btnguardar.setMnemonic('N');
+        btnguardar.setContentAreaFilled(false);
+        btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnguardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnguardar.setIconTextGap(30);
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
+
+        btnCaccnelar.setForeground(new java.awt.Color(240, 240, 240));
+        btnCaccnelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Deshacer-30.png"))); // NOI18N
+        btnCaccnelar.setMnemonic('N');
+        btnCaccnelar.setContentAreaFilled(false);
+        btnCaccnelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaccnelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCaccnelar.setIconTextGap(30);
+        btnCaccnelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaccnelarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
+        jPanel28.setLayout(jPanel28Layout);
+        jPanel28Layout.setHorizontalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
+                .addContainerGap(129, Short.MAX_VALUE)
+                .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel28Layout.createSequentialGroup()
+                    .addGap(15, 15, 15)
+                    .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(69, Short.MAX_VALUE)))
+        );
+        jPanel28Layout.setVerticalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel28Layout.createSequentialGroup()
+                    .addGap(1, 1, 1)
+                    .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        mensaje.setBackground(new java.awt.Color(33, 115, 70));
+
+        men.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        men.setForeground(new java.awt.Color(255, 255, 255));
+        men.setText("Desea Actualizar el Registro ?");
+
+        b.setForeground(new java.awt.Color(240, 240, 240));
+        b.setText("Si");
+        b.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        b.setContentAreaFilled(false);
+        b.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        b.setIconTextGap(30);
+        b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bActionPerformed(evt);
+            }
+        });
+
+        b1.setForeground(new java.awt.Color(240, 240, 240));
+        b1.setText("No");
+        b1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        b1.setContentAreaFilled(false);
+        b1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        b1.setIconTextGap(30);
+        b1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout mensajeLayout = new javax.swing.GroupLayout(mensaje);
+        mensaje.setLayout(mensajeLayout);
+        mensajeLayout.setHorizontalGroup(
+            mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mensajeLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(men)
+                .addGap(46, 46, 46)
+                .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        mensajeLayout.setVerticalGroup(
+            mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mensajeLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(men)
+                    .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout OpcionesLayout = new javax.swing.GroupLayout(Opciones);
+        Opciones.setLayout(OpcionesLayout);
+        OpcionesLayout.setHorizontalGroup(
+            OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OpcionesLayout.createSequentialGroup()
+                .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
+        );
+        OpcionesLayout.setVerticalGroup(
+            OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(OpcionesLayout.createSequentialGroup()
+                .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout DNLayout = new javax.swing.GroupLayout(DN);
         DN.setLayout(DNLayout);
         DNLayout.setHorizontalGroup(
             DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel202, javax.swing.GroupLayout.DEFAULT_SIZE, 1387, Short.MAX_VALUE)
-            .addComponent(Opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel202, javax.swing.GroupLayout.DEFAULT_SIZE, 1413, Short.MAX_VALUE)
             .addGroup(DNLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -938,7 +1338,8 @@ private Dimension DimensionBarra = null;
                         .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(532, Short.MAX_VALUE))
+                .addContainerGap(558, Short.MAX_VALUE))
+            .addComponent(Opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         DNLayout.setVerticalGroup(
             DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -964,7 +1365,7 @@ private Dimension DimensionBarra = null;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1387, Short.MAX_VALUE)
+            .addGap(0, 1413, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(DN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -983,14 +1384,6 @@ private Dimension DimensionBarra = null;
         this.dispose();
     }//GEN-LAST:event_jLabel127MouseClicked
 
-    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-
-    }//GEN-LAST:event_btneditarActionPerformed
-
-    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-
-    }//GEN-LAST:event_btnguardarActionPerformed
-
     private void lblNinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNinaMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lblNinaMouseClicked
@@ -999,43 +1392,215 @@ private Dimension DimensionBarra = null;
         // TODO add your handling code here:
     }//GEN-LAST:event_lblNinoMouseClicked
 
+    private void rbt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbt1ActionPerformed
+        if(FDN1.getDate()==null){
+            if(rbt1.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                DXDN1.setEnabled(true);
+                FDN1.setEnabled(true);
+                fecha=FDN1;
+                fua = FUADN1;
+            }
+        } else {
+            rbt1.setEnabled(false);
+        }
+    }//GEN-LAST:event_rbt1ActionPerformed
+
+    private void rbt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbt2ActionPerformed
+        if(FDN2.getDate()==null){
+            if(rbt2.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                DXDN2.setEnabled(true);
+                FDN2.setEnabled(true);
+                fecha=FDN2;
+                fua = FUADN2;
+            }
+        } else {
+            rbt2.setEnabled(false);
+        }
+    }//GEN-LAST:event_rbt2ActionPerformed
+
+    private void rbt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbt3ActionPerformed
+        if(FDN3.getDate()==null){
+            if(rbt3.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                DXDN3.setEnabled(true);
+                FDN3.setEnabled(true);
+                fecha=FDN3;
+                fua = FUADN3;
+            }
+        } else {
+            rbt3.setEnabled(false);
+        }
+    }//GEN-LAST:event_rbt3ActionPerformed
+
+    private void rbt4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbt4ActionPerformed
+        if(FDN4.getDate()==null){
+            if(rbt4.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                DXDN4.setEnabled(true);
+                FDN4.setEnabled(true);
+                fecha=FDN4;
+                fua = FUADN4;
+            }
+        } else {
+            rbt4.setEnabled(false);
+        }
+    }//GEN-LAST:event_rbt4ActionPerformed
+
+    private void rbt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbt5ActionPerformed
+        if(FDN5.getDate()==null){
+            if(rbt5.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                DXDN5.setEnabled(true);
+                FDN5.setEnabled(true);
+                fecha=FDN5;
+                fua = FUADN5;
+            }
+        } else {
+            rbt5.setEnabled(false);
+        }
+    }//GEN-LAST:event_rbt5ActionPerformed
+
+    private void rbt6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbt6ActionPerformed
+        if(FDN7.getDate()==null){
+            if(rbt7.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                DXDN7.setEnabled(true);
+                FDN7.setEnabled(true);
+                fecha=FDN7;
+                fua = FUADN7;
+            }
+        } else {
+            rbt7.setEnabled(false);
+        }
+    }//GEN-LAST:event_rbt6ActionPerformed
+
+    private void rbt8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbt8ActionPerformed
+        if(FDN8.getDate()==null){
+            if(rbt8.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                DXDN8.setEnabled(true);
+                FDN8.setEnabled(true);
+                fecha=FDN8;
+                fua = FUADN8;
+            }
+        } else {
+            rbt8.setEnabled(false);
+        }
+    }//GEN-LAST:event_rbt8ActionPerformed
+
+    private void rbt9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbt9ActionPerformed
+        if(FDN9.getDate()==null){
+            if(rbt9.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                DXDN9.setEnabled(true);
+                FDN9.setEnabled(true);
+                fecha=FDN9;
+                fua = FUADN9;
+            }
+        } else {
+            rbt9.setEnabled(false);
+        }
+    }//GEN-LAST:event_rbt9ActionPerformed
+
+    private void rbt10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbt10ActionPerformed
+       if(FDN10.getDate()==null){
+            if(rbt10.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                DXDN10.setEnabled(true);
+                FDN10.setEnabled(true);
+                fecha=FDN10;
+                fua = FUADN10;
+            }
+        } else {
+            rbt1.setEnabled(false);
+        }
+    }//GEN-LAST:event_rbt10ActionPerformed
+
+    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
+
+    }//GEN-LAST:event_btneditarActionPerformed
+
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        validaRegistro(Integer.parseInt(lblId.getText()));
+    }//GEN-LAST:event_btnguardarActionPerformed
+
+    private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
+        habilitarRadio(true);
+        habilitarCampos(false);
+
+    }//GEN-LAST:event_btnCaccnelarActionPerformed
+
+    private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
+        if (tge==3 || tge==1 || tge==9){
+            mensaje.setVisible(false);
+
+        }
+
+        if (tge==2){
+            //            Modificar();
+
+            btneditar.setEnabled(false);
+            ;
+
+        }
+
+    }//GEN-LAST:event_bActionPerformed
+
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
+        mensaje.setVisible(false);
+    }//GEN-LAST:event_b1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CCDM13;
     private javax.swing.JPanel CCDR3A2;
     private javax.swing.JPanel DN;
-    private javax.swing.JLabel DXDN1;
-    private javax.swing.JLabel DXDN10;
-    private javax.swing.JLabel DXDN2;
-    private javax.swing.JLabel DXDN3;
-    private javax.swing.JLabel DXDN4;
-    private javax.swing.JLabel DXDN5;
-    private javax.swing.JLabel DXDN6;
-    private javax.swing.JLabel DXDN7;
-    private javax.swing.JLabel DXDN8;
-    private javax.swing.JLabel DXDN9;
-    private com.toedter.calendar.JDateChooser FDN1;
-    private com.toedter.calendar.JDateChooser FDN10;
-    private com.toedter.calendar.JDateChooser FDN2;
-    private com.toedter.calendar.JDateChooser FDN3;
-    private com.toedter.calendar.JDateChooser FDN4;
-    private com.toedter.calendar.JDateChooser FDN5;
-    private com.toedter.calendar.JDateChooser FDN6;
-    private com.toedter.calendar.JDateChooser FDN7;
-    private com.toedter.calendar.JDateChooser FDN8;
-    private com.toedter.calendar.JDateChooser FDN9;
-    private javax.swing.JTextField FUADN1;
-    private javax.swing.JTextField FUADN10;
-    private javax.swing.JTextField FUADN2;
-    private javax.swing.JTextField FUADN3;
-    private javax.swing.JTextField FUADN4;
-    private javax.swing.JTextField FUADN5;
-    private javax.swing.JTextField FUADN6;
-    private javax.swing.JTextField FUADN7;
-    private javax.swing.JTextField FUADN8;
-    private javax.swing.JTextField FUADN9;
+    public static javax.swing.JLabel DXDN1;
+    public static javax.swing.JLabel DXDN10;
+    public static javax.swing.JLabel DXDN2;
+    public static javax.swing.JLabel DXDN3;
+    public static javax.swing.JLabel DXDN4;
+    public static javax.swing.JLabel DXDN5;
+    public static javax.swing.JLabel DXDN6;
+    public static javax.swing.JLabel DXDN7;
+    public static javax.swing.JLabel DXDN8;
+    public static javax.swing.JLabel DXDN9;
+    public static com.toedter.calendar.JDateChooser FDN1;
+    public static com.toedter.calendar.JDateChooser FDN10;
+    public static com.toedter.calendar.JDateChooser FDN2;
+    public static com.toedter.calendar.JDateChooser FDN3;
+    public static com.toedter.calendar.JDateChooser FDN4;
+    public static com.toedter.calendar.JDateChooser FDN5;
+    public static com.toedter.calendar.JDateChooser FDN6;
+    public static com.toedter.calendar.JDateChooser FDN7;
+    public static com.toedter.calendar.JDateChooser FDN8;
+    public static com.toedter.calendar.JDateChooser FDN9;
+    public static javax.swing.JTextField FUADN1;
+    public static javax.swing.JTextField FUADN10;
+    public static javax.swing.JTextField FUADN2;
+    public static javax.swing.JTextField FUADN3;
+    public static javax.swing.JTextField FUADN4;
+    public static javax.swing.JTextField FUADN5;
+    public static javax.swing.JTextField FUADN6;
+    public static javax.swing.JTextField FUADN7;
+    public static javax.swing.JTextField FUADN8;
+    public static javax.swing.JTextField FUADN9;
     private javax.swing.JPanel LEYENDA2;
     private javax.swing.JPanel Opciones;
+    private javax.swing.JButton b;
+    private javax.swing.JButton b1;
+    private javax.swing.JButton btnCaccnelar;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btnguardar;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -1069,6 +1634,8 @@ private Dimension DimensionBarra = null;
     public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
+    private javax.swing.JLabel men;
+    private javax.swing.JPanel mensaje;
     private javax.swing.JRadioButton rbt1;
     private javax.swing.JRadioButton rbt10;
     private javax.swing.JRadioButton rbt2;

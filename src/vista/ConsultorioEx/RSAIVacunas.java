@@ -532,7 +532,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
 
                 btnguardar.setEnabled(false);
                 tge=1;
-                CXRsVacunas.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
+                CXRsVacunas2.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
                 habilitarDatos(false);
                 habilitarRadio(true);
             }else {

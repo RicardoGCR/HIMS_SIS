@@ -7,9 +7,15 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
+import vista.ConsultorioEx.RSAIDN;
 public class ConsultorioExtRsDiagnosticoNutricional implements Serializable {
     private static final long serialVersionUID = 1L;
     private int dnId;
@@ -47,6 +53,227 @@ public class ConsultorioExtRsDiagnosticoNutricional implements Serializable {
     private String dn10Fecha;
     private String dn10Cie10;
     private String dn10Fua;
+    private int rsId;
+    
+     public void ConsultoriosExtDNListar(int rs_id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_RS_DIAGNOSTICO_NUTRICIONAL_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+ 
+                try {
+                    if(r.getString(3).equals("")){
+                        RSAIDN.FDN1.setDate(null);
+                    } else {
+                        String fechaSeleccionadaN1 = (String)(r.getString(3));
+                        DateFormat dfoN1 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaN1 = dfoN1.parse(fechaSeleccionadaN1);
+                        RSAIDN.FDN1.setDate(fechaN1);
+                        RSAIDN.DXDN1.setText(r.getString(4));
+                        RSAIDN.FUADN1.setText(r.getString(5));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(6).equals("")){
+                        RSAIDN.FDN2.setDate(null);
+                    } else {
+                        String fechaSeleccionadaN2 = (String)(r.getString(6));
+                        DateFormat dfoN2 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaN2 = dfoN2.parse(fechaSeleccionadaN2);
+                        RSAIDN.FDN2.setDate(fechaN2);
+                        RSAIDN.DXDN2.setText(r.getString(7));
+                        RSAIDN.FUADN2.setText(r.getString(8));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(9).equals("")){
+                        RSAIDN.FDN3.setDate(null);
+                    } else {
+                        String fechaSeleccionadaN3 = (String)(r.getString(9));
+                        DateFormat dfoN3 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaN3 = dfoN3.parse(fechaSeleccionadaN3);
+                        RSAIDN.FDN3.setDate(fechaN3);
+                        RSAIDN.DXDN3.setText(r.getString(10));
+                        RSAIDN.FUADN3.setText(r.getString(11));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(12).equals("")){
+                        RSAIDN.FDN4.setDate(null);
+                    } else {
+                        String fechaSeleccionadaN4 = (String)(r.getString(12));
+                        DateFormat dfoN4 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaN4 = dfoN4.parse(fechaSeleccionadaN4);
+                        RSAIDN.FDN4.setDate(fechaN4);
+                        RSAIDN.DXDN4.setText(r.getString(13));
+                        RSAIDN.FUADN4.setText(r.getString(14));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(13).equals("")){
+                        RSAIDN.FDN5.setDate(null);
+                    } else {
+                        String fechaSeleccionadaN5 = (String)(r.getString(13));
+                        DateFormat dfoN5 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaN5 = dfoN5.parse(fechaSeleccionadaN5);
+                        RSAIDN.FDN5.setDate(fechaN5);
+                        RSAIDN.DXDN5.setText(r.getString(14));
+                        RSAIDN.FUADN5.setText(r.getString(15));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(14).equals("")){
+                        RSAIDN.FDN6.setDate(null);
+                    } else {
+                        String fechaSeleccionadaN6 = (String)(r.getString(14));
+                        DateFormat dfoN6 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaN6 = dfoN6.parse(fechaSeleccionadaN6);
+                        RSAIDN.FDN6.setDate(fechaN6);
+                        RSAIDN.DXDN6.setText(r.getString(15));
+                        RSAIDN.FUADN6.setText(r.getString(16));
+                    }
+                } catch (Exception e) {
+                }
+                try {
+                    if(r.getString(17).equals("")){
+                        RSAIDN.FDN7.setDate(null);
+                    } else {
+                        String fechaSeleccionadaN7 = (String)(r.getString(17));
+                        DateFormat dfoN7 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaN7 = dfoN7.parse(fechaSeleccionadaN7);
+                        RSAIDN.FDN7.setDate(fechaN7);
+                        RSAIDN.DXDN7.setText(r.getString(18));
+                        RSAIDN.FUADN7.setText(r.getString(19));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(20).equals("")){
+                        RSAIDN.FDN8.setDate(null);
+                    } else {
+                        String fechaSeleccionadaN8 = (String)(r.getString(20));
+                        DateFormat dfoN8 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaN8 = dfoN8.parse(fechaSeleccionadaN8);
+                        RSAIDN.FDN8.setDate(fechaN8);
+                        RSAIDN.DXDN8.setText(r.getString(21));
+                        RSAIDN.FUADN8.setText(r.getString(22));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(23).equals("")){
+                        RSAIDN.FDN9.setDate(null);
+                    } else {
+                        String fechaSeleccionadaN9 = (String)(r.getString(23));
+                        DateFormat dfoN9 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaN9 = dfoN9.parse(fechaSeleccionadaN9);
+                        RSAIDN.FDN9.setDate(fechaN9);
+                        RSAIDN.DXDN9.setText(r.getString(24));
+                        RSAIDN.FUADN9.setText(r.getString(25));
+                    }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(26).equals("")){
+                        RSAIDN.FDN10.setDate(null);
+                    } else {
+                        String fechaSeleccionadaN10 = (String)(r.getString(26));
+                        DateFormat dfoN10 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaN10 = dfoN10.parse(fechaSeleccionadaN10);
+                        RSAIDN.FDN10.setDate(fechaN10);
+                        RSAIDN.DXDN10.setText(r.getString(27));
+                        RSAIDN.FUADN10.setText(r.getString(28));
+                    }
+                } catch (Exception e) {
+                }
+                
+                
+
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: ConsultoriosExtVacunasListar " + e.getMessage());
+        }
+    }
+     
+      public boolean mantenimientoRSAIDN(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CONSULTORIO_EXT_MANTENIMIENTO_RS_DIAGNOSTICO_NUTRICIONAL ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getRsId());
+            cmd.setString(2, getDn1Fecha());
+            cmd.setString(3, getDn1Cie10());
+            cmd.setString(4, getDn1Fua());
+            
+            cmd.setString(5, getDn2Fecha());
+            cmd.setString(6, getDn2Cie10());
+            cmd.setString(7, getDn2Fua());
+            
+            cmd.setString(8, getDn3Fecha());
+            cmd.setString(9, getDn3Cie10());
+            cmd.setString(10, getDn3Fua());
+            
+            cmd.setString(11, getDn4Fecha());
+            cmd.setString(12, getDn4Cie10());
+            cmd.setString(13, getDn4Fua());
+            
+            cmd.setString(14, getDn5Fecha());
+            cmd.setString(15, getDn5Cie10());
+            cmd.setString(16, getDn5Fua());
+            
+            cmd.setString(17, getDn6Fecha());
+            cmd.setString(18, getDn6Cie10());
+            cmd.setString(19, getDn6Fua());
+            
+            cmd.setString(20, getDn7Fecha());
+            cmd.setString(21, getDn7Cie10());
+            cmd.setString(22, getDn7Fua());
+            
+            cmd.setString(23, getDn8Fecha());
+            cmd.setString(24, getDn8Cie10());
+            cmd.setString(25, getDn8Fua());
+            
+            cmd.setString(26, getDn9Fecha());
+            cmd.setString(27, getDn9Cie10());
+            cmd.setString(28, getDn9Fua());
+            
+            cmd.setString(29, getDn10Fecha());
+            cmd.setString(30, getDn10Cie10());
+            cmd.setString(31, getDn10Fua());
+            
+            cmd.setString(32, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimiento Vacunas " + ex.getMessage());
+        }
+        return resp;
+    }
 
     public ConsultorioExtRsDiagnosticoNutricional() {
         Conexion con = new Conexion();
@@ -304,6 +531,15 @@ public class ConsultorioExtRsDiagnosticoNutricional implements Serializable {
     public void setDn10Fua(String dn10Fua) {
         this.dn10Fua = dn10Fua;
     }
+
+    public int getRsId() {
+        return rsId;
+    }
+
+    public void setRsId(int rsId) {
+        this.rsId = rsId;
+    }
+    
 
     @Override
     public String toString() {

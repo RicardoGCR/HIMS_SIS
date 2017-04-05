@@ -28,6 +28,7 @@ import modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoDesarrollo;
 import modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoNutricional;
 import modelos.ConsultorioEx.ConsultorioExtRsEstimulacionTemprana;
 import modelos.ConsultorioEx.ConsultorioExtRsTamizajeNeonatal;
+import modelos.ConsultorioEx.ConsultorioExtRsTtoAntiparasitario;
 import modelos.ConsultorioEx.ConsultorioExtRsVacunas;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
@@ -309,8 +310,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jPanel20 = new javax.swing.JPanel();
                 jLabel11 = new javax.swing.JLabel();
                 lblPorcentajeTTO = new javax.swing.JLabel();
-                jPanel21 = new javax.swing.JPanel();
-                jLabel12 = new javax.swing.JLabel();
                 jPanel22 = new javax.swing.JPanel();
                 jLabel18 = new javax.swing.JLabel();
                 jPanel23 = new javax.swing.JPanel();
@@ -319,6 +318,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel15 = new javax.swing.JLabel();
                 jPanel25 = new javax.swing.JPanel();
                 jLabel16 = new javax.swing.JLabel();
+                jPanel21 = new javax.swing.JPanel();
+                jLabel12 = new javax.swing.JLabel();
                 txtSis = new javax.swing.JPanel();
                 jPanel9 = new javax.swing.JPanel();
                 txtPaciente = new javax.swing.JTextField();
@@ -799,18 +800,16 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblPorcentajeVacunas)
-                        .addGap(8, 8, 8))
+                        .addContainerGap(31, Short.MAX_VALUE))
                 );
                 jPanel12Layout.setVerticalGroup(
                     jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lblPorcentajeVacunas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblPorcentajeVacunas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
                 jPanel13.setBackground(new java.awt.Color(45, 204, 112));
@@ -823,7 +822,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
 
                 jLabel5.setFont(new java.awt.Font("Segoe UI Light", 0, 22)); // NOI18N
                 jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-                jLabel5.setText("<html>Control de Crecimiento y<br>Desarrollo</br></span></html>");
+                jLabel5.setText("<html>Control de <br>Crecimiento y<br>Desarrollo</br></span></html>");
                 jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
                         jLabel5MouseClicked(evt);
@@ -841,18 +840,16 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jPanel13Layout.setHorizontalGroup(
                     jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(19, 19, 19)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                         .addComponent(lblPorcentajeCCD)
-                        .addGap(25, 25, 25))
+                        .addGap(41, 41, 41))
                 );
                 jPanel13Layout.setVerticalGroup(
                     jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addContainerGap())
                     .addComponent(lblPorcentajeCCD, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                    .addComponent(jLabel5)
                 );
 
                 jPanel15.setBackground(new java.awt.Color(50, 151, 219));
@@ -882,7 +879,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                         .addComponent(lblPorcentajeDN, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                 );
                 jPanel15Layout.setVerticalGroup(
@@ -989,7 +986,15 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     }
                 });
 
+<<<<<<< HEAD
                 lblPorcentajeTN.setText("jLabel7");
+=======
+                lblPorcentajeTN.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+                lblPorcentajeTN.setForeground(new java.awt.Color(255, 255, 255));
+                lblPorcentajeTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Círculo sin marcar-100 (2).png"))); // NOI18N
+                lblPorcentajeTN.setText("0 %");
+                lblPorcentajeTN.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+>>>>>>> 4499a1f4f9d132828028fb9ad32a93368cd5edc6
 
                 javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
                 jPanel18.setLayout(jPanel18Layout);
@@ -1000,6 +1005,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblPorcentajeTN)
+<<<<<<< HEAD
                         .addGap(27, 27, 27))
                 );
                 jPanel18Layout.setVerticalGroup(
@@ -1009,13 +1015,24 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(lblPorcentajeTN)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                        .addGap(32, 32, 32))
+                );
+                jPanel18Layout.setVerticalGroup(
+                    jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(lblPorcentajeTN, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+>>>>>>> 4499a1f4f9d132828028fb9ad32a93368cd5edc6
                 );
 
                 jPanel19.setBackground(new java.awt.Color(39, 174, 97));
 
                 jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-                jLabel19.setText("<html>TAMIZAJE DE ANEMIA PARASITOSIS<br>Y TEST DE GRAHAM</br></html>");
+                jLabel19.setText("<html>Tamizaje de Anemia Parasitosis<br>Y Test De Graham</br></html>");
                 jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
                         jLabel19MouseClicked(evt);
@@ -1031,9 +1048,9 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel19Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(43, 43, 43)
                         .addComponent(lblPorcentajeTAP)
-                        .addGap(29, 29, 29))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel19Layout.setVerticalGroup(
                     jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1049,6 +1066,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel11.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel11.setText("TTO ANTIPARASITARIO");
+                jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jLabel11MouseClicked(evt);
+                    }
+                });
 
                 lblPorcentajeTTO.setText("jLabel27");
 
@@ -1072,29 +1094,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addContainerGap())
                 );
 
-                jPanel21.setBackground(new java.awt.Color(141, 68, 173));
-
-                jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-                jLabel12.setText("SUPLEMTACIÓN DE HIERRO Y/O MICRONUTRIENTES");
-
-                javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
-                jPanel21.setLayout(jPanel21Layout);
-                jPanel21Layout.setHorizontalGroup(
-                    jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel21Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(111, Short.MAX_VALUE))
-                );
-                jPanel21Layout.setVerticalGroup(
-                    jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel21Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel12)
-                        .addContainerGap(40, Short.MAX_VALUE))
-                );
-
                 jPanel22.setBackground(new java.awt.Color(241, 197, 14));
 
                 jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1108,12 +1107,12 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel22Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(91, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel22Layout.setVerticalGroup(
                     jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 52, Short.MAX_VALUE)
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 );
 
@@ -1131,11 +1130,13 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel23Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel14)
-                        .addContainerGap(95, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel23Layout.setVerticalGroup(
                     jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                    .addGroup(jPanel23Layout.createSequentialGroup()
+                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                 );
 
                 jPanel24.setBackground(new java.awt.Color(232, 76, 61));
@@ -1152,7 +1153,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel24Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel15)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(92, Short.MAX_VALUE))
                 );
                 jPanel24Layout.setVerticalGroup(
                     jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1181,11 +1182,34 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel25Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(101, Short.MAX_VALUE))
                 );
                 jPanel25Layout.setVerticalGroup(
                     jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                );
+
+                jPanel21.setBackground(new java.awt.Color(141, 68, 173));
+
+                jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+                jLabel12.setText("SUPLEMTACIÓN DE HIERRO Y/O MICRONUTRIENTES");
+
+                javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
+                jPanel21.setLayout(jPanel21Layout);
+                jPanel21Layout.setHorizontalGroup(
+                    jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel21Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(193, Short.MAX_VALUE))
+                );
+                jPanel21Layout.setVerticalGroup(
+                    jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel21Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel12)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
                 javax.swing.GroupLayout pnlContenedorLayout = new javax.swing.GroupLayout(pnlContenedor);
@@ -1194,32 +1218,36 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlContenedorLayout.createSequentialGroup()
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
                             .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, 0)
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlContenedorLayout.createSequentialGroup()
-                                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE))
-                                .addGap(0, 0, 0)
-                                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jPanel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))
-                                .addGap(0, 0, 0)
-                                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)))
+                                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)
+                                    .addGroup(pnlContenedorLayout.createSequentialGroup()
+                                        .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlContenedorLayout.createSequentialGroup()
+                                        .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlContenedorLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(pnlContenedorLayout.createSequentialGroup()
-                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
-                                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
+                                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
                                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(224, 224, 224))
                 );
                 pnlContenedorLayout.setVerticalGroup(
                     pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1230,6 +1258,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                             .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, Short.MAX_VALUE)
                             .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
                             .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
+<<<<<<< HEAD
                         .addGap(0, 0, 0)
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1237,12 +1266,19 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                 .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                        .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> 4499a1f4f9d132828028fb9ad32a93368cd5edc6
                         .addGap(0, 0, 0)
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
                             .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                            .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                            .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)))
                 );
 
                 txtSis.setBackground(new java.awt.Color(255, 255, 255));
@@ -1309,7 +1345,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 );
                 pnlSexoLayout.setVerticalGroup(
                     pnlSexoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 276, Short.MAX_VALUE)
                 );
 
                 jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1568,15 +1604,15 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                     .addComponent(lblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(pnlPadresLayout.createSequentialGroup()
                                 .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtRiesgo, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                                    .addComponent(txtRiesgo)
                                     .addComponent(jLabel26)
-                                    .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                                    .addComponent(txtCodigo)
                                     .addComponent(jLabel10)
                                     .addComponent(cbxTipoSeguro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(29, 29, 29)))
                         .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlPadresLayout.createSequentialGroup()
-                                .addGap(0, 12, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblHcMadre)
                                     .addComponent(btnGuardar)))
@@ -1641,7 +1677,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 );
                 txtSisLayout.setVerticalGroup(
                     txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlSexo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                     .addGroup(txtSisLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1668,6 +1703,9 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(pnlPadres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
+                    .addGroup(txtSisLayout.createSequentialGroup()
+                        .addComponent(pnlSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0))
                 );
 
                 javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -1677,13 +1715,13 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtSis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pnlContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 295, Short.MAX_VALUE))
+                            .addComponent(pnlContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 1614, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 303, Short.MAX_VALUE))
                 );
                 jPanel4Layout.setVerticalGroup(
                     jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(txtSis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSis, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(pnlContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
@@ -1693,13 +1731,13 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jPanel2.setLayout(jPanel2Layout);
                 jPanel2Layout.setHorizontalGroup(
                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGap(0, 1726, Short.MAX_VALUE)
+                    .addGap(0, 1917, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel2Layout.setVerticalGroup(
                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGap(0, 599, Short.MAX_VALUE)
+                    .addGap(0, 654, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
@@ -1710,11 +1748,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 Contenedor.setLayout(ContenedorLayout);
                 ContenedorLayout.setHorizontalGroup(
                     ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGap(0, 1726, Short.MAX_VALUE)
+                    .addGap(0, 1917, Short.MAX_VALUE)
                 );
                 ContenedorLayout.setVerticalGroup(
                     ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGap(0, 599, Short.MAX_VALUE)
+                    .addGap(0, 654, Short.MAX_VALUE)
                 );
 
                 javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -2129,6 +2167,30 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel27MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        RSAITTO TTO =new RSAITTO();
+        Contenedor.add(TTO);
+        if(lblGenero.getText().equals("F")){
+            TTO.lblNina.setText(txtPaciente.getText());
+            TTO.lblNina.setVisible(true);
+            TTO.lblNino.setVisible(false);
+        } else {
+            TTO.lblNino.setText(txtPaciente.getText());
+            TTO.lblNino.setVisible(true);
+            TTO.lblNina.setVisible(false);
+        }
+//        ConsultorioExtRsTtoAntiparasitario Tto1 = new ConsultorioExtRsTtoAntiparasitario();
+//        Tto1.c(id);
+       
+//        RSAITN.lblId.setText(String.valueOf(id));
+        try {
+            TTO.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     /**
      * @param args the command line arguments

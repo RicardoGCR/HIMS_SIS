@@ -37,6 +37,7 @@ byte tg;
         QuitarLaBarraTitulo();
         habilitarDatos(false);
         mensaje1.setVisible(false);
+        Botones(false);
     }
     public void QuitarLaBarraTitulo()
     { 
@@ -47,7 +48,7 @@ byte tg;
     repaint(); 
     }
     
-     public void habilitarDatos(boolean opcion){
+    public void habilitarDatos(boolean opcion){
         FDD7.setEnabled(opcion);
         FDD8.setEnabled(opcion);
         FDD9.setEnabled(opcion);
@@ -57,16 +58,22 @@ byte tg;
         FUADD8.setEnabled(opcion);
         FUADD9.setEnabled(opcion);
         FUADD10.setEnabled(opcion);
-     }
+    }
      
-      public void habilitarRadio(boolean opcion){
+    public void habilitarRadio(boolean opcion){
         RDD1.setEnabled(opcion);  
         RDD2.setEnabled(opcion);  
         RDD3.setEnabled(opcion);  
         RDD4.setEnabled(opcion);  
-      }
+    }
       
-      public void validaRegistro(int rs_id){
+    public void Botones(boolean opcion){
+        btnGuardar.setEnabled(opcion);
+        btnEditar.setEnabled(opcion);
+        btnCancelar.setEnabled(opcion);
+    }
+    
+    public void validaRegistro(int rs_id){
         try {
             PreparedStatement cmd = TN01.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_TAMIZAJE_NEONATAL WHERE RS_ID ='"+rs_id+"'");
             ResultSet res = cmd.executeQuery();
@@ -771,7 +778,7 @@ byte tg;
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         habilitarRadio(true);
         habilitarDatos(false);
-
+        Botones(false);
         fua.setText("");
         fecha.setDate(null);
     }//GEN-LAST:event_btnCancelarActionPerformed
@@ -800,6 +807,7 @@ byte tg;
             if(RDD1.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FDD7.setEnabled(true);
                 fecha=FDD7;
                 fua = FUADD7;
@@ -815,6 +823,7 @@ byte tg;
             if(RDD2.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FDD8.setEnabled(true);
                 fecha=FDD8;
                 fua = FUADD8;
@@ -829,6 +838,7 @@ byte tg;
             if(RDD3.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FDD9.setEnabled(true);
                 fecha=FDD9;
                 fua = FUADD9;
@@ -843,6 +853,7 @@ byte tg;
             if(RDD4.isSelected()){
                 habilitarDatos(false);
                 habilitarRadio(false);
+                Botones(true);
                 FDD10.setEnabled(true);
                 fecha=FDD10;
                 fua = FUADD10;

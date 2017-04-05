@@ -4678,6 +4678,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+        
         RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
         ConsultorioExtRsCcd ccd = new ConsultorioExtRsCcd();
         ccd.porcentajeCCD(Integer.parseInt(lblId.getText()));

@@ -12,7 +12,10 @@ import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RSAIDN;
@@ -123,84 +126,84 @@ public class ConsultorioExtRsDiagnosticoNutricional implements Serializable {
                 }
                 
                 try {
-                    if(r.getString(13).equals("")){
+                    if(r.getString(15).equals("")){
                         RSAIDN.FDN5.setDate(null);
                     } else {
-                        String fechaSeleccionadaN5 = (String)(r.getString(13));
+                        String fechaSeleccionadaN5 = (String)(r.getString(15));
                         DateFormat dfoN5 = new SimpleDateFormat("dd/MM/yyyy");
                         Date fechaN5 = dfoN5.parse(fechaSeleccionadaN5);
                         RSAIDN.FDN5.setDate(fechaN5);
-                        RSAIDN.DXDN5.setText(r.getString(14));
-                        RSAIDN.FUADN5.setText(r.getString(15));
+                        RSAIDN.DXDN5.setText(r.getString(16));
+                        RSAIDN.FUADN5.setText(r.getString(17));
                     }
                 } catch (Exception e) {
                 }
                 
                 try {
-                    if(r.getString(14).equals("")){
+                    if(r.getString(18).equals("")){
                         RSAIDN.FDN6.setDate(null);
                     } else {
-                        String fechaSeleccionadaN6 = (String)(r.getString(14));
+                        String fechaSeleccionadaN6 = (String)(r.getString(18));
                         DateFormat dfoN6 = new SimpleDateFormat("dd/MM/yyyy");
                         Date fechaN6 = dfoN6.parse(fechaSeleccionadaN6);
                         RSAIDN.FDN6.setDate(fechaN6);
-                        RSAIDN.DXDN6.setText(r.getString(15));
-                        RSAIDN.FUADN6.setText(r.getString(16));
+                        RSAIDN.DXDN6.setText(r.getString(19));
+                        RSAIDN.FUADN6.setText(r.getString(20));
                     }
                 } catch (Exception e) {
                 }
                 try {
-                    if(r.getString(17).equals("")){
+                    if(r.getString(21).equals("")){
                         RSAIDN.FDN7.setDate(null);
                     } else {
-                        String fechaSeleccionadaN7 = (String)(r.getString(17));
+                        String fechaSeleccionadaN7 = (String)(r.getString(21));
                         DateFormat dfoN7 = new SimpleDateFormat("dd/MM/yyyy");
                         Date fechaN7 = dfoN7.parse(fechaSeleccionadaN7);
                         RSAIDN.FDN7.setDate(fechaN7);
-                        RSAIDN.DXDN7.setText(r.getString(18));
-                        RSAIDN.FUADN7.setText(r.getString(19));
+                        RSAIDN.DXDN7.setText(r.getString(22));
+                        RSAIDN.FUADN7.setText(r.getString(23));
                     }
                 } catch (Exception e) {
                 }
                 
                 try {
-                    if(r.getString(20).equals("")){
+                    if(r.getString(24).equals("")){
                         RSAIDN.FDN8.setDate(null);
                     } else {
-                        String fechaSeleccionadaN8 = (String)(r.getString(20));
+                        String fechaSeleccionadaN8 = (String)(r.getString(24));
                         DateFormat dfoN8 = new SimpleDateFormat("dd/MM/yyyy");
                         Date fechaN8 = dfoN8.parse(fechaSeleccionadaN8);
                         RSAIDN.FDN8.setDate(fechaN8);
-                        RSAIDN.DXDN8.setText(r.getString(21));
-                        RSAIDN.FUADN8.setText(r.getString(22));
+                        RSAIDN.DXDN8.setText(r.getString(25));
+                        RSAIDN.FUADN8.setText(r.getString(26));
                     }
                 } catch (Exception e) {
                 }
                 
                 try {
-                    if(r.getString(23).equals("")){
+                    if(r.getString(27).equals("")){
                         RSAIDN.FDN9.setDate(null);
                     } else {
-                        String fechaSeleccionadaN9 = (String)(r.getString(23));
+                        String fechaSeleccionadaN9 = (String)(r.getString(27));
                         DateFormat dfoN9 = new SimpleDateFormat("dd/MM/yyyy");
                         Date fechaN9 = dfoN9.parse(fechaSeleccionadaN9);
                         RSAIDN.FDN9.setDate(fechaN9);
-                        RSAIDN.DXDN9.setText(r.getString(24));
-                        RSAIDN.FUADN9.setText(r.getString(25));
+                        RSAIDN.DXDN9.setText(r.getString(28));
+                        RSAIDN.FUADN9.setText(r.getString(29));
                     }
                 } catch (Exception e) {
                 }
                 
                 try {
-                    if(r.getString(26).equals("")){
+                    if(r.getString(30).equals("")){
                         RSAIDN.FDN10.setDate(null);
                     } else {
-                        String fechaSeleccionadaN10 = (String)(r.getString(26));
+                        String fechaSeleccionadaN10 = (String)(r.getString(30));
                         DateFormat dfoN10 = new SimpleDateFormat("dd/MM/yyyy");
                         Date fechaN10 = dfoN10.parse(fechaSeleccionadaN10);
                         RSAIDN.FDN10.setDate(fechaN10);
-                        RSAIDN.DXDN10.setText(r.getString(27));
-                        RSAIDN.FUADN10.setText(r.getString(28));
+                        RSAIDN.DXDN10.setText(r.getString(31));
+                        RSAIDN.FUADN10.setText(r.getString(32));
                     }
                 } catch (Exception e) {
                 }
@@ -279,7 +282,7 @@ public class ConsultorioExtRsDiagnosticoNutricional implements Serializable {
     public void porcentajeDN(int rs_id){
         String consulta="";
         try {
-            consulta="EXEC CONSULTORIO_EX_RS_DIAGNOSTICO_NUTRICIONAL_PORCENTAJE ?";
+            consulta="EXEC CONSULTORIO_EXT_RS_DIAGNOSTICO_NUTRICIONAL_PORCENTAJE ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setInt(1, rs_id);
             ResultSet r= cmd.executeQuery();
@@ -292,6 +295,44 @@ public class ConsultorioExtRsDiagnosticoNutricional implements Serializable {
             System.out.println("Error: porcentajeDN " + e.getMessage());
         }
     }  
+    
+    public void cargarDatosCie10(String descripcion,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Nro","Código","Diagnóstico"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[3];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CIE10_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, descripcion);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // clasificacion
+                fila[1]=r.getString(2); //codigo
+                fila[2]=r.getString(3); //codigo
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaCargarCie10(tabla);
+        } catch (Exception e) {
+            System.out.println("Error_cargarDatosCie10: " + e.getMessage());
+        }
+    }
+     public void formatoTablaCargarCie10(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//CODIGO
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);//CODIGO
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(500);//CODIGO
+        tabla.setRowHeight(30);
+    }
+
       
     public ConsultorioExtRsDiagnosticoNutricional() {
         Conexion con = new Conexion();

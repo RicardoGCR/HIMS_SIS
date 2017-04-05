@@ -1694,7 +1694,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSiActionPerformed
 
     private void btnNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoActionPerformed
-     
         pnlMensaje.setVisible(false);
     }//GEN-LAST:event_btnNoActionPerformed
 

@@ -83,7 +83,11 @@
                           <Component id="ANIOS_6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="ANIOS_7" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <EmptySpace max="-2" attributes="0"/>
+=======
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+>>>>>>> b779200c2b5c84ef8e9889afbdd25221ba43e204
                           <Component id="ANIOS_8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">

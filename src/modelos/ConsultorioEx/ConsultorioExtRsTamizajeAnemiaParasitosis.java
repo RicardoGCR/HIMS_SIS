@@ -5,6 +5,8 @@
  */
 package modelos.ConsultorioEx;
 
+import com.lowagie.text.Table;
+import groovy.xml.Entity;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,132 +14,48 @@ import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RSAITAPTG;
-
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_TAMIZAJE_ANEMIA_PARASITOSIS")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findAll", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByTaId", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.taId = :taId"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByAnemia6mFecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.anemia6mFecha = :anemia6mFecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByAnemia6mFua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.anemia6mFua = :anemia6mFua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByAnemia1Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.anemia1Fecha = :anemia1Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByAnemia1Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.anemia1Fua = :anemia1Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByAnemia2Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.anemia2Fecha = :anemia2Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByAnemia2Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.anemia2Fua = :anemia2Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByAnemia3Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.anemia3Fecha = :anemia3Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByAnemia3Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.anemia3Fua = :anemia3Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByAnemia4Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.anemia4Fecha = :anemia4Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByAnemia4Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.anemia4Fua = :anemia4Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByAnemia11Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.anemia11Fecha = :anemia11Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByAnemia11Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.anemia11Fua = :anemia11Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByParasit1Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.parasit1Fecha = :parasit1Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByParasit1Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.parasit1Fua = :parasit1Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByParasit2Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.parasit2Fecha = :parasit2Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByParasit2Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.parasit2Fua = :parasit2Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByParasit3Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.parasit3Fecha = :parasit3Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByParasit3Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.parasit3Fua = :parasit3Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByParasit4Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.parasit4Fecha = :parasit4Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByParasit4Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.parasit4Fua = :parasit4Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByParasit11Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.parasit11Fecha = :parasit11Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByParasit11Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.parasit11Fua = :parasit11Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByTest1Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.test1Fecha = :test1Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByTest1Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.test1Fua = :test1Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByTest2Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.test2Fecha = :test2Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByTest2Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.test2Fua = :test2Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByTest3Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.test3Fecha = :test3Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByTest3Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.test3Fua = :test3Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByTest4Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.test4Fecha = :test4Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByTest4Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.test4Fua = :test4Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByTest11Fecha", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.test11Fecha = :test11Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTamizajeAnemiaParasitosis.findByTest11Fua", query = "SELECT c FROM ConsultorioExtRsTamizajeAnemiaParasitosis c WHERE c.test11Fua = :test11Fua")})
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeTAP;
 public class ConsultorioExtRsTamizajeAnemiaParasitosis implements Serializable {
     private static final long serialVersionUID = 1L;
     
     Conexion con = new Conexion();
     private Connection cn;
     private int rs_id;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "TA_ID")
     private Long taId;
-    @Column(name = "ANEMIA6M_FECHA")
     private String anemia6mFecha;
-    @Column(name = "ANEMIA6M_FUA")
     private String anemia6mFua;
-    @Column(name = "ANEMIA1_FECHA")
     private String anemia1Fecha;
-    @Column(name = "ANEMIA1_FUA")
     private String anemia1Fua;
-    @Column(name = "ANEMIA2_FECHA")
     private String anemia2Fecha;
-    @Column(name = "ANEMIA2_FUA")
     private String anemia2Fua;
-    @Column(name = "ANEMIA3_FECHA")
     private String anemia3Fecha;
-    @Column(name = "ANEMIA3_FUA")
     private String anemia3Fua;
-    @Column(name = "ANEMIA4_FECHA")
     private String anemia4Fecha;
-    @Column(name = "ANEMIA4_FUA")
     private String anemia4Fua;
-    @Column(name = "ANEMIA11_FECHA")
     private String anemia11Fecha;
-    @Column(name = "ANEMIA11_FUA")
     private String anemia11Fua;
-    @Column(name = "PARASIT1_FECHA")
     private String parasit1Fecha;
-    @Column(name = "PARASIT1_FUA")
     private String parasit1Fua;
-    @Column(name = "PARASIT2_FECHA")
     private String parasit2Fecha;
-    @Column(name = "PARASIT2_FUA")
     private String parasit2Fua;
-    @Column(name = "PARASIT3_FECHA")
     private String parasit3Fecha;
-    @Column(name = "PARASIT3_FUA")
     private String parasit3Fua;
-    @Column(name = "PARASIT4_FECHA")
     private String parasit4Fecha;
-    @Column(name = "PARASIT4_FUA")
     private String parasit4Fua;
-    @Column(name = "PARASIT11_FECHA")
     private String parasit11Fecha;
-    @Column(name = "PARASIT11_FUA")
     private String parasit11Fua;
-    @Column(name = "TEST1_FECHA")
     private String test1Fecha;
-    @Column(name = "TEST1_FUA")
     private String test1Fua;
-    @Column(name = "TEST2_FECHA")
     private String test2Fecha;
-    @Column(name = "TEST2_FUA")
     private String test2Fua;
-    @Column(name = "TEST3_FECHA")
     private String test3Fecha;
-    @Column(name = "TEST3_FUA")
     private String test3Fua;
-    @Column(name = "TEST4_FECHA")
     private String test4Fecha;
-    @Column(name = "TEST4_FUA")
     private String test4Fua;
-    @Column(name = "TEST11_FECHA")
     private String test11Fecha;
-    @Column(name = "TEST11_FUA")
     private String test11Fua;
     
     public void ConsultoriosExtTAListar(int rs_id){
@@ -454,6 +372,22 @@ public class ConsultorioExtRsTamizajeAnemiaParasitosis implements Serializable {
         return resp;
     }
     
+    public void porcentajeTAP(int rs_id){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EXT_RS_TAMIZAJE_ANEMIA_PARASITOSIS_PORCENTAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblPorcentajeTAP.setText(r.getString(1) + " %"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeDN " + e.getMessage());
+        }
+    }  
 
     public ConsultorioExtRsTamizajeAnemiaParasitosis() {
         Conexion con = new Conexion();

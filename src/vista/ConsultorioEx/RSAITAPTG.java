@@ -28,7 +28,6 @@ byte tg;
 byte tge;
 JDateChooser fecha;
 JTextField fua;
-JLabel cie10;
 ConsultorioExtRsTamizajeAnemiaParasitosis TA01 = new ConsultorioExtRsTamizajeAnemiaParasitosis();
     /**
      * Creates new form RSAITAPTG
@@ -38,6 +37,7 @@ ConsultorioExtRsTamizajeAnemiaParasitosis TA01 = new ConsultorioExtRsTamizajeAne
         QuitarLaBarraTitulo();
         habilitarCampos(false);
         habilitarCampos(false);
+        Botones(false);
         mensaje.setVisible(false);
     }
 public void QuitarLaBarraTitulo()
@@ -90,13 +90,6 @@ public void QuitarLaBarraTitulo()
  
     }
     
-    public void Botones(boolean opcion){
-        btnGuardar.setEnabled(opcion);
-        btnEditar.setEnabled(opcion);
-        btnCancelar.setEnabled(opcion);
-    }
-    
-    
     public void habilitarRadio(boolean opcion){
         //ANEMIA
         RDD1.setEnabled(opcion);  
@@ -116,6 +109,13 @@ public void QuitarLaBarraTitulo()
         RDD15.setEnabled(opcion); 
         RDD16.setEnabled(opcion); 
     }
+    
+    public void Botones(boolean opcion){
+        btnGuardar.setEnabled(opcion);
+        btnEditar.setEnabled(opcion);
+        btnCancelar.setEnabled(opcion);
+    }
+    
     public String determinarFecha(JDateChooser calendario){
          
         String fecha = "";
@@ -249,6 +249,7 @@ public void QuitarLaBarraTitulo()
                 mensaje.setVisible(true);
                 mensaje.setBackground(new Color(33,115,70)); 
                 men.setText("Datos Guardados de forma correcta");
+                Botones(false);
                 b.setText("OK");
                 b.setVisible(true);
                 b1.setVisible(false);
@@ -375,6 +376,7 @@ public void QuitarLaBarraTitulo()
                 mensaje.setVisible(true);
                 mensaje.setBackground(new Color(33,115,70)); 
                 men.setText("Datos Actualizados de forma correcta");
+                Botones(false);
                 b.setText("OK");
                 b.setVisible(true);
                 b1.setVisible(false);
@@ -430,10 +432,6 @@ public void QuitarLaBarraTitulo()
         jPanel29 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         LEYENDA = new javax.swing.JPanel();
-        jPanel72 = new javax.swing.JPanel();
-        jPanel73 = new javax.swing.JPanel();
-        jLabel65 = new javax.swing.JLabel();
-        jPanel74 = new javax.swing.JPanel();
         jLabel63 = new javax.swing.JLabel();
         CCDM12 = new javax.swing.JPanel();
         jPanel81 = new javax.swing.JPanel();
@@ -529,15 +527,17 @@ public void QuitarLaBarraTitulo()
         jPanel28.setBackground(new java.awt.Color(39, 174, 97));
         jPanel28.setPreferredSize(new java.awt.Dimension(83, 45));
 
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("TAMIZAJE DE ANEMIA PARASITOSIS Y TES DE GRAHAM");
+        jLabel17.setText("Tamizaje De Anemia Parasitosis Y Test De Graham");
 
         jPanel29.setBackground(new java.awt.Color(45, 204, 112));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Izquierda Filled-30.png"))); // NOI18N
+        jLabel20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel20MouseClicked(evt);
@@ -548,17 +548,11 @@ public void QuitarLaBarraTitulo()
         jPanel29.setLayout(jPanel29Layout);
         jPanel29Layout.setHorizontalGroup(
             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel20)
-                .addContainerGap())
+            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
         jPanel29Layout.setVerticalGroup(
             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel29Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jLabel20)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
@@ -573,63 +567,11 @@ public void QuitarLaBarraTitulo()
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel28Layout.createSequentialGroup()
-                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
         );
 
-        LEYENDA.setBackground(new java.awt.Color(204, 204, 204));
-
-        jPanel72.setBackground(new java.awt.Color(153, 153, 153));
-
-        javax.swing.GroupLayout jPanel72Layout = new javax.swing.GroupLayout(jPanel72);
-        jPanel72.setLayout(jPanel72Layout);
-        jPanel72Layout.setHorizontalGroup(
-            jPanel72Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel72Layout.setVerticalGroup(
-            jPanel72Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
-
-        jPanel73.setBackground(new java.awt.Color(153, 153, 153));
-
-        jLabel65.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel65.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel65.setText("AÑOS");
-
-        javax.swing.GroupLayout jPanel73Layout = new javax.swing.GroupLayout(jPanel73);
-        jPanel73.setLayout(jPanel73Layout);
-        jPanel73Layout.setHorizontalGroup(
-            jPanel73Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel73Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel73Layout.setVerticalGroup(
-            jPanel73Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel73Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel65)
-                .addContainerGap())
-        );
-
-        jPanel74.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout jPanel74Layout = new javax.swing.GroupLayout(jPanel74);
-        jPanel74.setLayout(jPanel74Layout);
-        jPanel74Layout.setHorizontalGroup(
-            jPanel74Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 107, Short.MAX_VALUE)
-        );
-        jPanel74Layout.setVerticalGroup(
-            jPanel74Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 14, Short.MAX_VALUE)
-        );
+        LEYENDA.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel63.setForeground(new java.awt.Color(255, 255, 255));
@@ -639,25 +581,16 @@ public void QuitarLaBarraTitulo()
         LEYENDA.setLayout(LEYENDALayout);
         LEYENDALayout.setHorizontalGroup(
             LEYENDALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(LEYENDALayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel74, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jPanel73, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 28, Short.MAX_VALUE))
         );
         LEYENDALayout.setVerticalGroup(
             LEYENDALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LEYENDALayout.createSequentialGroup()
-                .addComponent(jPanel72, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel73, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(LEYENDALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel74, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -959,10 +892,10 @@ public void QuitarLaBarraTitulo()
                             .addComponent(TNFUAA5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
 
-        jPanel75.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel75.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel66.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel66.setForeground(new java.awt.Color(102, 102, 102));
         jLabel66.setText("PARASITOSIS");
 
         javax.swing.GroupLayout jPanel75Layout = new javax.swing.GroupLayout(jPanel75);
@@ -982,7 +915,7 @@ public void QuitarLaBarraTitulo()
                 .addGap(22, 22, 22))
         );
 
-        jPanel76.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel76.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel67.setForeground(new java.awt.Color(255, 255, 255));
@@ -1031,16 +964,16 @@ public void QuitarLaBarraTitulo()
 
         CCDM15.setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanel99.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel99.setBackground(new java.awt.Color(204, 204, 204));
 
         TNFP1.setBackground(new java.awt.Color(255, 255, 255));
         TNFP1.setDateFormatString("dd/MM/yyyy");
         TNFP1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        RDD7.setBackground(new java.awt.Color(153, 153, 153));
+        RDD7.setBackground(new java.awt.Color(204, 204, 204));
         buttonGroup1.add(RDD7);
         RDD7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        RDD7.setForeground(new java.awt.Color(255, 255, 255));
+        RDD7.setForeground(new java.awt.Color(102, 102, 102));
         RDD7.setText("1 AÑO");
         RDD7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1066,16 +999,16 @@ public void QuitarLaBarraTitulo()
                 .addComponent(TNFP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel100.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel100.setBackground(new java.awt.Color(204, 204, 204));
 
         TNFP2.setBackground(new java.awt.Color(255, 255, 255));
         TNFP2.setDateFormatString("dd/MM/yyyy");
         TNFP2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        RDD8.setBackground(new java.awt.Color(153, 153, 153));
+        RDD8.setBackground(new java.awt.Color(204, 204, 204));
         buttonGroup1.add(RDD8);
         RDD8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        RDD8.setForeground(new java.awt.Color(255, 255, 255));
+        RDD8.setForeground(new java.awt.Color(102, 102, 102));
         RDD8.setText("2 AÑOS");
         RDD8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1103,16 +1036,16 @@ public void QuitarLaBarraTitulo()
                 .addComponent(TNFP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel101.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel101.setBackground(new java.awt.Color(204, 204, 204));
 
         TNFP3.setBackground(new java.awt.Color(255, 255, 255));
         TNFP3.setDateFormatString("dd/MM/yyyy");
         TNFP3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        RDD9.setBackground(new java.awt.Color(153, 153, 153));
+        RDD9.setBackground(new java.awt.Color(204, 204, 204));
         buttonGroup1.add(RDD9);
         RDD9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        RDD9.setForeground(new java.awt.Color(255, 255, 255));
+        RDD9.setForeground(new java.awt.Color(102, 102, 102));
         RDD9.setText("3 AÑOS");
         RDD9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1144,16 +1077,16 @@ public void QuitarLaBarraTitulo()
             }
         });
 
-        jPanel102.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel102.setBackground(new java.awt.Color(204, 204, 204));
 
         TNFP4.setBackground(new java.awt.Color(255, 255, 255));
         TNFP4.setDateFormatString("dd/MM/yyyy");
         TNFP4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        RDD10.setBackground(new java.awt.Color(153, 153, 153));
+        RDD10.setBackground(new java.awt.Color(204, 204, 204));
         buttonGroup1.add(RDD10);
         RDD10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        RDD10.setForeground(new java.awt.Color(255, 255, 255));
+        RDD10.setForeground(new java.awt.Color(102, 102, 102));
         RDD10.setText("4 AÑOS");
         RDD10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1179,16 +1112,16 @@ public void QuitarLaBarraTitulo()
                 .addComponent(TNFP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel103.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel103.setBackground(new java.awt.Color(204, 204, 204));
 
         TNFP5.setBackground(new java.awt.Color(255, 255, 255));
         TNFP5.setDateFormatString("dd/MM/yyyy");
         TNFP5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        RDD11.setBackground(new java.awt.Color(153, 153, 153));
+        RDD11.setBackground(new java.awt.Color(204, 204, 204));
         buttonGroup1.add(RDD11);
         RDD11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        RDD11.setForeground(new java.awt.Color(255, 255, 255));
+        RDD11.setForeground(new java.awt.Color(102, 102, 102));
         RDD11.setText("1 - 11 AÑOS");
         RDD11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1609,7 +1542,7 @@ public void QuitarLaBarraTitulo()
                 .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(895, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mensajeLayout.setVerticalGroup(
             mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1629,8 +1562,7 @@ public void QuitarLaBarraTitulo()
             .addGroup(OpcionesLayout.createSequentialGroup()
                 .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         OpcionesLayout.setVerticalGroup(
             OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1644,7 +1576,7 @@ public void QuitarLaBarraTitulo()
         CCD.setLayout(CCDLayout);
         CCDLayout.setHorizontalGroup(
             CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 1769, Short.MAX_VALUE)
+            .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 1417, Short.MAX_VALUE)
             .addGroup(CCDLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1658,7 +1590,7 @@ public void QuitarLaBarraTitulo()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(CCDLayout.createSequentialGroup()
-                            .addComponent(LEYENDA, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LEYENDA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
                             .addComponent(CCDM12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(CCDLayout.createSequentialGroup()
@@ -1666,13 +1598,13 @@ public void QuitarLaBarraTitulo()
                             .addGap(0, 0, 0)
                             .addComponent(CCDM15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addComponent(lblId))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(545, Short.MAX_VALUE))
             .addComponent(Opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         CCDLayout.setVerticalGroup(
             CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CCDLayout.createSequentialGroup()
-                .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNina)
@@ -1680,7 +1612,7 @@ public void QuitarLaBarraTitulo()
                 .addGap(18, 18, 18)
                 .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(CCDM12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LEYENDA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(LEYENDA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
                 .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(CCDM15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1691,7 +1623,7 @@ public void QuitarLaBarraTitulo()
                     .addComponent(jPanel76, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(lblId)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(Opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -1699,7 +1631,7 @@ public void QuitarLaBarraTitulo()
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1769, Short.MAX_VALUE)
+            .addGap(0, 1417, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(CCD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1715,6 +1647,8 @@ public void QuitarLaBarraTitulo()
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
+        ConsultorioExtRsTamizajeAnemiaParasitosis tAnemia = new ConsultorioExtRsTamizajeAnemiaParasitosis();
+        tAnemia.porcentajeTAP(Integer.parseInt(lblId.getText()));
         this.dispose();
     }//GEN-LAST:event_jLabel20MouseClicked
 
@@ -1739,68 +1673,244 @@ public void QuitarLaBarraTitulo()
     }//GEN-LAST:event_TNFUAT3ActionPerformed
 
     private void RDD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD1ActionPerformed
-        
+        if(TNFA1.getDate()==null){
+            if(RDD1.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFA1.setEnabled(true);
+                fecha=TNFA1;
+                fua = TNFUAA1;
+            }
+        } else {
+            RDD1.setEnabled(false);
+        }
 
     }//GEN-LAST:event_RDD1ActionPerformed
 
     private void RDD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD2ActionPerformed
-        // TODO add your handling code here:
+        if(TNFA2.getDate()==null){
+            if(RDD2.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFA2.setEnabled(true);
+                fecha=TNFA2;
+                fua = TNFUAA2;
+            }
+        } else {
+            RDD2.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD2ActionPerformed
 
     private void RDD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD3ActionPerformed
-        // TODO add your handling code here:
+       if(TNFA3.getDate()==null){
+            if(RDD3.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFA3.setEnabled(true);
+                fecha=TNFA3;
+                fua = TNFUAA3;
+            }
+        } else {
+            RDD3.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD3ActionPerformed
 
     private void RDD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD4ActionPerformed
-        // TODO add your handling code here:
+        if(TNFA4.getDate()==null){
+            if(RDD4.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFA4.setEnabled(true);
+                fecha=TNFA4;
+                fua = TNFUAA4;
+            }
+        } else {
+            RDD4.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD4ActionPerformed
 
     private void RDD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD5ActionPerformed
-        // TODO add your handling code here:
+        if(TNFA5.getDate()==null){
+            if(RDD5.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFA5.setEnabled(true);
+                fecha=TNFA5;
+                fua = TNFUAA5;
+            }
+        } else {
+            RDD5.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD5ActionPerformed
 
     private void RDD6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD6ActionPerformed
-        // TODO add your handling code here:
+       if(TNFA6.getDate()==null){
+            if(RDD6.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFA6.setEnabled(true);
+                fecha=TNFA6;
+                fua = TNFUAA6;
+            }
+        } else {
+            RDD6.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD6ActionPerformed
 
     private void RDD7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD7ActionPerformed
-        // TODO add your handling code here:
+        if(TNFP1.getDate()==null){
+            if(RDD7.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFP1.setEnabled(true);
+                fecha=TNFP1;
+                fua = TNFUAP1;
+            }
+        } else {
+            RDD7.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD7ActionPerformed
 
     private void RDD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD8ActionPerformed
-        // TODO add your handling code here:
+       if(TNFP2.getDate()==null){
+            if(RDD8.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFP2.setEnabled(true);
+                fecha=TNFP2;
+                fua = TNFUAP2;
+            }
+        } else {
+            RDD8.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD8ActionPerformed
 
     private void RDD9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD9ActionPerformed
-        // TODO add your handling code here:
+        if(TNFP3.getDate()==null){
+            if(RDD9.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFP3.setEnabled(true);
+                fecha=TNFP3;
+                fua = TNFUAP3;
+            }
+        } else {
+            RDD9.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD9ActionPerformed
 
     private void RDD10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD10ActionPerformed
-        // TODO add your handling code here:
+        if(TNFP4.getDate()==null){
+            if(RDD10.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFP4.setEnabled(true);
+                fecha=TNFP4;
+                fua = TNFUAP4;
+            }
+        } else {
+            RDD10.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD10ActionPerformed
 
     private void RDD11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD11ActionPerformed
-        // TODO add your handling code here:
+        if(TNFP5.getDate()==null){
+            if(RDD11.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFP5.setEnabled(true);
+                fecha=TNFP5;
+                fua = TNFUAP5;
+            }
+        } else {
+            RDD11.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD11ActionPerformed
 
     private void RDD12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD12ActionPerformed
-        // TODO add your handling code here:
+        if(TNFT1.getDate()==null){
+            if(RDD12.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFT1.setEnabled(true);
+                fecha=TNFT1;
+                fua = TNFUAT1;
+            }
+        } else {
+            RDD12.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD12ActionPerformed
 
     private void RDD13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD13ActionPerformed
-        // TODO add your handling code here:
+        if(TNFT2.getDate()==null){
+            if(RDD13.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFT2.setEnabled(true);
+                fecha=TNFT2;
+                fua = TNFUAT2;
+            }
+        } else {
+            RDD13.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD13ActionPerformed
 
     private void RDD14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD14ActionPerformed
-        // TODO add your handling code here:
+        if(TNFT3.getDate()==null){
+            if(RDD14.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFT3.setEnabled(true);
+                fecha=TNFT3;
+                fua = TNFUAT3;
+            }
+        } else {
+            RDD14.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD14ActionPerformed
 
     private void RDD15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD15ActionPerformed
-        // TODO add your handling code here:
+        if(TNFT4.getDate()==null){
+            if(RDD15.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFT4.setEnabled(true);
+                fecha=TNFT4;
+                fua = TNFUAT4;
+            }
+        } else {
+            RDD15.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD15ActionPerformed
 
     private void RDD16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RDD16ActionPerformed
-        // TODO add your handling code here:
+        if(TNFT5.getDate()==null){
+            if(RDD16.isSelected()){
+                habilitarCampos(false);
+                habilitarRadio(false);
+                Botones(true);
+                TNFT5.setEnabled(true);
+                fecha=TNFT5;
+                fua = TNFUAT5;
+            }
+        } else {
+            RDD16.setEnabled(false);
+        }
     }//GEN-LAST:event_RDD16ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -1808,17 +1918,7 @@ public void QuitarLaBarraTitulo()
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        if(cie10.getText()!=""){
-            validaRegistro(Integer.parseInt(lblId.getText()));
-        } else{
-            fecha.setEnabled(true);
-            //fua.setEnabled(true);
-            mensaje.setVisible(true);
-            mensaje.setBackground(new Color(255,91,70));
-            men.setText("Seleccione el diagnóstico");
-            b.setVisible(false);
-            b1.setVisible(false);
-        }
+        validaRegistro(Integer.parseInt(lblId.getText()));
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -1826,7 +1926,6 @@ public void QuitarLaBarraTitulo()
         habilitarCampos(false);
         Botones(false);
         fua.setText("");
-        cie10.setText("");
         fecha.setDate(null);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -1914,7 +2013,6 @@ public void QuitarLaBarraTitulo()
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel72;
@@ -1930,9 +2028,6 @@ public void QuitarLaBarraTitulo()
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel30;
-    private javax.swing.JPanel jPanel72;
-    private javax.swing.JPanel jPanel73;
-    private javax.swing.JPanel jPanel74;
     private javax.swing.JPanel jPanel75;
     private javax.swing.JPanel jPanel76;
     private javax.swing.JPanel jPanel81;
@@ -1943,7 +2038,7 @@ public void QuitarLaBarraTitulo()
     private javax.swing.JPanel jPanel86;
     private javax.swing.JPanel jPanel87;
     private javax.swing.JPanel jPanel99;
-    private javax.swing.JLabel lblId;
+    public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
     private javax.swing.JLabel men;

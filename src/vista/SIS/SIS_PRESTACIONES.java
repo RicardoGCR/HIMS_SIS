@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,6 +23,9 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 import modelos.SIS.SIS_CLS_PRESTACIONES;
+import modelos.SIS.SIS_CLS_PRESTACION_DESTINO;
+import modelos.Usuario;
+import static vista.SIS.SIS_PRESTACION_DESTINO.lblUsu;
 
 /**
  *
@@ -35,7 +39,7 @@ Calendar calendario;
 Thread h1;
 ResultSet r;
 CallableStatement cst;
-DefaultTableModel m, modelo1, modelo2;
+DefaultTableModel m, modelo1, modelo2, m3, m2;
     /**
      * Creates new form SIS_PRESTACIONES
      */
@@ -44,8 +48,10 @@ DefaultTableModel m, modelo1, modelo2;
         con=conectar.conectar();
         setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
+        BUSCAR_PRESTACION.setLocationRelativeTo(null);
+        BUSCAR_PRESTACION.getContentPane().setBackground(Color.white);
         deshabilitar();
-        txtGM.setVisible(false);
+        //txtGM.setVisible(false);
         
         
         //FECHA Y HORA
@@ -62,6 +68,9 @@ DefaultTableModel m, modelo1, modelo2;
         }
         
         cargarPrestacion();
+        cargarDestinoAsegurado();
+        cargarPrestacionDetalle();
+       
     }
 
     /**
@@ -73,6 +82,13 @@ DefaultTableModel m, modelo1, modelo2;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BUSCAR_PRESTACION = new javax.swing.JDialog();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        txtBuscarPres = new javax.swing.JTextField();
+        btn_BuscarDX = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tb_presta = new javax.swing.JTable();
         jpanel = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -115,13 +131,28 @@ DefaultTableModel m, modelo1, modelo2;
         jLabel23 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JEditorPane();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tbDetalle_Pres_Destino = new javax.swing.JTable();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tb_destino = new javax.swing.JTable();
+        jLabel24 = new javax.swing.JLabel();
+        btncargar = new javax.swing.JButton();
+        btnQuitar = new javax.swing.JButton();
+        txtNumeroPrestacion = new javax.swing.JTextField();
+        btnBuscarPrestacion1 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txtDescrip = new javax.swing.JEditorPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtBuscarPrestacion = new javax.swing.JTextField();
         btnBuscarPrestacion = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        jScrollPane7 = new javax.swing.JScrollPane();
         tb_Pres = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -130,6 +161,108 @@ DefaultTableModel m, modelo1, modelo2;
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+
+        BUSCAR_PRESTACION.setMinimumSize(new java.awt.Dimension(530, 360));
+
+        jLabel27.setFont(new java.awt.Font("Palatino Linotype", 1, 17)); // NOI18N
+        jLabel27.setText("BUSQUEDA");
+
+        jLabel28.setText("Buscar por número de prestación o descripción:");
+
+        txtBuscarPres.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtBuscarPres.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscarPresCaretUpdate(evt);
+            }
+        });
+        txtBuscarPres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarPresActionPerformed(evt);
+            }
+        });
+        txtBuscarPres.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarPresKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarPresKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscarPresKeyTyped(evt);
+            }
+        });
+
+        btn_BuscarDX.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
+        btn_BuscarDX.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        btn_BuscarDX.setContentAreaFilled(false);
+        btn_BuscarDX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_BuscarDXActionPerformed(evt);
+            }
+        });
+
+        tb_presta = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
+        tb_presta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tb_presta.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tb_presta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tb_prestaKeyPressed(evt);
+            }
+        });
+        jScrollPane6.setViewportView(tb_presta);
+
+        javax.swing.GroupLayout BUSCAR_PRESTACIONLayout = new javax.swing.GroupLayout(BUSCAR_PRESTACION.getContentPane());
+        BUSCAR_PRESTACION.getContentPane().setLayout(BUSCAR_PRESTACIONLayout);
+        BUSCAR_PRESTACIONLayout.setHorizontalGroup(
+            BUSCAR_PRESTACIONLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BUSCAR_PRESTACIONLayout.createSequentialGroup()
+                .addGroup(BUSCAR_PRESTACIONLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BUSCAR_PRESTACIONLayout.createSequentialGroup()
+                        .addGroup(BUSCAR_PRESTACIONLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BUSCAR_PRESTACIONLayout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(jLabel28)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtBuscarPres, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(btn_BuscarDX, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BUSCAR_PRESTACIONLayout.createSequentialGroup()
+                                .addGap(197, 197, 197)
+                                .addComponent(jLabel27)))
+                        .addGap(0, 59, Short.MAX_VALUE))
+                    .addGroup(BUSCAR_PRESTACIONLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane6)))
+                .addContainerGap())
+        );
+        BUSCAR_PRESTACIONLayout.setVerticalGroup(
+            BUSCAR_PRESTACIONLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BUSCAR_PRESTACIONLayout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(BUSCAR_PRESTACIONLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(txtBuscarPres, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_BuscarDX, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -248,7 +381,7 @@ DefaultTableModel m, modelo1, modelo2;
                         .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(293, 293, 293)
+                .addGap(281, 281, 281)
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpanelLayout.createSequentialGroup()
@@ -363,6 +496,15 @@ DefaultTableModel m, modelo1, modelo2;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel8)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addGap(18, 18, 18)
+                                .addComponent(cbxN_Gestante_N_Puerp, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel2)
@@ -371,6 +513,9 @@ DefaultTableModel m, modelo1, modelo2;
                             .addComponent(jLabel6))
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtEdad_Minima, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtNum_Prestacion, javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,14 +528,15 @@ DefaultTableModel m, modelo1, modelo2;
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(cbxSexo_Prestacion, 0, 124, Short.MAX_VALUE)
-                                            .addComponent(txtEdad_Minima)
                                             .addComponent(cbxGestante, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(87, 87, 87)
+                                        .addGap(69, 69, 69)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel19)
-                                            .addComponent(jLabel20))
-                                        .addGap(66, 66, 66)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel20)
+                                            .addComponent(jLabel23)
+                                            .addComponent(jLabel7))
+                                        .addGap(30, 30, 30)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtEdad_Maxima, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addComponent(cbxHospitalizacion_Prestacion, 0, 124, Short.MAX_VALUE)
@@ -399,20 +545,7 @@ DefaultTableModel m, modelo1, modelo2;
                                     .addComponent(cbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtEtapa_Vida, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel8)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addGap(18, 18, 18)
-                                .addComponent(cbxN_Gestante_N_Puerp, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(87, 87, 87)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel23))))
-                        .addContainerGap(222, Short.MAX_VALUE))))
+                                .addContainerGap(77, Short.MAX_VALUE))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -439,11 +572,13 @@ DefaultTableModel m, modelo1, modelo2;
                     .addComponent(jLabel5)
                     .addComponent(txtEtapa_Vida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtEdad_Minima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtEdad_Maxima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(txtEdad_Maxima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(txtEdad_Minima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -465,7 +600,160 @@ DefaultTableModel m, modelo1, modelo2;
                 .addContainerGap(94, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("                                         PRESTACIONES                                         ", jPanel1);
+        jTabbedPane1.addTab("                       PRESTACIONES                        ", jPanel1);
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+
+        tbDetalle_Pres_Destino.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Prestación", "Prestación", "ID Destino", "Descripción Destino"
+            }
+        ));
+        tbDetalle_Pres_Destino.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbDetalle_Pres_Destino.setRowHeight(25);
+        jScrollPane4.setViewportView(tbDetalle_Pres_Destino);
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel25.setText("Destinos del Asegurado por Prestación");
+
+        jLabel26.setText("Número de Prestacion:");
+
+        tb_destino.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tb_destino.setRowHeight(25);
+        tb_destino.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tb_destinoKeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tb_destino);
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel24.setText("Destinos del Asegurado");
+
+        btncargar.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btncargar.setText("<");
+        btncargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncargarActionPerformed(evt);
+            }
+        });
+
+        btnQuitar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnQuitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/menos16x16.png"))); // NOI18N
+        btnQuitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuitarActionPerformed(evt);
+            }
+        });
+
+        txtNumeroPrestacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtNumeroPrestacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNumeroPrestacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtNumeroPrestacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumeroPrestacionActionPerformed(evt);
+            }
+        });
+
+        btnBuscarPrestacion1.setBackground(new java.awt.Color(255, 255, 255));
+        btnBuscarPrestacion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
+        btnBuscarPrestacion1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        btnBuscarPrestacion1.setContentAreaFilled(false);
+        btnBuscarPrestacion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarPrestacion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPrestacion1ActionPerformed(evt);
+            }
+        });
+
+        jScrollPane5.setViewportView(txtDescrip);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel26)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNumeroPrestacion, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(btnBuscarPrestacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btncargar)
+                            .addComponent(btnQuitar))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel25)
+                .addGap(21, 21, 21)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtNumeroPrestacion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscarPrestacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel26))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel24)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(76, 76, 76)
+                                .addComponent(btncargar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnQuitar)))))
+                .addGap(45, 45, 45))
+        );
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("                        DESTINO                        ", jPanel6);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
@@ -497,23 +785,22 @@ DefaultTableModel m, modelo1, modelo2;
 
         tb_Pres.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "", "", "", "", "Título 5", "Título 6", "Título 7", "Título 8", "Título 9", "Título 10", "Título 11", "Título 12", "Título 13"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         tb_Pres.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tb_Pres.setRowHeight(20);
         tb_Pres.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tb_PresKeyPressed(evt);
             }
         });
-        jScrollPane3.setViewportView(tb_Pres);
+        jScrollPane7.setViewportView(tb_Pres);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -522,14 +809,14 @@ DefaultTableModel m, modelo1, modelo2;
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(txtBuscarPrestacion, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(btnBuscarPrestacion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 443, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -541,9 +828,9 @@ DefaultTableModel m, modelo1, modelo2;
                         .addComponent(txtBuscarPrestacion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnBuscarPrestacion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -568,7 +855,7 @@ DefaultTableModel m, modelo1, modelo2;
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("                                             LISTADO                                             ", jPanel2);
+        jTabbedPane1.addTab("                          LISTADO                         ", jPanel2);
 
         jPanel5.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -637,7 +924,7 @@ DefaultTableModel m, modelo1, modelo2;
             .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -652,57 +939,6 @@ DefaultTableModel m, modelo1, modelo2;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-      
-    public void cargarPrestacion(){
-       
-    try{
-       DefaultTableModel tabla= new DefaultTableModel();
-      
-       tabla.addColumn("ID Prestación");
-       tabla.addColumn("Número de Prestación");
-       tabla.addColumn("Descripción");
-       tabla.addColumn("Tipo");
-       tabla.addColumn("Etapa de Vida");
-       tabla.addColumn("Edad Mínima");
-       tabla.addColumn("Edad Máxima");
-       tabla.addColumn("Sexo");
-       tabla.addColumn("Hospitalización");
-       tabla.addColumn("Gestante");
-       tabla.addColumn("Puérpera");
-       tabla.addColumn("No gestante ni puérpera");
-       tabla.addColumn("Regimen/Componente");
-       
-       cst=con.prepareCall("exec SIS_PRESTACIONES_LISTAR");
-       r=cst.executeQuery();
-       while (r.next()){
-       Object dato[]=new  Object[13];
-       for (int i=0; i<13; i++){
-           dato[i]=r.getString(i+1);
-       }
-       tabla.addRow(dato);
-       }
-       this.tb_Pres.setModel(tabla);
-       formatoPrestacion();
-       
-       }catch (Exception e){
-       }
-     }
-    
-    public void formatoPrestacion(){
-       tb_Pres.getColumnModel().getColumn(0).setPreferredWidth(110);
-       tb_Pres.getColumnModel().getColumn(1).setPreferredWidth(150);       
-       tb_Pres.getColumnModel().getColumn(2).setPreferredWidth(500);      
-       tb_Pres.getColumnModel().getColumn(3).setPreferredWidth(200);
-       tb_Pres.getColumnModel().getColumn(4).setPreferredWidth(100);
-       tb_Pres.getColumnModel().getColumn(5).setPreferredWidth(100);
-       tb_Pres.getColumnModel().getColumn(6).setPreferredWidth(100);
-       tb_Pres.getColumnModel().getColumn(7).setPreferredWidth(100);
-       tb_Pres.getColumnModel().getColumn(8).setPreferredWidth(100);
-       tb_Pres.getColumnModel().getColumn(9).setPreferredWidth(100);
-       tb_Pres.getColumnModel().getColumn(10).setPreferredWidth(100);
-       tb_Pres.getColumnModel().getColumn(11).setPreferredWidth(150);
-       tb_Pres.getColumnModel().getColumn(12).setPreferredWidth(150);
-    }
   
     private void btn_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NuevoActionPerformed
         habilitar();
@@ -776,7 +1012,8 @@ DefaultTableModel m, modelo1, modelo2;
                   || txtEdad_Minima.getText().equalsIgnoreCase("") || txtEdad_Maxima.getText().equalsIgnoreCase("")
                   || cbxSexo_Prestacion.getSelectedIndex()==0 || cbxHospitalizacion_Prestacion.getSelectedIndex()==0
                   || cbxGestante.getSelectedIndex()==0 || cbxPuerpera.getSelectedIndex()==0 
-                  || cbxN_Gestante_N_Puerp.getSelectedIndex()==0 || cbxRegimen.getSelectedIndex()==0){
+                  || cbxN_Gestante_N_Puerp.getSelectedIndex()==0 || cbxRegimen.getSelectedIndex()==0
+                  || tbDetalle_Pres_Destino.getRowCount()==0){
                     JOptionPane.showMessageDialog(rootPane, "Verifique si ha ingresado todos los campos");
                 }
                 else if(C.SIS_PRESTACIONES_Ver(txtDescripcion.getText())>0 || 
@@ -809,7 +1046,9 @@ DefaultTableModel m, modelo1, modelo2;
 
                         if(cg.SIS_PRESTACIONES_Guardar()){
                             JOptionPane.showMessageDialog(null, "Datos Guardados");
+                            guardarDetalleDestino();
                             limpiar();
+                            Clear_Tb_Detalle_Destino();
                             deshabilitar();
                             txtGM.setText("G");
                         }
@@ -841,9 +1080,14 @@ DefaultTableModel m, modelo1, modelo2;
                                 cm.setREGIMEN_COMPONENTE(cbxRegimen.getSelectedItem().toString());
                                 cm.setNOM_USU(lblUsu.getText());
 
-                                if(cm.SIS_PRESTACIONES_Modificar()){
+                                 SIS_CLS_PRESTACION_DESTINO q = new SIS_CLS_PRESTACION_DESTINO();
+                                 q.setID_PRESTACION(txtCodigoPrestacion.getText());
+                                
+                                if(cm.SIS_PRESTACIONES_Modificar() && q.SIS_PRESTACION_DESTINO_Eliminar()){
                                     JOptionPane.showMessageDialog(this, "Datos Modificados");
+                                    guardarDetalleDestino();
                                     limpiar();
+                                    Clear_Tb_Detalle_Destino();
                                     deshabilitar();
                                     txtGM.setText("G");
                                 }
@@ -861,51 +1105,16 @@ DefaultTableModel m, modelo1, modelo2;
        cargarPrestacion();
        tb_Pres.getSelectionModel().setSelectionInterval(0, 0);
        tb_Pres.requestFocus();
+       String num = txtNum_Prestacion.getText();
+       txtNumeroPrestacion.setText(num);
+       String descrip = txtDescripcion.getText();
+       txtDescrip.setText(descrip);
        
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
     private void cbxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxTipoActionPerformed
-
-    private void tb_PresKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_PresKeyPressed
-
-        char teclaPresionada = evt.getKeyChar();
-
-        if(teclaPresionada==KeyEvent.VK_ENTER &&
-            this.tb_Pres.getRowCount() == 0 &&
-            this.tb_Pres.getSelectedRow() == -1){
-
-            JOptionPane.showMessageDialog(rootPane, "La tabla esta vacia");
-
-        }else
-        if(teclaPresionada==KeyEvent.VK_ENTER &&
-            this.tb_Pres.getRowCount() != 0 &&
-            this.tb_Pres.getSelectedRow() != -1){
-            int fila1 = tb_Pres.getSelectedRow();
-         
-                txtCodigoPrestacion.setText(String.valueOf(tb_Pres.getValueAt(fila1, 0)));
-                txtNum_Prestacion.setText(String.valueOf(tb_Pres.getValueAt(fila1, 1)));
-                txtDescripcion.setText(String.valueOf(tb_Pres.getValueAt(fila1, 2)));
-                cbxTipo.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 3)));
-                txtEtapa_Vida.setText(String.valueOf(tb_Pres.getValueAt(fila1, 4)));
-                txtEdad_Minima.setText(String.valueOf(tb_Pres.getValueAt(fila1, 5)));
-                txtEdad_Maxima.setText(String.valueOf(tb_Pres.getValueAt(fila1, 6)));
-                cbxSexo_Prestacion.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 7)));
-                cbxHospitalizacion_Prestacion.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 8)));
-                cbxGestante.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 9)));
-                cbxPuerpera.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 10)));
-                cbxN_Gestante_N_Puerp.setSelectedItem(tb_Pres.getValueAt(fila1, 11));
-                cbxRegimen.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 12).toString()));
-            
-                jTabbedPane1.setSelectedIndex(0);
-            
-                btnmodificar.setEnabled(true);
-                btneliminar.setEnabled(true);
-
-        }
-
-    }//GEN-LAST:event_tb_PresKeyPressed
 
     private void txtBuscarPrestacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPrestacionKeyPressed
         if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
@@ -953,7 +1162,402 @@ DefaultTableModel m, modelo1, modelo2;
         btnmodificar.setEnabled(false);
         btnguardar.setEnabled(false);
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void tb_destinoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_destinoKeyPressed
+
+    }//GEN-LAST:event_tb_destinoKeyPressed
+
+    private void btncargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarActionPerformed
+
+        int filaselec=tb_destino.getSelectedRow();
+
+        modelo1 = (DefaultTableModel) tb_destino.getModel();
+
+        if( filaselec>=0 && txtNumeroPrestacion.getText().equalsIgnoreCase("")){
+            JOptionPane.showMessageDialog(this, "Ingrese el Numero de prestación");
+            txtNumeroPrestacion.requestFocus();
+        }else{
+            if( filaselec>=0 ){
+
+                String id_prestacion, num_prestacion, id_destino, descripcion;
+
+                id_prestacion = txtCodigoPrestacion.getText();
+                num_prestacion = txtNumeroPrestacion.getText();
+                id_destino = tb_destino.getValueAt(filaselec, 0).toString();
+                descripcion = tb_destino.getValueAt(filaselec, 1).toString();
+
+                modelo2 = (DefaultTableModel) tbDetalle_Pres_Destino.getModel();
+
+                String filaelemento[] = {id_prestacion, num_prestacion, id_destino, descripcion};
+
+                modelo2.addRow(filaelemento);
+
+            }else{
+                if(repiteDetalleDestino()==true){
+                    JOptionPane.showMessageDialog(rootPane,"El destino ya ha sido ingresado.");
+                }
+            }
+
+        }
+
+    }//GEN-LAST:event_btncargarActionPerformed
+
+    private void btnQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarActionPerformed
+        try{
+            int filaselec=tbDetalle_Pres_Destino.getSelectedRow();
+            if( filaselec>=0){
+                int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea QUITAR el destino ?",
+                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if(eliminar == 0 ){
+
+                    DefaultTableModel modelo = (DefaultTableModel)tbDetalle_Pres_Destino.getModel();
+
+                    modelo.removeRow(filaselec);
+
+                }
+            }else{
+                JOptionPane.showMessageDialog(this, "Seleccione el Destino a Eliminar");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Selecione el Detalle a eliminar");
+        }
+    }//GEN-LAST:event_btnQuitarActionPerformed
+
+    private void txtNumeroPrestacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroPrestacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroPrestacionActionPerformed
+
+    private void btnBuscarPrestacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPrestacion1ActionPerformed
+        BUSCAR_PRESTACION.setVisible(true);
+        tb_presta.getSelectionModel().setSelectionInterval(0, 0);
+        tb_presta.requestFocus();
+
+    }//GEN-LAST:event_btnBuscarPrestacion1ActionPerformed
+
+    private void txtBuscarPresCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPresCaretUpdate
+
+    }//GEN-LAST:event_txtBuscarPresCaretUpdate
+
+    private void txtBuscarPresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarPresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarPresActionPerformed
+
+    private void txtBuscarPresKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPresKeyPressed
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
+            tb_presta.getSelectionModel().setSelectionInterval(0, 0);
+            tb_presta.requestFocus();
+        }
+    }//GEN-LAST:event_txtBuscarPresKeyPressed
+
+    private void txtBuscarPresKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPresKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarPresKeyReleased
+
+    private void txtBuscarPresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPresKeyTyped
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            btn_BuscarDX.doClick();
+        }
+    }//GEN-LAST:event_txtBuscarPresKeyTyped
+
+    private void btn_BuscarDXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BuscarDXActionPerformed
+        try{
+            String pres =txtBuscarPres.getText().toString();
+
+            DefaultTableModel tabla= new DefaultTableModel();
+
+            tabla.addColumn("ID Prestación");
+            tabla.addColumn("Número de Prestación");
+            tabla.addColumn("Descripción");
+            tabla.addColumn("Tipo");
+            tabla.addColumn("Etapa de Vida");
+            tabla.addColumn("Edad Mínima");
+            tabla.addColumn("Edad Máxima");
+            tabla.addColumn("Sexo");
+            tabla.addColumn("Hospitalización");
+            tabla.addColumn("Gestante");
+            tabla.addColumn("Puérpera");
+            tabla.addColumn("No gestante ni puérpera");
+            tabla.addColumn("Regimen/Componente");
+
+            cst=con.prepareCall("{call SIS_PRESTACIONES_BUSCAR(?)}");
+            cst.setString(1, pres);
+            r=cst.executeQuery();
+            while (r.next()){
+                Object dato[]=new  Object[13];
+                for (int i=0; i<13; i++){
+                    dato[i]=r.getString(i+1);
+
+                }
+                tabla.addRow(dato);
+            }
+
+            this.tb_presta.setModel(tabla);
+
+            formatoPrestacion();
+            txtBuscarPres.setText("");
+            tb_presta.getSelectionModel().setSelectionInterval(0, 0);
+            tb_presta.requestFocus();
+        }catch (Exception e){}
+    }//GEN-LAST:event_btn_BuscarDXActionPerformed
+
+    private void tb_prestaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_prestaKeyPressed
+
+        char teclaPresionada = evt.getKeyChar();
+
+        if(teclaPresionada==KeyEvent.VK_ENTER &&
+            this.tb_presta.getRowCount() == 0 &&
+            this.tb_presta.getSelectedRow() == -1){
+
+            JOptionPane.showMessageDialog(rootPane, "La tabla esta vacia");
+
+        }else
+        if(teclaPresionada==KeyEvent.VK_ENTER &&
+            this.tb_presta.getRowCount() != 0 &&
+            this.tb_presta.getSelectedRow() != -1){
+            int fila = tb_presta.getSelectedRow();
+
+            BUSCAR_PRESTACION.dispose();
+            txtCodigoPrestacion.setText(String.valueOf(tb_presta.getValueAt(fila, 0)));
+            txtNumeroPrestacion.setText(String.valueOf(tb_presta.getValueAt(fila, 1)));
+            txtDescrip.setText(String.valueOf(tb_presta.getValueAt(fila, 2)));
+        }
+    }//GEN-LAST:event_tb_prestaKeyPressed
+
+    private void tb_PresKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_PresKeyPressed
+     
+        char teclaPresionada = evt.getKeyChar();
+
+        if(teclaPresionada==KeyEvent.VK_ENTER &&
+            this.tb_Pres.getRowCount() == 0 &&
+            this.tb_Pres.getSelectedRow() == -1){
+
+            JOptionPane.showMessageDialog(rootPane, "La tabla esta vacia");
+
+        }else
+        if(teclaPresionada==KeyEvent.VK_ENTER &&
+            this.tb_Pres.getRowCount() != 0 &&
+            this.tb_Pres.getSelectedRow() != -1){
+            int fila1 = tb_Pres.getSelectedRow();
+
+            txtCodigoPrestacion.setText(String.valueOf(tb_Pres.getValueAt(fila1, 0)));
+            txtNum_Prestacion.setText(String.valueOf(tb_Pres.getValueAt(fila1, 1)));
+            txtDescripcion.setText(String.valueOf(tb_Pres.getValueAt(fila1, 2)));
+            cbxTipo.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 3)));
+            txtEtapa_Vida.setText(String.valueOf(tb_Pres.getValueAt(fila1, 4)));
+            txtEdad_Minima.setText(String.valueOf(tb_Pres.getValueAt(fila1, 5)));
+            txtEdad_Maxima.setText(String.valueOf(tb_Pres.getValueAt(fila1, 6)));
+            cbxSexo_Prestacion.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 7)));
+            cbxHospitalizacion_Prestacion.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 8)));
+            cbxGestante.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 9)));
+            cbxPuerpera.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 10)));
+            cbxN_Gestante_N_Puerp.setSelectedItem(tb_Pres.getValueAt(fila1, 11));
+            cbxRegimen.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 12).toString()));
+            mostrarCabecerayDetalle();
+
+            jTabbedPane1.setSelectedIndex(0);
+
+            btnmodificar.setEnabled(true);
+            btneliminar.setEnabled(true);
+
+        }
+    }//GEN-LAST:event_tb_PresKeyPressed
+    
+    public void guardarDetalleDestino(){
+         for (int i = 0; i < tbDetalle_Pres_Destino.getRowCount(); i++){      
+               SIS_CLS_PRESTACION_DESTINO dd=new SIS_CLS_PRESTACION_DESTINO();
+               dd.setID_PRESTACION(tbDetalle_Pres_Destino.getValueAt(i, 0).toString());
+               dd.setID_DESTINO(tbDetalle_Pres_Destino.getValueAt(i, 2).toString());
+               dd.setNOM_USU(lblUsu.getText());
+               dd.SIS_PRESTACION_DESTINO_Guardar();
+                
+    }}
+    
+    private void Clear_Tb_Detalle_Destino(){
+        DefaultTableModel modelo1 = (DefaultTableModel)tbDetalle_Pres_Destino.getModel(); 
+        int b=tbDetalle_Pres_Destino.getRowCount();
+        for(int j=0;j<b;j++){
+                    modelo1.removeRow(0);
+        }
+   }
+    
+    public void cargarPrestacion(){
+       
+    try{
+       DefaultTableModel tabla= new DefaultTableModel();
+      
+       tabla.addColumn("ID Prestación");
+       tabla.addColumn("Número de Prestación");
+       tabla.addColumn("Descripción");
+       tabla.addColumn("Tipo");
+       tabla.addColumn("Etapa de Vida");
+       tabla.addColumn("Edad Mínima");
+       tabla.addColumn("Edad Máxima");
+       tabla.addColumn("Sexo");
+       tabla.addColumn("Hospitalización");
+       tabla.addColumn("Gestante");
+       tabla.addColumn("Puérpera");
+       tabla.addColumn("No gestante ni puérpera");
+       tabla.addColumn("Regimen/Componente");
+       
+       cst=con.prepareCall("exec SIS_PRESTACIONES_LISTAR");
+       r=cst.executeQuery();
+       while (r.next()){
+       Object dato[]=new  Object[13];
+       for (int i=0; i<13; i++){
+           dato[i]=r.getString(i+1);
+       }
+       tabla.addRow(dato);
+       }
+       this.tb_Pres.setModel(tabla);
+       formatoPrestacion();
+       
+       }catch (Exception e){
+       }
+     }
         
+    public void cargarDestinoAsegurado(){
+       
+    try{
+       DefaultTableModel tabla= new DefaultTableModel();
+      
+       tabla.addColumn("ID Destino");
+       tabla.addColumn("Descripción");
+       
+       cst=con.prepareCall("exec SIS_DESTINO_ASEGURADO_LISTAR");
+       r=cst.executeQuery();
+       while (r.next()){
+       Object dato[]=new  Object[2];
+       for (int i=0; i<2; i++){
+           dato[i]=r.getString(i+1);
+       }
+       tabla.addRow(dato);
+       }
+       this.tb_destino.setModel(tabla);
+        formatoDestinoAsegurado();
+       }catch (Exception e){
+       }
+     }
+        
+
+    public void cargarPrestacionDetalle(){      
+        try{
+       DefaultTableModel tabla= new DefaultTableModel();
+      
+       tabla.addColumn("ID Prestación");
+       tabla.addColumn("Número de Prestación");
+       tabla.addColumn("Descripción");
+       tabla.addColumn("Tipo");
+       tabla.addColumn("Etapa de Vida");
+       tabla.addColumn("Edad Mínima");
+       tabla.addColumn("Edad Máxima");
+       tabla.addColumn("Sexo");
+       tabla.addColumn("Hospitalización");
+       tabla.addColumn("Gestante");
+       tabla.addColumn("Puérpera");
+       tabla.addColumn("No gestante ni puérpera");
+       tabla.addColumn("Regimen/Componente");
+       
+       cst=con.prepareCall("exec SIS_PRESTACIONES_LISTAR");
+       r=cst.executeQuery();
+       while (r.next()){
+       Object dato[]=new  Object[13];
+       for (int i=0; i<13; i++){
+           dato[i]=r.getString(i+1);
+       }
+       tabla.addRow(dato);
+       }
+       this.tb_presta.setModel(tabla);
+       formatoPrestacionDetalle();
+       
+       }catch (Exception e){
+       }
+    }
+    
+    public void mostrarCabecerayDetalle(){
+        try {
+            int filaselec=tb_Pres.getSelectedRow();
+            //destino
+            String consulta="";
+            tbDetalle_Pres_Destino.setModel(new DefaultTableModel());
+            String titulos[]={"ID Prestación","Prestación","ID Destino", "Descripción Destino"};
+            m3=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m3);
+            String fila[]=new String[4];
+            Usuario obj=new Usuario();
+            consulta="exec SIS_DETALLE_PRESTACION_DESTINO_BUSCAR ?";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1, tb_Pres.getValueAt(filaselec, 0).toString());
+            ResultSet r= cmd.executeQuery();
+            while(r.next()){
+            for (int i=0; i<4; i++){
+           fila[i]=r.getString(i+1);
+       }
+                m3.addRow(fila);
+            }
+            tbDetalle_Pres_Destino.setModel(m3);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
+            tbDetalle_Pres_Destino.setRowSorter(elQueOrdena);
+            tbDetalle_Pres_Destino.setModel(m3);
+            
+            txtNumeroPrestacion.setText(String.valueOf(tb_Pres.getValueAt(filaselec, 1).toString()));
+             txtCodigoPrestacion.setText(String.valueOf(tb_Pres.getValueAt(filaselec, 0).toString())); 
+             txtDescrip.setText(String.valueOf(tb_Pres.getValueAt(filaselec, 2).toString()));
+             
+             
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        jTabbedPane1.setSelectedIndex(0);
+    }
+    
+    public boolean repiteDetalleDestino(){
+         
+         boolean c=false;
+         for (int i = 0; i < tb_destino.getRowCount(); i++){    
+               if(tbDetalle_Pres_Destino.getValueAt(i, 1).toString().equalsIgnoreCase(tb_destino.getValueAt(i, 0).toString())){
+               c=true;
+	}}
+        return c;
+    }
+    
+    public void formatoDestinoAsegurado(){
+       tb_destino.getColumnModel().getColumn(0).setPreferredWidth(90);
+       tb_destino.getColumnModel().getColumn(1).setPreferredWidth(200);
+    }
+    
+    public void formatoPrestacion(){
+       tb_Pres.getColumnModel().getColumn(0).setPreferredWidth(110);
+       tb_Pres.getColumnModel().getColumn(1).setPreferredWidth(150);       
+       tb_Pres.getColumnModel().getColumn(2).setPreferredWidth(500);      
+       tb_Pres.getColumnModel().getColumn(3).setPreferredWidth(200);
+       tb_Pres.getColumnModel().getColumn(4).setPreferredWidth(100);
+       tb_Pres.getColumnModel().getColumn(5).setPreferredWidth(100);
+       tb_Pres.getColumnModel().getColumn(6).setPreferredWidth(100);
+       tb_Pres.getColumnModel().getColumn(7).setPreferredWidth(100);
+       tb_Pres.getColumnModel().getColumn(8).setPreferredWidth(100);
+       tb_Pres.getColumnModel().getColumn(9).setPreferredWidth(100);
+       tb_Pres.getColumnModel().getColumn(10).setPreferredWidth(100);
+       tb_Pres.getColumnModel().getColumn(11).setPreferredWidth(150);
+       tb_Pres.getColumnModel().getColumn(12).setPreferredWidth(150);
+    }
+    
+    public void formatoPrestacionDetalle(){
+       tb_presta.getColumnModel().getColumn(0).setPreferredWidth(110);
+       tb_presta.getColumnModel().getColumn(1).setPreferredWidth(150);       
+       tb_presta.getColumnModel().getColumn(2).setPreferredWidth(500);      
+       tb_presta.getColumnModel().getColumn(3).setPreferredWidth(200);
+       tb_presta.getColumnModel().getColumn(4).setPreferredWidth(100);
+       tb_presta.getColumnModel().getColumn(5).setPreferredWidth(100);
+       tb_presta.getColumnModel().getColumn(6).setPreferredWidth(100);
+       tb_presta.getColumnModel().getColumn(7).setPreferredWidth(100);
+       tb_presta.getColumnModel().getColumn(8).setPreferredWidth(100);
+       tb_presta.getColumnModel().getColumn(9).setPreferredWidth(100);
+       tb_presta.getColumnModel().getColumn(10).setPreferredWidth(100);
+       tb_presta.getColumnModel().getColumn(11).setPreferredWidth(150);
+       tb_presta.getColumnModel().getColumn(12).setPreferredWidth(150);
+    }
+    
     public void habilitar(){
         txtNum_Prestacion.setEnabled(true);
         txtDescripcion.setEnabled(true);
@@ -1003,6 +1607,8 @@ DefaultTableModel m, modelo1, modelo2;
         cbxPuerpera.setSelectedIndex(0);
         cbxN_Gestante_N_Puerp.setSelectedIndex(0);
         cbxRegimen.setSelectedIndex(0);
+        txtNumeroPrestacion.setText("");
+        txtDescrip.setText("");
         txtGM.setText("G");
    
     }
@@ -1068,9 +1674,14 @@ DefaultTableModel m, modelo1, modelo2;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog BUSCAR_PRESTACION;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscarPrestacion;
+    private javax.swing.JButton btnBuscarPrestacion1;
+    private javax.swing.JButton btnQuitar;
+    private javax.swing.JButton btn_BuscarDX;
     private javax.swing.JButton btn_Nuevo;
+    private javax.swing.JButton btncargar;
     public static javax.swing.JButton btneliminar;
     public static javax.swing.JButton btnguardar;
     public static javax.swing.JButton btnmodificar;
@@ -1097,6 +1708,11 @@ DefaultTableModel m, modelo1, modelo2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1109,23 +1725,35 @@ DefaultTableModel m, modelo1, modelo2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel jpanel;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;
     public static javax.swing.JLabel lblUsu;
+    private javax.swing.JTable tbDetalle_Pres_Destino;
     private javax.swing.JTable tb_Pres;
+    private javax.swing.JTable tb_destino;
+    private javax.swing.JTable tb_presta;
     private javax.swing.JLabel titulo5;
+    private javax.swing.JTextField txtBuscarPres;
     public static javax.swing.JTextField txtBuscarPrestacion;
     private javax.swing.JTextField txtCodigoPrestacion;
+    private javax.swing.JEditorPane txtDescrip;
     private javax.swing.JEditorPane txtDescripcion;
     private javax.swing.JTextField txtEdad_Maxima;
     private javax.swing.JTextField txtEdad_Minima;
     private javax.swing.JTextField txtEtapa_Vida;
     private javax.swing.JTextField txtGM;
     private javax.swing.JTextField txtNum_Prestacion;
+    public static javax.swing.JTextField txtNumeroPrestacion;
     // End of variables declaration//GEN-END:variables
 
     @Override

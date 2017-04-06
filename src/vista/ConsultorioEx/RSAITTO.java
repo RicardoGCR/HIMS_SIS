@@ -202,14 +202,14 @@ public class RSAITTO extends javax.swing.JInternalFrame {
 
         VACUNAS.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel26.setBackground(new java.awt.Color(41, 127, 184));
+        jPanel26.setBackground(new java.awt.Color(25, 188, 157));
         jPanel26.setPreferredSize(new java.awt.Dimension(83, 45));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("TTO ANTIPARASITARIO");
+        jLabel10.setText("VACUNAS");
 
-        jPanel27.setBackground(new java.awt.Color(50, 151, 219));
+        jPanel27.setBackground(new java.awt.Color(23, 160, 134));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -245,7 +245,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
-                .addContainerGap(1180, Short.MAX_VALUE))
+                .addContainerGap(1260, Short.MAX_VALUE))
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1504,11 +1504,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                         .addComponent(ANIOS_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ANIOS_7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-=======
                         .addGap(1, 1, 1)
->>>>>>> b779200c2b5c84ef8e9889afbdd25221ba43e204
                         .addComponent(ANIOS_8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

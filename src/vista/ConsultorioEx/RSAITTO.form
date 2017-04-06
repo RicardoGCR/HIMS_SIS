@@ -83,11 +83,7 @@
                           <Component id="ANIOS_6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="ANIOS_7" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                          <EmptySpace max="-2" attributes="0"/>
-=======
                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
->>>>>>> b779200c2b5c84ef8e9889afbdd25221ba43e204
                           <Component id="ANIOS_8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -169,7 +165,7 @@
         <Container class="javax.swing.JPanel" name="jPanel26">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b8" green="7f" red="29" type="rgb"/>
+              <Color blue="9d" green="bc" red="19" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[83, 45]"/>
@@ -183,7 +179,7 @@
                       <Component id="jPanel27" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="1180" max="32767" attributes="0"/>
+                      <EmptySpace pref="1260" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -208,13 +204,13 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="TTO ANTIPARASITARIO"/>
+                <Property name="text" type="java.lang.String" value="VACUNAS"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel27">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="db" green="97" red="32" type="rgb"/>
+                  <Color blue="86" green="a0" red="17" type="rgb"/>
                 </Property>
               </Properties>
 

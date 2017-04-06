@@ -1678,9 +1678,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(pnlPadres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(txtSisLayout.createSequentialGroup()
-                        .addComponent(pnlSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))
+                    .addComponent(pnlSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                 );
 
                 javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -2159,10 +2157,10 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             TTO.lblNino.setVisible(true);
             TTO.lblNina.setVisible(false);
         }
-//        ConsultorioExtRsTtoAntiparasitario Tto1 = new ConsultorioExtRsTtoAntiparasitario();
-//        Tto1.c(id);
+        ConsultorioExtRsTtoAntiparasitario Tto1 = new ConsultorioExtRsTtoAntiparasitario();
+        Tto1.ConsultoriosExtTTOListar(id);
        
-//        RSAITN.lblId.setText(String.valueOf(id));
+        RSAITTO.lblId.setText(String.valueOf(id));
         try {
             TTO.setMaximum(true);
         } catch (PropertyVetoException ex) {

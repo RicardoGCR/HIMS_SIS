@@ -346,14 +346,15 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             jPanel202.setBackground(new java.awt.Color(141, 68, 173));
             jPanel202.setPreferredSize(new java.awt.Dimension(83, 45));
 
-            jLabel126.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel126.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
             jLabel126.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel126.setText("SUPLEMENTACIÓN DE HIERRO Y/O MICRONUTRIENTES");
+            jLabel126.setText("Suplementación De Hierro Y/O Micronutrientes");
 
             jPanel203.setBackground(new java.awt.Color(154, 89, 181));
 
             jLabel127.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             jLabel127.setForeground(new java.awt.Color(255, 255, 255));
+            jLabel127.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel127.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Izquierda Filled-30.png"))); // NOI18N
             jLabel127.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -365,17 +366,11 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             jPanel203.setLayout(jPanel203Layout);
             jPanel203Layout.setHorizontalGroup(
                 jPanel203Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel203Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel127)
-                    .addContainerGap())
+                .addComponent(jLabel127, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
             );
             jPanel203Layout.setVerticalGroup(
                 jPanel203Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel203Layout.createSequentialGroup()
-                    .addGap(5, 5, 5)
-                    .addComponent(jLabel127)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel127, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
 
             javax.swing.GroupLayout jPanel202Layout = new javax.swing.GroupLayout(jPanel202);
@@ -390,12 +385,8 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             );
             jPanel202Layout.setVerticalGroup(
                 jPanel202Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel202Layout.createSequentialGroup()
-                    .addComponent(jPanel203, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(jPanel202Layout.createSequentialGroup()
-                    .addComponent(jLabel126, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap())
+                .addComponent(jPanel203, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel126, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
             );
 
             CCDM13.setBackground(new java.awt.Color(204, 204, 204));
@@ -1330,7 +1321,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             DNLayout.setVerticalGroup(
                 DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DNLayout.createSequentialGroup()
-                    .addComponent(jPanel202, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel202, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addGroup(DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblNina)
@@ -1343,7 +1334,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                     .addGroup(DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lblId)
                         .addComponent(CCDR3A2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                     .addComponent(Opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DNLayout.createSequentialGroup()

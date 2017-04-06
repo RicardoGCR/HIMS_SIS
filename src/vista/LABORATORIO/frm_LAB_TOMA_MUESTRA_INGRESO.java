@@ -368,6 +368,7 @@ public void calcula() {
             }};
             jpanel3 = new javax.swing.JPanel();
             titulo8 = new javax.swing.JLabel();
+            jLabel25 = new javax.swing.JLabel();
             jPopupMenu1 = new javax.swing.JPopupMenu();
             ver = new javax.swing.JMenuItem();
             nomenclatura = new javax.swing.JDialog();
@@ -484,20 +485,26 @@ public void calcula() {
                         .addComponent(titulo8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     );
 
+                    jLabel25.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+                    jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                    jLabel25.setText("Búsqueda por H.C / Paciente / DNI");
+
                     javax.swing.GroupLayout buscar_HCLayout = new javax.swing.GroupLayout(buscar_HC.getContentPane());
                     buscar_HC.getContentPane().setLayout(buscar_HCLayout);
                     buscar_HCLayout.setHorizontalGroup(
                         buscar_HCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(buscar_HCLayout.createSequentialGroup()
-                            .addGap(300, 300, 300)
-                            .addComponent(txtbuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(258, Short.MAX_VALUE))
-                        .addGroup(buscar_HCLayout.createSequentialGroup()
                             .addGap(24, 24, 24)
                             .addComponent(jScrollPane1)
                             .addGap(19, 19, 19))
+                        .addGroup(buscar_HCLayout.createSequentialGroup()
+                            .addGap(300, 300, 300)
+                            .addGroup(buscar_HCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtbuscarHC, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(258, Short.MAX_VALUE))
                         .addGroup(buscar_HCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jpanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
@@ -508,9 +515,11 @@ public void calcula() {
                             .addGroup(buscar_HCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtbuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
+                            .addGap(0, 0, 0)
+                            .addComponent(jLabel25)
+                            .addGap(3, 3, 3)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(38, Short.MAX_VALUE))
+                            .addContainerGap(40, Short.MAX_VALUE))
                         .addGroup(buscar_HCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(buscar_HCLayout.createSequentialGroup()
                                 .addComponent(jpanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -803,6 +812,7 @@ public void calcula() {
 
                     txtPacientes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                     txtPacientes.setForeground(new java.awt.Color(0, 51, 51));
+                    txtPacientes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                     txtPacientes.addKeyListener(new java.awt.event.KeyAdapter() {
                         public void keyPressed(java.awt.event.KeyEvent evt) {
                             txtPacientesKeyPressed(evt);
@@ -1305,6 +1315,7 @@ public void buscar_examenes(){
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

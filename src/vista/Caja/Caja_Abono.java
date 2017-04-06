@@ -605,6 +605,9 @@ try {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 txtBuscarKeyPressed(evt);
                             }
+                            public void keyTyped(java.awt.event.KeyEvent evt) {
+                                txtBuscarKeyTyped(evt);
+                            }
                         });
 
                         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
@@ -694,7 +697,7 @@ try {
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addGap(62, 62, 62)
                                 .addComponent(jLabel9)
-                                .addContainerGap(67, Short.MAX_VALUE))
+                                .addContainerGap(30, Short.MAX_VALUE))
                         );
 
                         jTabbedPane2.addTab("tab2", jPanel9);
@@ -737,7 +740,7 @@ try {
                         );
                         jPanel10Layout.setVerticalGroup(
                             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
                         );
 
                         jTabbedPane2.addTab("tab2", jPanel10);
@@ -1189,6 +1192,11 @@ try {
                         abono.addCaretListener(new javax.swing.event.CaretListener() {
                             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                                 abonoCaretUpdate(evt);
+                            }
+                        });
+                        abono.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                abonoActionPerformed(evt);
                             }
                         });
                         abono.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1755,7 +1763,7 @@ try {
              btneliminar.setEnabled(true);
              btnbuscar.setEnabled(true);
              abono.setEnabled(true);
-              abono.setEditable(true);
+             abono.setEditable(true);
              abono.requestFocus();
              jTabbedPane1.setSelectedIndex(1);
              abono.requestFocus();
@@ -2110,6 +2118,19 @@ try {
     private void abonoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_abonoCaretUpdate
            
     }//GEN-LAST:event_abonoCaretUpdate
+
+    private void abonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_abonoActionPerformed
+
+    private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
+           char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
+            evt.consume();
+            getToolkit().beep();            
+        }    
+    }//GEN-LAST:event_txtBuscarKeyTyped
 
     /**
      * @param args the command line arguments

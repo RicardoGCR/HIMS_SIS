@@ -50,32 +50,32 @@ public class LAB_Resultado_Muestra_Detalle {
      public boolean LAB_Resultado_Muestra_Det_guardar(){
         boolean resp = false;
         try{
-            String sql = "exec sp_LAB_RESULTADO_MUESTRA_DET_insertar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "exec sp_LAB_RESULTADO_MUESTRA_DET_insertar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getCod_cab_resultado_mu_ana());
-            cmd.setString(2, getCod_exa_ana());
-            cmd.setString(3, getCod_esquema_resul() );
-            cmd.setString(4, getNombre_resultado_exa());
-            cmd.setString(5, getTipo_esquema_sub_ana());
-            cmd.setString(6, getCod_uni_med_exa());
-            cmd.setString(7, getCod_valores_refe_resul());
-            cmd.setString(8, getValor_de_resultado_analisis());
-            cmd.setString(9, getEstado_todos_fabricante());
-            cmd.setString(10, getCod_fabricante_producto() );
-            cmd.setString(11, getIni_anio_resul());
-            cmd.setString(12, getIni_mes_resul());
-            cmd.setString(13, getIni_dia_resul());
-            cmd.setString(14, getFin_anio_resul());
-            cmd.setString(15, getFin_mes_resul());
-            cmd.setString(16, getFin_dia_resul());
-            cmd.setString(17, getGenero());
-            cmd.setDouble(18, getValor_minimo_resul());
-            cmd.setDouble(19, getValor_maximo_resul());
-            cmd.setString(20, getValor_texto_referencia_resul());
-            cmd.setString(21, getTipo_valor_referencia_resul());
-            cmd.setString(22, getObservaciones_resultado_exa());
-            cmd.setString(23, getUsa_valores_ref());
-            cmd.setString(24, getNom_usu());
+//            cmd.setString(1, getCod_cab_resultado_mu_ana());
+            cmd.setString(1, getCod_exa_ana());
+            cmd.setString(2, getCod_esquema_resul() );
+            cmd.setString(3, getNombre_resultado_exa());
+            cmd.setString(4, getTipo_esquema_sub_ana());
+            cmd.setString(5, getCod_uni_med_exa());
+            cmd.setString(6, getCod_valores_refe_resul());
+            cmd.setString(7, getValor_de_resultado_analisis());
+            cmd.setString(8, getEstado_todos_fabricante());
+            cmd.setString(9, getCod_fabricante_producto() );
+            cmd.setString(10, getIni_anio_resul());
+            cmd.setString(11, getIni_mes_resul());
+            cmd.setString(12, getIni_dia_resul());
+            cmd.setString(13, getFin_anio_resul());
+            cmd.setString(14, getFin_mes_resul());
+            cmd.setString(15, getFin_dia_resul());
+            cmd.setString(16, getGenero());
+            cmd.setDouble(17, getValor_minimo_resul());
+            cmd.setDouble(18, getValor_maximo_resul());
+            cmd.setString(19, getValor_texto_referencia_resul());
+            cmd.setString(20, getTipo_valor_referencia_resul());
+            cmd.setString(21, getObservaciones_resultado_exa());
+            cmd.setString(22, getUsa_valores_ref());
+            cmd.setString(23, getNom_usu());
  
             if(!cmd.execute())
             {

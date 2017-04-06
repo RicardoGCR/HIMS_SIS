@@ -83,9 +83,10 @@ DefaultTableModel m,n,resultado;
             txtPersonal.setVisible(false);
             btnPersonal.setVisible(false);
             btnBuscar.setVisible(false);
-
-//        lblServicio.setVisible(false);
-//        lblArea.setVisible(false);
+            chActoMedico.setVisible(false);
+            txtActoM.setVisible(false);
+        lblServicio.setVisible(false);
+        lblArea.setVisible(false);
         this.getContentPane().setBackground(Color.white); 
        
         setLocationRelativeTo(null);//en el centro
@@ -107,6 +108,7 @@ DefaultTableModel m,n,resultado;
             txtAnalisis.setEnabled(false);
             btnAnalisis.setEnabled(false);
             txtPersonal.setEnabled(false);
+            txtActoM.setEnabled(false);
             btnPersonal.setEnabled(false);
     //Servicio-Area
         LAB_PC_AREA pa=new LAB_PC_AREA();
@@ -125,7 +127,7 @@ DefaultTableModel m,n,resultado;
     }
     
     public void formato(){
-    tb_TomasRealizadas.getColumnModel().getColumn(3).setPreferredWidth(190);
+    tb_TomasRealizadas.getColumnModel().getColumn(3).setPreferredWidth(200);
     tb_TomasRealizadas.getColumnModel().getColumn(4).setPreferredWidth(90);
     tb_TomasRealizadas.getColumnModel().getColumn(5).setPreferredWidth(250);
     tb_TomasRealizadas.getColumnModel().getColumn(6).setPreferredWidth(240);
@@ -138,8 +140,8 @@ DefaultTableModel m,n,resultado;
     tb_TomasRealizadas.getColumnModel().getColumn(13).setPreferredWidth(50);
     tb_TomasRealizadas.getColumnModel().getColumn(14).setPreferredWidth(50);
     tb_TomasRealizadas.getColumnModel().getColumn(15).setPreferredWidth(130);
-    tb_TomasRealizadas.getColumnModel().getColumn(17).setPreferredWidth(130);
-    tb_TomasRealizadas.getColumnModel().getColumn(18).setPreferredWidth(130);
+    tb_TomasRealizadas.getColumnModel().getColumn(17).setPreferredWidth(180);
+    tb_TomasRealizadas.getColumnModel().getColumn(18).setPreferredWidth(180);
     tb_TomasRealizadas.getColumnModel().getColumn(19).setPreferredWidth(130);
     tb_TomasRealizadas.getColumnModel().getColumn(20).setPreferredWidth(130);
     //Ocultar    
@@ -447,6 +449,7 @@ public void calcula() {
             }};
             jpanel3 = new javax.swing.JPanel();
             titulo8 = new javax.swing.JLabel();
+            jLabel40 = new javax.swing.JLabel();
             personal = new javax.swing.JDialog();
             txtBuscarPersonal = new javax.swing.JTextField();
             jLabel2 = new javax.swing.JLabel();
@@ -496,6 +499,8 @@ public void calcula() {
                         txtPersonal = new javax.swing.JTextField();
                         btnPersonal = new javax.swing.JButton();
                         btnBuscar = new javax.swing.JButton();
+                        chActoMedico = new javax.swing.JCheckBox();
+                        txtActoM = new javax.swing.JTextField();
                         dateDesde = new com.toedter.calendar.JDateChooser();
                         dateHasta = new com.toedter.calendar.JDateChooser();
                         jLabel20 = new javax.swing.JLabel();
@@ -582,20 +587,26 @@ public void calcula() {
                             .addComponent(titulo8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         );
 
+                        jLabel40.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+                        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                        jLabel40.setText("Búsqueda por H.C / Paciente / DNI");
+
                         javax.swing.GroupLayout buscar_HCLayout = new javax.swing.GroupLayout(buscar_HC.getContentPane());
                         buscar_HC.getContentPane().setLayout(buscar_HCLayout);
                         buscar_HCLayout.setHorizontalGroup(
                             buscar_HCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(buscar_HCLayout.createSequentialGroup()
-                                .addGap(300, 300, 300)
-                                .addComponent(txtbuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(258, Short.MAX_VALUE))
-                            .addGroup(buscar_HCLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
                                 .addComponent(jScrollPane1)
                                 .addGap(19, 19, 19))
+                            .addGroup(buscar_HCLayout.createSequentialGroup()
+                                .addGap(300, 300, 300)
+                                .addGroup(buscar_HCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtbuscarHC, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(258, Short.MAX_VALUE))
                             .addGroup(buscar_HCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jpanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         );
@@ -606,9 +617,11 @@ public void calcula() {
                                 .addGroup(buscar_HCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtbuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                .addGap(0, 0, 0)
+                                .addComponent(jLabel40)
+                                .addGap(2, 2, 2)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(38, Short.MAX_VALUE))
+                                .addContainerGap(41, Short.MAX_VALUE))
                             .addGroup(buscar_HCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(buscar_HCLayout.createSequentialGroup()
                                     .addComponent(jpanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -896,8 +909,8 @@ public void calcula() {
                             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
-                                .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(516, 516, 516)
+                                .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(556, 556, 556)
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jpanelLayout.createSequentialGroup()
                                         .addComponent(jLabel15)
@@ -908,7 +921,7 @@ public void calcula() {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblFecha))
                                     .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(25, Short.MAX_VALUE))
+                                .addContainerGap(46, Short.MAX_VALUE))
                         );
                         jpanelLayout.setVerticalGroup(
                             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -992,6 +1005,7 @@ public void calcula() {
 
                         txtPacientes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                         txtPacientes.setForeground(new java.awt.Color(0, 51, 51));
+                        txtPacientes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtPacientes.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 txtPacientesActionPerformed(evt);
@@ -1021,6 +1035,7 @@ public void calcula() {
 
                         txtAnalisis.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                         txtAnalisis.setForeground(new java.awt.Color(0, 51, 51));
+                        txtAnalisis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtAnalisis.addKeyListener(new java.awt.event.KeyAdapter() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 txtAnalisisKeyPressed(evt);
@@ -1046,6 +1061,7 @@ public void calcula() {
 
                         txtPersonal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                         txtPersonal.setForeground(new java.awt.Color(0, 51, 51));
+                        txtPersonal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtPersonal.addKeyListener(new java.awt.event.KeyAdapter() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 txtPersonalKeyPressed(evt);
@@ -1072,20 +1088,40 @@ public void calcula() {
                             }
                         });
 
+                        chActoMedico.setText("Todos los Actos Médicos");
+                        chActoMedico.setHideActionText(true);
+                        chActoMedico.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                        chActoMedico.addItemListener(new java.awt.event.ItemListener() {
+                            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                                chActoMedicoItemStateChanged(evt);
+                            }
+                        });
+
+                        txtActoM.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                        txtActoM.setForeground(new java.awt.Color(0, 51, 51));
+                        txtActoM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                        txtActoM.addKeyListener(new java.awt.event.KeyAdapter() {
+                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                txtActoMKeyPressed(evt);
+                            }
+                        });
+
                         javax.swing.GroupLayout panelPacientesLayout = new javax.swing.GroupLayout(panelPacientes);
                         panelPacientes.setLayout(panelPacientesLayout);
                         panelPacientesLayout.setHorizontalGroup(
                             panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelPacientesLayout.createSequentialGroup()
-                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(chPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                    .addComponent(chAnalisis, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                    .addComponent(chPacientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
+                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(chActoMedico, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .addComponent(chPersonal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .addComponent(chAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .addComponent(chPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                                     .addComponent(txtPacientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(txtPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
+                                    .addComponent(txtPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                    .addComponent(txtActoM, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnPacientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1098,7 +1134,7 @@ public void calcula() {
                         panelPacientesLayout.setVerticalGroup(
                             panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelPacientesLayout.createSequentialGroup()
-                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(panelPacientesLayout.createSequentialGroup()
                                         .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1115,8 +1151,12 @@ public void calcula() {
                                         .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(btnPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(chPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(chPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, 0)
+                                        .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(chActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtActoM, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(0, 0, Short.MAX_VALUE))
                         );
 
@@ -1130,7 +1170,7 @@ public void calcula() {
                         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         jLabel21.setText("Búsqueda por:");
 
-                        cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N° de H.C", "Análisis ", "Personal- Toma de Muestra" }));
+                        cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N° de H.C / DNI", "Análisis ", "Personal - Resultado", "Acto Médico" }));
                         cbx.addItemListener(new java.awt.event.ItemListener() {
                             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                                 cbxItemStateChanged(evt);
@@ -1343,26 +1383,6 @@ public void calcula() {
     private void tb_TomasRealizadasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_TomasRealizadasKeyTyped
 
     }//GEN-LAST:event_tb_TomasRealizadasKeyTyped
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
- try{
-          
-            if(dateDesde.getDate()==null || dateHasta.getDate()==null){
-              JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de Fechas.");
-          } else if(cbx.getSelectedIndex()==0){
-              JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de búsqueda");
-          }  else if(txtPacientes.getText().isEmpty()&&chPacientes.isSelected()==false&& txtAnalisis.getText().isEmpty()
-                  && chAnalisis.isSelected()==false && txtPersonal.getText().isEmpty()&&chPersonal.isSelected()==false){
-              JOptionPane.showMessageDialog(rootPane, "Seleccione y/o ingrese un " +cbx.getSelectedItem());
-          }  else {
-              buscar_examenes();
-           
-          }  
-          }catch(Exception e) {
-              JOptionPane.showMessageDialog(this, e.getMessage());
-              
-          }
-    }//GEN-LAST:event_btnBuscarActionPerformed
 public void buscar_examenes(){
     DecimalFormat df = new DecimalFormat("00");
         int dia,mes,anio,diah,mesh,anioh;
@@ -1379,7 +1399,8 @@ public void buscar_examenes(){
         String buscar="",tipo="1",servicioArea="";
         
         
-        if((chPacientes.isSelected()==true ||chAnalisis.isSelected()==true ||chPersonal.isSelected()==true) 
+        if((chPacientes.isSelected()==true ||chAnalisis.isSelected()==true ||chPersonal.isSelected()==true
+                ||chActoMedico.isSelected()==true ) 
                 &&lblArea.getText().equalsIgnoreCase("")){
         tipo="1";
         servicioArea=lblServicio.getText();
@@ -1399,24 +1420,35 @@ public void buscar_examenes(){
          buscar=txtPersonal.getText();
         servicioArea=lblServicio.getText();
         }
-        else if((chPacientes.isSelected()==true ||chAnalisis.isSelected()==true||chPersonal.isSelected()==true) 
+         else if(txtActoM.getText().length()>0 &&lblArea.getText().equalsIgnoreCase("")){
+        tipo="5";
+         buscar=txtActoM.getText();
+        servicioArea=lblServicio.getText();
+        }
+        else if((chPacientes.isSelected()==true ||chAnalisis.isSelected()==true||chPersonal.isSelected()==true
+                ||chActoMedico.isSelected()==true ) 
                 &&lblArea.getText().length()>0 ){
-            tipo="5";
+            tipo="6";
             servicioArea=lblArea.getText();        
         }
          else if(txtPacientes.getText().length()>0 &&lblArea.getText().length()>0 ){
-             tipo="6";
+             tipo="7";
               buscar=txtPacientes.getText();
             servicioArea=lblArea.getText();        
         }
          else if(txtAnalisis.getText().length()>0 &&lblArea.getText().length()>0 ){
-             tipo="7";
+             tipo="8";
               buscar=txtAnalisis.getText();
             servicioArea=lblArea.getText();        
         }
         else if(txtPersonal.getText().length()>0 &&lblArea.getText().length()>0 ){
-             tipo="8";
+             tipo="10";
               buscar=txtPersonal.getText();
+            servicioArea=lblArea.getText();        
+        }
+        else if(txtActoM.getText().length()>0 &&lblArea.getText().length()>0 ){
+             tipo="11";
+              buscar=txtActoM.getText();
             servicioArea=lblArea.getText();        
         }
      String consulta="";
@@ -1801,49 +1833,9 @@ public void buscar_examenes(){
         JOptionPane.showMessageDialog(rootPane, e.getMessage());
     }
     }
-    
-    private void chPacientesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chPacientesItemStateChanged
-        if(chPacientes.isSelected()){
-            txtPacientes.setEnabled(false);
-            btnPacientes.setEnabled(false);
-            txtPacientes.setText("");
-            txtAnalisis.setText("");
-        }else{
-            txtPacientes.setEnabled(true);
-            btnPacientes.setEnabled(true);
-            txtPacientes.setText("");
-            txtAnalisis.setText("");
-        }
-    }//GEN-LAST:event_chPacientesItemStateChanged
-            
-    private void btnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacientesActionPerformed
-        buscar_HC.setVisible(true);
-        txtbuscarHC.setText("");
-        LAB_HC_cargar();
-        LAB_HC_formato();
-    }//GEN-LAST:event_btnPacientesActionPerformed
-
-    private void chAnalisisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chAnalisisItemStateChanged
-        if(chAnalisis.isSelected()){
-            txtAnalisis.setEnabled(false);
-            btnAnalisis.setEnabled(false);
-            txtAnalisis.setText("");
-        }else{
-            txtAnalisis.setEnabled(true);
-            btnAnalisis.setEnabled(true);
-        }
-    }//GEN-LAST:event_chAnalisisItemStateChanged
-
-    private void btnAnalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalisisActionPerformed
-                 analisis.setVisible(true);
-                    txtBuscarAnalisis.setText("");
-                    Analisis_cargar();
-                    Analisis_formato();
-               
-    }//GEN-LAST:event_btnAnalisisActionPerformed
-
+                
     private void cbxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxItemStateChanged
-        if(cbx.getSelectedIndex()==0){
+           if(cbx.getSelectedIndex()==0){
             chPacientes.setSelected(false);
             chAnalisis.setSelected(false);
             chPersonal.setSelected(false);
@@ -1856,6 +1848,8 @@ public void buscar_examenes(){
             chPersonal.setVisible(false);
             txtPersonal.setVisible(false);
             btnPersonal.setVisible(false);
+            chActoMedico.setVisible(false);
+            txtActoM.setVisible(false);
             txtPacientes.setText("");
             txtAnalisis.setText("");
             txtPersonal.setText("");
@@ -1865,6 +1859,7 @@ public void buscar_examenes(){
             chPacientes.setSelected(true);
             chAnalisis.setSelected(false);
             chPersonal.setSelected(false);
+            chActoMedico.setSelected(false);
             chPacientes.setVisible(true);
             txtPacientes.setVisible(true);
             btnPacientes.setVisible(true);
@@ -1874,14 +1869,18 @@ public void buscar_examenes(){
             chPersonal.setVisible(false);
             txtPersonal.setVisible(false);
             btnPersonal.setVisible(false);
+            chActoMedico.setVisible(false);
+            txtActoM.setVisible(false);
             txtPacientes.setText("");
             txtAnalisis.setText("");
             txtPersonal.setText("");
+            txtActoM.setText("");
             btnBuscar.setVisible(true);
         }else if(cbx.getSelectedIndex()==2){
             chPacientes.setSelected(false);
             chAnalisis.setSelected(true);
             chPersonal.setSelected(false);
+            chActoMedico.setSelected(false);
             chPacientes.setVisible(false);
             txtPacientes.setVisible(false);
             btnPacientes.setVisible(false);
@@ -1891,14 +1890,18 @@ public void buscar_examenes(){
             chPersonal.setVisible(false);
             txtPersonal.setVisible(false);
             btnPersonal.setVisible(false);
+            chActoMedico.setVisible(false);
+            txtActoM.setVisible(false);
             txtPacientes.setText("");
             txtAnalisis.setText("");
             txtPersonal.setText("");
+            txtActoM.setText("");
             btnBuscar.setVisible(true);
         }else if(cbx.getSelectedIndex()==3){
             chPacientes.setSelected(false);
             chAnalisis.setSelected(false);
             chPersonal.setSelected(true);
+            chActoMedico.setSelected(false);
             chPacientes.setVisible(false);
             txtPacientes.setVisible(false);
             btnPacientes.setVisible(false);
@@ -1908,57 +1911,42 @@ public void buscar_examenes(){
             chPersonal.setVisible(true);
             txtPersonal.setVisible(true);
             btnPersonal.setVisible(true);
+            chActoMedico.setVisible(false);
+            txtActoM.setVisible(false);
             txtPacientes.setText("");
             txtAnalisis.setText("");
             txtPersonal.setText("");
+            txtActoM.setText("");
+            btnBuscar.setVisible(true);
+        }else if(cbx.getSelectedIndex()==4){
+            chPacientes.setSelected(false);
+            chAnalisis.setSelected(false);
+            chPersonal.setSelected(false);
+            chActoMedico.setSelected(true);
+            
+            chPacientes.setVisible(false);
+            txtPacientes.setVisible(false);
+            btnPacientes.setVisible(false);
+            chAnalisis.setVisible(false);
+            txtAnalisis.setVisible(false);
+            btnAnalisis.setVisible(false);
+            chPersonal.setVisible(false);
+            txtPersonal.setVisible(false);
+            btnPersonal.setVisible(false);
+            chActoMedico.setVisible(true);
+            txtActoM.setVisible(true);
+            txtPacientes.setText("");
+            txtAnalisis.setText("");
+            txtPersonal.setText("");
+            txtActoM.setText("");
             btnBuscar.setVisible(true);
         }
+                                       
     }//GEN-LAST:event_cbxItemStateChanged
-
-    private void chPersonalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chPersonalItemStateChanged
-       if(chPersonal.isSelected()){
-            txtPersonal.setEnabled(false);
-            btnPersonal.setEnabled(false);
-            txtPersonal.setText("");
-        }else{
-            txtPersonal.setEnabled(true);
-            btnPersonal.setEnabled(true);
-        }
-    }//GEN-LAST:event_chPersonalItemStateChanged
-
-    private void btnPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonalActionPerformed
-       
-                    personal.setVisible(true);
-                    txtBuscarPersonal.setText("");
-                    Personal_cargar();
-                    Personal_formato();
-               
-    }//GEN-LAST:event_btnPersonalActionPerformed
 
     private void cbxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxKeyPressed
-
-    private void txtPacientesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPacientesKeyPressed
-        char tecla= evt.getKeyChar();
-                if(tecla==KeyEvent.VK_ENTER){
-                    btnPacientes.doClick();
-                }
-    }//GEN-LAST:event_txtPacientesKeyPressed
-
-    private void txtAnalisisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnalisisKeyPressed
-         char tecla= evt.getKeyChar();
-                if(tecla==KeyEvent.VK_ENTER){
-                    btnAnalisis.doClick();
-                }
-    }//GEN-LAST:event_txtAnalisisKeyPressed
-
-    private void txtPersonalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalKeyPressed
-        char tecla= evt.getKeyChar();
-                if(tecla==KeyEvent.VK_ENTER){
-                    btnPersonal.doClick();
-                }
-    }//GEN-LAST:event_txtPersonalKeyPressed
 
     private void txtBuscarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarPersonalActionPerformed
         // TODO add your handling code here:
@@ -2175,9 +2163,124 @@ public void buscar_examenes(){
         }
     }//GEN-LAST:event_btnBuscarAnalisisActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        try{
+
+            if(dateDesde.getDate()==null || dateHasta.getDate()==null){
+                JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de Fechas.");
+            } else if(cbx.getSelectedIndex()==0){
+                JOptionPane.showMessageDialog(rootPane, "Seleccione un tipo de búsqueda");
+            }  else if(txtPacientes.getText().isEmpty()&&chPacientes.isSelected()==false&& txtAnalisis.getText().isEmpty()
+                  && chAnalisis.isSelected()==false && txtPersonal.getText().isEmpty()&&chPersonal.isSelected()==false
+                  &&txtActoM.getText().isEmpty()&&chActoMedico.isSelected()==false){
+                JOptionPane.showMessageDialog(rootPane, "Seleccione y/o ingrese un " +cbx.getSelectedItem());
+            }  else {
+                buscar_examenes();
+
+            }
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonalActionPerformed
+
+        personal.setVisible(true);
+        txtBuscarPersonal.setText("");
+        Personal_cargar();
+        Personal_formato();
+
+    }//GEN-LAST:event_btnPersonalActionPerformed
+
+    private void txtPersonalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonalKeyPressed
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            btnPersonal.doClick();
+        }
+    }//GEN-LAST:event_txtPersonalKeyPressed
+
+    private void chPersonalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chPersonalItemStateChanged
+        if(chPersonal.isSelected()){
+            txtPersonal.setEnabled(false);
+            btnPersonal.setEnabled(false);
+            txtPersonal.setText("");
+        }else{
+            txtPersonal.setEnabled(true);
+            btnPersonal.setEnabled(true);
+        }
+    }//GEN-LAST:event_chPersonalItemStateChanged
+
+    private void btnAnalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalisisActionPerformed
+        analisis.setVisible(true);
+        txtBuscarAnalisis.setText("");
+        Analisis_cargar();
+        Analisis_formato();
+
+    }//GEN-LAST:event_btnAnalisisActionPerformed
+
+    private void txtAnalisisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnalisisKeyPressed
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            btnAnalisis.doClick();
+        }
+    }//GEN-LAST:event_txtAnalisisKeyPressed
+
+    private void chAnalisisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chAnalisisItemStateChanged
+        if(chAnalisis.isSelected()){
+            txtAnalisis.setEnabled(false);
+            btnAnalisis.setEnabled(false);
+            txtAnalisis.setText("");
+        }else{
+            txtAnalisis.setEnabled(true);
+            btnAnalisis.setEnabled(true);
+        }
+    }//GEN-LAST:event_chAnalisisItemStateChanged
+
+    private void btnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacientesActionPerformed
+        buscar_HC.setVisible(true);
+        txtbuscarHC.setText("");
+        LAB_HC_cargar();
+        LAB_HC_formato();
+    }//GEN-LAST:event_btnPacientesActionPerformed
+
+    private void txtPacientesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPacientesKeyPressed
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            btnPacientes.doClick();
+        }
+    }//GEN-LAST:event_txtPacientesKeyPressed
+
     private void txtPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPacientesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPacientesActionPerformed
+
+    private void chPacientesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chPacientesItemStateChanged
+        if(chPacientes.isSelected()){
+            txtPacientes.setEnabled(false);
+            btnPacientes.setEnabled(false);
+            txtPacientes.setText("");
+            txtAnalisis.setText("");
+        }else{
+            txtPacientes.setEnabled(true);
+            btnPacientes.setEnabled(true);
+            txtPacientes.setText("");
+            txtAnalisis.setText("");
+        }
+    }//GEN-LAST:event_chPacientesItemStateChanged
+
+    private void chActoMedicoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chActoMedicoItemStateChanged
+        if(chActoMedico.isSelected()){
+            txtActoM.setEnabled(false);
+            txtActoM.setText("");
+        }else{
+            txtActoM.setEnabled(true);
+        }
+    }//GEN-LAST:event_chActoMedicoItemStateChanged
+
+    private void txtActoMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActoMKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtActoMKeyPressed
     public void enableDatos(){
     tb_TomasRealizadas.setEnabled(true);
     tb_TomasRealizadas.setBackground(Color.white);
@@ -2379,6 +2482,7 @@ public void buscar_examenes(){
     private javax.swing.JComboBox cbx;
     private javax.swing.JComboBox cbxBuscarAnalisis;
     private javax.swing.JComboBox cbxBuscarPersonal;
+    private javax.swing.JCheckBox chActoMedico;
     private javax.swing.JCheckBox chAnalisis;
     private javax.swing.JCheckBox chPacientes;
     private javax.swing.JCheckBox chPersonal;
@@ -2392,6 +2496,7 @@ public void buscar_examenes(){
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -2418,6 +2523,7 @@ public void buscar_examenes(){
     private javax.swing.JLabel titulo6;
     private javax.swing.JLabel titulo7;
     private javax.swing.JLabel titulo8;
+    public static javax.swing.JTextField txtActoM;
     public static javax.swing.JTextField txtAnalisis;
     private javax.swing.JTextField txtBuscarAnalisis;
     private javax.swing.JTextField txtBuscarPersonal;

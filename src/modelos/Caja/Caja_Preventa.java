@@ -48,8 +48,20 @@ public class Caja_Preventa {
     private String EMER_OBSERVACION;
     private String ESTADO_CAJAP;
     private String cod_nomen;
-
+    private String paq_globular;
+    private String plasma;
+    private String plaquetas;
+    private int cantidad;
+    private int donantes;
+    private String hematocrito;
+    private String grupo_sang;
+    private String rh;
+    private String hemoglobina;
     private String cod_jerar_forma_pago;
+    private String elisa_vih;
+    private String elisa_prueba_ra;
+    private String elisa_prueba_config;
+    private String elisa_consejero;
 
     private String procedencia;
     
@@ -114,6 +126,74 @@ public class Caja_Preventa {
         return resp;
     }
     
+    public boolean mantanimientoCajaPreventaCExDepSangre(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_CONSULT_EXT "
+                        + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+            cmd.setString(2, getId_hc());
+            cmd.setInt(3, getAR_ID());
+            cmd.setString(4, getPaq_globular());
+            cmd.setString(5, getPlasma());
+            cmd.setString(6, getPlaquetas());
+            cmd.setInt(7, getCantidad());
+            cmd.setInt(8, getDonantes());
+            cmd.setString(9, getHematocrito());
+            cmd.setString(10, getGrupo_sang());
+            cmd.setString(11, getRh());
+            cmd.setString(12, getHemoglobina());
+            cmd.setString(13, getCod_usu());
+            cmd.setString(14, getCod_medico());
+            cmd.setString(15, tipo);
+            cmd.setInt(16, getACTO_MEDICO());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("mantanimientoCajaPreventaCExDepSangre: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean mantanimientoCajaPreventaPruebaElisa(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_CONSULT_EXT_ELISA "
+                        + "?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+            cmd.setString(2, getModulo());
+            cmd.setInt(3, getACTO_MEDICO());
+            cmd.setString(4, getId_hc());
+            cmd.setString(5, getElisa_consejero());
+            cmd.setString(6, getElisa_vih());
+            cmd.setString(7, getElisa_prueba_ra());
+            cmd.setString(8, getElisa_prueba_config());
+            cmd.setString(9, getCod_usu());
+            cmd.setString(10, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("mantanimientoCajaPreventaPruebaElisa: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public String codFormaLlegada(String formaLlegada)
     {
         String cod="";
@@ -161,11 +241,12 @@ public class Caja_Preventa {
         boolean resp = false;
         try
         {
-            String sql = "Exec Caja_Actualizar_Preventa ?,?,?";
+            String sql = "Exec Caja_Actualizar_Preventa ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId_preventa());
             cmd.setInt(2, getACTO_MEDICO());
             cmd.setString(3, getCod_jerar_forma_pago());
+            cmd.setString(4, getCod_medico());
 
             if(!cmd.execute())
             {
@@ -460,6 +541,186 @@ public class Caja_Preventa {
           System.out.println("Error " + ex.getMessage());
         }
         return resp;
+    }
+    
+    public String CodSE(String precio)
+    {
+        String cod="";
+        try
+        {
+            String sql = "EXEC CAJA_BUSCAR_SERVICIO_PREVENTA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, precio);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_SE: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public void formatoTablaDepositoSangre(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(30);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(180);
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(11).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(12).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(13).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(14).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(15).setPreferredWidth(250);
+//        COLUMNAS OCULTAS
+//        TableColumn columna = tabla.getColumnModel().getColumn(0);
+//            columna.setMaxWidth(0);
+//            columna.setMinWidth(0);
+//            columna.setPreferredWidth(0);
+//            tabla.doLayout();
+        tabla.setRowHeight(30);
+    }
+    
+    public void inicializarTablaDepositoSangre(JTable tabla){
+        tabla.setModel(new DefaultTableModel());
+        String titulos[]={"ID","Acto Médico","DNI","Nº H.C.","Paciente","Estado","Paquete Globular",
+                "Plasma","Plaquetas","Cantidad","Donantes","Hematocrito","Grupo Sanguíneo","RH",
+                "Hemoglobina","Médico"};
+        m=new DefaultTableModel(null,titulos);
+        tabla.setModel(m);
+        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+        tabla.setRowSorter(elQueOrdena);
+        tabla.setModel(m);
+        formatoTablaDepositoSangre(tabla);
+    }
+    
+    public void listarDepositoSangre(String busqueda, String tipo, String tiempo,JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID","Acto Médico","DNI","Nº H.C.","Paciente","Estado","Paquete Globular",
+                "Plasma","Plaquetas","Cantidad","Donantes","Hematocrito","Grupo Sanguíneo","RH",
+                "Hemoglobina","Médico"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[24];
+                consulta="EXEC CONSULTORIO_EXT_DEP_SANGRE_LISTAR ?,?,?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, busqueda);
+                cmd.setString(2, tipo);
+                cmd.setString(3, tiempo);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                    fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
+                    fila[9]=r.getString(10); 
+                    fila[10]=r.getString(11); 
+                    fila[11]=r.getString(12); 
+                    fila[12]=r.getString(13); 
+                    fila[13]=r.getString(14); 
+                    fila[14]=r.getString(15); 
+                    fila[15]=r.getString(16); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaDepositoSangre(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarDepositoSangre: " + e.getMessage());
+        }
+    }
+    
+    public void formatoTablaElisa(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(30);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(250);
+//        COLUMNAS OCULTAS
+//        TableColumn columna = tabla.getColumnModel().getColumn(0);
+//            columna.setMaxWidth(0);
+//            columna.setMinWidth(0);
+//            columna.setPreferredWidth(0);
+//            tabla.doLayout();
+        tabla.setRowHeight(30);
+    }
+    
+    public void inicializarTablaElisa(JTable tabla){
+        tabla.setModel(new DefaultTableModel());
+        String titulos[]={"ID","Acto Médico","DNI","Nº H.C.","Paciente","Estado"," Elisa VIH",
+                "Prueba Rápida VIH","Prueba Confirmatoria VIH","Código","Médico"};
+        m=new DefaultTableModel(null,titulos);
+        tabla.setModel(m);
+        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+        tabla.setRowSorter(elQueOrdena);
+        tabla.setModel(m);
+        formatoTablaElisa(tabla);
+    }
+    
+    public void listarElisa(String busqueda,String tiempo,JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID","Acto Médico","DNI","Nº H.C.","Paciente","Estado"," Elisa VIH",
+                "Prueba Rápida VIH","Prueba Confirmatoria VIH","Código","Médico"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[11];
+                consulta="EXEC CONSULTORIO_EXT_ELISA_LISTAR ?,?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, busqueda);
+                cmd.setString(2, tiempo);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                    fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
+                    fila[9]=r.getString(10); 
+                    fila[10]=r.getString(11); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaElisa(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarElisa: " + e.getMessage());
+        }
     }
     
     public Caja_Preventa()
@@ -868,6 +1129,188 @@ public class Caja_Preventa {
      */
     public void setProcedencia(String procedencia) {
         this.procedencia = procedencia;
+    }
+
+    /**
+     * @return the paq_globular
+     */
+    public String getPaq_globular() {
+        return paq_globular;
+    }
+
+    /**
+     * @param paq_globular the paq_globular to set
+     */
+    public void setPaq_globular(String paq_globular) {
+        this.paq_globular = paq_globular;
+    }
+
+    /**
+     * @return the plasma
+     */
+    public String getPlasma() {
+        return plasma;
+    }
+
+    /**
+     * @param plasma the plasma to set
+     */
+    public void setPlasma(String plasma) {
+        this.plasma = plasma;
+    }
+
+    /**
+     * @return the plaquetas
+     */
+    public String getPlaquetas() {
+        return plaquetas;
+    }
+
+    /**
+     * @param plaquetas the plaquetas to set
+     */
+    public void setPlaquetas(String plaquetas) {
+        this.plaquetas = plaquetas;
+    }
+
+    /**
+     * @return the cantidad
+     */
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    /**
+     * @param cantidad the cantidad to set
+     */
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    /**
+     * @return the donantes
+     */
+    public int getDonantes() {
+        return donantes;
+    }
+
+    /**
+     * @param donantes the donantes to set
+     */
+    public void setDonantes(int donantes) {
+        this.donantes = donantes;
+    }
+
+    /**
+     * @return the hematocrito
+     */
+    public String getHematocrito() {
+        return hematocrito;
+    }
+
+    /**
+     * @param hematocrito the hematocrito to set
+     */
+    public void setHematocrito(String hematocrito) {
+        this.hematocrito = hematocrito;
+    }
+
+    /**
+     * @return the grupo_sang
+     */
+    public String getGrupo_sang() {
+        return grupo_sang;
+    }
+
+    /**
+     * @param grupo_sang the grupo_sang to set
+     */
+    public void setGrupo_sang(String grupo_sang) {
+        this.grupo_sang = grupo_sang;
+    }
+
+    /**
+     * @return the rh
+     */
+    public String getRh() {
+        return rh;
+    }
+
+    /**
+     * @param rh the rh to set
+     */
+    public void setRh(String rh) {
+        this.rh = rh;
+    }
+
+    /**
+     * @return the hemoglobina
+     */
+    public String getHemoglobina() {
+        return hemoglobina;
+    }
+
+    /**
+     * @param hemoglobina the hemoglobina to set
+     */
+    public void setHemoglobina(String hemoglobina) {
+        this.hemoglobina = hemoglobina;
+    }
+
+    /**
+     * @return the elisa_vih
+     */
+    public String getElisa_vih() {
+        return elisa_vih;
+    }
+
+    /**
+     * @param elisa_vih the elisa_vih to set
+     */
+    public void setElisa_vih(String elisa_vih) {
+        this.elisa_vih = elisa_vih;
+    }
+
+    /**
+     * @return the elisa_prueba_ra
+     */
+    public String getElisa_prueba_ra() {
+        return elisa_prueba_ra;
+    }
+
+    /**
+     * @param elisa_prueba_ra the elisa_prueba_ra to set
+     */
+    public void setElisa_prueba_ra(String elisa_prueba_ra) {
+        this.elisa_prueba_ra = elisa_prueba_ra;
+    }
+
+    /**
+     * @return the elisa_prueba_config
+     */
+    public String getElisa_prueba_config() {
+        return elisa_prueba_config;
+    }
+
+    /**
+     * @param elisa_prueba_config the elisa_prueba_config to set
+     */
+    public void setElisa_prueba_config(String elisa_prueba_config) {
+        this.elisa_prueba_config = elisa_prueba_config;
+    }
+
+    /**
+     * @return the elisa_consejero
+     */
+    public String getElisa_consejero() {
+        return elisa_consejero;
+    }
+
+    /**
+     * @param elisa_consejero the elisa_consejero to set
+     */
+    public void setElisa_consejero(String elisa_consejero) {
+        this.elisa_consejero = elisa_consejero;
     }
 
 }

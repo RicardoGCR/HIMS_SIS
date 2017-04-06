@@ -148,6 +148,155 @@ public class AdmisionEmergenciaTriaje {
         }
     }
     
+    public void formatoTablaConsultorioExListar(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);//
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);//
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(70);//
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(250);//
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(50);//
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);//
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(50);//
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(11).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(12).setPreferredWidth(50);
+        tabla.setRowHeight(30);
+        TableColumn columna = tabla.getColumnModel().getColumn(0);
+            columna.setMaxWidth(1);
+            columna.setMinWidth(1);
+            columna.setPreferredWidth(1);
+            tabla.setRowHeight(0);
+            tabla.doLayout();
+    }
+    
+    public void consultorioExListar(String busqueda,String tipo,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID","Acto Médico","DNI","Nº H.C.",
+                "Paciente","Edad","Ocupación","FC","FR",
+                "PA","Peso","T°","Talla","HC"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[14];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CONSULTORIO_EXT_TRIAJE_LISTAR ?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, busqueda);
+            cmd.setString(2, "");
+            cmd.setString(3, "");
+            cmd.setString(4, tipo);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); // 
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7); // 
+                fila[7]=r.getString(8); // 
+                fila[8]=r.getString(9);
+                fila[9]=r.getString(10); // 
+                fila[10]=r.getString(11); // 
+                fila[11]=r.getString(12); // 
+                fila[12]=r.getString(13); // 
+                fila[13]=r.getString(14); // 
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaConsultorioExListar(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: consultorioExListar: " + e.getMessage());
+        }
+    }
+    
+    public void formatoTablaConsultorioExListarC(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);//
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);//
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(70);//
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(250);//
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(50);//
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);//
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(50);//
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(11).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(12).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(14).setPreferredWidth(50);
+        tabla.setRowHeight(30);
+        TableColumn columna = tabla.getColumnModel().getColumn(0);
+            columna.setMaxWidth(1);
+            columna.setMinWidth(1);
+            columna.setPreferredWidth(1);
+            tabla.setRowHeight(0);
+            tabla.doLayout();
+            
+        TableColumn columna14 = tabla.getColumnModel().getColumn(14);
+            columna14.setMaxWidth(0);
+            columna14.setMinWidth(0);
+            columna14.setPreferredWidth(0);
+            tabla.setRowHeight(0);
+            tabla.doLayout();
+    }
+    
+    public void consultorioExListarC(String busqueda,String tipo,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID","Acto Médico","DNI","Nº H.C.",
+                "Paciente","Edad","Ocupación","FC","FR",
+                "PA","Peso","T°","Talla","HC","Código"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[15];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CONSULTORIO_EXT_TRIAJE_LISTAR ?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, busqueda);
+            cmd.setString(2, "");
+            cmd.setString(3, "");
+            cmd.setString(4, tipo);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); // 
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7); // 
+                fila[7]=r.getString(8); // 
+                fila[8]=r.getString(9);
+                fila[9]=r.getString(10); // 
+                fila[10]=r.getString(11); // 
+                fila[11]=r.getString(12); // 
+                fila[12]=r.getString(13); // 
+                fila[13]=r.getString(14); // 
+                fila[14]=r.getString(15); // 
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaConsultorioExListarC(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: consultorioExListarC: " + e.getMessage());
+        }
+    }
+    
     public void formatoTablaTriajeReporte(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(0);//id triaje
         tabla.getColumnModel().getColumn(1).setPreferredWidth(70);//nhc

@@ -28,13 +28,12 @@ public boolean NuevoPrecio()
         {
         boolean resp = false;
         try{
-            String sql = "EXEC Caja_Precios_INSERTAR ?,?,?,?,?";
+            String sql = "EXEC Caja_Precios_INSERTAR ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getCod_precio());
-            cmd.setString(2, getCod_jerar_forma_pago());
-            cmd.setString(3, getCod_nomen_caja());
-            cmd.setString(4, getPrecio());
-            cmd.setString(5, getNom_usu());
+            cmd.setString(1, getCod_jerar_forma_pago());
+            cmd.setString(2, getCod_nomen_caja());
+            cmd.setString(3, getPrecio());
+            cmd.setString(4, getNom_usu());
 
             if(!cmd.execute())
             {

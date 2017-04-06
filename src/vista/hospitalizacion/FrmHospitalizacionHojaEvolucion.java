@@ -52,6 +52,10 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         cerrar();
         HospitalizacionEvolucion hosEv = new HospitalizacionEvolucion();
         hosEv.inicializarTabla(tbEvolucion);
+        txtIDPreventa.setVisible(false);
+        lblMant.setVisible(false);
+        txtID.setVisible(false);
+        txtIdHe.setVisible(false);
     }
 
     public void cerrar (){
@@ -100,6 +104,12 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         FrmHospitalizacionHojaEvolucion.txtDNI.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 4)));
         FrmHospitalizacionHojaEvolucion.txtPaciente.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 5)));
         FrmHospitalizacionHojaEvolucion.txtNroCama.setText(String.valueOf(tbPacientesHosp.getValueAt(fila, 7)));
+        txtIndicaciones.setText("");
+        txtEvolucion.setText("");
+        btnModificar.setEnabled(false);
+        btnEliminar.setEnabled(false);
+        btnGuardar.setEnabled(true);
+        lblMant.setText("I");
     }
     
     public boolean guardarDatosEvolucion(){
@@ -133,12 +143,12 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
                         txtIdHe.setText(hosEv.hospitalizacionEvolucionID());
                         JOptionPane.showMessageDialog(this, "Hoja de Evolución Guardada");
                         hosEv.listarEvolucion(txtIDPreventa.getText(), tbEvolucion);
-                        txtIndicaciones.setText("");
                         txtEvolucion.setText("");
-                        lblMant.setText("");
+                        txtIndicaciones.setText("");
+                        lblMant.setText("I");
                         btnGuardar.setEnabled(true);
-                        btnModificar.setEnabled(true);
-                        btnEliminar.setEnabled(true);
+                        btnModificar.setEnabled(false);
+                        btnEliminar.setEnabled(false);
                     } else
                         JOptionPane.showMessageDialog(this, "No se realizó ningun registro");
                 }else{
@@ -182,10 +192,10 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
                         hosEv.listarEvolucion(txtIDPreventa.getText(), tbEvolucion);
                         txtIndicaciones.setText("");
                         txtEvolucion.setText("");
-                        lblMant.setText("");
+                        lblMant.setText("I");
                         btnGuardar.setEnabled(true);
-                        btnModificar.setEnabled(true);
-                        btnEliminar.setEnabled(true);
+                        btnModificar.setEnabled(false);
+                        btnEliminar.setEnabled(false);
                     } else
                         JOptionPane.showMessageDialog(this, "No se realizó ningun registro");
                 }else{
@@ -209,6 +219,13 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
             if(hosEv.mantenimientoHospitalizacionEvolucion("E")){
                 JOptionPane.showMessageDialog(this, "Registro eliminado");
                 hosEv.listarEvolucion(txtIDPreventa.getText(), tbEvolucion);
+                txtIndicaciones.setText("");
+                txtEvolucion.setText("");
+                habilitarDatos(true);
+                btnGuardar.setEnabled(true);
+                lblMant.setText("I");
+                btnEliminar.setEnabled(false);
+                btnModificar.setEnabled(false);
             } else {
                 JOptionPane.showMessageDialog(this, "No se realizó ninguna modificación");
             }
@@ -520,6 +537,11 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
 
         jScrollPane3.setBorder(null);
 
+        tbEvolucion = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tbEvolucion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -534,9 +556,17 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
         tbEvolucion.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbEvolucion.setSelectionBackground(new java.awt.Color(218, 209, 195));
         tbEvolucion.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        tbEvolucion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbEvolucionMouseClicked(evt);
+            }
+        });
         tbEvolucion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbEvolucionKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tbEvolucionKeyReleased(evt);
             }
         });
         jScrollPane3.setViewportView(tbEvolucion);
@@ -742,8 +772,8 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
             habilitarDatos(true);
             lblMant.setText("I");
             btnGuardar.setEnabled(true);
-            btnEliminar.setEnabled(true);
-            btnModificar.setEnabled(true);
+            btnEliminar.setEnabled(false);
+            btnModificar.setEnabled(false);
         } catch (Exception e) {
             System.out.println("Error: btnNuevo" + e.getMessage());
         }
@@ -757,12 +787,12 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        btnEliminar.setEnabled(false);
         lblMant.setText("U");
-        int fila = tbEvolucion.getSelectedRow();
-        txtIndicaciones.setText(String.valueOf(tbEvolucion.getValueAt(fila, 3)));
-        txtEvolucion.setText(String.valueOf(tbEvolucion.getValueAt(fila, 4)));
-        spHora.setEnabled(false);
+        btnGuardar.setEnabled(true);
+        txtIndicaciones.setEnabled(true);
+        txtEvolucion.setEnabled(true);
+        btnEliminar.setEnabled(false);
+        btnModificar.setEnabled(false);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -785,6 +815,7 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
 
     private void tbPacientesHospMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPacientesHospMouseClicked
         if(evt.getClickCount()==2){
+            FrmBuscarPaciente.dispose();
             enviarDatosPac();
         }
     }//GEN-LAST:event_tbPacientesHospMouseClicked
@@ -823,7 +854,36 @@ public class FrmHospitalizacionHojaEvolucion extends javax.swing.JFrame {
                 eliminarRegistroEvolucion();
             }
         }
+        
     }//GEN-LAST:event_tbEvolucionKeyPressed
+
+    private void tbEvolucionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEvolucionMouseClicked
+        if(evt.getClickCount()==1){
+            int fila = tbEvolucion.getSelectedRow();
+            txtEvolucion.setText(String.valueOf(tbEvolucion.getValueAt(fila, 4)));
+            txtIndicaciones.setText(String.valueOf(tbEvolucion.getValueAt(fila, 3)));
+            spHora.setEnabled(false);
+            btnEliminar.setEnabled(true);
+            btnModificar.setEnabled(true);
+            btnGuardar.setEnabled(false);
+            txtIndicaciones.setEnabled(false);
+            txtEvolucion.setEnabled(false);
+        }
+    }//GEN-LAST:event_tbEvolucionMouseClicked
+
+    private void tbEvolucionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbEvolucionKeyReleased
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN || evt.getExtendedKeyCode()==KeyEvent.VK_UP){
+            int fila = tbEvolucion.getSelectedRow();
+            txtEvolucion.setText(String.valueOf(tbEvolucion.getValueAt(fila, 4)));
+            txtIndicaciones.setText(String.valueOf(tbEvolucion.getValueAt(fila, 3)));
+            spHora.setEnabled(false);
+            btnEliminar.setEnabled(true);
+            btnModificar.setEnabled(true);
+            btnGuardar.setEnabled(false);
+            txtIndicaciones.setEnabled(false);
+            txtEvolucion.setEnabled(false);
+        }
+    }//GEN-LAST:event_tbEvolucionKeyReleased
 
     /**
      * @param args the command line arguments

@@ -733,9 +733,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jPanel23" pref="513" max="32767" attributes="0"/>
+                                          <Component id="jPanel23" pref="543" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
-                                              <Component id="jPanel19" max="32767" attributes="0"/>
+                                              <Component id="jPanel19" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jPanel20" max="32767" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
@@ -757,7 +757,7 @@
                                       <Component id="jPanel13" min="-2" pref="330" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Component id="jPanel15" min="-2" pref="274" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Component id="jPanel16" min="-2" pref="291" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Component id="jPanel17" min="-2" pref="239" max="-2" attributes="0"/>
@@ -1225,7 +1225,7 @@
                                   <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                   <Component id="lblPorcentajeTAP" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="40" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>

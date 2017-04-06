@@ -19,7 +19,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import servicios.Conexion;
 
-
 public class ConsultorioExtRsCabecera implements Serializable {
     DefaultTableModel m;
     Conexion con = new Conexion();
@@ -218,6 +217,21 @@ public class ConsultorioExtRsCabecera implements Serializable {
             System.out.println("Error: mantenimientoConsultorioRsCabecera: " + ex.getMessage());
         }
         return resp;
+    }
+    
+    public int idCabecera(){
+        int id = 0;
+        try {
+            String consulta = "EXEC CONSULTORIO_EXT_RS_CABECERA_ID";
+            ResultSet r;
+            r=con.Listar(consulta);
+        if(r.next()){
+               id = r.getInt(1);
+        }
+        }catch(Exception ex){
+            System.out.println("Error: idVacunas: " + ex.getMessage());
+        }
+        return id;
     }
     
     public ConsultorioExtRsCabecera()

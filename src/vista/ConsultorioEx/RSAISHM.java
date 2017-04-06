@@ -343,14 +343,14 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
 
             DN.setBackground(new java.awt.Color(255, 255, 255));
 
-            jPanel202.setBackground(new java.awt.Color(50, 151, 219));
+            jPanel202.setBackground(new java.awt.Color(141, 68, 173));
             jPanel202.setPreferredSize(new java.awt.Dimension(83, 45));
 
             jLabel126.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             jLabel126.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel126.setText("DIAGNOSTICO NUTRICIONAL");
+            jLabel126.setText("SUPLEMENTACIÓN DE HIERRO Y/O MICRONUTRIENTES");
 
-            jPanel203.setBackground(new java.awt.Color(41, 127, 184));
+            jPanel203.setBackground(new java.awt.Color(154, 89, 181));
 
             jLabel127.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             jLabel127.setForeground(new java.awt.Color(255, 255, 255));
@@ -1021,7 +1021,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             buttonGroup1.add(rbt14);
             rbt14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             rbt14.setForeground(new java.awt.Color(255, 255, 255));
-            rbt14.setText("11º");
+            rbt14.setText("12º");
             rbt14.setContentAreaFilled(false);
             rbt14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             rbt14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

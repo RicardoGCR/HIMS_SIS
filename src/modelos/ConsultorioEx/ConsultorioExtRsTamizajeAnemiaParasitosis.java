@@ -22,6 +22,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RSAITAPTG;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeTAP;
 
 /**
  *
@@ -454,6 +455,22 @@ public class ConsultorioExtRsTamizajeAnemiaParasitosis implements Serializable {
         return resp;
     }
     
+    public void porcentajeTAP(int rs_id){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EXT_RS_TAMIZAJE_ANEMIA_PARASITOSIS_PORCENTAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblPorcentajeTAP.setText(r.getString(1) + " %"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeDN " + e.getMessage());
+        }
+    }  
 
     public ConsultorioExtRsTamizajeAnemiaParasitosis() {
         Conexion con = new Conexion();

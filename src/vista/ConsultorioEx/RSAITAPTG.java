@@ -37,6 +37,7 @@ ConsultorioExtRsTamizajeAnemiaParasitosis TA01 = new ConsultorioExtRsTamizajeAne
         QuitarLaBarraTitulo();
         habilitarCampos(false);
         habilitarCampos(false);
+        Botones(false);
         mensaje.setVisible(false);
     }
 public void QuitarLaBarraTitulo()
@@ -89,13 +90,6 @@ public void QuitarLaBarraTitulo()
  
     }
     
-    public void Botones(boolean opcion){
-        btnGuardar.setEnabled(opcion);
-        btnEditar.setEnabled(opcion);
-        btnCancelar.setEnabled(opcion);
-    }
-    
-    
     public void habilitarRadio(boolean opcion){
         //ANEMIA
         RDD1.setEnabled(opcion);  
@@ -115,6 +109,13 @@ public void QuitarLaBarraTitulo()
         RDD15.setEnabled(opcion); 
         RDD16.setEnabled(opcion); 
     }
+    
+    public void Botones(boolean opcion){
+        btnGuardar.setEnabled(opcion);
+        btnEditar.setEnabled(opcion);
+        btnCancelar.setEnabled(opcion);
+    }
+    
     public String determinarFecha(JDateChooser calendario){
          
         String fecha = "";
@@ -248,6 +249,7 @@ public void QuitarLaBarraTitulo()
                 mensaje.setVisible(true);
                 mensaje.setBackground(new Color(33,115,70)); 
                 men.setText("Datos Guardados de forma correcta");
+                Botones(false);
                 b.setText("OK");
                 b.setVisible(true);
                 b1.setVisible(false);
@@ -374,6 +376,7 @@ public void QuitarLaBarraTitulo()
                 mensaje.setVisible(true);
                 mensaje.setBackground(new Color(33,115,70)); 
                 men.setText("Datos Actualizados de forma correcta");
+                Botones(false);
                 b.setText("OK");
                 b.setVisible(true);
                 b1.setVisible(false);
@@ -1644,6 +1647,8 @@ public void QuitarLaBarraTitulo()
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
+        ConsultorioExtRsTamizajeAnemiaParasitosis tAnemia = new ConsultorioExtRsTamizajeAnemiaParasitosis();
+        tAnemia.porcentajeTAP(Integer.parseInt(lblId.getText()));
         this.dispose();
     }//GEN-LAST:event_jLabel20MouseClicked
 
@@ -1913,9 +1918,7 @@ public void QuitarLaBarraTitulo()
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-
-            validaRegistro(Integer.parseInt(lblId.getText()));
-       
+        validaRegistro(Integer.parseInt(lblId.getText()));
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

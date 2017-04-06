@@ -2217,6 +2217,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
 //        Tto1.c(id);
 //       
 //        RSAITN.lblId.setText(String.valueOf(id));
+
+        ConsultorioExtRsTtoAntiparasitario Tto1 = new ConsultorioExtRsTtoAntiparasitario();
+        Tto1.ConsultoriosExtTTOListar(id);
+       
+        RSAITTO.lblId.setText(String.valueOf(id));
         try {
             TTO.setMaximum(true);
         } catch (PropertyVetoException ex) {

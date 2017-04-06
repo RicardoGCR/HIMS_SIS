@@ -27,6 +27,7 @@ import modelos.ConsultorioEx.ConsultorioExtRsCcd;
 import modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoDesarrollo;
 import modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoNutricional;
 import modelos.ConsultorioEx.ConsultorioExtRsEstimulacionTemprana;
+import modelos.ConsultorioEx.ConsultorioExtRsTamizajeAnemiaParasitosis;
 import modelos.ConsultorioEx.ConsultorioExtRsTamizajeNeonatal;
 import modelos.ConsultorioEx.ConsultorioExtRsTtoAntiparasitario;
 import modelos.ConsultorioEx.ConsultorioExtRsVacunas;
@@ -2052,6 +2053,10 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             RSAITAPTG.lblNino.setVisible(true);
             RSAITAPTG.lblNina.setVisible(false);
         }
+        ConsultorioExtRsTamizajeAnemiaParasitosis TAPTG1 = new ConsultorioExtRsTamizajeAnemiaParasitosis();
+        TAPTG1.ConsultoriosExtTAListar(id);
+       
+        RSAITAPTG.lblId.setText(String.valueOf(id));
         try {
             TAPTG.setMaximum(true);
         } catch (PropertyVetoException ex) {

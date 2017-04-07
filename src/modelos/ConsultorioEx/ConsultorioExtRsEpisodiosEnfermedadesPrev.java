@@ -266,7 +266,7 @@ public class ConsultorioExtRsEpisodiosEnfermedadesPrev implements Serializable {
             }
             //
         } catch (Exception e) {
-            System.out.println("Error: porcentajeVacunas " + e.getMessage());
+            System.out.println("Error: porcentajeEET " + e.getMessage());
         }
     }
     public ConsultorioExtRsEpisodiosEnfermedadesPrev() {

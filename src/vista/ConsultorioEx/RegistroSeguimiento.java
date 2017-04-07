@@ -205,6 +205,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             ConsultorioExtRsEstimulacionTemprana estiTemp = new ConsultorioExtRsEstimulacionTemprana();
             ConsultorioExtRsTamizajeNeonatal tamiNeo = new ConsultorioExtRsTamizajeNeonatal();
             ConsultorioExtRsTamizajeAnemiaParasitosis tAnemia = new ConsultorioExtRsTamizajeAnemiaParasitosis();
+            ConsultorioExtRsTtoAntiparasitario tto = new ConsultorioExtRsTtoAntiparasitario();
+            ConsultorioExtRsSuplementacionHierro spHi = new ConsultorioExtRsSuplementacionHierro(); 
+            ConsultorioExtRsEpisodiosEnfermedadesPrev prev = new ConsultorioExtRsEpisodiosEnfermedadesPrev();
+            ConsultorioExtRsSuplementacionVitaminaA supV = new ConsultorioExtRsSuplementacionVitaminaA();
+            ConsultorioExtRsVisitasDomiciliarias vis = new ConsultorioExtRsVisitasDomiciliarias();
             PreparedStatement cmd = cabecera.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_CABECERA WHERE TRIAJE_ID = '"+triaje+"'");
             ResultSet res = cmd.executeQuery();
             if(res.next()){
@@ -217,6 +222,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 estiTemp.porcentajeET(id);
                 tamiNeo.porcentajeTN(id);
                 tAnemia.porcentajeTAP(id);
+                tto.porcentajeTTO(id);
+                spHi.porcentajeSHM(id);
+                prev.porcentajeEET(id);
+                supV.porcentajeSVA(id);
+                vis.porcentajeVD(id);
                 datosPadres(triaje);
                 pnlPadres.setVisible(true);
                 lblPadres.setVisible(true);

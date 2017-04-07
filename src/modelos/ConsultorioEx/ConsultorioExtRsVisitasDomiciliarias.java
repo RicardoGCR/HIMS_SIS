@@ -489,7 +489,7 @@ public class ConsultorioExtRsVisitasDomiciliarias implements Serializable {
         }
         return resp;
     }
-    public void porcentajeVacunas(int rs_id){
+    public void porcentajeVD(int rs_id){
         String consulta="";
         try {
             consulta="EXEC CONSULTORIO_EXT_RS_VISITAS_DOMICILIARIAS_PORCENTAJE ?";

@@ -41,58 +41,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         habilitarDatos(false);
         this.Habilitar();
         mensaje.setVisible(false);
-        LimitadorDeDocumento limiteFuaAmadu = new LimitadorDeDocumento(13);
-        txtFuaAmaDu.setDocument(limiteFuaAmadu);
-        LimitadorDeDocumento limiteFuaR1 = new LimitadorDeDocumento(13);
-        txtFuaApoR1.setDocument(limiteFuaR1);
-        LimitadorDeDocumento limiteFuaR2 = new LimitadorDeDocumento(13);
-        txtFuaApoR2.setDocument(limiteFuaR2);
-        LimitadorDeDocumento limiteFuaBcg = new LimitadorDeDocumento(13);
-        txtFuaBcg.setDocument(limiteFuaBcg);
-        LimitadorDeDocumento limiteFuaDpt1 = new LimitadorDeDocumento(13);
-        txtFuaDpt1.setDocument(limiteFuaDpt1);
-        LimitadorDeDocumento limiteFuaDpt2 = new LimitadorDeDocumento(13);
-        txtFuaDpt2.setDocument(limiteFuaDpt2);
-        LimitadorDeDocumento limiteFuaEjec = new LimitadorDeDocumento(13);
-        txtFuaEjec.setDocument(limiteFuaEjec);
-        LimitadorDeDocumento limiteFuaElab = new LimitadorDeDocumento(13);
-        txtFuaElab.setDocument(limiteFuaElab);
-        LimitadorDeDocumento limiteFuaHvb = new LimitadorDeDocumento(13);
-        txtFuaHvb.setDocument(limiteFuaHvb);
-        LimitadorDeDocumento limiteFuaInfl1 = new LimitadorDeDocumento(13);
-        txtFuaInfl1.setDocument(limiteFuaInfl1);
-        LimitadorDeDocumento limiteFuaInfl2 = new LimitadorDeDocumento(13);
-        txtFuaInfl2.setDocument(limiteFuaInfl2);
-        LimitadorDeDocumento limiteFuaIpv1 = new LimitadorDeDocumento(13);
-        txtFuaIpv1.setDocument(limiteFuaIpv1);
-        LimitadorDeDocumento limiteFuaIpv2 = new LimitadorDeDocumento(13);
-        txtFuaIpv2.setDocument(limiteFuaIpv2);
-        LimitadorDeDocumento limiteFuaIpv3 = new LimitadorDeDocumento(13);
-        txtFuaIpv3.setDocument(limiteFuaIpv3);
-        LimitadorDeDocumento limiteFuaNeumo1 = new LimitadorDeDocumento(13);
-        txtFuaNeumo1.setDocument(limiteFuaNeumo1);
-        LimitadorDeDocumento limiteFuaNeumo2 = new LimitadorDeDocumento(13);
-        txtFuaNeumo2.setDocument(limiteFuaNeumo2);
-        LimitadorDeDocumento limiteFuaNeumo3 = new LimitadorDeDocumento(13);
-        txtFuaNeumo3.setDocument(limiteFuaNeumo3);
-        LimitadorDeDocumento limiteFuaPent1 = new LimitadorDeDocumento(13);
-        txtFuaPent1.setDocument(limiteFuaPent1);
-        LimitadorDeDocumento limiteFuaPent2 = new LimitadorDeDocumento(13);
-        txtFuaPent2.setDocument(limiteFuaPent2);
-        LimitadorDeDocumento limiteFuaPent3 = new LimitadorDeDocumento(13);
-        txtFuaPent3.setDocument(limiteFuaPent3);
-        LimitadorDeDocumento limiteFuaRot1 = new LimitadorDeDocumento(13);
-        txtFuaRot1.setDocument(limiteFuaRot1);
-        LimitadorDeDocumento limiteFuaRot2 = new LimitadorDeDocumento(13);
-        txtFuaRot2.setDocument(limiteFuaRot2);
-        LimitadorDeDocumento limiteFuaSpr1 = new LimitadorDeDocumento(13);
-        txtFuaSpr1.setDocument(limiteFuaSpr1);
-        LimitadorDeDocumento limiteFuaSpr2 = new LimitadorDeDocumento(13);
-        txtFuaSpr2.setDocument(limiteFuaSpr2);
-        LimitadorDeDocumento limiteFuaInflR1 = new LimitadorDeDocumento(13);
-        txtInflR1.setDocument(limiteFuaInflR1);
-        LimitadorDeDocumento limiteFuaInflR2 = new LimitadorDeDocumento(13);
-        txtInflR2.setDocument(limiteFuaInflR2);
         Botones(false);
     }
     public void QuitarLaBarraTitulo()
@@ -1056,6 +1004,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         dtElab.setDateFormatString("dd/MM/yyyy");
         dtElab.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        txtFuaElab.setEditable(false);
         txtFuaElab.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaElabCaretUpdate(evt);
@@ -1126,6 +1075,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         dtEjec.setDateFormatString("dd/MM/yyyy");
         dtEjec.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        txtFuaEjec.setEditable(false);
         txtFuaEjec.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaEjecCaretUpdate(evt);
@@ -1267,12 +1217,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtHvb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaBcg.setEditable(false);
         txtFuaBcg.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaBcgCaretUpdate(evt);
             }
         });
 
+        txtFuaHvb.setEditable(false);
         txtFuaHvb.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaHvbCaretUpdate(evt);
@@ -1434,18 +1386,21 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtNeumo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaNeumo3.setEditable(false);
         txtFuaNeumo3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaNeumo3CaretUpdate(evt);
             }
         });
 
+        txtFuaNeumo1.setEditable(false);
         txtFuaNeumo1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaNeumo1CaretUpdate(evt);
             }
         });
 
+        txtFuaNeumo2.setEditable(false);
         txtFuaNeumo2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaNeumo2CaretUpdate(evt);
@@ -1583,12 +1538,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtInfl2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaInfl1.setEditable(false);
         txtFuaInfl1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaInfl1CaretUpdate(evt);
             }
         });
 
+        txtFuaInfl2.setEditable(false);
         txtFuaInfl2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaInfl2CaretUpdate(evt);
@@ -1716,12 +1673,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtRot2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaRot1.setEditable(false);
         txtFuaRot1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaRot1CaretUpdate(evt);
             }
         });
 
+        txtFuaRot2.setEditable(false);
         txtFuaRot2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaRot2CaretUpdate(evt);
@@ -1849,12 +1808,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtSpr2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaSpr1.setEditable(false);
         txtFuaSpr1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaSpr1CaretUpdate(evt);
             }
         });
 
+        txtFuaSpr2.setEditable(false);
         txtFuaSpr2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaSpr2CaretUpdate(evt);
@@ -1947,6 +1908,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtAmadu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaAmaDu.setEditable(false);
         txtFuaAmaDu.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaAmaDuCaretUpdate(evt);
@@ -2105,18 +2067,21 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtIpv3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaIpv3.setEditable(false);
         txtFuaIpv3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaIpv3CaretUpdate(evt);
             }
         });
 
+        txtFuaIpv1.setEditable(false);
         txtFuaIpv1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaIpv1CaretUpdate(evt);
             }
         });
 
+        txtFuaIpv2.setEditable(false);
         txtFuaIpv2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaIpv2CaretUpdate(evt);
@@ -2289,18 +2254,21 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtPent3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaPent3.setEditable(false);
         txtFuaPent3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaPent3CaretUpdate(evt);
             }
         });
 
+        txtFuaPent1.setEditable(false);
         txtFuaPent1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaPent1CaretUpdate(evt);
             }
         });
 
+        txtFuaPent2.setEditable(false);
         txtFuaPent2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaPent2CaretUpdate(evt);
@@ -2438,12 +2406,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtDpt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaDpt1.setEditable(false);
         txtFuaDpt1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaDpt1CaretUpdate(evt);
             }
         });
 
+        txtFuaDpt2.setEditable(false);
         txtFuaDpt2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaDpt2CaretUpdate(evt);
@@ -2571,12 +2541,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtInflR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtInflR1.setEditable(false);
         txtInflR1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtInflR1CaretUpdate(evt);
             }
         });
 
+        txtInflR2.setEditable(false);
         txtInflR2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtInflR2CaretUpdate(evt);
@@ -2704,12 +2676,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtApoR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaApoR1.setEditable(false);
         txtFuaApoR1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaApoR1CaretUpdate(evt);
             }
         });
 
+        txtFuaApoR2.setEditable(false);
         txtFuaApoR2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaApoR2CaretUpdate(evt);
@@ -3123,10 +3097,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaPent1.setEnabled(true);
                 dtPent1.setEnabled(true);
-                txtFuaPent1.requestFocus();
-                txtFuaPent1.setEditable(true); 
                 fecha=dtPent1;
                 fua = txtFuaPent1;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3142,10 +3113,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaDpt2.setEnabled(true);
                 dtDpt2.setEnabled(true);
-                txtFuaDpt2.requestFocus();
-                txtFuaDpt2.setEditable(true); 
                 fecha=dtDpt2;
                 fua = txtFuaDpt2;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3161,13 +3129,11 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtInflR2.setEnabled(true);
                 dtInflR2.setEnabled(true);
-                txtInflR2.requestFocus();
-                txtInflR2.setEditable(true);  
                 fecha=dtInflR2;
                 fua = txtInflR2;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
+                JOptionPane.showMessageDialog(this, RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rir2.setEnabled(false);
@@ -3180,10 +3146,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaApoR2.setEnabled(true);
                 dtApoR2.setEnabled(true);
-                txtFuaApoR2.requestFocus();
-                txtFuaApoR2.setEditable(true); 
                 fecha=dtApoR2;
                 fua = txtFuaApoR2;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3203,10 +3166,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaElab.setEnabled(true);
                 dtElab.setEnabled(true);
-                txtFuaElab.requestFocus();
-                txtFuaElab.setEditable(true); 
                 fecha=dtElab;
                 fua = txtFuaElab;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3222,10 +3182,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaEjec.setEnabled(true);
                 dtEjec.setEnabled(true);
-                txtFuaEjec.requestFocus();
-                txtFuaEjec.setEditable(true); 
                 fecha=dtEjec;
                 fua = txtFuaEjec;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3241,10 +3198,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaBcg.setEnabled(true);
                 dtBcg.setEnabled(true);
-                txtFuaBcg.requestFocus();
-                txtFuaBcg.setEditable(true); 
                 fecha=dtBcg;
                 fua = txtFuaBcg;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3260,10 +3214,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaHvb.setEnabled(true);
-                dtHvb.setEnabled(true);
-                txtFuaHvb.requestFocus();
-                txtFuaHvb.setEditable(true);  
+                dtHvb.setEnabled(true); 
                 fecha=dtHvb;
                 fua = txtFuaHvb;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3279,10 +3230,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaPent3.setEnabled(true);
                 dtPent3.setEnabled(true);
-                txtFuaPent3.requestFocus();
-                txtFuaPent3.setEditable(true);  
                 fecha=dtPent3;
                 fua = txtFuaPent3;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3298,10 +3246,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaPent2.setEnabled(true);
                 dtPent2.setEnabled(true);
-                txtFuaPent2.requestFocus();
-                txtFuaPent2.setEditable(true);  
                 fecha=dtPent2;
                 fua = txtFuaPent2;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3317,10 +3262,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaIpv3.setEnabled(true);
                 dtIpv3.setEnabled(true);
-                txtFuaIpv3.requestFocus();
-                txtFuaIpv3.setEditable(true); 
                 fecha=dtIpv3;
                 fua = txtFuaIpv3;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3338,10 +3280,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaIpv2.setEnabled(true);
-                dtIpv2.setEnabled(true);
-                txtFuaIpv2.requestFocus();
-                txtFuaIpv2.setEditable(true);  
+                dtIpv2.setEnabled(true);  
                 fecha=dtIpv2;
                 fua = txtFuaIpv2;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3357,10 +3296,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaIpv1.setEnabled(true);
                 dtIpv1.setEnabled(true);
-                txtFuaIpv1.requestFocus();
-                txtFuaIpv1.setEditable(true); 
                 fecha=dtIpv1;
                 fua = txtFuaIpv1;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3376,10 +3312,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaNeumo1.setEnabled(true);
                 dtNeumo1.setEnabled(true);
-                txtFuaNeumo1.requestFocus();
-                txtFuaNeumo1.setEditable(true);  
                 fecha=dtNeumo1;
                 fua = txtFuaNeumo1;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3395,10 +3328,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaNeumo2.setEnabled(true);
                 dtNeumo2.setEnabled(true);
-                txtFuaNeumo2.requestFocus();
-                txtFuaNeumo2.setEditable(true); 
                 fecha=dtNeumo2;
                 fua = txtFuaNeumo2;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3414,10 +3344,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaNeumo3.setEnabled(true);
                 dtNeumo3.setEnabled(true);
-                txtFuaNeumo3.requestFocus();
-                txtFuaNeumo3.setEditable(true); 
                 fecha=dtNeumo3;
                 fua = txtFuaNeumo3;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3433,10 +3360,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaInfl1.setEnabled(true);
-                dtInfl1.setEnabled(true);
-                txtFuaInfl1.requestFocus();
-                txtFuaInfl1.setEditable(true);  
+                dtInfl1.setEnabled(true); 
                 fecha=dtInfl1;
                 fua = txtFuaInfl1;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3452,10 +3376,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaInfl2.setEnabled(true);
                 dtInfl2.setEnabled(true);
-                txtFuaInfl2.requestFocus();
-                txtFuaInfl2.setEditable(true); 
                 fecha=dtInfl2;
                 fua = txtFuaInfl2;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3471,10 +3392,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaRot1.setEnabled(true);
                 dtRot1.setEnabled(true);
-                txtFuaRot1.requestFocus();
-                txtFuaRot1.setEditable(true);  
                 fecha=dtRot1;
                 fua = txtFuaRot1;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3490,10 +3408,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaRot2.setEnabled(true);
                 dtRot2.setEnabled(true);
-                txtFuaRot2.requestFocus();
-                txtFuaRot2.setEditable(true); 
                 fecha=dtRot2;
                 fua = txtFuaRot2;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3509,10 +3424,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaSpr1.setEnabled(true);
                 dtSpr1.setEnabled(true);
-                txtFuaSpr1.requestFocus();
-                txtFuaSpr1.setEditable(true); 
                 fecha=dtSpr1;
                 fua = txtFuaSpr1;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3528,10 +3440,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaSpr2.setEnabled(true);
-                dtSpr2.setEnabled(true);
-                txtFuaSpr2.requestFocus();
-                txtFuaSpr2.setEditable(true);  
+                dtSpr2.setEnabled(true); 
                 fecha=dtSpr2;
                 fua = txtFuaSpr2;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3547,10 +3456,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaAmaDu.setEnabled(true);
                 dtAmadu.setEnabled(true);
-                txtFuaAmaDu.requestFocus();
-                txtFuaAmaDu.setEditable(true); 
                 fecha=dtAmadu;
                 fua = txtFuaAmaDu;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3566,10 +3472,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaDpt1.setEnabled(true);
-                dtDpt1.setEnabled(true);
-                txtFuaDpt1.requestFocus();
-                txtFuaDpt1.setEditable(true);  
+                dtDpt1.setEnabled(true);  
                 fecha=dtDpt1;
                 fua = txtFuaDpt1;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3585,10 +3488,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtInflR1.setEnabled(true);
-                dtInflR1.setEnabled(true);
-                txtInflR1.requestFocus();
-                txtInflR1.setEditable(true);  
+                dtInflR1.setEnabled(true); 
                 fecha=dtInflR1;
                 fua = txtInflR1;
                 fua.setText(RegistroSeguimiento.lblFua.getText());
@@ -3604,10 +3504,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaApoR1.setEnabled(true);
-                dtApoR1.setEnabled(true);
-                txtFuaApoR1.requestFocus();
-                txtFuaApoR1.setEditable(true);  
+                dtApoR1.setEnabled(true); 
                 fecha=dtApoR1;
                 fua = txtFuaApoR1;
                 fua.setText(RegistroSeguimiento.lblFua.getText());

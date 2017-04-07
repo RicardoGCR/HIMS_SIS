@@ -371,6 +371,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaElab">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaElabCaretUpdate"/>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtFuaElabMouseClicked"/>
@@ -455,6 +458,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaEjec">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaEjecCaretUpdate"/>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtFuaEjecMouseClicked"/>
@@ -697,6 +703,9 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaBcg">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaBcgCaretUpdate"/>
               </Events>
@@ -705,6 +714,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaHvb">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaHvbCaretUpdate"/>
               </Events>
@@ -1006,6 +1018,9 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaNeumo3">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaNeumo3CaretUpdate"/>
               </Events>
@@ -1014,6 +1029,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaNeumo1">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaNeumo1CaretUpdate"/>
               </Events>
@@ -1022,6 +1040,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaNeumo2">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaNeumo2CaretUpdate"/>
               </Events>
@@ -1243,6 +1264,9 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaInfl1">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaInfl1CaretUpdate"/>
               </Events>
@@ -1251,6 +1275,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaInfl2">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaInfl2CaretUpdate"/>
               </Events>
@@ -1472,6 +1499,9 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaRot1">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaRot1CaretUpdate"/>
               </Events>
@@ -1480,6 +1510,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaRot2">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaRot2CaretUpdate"/>
               </Events>
@@ -1701,6 +1734,9 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaSpr1">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaSpr1CaretUpdate"/>
               </Events>
@@ -1709,6 +1745,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaSpr2">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaSpr2CaretUpdate"/>
               </Events>
@@ -1852,6 +1891,9 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaAmaDu">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaAmaDuCaretUpdate"/>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtFuaAmaDuMouseClicked"/>
@@ -2154,6 +2196,9 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaIpv3">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaIpv3CaretUpdate"/>
               </Events>
@@ -2162,6 +2207,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaIpv1">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaIpv1CaretUpdate"/>
               </Events>
@@ -2170,6 +2218,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaIpv2">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaIpv2CaretUpdate"/>
               </Events>
@@ -2471,6 +2522,9 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaPent3">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaPent3CaretUpdate"/>
               </Events>
@@ -2479,6 +2533,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaPent1">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaPent1CaretUpdate"/>
               </Events>
@@ -2487,6 +2544,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaPent2">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaPent2CaretUpdate"/>
               </Events>
@@ -2708,6 +2768,9 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaDpt1">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaDpt1CaretUpdate"/>
               </Events>
@@ -2716,6 +2779,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaDpt2">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaDpt2CaretUpdate"/>
               </Events>
@@ -2937,6 +3003,9 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtInflR1">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtInflR1CaretUpdate"/>
               </Events>
@@ -2945,6 +3014,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtInflR2">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtInflR2CaretUpdate"/>
               </Events>
@@ -3166,6 +3238,9 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtFuaApoR1">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaApoR1CaretUpdate"/>
               </Events>
@@ -3174,6 +3249,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFuaApoR2">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFuaApoR2CaretUpdate"/>
               </Events>

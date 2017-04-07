@@ -132,7 +132,7 @@ private Dimension DimensionBarra = null;
 
             jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
             jLabel17.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel17.setText("Nuevo Registro___________________________________________________________________________________________________________");
+            jLabel17.setText("Seguimiento del Desarrollo___________________________________________________________________________________________________________");
 
             jScrollPane5.setBorder(null);
             jScrollPane5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

@@ -323,7 +323,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         
         return fecha;
     }
-     public void enviarDiagnosticos(JLabel cie10){
+    public void enviarDiagnosticos(JLabel cie10){
         int fila = tbCiePresun.getSelectedRow();
         FrmCie10.dispose();
         cie10.setText(String.valueOf(tbCiePresun.getValueAt(fila, 1)));

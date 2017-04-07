@@ -2,39 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_PRESTACION_DESTINO.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_SOLICITUD.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/SIS/SIS_CLS_PRESTACION_DESTINO.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_PRESTACIONES.java</file>
-            <file>file:/D:/pry/SISGESH/src/servicios/Conexion.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/SIS/SIS_CLS_PRESTACIONES.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/Caja/Caja_Nomenclaturas.java</file>
-=======
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsTtoAntiparasitario.java</file>
-            <file>file:/D:/pry/SISGESH/src/servicios/Conexion.java</file>
->>>>>>> cafdeadf75fd2acee58e1b3a13a00f040ff3d42f
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsTamizajeAnemiaParasitosis.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/vista/admisionCentral/FrmSeguimientoHC.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsCabecera.java</file>
-            <file>file:/D:/pry/SISGESH/src/servicios/Conexion.java</file>
-=======
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAITTO.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAITAPTG.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAISHM.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAICCD.java</file>
-=======
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAITTO.java</file>
->>>>>>> b779200c2b5c84ef8e9889afbdd25221ba43e204
->>>>>>> 7f66ac53b9bcb562218e2f6cec366557a0c31d7a
->>>>>>> 21a73e333d7f501b69f6e588742a72102ad91847
-        </group>
+        <group/>
     </open-files>
 </project-private>

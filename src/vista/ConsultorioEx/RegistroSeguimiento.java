@@ -98,6 +98,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         RegistroSeguimiento.lblActoMedico.setText(String.valueOf(tbNinos.getValueAt(fila, 1)));
         RegistroSeguimiento.lblDni.setText(String.valueOf(tbNinos.getValueAt(fila, 2)));
         RegistroSeguimiento.lblNHC.setText(String.valueOf(tbNinos.getValueAt(fila, 3)));
+        RegistroSeguimiento.lblEdad.setText(String.valueOf(tbNinos.getValueAt(fila, 7)));
         RegistroSeguimiento.txtPaciente.setText(String.valueOf(tbNinos.getValueAt(fila, 4)));
         RegistroSeguimiento.lblHc.setText(String.valueOf(tbNinos.getValueAt(fila, 0)));
         RegistroSeguimiento.lblTriaje.setText(String.valueOf(tbNinos.getValueAt(fila, 9)));
@@ -366,6 +367,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel17 = new javax.swing.JLabel();
                 lblTriaje = new javax.swing.JTextField();
                 lblGenero = new javax.swing.JLabel();
+                lblEdad = new javax.swing.JLabel();
                 jPanel3 = new javax.swing.JPanel();
                 Contenedor = new javax.swing.JDesktopPane();
 
@@ -1646,6 +1648,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
 
                 lblGenero.setText("jLabel17");
 
+                lblEdad.setText("jLabel7");
+
                 javax.swing.GroupLayout txtSisLayout = new javax.swing.GroupLayout(txtSis);
                 txtSis.setLayout(txtSisLayout);
                 txtSisLayout.setHorizontalGroup(
@@ -1681,10 +1685,12 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(lblGenero))))
+                                        .addComponent(lblGenero)
+                                        .addGap(47, 47, 47)
+                                        .addComponent(lblEdad))))
                             .addComponent(pnlPadres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPadres, javax.swing.GroupLayout.PREFERRED_SIZE, 1128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(209, Short.MAX_VALUE))
+                        .addContainerGap(175, Short.MAX_VALUE))
                 );
                 txtSisLayout.setVerticalGroup(
                     txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1696,7 +1702,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                             .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblHc)
                                 .addComponent(lblTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblGenero)))
+                                .addComponent(lblGenero)
+                                .addComponent(lblEdad)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1917,6 +1924,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         RSAIREGSEG REGSEG =new RSAIREGSEG();
         Contenedor.add(REGSEG);
+        //enviar el id de rs_id a todos los formularios
+        RSAIREGSEG.lblId.setText(String.valueOf(id));
         try {
             REGSEG.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -2339,6 +2348,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     public static javax.swing.JLabel lblActoMedico;
     public static javax.swing.JTextField lblDireccion;
     public static javax.swing.JLabel lblDni;
+    public static javax.swing.JLabel lblEdad;
     public static javax.swing.JLabel lblFecNac;
     public static javax.swing.JLabel lblGenero;
     public static javax.swing.JLabel lblHc;
@@ -2361,7 +2371,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     public static javax.swing.JLabel lblSector;
     public static javax.swing.JTextField lblTelefono;
     public static javax.swing.JTextField lblTriaje;
-    private javax.swing.JLabel lblusu;
+    public static javax.swing.JLabel lblusu;
     private javax.swing.JPanel pnlContenedor;
     private javax.swing.JPanel pnlMensaje;
     private javax.swing.JPanel pnlPadres;

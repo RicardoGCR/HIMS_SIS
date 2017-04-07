@@ -398,10 +398,11 @@ public class ConsultorioExtRsTtoAntiparasitario implements Serializable {
             int c=1;
             while(r.next()){
                 lblPorcentajeTTO.setText(r.getString(1) + " %"); 
+                RSAITTO.lblPorcentajeTto.setText(r.getString(1) + " % Completado"); 
             }
             //
         } catch (Exception e) {
-            System.out.println("Error: porcentajeVacunas " + e.getMessage());
+            System.out.println("Error: porcentajeTTO " + e.getMessage());
         }
     }
 

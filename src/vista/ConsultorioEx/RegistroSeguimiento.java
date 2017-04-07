@@ -2123,8 +2123,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         }
         ConsultorioExtRsTamizajeAnemiaParasitosis TAPTG1 = new ConsultorioExtRsTamizajeAnemiaParasitosis();
         TAPTG1.ConsultoriosExtTAListar(id);
-       
         RSAITAPTG.lblId.setText(String.valueOf(id));
+        RSAITAPTG.lblPorcentajeTa.setText(lblPorcentajeTAP.getText() + " Completado");
         try {
             TAPTG.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -2149,6 +2149,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         TN1.ConsultoriosExtTNListar(id);
        
         RSAITN.lblId.setText(String.valueOf(id));
+        RSAITN.lblPorcentajeTn.setText(lblPorcentajeTN.getText() + " Completado");
         try {
             TN.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -2248,15 +2249,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             TTO.lblNino.setVisible(true);
             TTO.lblNina.setVisible(false);
         }
-//        ConsultorioExtRsTtoAntiparasitario Tto1 = new ConsultorioExtRsTtoAntiparasitario();
-//        Tto1.c(id);
-//       
-//        RSAITN.lblId.setText(String.valueOf(id));
-
         ConsultorioExtRsTtoAntiparasitario Tto1 = new ConsultorioExtRsTtoAntiparasitario();
         Tto1.ConsultoriosExtTTOListar(id);
        
         RSAITTO.lblId.setText(String.valueOf(id));
+        RSAITTO.lblPorcentajeTto.setText(lblPorcentajeTTO.getText() + " Completado");
         try {
             TTO.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -2354,7 +2351,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         }
         ConsultorioExtRsVisitasDomiciliarias VD1 = new ConsultorioExtRsVisitasDomiciliarias();
         VD1.ConsultoriosExtVDListar(id);
-       
+        RSAIVD.lblPorcentajeVisitas.setText(lblPorcentajeVD.getText() + " Completado");
         RSAIVD.lblId.setText(String.valueOf(id));
     
         try {

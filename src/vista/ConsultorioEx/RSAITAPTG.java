@@ -257,6 +257,7 @@ public void QuitarLaBarraTitulo()
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsTA2.ConsultoriosExtTAListar(Integer.parseInt(lblId.getText()));
+                CXRsTA2.porcentajeTAP(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
                 habilitarRadio(true);
             }else {
@@ -383,6 +384,7 @@ public void QuitarLaBarraTitulo()
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsTA2.ConsultoriosExtTAListar(Integer.parseInt(lblId.getText()));
+                CXRsTA2.porcentajeTAP(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
                 habilitarRadio(true);
             }else {
@@ -516,7 +518,7 @@ public void QuitarLaBarraTitulo()
         jLabel10 = new javax.swing.JLabel();
         jPanel27 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblPorcentajeTa = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblNina = new javax.swing.JLabel();
         lblNino = new javax.swing.JLabel();
@@ -1535,10 +1537,10 @@ public void QuitarLaBarraTitulo()
                 .addContainerGap())
         );
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(137, 226, 175));
-        jLabel11.setText("100 %  Completado");
-        jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblPorcentajeTa.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblPorcentajeTa.setForeground(new java.awt.Color(137, 226, 175));
+        lblPorcentajeTa.setText("100 %  Completado");
+        lblPorcentajeTa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jPanel2.setBackground(new java.awt.Color(45, 204, 112));
         jPanel2.setPreferredSize(new java.awt.Dimension(1, 100));
@@ -1576,7 +1578,7 @@ public void QuitarLaBarraTitulo()
                 .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
+                    .addComponent(lblPorcentajeTa)
                     .addComponent(jLabel10))
                 .addGap(20, 20, 20)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1592,7 +1594,7 @@ public void QuitarLaBarraTitulo()
             .addGroup(jPanel26Layout.createSequentialGroup()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPorcentajeTa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -2026,7 +2028,6 @@ public void QuitarLaBarraTitulo()
     private javax.swing.JButton btnGuardar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel66;
@@ -2058,6 +2059,7 @@ public void QuitarLaBarraTitulo()
     public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
+    public static javax.swing.JLabel lblPorcentajeTa;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
     // End of variables declaration//GEN-END:variables

@@ -286,7 +286,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 btnguardar.setEnabled(false);
                 tge=1;
                 CXRsTTO2.ConsultoriosExtTTOListar(Integer.parseInt(lblId.getText()));
-      
+                CXRsTTO2.porcentajeTTO(Integer.parseInt(lblId.getText()));
                 habilitarDatos(false);
                 habilitarRadio(true);
             }else {
@@ -414,12 +414,10 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 b.setText("OK");
                 b.setVisible(true);
                 b1.setVisible(false);
-
                 btnguardar.setEnabled(false);
                 tge=1;
-
                 CXRsTTO2.ConsultoriosExtTTOListar(Integer.parseInt(lblId.getText()));
-
+                CXRsTTO2.porcentajeTTO(Integer.parseInt(lblId.getText()));
                 habilitarDatos(false);
                 habilitarRadio(true);
             }else {
@@ -549,7 +547,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         jPanel30 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        lblPorcentajeTto = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblNina = new javax.swing.JLabel();
         lblNino = new javax.swing.JLabel();
@@ -1804,10 +1802,10 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(153, 202, 235));
-        jLabel12.setText("100 %  Completado");
-        jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblPorcentajeTto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblPorcentajeTto.setForeground(new java.awt.Color(153, 202, 235));
+        lblPorcentajeTto.setText("100 %  Completado");
+        lblPorcentajeTto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jPanel2.setBackground(new java.awt.Color(153, 202, 235));
         jPanel2.setPreferredSize(new java.awt.Dimension(1, 100));
@@ -1845,7 +1843,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
+                    .addComponent(lblPorcentajeTto)
                     .addComponent(jLabel11))
                 .addGap(59, 59, 59)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1861,7 +1859,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
             .addGroup(jPanel29Layout.createSequentialGroup()
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPorcentajeTto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -2456,7 +2454,6 @@ public class RSAITTO extends javax.swing.JInternalFrame {
     public static com.toedter.calendar.JDateChooser dtSpr1;
     public static com.toedter.calendar.JDateChooser dtSpr2;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -2491,6 +2488,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
     public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
+    public static javax.swing.JLabel lblPorcentajeTto;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
     public static javax.swing.JTextField txtFuaAmaDu;

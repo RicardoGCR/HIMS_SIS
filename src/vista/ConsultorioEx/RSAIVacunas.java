@@ -1005,13 +1005,8 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-<<<<<<< HEAD
-        lblNino.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        lblNino.setForeground(new java.awt.Color(12, 97, 81));
-=======
         lblNino.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
-        lblNino.setForeground(new java.awt.Color(255, 255, 255));
->>>>>>> 09751a24cb3f3ad0688268c5a7ce59b8487508b6
+        lblNino.setForeground(new java.awt.Color(109, 23, 16));
         lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-50.png"))); // NOI18N
         lblNino.setText("NIÑOS");
         lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1049,8 +1044,8 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             .addGroup(jPanel26Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNino)
-                    .addComponent(lblNina))
+                    .addComponent(lblNina)
+                    .addComponent(lblNino))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 

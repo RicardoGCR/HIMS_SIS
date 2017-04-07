@@ -164,7 +164,7 @@ byte tg;
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsTN2.ConsultoriosExtTNListar(Integer.parseInt(lblId.getText()));
-        
+                CXRsTN2.porcentajeTN(Integer.parseInt(lblId.getText()));
                 habilitarDatos(false);
                 habilitarRadio(true);
             }else {
@@ -227,8 +227,7 @@ byte tg;
                 tge=1;
 
                 CXRsTN2.ConsultoriosExtTNListar(Integer.parseInt(lblId.getText()));
-
-
+                CXRsTN2.porcentajeTN(Integer.parseInt(lblId.getText()));
                 habilitarDatos(false);
                 habilitarRadio(true);
             }else {
@@ -287,7 +286,7 @@ byte tg;
         jLabel10 = new javax.swing.JLabel();
         jPanel27 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblPorcentajeTn = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblNina = new javax.swing.JLabel();
         lblNino = new javax.swing.JLabel();
@@ -658,10 +657,10 @@ byte tg;
                 .addContainerGap())
         );
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(124, 223, 204));
-        jLabel11.setText("100 %  Completado");
-        jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblPorcentajeTn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblPorcentajeTn.setForeground(new java.awt.Color(124, 223, 204));
+        lblPorcentajeTn.setText("100 %  Completado");
+        lblPorcentajeTn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jPanel2.setBackground(new java.awt.Color(25, 188, 157));
         jPanel2.setPreferredSize(new java.awt.Dimension(1, 100));
@@ -699,7 +698,7 @@ byte tg;
                 .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
+                    .addComponent(lblPorcentajeTn)
                     .addComponent(jLabel10))
                 .addGap(59, 59, 59)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -715,7 +714,7 @@ byte tg;
             .addGroup(jPanel26Layout.createSequentialGroup()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPorcentajeTn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -890,7 +889,6 @@ byte tg;
     private javax.swing.JButton btnGuardar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JPanel jPanel157;
     private javax.swing.JPanel jPanel158;
@@ -904,6 +902,7 @@ byte tg;
     public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
+    public static javax.swing.JLabel lblPorcentajeTn;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
     private javax.swing.JPanel mensaje1;

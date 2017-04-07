@@ -14,6 +14,7 @@ import modelos.ConsultorioEx.ConsultorioExtRsMonitoreo;
 import modelos.ConsultorioEx.ConsultorioExtRsSeguimientoAnemia;
 import modelos.ConsultorioEx.ConsultorioExtRsSeguimientoDesarrollo;
 import modelos.ConsultorioEx.ConsultorioExtRsSeguimientoIra;
+import modelos.ConsultorioEx.ConsultorioExtRsSeguimientoParasitosis;
 import static vista.ConsultorioEx.REGSEGMONITOREO.lblId;
 
 /**
@@ -353,6 +354,10 @@ private Dimension DimensionBarra = null;
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         REGSEGSEGP PAR =new REGSEGSEGP();
+        ConsultorioExtRsSeguimientoParasitosis seguimiento = new ConsultorioExtRsSeguimientoParasitosis();
+        seguimiento.listarDiagnostico(lblId.getText(), REGSEGSEGP.tbSeguimientoP);
+        REGSEGSEGP.txtEdad.setText(RegistroSeguimiento.lblEdad.getText());
+        REGSEGSEGP.lblId.setText(RSAIREGSEG.lblId.getText());
         ContenedorDD.add(PAR);
         try {
             PAR.setMaximum(true);

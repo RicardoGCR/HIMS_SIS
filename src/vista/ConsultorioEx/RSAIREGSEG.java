@@ -13,6 +13,7 @@ import javax.swing.JComponent;
 import modelos.ConsultorioEx.ConsultorioExtRsMonitoreo;
 import modelos.ConsultorioEx.ConsultorioExtRsSeguimientoAnemia;
 import modelos.ConsultorioEx.ConsultorioExtRsSeguimientoDesarrollo;
+import modelos.ConsultorioEx.ConsultorioExtRsSeguimientoIra;
 import static vista.ConsultorioEx.REGSEGMONITOREO.lblId;
 
 /**
@@ -377,6 +378,10 @@ private Dimension DimensionBarra = null;
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
        REGSEGSEGIRA IRA =new REGSEGSEGIRA();
+       ConsultorioExtRsSeguimientoIra seguimiento = new ConsultorioExtRsSeguimientoIra();
+        seguimiento.listarDiagnostico(lblId.getText(), REGSEGSEGIRA.tbSeguimientoI);
+        REGSEGSEGIRA.txtEdad.setText(RegistroSeguimiento.lblEdad.getText());
+        REGSEGSEGIRA.lblId.setText(RSAIREGSEG.lblId.getText());
         ContenedorDD.add(IRA);
         try {
             IRA.setMaximum(true);

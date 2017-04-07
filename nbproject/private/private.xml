@@ -2,22 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIVacunas.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
-=======
-<<<<<<< HEAD
-        <group>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsTamizajeAnemiaParasitosis.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAITTO.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAITAPTG.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAISHM.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAICCD.java</file>
->>>>>>> 7eafd39ccf909136ad23aa887191de586aa40cdb
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsVacunas.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIREGSEG.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsVisitasDomiciliarias.java</file>
         </group>
-=======
-        <group/>
->>>>>>> 88e4a732ba94b4a4c2cc4e0d91d340a35125635b
     </open-files>
 </project-private>

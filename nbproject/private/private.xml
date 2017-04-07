@@ -3,9 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/E:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion.java</file>
             <file>file:/E:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Insumo.java</file>
             <file>file:/E:/pry/SISGESH/src/vista/COSTOS/Costos_Depreciacion.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIDD.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIVacunas.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIVD.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
+=======
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAICCD.java</file>
+>>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
+>>>>>>> 5128bd9978909b92bfd2f23d4a85d3cb0d47cd65
         </group>
     </open-files>
 </project-private>

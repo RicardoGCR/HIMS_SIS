@@ -5,12 +5,22 @@
  */
 package vista.ConsultorioEx;
 
+import campos.LimitadorDeDocumento;
+import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Calendar;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import modelos.ConsultorioEx.ConsultorioExtRsVacunas;
+import static vista.ConsultorioEx.ConsultorioAsignacion.txtMedico;
+import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
 
 /**
  *
@@ -18,20 +28,20 @@ import javax.swing.JInternalFrame;
  */
 public class RSAIVacunas extends javax.swing.JInternalFrame {
 //defino dos métodosdentro del JInternalFrame y lo instanciamos de la siguiente manera.
-private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
-private Dimension DimensionBarra = null; 
-//A continuación creamos una función dentro del mismo JInternalFrame como el ejemplo siguiente:
-
-    /**
-     * Creates new form RSAIVacunas
-     */
+    private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
+    private Dimension DimensionBarra = null; 
+    byte tg;
+    byte tge;
+    JDateChooser fecha;
+    JTextField fua;
+    ConsultorioExtRsVacunas vacunas26 = new ConsultorioExtRsVacunas();
     public RSAIVacunas() {
         initComponents();
         QuitarLaBarraTitulo();
         habilitarDatos(false);
-      
-
-
+        this.Habilitar();
+        mensaje.setVisible(false);
+        Botones(false);
     }
     public void QuitarLaBarraTitulo()
     { 
@@ -42,7 +52,119 @@ private Dimension DimensionBarra = null;
     repaint(); 
     }
     
+    public void Habilitar(){
+        if(dtPent1.getDate()!=null){
+            Rp1.setEnabled(false);
+    }
 
+        if(dtDpt2.getDate()!=null){
+            Rdpt2.setEnabled(false);
+    }                                     
+        if(dtInflR2.getDate()!=null){
+            Rir2.setEnabled(false);
+    }
+
+        if(dtApoR2.getDate()!=null){
+            Rapo2.setEnabled(false);
+    }                                     
+
+
+        if(dtElab.getDate()!=null){
+            Relab.setEnabled(false);
+    }                                     
+
+
+        if(dtEjec.getDate()!=null){
+            Rejec.setEnabled(false);
+    }                                     
+
+        if(dtBcg.getDate()!=null){
+            Rbcg.setEnabled(false);
+    }                                    
+
+        if(dtHvb.getDate()!=null){
+         
+            Rhvb.setEnabled(false);
+    }                                    
+
+        if(dtPent3.getDate()!=null){
+            Rp3.setEnabled(false);
+    }                                   
+
+    
+        if(dtPent2.getDate()!=null){
+            Rp2.setEnabled(false);
+    }                                   
+
+
+        if(dtIpv3.getDate()!=null){
+            Ripv3.setEnabled(false);     
+    }                                     
+
+        if(dtIpv2.getDate()!=null){
+            Ripv2.setEnabled(false);
+    }                                     
+
+        if(dtIpv1.getDate()!=null){
+            Ripv1.setEnabled(false);
+    }                                     
+
+        if(dtNeumo1.getDate()!=null){
+            Rn1.setEnabled(false);
+    }                                   
+
+        if(dtNeumo2.getDate()!=null){
+           
+            Rn2.setEnabled(false);
+    }                                   
+
+        if(dtNeumo3.getDate()!=null){
+            Rn3.setEnabled(false);
+    }                                   
+
+        if(dtInfl1.getDate()==null){
+            Ri1.setEnabled(false);
+    }                                   
+
+        if(dtInfl2.getDate()!=null){ 
+            Ri2.setEnabled(false);
+    }                                   
+
+        if(dtRot1.getDate()!=null){
+            Rr1.setEnabled(false);
+    }                                   
+
+        if(dtRot2.getDate()!=null){
+            Rr2.setEnabled(false);
+    }                                   
+
+        if(dtSpr1.getDate()!=null){
+            Rspr1.setEnabled(false);
+    }                                     
+
+        if(dtSpr2.getDate()!=null){
+            Rspr2.setEnabled(false);
+    }                                     
+
+        if(dtAmadu.getDate()!=null){
+            
+            Rama.setEnabled(false);
+    }                                    
+
+        if(dtDpt1.getDate()!=null){
+            Rdpt1.setEnabled(false);
+    }                                     
+
+        if(dtInflR1.getDate()!=null){
+            Rir1.setEnabled(false);
+    }                                    
+
+        if(dtApoR1.getDate()!=null){
+            Rapo1.setEnabled(false);
+    }                  
+    
+    }
+    
     public void habilitarRadio(boolean opcion){
       Relab.setEnabled(opcion);  
       Rejec.setEnabled(opcion);  
@@ -72,8 +194,10 @@ private Dimension DimensionBarra = null;
       Rir2.setEnabled(opcion);  
       Rapo1.setEnabled(opcion);  
       Rapo2.setEnabled(opcion);
+      btnguardar.setEnabled(true);
       
     }
+    
     public void habilitarDatos(boolean opcion){
         txtFuaAmaDu.setEnabled(opcion);
         txtFuaApoR1.setEnabled(opcion);
@@ -154,6 +278,450 @@ private Dimension DimensionBarra = null;
         txtInflR1.setEditable(opcion);
         txtInflR2.setEditable(opcion);
     }
+    public String determinarFecha(JDateChooser calendario){
+         
+        String fecha = "";
+        try {
+        int dia = calendario.getCalendar().get(Calendar.DAY_OF_MONTH);
+        int mes = calendario.getCalendar().get(Calendar.MONTH)+1;
+        int anio = calendario.getCalendar().get(Calendar.YEAR); 
+        
+            if(dia < 10 && mes < 10){
+            fecha = String.valueOf("0" + dia + "/" + "0" + mes + "/" + anio);
+        }else 
+            if(dia < 10 || mes < 10){
+                if(dia < 10 && mes >=10){
+                    fecha = String.valueOf("0" + dia + "/" + mes + "/" + anio);
+                } else 
+                    if(dia >= 10 && mes < 10){
+                        fecha = String.valueOf(dia + "/" + "0" + mes + "/" + anio);
+                    } 
+            } else 
+                fecha = String.valueOf(dia + "/" + mes + "/" + anio); 
+         } catch (Exception e) {
+                           mensaje.setVisible(true);
+                           mensaje.setBackground(new Color(255,91,70)); 
+                           men.setText("Ingrese una fecha correcta");
+                           b.setVisible(false);
+                           b1.setVisible(false); 
+         }
+        
+        return fecha;
+    }
+    
+    public void Guardar(JDateChooser fecha){
+        if(fecha.getDate()==null){
+            mensaje.setVisible(true);
+            mensaje.setBackground(new Color(255,91,70)); 
+            men.setText("Ingrese una fecha valida");
+            b.setVisible(false);
+            b1.setVisible(false);
+        } else {
+    ConsultorioExtRsVacunas CXRsVacunas = new ConsultorioExtRsVacunas();
+    ConsultorioExtRsVacunas CXRsVacunas2 = new ConsultorioExtRsVacunas();
+    try {
+                 
+            CXRsVacunas.setRsId(Integer.parseInt(lblId.getText()));
+            if(dtElab.getDate()!=null){
+                CXRsVacunas.setElabFecha(determinarFecha(dtElab));  
+                CXRsVacunas.setElabFua(txtFuaElab.getText());
+            }
+
+            if(dtEjec.getDate()!=null){
+                CXRsVacunas.setEjecFecha(determinarFecha(dtEjec));
+                CXRsVacunas.setEjecFua(txtFuaEjec.getText());
+            }
+        //BCG/HVB
+            if(dtBcg.getDate()!=null){
+                CXRsVacunas.setRnbcgFecha(determinarFecha(dtBcg));   
+                CXRsVacunas.setRnbcgFua(txtFuaBcg.getText());
+            }
+
+            if(dtHvb.getDate()!=null){
+                CXRsVacunas.setRnhvbFecha(determinarFecha(dtHvb)); 
+                CXRsVacunas.setRnhvbFua(txtFuaHvb.getText());
+            }
+
+        //ANTIPOLIO
+            if(dtIpv1.getDate()!=null){
+                CXRsVacunas.setRnhvbFecha(determinarFecha(dtHvb));
+                CXRsVacunas.setAnt1Fua(txtFuaIpv1.getText());
+            }
+
+            if(dtIpv2.getDate()!=null){
+                CXRsVacunas.setAnt2Fecha(determinarFecha(dtIpv2));
+                CXRsVacunas.setAnt2Fua(txtFuaIpv2.getText());
+            }
+
+            if(dtIpv3.getDate()!=null){
+                CXRsVacunas.setAnt3Fecha(determinarFecha(dtIpv3));
+                CXRsVacunas.setAnt3Fua(txtFuaIpv3.getText());
+            }
+
+            if(dtPent1.getDate()!=null){
+                CXRsVacunas.setPent1Fecha(determinarFecha(dtPent1));
+                CXRsVacunas.setPent1Fua(txtFuaPent1.getText());
+            }
+
+            if(dtPent2.getDate()!=null){
+                CXRsVacunas.setPent2Fecha(determinarFecha(dtPent2));
+                CXRsVacunas.setPent2Fua(txtFuaPent2.getText());
+            }
+
+            if(dtPent3.getDate()!=null){
+                CXRsVacunas.setPent3Fecha(determinarFecha(dtPent3));
+                CXRsVacunas.setPent3Fua(txtFuaPent3.getText());
+            }
+
+        //NEOMONCOCO
+            if(dtNeumo1.getDate()!=null){
+                CXRsVacunas.setNeu1Fecha(determinarFecha(dtNeumo1));
+                CXRsVacunas.setNeu1Fua(txtFuaNeumo1.getText());
+            }
+
+            if(dtNeumo2.getDate()!=null){
+                CXRsVacunas.setNeu2Fecha(determinarFecha(dtNeumo2));
+                CXRsVacunas.setNeu2Fua(txtFuaNeumo2.getText());
+            }
+            
+            if(dtNeumo3.getDate()!=null){
+                CXRsVacunas.setNeu3Fecha(determinarFecha(dtNeumo3));
+                CXRsVacunas.setNeu3Fua(txtFuaNeumo3.getText());
+            }
+
+        //INFLUENZA
+            if(dtInfl1.getDate()!=null){
+                CXRsVacunas.setInfl1Fecha(determinarFecha(dtInfl1));
+                CXRsVacunas.setInfl1Fua(txtFuaInfl1.getText());
+            }
+
+            if(dtInfl2.getDate()!=null){
+                CXRsVacunas.setInfl2Fecha(determinarFecha(dtInfl2));
+                CXRsVacunas.setInfl2Fua2(txtFuaInfl2.getText());
+            }
+
+        //ROTAVIRUS
+            if(dtRot1.getDate()!=null){
+                CXRsVacunas.setRot1Fecha(determinarFecha(dtRot1));
+                CXRsVacunas.setRot1Fua(txtFuaRot1.getText());
+            }
+
+            if(dtRot2.getDate()!=null){
+                CXRsVacunas.setRot2Fecha(determinarFecha(dtRot2));
+                CXRsVacunas.setRot2Fua(txtFuaRot2.getText());
+            }
+
+        //SPR
+            if(dtSpr1.getDate()!=null){
+                CXRsVacunas.setSpr1Fecha(determinarFecha(dtSpr1));
+                CXRsVacunas.setSpr1Fua(txtFuaSpr1.getText());
+            }
+
+
+            if(dtSpr2.getDate()!=null){
+                CXRsVacunas.setSpr2Fecha(determinarFecha(dtSpr2));
+                CXRsVacunas.setSpr2Fua(txtFuaSpr2.getText());
+            }
+
+        //AMA
+            if(dtAmadu.getDate()!=null){
+                CXRsVacunas.setAma1Fecha(determinarFecha(dtAmadu));
+                CXRsVacunas.setAma1Fua(txtFuaAmaDu.getText());
+            }
+
+
+            if(dtAmadu.getDate()!=null){
+                CXRsVacunas.setAma2Fecha("02/06/2014");
+                CXRsVacunas.setAma2Fua("");
+            }else if(dtAmadu.getDate()==null){
+                CXRsVacunas.setAma2Fecha("02/06/2014");
+            }
+
+        //DPT
+            if(dtDpt1.getDate()!=null){
+                CXRsVacunas.setDpt1Fecha(determinarFecha(dtDpt1));
+                CXRsVacunas.setDpt1Fua(txtFuaDpt1.getText());
+            }
+
+
+            if(dtDpt2.getDate()!=null){
+                CXRsVacunas.setDpt2Fecha(determinarFecha(dtDpt2));
+                CXRsVacunas.setDpt2Fua(txtFuaDpt2.getText());
+            }
+
+        //INFLUENZA REF.
+            if(dtInflR1.getDate()!=null){
+                CXRsVacunas.setInflr1Fecha(determinarFecha(dtInflR1));
+                CXRsVacunas.setInflr1Fua(txtInflR1.getText());
+            }
+
+            if(dtInflR2.getDate()!=null){
+                CXRsVacunas.setInflr2Fecha(determinarFecha(dtInflR2));
+                CXRsVacunas.setInflr2Fua(txtInflR2.getText());
+            }
+
+        //APO
+            if(dtApoR1.getDate()!=null){
+                CXRsVacunas.setApor1Fecha(determinarFecha(dtApoR1));
+                CXRsVacunas.setApor1Fua(txtFuaApoR1.getText());
+            }
+
+            if(dtApoR2.getDate()!=null){
+                CXRsVacunas.setApor2Fecha(determinarFecha(dtApoR2));
+                CXRsVacunas.setApor2Fua(txtFuaApoR2.getText());
+            }
+                           
+            if(CXRsVacunas.mantenimientoRSAIVacunas("I")==true){
+                mensaje.setVisible(true);
+                mensaje.setBackground(new Color(33,115,70)); 
+                men.setText("Datos Guardados de forma correcta");
+                b.setText("OK");
+                b.setVisible(true);
+                b1.setVisible(false);
+
+                btnguardar.setEnabled(false);
+                tge=1;
+
+                CXRsVacunas.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
+                porcentajeV();
+
+                habilitarDatos(false);
+                habilitarRadio(true);
+            }else {
+
+                    mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(255,91,70)); 
+                    men.setText("Ocurrio un error, Verifique");
+                    b.setVisible(false);
+                    b1.setVisible(false);
+                    tge=7;
+            }  
+         } catch (Exception e) {
+            System.out.println("Error: guardar " + e.getMessage());
+        }
+    }
+    }
+
+    public void Modificar(JDateChooser fecha){
+    if(fecha.getDate()==null){
+        fecha.setEnabled(true);
+        //fua.setEnabled(true);
+        mensaje.setVisible(true);
+        mensaje.setBackground(new Color(255,91,70)); 
+        men.setText("Ingrese una fecha valida");
+        b.setVisible(false);
+        b1.setVisible(false);
+    } else {
+        ConsultorioExtRsVacunas CXRsVacunas = new ConsultorioExtRsVacunas();
+        ConsultorioExtRsVacunas CXRsVacunas2 = new ConsultorioExtRsVacunas();
+        try {
+    
+            CXRsVacunas.setRsId(Integer.parseInt(lblId.getText()));
+            
+            if(dtElab.getDate()!=null){
+                CXRsVacunas.setElabFecha(determinarFecha(dtElab));  
+                CXRsVacunas.setElabFua(txtFuaElab.getText());
+             }
+
+            if(dtEjec.getDate()!=null){
+                CXRsVacunas.setEjecFecha(determinarFecha(dtEjec));
+                CXRsVacunas.setEjecFua(txtFuaEjec.getText());
+            }
+        //BCG/HVB
+            if(dtBcg.getDate()!=null){
+                CXRsVacunas.setRnbcgFecha(determinarFecha(dtBcg));   
+                CXRsVacunas.setRnbcgFua(txtFuaBcg.getText());
+            }
+
+            if(dtHvb.getDate()!=null){
+                CXRsVacunas.setRnhvbFecha(determinarFecha(dtHvb)); 
+                CXRsVacunas.setRnhvbFua(txtFuaHvb.getText());
+            }
+
+        //ANTIPOLIO
+            if(dtIpv1.getDate()!=null){
+                CXRsVacunas.setRnhvbFecha(determinarFecha(dtHvb));
+                CXRsVacunas.setAnt1Fua(txtFuaIpv1.getText());
+            }
+
+            if(dtIpv2.getDate()!=null){
+                CXRsVacunas.setAnt2Fecha(determinarFecha(dtIpv2));
+                CXRsVacunas.setAnt2Fua(txtFuaIpv2.getText());
+            }
+
+            if(dtIpv3.getDate()!=null){
+                CXRsVacunas.setAnt3Fecha(determinarFecha(dtIpv3));
+                CXRsVacunas.setAnt3Fua(txtFuaIpv3.getText());
+            }
+
+            if(dtPent1.getDate()!=null){
+                CXRsVacunas.setPent1Fecha(determinarFecha(dtPent1));
+                CXRsVacunas.setPent1Fua(txtFuaPent1.getText());
+            }
+
+            if(dtPent2.getDate()!=null){
+                CXRsVacunas.setPent2Fecha(determinarFecha(dtPent2));
+                CXRsVacunas.setPent2Fua(txtFuaPent2.getText());
+            }
+
+            if(dtPent3.getDate()!=null){
+                CXRsVacunas.setPent3Fecha(determinarFecha(dtPent3));
+                CXRsVacunas.setPent3Fua(txtFuaPent3.getText());
+            }
+
+        //NEOMONCOCO
+            if(dtNeumo1.getDate()!=null){
+                CXRsVacunas.setNeu1Fecha(determinarFecha(dtNeumo1));
+                CXRsVacunas.setNeu1Fua(txtFuaNeumo1.getText());
+            }
+
+            if(dtNeumo2.getDate()!=null){
+                CXRsVacunas.setNeu2Fecha(determinarFecha(dtNeumo2));
+                CXRsVacunas.setNeu2Fua(txtFuaNeumo2.getText());
+            }
+            
+            if(dtNeumo3.getDate()!=null){
+                CXRsVacunas.setNeu3Fecha(determinarFecha(dtNeumo3));
+                CXRsVacunas.setNeu3Fua(txtFuaNeumo3.getText());
+            }
+
+        //INFLUENZA
+            if(dtInfl1.getDate()!=null){
+                CXRsVacunas.setInfl1Fecha(determinarFecha(dtInfl1));
+                CXRsVacunas.setInfl1Fua(txtFuaInfl1.getText());
+            }
+
+            if(dtInfl2.getDate()!=null){
+                CXRsVacunas.setInfl2Fecha(determinarFecha(dtInfl2));
+                CXRsVacunas.setInfl2Fua2(txtFuaInfl2.getText());
+            }
+
+        //ROTAVIRUS
+            if(dtRot1.getDate()!=null){
+                CXRsVacunas.setRot1Fecha(determinarFecha(dtRot1));
+                CXRsVacunas.setRot1Fua(txtFuaRot1.getText());
+            }
+
+            if(dtRot2.getDate()!=null){
+                CXRsVacunas.setRot2Fecha(determinarFecha(dtRot2));
+                CXRsVacunas.setRot2Fua(txtFuaRot2.getText());
+            }
+
+        //SPR
+            if(dtSpr1.getDate()!=null){
+                CXRsVacunas.setSpr1Fecha(determinarFecha(dtSpr1));
+                CXRsVacunas.setSpr1Fua(txtFuaSpr1.getText());
+            }
+
+
+            if(dtSpr2.getDate()!=null){
+                CXRsVacunas.setSpr2Fecha(determinarFecha(dtSpr2));
+                CXRsVacunas.setSpr2Fua(txtFuaSpr2.getText());
+            }
+
+        //AMA
+            if(dtAmadu.getDate()!=null){
+                CXRsVacunas.setAma1Fecha(determinarFecha(dtAmadu));
+                CXRsVacunas.setAma1Fua(txtFuaAmaDu.getText());
+            }
+
+
+            if(dtAmadu.getDate()!=null){
+                CXRsVacunas.setAma2Fecha("02/06/2014");
+                CXRsVacunas.setAma2Fua("");
+            }else if(dtAmadu.getDate()==null){
+                CXRsVacunas.setAma2Fecha("02/06/2014");
+            }
+
+        //DPT
+            if(dtDpt1.getDate()!=null){
+                CXRsVacunas.setDpt1Fecha(determinarFecha(dtDpt1));
+                CXRsVacunas.setDpt1Fua(txtFuaDpt1.getText());
+            }
+
+
+            if(dtDpt2.getDate()!=null){
+                CXRsVacunas.setDpt2Fecha(determinarFecha(dtDpt2));
+                CXRsVacunas.setDpt2Fua(txtFuaDpt2.getText());
+            }
+
+        //INFLUENZA REF.
+            if(dtInflR1.getDate()!=null){
+                CXRsVacunas.setInflr1Fecha(determinarFecha(dtInflR1));
+                CXRsVacunas.setInflr1Fua(txtInflR1.getText());
+            }
+
+            if(dtInflR2.getDate()!=null){
+                CXRsVacunas.setInflr2Fecha(determinarFecha(dtInflR2));
+                CXRsVacunas.setInflr2Fua(txtInflR2.getText());
+            }
+        //APO
+            if(dtApoR1.getDate()!=null){
+                CXRsVacunas.setApor1Fecha(determinarFecha(dtApoR1));
+                CXRsVacunas.setApor1Fua(txtFuaApoR1.getText());
+            }
+
+            if(dtApoR2.getDate()!=null){
+                CXRsVacunas.setApor2Fecha(determinarFecha(dtApoR2));
+                CXRsVacunas.setApor2Fua(txtFuaApoR2.getText());
+            }
+            if(CXRsVacunas.mantenimientoRSAIVacunas("U")==true){
+                mensaje.setVisible(true);
+                mensaje.setBackground(new Color(33,115,70)); 
+                men.setText("Datos Actualizados de forma correcta");
+                b.setText("OK");
+                b.setVisible(true);
+                b1.setVisible(false);
+                btnguardar.setEnabled(false);
+                tge=1;
+                CXRsVacunas2.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));
+                porcentajeV();
+                habilitarDatos(false);
+                habilitarRadio(true);
+            }else {
+                mensaje.setVisible(true);
+                mensaje.setBackground(new Color(255,91,70)); 
+                men.setText("Ocurrio un error, Verifique");
+                b.setVisible(false);
+                b1.setVisible(false);
+                tge=5;
+            }  
+
+            } catch (Exception e) {
+               System.out.println("Error: modificar " + e.getMessage());
+            }
+        }
+    }
+    
+    public void validaRegistro(int rs_id){
+        try {
+            PreparedStatement cmd = vacunas26.getCn().prepareStatement("SELECT RS_ID FROM CONSULTORIO_EXT_RS_VACUNAS WHERE RS_ID ='"+rs_id+"'");
+            ResultSet res = cmd.executeQuery();
+            if(res.next()){ // si existe
+                Modificar(fecha);
+            }else { // no existe
+                Guardar(fecha);
+            }
+        } catch (Exception e) {
+            mensaje.setVisible(true);
+            mensaje.setBackground(new Color(255,91,70)); 
+            men.setText("Ocurrió un error, Verifique");
+            b.setVisible(false);
+            b1.setVisible(false);
+        }
+    }
+    
+    public void porcentajeV(){
+        ConsultorioExtRsVacunas vacs = new ConsultorioExtRsVacunas();
+        vacs.porcentajeVacunas(Integer.parseInt(lblId.getText()));
+    }
+    
+     public void Botones(boolean opcion){
+        btnguardar.setEnabled(opcion);
+        btneditar.setEnabled(opcion);
+        btnCaccnelar.setEnabled(opcion);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -169,6 +737,10 @@ private Dimension DimensionBarra = null;
         jLabel10 = new javax.swing.JLabel();
         jPanel27 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
+        lblPorcentajeV = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblNina = new javax.swing.JLabel();
+        lblNino = new javax.swing.JLabel();
         ELAB = new javax.swing.JPanel();
         dtElab = new com.toedter.calendar.JDateChooser();
         txtFuaElab = new javax.swing.JTextField();
@@ -310,8 +882,12 @@ private Dimension DimensionBarra = null;
         jPanel28 = new javax.swing.JPanel();
         btneditar = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
-        lblNino = new javax.swing.JLabel();
-        lblNina = new javax.swing.JLabel();
+        btnCaccnelar = new javax.swing.JButton();
+        mensaje = new javax.swing.JPanel();
+        men = new javax.swing.JLabel();
+        b = new javax.swing.JButton();
+        b1 = new javax.swing.JButton();
+        lblId = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setMinimumSize(new java.awt.Dimension(1381, 430));
@@ -322,14 +898,15 @@ private Dimension DimensionBarra = null;
         jPanel26.setBackground(new java.awt.Color(25, 188, 157));
         jPanel26.setPreferredSize(new java.awt.Dimension(83, 45));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("VACUNAS");
+        jLabel10.setText("Vacunas");
 
         jPanel27.setBackground(new java.awt.Color(23, 160, 134));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Izquierda Filled-30.png"))); // NOI18N
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -341,18 +918,51 @@ private Dimension DimensionBarra = null;
         jPanel27.setLayout(jPanel27Layout);
         jPanel27Layout.setHorizontalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel27Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13)
-                .addContainerGap())
+            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
         );
         jPanel27Layout.setVerticalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel27Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jLabel13)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        lblPorcentajeV.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblPorcentajeV.setForeground(new java.awt.Color(12, 97, 81));
+        lblPorcentajeV.setText("100 %  Completado");
+        lblPorcentajeV.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jPanel2.setBackground(new java.awt.Color(23, 160, 134));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1, 100));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        lblNina.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
+        lblNina.setForeground(new java.awt.Color(12, 97, 81));
+        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-50.png"))); // NOI18N
+        lblNina.setText("NIÑOS");
+        lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        lblNino.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
+<<<<<<< HEAD
+        lblNino.setForeground(new java.awt.Color(12, 97, 81));
+=======
+        lblNino.setForeground(new java.awt.Color(109, 23, 16));
+>>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
+        lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-50.png"))); // NOI18N
+        lblNino.setText("NIÑOS");
+        lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblNino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
@@ -360,26 +970,45 @@ private Dimension DimensionBarra = null;
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel26Layout.createSequentialGroup()
                 .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPorcentajeV)
+                    .addComponent(jLabel10))
+                .addGap(59, 59, 59)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10)
-                .addContainerGap(1260, Short.MAX_VALUE))
+                .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel26Layout.createSequentialGroup()
-                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(lblPorcentajeV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNina)
+                    .addComponent(lblNino))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         ELAB.setBackground(new java.awt.Color(153, 153, 153));
         ELAB.setPreferredSize(new java.awt.Dimension(120, 88));
 
-        dtElab.setBackground(new java.awt.Color(204, 204, 204));
+        dtElab.setBackground(new java.awt.Color(255, 255, 255));
         dtElab.setDateFormatString("dd/MM/yyyy");
         dtElab.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        txtFuaElab.setEditable(false);
         txtFuaElab.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaElabCaretUpdate(evt);
@@ -446,10 +1075,11 @@ private Dimension DimensionBarra = null;
         EJEC.setBackground(new java.awt.Color(153, 153, 153));
         EJEC.setPreferredSize(new java.awt.Dimension(120, 88));
 
-        dtEjec.setBackground(new java.awt.Color(204, 204, 204));
+        dtEjec.setBackground(new java.awt.Color(255, 255, 255));
         dtEjec.setDateFormatString("dd/MM/yyyy");
         dtEjec.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        txtFuaEjec.setEditable(false);
         txtFuaEjec.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaEjecCaretUpdate(evt);
@@ -523,7 +1153,7 @@ private Dimension DimensionBarra = null;
 
         jPanel35.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtBcg.setBackground(new java.awt.Color(204, 204, 204));
+        dtBcg.setBackground(new java.awt.Color(255, 255, 255));
         dtBcg.setDateFormatString("dd/MM/yyyy");
         dtBcg.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -558,7 +1188,7 @@ private Dimension DimensionBarra = null;
 
         jPanel36.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtHvb.setBackground(new java.awt.Color(204, 204, 204));
+        dtHvb.setBackground(new java.awt.Color(255, 255, 255));
         dtHvb.setDateFormatString("dd/MM/yyyy");
         dtHvb.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -591,12 +1221,14 @@ private Dimension DimensionBarra = null;
                 .addComponent(dtHvb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaBcg.setEditable(false);
         txtFuaBcg.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaBcgCaretUpdate(evt);
             }
         });
 
+        txtFuaHvb.setEditable(false);
         txtFuaHvb.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaHvbCaretUpdate(evt);
@@ -621,7 +1253,7 @@ private Dimension DimensionBarra = null;
             RNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RNLayout.createSequentialGroup()
                 .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(RNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -655,7 +1287,7 @@ private Dimension DimensionBarra = null;
 
         jPanel53.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtNeumo1.setBackground(new java.awt.Color(204, 204, 204));
+        dtNeumo1.setBackground(new java.awt.Color(255, 255, 255));
         dtNeumo1.setDateFormatString("dd/MM/yyyy");
         dtNeumo1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -690,7 +1322,7 @@ private Dimension DimensionBarra = null;
 
         jPanel54.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtNeumo2.setBackground(new java.awt.Color(204, 204, 204));
+        dtNeumo2.setBackground(new java.awt.Color(255, 255, 255));
         dtNeumo2.setDateFormatString("dd/MM/yyyy");
         dtNeumo2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -725,7 +1357,7 @@ private Dimension DimensionBarra = null;
 
         jPanel55.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtNeumo3.setBackground(new java.awt.Color(204, 204, 204));
+        dtNeumo3.setBackground(new java.awt.Color(255, 255, 255));
         dtNeumo3.setDateFormatString("dd/MM/yyyy");
         dtNeumo3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -758,18 +1390,21 @@ private Dimension DimensionBarra = null;
                 .addComponent(dtNeumo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaNeumo3.setEditable(false);
         txtFuaNeumo3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaNeumo3CaretUpdate(evt);
             }
         });
 
+        txtFuaNeumo1.setEditable(false);
         txtFuaNeumo1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaNeumo1CaretUpdate(evt);
             }
         });
 
+        txtFuaNeumo2.setEditable(false);
         txtFuaNeumo2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaNeumo2CaretUpdate(evt);
@@ -799,7 +1434,7 @@ private Dimension DimensionBarra = null;
             NEUMOCOCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(NEUMOCOCOLayout.createSequentialGroup()
                 .addComponent(jPanel52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(NEUMOCOCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(NEUMOCOCOLayout.createSequentialGroup()
                         .addGroup(NEUMOCOCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -839,7 +1474,7 @@ private Dimension DimensionBarra = null;
 
         jPanel37.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtInfl1.setBackground(new java.awt.Color(204, 204, 204));
+        dtInfl1.setBackground(new java.awt.Color(255, 255, 255));
         dtInfl1.setDateFormatString("dd/MM/yyyy");
         dtInfl1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -874,7 +1509,7 @@ private Dimension DimensionBarra = null;
 
         jPanel38.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtInfl2.setBackground(new java.awt.Color(204, 204, 204));
+        dtInfl2.setBackground(new java.awt.Color(255, 255, 255));
         dtInfl2.setDateFormatString("dd/MM/yyyy");
         dtInfl2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -907,12 +1542,14 @@ private Dimension DimensionBarra = null;
                 .addComponent(dtInfl2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaInfl1.setEditable(false);
         txtFuaInfl1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaInfl1CaretUpdate(evt);
             }
         });
 
+        txtFuaInfl2.setEditable(false);
         txtFuaInfl2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaInfl2CaretUpdate(evt);
@@ -937,7 +1574,7 @@ private Dimension DimensionBarra = null;
             INFLUENZALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(INFLUENZALayout.createSequentialGroup()
                 .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(INFLUENZALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -972,7 +1609,7 @@ private Dimension DimensionBarra = null;
 
         jPanel39.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtRot1.setBackground(new java.awt.Color(204, 204, 204));
+        dtRot1.setBackground(new java.awt.Color(255, 255, 255));
         dtRot1.setDateFormatString("dd/MM/yyyy");
         dtRot1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1007,7 +1644,7 @@ private Dimension DimensionBarra = null;
 
         jPanel42.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtRot2.setBackground(new java.awt.Color(204, 204, 204));
+        dtRot2.setBackground(new java.awt.Color(255, 255, 255));
         dtRot2.setDateFormatString("dd/MM/yyyy");
         dtRot2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1040,12 +1677,14 @@ private Dimension DimensionBarra = null;
                 .addComponent(dtRot2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaRot1.setEditable(false);
         txtFuaRot1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaRot1CaretUpdate(evt);
             }
         });
 
+        txtFuaRot2.setEditable(false);
         txtFuaRot2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaRot2CaretUpdate(evt);
@@ -1070,7 +1709,7 @@ private Dimension DimensionBarra = null;
             ROTAVIRUSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ROTAVIRUSLayout.createSequentialGroup()
                 .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(ROTAVIRUSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1105,7 +1744,7 @@ private Dimension DimensionBarra = null;
 
         jPanel45.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtSpr1.setBackground(new java.awt.Color(204, 204, 204));
+        dtSpr1.setBackground(new java.awt.Color(255, 255, 255));
         dtSpr1.setDateFormatString("dd/MM/yyyy");
         dtSpr1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1140,7 +1779,7 @@ private Dimension DimensionBarra = null;
 
         jPanel46.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtSpr2.setBackground(new java.awt.Color(204, 204, 204));
+        dtSpr2.setBackground(new java.awt.Color(255, 255, 255));
         dtSpr2.setDateFormatString("dd/MM/yyyy");
         dtSpr2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1173,12 +1812,14 @@ private Dimension DimensionBarra = null;
                 .addComponent(dtSpr2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaSpr1.setEditable(false);
         txtFuaSpr1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaSpr1CaretUpdate(evt);
             }
         });
 
+        txtFuaSpr2.setEditable(false);
         txtFuaSpr2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaSpr2CaretUpdate(evt);
@@ -1203,7 +1844,7 @@ private Dimension DimensionBarra = null;
             SPRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SPRLayout.createSequentialGroup()
                 .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(SPRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1238,7 +1879,7 @@ private Dimension DimensionBarra = null;
 
         jPanel56.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtAmadu.setBackground(new java.awt.Color(204, 204, 204));
+        dtAmadu.setBackground(new java.awt.Color(255, 255, 255));
         dtAmadu.setDateFormatString("dd/MM/yyyy");
         dtAmadu.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1271,6 +1912,7 @@ private Dimension DimensionBarra = null;
                 .addComponent(dtAmadu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaAmaDu.setEditable(false);
         txtFuaAmaDu.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaAmaDuCaretUpdate(evt);
@@ -1295,7 +1937,7 @@ private Dimension DimensionBarra = null;
             AMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AMALayout.createSequentialGroup()
                 .addComponent(jPanel51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(txtFuaAmaDu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1326,7 +1968,7 @@ private Dimension DimensionBarra = null;
 
         jPanel58.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtIpv1.setBackground(new java.awt.Color(204, 204, 204));
+        dtIpv1.setBackground(new java.awt.Color(255, 255, 255));
         dtIpv1.setDateFormatString("dd/MM/yyyy");
         dtIpv1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1361,7 +2003,7 @@ private Dimension DimensionBarra = null;
 
         jPanel59.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtIpv2.setBackground(new java.awt.Color(204, 204, 204));
+        dtIpv2.setBackground(new java.awt.Color(255, 255, 255));
         dtIpv2.setDateFormatString("dd/MM/yyyy");
         dtIpv2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1396,7 +2038,7 @@ private Dimension DimensionBarra = null;
 
         jPanel60.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtIpv3.setBackground(new java.awt.Color(204, 204, 204));
+        dtIpv3.setBackground(new java.awt.Color(255, 255, 255));
         dtIpv3.setDateFormatString("dd/MM/yyyy");
         dtIpv3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1429,18 +2071,21 @@ private Dimension DimensionBarra = null;
                 .addComponent(dtIpv3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaIpv3.setEditable(false);
         txtFuaIpv3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaIpv3CaretUpdate(evt);
             }
         });
 
+        txtFuaIpv1.setEditable(false);
         txtFuaIpv1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaIpv1CaretUpdate(evt);
             }
         });
 
+        txtFuaIpv2.setEditable(false);
         txtFuaIpv2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaIpv2CaretUpdate(evt);
@@ -1470,7 +2115,7 @@ private Dimension DimensionBarra = null;
             ANTIPOLIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ANTIPOLIOLayout.createSequentialGroup()
                 .addComponent(jPanel57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(ANTIPOLIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ANTIPOLIOLayout.createSequentialGroup()
                         .addGroup(ANTIPOLIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1510,7 +2155,7 @@ private Dimension DimensionBarra = null;
 
         jPanel62.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtPent1.setBackground(new java.awt.Color(204, 204, 204));
+        dtPent1.setBackground(new java.awt.Color(255, 255, 255));
         dtPent1.setDateFormatString("dd/MM/yyyy");
         dtPent1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1545,7 +2190,7 @@ private Dimension DimensionBarra = null;
 
         jPanel63.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtPent2.setBackground(new java.awt.Color(204, 204, 204));
+        dtPent2.setBackground(new java.awt.Color(255, 255, 255));
         dtPent2.setDateFormatString("dd/MM/yyyy");
         dtPent2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1580,7 +2225,7 @@ private Dimension DimensionBarra = null;
 
         jPanel64.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtPent3.setBackground(new java.awt.Color(204, 204, 204));
+        dtPent3.setBackground(new java.awt.Color(255, 255, 255));
         dtPent3.setDateFormatString("dd/MM/yyyy");
         dtPent3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1613,18 +2258,21 @@ private Dimension DimensionBarra = null;
                 .addComponent(dtPent3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaPent3.setEditable(false);
         txtFuaPent3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaPent3CaretUpdate(evt);
             }
         });
 
+        txtFuaPent1.setEditable(false);
         txtFuaPent1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaPent1CaretUpdate(evt);
             }
         });
 
+        txtFuaPent2.setEditable(false);
         txtFuaPent2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaPent2CaretUpdate(evt);
@@ -1654,13 +2302,13 @@ private Dimension DimensionBarra = null;
             PENTAVALENTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PENTAVALENTELayout.createSequentialGroup()
                 .addComponent(jPanel61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(PENTAVALENTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PENTAVALENTELayout.createSequentialGroup()
                         .addGroup(PENTAVALENTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel64, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 1, Short.MAX_VALUE)
                         .addGroup(PENTAVALENTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtFuaPent3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtFuaPent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1694,7 +2342,7 @@ private Dimension DimensionBarra = null;
 
         jPanel41.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtDpt1.setBackground(new java.awt.Color(204, 204, 204));
+        dtDpt1.setBackground(new java.awt.Color(255, 255, 255));
         dtDpt1.setDateFormatString("dd/MM/yyyy");
         dtDpt1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1729,7 +2377,7 @@ private Dimension DimensionBarra = null;
 
         jPanel43.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtDpt2.setBackground(new java.awt.Color(204, 204, 204));
+        dtDpt2.setBackground(new java.awt.Color(255, 255, 255));
         dtDpt2.setDateFormatString("dd/MM/yyyy");
         dtDpt2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1762,12 +2410,14 @@ private Dimension DimensionBarra = null;
                 .addComponent(dtDpt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaDpt1.setEditable(false);
         txtFuaDpt1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaDpt1CaretUpdate(evt);
             }
         });
 
+        txtFuaDpt2.setEditable(false);
         txtFuaDpt2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaDpt2CaretUpdate(evt);
@@ -1792,7 +2442,7 @@ private Dimension DimensionBarra = null;
             DPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DPTLayout.createSequentialGroup()
                 .addComponent(jPanel40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(DPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1827,7 +2477,7 @@ private Dimension DimensionBarra = null;
 
         jPanel48.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtInflR1.setBackground(new java.awt.Color(204, 204, 204));
+        dtInflR1.setBackground(new java.awt.Color(255, 255, 255));
         dtInflR1.setDateFormatString("dd/MM/yyyy");
         dtInflR1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1862,7 +2512,7 @@ private Dimension DimensionBarra = null;
 
         jPanel49.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtInflR2.setBackground(new java.awt.Color(204, 204, 204));
+        dtInflR2.setBackground(new java.awt.Color(255, 255, 255));
         dtInflR2.setDateFormatString("dd/MM/yyyy");
         dtInflR2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1895,12 +2545,14 @@ private Dimension DimensionBarra = null;
                 .addComponent(dtInflR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtInflR1.setEditable(false);
         txtInflR1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtInflR1CaretUpdate(evt);
             }
         });
 
+        txtInflR2.setEditable(false);
         txtInflR2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtInflR2CaretUpdate(evt);
@@ -1925,7 +2577,7 @@ private Dimension DimensionBarra = null;
             INFLUENZA_REFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(INFLUENZA_REFLayout.createSequentialGroup()
                 .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(INFLUENZA_REFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1960,7 +2612,7 @@ private Dimension DimensionBarra = null;
 
         jPanel65.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtApoR1.setBackground(new java.awt.Color(204, 204, 204));
+        dtApoR1.setBackground(new java.awt.Color(255, 255, 255));
         dtApoR1.setDateFormatString("dd/MM/yyyy");
         dtApoR1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -1995,7 +2647,7 @@ private Dimension DimensionBarra = null;
 
         jPanel66.setBackground(new java.awt.Color(153, 153, 153));
 
-        dtApoR2.setBackground(new java.awt.Color(204, 204, 204));
+        dtApoR2.setBackground(new java.awt.Color(255, 255, 255));
         dtApoR2.setDateFormatString("dd/MM/yyyy");
         dtApoR2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
@@ -2028,12 +2680,14 @@ private Dimension DimensionBarra = null;
                 .addComponent(dtApoR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaApoR1.setEditable(false);
         txtFuaApoR1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaApoR1CaretUpdate(evt);
             }
         });
 
+        txtFuaApoR2.setEditable(false);
         txtFuaApoR2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaApoR2CaretUpdate(evt);
@@ -2058,7 +2712,7 @@ private Dimension DimensionBarra = null;
             INFLUENZA_REF1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(INFLUENZA_REF1Layout.createSequentialGroup()
                 .addComponent(jPanel50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(INFLUENZA_REF1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2089,7 +2743,6 @@ private Dimension DimensionBarra = null;
         btnguardar.setForeground(new java.awt.Color(240, 240, 240));
         btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
         btnguardar.setMnemonic('N');
-        btnguardar.setText("Guardar");
         btnguardar.setContentAreaFilled(false);
         btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnguardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -2100,22 +2753,40 @@ private Dimension DimensionBarra = null;
             }
         });
 
+        btnCaccnelar.setForeground(new java.awt.Color(240, 240, 240));
+        btnCaccnelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Deshacer-30.png"))); // NOI18N
+        btnCaccnelar.setMnemonic('N');
+        btnCaccnelar.setContentAreaFilled(false);
+        btnCaccnelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaccnelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCaccnelar.setIconTextGap(30);
+        btnCaccnelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaccnelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
         jPanel28Layout.setHorizontalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 122, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
+                .addContainerGap(129, Short.MAX_VALUE)
+                .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel28Layout.createSequentialGroup()
                     .addGap(15, 15, 15)
                     .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(15, Short.MAX_VALUE)))
+                    .addContainerGap(69, Short.MAX_VALUE)))
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addComponent(btnCaccnelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel28Layout.createSequentialGroup()
                     .addGap(1, 1, 1)
@@ -2125,38 +2796,87 @@ private Dimension DimensionBarra = null;
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        mensaje.setBackground(new java.awt.Color(33, 115, 70));
+
+        men.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        men.setForeground(new java.awt.Color(255, 255, 255));
+        men.setText("Desea Actualizar el Registro ?");
+
+        b.setForeground(new java.awt.Color(240, 240, 240));
+        b.setText("Si");
+        b.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        b.setContentAreaFilled(false);
+        b.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        b.setIconTextGap(30);
+        b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bActionPerformed(evt);
+            }
+        });
+
+        b1.setForeground(new java.awt.Color(240, 240, 240));
+        b1.setText("No");
+        b1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        b1.setContentAreaFilled(false);
+        b1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        b1.setIconTextGap(30);
+        b1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout mensajeLayout = new javax.swing.GroupLayout(mensaje);
+        mensaje.setLayout(mensajeLayout);
+        mensajeLayout.setHorizontalGroup(
+            mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mensajeLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(men)
+                .addGap(46, 46, 46)
+                .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        mensajeLayout.setVerticalGroup(
+            mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mensajeLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(men)
+                    .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout OpcionesLayout = new javax.swing.GroupLayout(Opciones);
         Opciones.setLayout(OpcionesLayout);
         OpcionesLayout.setHorizontalGroup(
             OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OpcionesLayout.createSequentialGroup()
                 .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         OpcionesLayout.setVerticalGroup(
             OpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(OpcionesLayout.createSequentialGroup()
+                .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        lblNino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblNino.setForeground(new java.awt.Color(102, 102, 102));
-        lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
-        lblNino.setText("NIÑOS");
-        lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblNino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-        lblNina.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblNina.setForeground(new java.awt.Color(102, 102, 102));
-        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
-        lblNina.setText("NIÑOS");
-        lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        lblId.setText("jLabel1");
 
         javax.swing.GroupLayout VACUNASLayout = new javax.swing.GroupLayout(VACUNAS);
         VACUNAS.setLayout(VACUNASLayout);
         VACUNASLayout.setHorizontalGroup(
             VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel26, javax.swing.GroupLayout.DEFAULT_SIZE, 1383, Short.MAX_VALUE)
+            .addComponent(jPanel26, javax.swing.GroupLayout.DEFAULT_SIZE, 1252, Short.MAX_VALUE)
             .addComponent(Opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(VACUNASLayout.createSequentialGroup()
                 .addContainerGap()
@@ -2172,44 +2892,36 @@ private Dimension DimensionBarra = null;
                         .addGap(1, 1, 1)
                         .addComponent(PENTAVALENTE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(VACUNASLayout.createSequentialGroup()
-                        .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(VACUNASLayout.createSequentialGroup()
-                                .addComponent(NEUMOCOCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
-                                .addComponent(INFLUENZA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
-                                .addComponent(ROTAVIRUS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(VACUNASLayout.createSequentialGroup()
-                                .addComponent(DPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
-                                .addComponent(INFLUENZA_REF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
-                                .addComponent(INFLUENZA_REF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(NEUMOCOCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(INFLUENZA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(ROTAVIRUS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(SPR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(AMA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(VACUNASLayout.createSequentialGroup()
-                        .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(164, Short.MAX_VALUE))
+                        .addComponent(DPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(INFLUENZA_REF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(INFLUENZA_REF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblId)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         VACUNASLayout.setVerticalGroup(
             VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VACUNASLayout.createSequentialGroup()
-                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNino)
-                    .addComponent(lblNina))
-                .addGap(18, 18, 18)
+                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
                 .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(EJEC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
                     .addComponent(PENTAVALENTE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(RN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ANTIPOLIO, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ELAB, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
+                    .addComponent(EJEC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(ELAB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(NEUMOCOCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2221,7 +2933,8 @@ private Dimension DimensionBarra = null;
                 .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(INFLUENZA_REF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(INFLUENZA_REF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(INFLUENZA_REF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblId))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -2242,13 +2955,12 @@ private Dimension DimensionBarra = null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-
         RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
         this.dispose();
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        habilitarRadio(true);
+        validaRegistro(Integer.parseInt(lblId.getText()));
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
@@ -2384,46 +3096,67 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_txtFuaEjecMouseClicked
 
     private void Rp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rp1ActionPerformed
-        if(Rp1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaPent1.setEnabled(true);
-            dtPent1.setEnabled(true);
-            txtFuaPent1.requestFocus();
-            txtFuaPent1.setEditable(true);  
+        if(dtPent1.getDate()==null){
+            if(Rp1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtPent1.setEnabled(true);
+                fecha=dtPent1;
+                fua = txtFuaPent1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rp1.setEnabled(false);
         }
     }//GEN-LAST:event_Rp1ActionPerformed
 
     private void Rdpt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rdpt2ActionPerformed
-      if(Rdpt2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaDpt2.setEnabled(true);
-            dtDpt2.setEnabled(true);
-            txtFuaDpt2.requestFocus();
-            txtFuaDpt2.setEditable(true);  
+        if(dtDpt2.getDate()==null){
+            if(Rdpt2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtDpt2.setEnabled(true);
+                fecha=dtDpt2;
+                fua = txtFuaDpt2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rdpt2.setEnabled(false);
         }
     }//GEN-LAST:event_Rdpt2ActionPerformed
 
     private void Rir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rir2ActionPerformed
-        if(Rir2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtInflR2.setEnabled(true);
-            dtInflR2.setEnabled(true);
-            txtInflR2.requestFocus();
-            txtInflR2.setEditable(true);  
+        if(dtInflR2.getDate()==null){
+            if(Rir2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtInflR2.setEnabled(true);
+                fecha=dtInflR2;
+                fua = txtInflR2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+                JOptionPane.showMessageDialog(this, RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rir2.setEnabled(false);
         }
     }//GEN-LAST:event_Rir2ActionPerformed
 
     private void Rapo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rapo2ActionPerformed
-        if(Rapo2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaApoR2.setEnabled(true);
-            dtApoR2.setEnabled(true);
-            txtFuaApoR2.requestFocus();
-            txtFuaApoR2.setEditable(true);  
+        if(dtApoR2.getDate()==null){
+            if(Rapo2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtApoR2.setEnabled(true);
+                fecha=dtApoR2;
+                fua = txtFuaApoR2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rapo2.setEnabled(false);
         }
     }//GEN-LAST:event_Rapo2ActionPerformed
 
@@ -2432,249 +3165,386 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_RelabMouseClicked
 
     private void RelabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelabActionPerformed
-        if(Relab.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaElab.setEnabled(true);
-            dtElab.setEnabled(true);
-            txtFuaElab.requestFocus();
-            txtFuaElab.setEditable(true); 
-            
+        if(dtElab.getDate()==null){
+            if(Relab.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtElab.setEnabled(true);
+                fecha=dtElab;
+                fua = txtFuaElab;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Relab.setEnabled(false);
         }
     }//GEN-LAST:event_RelabActionPerformed
 
     private void RejecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RejecActionPerformed
-         if(Rejec.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaEjec.setEnabled(true);
-            dtEjec.setEnabled(true);
-            txtFuaEjec.requestFocus();
-            txtFuaEjec.setEditable(true); 
-            
+        if(dtEjec.getDate()==null){
+            if(Rejec.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtEjec.setEnabled(true);
+                fecha=dtEjec;
+                fua = txtFuaEjec;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rejec.setEnabled(false);
         }
     }//GEN-LAST:event_RejecActionPerformed
 
     private void RbcgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RbcgActionPerformed
-           if(Rbcg.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaBcg.setEnabled(true);
-            dtBcg.setEnabled(true);
-            txtFuaBcg.requestFocus();
-            txtFuaBcg.setEditable(true); 
-            
+        if(dtBcg.getDate()==null){
+            if(Rbcg.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtBcg.setEnabled(true);
+                fecha=dtBcg;
+                fua = txtFuaBcg;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rbcg.setEnabled(false);
         }
     }//GEN-LAST:event_RbcgActionPerformed
 
     private void RhvbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RhvbActionPerformed
+        if(dtHvb.getDate()==null){
             if(Rhvb.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaHvb.setEnabled(true);
-            dtHvb.setEnabled(true);
-            txtFuaHvb.requestFocus();
-            txtFuaHvb.setEditable(true);  
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtHvb.setEnabled(true); 
+                fecha=dtHvb;
+                fua = txtFuaHvb;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
+        } else {
+            Rhvb.setEnabled(false);
+        }
     }//GEN-LAST:event_RhvbActionPerformed
 
     private void Rp3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rp3ActionPerformed
-        if(Rp3.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaPent3.setEnabled(true);
-            dtPent3.setEnabled(true);
-            txtFuaPent3.requestFocus();
-            txtFuaPent3.setEditable(true);  
+        if(dtPent3.getDate()==null){
+            if(Rp3.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtPent3.setEnabled(true);
+                fecha=dtPent3;
+                fua = txtFuaPent3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rp3.setEnabled(false);
         }
     }//GEN-LAST:event_Rp3ActionPerformed
 
     private void Rp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rp2ActionPerformed
-        if(Rp2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaPent2.setEnabled(true);
-            dtPent2.setEnabled(true);
-            txtFuaPent2.requestFocus();
-            txtFuaPent2.setEditable(true);  
+        if(dtPent2.getDate()==null){
+            if(Rp2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtPent2.setEnabled(true);
+                fecha=dtPent2;
+                fua = txtFuaPent2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rp2.setEnabled(false);
         }
     }//GEN-LAST:event_Rp2ActionPerformed
 
     private void Ripv3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ripv3ActionPerformed
-        if(Ripv3.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaIpv3.setEnabled(true);
-            dtIpv1.setEnabled(true);
-            txtFuaIpv3.requestFocus();
-            txtFuaIpv3.setEditable(true);  
+        if(dtIpv3.getDate()==null){
+            if(Ripv3.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtIpv3.setEnabled(true);
+                fecha=dtIpv3;
+                fua = txtFuaIpv3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Ripv3.setEnabled(false);
+
         }
+     
     }//GEN-LAST:event_Ripv3ActionPerformed
 
     private void Ripv2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ripv2ActionPerformed
-        if(Ripv2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaIpv2.setEnabled(true);
-            dtIpv2.setEnabled(true);
-            txtFuaIpv2.requestFocus();
-            txtFuaIpv2.setEditable(true);  
+        if(dtIpv2.getDate()==null){
+            if(Ripv2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtIpv2.setEnabled(true);  
+                fecha=dtIpv2;
+                fua = txtFuaIpv2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Ripv2.setEnabled(false);
         }
     }//GEN-LAST:event_Ripv2ActionPerformed
 
     private void Ripv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ripv1ActionPerformed
-        if(Ripv1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaIpv1.setEnabled(true);
-            dtIpv1.setEnabled(true);
-            txtFuaIpv1.requestFocus();
-            txtFuaIpv1.setEditable(true);  
+        if(dtIpv1.getDate()==null){
+            if(Ripv1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtIpv1.setEnabled(true);
+                fecha=dtIpv1;
+                fua = txtFuaIpv1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Ripv1.setEnabled(false);
         }
     }//GEN-LAST:event_Ripv1ActionPerformed
 
     private void Rn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rn1ActionPerformed
-        if(Rn1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaNeumo1.setEnabled(true);
-            dtNeumo1.setEnabled(true);
-            txtFuaNeumo1.requestFocus();
-            txtFuaNeumo1.setEditable(true);  
+        if(dtNeumo1.getDate()==null){
+            if(Rn1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtNeumo1.setEnabled(true);
+                fecha=dtNeumo1;
+                fua = txtFuaNeumo1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rn1.setEnabled(false);
         }
     }//GEN-LAST:event_Rn1ActionPerformed
 
     private void Rn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rn2ActionPerformed
-        if(Rn2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaNeumo2.setEnabled(true);
-            dtNeumo2.setEnabled(true);
-            txtFuaNeumo2.requestFocus();
-            txtFuaNeumo2.setEditable(true);  
+        if(dtNeumo2.getDate()==null){
+            if(Rn2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtNeumo2.setEnabled(true);
+                fecha=dtNeumo2;
+                fua = txtFuaNeumo2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rn2.setEnabled(false);
         }
     }//GEN-LAST:event_Rn2ActionPerformed
 
     private void Rn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rn3ActionPerformed
-        if(Rn3.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaNeumo3.setEnabled(true);
-            dtNeumo3.setEnabled(true);
-            txtFuaNeumo3.requestFocus();
-            txtFuaNeumo3.setEditable(true);  
+        if(dtNeumo3.getDate()==null){
+            if(Rn3.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtNeumo3.setEnabled(true);
+                fecha=dtNeumo3;
+                fua = txtFuaNeumo3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rn3.setEnabled(false);
         }
     }//GEN-LAST:event_Rn3ActionPerformed
 
     private void Ri1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ri1ActionPerformed
-        if(Ri1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaInfl1.setEnabled(true);
-            dtInfl1.setEnabled(true);
-            txtFuaInfl1.requestFocus();
-            txtFuaInfl1.setEditable(true);  
+        if(dtInfl1.getDate()==null){
+            if(Ri1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtInfl1.setEnabled(true); 
+                fecha=dtInfl1;
+                fua = txtFuaInfl1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Ri1.setEnabled(false);
         }
     }//GEN-LAST:event_Ri1ActionPerformed
 
     private void Ri2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ri2ActionPerformed
-         if(Ri2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaInfl2.setEnabled(true);
-            dtInfl2.setEnabled(true);
-            txtFuaInfl2.requestFocus();
-            txtFuaInfl2.setEditable(true);  
+        if(dtInfl2.getDate()==null){ 
+            if(Ri2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtInfl2.setEnabled(true);
+                fecha=dtInfl2;
+                fua = txtFuaInfl2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Ri2.setEnabled(false);
         }
     }//GEN-LAST:event_Ri2ActionPerformed
 
     private void Rr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rr1ActionPerformed
-         if(Rr1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaRot1.setEnabled(true);
-            dtRot1.setEnabled(true);
-            txtFuaRot1.requestFocus();
-            txtFuaRot1.setEditable(true);  
+        if(dtRot1.getDate()==null){
+            if(Rr1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtRot1.setEnabled(true);
+                fecha=dtRot1;
+                fua = txtFuaRot1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rr1.setEnabled(false);
         }
     }//GEN-LAST:event_Rr1ActionPerformed
 
     private void Rr2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rr2ActionPerformed
-        if(Rr2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaRot2.setEnabled(true);
-            dtRot2.setEnabled(true);
-            txtFuaRot2.requestFocus();
-            txtFuaRot2.setEditable(true);  
+        if(dtRot2.getDate()==null){
+            if(Rr2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtRot2.setEnabled(true);
+                fecha=dtRot2;
+                fua = txtFuaRot2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rr2.setEnabled(false);
         }
     }//GEN-LAST:event_Rr2ActionPerformed
 
     private void Rspr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rspr1ActionPerformed
-        if(Rspr1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaSpr1.setEnabled(true);
-            dtSpr1.setEnabled(true);
-            txtFuaSpr1.requestFocus();
-            txtFuaSpr1.setEditable(true);  
+        if(dtSpr1.getDate()==null){
+            if(Rspr1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtSpr1.setEnabled(true);
+                fecha=dtSpr1;
+                fua = txtFuaSpr1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rspr1.setEnabled(false);
         }
     }//GEN-LAST:event_Rspr1ActionPerformed
 
     private void Rspr2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rspr2ActionPerformed
-        if(Rspr2.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaSpr2.setEnabled(true);
-            dtSpr2.setEnabled(true);
-            txtFuaSpr2.requestFocus();
-            txtFuaSpr2.setEditable(true);  
+        if(dtSpr2.getDate()==null){
+            if(Rspr2.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtSpr2.setEnabled(true); 
+                fecha=dtSpr2;
+                fua = txtFuaSpr2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rspr2.setEnabled(false);
         }
     }//GEN-LAST:event_Rspr2ActionPerformed
 
     private void RamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RamaActionPerformed
-        if(Rama.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaAmaDu.setEnabled(true);
-            dtAmadu.setEnabled(true);
-            txtFuaAmaDu.requestFocus();
-            txtFuaAmaDu.setEditable(true);  
+        if(dtAmadu.getDate()==null){
+            if(Rama.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtAmadu.setEnabled(true);
+                fecha=dtAmadu;
+                fua = txtFuaAmaDu;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rama.setEnabled(false);
         }
     }//GEN-LAST:event_RamaActionPerformed
 
     private void Rdpt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rdpt1ActionPerformed
-        if(Rdpt1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaDpt1.setEnabled(true);
-            dtDpt1.setEnabled(true);
-            txtFuaDpt1.requestFocus();
-            txtFuaDpt1.setEditable(true);  
+        if(dtDpt1.getDate()==null){
+            if(Rdpt1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtDpt1.setEnabled(true);  
+                fecha=dtDpt1;
+                fua = txtFuaDpt1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rdpt1.setEnabled(false);
         }
     }//GEN-LAST:event_Rdpt1ActionPerformed
 
     private void Rir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rir1ActionPerformed
-        if(Rir1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtInflR1.setEnabled(true);
-            dtInflR1.setEnabled(true);
-            txtInflR1.requestFocus();
-            txtInflR1.setEditable(true);  
+        if(dtInflR1.getDate()==null){
+            if(Rir1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtInflR1.setEnabled(true); 
+                fecha=dtInflR1;
+                fua = txtInflR1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rir1.setEnabled(false);
         }
     }//GEN-LAST:event_Rir1ActionPerformed
 
     private void Rapo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rapo1ActionPerformed
-        if(Rapo1.isSelected()){
-            habilitarDatos(false);
-            habilitarRadio(false);
-            txtFuaApoR1.setEnabled(true);
-            dtApoR1.setEnabled(true);
-            txtFuaApoR1.requestFocus();
-            txtFuaApoR1.setEditable(true);  
+        if(dtApoR1.getDate()==null){
+            if(Rapo1.isSelected()){
+                habilitarDatos(false);
+                habilitarRadio(false);
+                Botones(true);
+                dtApoR1.setEnabled(true); 
+                fecha=dtApoR1;
+                fua = txtFuaApoR1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+            }
+        } else {
+            Rapo1.setEnabled(false);
         }
     }//GEN-LAST:event_Rapo1ActionPerformed
+
+    private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
+        if (tge==3 || tge==1 || tge==9){
+            mensaje.setVisible(false);
+
+        }
+
+        if (tge==2){
+//            Modificar();
+
+            btneditar.setEnabled(false);
+           ;
+
+        }
+      
+    }//GEN-LAST:event_bActionPerformed
+
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
+        mensaje.setVisible(false);
+    }//GEN-LAST:event_b1ActionPerformed
+
+    private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
+        habilitarRadio(true);
+        habilitarDatos(false);
+        Botones(false);
+        fua.setText("");
+        fecha.setDate(null);
+    }//GEN-LAST:event_btnCaccnelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2719,6 +3589,9 @@ private Dimension DimensionBarra = null;
     private javax.swing.JRadioButton Rspr2;
     private javax.swing.JPanel SPR;
     private javax.swing.JPanel VACUNAS;
+    private javax.swing.JButton b;
+    private javax.swing.JButton b1;
+    private javax.swing.JButton btnCaccnelar;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btnguardar;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -2761,6 +3634,7 @@ private Dimension DimensionBarra = null;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel53;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
@@ -2799,8 +3673,12 @@ private Dimension DimensionBarra = null;
     private javax.swing.JPanel jPanel64;
     private javax.swing.JPanel jPanel65;
     private javax.swing.JPanel jPanel66;
+    public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
+    public static javax.swing.JLabel lblPorcentajeV;
+    private javax.swing.JLabel men;
+    private javax.swing.JPanel mensaje;
     public static javax.swing.JTextField txtFuaAmaDu;
     public static javax.swing.JTextField txtFuaApoR1;
     public static javax.swing.JTextField txtFuaApoR2;

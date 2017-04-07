@@ -6,6 +6,21 @@
     <class>modelos.ConsultorioEx.ConsultorioExtRsCcd</class>
     <class>modelos.ConsultorioEx.ConsultorioExtRsVacunas</class>
     <class>modelos.ConsultorioEx.ConsultorioExtSolicitudTransfucional</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoNutricional</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoDesarrollo</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsEstimulacionTemprana</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsTamizajeNeonatal</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsTtoAntiparasitario</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsTamizajeAnemiaParasitosis</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsSuplementacionVitaminaA</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsEpisodiosEnfermedadesPrev</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsVisitasDomiciliarias</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsSuplementacionHierro</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsSeguimientoAnemia</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsSeguimientoDesarrollo</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsSeguimientoParasitosis</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsMonitoreo</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsSeguimientoIra</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://192.168.1.36:1433;databaseName=SISGESH_NET"/>
       <property name="javax.persistence.jdbc.password" value="sistemas"/>

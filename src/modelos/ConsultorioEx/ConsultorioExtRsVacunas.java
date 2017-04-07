@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RSAIVacunas;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeVacunas;
 
 public class ConsultorioExtRsVacunas implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -78,6 +79,7 @@ public class ConsultorioExtRsVacunas implements Serializable {
     private String apor1Fua;
     private String apor2Fecha;
     private String apor2Fua;
+    private int rsId;
 
     public void ConsultoriosExtVacunasListar(int rs_id){
         String consulta="";
@@ -88,43 +90,477 @@ public class ConsultorioExtRsVacunas implements Serializable {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
+       
+                    
+                try {
+                  if(r.getString(3).equals("")){
+                  RSAIVacunas.dtElab.setDate(null);
+                } else {
+                
                 String fechaSeleccionada = (String)(r.getString(3));
                 DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
                 Date fecha = dfo.parse(fechaSeleccionada);
                 RSAIVacunas.dtElab.setDate(fecha);
                 RSAIVacunas.txtFuaElab.setText(r.getString(4));
-//                lblDNI.setText(r.getString(3)); 
-//                lblPaciente.setText(r.getString(4)); 
-//                lblGenero.setText(r.getString(5)); 
-//                lblFecNac.setText(r.getString(6)); 
-//                lblEdad.setText(r.getString(7)); 
-//                lblDireccion.setText(r.getString(8)); 
-//                lblSector.setText(r.getString(9)); 
-//                lblServicio.setText(r.getString(10)); 
-//                lblConsultorio.setText(r.getString(11)); 
-//                lblTurno.setText(r.getString(12)); 
-//                lblNAtencion.setText(r.getString(13)); 
-//                //lblTipoEdad.setText(r.getString(14)); 
-//                lblMedico.setText(r.getString(14)); 
-//                lblFechaPen.setText(r.getString(15)); 
-//                lblHoraPen.setText(r.getString(16)); 
-//                lblUsuarioPen.setText(r.getString(17)); 
-//                lblPcPen.setText(r.getString(18)); 
-//                lblFechaSal.setText(r.getString(19)); 
-//                lblHoraSal.setText(r.getString(20)); 
-//                lblUsuarioSal.setText(r.getString(21)); 
-//                lblPcSal.setText(r.getString(22)); 
-//                lblFechaRet.setText(r.getString(23)); 
-//                lblHorraRet.setText(r.getString(24)); 
-//                lblUsuarioRet.setText(r.getString(25)); 
-//                lblPcRet.setText(r.getString(26)); 
-//                lblEstado.setText(r.getString(27));
-//                lblFechaSG.setText(r.getString(28)); 
-//                lblHoraSG.setText(r.getString(29));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(5).equals("")){
+                  RSAIVacunas.dtEjec.setDate(null);
+                } else {
+                String fechaSeleccionadaejec = (String)(r.getString(5));
+                DateFormat dfoejec = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechaejec = dfoejec.parse(fechaSeleccionadaejec);
+                RSAIVacunas.dtEjec.setDate(fechaejec);
+                RSAIVacunas.txtFuaEjec.setText(r.getString(6));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(7).equals("")){
+                  RSAIVacunas.dtBcg.setDate(null);
+                } else {
+                String fechaSeleccionadarnbcg = (String)(r.getString(7));
+                DateFormat dfornbcg = new SimpleDateFormat("dd/MM/yyyy");
+                Date fecharnbcg = dfornbcg.parse(fechaSeleccionadarnbcg);
+                RSAIVacunas.dtBcg.setDate(fecharnbcg);
+                RSAIVacunas.txtFuaBcg.setText(r.getString(8));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(9).equals("")){
+                  RSAIVacunas.dtHvb.setDate(null);
+                } else {
+                String fechaSeleccionadarnhvb = (String)(r.getString(9));
+                DateFormat dfornhvb = new SimpleDateFormat("dd/MM/yyyy");
+                Date fecharnhvb = dfornhvb.parse(fechaSeleccionadarnhvb);
+                RSAIVacunas.dtHvb.setDate(fecharnhvb);
+                RSAIVacunas.txtFuaHvb.setText(r.getString(10));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(11).equals("")){
+                  RSAIVacunas.dtIpv1.setDate(null);
+                } else {
+                String fechaSeleccionadapv1 = (String)(r.getString(11));
+                DateFormat dfopv1 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechapv1 = dfopv1.parse(fechaSeleccionadapv1);
+                RSAIVacunas.dtIpv1.setDate(fechapv1);
+                RSAIVacunas.txtFuaIpv1.setText(r.getString(12));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(13).equals("")){
+                  RSAIVacunas.dtIpv2.setDate(null);
+                } else {
+                String fechaSeleccionadapv2 = (String)(r.getString(13));
+                DateFormat dfopv2 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechapv2 = dfopv2.parse(fechaSeleccionadapv2);
+                RSAIVacunas.dtIpv2.setDate(fechapv2);
+                RSAIVacunas.txtFuaIpv2.setText(r.getString(14));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(15).equals("")){
+                  RSAIVacunas.dtIpv3.setDate(null);
+                } else {
+                String fechaSeleccionadapv3 = (String)(r.getString(15));
+                DateFormat dfopv3 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechapv3 = dfopv3.parse(fechaSeleccionadapv3);
+                RSAIVacunas.dtIpv3.setDate(fechapv3);
+                RSAIVacunas.txtFuaIpv3.setText(r.getString(16));
+                }
+                } catch (Exception e) {
+                }
+                 
+                try {
+                  if(r.getString(17).equals("")){
+                  RSAIVacunas.dtPent1.setDate(null);
+                } else { 
+                String fechaSeleccionadap1 = (String)(r.getString(17));
+                DateFormat dfop1 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechap1 = dfop1.parse(fechaSeleccionadap1);
+                RSAIVacunas.dtPent1.setDate(fechap1);
+                RSAIVacunas.txtFuaPent1.setText(r.getString(18));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(19).equals("")){
+                  RSAIVacunas.dtPent2.setDate(null);
+                } else { 
+                String fechaSeleccionadap2 = (String)(r.getString(19));
+                DateFormat dfop2 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechap2 = dfop2.parse(fechaSeleccionadap2);
+                RSAIVacunas.dtPent2.setDate(fechap2);
+                RSAIVacunas.txtFuaPent2.setText(r.getString(20));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(21).equals("")){
+                  RSAIVacunas.dtPent3.setDate(null);
+                } else { 
+                String fechaSeleccionadap3 = (String)(r.getString(21));
+                DateFormat dfop3 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechap3 = dfop3.parse(fechaSeleccionadap3);
+                RSAIVacunas.dtPent3.setDate(fechap3);
+                RSAIVacunas.txtFuaPent3.setText(r.getString(22));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(23).equals("")){
+                  RSAIVacunas.dtNeumo1.setDate(null);
+                } else { 
+                String fechaSeleccionadan1 = (String)(r.getString(23));
+                DateFormat dfon1 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechan1 = dfon1.parse(fechaSeleccionadan1);
+                RSAIVacunas.dtNeumo1.setDate(fechan1);
+                RSAIVacunas.txtFuaNeumo1.setText(r.getString(24));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(25).equals("")){
+                  RSAIVacunas.dtNeumo2.setDate(null);
+                } else { 
+                String fechaSeleccionadan2 = (String)(r.getString(25));
+                DateFormat dfon2 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechan2 = dfon2.parse(fechaSeleccionadan2);
+                RSAIVacunas.dtNeumo2.setDate(fechan2);
+                RSAIVacunas.txtFuaNeumo2.setText(r.getString(26));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(27).equals("")){
+                  RSAIVacunas.dtNeumo3.setDate(null);
+                } else { 
+                String fechaSeleccionadan3 = (String)(r.getString(27));
+                DateFormat dfon3 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechan3 = dfon3.parse(fechaSeleccionadan3);
+                RSAIVacunas.dtNeumo3.setDate(fechan3);
+                RSAIVacunas.txtFuaNeumo3.setText(r.getString(28));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(29).equals("")){
+                  RSAIVacunas.dtInfl1.setDate(null);
+                } else { 
+                String fechaSeleccionadai1 = (String)(r.getString(29));
+                DateFormat dfoi1 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechai1 = dfoi1.parse(fechaSeleccionadai1);
+                RSAIVacunas.dtInfl1.setDate(fechai1);
+                RSAIVacunas.txtFuaInfl1.setText(r.getString(30));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(31).equals("")){
+                  RSAIVacunas.dtInfl2.setDate(null);
+                } else { 
+                String fechaSeleccionadai2 = (String)(r.getString(31));
+                DateFormat dfoi2 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechai2 = dfoi2.parse(fechaSeleccionadai2);
+                RSAIVacunas.dtInfl2.setDate(fechai2);
+                RSAIVacunas.txtFuaInfl2.setText(r.getString(32));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(33).equals("")){
+                  RSAIVacunas.dtRot1.setDate(null);
+                } else { 
+                String fechaSeleccionadart1 = (String)(r.getString(33));
+                DateFormat dfort1 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechart1 = dfort1.parse(fechaSeleccionadart1);
+                RSAIVacunas.dtRot1.setDate(fechart1);
+                RSAIVacunas.txtFuaRot1.setText(r.getString(34));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(35).equals("")){
+                  RSAIVacunas.dtRot2.setDate(null);
+                } else { 
+                String fechaSeleccionadart2 = (String)(r.getString(35));
+                DateFormat dfort2 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechart2 = dfort2.parse(fechaSeleccionadart2);
+                RSAIVacunas.dtRot2.setDate(fechart2);
+                RSAIVacunas.txtFuaRot2.setText(r.getString(36));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(37).equals("")){
+                  RSAIVacunas.dtSpr1.setDate(null);
+                } else { 
+                String fechaSeleccionadaspr = (String)(r.getString(37));
+                DateFormat dfospr = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechaspr = dfospr.parse(fechaSeleccionadaspr);
+                RSAIVacunas.dtSpr1.setDate(fechaspr);
+                RSAIVacunas.txtFuaSpr1.setText(r.getString(38));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(39).equals("")){
+                  RSAIVacunas.dtSpr2.setDate(null);
+                } else { 
+                String fechaSeleccionadaspr2 = (String)(r.getString(39));
+                DateFormat dfospr2 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechaspr2 = dfospr2.parse(fechaSeleccionadaspr2);
+                RSAIVacunas.dtSpr2.setDate(fechaspr2);
+                RSAIVacunas.txtFuaSpr2.setText(r.getString(40));
+                }
+                } catch (Exception e) {
+                }
+                
+                
+                try {
+                  if(r.getString(41).equals("")){
+                  RSAIVacunas.dtAmadu.setDate(null);
+                } else { 
+                String fechaSeleccionadaama = (String)(r.getString(41));
+                DateFormat dfoama = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechaama = dfoama.parse(fechaSeleccionadaama);
+                RSAIVacunas.dtAmadu.setDate(fechaama);
+                RSAIVacunas.txtFuaAmaDu.setText(r.getString(42));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(45).equals("")){
+                  RSAIVacunas.dtDpt1.setDate(null);
+                } else {
+                String fechaSeleccionadadpt1 = (String)(r.getString(45));
+                DateFormat dfodpt1 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechadpt1 = dfodpt1.parse(fechaSeleccionadadpt1);
+                RSAIVacunas.dtDpt1.setDate(fechadpt1);
+                RSAIVacunas.txtFuaDpt1.setText(r.getString(46));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(47).equals("")){
+                  RSAIVacunas.dtDpt2.setDate(null);
+                } else {
+                String fechaSeleccionadadpt2 = (String)(r.getString(47));
+                DateFormat dfodpt2 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechadpt2 = dfodpt2.parse(fechaSeleccionadadpt2);
+                RSAIVacunas.dtDpt2.setDate(fechadpt2);
+                RSAIVacunas.txtFuaDpt2.setText(r.getString(48));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+ 
+                if(r.getString(49).equals("")){
+                  RSAIVacunas.dtInflR1.setDate(null);
+                } else {
+                String fechaSeleccionadair1 = (String)(r.getString(49));
+                DateFormat dfoir1 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechair1 = dfoir1.parse(fechaSeleccionadair1);
+                RSAIVacunas.dtInflR1.setDate(fechair1);
+                RSAIVacunas.txtInflR1.setText(r.getString(50));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+ 
+                if(r.getString(51).equals("")){
+                  RSAIVacunas.dtInflR2.setDate(null);
+                } else {
+                String fechaSeleccionadair2 = (String)(r.getString(51));
+                DateFormat dfoir2 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechair2 = dfoir2.parse(fechaSeleccionadair2);
+                RSAIVacunas.dtInflR2.setDate(fechair2);
+                RSAIVacunas.txtInflR2.setText(r.getString(52));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+ 
+                if(r.getString(53).equals("")){
+                  RSAIVacunas.dtApoR1.setDate(null);
+                } else {
+                String fechaSeleccionadaapo = (String)(r.getString(53));
+                DateFormat dfoapo = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechaapo = dfoapo.parse(fechaSeleccionadaapo);
+                RSAIVacunas.dtApoR1.setDate(fechaapo);
+                RSAIVacunas.txtFuaApoR1.setText(r.getString(54));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+ 
+                if(r.getString(55).equals("")){
+                  RSAIVacunas.dtApoR2.setDate(null);
+                } else {
+                String fechaSeleccionadaapo2 = (String)(r.getString(55));
+                DateFormat dfoapo2 = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechaapo2 = dfoapo2.parse(fechaSeleccionadaapo2);
+                RSAIVacunas.dtApoR2.setDate(fechaapo2);
+                RSAIVacunas.txtFuaApoR2.setText(r.getString(56));
+                }
+                } catch (Exception e) {
+                }
+             
             }
             //
         } catch (Exception e) {
-            System.out.println("Error_mostrar_MovHC: " + e.getMessage());
+            System.out.println("Error: ConsultoriosExtVacunasListar " + e.getMessage());
+        }
+    }
+    
+    public boolean mantenimientoRSAIVacunas(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CONSULTORIO_EXT_MANTENIMIENTO_RS_VACUNAS ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getRsId());
+            cmd.setString(2, getElabFecha());
+            cmd.setString(3, getElabFua());
+            
+            cmd.setString(4, getEjecFecha());
+            cmd.setString(5, getEjecFua());
+            
+            cmd.setString(6, getRnbcgFecha());
+            cmd.setString(7, getRnbcgFua());
+            
+            cmd.setString(8, getRnhvbFecha());
+            cmd.setString(9, getRnhvbFua());
+            
+            cmd.setString(10, getAnt1Fecha());
+            cmd.setString(11, getAnt1Fua());
+            
+            cmd.setString(12, getAnt2Fecha());
+            cmd.setString(13, getAnt2Fua());
+            
+            cmd.setString(14, getAnt3Fecha());
+            cmd.setString(15, getAnt3Fua());
+            
+            cmd.setString(16, getPent1Fecha());
+            cmd.setString(17, getPent1Fua());
+            
+            cmd.setString(18, getPent2Fecha());
+            cmd.setString(19, getPent2Fua());
+            
+            cmd.setString(20, getPent3Fecha());
+            cmd.setString(21, getPent3Fua());
+            
+            cmd.setString(22, getNeu1Fecha());
+            cmd.setString(23, getNeu1Fua());
+            
+            cmd.setString(24, getNeu2Fecha());
+            cmd.setString(25, getNeu2Fua());
+            
+            cmd.setString(26, getNeu3Fecha());
+            cmd.setString(27, getNeu3Fua());
+            
+            cmd.setString(28, getInfl1Fecha());
+            cmd.setString(29, getInfl1Fua());
+            
+            cmd.setString(30, getInfl2Fecha());
+            cmd.setString(31, getInfl2Fua2());
+            
+            cmd.setString(32, getRot1Fecha());
+            cmd.setString(33, getRot1Fua());
+            
+            cmd.setString(34, getRot2Fecha());
+            cmd.setString(35, getRot2Fua());
+            
+            cmd.setString(36, getSpr1Fecha());
+            cmd.setString(37, getSpr1Fua());
+            
+            cmd.setString(38, getSpr2Fecha());
+            cmd.setString(39, getSpr2Fua());
+            
+            cmd.setString(40, getAma1Fecha());
+            cmd.setString(41, getAma1Fua());
+            
+            cmd.setString(42, getAma2Fecha()); //null
+            cmd.setString(43, getAma2Fua()); //null
+            
+            cmd.setString(44, getDpt1Fecha());
+            cmd.setString(45, getDpt1Fua());
+            
+            cmd.setString(46, getDpt2Fecha());
+            cmd.setString(47, getDpt2Fua());
+            
+            cmd.setString(48, getInflr1Fecha());
+            cmd.setString(49, getInflr1Fua());
+            
+            cmd.setString(50, getInflr2Fecha());
+            cmd.setString(51, getInflr2Fua());
+            
+            cmd.setString(52, getApor1Fecha());
+            cmd.setString(53, getApor1Fua());
+            
+            cmd.setString(54, getApor2Fecha());
+            cmd.setString(55, getApor2Fua());
+
+            cmd.setString(56, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimiento Vacunas " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public void porcentajeVacunas(int rs_id){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EXT_RS_VACUNAS_PORCENTAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblPorcentajeVacunas.setText(r.getString(1) + " %"); 
+                RSAIVacunas.lblPorcentajeV.setText(r.getString(1) + " % Completado"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeVacunas " + e.getMessage());
         }
     }
     
@@ -594,6 +1030,20 @@ public class ConsultorioExtRsVacunas implements Serializable {
      */
     public void setCn(Connection cn) {
         this.cn = cn;
+    }
+
+    /**
+     * @return the rsId
+     */
+    public int getRsId() {
+        return rsId;
+    }
+
+    /**
+     * @param rsId the rsId to set
+     */
+    public void setRsId(int rsId) {
+        this.rsId = rsId;
     }
     
 }

@@ -68,6 +68,11 @@ public class ConsultorioExtRsCabecera implements Serializable {
         columna9.setMinWidth(0);
         columna9.setPreferredWidth(0);
         tabla.doLayout();
+        TableColumn columna10 = tabla.getColumnModel().getColumn(10);
+        columna10.setMaxWidth(0);
+        columna10.setMinWidth(0);
+        columna10.setPreferredWidth(0);
+        tabla.doLayout();
         tabla.setRowHeight(30);
     }
     
@@ -88,10 +93,10 @@ public class ConsultorioExtRsCabecera implements Serializable {
         try {
                 tabla.setModel(new DefaultTableModel());
                 String titulos[]={"ID","Acto Médico","DNI","Nº H.C.","Paciente","Genero",
-                "Fecha de Nacimiento","Edad","Establecimiento","Triaje"};
+                "Fecha de Nacimiento","Edad","Establecimiento","Triaje","FUA"};
                 m=new DefaultTableModel(null,titulos);
                 JTable p=new JTable(m);
-                String fila[]=new String[10];
+                String fila[]=new String[11];
                 //int index = cbxTipoBusqueda.getSelectedIndex();
                 consulta="EXEC CONSULTORIO_EXT_LISTAR_NINOS ?";
                 PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -109,6 +114,7 @@ public class ConsultorioExtRsCabecera implements Serializable {
                     fila[7]=r.getString(8); 
                     fila[8]=r.getString(9); 
                     fila[9]=r.getString(10); 
+                    fila[10]=r.getString(11); 
                         m.addRow(fila);
                         c++;
                 }

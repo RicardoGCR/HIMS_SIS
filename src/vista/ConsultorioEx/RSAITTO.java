@@ -286,7 +286,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 btnguardar.setEnabled(false);
                 tge=1;
                 CXRsTTO2.ConsultoriosExtTTOListar(Integer.parseInt(lblId.getText()));
-      
+                CXRsTTO2.porcentajeTTO(Integer.parseInt(lblId.getText()));
                 habilitarDatos(false);
                 habilitarRadio(true);
             }else {
@@ -414,12 +414,10 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 b.setText("OK");
                 b.setVisible(true);
                 b1.setVisible(false);
-
                 btnguardar.setEnabled(false);
                 tge=1;
-
                 CXRsTTO2.ConsultoriosExtTTOListar(Integer.parseInt(lblId.getText()));
-
+                CXRsTTO2.porcentajeTTO(Integer.parseInt(lblId.getText()));
                 habilitarDatos(false);
                 habilitarRadio(true);
             }else {
@@ -549,7 +547,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         jPanel30 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        lblPorcentajeTto = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblNina = new javax.swing.JLabel();
         lblNino = new javax.swing.JLabel();
@@ -1804,10 +1802,10 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(153, 202, 235));
-        jLabel12.setText("100 %  Completado");
-        jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblPorcentajeTto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblPorcentajeTto.setForeground(new java.awt.Color(153, 202, 235));
+        lblPorcentajeTto.setText("100 %  Completado");
+        lblPorcentajeTto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jPanel2.setBackground(new java.awt.Color(153, 202, 235));
         jPanel2.setPreferredSize(new java.awt.Dimension(1, 100));
@@ -1845,7 +1843,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
+                    .addComponent(lblPorcentajeTto)
                     .addComponent(jLabel11))
                 .addGap(59, 59, 59)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1861,7 +1859,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
             .addGroup(jPanel29Layout.createSequentialGroup()
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPorcentajeTto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -2041,6 +2039,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaDpt2.setEditable(false); 
                 fecha=dtDpt2;
                 fua = txtFuaDpt2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB10.setEnabled(false);
@@ -2059,6 +2058,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtInflR2.setEditable(false);  
                 fecha=dtInflR2;
                 fua = txtInflR2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB12.setEnabled(false);
@@ -2077,6 +2077,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaBcg.setEditable(false); 
                 fecha=dtBcg;
                 fua = txtFuaBcg;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB1.setEnabled(false);
@@ -2095,6 +2096,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaHvb.setEditable(false);  
                 fecha=dtHvb;
                 fua = txtFuaHvb;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB2.setEnabled(false);
@@ -2113,6 +2115,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaInfl1.setEditable(false);  
                 fecha=dtInfl1;
                 fua = txtFuaInfl1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB3.setEnabled(false);
@@ -2131,6 +2134,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaInfl2.setEditable(false); 
                 fecha=dtInfl2;
                 fua = txtFuaInfl2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB4.setEnabled(false);
@@ -2149,6 +2153,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaRot1.setEditable(false);  
                 fecha=dtRot1;
                 fua = txtFuaRot1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB5.setEnabled(false);
@@ -2167,6 +2172,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaRot2.setEditable(false); 
                 fecha=dtRot2;
                 fua = txtFuaRot2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB6.setEnabled(false);
@@ -2185,6 +2191,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaSpr1.setEditable(false); 
                 fecha=dtSpr1;
                 fua = txtFuaSpr1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB7.setEnabled(false);
@@ -2203,6 +2210,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaSpr2.setEditable(false);  
                 fecha=dtSpr2;
                 fua = txtFuaSpr2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB8.setEnabled(false);
@@ -2221,6 +2229,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaAmaDu.setEditable(false); 
                 fecha=dtAmadu;
                 fua = txtFuaAmaDu;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB13.setEnabled(false);
@@ -2239,6 +2248,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaDpt1.setEditable(false);  
                 fecha=dtDpt1;
                 fua = txtFuaDpt1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB9.setEnabled(false);
@@ -2257,6 +2267,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtInflR1.setEditable(false);  
                 fecha=dtInflR1;
                 fua = txtInflR1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB11.setEnabled(false);
@@ -2303,6 +2314,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaAmaDu1.setEditable(false); 
                 fecha=dtAmadu1;
                 fua = txtFuaAmaDu1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB14.setEnabled(false);
@@ -2329,6 +2341,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaAmaDu2.setEditable(false); 
                 fecha=dtAmadu2;
                 fua = txtFuaAmaDu2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB15.setEnabled(false);
@@ -2355,6 +2368,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaAmaDu3.setEditable(false); 
                 fecha=dtAmadu3;
                 fua = txtFuaAmaDu3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB16.setEnabled(false);
@@ -2381,6 +2395,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaAmaDu4.setEditable(false); 
                 fecha=dtAmadu4;
                 fua = txtFuaAmaDu4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB17.setEnabled(false);
@@ -2456,7 +2471,6 @@ public class RSAITTO extends javax.swing.JInternalFrame {
     public static com.toedter.calendar.JDateChooser dtSpr1;
     public static com.toedter.calendar.JDateChooser dtSpr2;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -2491,6 +2505,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
     public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
+    public static javax.swing.JLabel lblPorcentajeTto;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
     public static javax.swing.JTextField txtFuaAmaDu;

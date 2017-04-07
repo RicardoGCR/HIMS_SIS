@@ -345,6 +345,7 @@ public void QuitarLaBarraTitulo()
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsVD2.ConsultoriosExtVDListar(Integer.parseInt(lblId.getText()));
+                CXRsVD2.porcentajeVD(Integer.parseInt(lblId.getText()));
                 habilitarDatos(false);
                 habilitarRadio(true);
             }else {
@@ -516,6 +517,7 @@ public void QuitarLaBarraTitulo()
                 mensaje.setVisible(true);
                 mensaje.setBackground(new Color(33,115,70)); 
                 men.setText("Datos Guardados de forma correcta");
+                CXRsVD2.porcentajeVD(Integer.parseInt(lblId.getText()));
                 b.setText("OK");
                 b.setVisible(true);
                 b1.setVisible(false);
@@ -674,7 +676,7 @@ public void QuitarLaBarraTitulo()
         jLabel10 = new javax.swing.JLabel();
         jPanel27 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        lblPorcentajeVisitas = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblNina = new javax.swing.JLabel();
         lblNino = new javax.swing.JLabel();
@@ -2328,10 +2330,10 @@ public void QuitarLaBarraTitulo()
                 .addContainerGap())
         );
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(109, 23, 16));
-        jLabel12.setText("100 %  Completado");
-        jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblPorcentajeVisitas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblPorcentajeVisitas.setForeground(new java.awt.Color(109, 23, 16));
+        lblPorcentajeVisitas.setText("100 %  Completado");
+        lblPorcentajeVisitas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jPanel2.setBackground(new java.awt.Color(109, 23, 16));
         jPanel2.setPreferredSize(new java.awt.Dimension(1, 100));
@@ -2369,7 +2371,7 @@ public void QuitarLaBarraTitulo()
                 .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
+                    .addComponent(lblPorcentajeVisitas)
                     .addComponent(jLabel10))
                 .addGap(59, 59, 59)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2385,7 +2387,7 @@ public void QuitarLaBarraTitulo()
             .addGroup(jPanel26Layout.createSequentialGroup()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPorcentajeVisitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -3011,7 +3013,6 @@ public void QuitarLaBarraTitulo()
     private javax.swing.JButton btnGuardar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JPanel jPanel104;
     private javax.swing.JPanel jPanel105;
@@ -3050,6 +3051,7 @@ public void QuitarLaBarraTitulo()
     public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
+    public static javax.swing.JLabel lblPorcentajeVisitas;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
     // End of variables declaration//GEN-END:variables

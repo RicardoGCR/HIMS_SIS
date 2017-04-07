@@ -257,6 +257,7 @@ public void QuitarLaBarraTitulo()
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsTA2.ConsultoriosExtTAListar(Integer.parseInt(lblId.getText()));
+                CXRsTA2.porcentajeTAP(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
                 habilitarRadio(true);
             }else {
@@ -383,6 +384,7 @@ public void QuitarLaBarraTitulo()
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsTA2.ConsultoriosExtTAListar(Integer.parseInt(lblId.getText()));
+                CXRsTA2.porcentajeTAP(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
                 habilitarRadio(true);
             }else {
@@ -516,7 +518,7 @@ public void QuitarLaBarraTitulo()
         jLabel10 = new javax.swing.JLabel();
         jPanel27 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblPorcentajeTa = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblNina = new javax.swing.JLabel();
         lblNino = new javax.swing.JLabel();
@@ -1535,10 +1537,10 @@ public void QuitarLaBarraTitulo()
                 .addContainerGap())
         );
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(137, 226, 175));
-        jLabel11.setText("100 %  Completado");
-        jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblPorcentajeTa.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblPorcentajeTa.setForeground(new java.awt.Color(137, 226, 175));
+        lblPorcentajeTa.setText("100 %  Completado");
+        lblPorcentajeTa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jPanel2.setBackground(new java.awt.Color(45, 204, 112));
         jPanel2.setPreferredSize(new java.awt.Dimension(1, 100));
@@ -1576,7 +1578,7 @@ public void QuitarLaBarraTitulo()
                 .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
+                    .addComponent(lblPorcentajeTa)
                     .addComponent(jLabel10))
                 .addGap(20, 20, 20)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1592,7 +1594,7 @@ public void QuitarLaBarraTitulo()
             .addGroup(jPanel26Layout.createSequentialGroup()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPorcentajeTa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -1691,6 +1693,7 @@ public void QuitarLaBarraTitulo()
                 TNFA1.setEnabled(true);
                 fecha=TNFA1;
                 fua = TNFUAA1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD1.setEnabled(false);
@@ -1707,6 +1710,7 @@ public void QuitarLaBarraTitulo()
                 TNFA2.setEnabled(true);
                 fecha=TNFA2;
                 fua = TNFUAA2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD2.setEnabled(false);
@@ -1722,6 +1726,7 @@ public void QuitarLaBarraTitulo()
                 TNFA3.setEnabled(true);
                 fecha=TNFA3;
                 fua = TNFUAA3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD3.setEnabled(false);
@@ -1737,6 +1742,7 @@ public void QuitarLaBarraTitulo()
                 TNFA4.setEnabled(true);
                 fecha=TNFA4;
                 fua = TNFUAA4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD4.setEnabled(false);
@@ -1752,6 +1758,7 @@ public void QuitarLaBarraTitulo()
                 TNFA5.setEnabled(true);
                 fecha=TNFA5;
                 fua = TNFUAA5;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD5.setEnabled(false);
@@ -1767,6 +1774,7 @@ public void QuitarLaBarraTitulo()
                 TNFA6.setEnabled(true);
                 fecha=TNFA6;
                 fua = TNFUAA6;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD6.setEnabled(false);
@@ -1782,6 +1790,7 @@ public void QuitarLaBarraTitulo()
                 TNFP1.setEnabled(true);
                 fecha=TNFP1;
                 fua = TNFUAP1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD7.setEnabled(false);
@@ -1797,6 +1806,7 @@ public void QuitarLaBarraTitulo()
                 TNFP2.setEnabled(true);
                 fecha=TNFP2;
                 fua = TNFUAP2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD8.setEnabled(false);
@@ -1812,6 +1822,7 @@ public void QuitarLaBarraTitulo()
                 TNFP3.setEnabled(true);
                 fecha=TNFP3;
                 fua = TNFUAP3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD9.setEnabled(false);
@@ -1827,6 +1838,7 @@ public void QuitarLaBarraTitulo()
                 TNFP4.setEnabled(true);
                 fecha=TNFP4;
                 fua = TNFUAP4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD10.setEnabled(false);
@@ -1842,6 +1854,7 @@ public void QuitarLaBarraTitulo()
                 TNFP5.setEnabled(true);
                 fecha=TNFP5;
                 fua = TNFUAP5;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD11.setEnabled(false);
@@ -1857,6 +1870,7 @@ public void QuitarLaBarraTitulo()
                 TNFT1.setEnabled(true);
                 fecha=TNFT1;
                 fua = TNFUAT1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD12.setEnabled(false);
@@ -1872,6 +1886,7 @@ public void QuitarLaBarraTitulo()
                 TNFT2.setEnabled(true);
                 fecha=TNFT2;
                 fua = TNFUAT2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD13.setEnabled(false);
@@ -1887,6 +1902,7 @@ public void QuitarLaBarraTitulo()
                 TNFT3.setEnabled(true);
                 fecha=TNFT3;
                 fua = TNFUAT3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD14.setEnabled(false);
@@ -1902,6 +1918,7 @@ public void QuitarLaBarraTitulo()
                 TNFT4.setEnabled(true);
                 fecha=TNFT4;
                 fua = TNFUAT4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD15.setEnabled(false);
@@ -1917,6 +1934,7 @@ public void QuitarLaBarraTitulo()
                 TNFT5.setEnabled(true);
                 fecha=TNFT5;
                 fua = TNFUAT5;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD16.setEnabled(false);
@@ -2026,7 +2044,6 @@ public void QuitarLaBarraTitulo()
     private javax.swing.JButton btnGuardar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel66;
@@ -2058,6 +2075,7 @@ public void QuitarLaBarraTitulo()
     public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
+    public static javax.swing.JLabel lblPorcentajeTa;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
     // End of variables declaration//GEN-END:variables

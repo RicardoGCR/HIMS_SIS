@@ -499,10 +499,11 @@ public class ConsultorioExtRsVisitasDomiciliarias implements Serializable {
             int c=1;
             while(r.next()){
                 lblPorcentajeVD.setText(r.getString(1) + " %"); 
+                RSAIVD.lblPorcentajeVisitas.setText(r.getString(1) + " % Completado");
             }
             //
         } catch (Exception e) {
-            System.out.println("Error: porcentajeVacunas " + e.getMessage());
+            System.out.println("Error: porcentajeVD " + e.getMessage());
         }
     }
 

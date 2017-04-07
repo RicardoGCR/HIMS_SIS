@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIVacunas.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIVD.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAITN.java</file>
-=======
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsVacunas.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIREGSEG.java</file>
             <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsVisitasDomiciliarias.java</file>
->>>>>>> 09751a24cb3f3ad0688268c5a7ce59b8487508b6
         </group>
     </open-files>
 </project-private>

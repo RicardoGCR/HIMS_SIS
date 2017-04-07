@@ -382,10 +382,11 @@ public class ConsultorioExtRsTamizajeAnemiaParasitosis implements Serializable {
             int c=1;
             while(r.next()){
                 lblPorcentajeTAP.setText(r.getString(1) + " %"); 
+                RSAITAPTG.lblPorcentajeTa.setText(r.getString(1) + " % Completado"); 
             }
             //
         } catch (Exception e) {
-            System.out.println("Error: porcentajeDN " + e.getMessage());
+            System.out.println("Error: porcentajeTAP " + e.getMessage());
         }
     }  
 

@@ -1005,7 +1005,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         lblNino.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        lblNino.setForeground(new java.awt.Color(255, 255, 255));
+        lblNino.setForeground(new java.awt.Color(12, 97, 81));
         lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-50.png"))); // NOI18N
         lblNino.setText("NIÑOS");
         lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

@@ -3,82 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/E:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_TIPO_ANESTESIA.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_TIPO_ANESTESIA_BUSCAR.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionFormatoHC.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_CABECERA.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_BUSCAR_UNIDAD_MEDIDA_RESULTADO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimientoAtencionIntegral.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_ESQUEMA_RESULTADO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SIS/SIS_PRESTACION_DESTINO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_BUSCAR_MUESTRA_EXAMEN.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_BUSCAR_RESULTADO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_BUSCAR_ESQUEMA.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/ConsultorioEx/RiesgoQ_Cardiologia.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionControlVital.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_VALORES_REFERENCIALES_INGRESO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_FUNCIONES.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/ConsultorioEx/Triaje.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/ConsultorioEx/SolicitudDepositoSangre.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_ANALISIS_EXAMEN.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_VALORES_REFERENCIALES_DETALLE.java</file>
-            <file>file:/E:/pry/SISGESH/src/modelos/LABORATORIO/LAB_Analisis_Detalle.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/sectorizacion/FrmSector.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/ConsultorioEx/Turno.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_FUNCIONES_BUSCAR.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_INGRESO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioAsignacion.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SIS/SIS_PRESTACIONES_ADICIONALES.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SIS/SIS_ACTIVIDADES_PREVENTIVAS_VACUNAS.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/ConsultorioEx/Consultorio.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/ConsultorioEx/AgendaCita.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_BUSCAR_CONTENEDOR_MUESTRA.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_SOLICITUD.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_CLASIFICACION_EXAMEN.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionHabitaciones.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_MUESTRA_EXAMEN.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionCamas.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_DETALLE.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionFormatoInterconsulta.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionExClinico.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SIS/SIS_DX_MEDICAMENTO_INSUMO_PROCEDIMIENTO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_DROGAS.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_BUSCAR_ANALISIS_EXAMEN.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SIS/SIS_PRESTACIONES.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_CONDICION_BUSCAR.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_GRAFICO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionPisos.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionCajaPreventa.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionFormatoInterconsultaPendiente.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADOS_MUESTRA_INGRESO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_CONTENEDOR_MUESTRA.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_ENTREGA_RESULTADO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionInformeInterconsulta.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADO_MUESTRA.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionListarCajaPreventa.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_REGISTRO_ANESTESIA.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_CONDICION.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_UNIDAD_MEDIDA_RESULTADO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/ConsultorioEx/FrmSolicitudPruebaELISVIH.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionHojaEvolucion.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_ESQUEMA_RESULTADO_INGRESO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_VALORES_REFERENCIALES_ESQUEMA.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionNotaEnfermeria.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_BUSCAR_TOMA_MUESTRA.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/AgendaCita.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExConsultorioAsignacion.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioAsignacion.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioEXTConsultorioAgenda.java</file>
-=======
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/SolicitudDepositoSangre.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/SolicitudTransfusional.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsCabecera.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtSolicitudTransfucional.java</file>
->>>>>>> 76ed12ea44493dded1c44529ef5adf555981ec5a
->>>>>>> f70a7957434dffc300b406249c6e03d26abc4594
+            <file>file:/E:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion.java</file>
+            <file>file:/E:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Insumo.java</file>
+            <file>file:/E:/pry/SISGESH/src/vista/COSTOS/Costos_Depreciacion.java</file>
         </group>
     </open-files>
 </project-private>

@@ -83,7 +83,7 @@ Conexion c=new Conexion();
         panelPacientes.setBackground(Color.white);
         panelEntrega.setBackground(Color.white);
         panelRecepcion.setBackground(Color.white);
-        lblEstado.setVisible(false);
+
         
          chPacientes.setVisible(false);
         txtPacientes.setVisible(false);
@@ -97,7 +97,7 @@ Conexion c=new Conexion();
             btnBuscar.setVisible(false);
             chActoMedico.setVisible(false);
             txtActoM.setVisible(false);
-
+//        lblEstado.setVisible(false);
             
             //ocultar entrega
             lblCodPerEntrega.setVisible(false);
@@ -108,7 +108,7 @@ Conexion c=new Conexion();
            
         lblServicio.setVisible(false);
         lblArea.setVisible(false);
-            lbltipo.setVisible(false);
+//            lbltipo.setVisible(false);
         this.getContentPane().setBackground(Color.white); 
        
         setLocationRelativeTo(null);//en el centro
@@ -151,11 +151,11 @@ Conexion c=new Conexion();
     }
     
     public void formato(){
-    tb_Resultado.getColumnModel().getColumn(3).setPreferredWidth(200);
+    tb_Resultado.getColumnModel().getColumn(3).setPreferredWidth(210);
     tb_Resultado.getColumnModel().getColumn(4).setPreferredWidth(90);
     tb_Resultado.getColumnModel().getColumn(5).setPreferredWidth(250);
     tb_Resultado.getColumnModel().getColumn(6).setPreferredWidth(240);
-    tb_Resultado.getColumnModel().getColumn(7).setPreferredWidth(140);
+    tb_Resultado.getColumnModel().getColumn(7).setPreferredWidth(100);
     tb_Resultado.getColumnModel().getColumn(8).setPreferredWidth(200);
     tb_Resultado.getColumnModel().getColumn(9).setPreferredWidth(90);
     tb_Resultado.getColumnModel().getColumn(10).setPreferredWidth(100);
@@ -168,6 +168,7 @@ Conexion c=new Conexion();
     tb_Resultado.getColumnModel().getColumn(17).setPreferredWidth(100);
     tb_Resultado.getColumnModel().getColumn(19).setPreferredWidth(130);
     tb_Resultado.getColumnModel().getColumn(20).setPreferredWidth(130);
+    tb_Resultado.getColumnModel().getColumn(25).setPreferredWidth(110);
     //Ocultar    
     tb_Resultado.getColumnModel().getColumn(0).setMinWidth(0);
     tb_Resultado.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -179,23 +180,28 @@ Conexion c=new Conexion();
 //    tb_TomasRealizadas.getColumnModel().getColumn(3).setMaxWidth(0);
     tb_Resultado.getColumnModel().getColumn(14).setMinWidth(0);
     tb_Resultado.getColumnModel().getColumn(14).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(17).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(17).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(18).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(18).setMaxWidth(0);
-//    
-//    tb_TomasRealizadas.getColumnModel().getColumn(21).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(21).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(22).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(22).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(23).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(23).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(24).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(24).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(25).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(25).setMaxWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(26).setMinWidth(0);
-//    tb_TomasRealizadas.getColumnModel().getColumn(26).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(19).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(19).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(20).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(20).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(16).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(16).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(17).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(17).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(18).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(18).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(21).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(21).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(22).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(22).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(23).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(23).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(24).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(24).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(26).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(26).setMaxWidth(0);
+    tb_Resultado.getColumnModel().getColumn(27).setMinWidth(0);
+    tb_Resultado.getColumnModel().getColumn(27).setMaxWidth(0);
     tb_Resultado.getSelectionModel().setSelectionInterval(0, 0);
             tb_Resultado.requestFocus();
 }
@@ -766,6 +772,8 @@ public void calcula() {
                             jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel25.setText("Búsqueda por H.C / Paciente / DNI");
 
+                            lblEstado.setBackground(new java.awt.Color(255, 255, 255));
+                            lblEstado.setForeground(new java.awt.Color(255, 255, 255));
                             lblEstado.setText("jLabel9");
 
                             javax.swing.GroupLayout buscar_HCLayout = new javax.swing.GroupLayout(buscar_HC.getContentPane());
@@ -1714,11 +1722,11 @@ public void calcula() {
                                         .addComponent(spMin)
                                         .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(30, 30, 30)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtPersonalEntreg, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGap(21, 21, 21)
                                     .addGroup(panelEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(lblCod_cab_resul, javax.swing.GroupLayout.DEFAULT_SIZE, 3, Short.MAX_VALUE)
                                         .addComponent(lblCodPerEntrega, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2013,6 +2021,8 @@ public void calcula() {
                                 .addComponent(titulo10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             );
 
+                            lbltipo.setBackground(new java.awt.Color(255, 255, 255));
+                            lbltipo.setForeground(new java.awt.Color(255, 255, 255));
                             lbltipo.setText("jLabel1");
 
                             javax.swing.GroupLayout personal_rolLayout = new javax.swing.GroupLayout(personal_rol.getContentPane());
@@ -2097,8 +2107,8 @@ public void calcula() {
                                 jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                                     .addGap(16, 16, 16)
-                                    .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(501, 501, 501)
+                                    .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(568, 568, 568)
                                     .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(jpanelLayout.createSequentialGroup()
                                             .addComponent(jLabel15)
@@ -2245,7 +2255,6 @@ public void calcula() {
                                 }
                             });
 
-                            txtPersonal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                             txtPersonal.setForeground(new java.awt.Color(0, 51, 51));
                             txtPersonal.addKeyListener(new java.awt.event.KeyAdapter() {
                                 public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -3396,11 +3405,15 @@ public void buscar_examenes(){
     }//GEN-LAST:event_txtPersonalEntregKeyPressed
 
     private void txtPacienteRecepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPacienteRecepKeyPressed
-      buscar_HC.setVisible(true);
-        txtbuscarHC.setText("");
-        LAB_HC_cargar();
-        LAB_HC_formato();
-        lblEstado.setText("R");
+  char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){
+             buscar_HC.setVisible(true);
+//             titulo8.setVisible(true);
+            txtbuscarHC.setText("");
+            LAB_HC_cargar();
+            LAB_HC_formato();
+            lblEstado.setText("R");
+                }
     }//GEN-LAST:event_txtPacienteRecepKeyPressed
 
     private void jRadioButton2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton2ItemStateChanged

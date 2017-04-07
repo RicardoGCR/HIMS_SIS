@@ -298,7 +298,8 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                     PRODUCTOS.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                     PRODUCTOS.setAlwaysOnTop(true);
                     PRODUCTOS.setAutoRequestFocus(false);
-                    PRODUCTOS.setMinimumSize(new java.awt.Dimension(937, 574));
+                    PRODUCTOS.setMinimumSize(new java.awt.Dimension(928, 574));
+                    PRODUCTOS.setResizable(false);
 
                     jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
                     jLabel2.setText("Búsqueda de Productos");
@@ -371,7 +372,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                         .addGroup(PRODUCTOSLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 897, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(30, Short.MAX_VALUE))
+                            .addContainerGap(21, Short.MAX_VALUE))
                     );
                     PRODUCTOSLayout.setVerticalGroup(
                         PRODUCTOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,6 +392,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                     PRODUCTO_REFERENCIAL.setAlwaysOnTop(true);
                     PRODUCTO_REFERENCIAL.setAutoRequestFocus(false);
                     PRODUCTO_REFERENCIAL.setMinimumSize(new java.awt.Dimension(558, 570));
+                    PRODUCTO_REFERENCIAL.setResizable(false);
 
                     jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
                     jLabel4.setText("Producto Referencial");
@@ -816,8 +818,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
         btnAgregar.setEnabled(true);
         btnQuitar.setEnabled(true);
         inicializar_tabla();
-        tb_productodetalle.setEnabled(true);
-        tb_productodetalle.setBackground(Color.white);
+        
             
     }//GEN-LAST:event_btnNuevoActionPerformed
 
@@ -936,7 +937,11 @@ enableDatos();
                        btnguardar.setEnabled(true);
                        btnmodificar.setEnabled(false);
                        btneliminar.setEnabled(false);
+                       
+                          btnAgregar.setEnabled(true);
+                         btnQuitar.setEnabled(true);
                     limpiar();
+                    enableDatos();
                 }
             }
         }catch(Exception e){
@@ -1188,7 +1193,8 @@ char tecla= evt.getKeyChar();
     txtProducto.setText("");
     tb_productodetalle.setModel(new DefaultTableModel());
     inicializar_tabla();
-   
+   tb_productodetalle.setEnabled(true);
+        tb_productodetalle.setBackground(Color.white);
 }
 
      public void mostrarDetalle(){

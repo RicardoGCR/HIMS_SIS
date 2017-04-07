@@ -2039,6 +2039,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaDpt2.setEditable(false); 
                 fecha=dtDpt2;
                 fua = txtFuaDpt2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB10.setEnabled(false);
@@ -2057,6 +2058,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtInflR2.setEditable(false);  
                 fecha=dtInflR2;
                 fua = txtInflR2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB12.setEnabled(false);
@@ -2075,6 +2077,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaBcg.setEditable(false); 
                 fecha=dtBcg;
                 fua = txtFuaBcg;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB1.setEnabled(false);
@@ -2093,6 +2096,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaHvb.setEditable(false);  
                 fecha=dtHvb;
                 fua = txtFuaHvb;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB2.setEnabled(false);
@@ -2111,6 +2115,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaInfl1.setEditable(false);  
                 fecha=dtInfl1;
                 fua = txtFuaInfl1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB3.setEnabled(false);
@@ -2129,6 +2134,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaInfl2.setEditable(false); 
                 fecha=dtInfl2;
                 fua = txtFuaInfl2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB4.setEnabled(false);
@@ -2147,6 +2153,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaRot1.setEditable(false);  
                 fecha=dtRot1;
                 fua = txtFuaRot1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB5.setEnabled(false);
@@ -2165,6 +2172,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaRot2.setEditable(false); 
                 fecha=dtRot2;
                 fua = txtFuaRot2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB6.setEnabled(false);
@@ -2183,6 +2191,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaSpr1.setEditable(false); 
                 fecha=dtSpr1;
                 fua = txtFuaSpr1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB7.setEnabled(false);
@@ -2201,6 +2210,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaSpr2.setEditable(false);  
                 fecha=dtSpr2;
                 fua = txtFuaSpr2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB8.setEnabled(false);
@@ -2219,6 +2229,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaAmaDu.setEditable(false); 
                 fecha=dtAmadu;
                 fua = txtFuaAmaDu;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB13.setEnabled(false);
@@ -2237,6 +2248,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaDpt1.setEditable(false);  
                 fecha=dtDpt1;
                 fua = txtFuaDpt1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB9.setEnabled(false);
@@ -2255,6 +2267,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtInflR1.setEditable(false);  
                 fecha=dtInflR1;
                 fua = txtInflR1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB11.setEnabled(false);
@@ -2301,6 +2314,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaAmaDu1.setEditable(false); 
                 fecha=dtAmadu1;
                 fua = txtFuaAmaDu1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB14.setEnabled(false);
@@ -2327,6 +2341,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaAmaDu2.setEditable(false); 
                 fecha=dtAmadu2;
                 fua = txtFuaAmaDu2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB15.setEnabled(false);
@@ -2353,6 +2368,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaAmaDu3.setEditable(false); 
                 fecha=dtAmadu3;
                 fua = txtFuaAmaDu3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB16.setEnabled(false);
@@ -2379,6 +2395,7 @@ public class RSAITTO extends javax.swing.JInternalFrame {
                 txtFuaAmaDu4.setEditable(false); 
                 fecha=dtAmadu4;
                 fua = txtFuaAmaDu4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RB17.setEnabled(false);

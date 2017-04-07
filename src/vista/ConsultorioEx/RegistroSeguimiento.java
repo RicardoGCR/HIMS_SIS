@@ -81,6 +81,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         lblTriaje.setVisible(false);
         lblGenero.setVisible(false);
         lblHcMadre.setVisible(false);
+        lblEdad.setVisible(false);
     }
     
     public void cerrar (){
@@ -108,6 +109,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         RegistroSeguimiento.lblTriaje.setText(String.valueOf(tbNinos.getValueAt(fila, 9)));
         RegistroSeguimiento.lblGenero.setText(String.valueOf(tbNinos.getValueAt(fila, 5)));
         RegistroSeguimiento.lblFecNac.setText(String.valueOf(tbNinos.getValueAt(fila, 6)));
+        RegistroSeguimiento.lblFua.setText(String.valueOf(tbNinos.getValueAt(fila, 10)));
         if(String.valueOf(tbNinos.getValueAt(fila, 5)).equals("F")){
             pnlSexo.setBackground(new Color(255,71,163));
             pnlSexo.setVisible(true);
@@ -382,6 +384,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 lblTriaje = new javax.swing.JTextField();
                 lblGenero = new javax.swing.JLabel();
                 lblEdad = new javax.swing.JLabel();
+                lblFua = new javax.swing.JLabel();
                 jPanel3 = new javax.swing.JPanel();
                 Contenedor = new javax.swing.JDesktopPane();
 
@@ -1675,6 +1678,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
 
                 lblEdad.setText("jLabel7");
 
+                lblFua.setText("jLabel7");
+
                 javax.swing.GroupLayout txtSisLayout = new javax.swing.GroupLayout(txtSis);
                 txtSis.setLayout(txtSisLayout);
                 txtSisLayout.setHorizontalGroup(
@@ -1702,7 +1707,9 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                         .addGap(40, 40, 40)
                                         .addComponent(jLabel29)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblNHC))
+                                        .addComponent(lblNHC)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(lblFua))
                                     .addGroup(txtSisLayout.createSequentialGroup()
                                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(46, 46, 46)
@@ -1735,7 +1742,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                 .addComponent(jLabel28)
                                 .addComponent(lblActoMedico)
                                 .addComponent(jLabel29)
-                                .addComponent(lblNHC))
+                                .addComponent(lblNHC)
+                                .addComponent(lblFua))
                             .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel3)
                                 .addComponent(lblDni)
@@ -2473,6 +2481,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     public static javax.swing.JLabel lblDni;
     public static javax.swing.JLabel lblEdad;
     public static javax.swing.JLabel lblFecNac;
+    public static javax.swing.JLabel lblFua;
     public static javax.swing.JLabel lblGenero;
     public static javax.swing.JLabel lblHc;
     public static javax.swing.JLabel lblHcMadre;

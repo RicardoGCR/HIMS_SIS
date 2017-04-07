@@ -1637,6 +1637,8 @@
                                               <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="lblNHC" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                              <Component id="lblFua" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
@@ -1679,6 +1681,7 @@
                                       <Component id="lblActoMedico" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblNHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblFua" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2397,6 +2400,14 @@
                       </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEdad">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="jLabel7"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblFua">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="jLabel7"/>
                       </Properties>

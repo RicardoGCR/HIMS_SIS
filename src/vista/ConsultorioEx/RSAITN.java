@@ -810,6 +810,7 @@ byte tg;
                 FDD7.setEnabled(true);
                 fecha=FDD7;
                 fua = FUADD7;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD1.setEnabled(false);
@@ -826,6 +827,7 @@ byte tg;
                 FDD8.setEnabled(true);
                 fecha=FDD8;
                 fua = FUADD8;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD2.setEnabled(false);
@@ -841,6 +843,7 @@ byte tg;
                 FDD9.setEnabled(true);
                 fecha=FDD9;
                 fua = FUADD9;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD3.setEnabled(false);
@@ -856,6 +859,7 @@ byte tg;
                 FDD10.setEnabled(true);
                 fecha=FDD10;
                 fua = FUADD10;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD4.setEnabled(false);

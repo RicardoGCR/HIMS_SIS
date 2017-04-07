@@ -3129,6 +3129,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaPent1.setEditable(true); 
                 fecha=dtPent1;
                 fua = txtFuaPent1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rp1.setEnabled(false);
@@ -3147,6 +3148,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaDpt2.setEditable(true); 
                 fecha=dtDpt2;
                 fua = txtFuaDpt2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rdpt2.setEnabled(false);
@@ -3165,6 +3167,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtInflR2.setEditable(true);  
                 fecha=dtInflR2;
                 fua = txtInflR2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rir2.setEnabled(false);
@@ -3183,6 +3186,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaApoR2.setEditable(true); 
                 fecha=dtApoR2;
                 fua = txtFuaApoR2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rapo2.setEnabled(false);
@@ -3205,6 +3209,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaElab.setEditable(true); 
                 fecha=dtElab;
                 fua = txtFuaElab;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Relab.setEnabled(false);
@@ -3223,6 +3228,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaEjec.setEditable(true); 
                 fecha=dtEjec;
                 fua = txtFuaEjec;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rejec.setEnabled(false);
@@ -3241,6 +3247,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaBcg.setEditable(true); 
                 fecha=dtBcg;
                 fua = txtFuaBcg;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rbcg.setEnabled(false);
@@ -3259,6 +3266,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaHvb.setEditable(true);  
                 fecha=dtHvb;
                 fua = txtFuaHvb;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rhvb.setEnabled(false);
@@ -3277,6 +3285,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaPent3.setEditable(true);  
                 fecha=dtPent3;
                 fua = txtFuaPent3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rp3.setEnabled(false);
@@ -3295,6 +3304,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaPent2.setEditable(true);  
                 fecha=dtPent2;
                 fua = txtFuaPent2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rp2.setEnabled(false);
@@ -3313,6 +3323,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaIpv3.setEditable(true); 
                 fecha=dtIpv3;
                 fua = txtFuaIpv3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Ripv3.setEnabled(false);
@@ -3333,6 +3344,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaIpv2.setEditable(true);  
                 fecha=dtIpv2;
                 fua = txtFuaIpv2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Ripv2.setEnabled(false);
@@ -3351,6 +3363,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaIpv1.setEditable(true); 
                 fecha=dtIpv1;
                 fua = txtFuaIpv1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Ripv1.setEnabled(false);
@@ -3369,6 +3382,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaNeumo1.setEditable(true);  
                 fecha=dtNeumo1;
                 fua = txtFuaNeumo1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rn1.setEnabled(false);
@@ -3387,6 +3401,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaNeumo2.setEditable(true); 
                 fecha=dtNeumo2;
                 fua = txtFuaNeumo2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rn2.setEnabled(false);
@@ -3405,6 +3420,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaNeumo3.setEditable(true); 
                 fecha=dtNeumo3;
                 fua = txtFuaNeumo3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rn3.setEnabled(false);
@@ -3423,6 +3439,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaInfl1.setEditable(true);  
                 fecha=dtInfl1;
                 fua = txtFuaInfl1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Ri1.setEnabled(false);
@@ -3441,6 +3458,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaInfl2.setEditable(true); 
                 fecha=dtInfl2;
                 fua = txtFuaInfl2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Ri2.setEnabled(false);
@@ -3459,6 +3477,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaRot1.setEditable(true);  
                 fecha=dtRot1;
                 fua = txtFuaRot1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rr1.setEnabled(false);
@@ -3477,6 +3496,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaRot2.setEditable(true); 
                 fecha=dtRot2;
                 fua = txtFuaRot2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rr2.setEnabled(false);
@@ -3495,6 +3515,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaSpr1.setEditable(true); 
                 fecha=dtSpr1;
                 fua = txtFuaSpr1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rspr1.setEnabled(false);
@@ -3513,6 +3534,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaSpr2.setEditable(true);  
                 fecha=dtSpr2;
                 fua = txtFuaSpr2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rspr2.setEnabled(false);
@@ -3531,6 +3553,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaAmaDu.setEditable(true); 
                 fecha=dtAmadu;
                 fua = txtFuaAmaDu;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rama.setEnabled(false);
@@ -3549,6 +3572,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaDpt1.setEditable(true);  
                 fecha=dtDpt1;
                 fua = txtFuaDpt1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rdpt1.setEnabled(false);
@@ -3567,6 +3591,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtInflR1.setEditable(true);  
                 fecha=dtInflR1;
                 fua = txtInflR1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rir1.setEnabled(false);
@@ -3585,6 +3610,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 txtFuaApoR1.setEditable(true);  
                 fecha=dtApoR1;
                 fua = txtFuaApoR1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rapo1.setEnabled(false);

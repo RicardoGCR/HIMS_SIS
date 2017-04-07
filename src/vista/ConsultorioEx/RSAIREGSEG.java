@@ -30,6 +30,7 @@ private Dimension DimensionBarra = null;
     public RSAIREGSEG() {
         initComponents();
         QuitarLaBarraTitulo();
+        lblId.setVisible(false);
     }
     public void QuitarLaBarraTitulo(){ 
         Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
@@ -64,6 +65,7 @@ private Dimension DimensionBarra = null;
         jPanel17 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         ContenedorDD = new javax.swing.JDesktopPane();
+        jPanel1 = new javax.swing.JPanel();
         lblId = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -282,25 +284,38 @@ private Dimension DimensionBarra = null;
             .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         lblId.setText("jLabel1");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(558, 558, 558)
+                .addComponent(lblId)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(340, Short.MAX_VALUE)
+                .addComponent(lblId)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout ContenedorDDLayout = new javax.swing.GroupLayout(ContenedorDD);
         ContenedorDD.setLayout(ContenedorDDLayout);
         ContenedorDDLayout.setHorizontalGroup(
             ContenedorDDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContenedorDDLayout.createSequentialGroup()
-                .addGap(294, 294, 294)
-                .addComponent(lblId)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         ContenedorDDLayout.setVerticalGroup(
             ContenedorDDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContenedorDDLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(lblId)
-                .addContainerGap(325, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        ContenedorDD.setLayer(lblId, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ContenedorDD.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -423,6 +438,7 @@ private Dimension DimensionBarra = null;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;

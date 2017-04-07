@@ -539,6 +539,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Silvana"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -1646,13 +1649,15 @@
                                               <Component id="lblTriaje" min="-2" pref="174" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="lblGenero" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                              <Component id="lblEdad" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                                   <Component id="pnlPadres" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblPadres" min="-2" pref="1128" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="209" max="32767" attributes="0"/>
+                              <EmptySpace pref="175" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1667,6 +1672,7 @@
                                       <Component id="lblHc" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblTriaje" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblGenero" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblEdad" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -2388,6 +2394,14 @@
                     <Component class="javax.swing.JLabel" name="lblGenero">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="jLabel17"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblEdad">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="jLabel7"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

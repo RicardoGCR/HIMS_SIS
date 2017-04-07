@@ -6,44 +6,53 @@
 package modelos.ConsultorioEx;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_SEGUIMIENTO_PARASITOSIS")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsSeguimientoParasitosis.findAll", query = "SELECT c FROM ConsultorioExtRsSeguimientoParasitosis c")})
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.xml.bind.annotation.XmlRootElement;
+import servicios.Conexion;
 public class ConsultorioExtRsSeguimientoParasitosis implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "SP_ID")
+    private Connection cn;
+    private int rs_id;
     private Long spId;
-    @Column(name = "SP_FECHA")
     private String spFecha;
-    @Column(name = "SP_EDAD")
     private String spEdad;
-    @Column(name = "SP_RECOMENDACIONES")
     private String spRecomendaciones;
-    @Column(name = "ESTADO")
     private Character estado;
-    @Column(name = "COD_USU")
     private String codUsu;
-    @Column(name = "NOM_PC")
     private String nomPc;
+    private int id_cie10;
 
+    public boolean mantenimientoConsultorioExtRsSeguimientoParasitosis(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_RS_SEGUIMIENTO_PARASITOSIS ?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getRs_id());
+            cmd.setString(2, getSpFecha());
+            cmd.setString(3, getSpEdad());
+            cmd.setInt(4, getId_cie10());
+            cmd.setString(5, getSpRecomendaciones());
+            cmd.setString(6, getCodUsu());
+            cmd.setString(7, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoConsultorioExtRsSeguimientoParasitosis: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public ConsultorioExtRsSeguimientoParasitosis() {
+        Conexion con = new Conexion();
+        cn = con.conectar();
     }
 
     public ConsultorioExtRsSeguimientoParasitosis(Long spId) {
@@ -129,6 +138,48 @@ public class ConsultorioExtRsSeguimientoParasitosis implements Serializable {
     @Override
     public String toString() {
         return "modelos.ConsultorioEx.ConsultorioExtRsSeguimientoParasitosis[ spId=" + spId + " ]";
+    }
+
+    /**
+     * @return the cn
+     */
+    public Connection getCn() {
+        return cn;
+    }
+
+    /**
+     * @param cn the cn to set
+     */
+    public void setCn(Connection cn) {
+        this.cn = cn;
+    }
+
+    /**
+     * @return the rs_id
+     */
+    public int getRs_id() {
+        return rs_id;
+    }
+
+    /**
+     * @param rs_id the rs_id to set
+     */
+    public void setRs_id(int rs_id) {
+        this.rs_id = rs_id;
+    }
+
+    /**
+     * @return the id_cie10
+     */
+    public int getId_cie10() {
+        return id_cie10;
+    }
+
+    /**
+     * @param id_cie10 the id_cie10 to set
+     */
+    public void setId_cie10(int id_cie10) {
+        this.id_cie10 = id_cie10;
     }
     
 }

@@ -7,13 +7,6 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 
@@ -21,92 +14,35 @@ import servicios.Conexion;
  *
  * @author PC02
  */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_SUPLEMENTACION_HIERRO")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findAll", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByShId", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.shId = :shId"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM1Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m1Fecha = :m1Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM1Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m1Fua = :m1Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM2Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m2Fecha = :m2Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM2Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m2Fua = :m2Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM3Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m3Fecha = :m3Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM3Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m3Fua = :m3Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM4Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m4Fecha = :m4Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM4Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m4Fua = :m4Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM5Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m5Fecha = :m5Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM5Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m5Fua = :m5Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM6Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m6Fecha = :m6Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM6Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m6Fua = :m6Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM7Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m7Fecha = :m7Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM7Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m7Fua = :m7Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM8Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m8Fecha = :m8Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM8Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m8Fua = :m8Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM9Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m9Fecha = :m9Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM9Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m9Fua = :m9Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM10Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m10Fecha = :m10Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM10Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m10Fua = :m10Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM11Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m11Fecha = :m11Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM11Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m11Fua = :m11Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM12Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m12Fecha = :m12Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM12Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m12Fua = :m12Fua")})
 public class ConsultorioExtRsSuplementacionHierro implements Serializable {
     private static final long serialVersionUID = 1L;
     Conexion con = new Conexion();
     private Connection cn;
     private int rs_id;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "SH_ID")
     private Long shId;
-    @Column(name = "M1_FECHA")
     private String m1Fecha;
-    @Column(name = "M1_FUA")
     private String m1Fua;
-    @Column(name = "M2_FECHA")
     private String m2Fecha;
-    @Column(name = "M2_FUA")
     private String m2Fua;
-    @Column(name = "M3_FECHA")
     private String m3Fecha;
-    @Column(name = "M3_FUA")
     private String m3Fua;
-    @Column(name = "M4_FECHA")
     private String m4Fecha;
-    @Column(name = "M4_FUA")
     private String m4Fua;
-    @Column(name = "M5_FECHA")
     private String m5Fecha;
-    @Column(name = "M5_FUA")
     private String m5Fua;
-    @Column(name = "M6_FECHA")
     private String m6Fecha;
-    @Column(name = "M6_FUA")
     private String m6Fua;
-    @Column(name = "M7_FECHA")
     private String m7Fecha;
-    @Column(name = "M7_FUA")
     private String m7Fua;
-    @Column(name = "M8_FECHA")
     private String m8Fecha;
-    @Column(name = "M8_FUA")
     private String m8Fua;
-    @Column(name = "M9_FECHA")
     private String m9Fecha;
-    @Column(name = "M9_FUA")
     private String m9Fua;
-    @Column(name = "M10_FECHA")
     private String m10Fecha;
-    @Column(name = "M10_FUA")
     private String m10Fua;
-    @Column(name = "M11_FECHA")
     private String m11Fecha;
-    @Column(name = "M11_FUA")
     private String m11Fua;
-    @Column(name = "M12_FECHA")
     private String m12Fecha;
-    @Column(name = "M12_FUA")
     private String m12Fua;
 
     public ConsultorioExtRsSuplementacionHierro() {

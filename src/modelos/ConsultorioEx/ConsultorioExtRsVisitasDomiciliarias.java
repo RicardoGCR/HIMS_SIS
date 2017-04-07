@@ -7,123 +7,42 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_VISITAS_DOMICILIARIAS")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findAll", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVmId", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vmId = :vmId"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd1Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd1Fecha = :vd1Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd2Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd2Fecha = :vd2Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd3Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd3Fecha = :vd3Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd4Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd4Fecha = :vd4Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd5Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd5Fecha = :vd5Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd6Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd6Fecha = :vd6Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd7Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd7Fecha = :vd7Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd8Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd8Fecha = :vd8Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd9Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd9Fecha = :vd9Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd10Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd10Fecha = :vd10Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd11Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd11Fecha = :vd11Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd12Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd12Fecha = :vd12Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd13Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd13Fecha = :vd13Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd14Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd14Fecha = :vd14Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd15Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd15Fecha = :vd15Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd16Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd16Fecha = :vd16Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd17Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd17Fecha = :vd17Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd18Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd18Fecha = :vd18Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd19Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd19Fecha = :vd19Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd20Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd20Fecha = :vd20Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd21Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd21Fecha = :vd21Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd22Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd22Fecha = :vd22Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd23Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd23Fecha = :vd23Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd24Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd24Fecha = :vd24Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd25Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd25Fecha = :vd25Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd26Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd26Fecha = :vd26Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd27Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd27Fecha = :vd27Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd28Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd28Fecha = :vd28Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd29Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd29Fecha = :vd29Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsVisitasDomiciliarias.findByVd30Fecha", query = "SELECT c FROM ConsultorioExtRsVisitasDomiciliarias c WHERE c.vd30Fecha = :vd30Fecha")})
 public class ConsultorioExtRsVisitasDomiciliarias implements Serializable {
     private static final long serialVersionUID = 1L;
     private Connection cn;
     private int rs_id;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "VM_ID")
     private Long vmId;
-    @Column(name = "VD1_FECHA")
     private String vd1Fecha;
-    @Column(name = "VD2_FECHA")
     private String vd2Fecha;
-    @Column(name = "VD3_FECHA")
     private String vd3Fecha;
-    @Column(name = "VD4_FECHA")
     private String vd4Fecha;
-    @Column(name = "VD5_FECHA")
     private String vd5Fecha;
-    @Column(name = "VD6_FECHA")
     private String vd6Fecha;
-    @Column(name = "VD7_FECHA")
     private String vd7Fecha;
-    @Column(name = "VD8_FECHA")
     private String vd8Fecha;
-    @Column(name = "VD9_FECHA")
     private String vd9Fecha;
-    @Column(name = "VD10_FECHA")
     private String vd10Fecha;
-    @Column(name = "VD11_FECHA")
     private String vd11Fecha;
-    @Column(name = "VD12_FECHA")
     private String vd12Fecha;
-    @Column(name = "VD13_FECHA")
     private String vd13Fecha;
-    @Column(name = "VD14_FECHA")
     private String vd14Fecha;
-    @Column(name = "VD15_FECHA")
     private String vd15Fecha;
-    @Column(name = "VD16_FECHA")
     private String vd16Fecha;
-    @Column(name = "VD17_FECHA")
     private String vd17Fecha;
-    @Column(name = "VD18_FECHA")
     private String vd18Fecha;
-    @Column(name = "VD19_FECHA")
     private String vd19Fecha;
-    @Column(name = "VD20_FECHA")
     private String vd20Fecha;
-    @Column(name = "VD21_FECHA")
     private String vd21Fecha;
-    @Column(name = "VD22_FECHA")
     private String vd22Fecha;
-    @Column(name = "VD23_FECHA")
     private String vd23Fecha;
-    @Column(name = "VD24_FECHA")
     private String vd24Fecha;
-    @Column(name = "VD25_FECHA")
     private String vd25Fecha;
-    @Column(name = "VD26_FECHA")
     private String vd26Fecha;
-    @Column(name = "VD27_FECHA")
     private String vd27Fecha;
-    @Column(name = "VD28_FECHA")
     private String vd28Fecha;
-    @Column(name = "VD29_FECHA")
     private String vd29Fecha;
-    @Column(name = "VD30_FECHA")
     private String vd30Fecha;
 
     public ConsultorioExtRsVisitasDomiciliarias() {

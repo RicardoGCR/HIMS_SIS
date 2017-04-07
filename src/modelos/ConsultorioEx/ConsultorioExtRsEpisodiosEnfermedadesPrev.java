@@ -7,93 +7,32 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_EPISODIOS_ENFERMEDADES_PREV")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findAll", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEeId", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.eeId = :eeId"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe1Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee1Fecha = :ee1Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe1Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee1Fua = :ee1Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe2Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee2Fecha = :ee2Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe2Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee2Fua = :ee2Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe3Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee3Fecha = :ee3Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe3Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee3Fua = :ee3Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe4Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee4Fecha = :ee4Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe4Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee4Fua = :ee4Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe5Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee5Fecha = :ee5Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe5Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee5Fua = :ee5Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe6Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee6Fecha = :ee6Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe6Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee6Fua = :ee6Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe7Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee7Fecha = :ee7Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe7Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee7Fua = :ee7Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe8Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee8Fecha = :ee8Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe8Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee8Fua = :ee8Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe9Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee9Fecha = :ee9Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe9Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee9Fua = :ee9Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe10Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee10Fecha = :ee10Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe10Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee10Fua = :ee10Fua")})
 public class ConsultorioExtRsEpisodiosEnfermedadesPrev implements Serializable {
     private static final long serialVersionUID = 1L;
     private Connection cn;
     private int rs_id;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "EE_ID")
     private Long eeId;
-    @Column(name = "EE1_FECHA")
     private String ee1Fecha;
-    @Column(name = "EE1_FUA")
     private String ee1Fua;
-    @Column(name = "EE2_FECHA")
     private String ee2Fecha;
-    @Column(name = "EE2_FUA")
     private String ee2Fua;
-    @Column(name = "EE3_FECHA")
     private String ee3Fecha;
-    @Column(name = "EE3_FUA")
     private String ee3Fua;
-    @Column(name = "EE4_FECHA")
     private String ee4Fecha;
-    @Column(name = "EE4_FUA")
     private String ee4Fua;
-    @Column(name = "EE5_FECHA")
     private String ee5Fecha;
-    @Column(name = "EE5_FUA")
     private String ee5Fua;
-    @Column(name = "EE6_FECHA")
     private String ee6Fecha;
-    @Column(name = "EE6_FUA")
     private String ee6Fua;
-    @Column(name = "EE7_FECHA")
     private String ee7Fecha;
-    @Column(name = "EE7_FUA")
     private String ee7Fua;
-    @Column(name = "EE8_FECHA")
     private String ee8Fecha;
-    @Column(name = "EE8_FUA")
     private String ee8Fua;
-    @Column(name = "EE9_FECHA")
     private String ee9Fecha;
-    @Column(name = "EE9_FUA")
     private String ee9Fua;
-    @Column(name = "EE10_FECHA")
     private String ee10Fecha;
-    @Column(name = "EE10_FUA")
     private String ee10Fua;
 
     public ConsultorioExtRsEpisodiosEnfermedadesPrev() {

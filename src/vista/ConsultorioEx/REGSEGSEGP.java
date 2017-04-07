@@ -58,7 +58,7 @@ private Dimension DimensionBarra = null;
             txtdes = new javax.swing.JEditorPane();
             jLabel23 = new javax.swing.JLabel();
 
-            setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+            setBorder(javax.swing.BorderFactory.createCompoundBorder());
             setVisible(true);
 
             jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -128,7 +128,7 @@ private Dimension DimensionBarra = null;
 
             jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
             jLabel22.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel22.setText("Nuevo Registro___________________________________________________________________________________________________________");
+            jLabel22.setText("Seguimiento de Parasitosis___________________________________________________________________________________________________________");
 
             jScrollPane6.setBorder(null);
             jScrollPane6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -212,7 +212,7 @@ private Dimension DimensionBarra = null;
                                             .addGap(18, 18, 18)
                                             .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(jScrollPane1))))
-                            .addContainerGap(123, Short.MAX_VALUE))))
+                            .addContainerGap(125, Short.MAX_VALUE))))
             );
             jPanel3Layout.setVerticalGroup(
                 jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,7 +234,7 @@ private Dimension DimensionBarra = null;
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel23))
                     .addGap(7, 7, 7)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                     .addContainerGap())
             );
 

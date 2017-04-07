@@ -285,10 +285,10 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 b.setText("OK");
                 b.setVisible(true);
                 b1.setVisible(false);
-
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsET2.ConsultoriosExtETListar(Integer.parseInt(lblId.getText()));
+                CXRsET2.porcentajeET(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
                 habilitarRadio(true);
             }else {
@@ -415,6 +415,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsET2.ConsultoriosExtETListar(Integer.parseInt(lblId.getText()));
+                CXRsET2.porcentajeET(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
                 habilitarRadio(true);
             }else {
@@ -2036,6 +2037,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 fecha=FETM1;
                 fua = FUAETM1;
                 cie10=DXETM1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RM1.setEnabled(false);
@@ -2053,6 +2055,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 fecha=FETM2;
                 fua = FUAETM2;
                 cie10=DXETM2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RM2.setEnabled(false);
@@ -2070,6 +2073,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 fecha=FETM3;
                 fua = FUAETM3;
                 cie10=DXETM3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RM3.setEnabled(false);
@@ -2087,6 +2091,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 fecha=FETM4;
                 fua = FUAETM4;
                 cie10=DXETM4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RM4.setEnabled(false);
@@ -2104,6 +2109,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 fecha=FETM5;
                 fua = FUAETM5;
                 cie10=DXETM5;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RM5.setEnabled(false);
@@ -2121,6 +2127,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 fecha=FETM6;
                 fua = FUAETM6;
                 cie10=DXETM6;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RM6.setEnabled(false);
@@ -2138,6 +2145,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 fecha=FET11;
                 fua = FUAET11;
                 cie10=DXET11;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RM7.setEnabled(false);
@@ -2155,6 +2163,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 fecha=FET12;
                 fua = FUAET12;
                 cie10=DXET12;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RM8.setEnabled(false);
@@ -2172,6 +2181,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 fecha=FET13;
                 fua = FUAET13;
                 cie10=DXET13;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RM9.setEnabled(false);
@@ -2189,6 +2199,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 fecha=FET14;
                 fua = FUAET14;
                 cie10=DXET14;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RM10.setEnabled(false);
@@ -2206,6 +2217,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 fecha=FET21;
                 fua = FUAET21;
                 cie10=DXET21;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RM11.setEnabled(false);
@@ -2223,6 +2235,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 fecha=FET22;
                 fua = FUAET22;
                 cie10=DXET22;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RM12.setEnabled(false);
@@ -2240,6 +2253,7 @@ ConsultorioExtRsEstimulacionTemprana ET01 = new ConsultorioExtRsEstimulacionTemp
                 fecha=FET23;
                 fua = FUAET23;
                 cie10=DXET23;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RM13.setEnabled(false);

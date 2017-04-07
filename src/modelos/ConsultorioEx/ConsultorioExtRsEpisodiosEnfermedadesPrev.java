@@ -263,6 +263,7 @@ public class ConsultorioExtRsEpisodiosEnfermedadesPrev implements Serializable {
             int c=1;
             while(r.next()){
                 lblPorcentajeEEP.setText(r.getString(1) + " %"); 
+                RSAIEEP.lblPorcentajeV.setText(r.getString(1) + " %"); 
             }
             //
         } catch (Exception e) {

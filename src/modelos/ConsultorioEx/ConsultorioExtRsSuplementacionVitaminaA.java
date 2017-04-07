@@ -261,10 +261,11 @@ public class ConsultorioExtRsSuplementacionVitaminaA implements Serializable {
             int c=1;
             while(r.next()){
                 lblPorcentajeSVA.setText(r.getString(1) + " %"); 
+                RSAISCVA.lblPorcentajeV.setText(r.getString(1) + " % Completado"); 
             }
             //
         } catch (Exception e) {
-            System.out.println("Error: porcentajeVacunas " + e.getMessage());
+            System.out.println("Error: porcentajeSVA " + e.getMessage());
         }
     }
 

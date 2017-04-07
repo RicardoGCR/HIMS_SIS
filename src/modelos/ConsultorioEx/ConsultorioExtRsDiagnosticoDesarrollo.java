@@ -338,6 +338,7 @@ public class ConsultorioExtRsDiagnosticoDesarrollo implements Serializable {
             int c=1;
             while(r.next()){
                 lblPorcentajeDD.setText(r.getString(1) + " %"); 
+                RSAIDD.lblPorcentajeV.setText(r.getString(1) + " % Completado"); 
             }
             //
         } catch (Exception e) {

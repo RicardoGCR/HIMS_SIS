@@ -732,6 +732,7 @@
                                   <Component id="jPanel18" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jPanel12" alignment="0" pref="304" max="32767" attributes="0"/>
                               </Group>
+<<<<<<< HEAD
                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jPanel23" pref="304" max="32767" attributes="0"/>
@@ -748,6 +749,32 @@
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="jPanel21" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
+=======
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jPanel19" max="32767" attributes="0"/>
+                                          <Component id="jPanel23" pref="316" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Component id="jPanel20" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="jPanel24" min="-2" pref="252" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="jPanel25" min="-2" pref="530" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jPanel21" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jPanel13" min="-2" pref="316" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                      <Component id="jPanel15" min="-2" pref="274" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+>>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
                                       <Component id="jPanel16" min="-2" pref="291" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Component id="jPanel17" min="-2" pref="239" max="-2" attributes="0"/>
@@ -762,11 +789,19 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
+<<<<<<< HEAD
                                   <Component id="jPanel13" alignment="0" pref="122" max="32767" attributes="0"/>
                                   <Component id="jPanel15" alignment="0" pref="122" max="32767" attributes="0"/>
                                   <Component id="jPanel17" alignment="0" pref="122" max="32767" attributes="0"/>
                                   <Component id="jPanel16" alignment="0" pref="122" max="32767" attributes="0"/>
                                   <Component id="jPanel12" pref="122" max="32767" attributes="0"/>
+=======
+                                  <Component id="jPanel13" alignment="0" pref="115" max="32767" attributes="0"/>
+                                  <Component id="jPanel15" alignment="0" pref="115" max="32767" attributes="0"/>
+                                  <Component id="jPanel17" alignment="0" pref="115" max="32767" attributes="0"/>
+                                  <Component id="jPanel16" alignment="0" pref="115" max="32767" attributes="0"/>
+                                  <Component id="jPanel12" pref="115" max="32767" attributes="0"/>
+>>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jPanel20" min="-2" max="-2" attributes="0"/>
@@ -915,7 +950,11 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                                   <EmptySpace max="32767" attributes="0"/>
+=======
+                                  <EmptySpace pref="71" max="32767" attributes="0"/>
+>>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
                                   <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="lblPorcentajeCCD" min="-2" pref="86" max="-2" attributes="0"/>
@@ -1386,7 +1425,11 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                                   <EmptySpace pref="19" max="32767" attributes="0"/>
+=======
+                                  <EmptySpace max="32767" attributes="0"/>
+>>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
                                   <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="lblPorcentajeTAP" min="-2" pref="86" max="-2" attributes="0"/>
@@ -1560,10 +1603,23 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
+<<<<<<< HEAD
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="lblPorcentajeEEP" min="-2" max="-2" attributes="0"/>
+=======
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
+                                          <Component id="lblPorcentajeEEP" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+>>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
                                   <EmptySpace pref="19" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -1571,6 +1627,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
+<<<<<<< HEAD
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
@@ -1579,6 +1636,12 @@
                                       </Group>
                                       <Component id="jLabel18" max="32767" attributes="0"/>
                                   </Group>
+=======
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel18" min="-2" pref="45" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                  <Component id="lblPorcentajeEEP" min="-2" max="-2" attributes="0"/>
+>>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1593,7 +1656,11 @@
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
+<<<<<<< HEAD
                             <Property name="text" type="java.lang.String" value="&lt;html&gt;Episodios De &lt;br&gt;Enfermedades Prevalentes &lt;/br&gt;&lt;br&gt; De La Infancia&lt;/br&gt;&lt;/html&gt;"/>
+=======
+                            <Property name="text" type="java.lang.String" value="&lt;html&gt;Episodios De Enfermedades&lt;br&gt;Prevalentes De La Infancia&lt;/br&gt;&lt;/html&gt;"/>
+>>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
                           </Properties>
                           <Events>
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel18MouseClicked"/>
@@ -1625,16 +1692,23 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                   <Component id="jPanel31" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="lblPorcentajeSVA" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
+=======
+                                  <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="lblPorcentajeSVA" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+>>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                               <Component id="lblPorcentajeSVA" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -1645,6 +1719,16 @@
                                       <Component id="jLabel14" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
+=======
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel14" pref="86" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="lblPorcentajeSVA" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+>>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
                               </Group>
                           </Group>
                         </DimensionLayout>

@@ -257,6 +257,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsDN2.ConsultoriosExtDDListar(Integer.parseInt(lblId.getText()));
+                CXRsDN2.porcentajeDD(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
                 habilitarRadio(true);
             }else {
@@ -369,6 +370,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsDN2.ConsultoriosExtDDListar(Integer.parseInt(lblId.getText()));
+                CXRsDN2.porcentajeDD(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
                 habilitarRadio(true);
             }else {
@@ -1891,6 +1893,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 fecha=FDD1;
                 fua = FUADD1;
                 cie10=DXDD1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD1.setEnabled(false);
@@ -1909,6 +1912,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 fecha=FDD2;
                 fua = FUADD2;
                 cie10=DXDD2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD2.setEnabled(false);
@@ -1926,6 +1930,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 fecha=FDD3;
                 fua = FUADD3;
                 cie10=DXDD3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD3.setEnabled(false);
@@ -1943,6 +1948,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 fecha=FDD4;
                 fua = FUADD4;
                 cie10=DXDD4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD4.setEnabled(false);
@@ -1960,6 +1966,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 fecha=FDD5;
                 fua = FUADD5;
                 cie10=DXDD5;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD5.setEnabled(false);
@@ -1977,6 +1984,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 fecha=FDD6;
                 fua = FUADD6;
                 cie10=DXDD6;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD6.setEnabled(false);
@@ -1994,6 +2002,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 fecha=FDD7;
                 fua = FUADD7;
                 cie10=DXDD7;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD7.setEnabled(false);
@@ -2011,6 +2020,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 fecha=FDD8;
                 fua = FUADD8;
                 cie10=DXDD8;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD8.setEnabled(false);
@@ -2028,6 +2038,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 fecha=FDD9;
                 fua = FUADD9;
                 cie10=DXDD9;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD9.setEnabled(false);
@@ -2045,6 +2056,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 fecha=FDD10;
                 fua = FUADD10;
                 cie10=DXDD10;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD10.setEnabled(false);
@@ -2062,6 +2074,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 fecha=FDD11;
                 fua = FUADD11;
                 cie10=DXDD11;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD11.setEnabled(false);
@@ -2079,6 +2092,7 @@ ConsultorioExtRsDiagnosticoDesarrollo DD01 = new ConsultorioExtRsDiagnosticoDesa
                 fecha=FDD12;
                 fua = FUADD12;
                 cie10=DXDD12;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD12.setEnabled(false);

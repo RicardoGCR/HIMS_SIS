@@ -218,8 +218,7 @@ ConsultorioExtRsEpisodiosEnfermedadesPrev EEP01 = new ConsultorioExtRsEpisodiosE
                 tge=1;
 
                 CXRsEEP2.ConsultoriosExtEEPListar(Integer.parseInt(lblId.getText()));
-
-
+                CXRsEEP2.porcentajeEET(Integer.parseInt(lblId.getText()));
                 habilitarDatos(false);
                 habilitarRadio(true);
             }else {
@@ -311,7 +310,7 @@ ConsultorioExtRsEpisodiosEnfermedadesPrev EEP01 = new ConsultorioExtRsEpisodiosE
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsEEP2.ConsultoriosExtEEPListar(Integer.parseInt(lblId.getText()));
-
+                CXRsEEP2.porcentajeEET(Integer.parseInt(lblId.getText()));
                 habilitarDatos(false);
                 habilitarRadio(true);
             }else {
@@ -1333,6 +1332,7 @@ ConsultorioExtRsEpisodiosEnfermedadesPrev EEP01 = new ConsultorioExtRsEpisodiosE
                 FUADN1.setEditable(false); 
                 fecha=FDN1;
                 fua = FUADN1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt1.setEnabled(false);
@@ -1350,6 +1350,7 @@ ConsultorioExtRsEpisodiosEnfermedadesPrev EEP01 = new ConsultorioExtRsEpisodiosE
                 FUADN2.setEditable(false); 
                 fecha=FDN2;
                 fua = FUADN2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt2.setEnabled(false);
@@ -1367,6 +1368,7 @@ ConsultorioExtRsEpisodiosEnfermedadesPrev EEP01 = new ConsultorioExtRsEpisodiosE
                 FUADN3.setEditable(false); 
                 fecha=FDN3;
                 fua = FUADN3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt3.setEnabled(false);
@@ -1384,6 +1386,7 @@ ConsultorioExtRsEpisodiosEnfermedadesPrev EEP01 = new ConsultorioExtRsEpisodiosE
                 FUADN4.setEditable(false); 
                 fecha=FDN4;
                 fua = FUADN4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt4.setEnabled(false);
@@ -1401,6 +1404,7 @@ ConsultorioExtRsEpisodiosEnfermedadesPrev EEP01 = new ConsultorioExtRsEpisodiosE
                 FUADN5.setEditable(false); 
                 fecha=FDN5;
                 fua = FUADN5;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt5.setEnabled(false);
@@ -1418,6 +1422,7 @@ ConsultorioExtRsEpisodiosEnfermedadesPrev EEP01 = new ConsultorioExtRsEpisodiosE
                 FUADN8.setEditable(false); 
                 fecha=FDN8;
                 fua = FUADN8;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt8.setEnabled(false);
@@ -1435,6 +1440,7 @@ ConsultorioExtRsEpisodiosEnfermedadesPrev EEP01 = new ConsultorioExtRsEpisodiosE
                 FUADN9.setEditable(false); 
                 fecha=FDN9;
                 fua = FUADN9;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt9.setEnabled(false);
@@ -1452,6 +1458,7 @@ ConsultorioExtRsEpisodiosEnfermedadesPrev EEP01 = new ConsultorioExtRsEpisodiosE
                 FUADN10.setEditable(false); 
                 fecha=FDN10;
                 fua = FUADN10;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt10.setEnabled(false);
@@ -1505,6 +1512,7 @@ ConsultorioExtRsEpisodiosEnfermedadesPrev EEP01 = new ConsultorioExtRsEpisodiosE
                 FUADN7.setEditable(false); 
                 fecha=FDN7;
                 fua = FUADN7;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt7.setEnabled(false);
@@ -1522,6 +1530,7 @@ ConsultorioExtRsEpisodiosEnfermedadesPrev EEP01 = new ConsultorioExtRsEpisodiosE
                 FUADN11.setEditable(false); 
                 fecha=FDN11;
                 fua = FUADN11;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt13.setEnabled(false);

@@ -10,14 +10,19 @@ import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import modelos.SIS.SIS_CLS_PRESTACION_DESTINO;
+import modelos.Usuario;
 import servicios.Conexion;
 import static vista.SIS.SIS_DX_MEDICAMENTO_INSUMO_PROCEDIMIENTO.txtActividadDX;
 import static vista.SIS.SIS_PRESTACIONES.fechaActual;
@@ -34,7 +39,7 @@ Calendar calendario;
 Thread h1;
 ResultSet r;
 CallableStatement cst;
-DefaultTableModel m, modelo1, modelo2;
+DefaultTableModel m, modelo1, modelo2, m3, m4, m5;
     
     /**
      * Creates new form SIS_PRESTACION_DESTINO
@@ -815,73 +820,43 @@ DefaultTableModel m, modelo1, modelo2;
 	}}
         return c;
     }
-    /*
+    
         public void mostrarCabecerayDetalle(){
         try {
             int filaselec=tb_Pres.getSelectedRow();
             //Diagnostico
             String consulta="";
             tbDetalle_Pres_Destino.setModel(new DefaultTableModel());
-            String titulos[]={"ID_CIE10","COD_ENF","DESCRIPCION"};
+            String titulos[]={"ID Prestación","Prestación","ID Destino", "Descripción Destino"};
             m3=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m3);
             String fila[]=new String[3];
             Usuario obj=new Usuario();
-            consulta="exec SALA_OPERACION_SOLICITUD_DETALLE_BUSCAR ?";
+            consulta="exec SIS_DETALLE_PRESTACION_DESTINO_BUSCAR ?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1, tbListaSolicitud.getValueAt(filaselec, 0).toString());
+            cmd.setString(1, tb_Pres.getValueAt(filaselec, 0).toString());
             ResultSet r= cmd.executeQuery();
             while(r.next()){
-            for (int i=0; i<3; i++){
+            for (int i=0; i<4; i++){
            fila[i]=r.getString(i+1);
        }
                 m3.addRow(fila);
             }
-            tbDiagnostico.setModel(m3);
+            tbDetalle_Pres_Destino.setModel(m3);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
-            tbDiagnostico.setRowSorter(elQueOrdena);
-            tbDiagnostico.setModel(m3);
+            tbDetalle_Pres_Destino.setRowSorter(elQueOrdena);
+            tbDetalle_Pres_Destino.setModel(m3);
             
-            txthc.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 2).toString()));
-             txt_idhc.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 1).toString())); 
-             txtSolicitud.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 0).toString()));
-             txtApellidosNombres.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 3).toString()));
-             txtDNI.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 4).toString()));
-             txtEdad.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 5).toString()));
-             
-            String fechaSeleccionada = (String) tbListaSolicitud.getModel().getValueAt(filaselec, 6);
-             try {
-       
-             DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
-             java.util.Date fecha = dfo.parse(fechaSeleccionada);
-             
-             dateCFechaSolicitud.setDate(fecha);
-             
-            } catch (Exception e) {
-            }
-             
-             spHora.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 7).toString()));
-             txtAutogenerado.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 8).toString()));
-             cbxServicio.setSelectedItem(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 9).toString()));
-             txtOperacion.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 10).toString()));
-             txtCod_Nomen.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 11).toString()));
-             txtHora.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 12).toString()));
-             txtMin.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 13).toString()));
-             cbxAnestesia.setSelectedItem(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 14).toString()));
-             txtc11.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 15).toString()));
-             txtCirujano1.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 16).toString()));
-             txtc22.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 17).toString()));
-             txtCirujano2.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 18).toString()));
-             txtc33.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 19).toString()));
-             txtJefeServ.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 20).toString()));
-             txtCama.setText(String.valueOf(tbListaSolicitud.getValueAt(filaselec, 21).toString()));
+            txtNumeroPrestacion.setText(String.valueOf(tb_Pres.getValueAt(filaselec, 1).toString()));
+             txtID_Detalle_destino.setText(String.valueOf(tb_Pres.getValueAt(filaselec, 0).toString())); 
+             txtDescrip.setText(String.valueOf(tb_Pres.getValueAt(filaselec, 2).toString()));
              
              
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-        tabSolicitud.setSelectedIndex(0);
-    }*/
+        jTabbedPane1.setSelectedIndex(0);
+    }
     
     private void btnNuevo_detalle_destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo_detalle_destinoActionPerformed
         habilitar();

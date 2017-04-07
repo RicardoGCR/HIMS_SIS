@@ -7,95 +7,268 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_EPISODIOS_ENFERMEDADES_PREV")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findAll", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEeId", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.eeId = :eeId"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe1Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee1Fecha = :ee1Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe1Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee1Fua = :ee1Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe2Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee2Fecha = :ee2Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe2Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee2Fua = :ee2Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe3Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee3Fecha = :ee3Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe3Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee3Fua = :ee3Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe4Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee4Fecha = :ee4Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe4Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee4Fua = :ee4Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe5Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee5Fecha = :ee5Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe5Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee5Fua = :ee5Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe6Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee6Fecha = :ee6Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe6Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee6Fua = :ee6Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe7Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee7Fecha = :ee7Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe7Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee7Fua = :ee7Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe8Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee8Fecha = :ee8Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe8Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee8Fua = :ee8Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe9Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee9Fecha = :ee9Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe9Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee9Fua = :ee9Fua"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe10Fecha", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee10Fecha = :ee10Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsEpisodiosEnfermedadesPrev.findByEe10Fua", query = "SELECT c FROM ConsultorioExtRsEpisodiosEnfermedadesPrev c WHERE c.ee10Fua = :ee10Fua")})
+import vista.ConsultorioEx.RSAIEEP;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeEEP;
 public class ConsultorioExtRsEpisodiosEnfermedadesPrev implements Serializable {
     private static final long serialVersionUID = 1L;
     private Connection cn;
     private int rs_id;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "EE_ID")
     private Long eeId;
-    @Column(name = "EE1_FECHA")
     private String ee1Fecha;
-    @Column(name = "EE1_FUA")
     private String ee1Fua;
-    @Column(name = "EE2_FECHA")
     private String ee2Fecha;
-    @Column(name = "EE2_FUA")
     private String ee2Fua;
-    @Column(name = "EE3_FECHA")
     private String ee3Fecha;
-    @Column(name = "EE3_FUA")
     private String ee3Fua;
-    @Column(name = "EE4_FECHA")
     private String ee4Fecha;
-    @Column(name = "EE4_FUA")
     private String ee4Fua;
-    @Column(name = "EE5_FECHA")
     private String ee5Fecha;
-    @Column(name = "EE5_FUA")
     private String ee5Fua;
-    @Column(name = "EE6_FECHA")
     private String ee6Fecha;
-    @Column(name = "EE6_FUA")
     private String ee6Fua;
-    @Column(name = "EE7_FECHA")
     private String ee7Fecha;
-    @Column(name = "EE7_FUA")
     private String ee7Fua;
-    @Column(name = "EE8_FECHA")
     private String ee8Fecha;
-    @Column(name = "EE8_FUA")
     private String ee8Fua;
-    @Column(name = "EE9_FECHA")
     private String ee9Fecha;
-    @Column(name = "EE9_FUA")
     private String ee9Fua;
-    @Column(name = "EE10_FECHA")
     private String ee10Fecha;
-    @Column(name = "EE10_FUA")
     private String ee10Fua;
+    private int rsId;
+    
+    public void ConsultoriosExtEEPListar(int rs_id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_RS_EPISODIOS_ENFERMEDADES_PREV_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+    
+                try {
+                  if(r.getString(3).equals("")){
+                    RSAIEEP.FDN1.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada1 = (String)(r.getString(3));
+                    DateFormat dfo1 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha1 = dfo1.parse(fechaSeleccionada1);
+                    RSAIEEP.FDN1.setDate(fecha1);
+                    RSAIEEP.FUADN1.setText(r.getString(4));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(5).equals("")){
+                    RSAIEEP.FDN2.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada2 = (String)(r.getString(5));
+                    DateFormat dfo2 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha2 = dfo2.parse(fechaSeleccionada2);
+                    RSAIEEP.FDN2.setDate(fecha2);
+                    RSAIEEP.FUADN2.setText(r.getString(6));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(7).equals("")){
+                    RSAIEEP.FDN3.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada3 = (String)(r.getString(7));
+                    DateFormat dfo3 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha3 = dfo3.parse(fechaSeleccionada3);
+                    RSAIEEP.FDN3.setDate(fecha3);
+                    RSAIEEP.FUADN3.setText(r.getString(8));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(9).equals("")){
+                    RSAIEEP.FDN4.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada4 = (String)(r.getString(9));
+                    DateFormat dfo4 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha4 = dfo4.parse(fechaSeleccionada4);
+                    RSAIEEP.FDN4.setDate(fecha4);
+                    RSAIEEP.FUADN4.setText(r.getString(10));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(11).equals("")){
+                    RSAIEEP.FDN5.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada5 = (String)(r.getString(11));
+                    DateFormat dfo5 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha5 = dfo5.parse(fechaSeleccionada5);
+                    RSAIEEP.FDN5.setDate(fecha5);
+                    RSAIEEP.FUADN5.setText(r.getString(12));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(13).equals("")){
+                    RSAIEEP.FDN7.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada6 = (String)(r.getString(13));
+                    DateFormat dfo6 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha6 = dfo6.parse(fechaSeleccionada6);
+                    RSAIEEP.FDN7.setDate(fecha6);
+                    RSAIEEP.FUADN7.setText(r.getString(14));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(15).equals("")){
+                    RSAIEEP.FDN8.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada7 = (String)(r.getString(15));
+                    DateFormat dfo7 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha7 = dfo7.parse(fechaSeleccionada7);
+                    RSAIEEP.FDN8.setDate(fecha7);
+                    RSAIEEP.FUADN8.setText(r.getString(16));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(17).equals("")){
+                    RSAIEEP.FDN9.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada8 = (String)(r.getString(17));
+                    DateFormat dfo8 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha8 = dfo8.parse(fechaSeleccionada8);
+                    RSAIEEP.FDN9.setDate(fecha8);
+                    RSAIEEP.FUADN9.setText(r.getString(18));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(19).equals("")){
+                    RSAIEEP.FDN10.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada9 = (String)(r.getString(19));
+                    DateFormat dfo9 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha9 = dfo9.parse(fechaSeleccionada9);
+                    RSAIEEP.FDN10.setDate(fecha9);
+                    RSAIEEP.FUADN10.setText(r.getString(20));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(21).equals("")){
+                    RSAIEEP.FDN11.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada10 = (String)(r.getString(21));
+                    DateFormat dfo10 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha10 = dfo10.parse(fechaSeleccionada10);
+                    RSAIEEP.FDN11.setDate(fecha10);
+                    RSAIEEP.FUADN11.setText(r.getString(22));
+                }
+                } catch (Exception e) {
+                }
+                
+                
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: ConsultoriosExtVacunasListar " + e.getMessage());
+        }
+    }
+    
+     public boolean mantenimientoRSAIEEP(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CONSULTORIO_EXT_MANTENIMIENTO_RS_EPISODIOS_ENFERMEDADES_PREV ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getRsId());
+            cmd.setString(2, getEe1Fecha());
+            cmd.setString(3, getEe1Fua());
+            
+            cmd.setString(4, getEe2Fecha());
+            cmd.setString(5, getEe2Fua());
+            
+            cmd.setString(6, getEe3Fecha());
+            cmd.setString(7, getEe3Fua());
+            
+            cmd.setString(8, getEe4Fecha());
+            cmd.setString(9, getEe4Fua());
+            
+            cmd.setString(10, getEe5Fecha());
+            cmd.setString(11, getEe5Fua());
+            
+            cmd.setString(12, getEe6Fecha());
+            cmd.setString(13, getEe6Fua());
+            
+            cmd.setString(14, getEe7Fecha());
+            cmd.setString(15, getEe7Fua());
+            
+            cmd.setString(16, getEe8Fecha());
+            cmd.setString(17, getEe8Fua());
+            
+            cmd.setString(18, getEe9Fecha());
+            cmd.setString(19, getEe9Fua());
+            
+            cmd.setString(20, getEe10Fecha());
+            cmd.setString(21, getEe10Fua());
+            
+            cmd.setString(22, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimiento Vacunas " + ex.getMessage());
+        }
+        return resp;
+    }
 
+     public void porcentajeEET(int rs_id){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EXT_RS_EPISODIOS_ENFERMEDADES_PREV_PORCENTAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblPorcentajeEEP.setText(r.getString(1) + " %"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeVacunas " + e.getMessage());
+        }
+    }
     public ConsultorioExtRsEpisodiosEnfermedadesPrev() {
         Conexion con = new Conexion();
         cn = con.conectar();
@@ -272,6 +445,16 @@ public class ConsultorioExtRsEpisodiosEnfermedadesPrev implements Serializable {
     public void setEe10Fua(String ee10Fua) {
         this.ee10Fua = ee10Fua;
     }
+
+    public int getRsId() {
+        return rsId;
+    }
+
+    public void setRsId(int rsId) {
+        this.rsId = rsId;
+    }
+    
+    
 
     @Override
     public int hashCode() {

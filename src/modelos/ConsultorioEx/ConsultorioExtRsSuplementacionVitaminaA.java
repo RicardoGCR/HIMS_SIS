@@ -7,94 +7,266 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_SUPLEMENTACION_VITAMINA_A")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findAll", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findBySvId", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.svId = :svId"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM61Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m61Fecha = :m61Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM61Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m61Fua = :m61Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM62Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m62Fecha = :m62Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM62Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m62Fua = :m62Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM11Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m11Fecha = :m11Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM11Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m11Fua = :m11Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM12Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m12Fecha = :m12Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM12Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m12Fua = :m12Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM21Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m21Fecha = :m21Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM21Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m21Fua = :m21Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM22Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m22Fecha = :m22Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM22Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m22Fua = :m22Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM31Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m31Fecha = :m31Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM31Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m31Fua = :m31Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM32Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m32Fecha = :m32Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM32Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m32Fua = :m32Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM41Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m41Fecha = :m41Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM41Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m41Fua = :m41Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM42Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m42Fecha = :m42Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionVitaminaA.findByM42Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionVitaminaA c WHERE c.m42Fua = :m42Fua")})
+import vista.ConsultorioEx.RSAISCVA;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeSVA;
 public class ConsultorioExtRsSuplementacionVitaminaA implements Serializable {
     private static final long serialVersionUID = 1L;
     private Connection cn;
     private int rs_id;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "SV_ID")
     private Long svId;
-    @Column(name = "M61_FECHA")
     private String m61Fecha;
-    @Column(name = "M61_FUA")
     private String m61Fua;
-    @Column(name = "M62_FECHA")
     private String m62Fecha;
-    @Column(name = "M62_FUA")
     private String m62Fua;
-    @Column(name = "M11_FECHA")
     private String m11Fecha;
-    @Column(name = "M11_FUA")
     private String m11Fua;
-    @Column(name = "M12_FECHA")
     private String m12Fecha;
-    @Column(name = "M12_FUA")
     private String m12Fua;
-    @Column(name = "M21_FECHA")
     private String m21Fecha;
-    @Column(name = "M21_FUA")
     private String m21Fua;
-    @Column(name = "M22_FECHA")
     private String m22Fecha;
-    @Column(name = "M22_FUA")
     private String m22Fua;
-    @Column(name = "M31_FECHA")
     private String m31Fecha;
-    @Column(name = "M31_FUA")
     private String m31Fua;
-    @Column(name = "M32_FECHA")
     private String m32Fecha;
-    @Column(name = "M32_FUA")
     private String m32Fua;
-    @Column(name = "M41_FECHA")
     private String m41Fecha;
-    @Column(name = "M41_FUA")
     private String m41Fua;
-    @Column(name = "M42_FECHA")
     private String m42Fecha;
-    @Column(name = "M42_FUA")
     private String m42Fua;
+    private int rsId;
+    
+    
+    public void ConsultoriosExtSVAListar(int rs_id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_RS_SUPLEMENTACION_VITAMINA_A_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+       
+                    
+                try {
+                    if(r.getString(3).equals("")){
+                    RSAISCVA.TNFA2.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada = (String)(r.getString(3));
+                    DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha = dfo.parse(fechaSeleccionada);
+                    RSAISCVA.TNFA2.setDate(fecha);
+                    RSAISCVA.TNFUAA2.setText(r.getString(4));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(5).equals("")){
+                    RSAISCVA.TNFA3.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada2 = (String)(r.getString(5));
+                    DateFormat dfo2 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha2 = dfo2.parse(fechaSeleccionada2);
+                    RSAISCVA.TNFA3.setDate(fecha2);
+                    RSAISCVA.TNFUAA3.setText(r.getString(6));
+                }
+                } catch (Exception e) {
+                }
+                //1A
+                try {
+                    if(r.getString(7).equals("")){
+                    RSAISCVA.TNFP1.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada3 = (String)(r.getString(7));
+                    DateFormat dfo3 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha3 = dfo3.parse(fechaSeleccionada3);
+                    RSAISCVA.TNFP1.setDate(fecha3);
+                    RSAISCVA.TNFUAP1.setText(r.getString(8));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(9).equals("")){
+                    RSAISCVA.TNFP2.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada4 = (String)(r.getString(9));
+                    DateFormat dfo4 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha4 = dfo4.parse(fechaSeleccionada4);
+                    RSAISCVA.TNFP2.setDate(fecha4);
+                    RSAISCVA.TNFUAP2.setText(r.getString(10));
+                }
+                } catch (Exception e) {
+                }
+                
+                //2A
+                try {
+                    if(r.getString(11).equals("")){
+                    RSAISCVA.TNFT1.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada5 = (String)(r.getString(11));
+                    DateFormat dfo5 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha5 = dfo5.parse(fechaSeleccionada5);
+                    RSAISCVA.TNFT1.setDate(fecha5);
+                    RSAISCVA.TNFUAT1.setText(r.getString(12));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(13).equals("")){
+                    RSAISCVA.TNFT2.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada6 = (String)(r.getString(13));
+                    DateFormat dfo6 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha6 = dfo6.parse(fechaSeleccionada6);
+                    RSAISCVA.TNFT2.setDate(fecha6);
+                    RSAISCVA.TNFUAT2.setText(r.getString(14));
+                }
+                } catch (Exception e) {
+                }
+                
+                // 3A 
+                
+                try {
+                    if(r.getString(15).equals("")){
+                    RSAISCVA.TNFT4.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada7 = (String)(r.getString(15));
+                    DateFormat dfo7 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha7 = dfo7.parse(fechaSeleccionada7);
+                    RSAISCVA.TNFT4.setDate(fecha7);
+                    RSAISCVA.TNFUAT4.setText(r.getString(16));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(17).equals("")){
+                    RSAISCVA.TNFT3.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada8 = (String)(r.getString(17));
+                    DateFormat dfo8 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha8 = dfo8.parse(fechaSeleccionada8);
+                    RSAISCVA.TNFT3.setDate(fecha8);
+                    RSAISCVA.TNFUAT3.setText(r.getString(18));
+                }
+                } catch (Exception e) {
+                }
+                //4 A
+                try {
+                    if(r.getString(19).equals("")){
+                    RSAISCVA.TNFT5.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada9 = (String)(r.getString(19));
+                    DateFormat dfo9 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha9 = dfo9.parse(fechaSeleccionada9);
+                    RSAISCVA.TNFT5.setDate(fecha9);
+                    RSAISCVA.TNFUAT6.setText(r.getString(20));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                    if(r.getString(21).equals("")){
+                    RSAISCVA.TNFT6.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada10 = (String)(r.getString(21));
+                    DateFormat dfo10 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha10 = dfo10.parse(fechaSeleccionada10);
+                    RSAISCVA.TNFT6.setDate(fecha10);
+                    RSAISCVA.TNFUAT5.setText(r.getString(22));
+                }
+                } catch (Exception e) {
+                }
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: ConsultoriosExtVacunasListar " + e.getMessage());
+        }
+    }
+    
+    public boolean mantenimientoRSAISVA(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CONSULTORIO_EXT_MANTENIMIENTO_RS_SUPLEMENTACION_VITAMINA_A ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getRs_id());
+            cmd.setString(2, getM61Fecha());
+            cmd.setString(3, getM61Fua());
+            cmd.setString(4, getM62Fecha());
+            cmd.setString(5, getM62Fua());
+            
+            cmd.setString(6, getM11Fecha());
+            cmd.setString(7, getM11Fua());
+            cmd.setString(8, getM12Fecha());
+            cmd.setString(9, getM12Fua());
+            
+            cmd.setString(10, getM21Fecha());
+            cmd.setString(11, getM21Fua());
+            cmd.setString(12, getM22Fecha());
+            cmd.setString(13, getM22Fua());
+            
+            cmd.setString(14, getM31Fecha());
+            cmd.setString(15, getM31Fua());
+            cmd.setString(16, getM32Fecha());
+            cmd.setString(17, getM32Fua());
+            
+            cmd.setString(18, getM41Fecha());
+            cmd.setString(19, getM41Fua());
+            cmd.setString(20, getM42Fecha());
+            cmd.setString(21, getM42Fua());
+            
+            cmd.setString(22, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimiento Vacunas " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public void porcentajeSVA(int rs_id){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EXT_RS_SUPLEMENTACION_VITAMINA_A_PORCENTAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblPorcentajeSVA.setText(r.getString(1) + " %"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeVacunas " + e.getMessage());
+        }
+    }
 
     public ConsultorioExtRsSuplementacionVitaminaA() {
         Conexion con = new Conexion();
@@ -272,6 +444,15 @@ public class ConsultorioExtRsSuplementacionVitaminaA implements Serializable {
     public void setM42Fua(String m42Fua) {
         this.m42Fua = m42Fua;
     }
+
+    public int getRsId() {
+        return rsId;
+    }
+
+    public void setRsId(int rsId) {
+        this.rsId = rsId;
+    }
+    
 
     @Override
     public int hashCode() {

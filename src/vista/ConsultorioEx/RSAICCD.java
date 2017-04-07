@@ -289,7 +289,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
         } catch (Exception e) {
         mensaje1.setVisible(true);
         mensaje1.setBackground(new Color(255,91,70)); 
-        men.setText("Ocurrio un error, verifique");
+        men.setText("Ocurrió un error, verifique");
         b.setVisible(false);
         b1.setVisible(false);
         }

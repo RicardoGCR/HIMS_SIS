@@ -754,7 +754,11 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 Guardar(fecha);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error: validaRegistro: " + e.toString());
+            mensaje.setVisible(true);
+            mensaje.setBackground(new Color(255,91,70)); 
+            men.setText("Ocurrió un error, Verifique");
+            b.setVisible(false);
+            b1.setVisible(false);
         }
     }
     
@@ -784,6 +788,9 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel27 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lblNina = new javax.swing.JLabel();
+        lblNino = new javax.swing.JLabel();
         ELAB = new javax.swing.JPanel();
         dtElab = new com.toedter.calendar.JDateChooser();
         txtFuaElab = new javax.swing.JTextField();
@@ -930,8 +937,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         men = new javax.swing.JLabel();
         b = new javax.swing.JButton();
         b1 = new javax.swing.JButton();
-        lblNino = new javax.swing.JLabel();
-        lblNina = new javax.swing.JLabel();
         lblId = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -943,14 +948,15 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel26.setBackground(new java.awt.Color(25, 188, 157));
         jPanel26.setPreferredSize(new java.awt.Dimension(83, 45));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("VACUNAS");
+        jLabel10.setText("Vacunas");
 
         jPanel27.setBackground(new java.awt.Color(23, 160, 134));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Izquierda Filled-30.png"))); // NOI18N
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -962,18 +968,32 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel27.setLayout(jPanel27Layout);
         jPanel27Layout.setHorizontalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel27Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13)
-                .addContainerGap())
+            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
         jPanel27Layout.setVerticalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel27Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jLabel13)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Círculo sin marcar-80.png"))); // NOI18N
+        jLabel11.setText("100 %");
+        jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        lblNina.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblNina.setForeground(new java.awt.Color(102, 102, 102));
+        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
+        lblNina.setText("NIÑOS");
+        lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        lblNino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblNino.setForeground(new java.awt.Color(102, 102, 102));
+        lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
+        lblNino.setText("NIÑOS");
+        lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblNino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
@@ -981,16 +1001,29 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel26Layout.createSequentialGroup()
                 .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel10)
-                .addContainerGap(1260, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel11)
+                .addGap(46, 46, 46)
+                .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel26Layout.createSequentialGroup()
-                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNino)
+                    .addComponent(lblNina))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2837,20 +2870,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        lblNino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblNino.setForeground(new java.awt.Color(102, 102, 102));
-        lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
-        lblNino.setText("NIÑOS");
-        lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblNino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-        lblNina.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblNina.setForeground(new java.awt.Color(102, 102, 102));
-        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
-        lblNina.setText("NIÑOS");
-        lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
         lblId.setText("jLabel1");
 
         javax.swing.GroupLayout VACUNASLayout = new javax.swing.GroupLayout(VACUNAS);
@@ -2883,10 +2902,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                         .addGap(1, 1, 1)
                         .addComponent(AMA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(VACUNASLayout.createSequentialGroup()
-                        .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(VACUNASLayout.createSequentialGroup()
                         .addComponent(DPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(INFLUENZA_REF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2899,12 +2914,8 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         VACUNASLayout.setVerticalGroup(
             VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VACUNASLayout.createSequentialGroup()
-                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNino)
-                    .addComponent(lblNina))
-                .addGap(18, 18, 18)
+                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
                 .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(EJEC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
                     .addComponent(PENTAVALENTE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -3662,6 +3673,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
     public static com.toedter.calendar.JDateChooser dtSpr1;
     public static com.toedter.calendar.JDateChooser dtSpr2;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;

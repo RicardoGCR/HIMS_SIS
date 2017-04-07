@@ -26,11 +26,15 @@ import modelos.ConsultorioEx.ConsultorioExtRsCabecera;
 import modelos.ConsultorioEx.ConsultorioExtRsCcd;
 import modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoDesarrollo;
 import modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoNutricional;
+import modelos.ConsultorioEx.ConsultorioExtRsEpisodiosEnfermedadesPrev;
 import modelos.ConsultorioEx.ConsultorioExtRsEstimulacionTemprana;
+import modelos.ConsultorioEx.ConsultorioExtRsSuplementacionHierro;
+import modelos.ConsultorioEx.ConsultorioExtRsSuplementacionVitaminaA;
 import modelos.ConsultorioEx.ConsultorioExtRsTamizajeAnemiaParasitosis;
 import modelos.ConsultorioEx.ConsultorioExtRsTamizajeNeonatal;
 import modelos.ConsultorioEx.ConsultorioExtRsTtoAntiparasitario;
 import modelos.ConsultorioEx.ConsultorioExtRsVacunas;
+import modelos.ConsultorioEx.ConsultorioExtRsVisitasDomiciliarias;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
 import servicios.Conexion;
@@ -808,15 +812,14 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPorcentajeVacunas)
-                        .addContainerGap(31, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addComponent(lblPorcentajeVacunas))
                 );
                 jPanel12Layout.setVerticalGroup(
                     jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblPorcentajeVacunas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblPorcentajeVacunas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 );
 
                 jPanel13.setBackground(new java.awt.Color(45, 204, 112));
@@ -849,9 +852,9 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                         .addComponent(lblPorcentajeCCD)
-                        .addGap(41, 41, 41))
+                        .addGap(0, 0, 0))
                 );
                 jPanel13Layout.setVerticalGroup(
                     jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1008,7 +1011,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblPorcentajeTN)
-                        .addGap(32, 32, 32))
+                        .addGap(0, 0, 0))
                 );
                 jPanel18Layout.setVerticalGroup(
                     jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1090,6 +1093,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel18.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel18.setText("<html>EPISODIOS DE ENFERMEDADES<br>PREVALENTES DE LA INFANCIA</br></html>");
+                jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jLabel18MouseClicked(evt);
+                    }
+                });
 
                 lblPorcentajeEEP.setText("jLabel7");
 
@@ -1119,6 +1127,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel14.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel14.setText("SUPLEMENTACIÓN CON VITAMINA A");
+                jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jLabel14MouseClicked(evt);
+                    }
+                });
 
                 lblPorcentajeSVA.setText("jLabel7");
 
@@ -1150,6 +1163,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel15.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel15.setText("VISITAS DOMICILIARIAS");
+                jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jLabel15MouseClicked(evt);
+                    }
+                });
 
                 lblPorcentajeVD.setText("jLabel7");
 
@@ -1207,6 +1225,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel12.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel12.setText("SUPLEMTACIÓN DE HIERRO Y/O MICRONUTRIENTES");
+                jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jLabel12MouseClicked(evt);
+                    }
+                });
 
                 lblPorcentajeSHM.setText("jLabel7");
 
@@ -1215,22 +1238,23 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jPanel21Layout.setHorizontalGroup(
                     jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel21Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(193, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel21Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPorcentajeSHM)
-                        .addGap(91, 91, 91))
+                        .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel21Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel21Layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(lblPorcentajeSHM)))
+                        .addContainerGap(431, Short.MAX_VALUE))
                 );
                 jPanel21Layout.setVerticalGroup(
                     jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel21Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(lblPorcentajeSHM)
-                        .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
                 javax.swing.GroupLayout pnlContenedorLayout = new javax.swing.GroupLayout(pnlContenedor);
@@ -1241,7 +1265,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, 0)
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlContenedorLayout.createSequentialGroup()
@@ -1252,17 +1276,15 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(pnlContenedorLayout.createSequentialGroup()
                                         .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, 0)
                                         .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlContenedorLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(pnlContenedorLayout.createSequentialGroup()
-                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
+                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45)
                                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
                                 .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1301,7 +1323,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 txtPaciente.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
                 txtPaciente.setForeground(new java.awt.Color(102, 102, 102));
                 txtPaciente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtPaciente.setToolTipText("");
                 txtPaciente.setBorder(null);
                 txtPaciente.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1406,7 +1427,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 txtPadre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
                 txtPadre.setForeground(new java.awt.Color(102, 102, 102));
                 txtPadre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-                txtPadre.setToolTipText("");
                 txtPadre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
                 txtPadre.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1453,7 +1473,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 txtCodigo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
                 txtCodigo.setForeground(new java.awt.Color(102, 102, 102));
                 txtCodigo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-                txtCodigo.setToolTipText("");
                 txtCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
                 txtCodigo.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1466,7 +1485,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 txtRiesgo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
                 txtRiesgo.setForeground(new java.awt.Color(102, 102, 102));
                 txtRiesgo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-                txtRiesgo.setToolTipText("");
                 txtRiesgo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
                 txtRiesgo.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1503,7 +1521,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 txtMadre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
                 txtMadre.setForeground(new java.awt.Color(102, 102, 102));
                 txtMadre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtMadre.setToolTipText("");
                 txtMadre.setBorder(null);
                 txtMadre.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -2178,7 +2195,27 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_lblPorcentajeVacunasMouseClicked
 
     private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
-        // TODO add your handling code here:
+        RSAIDD DD =new RSAIDD();
+        Contenedor.add(DD);
+        if(lblGenero.getText().equals("F")){
+            DD.lblNina.setText(txtPaciente.getText());
+            DD.lblNina.setVisible(true);
+            DD.lblNino.setVisible(false);
+        } else {
+            DD.lblNino.setText(txtPaciente.getText());
+            DD.lblNino.setVisible(true);
+            DD.lblNina.setVisible(false);
+        }
+        ConsultorioExtRsDiagnosticoDesarrollo DD1 = new ConsultorioExtRsDiagnosticoDesarrollo();
+        DD1.ConsultoriosExtDDListar(id);
+        
+        RSAIDD.lblId.setText(String.valueOf(id));
+        try {
+            DD.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jLabel27MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
@@ -2193,6 +2230,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             TTO.lblNino.setVisible(true);
             TTO.lblNina.setVisible(false);
         }
+//        ConsultorioExtRsTtoAntiparasitario Tto1 = new ConsultorioExtRsTtoAntiparasitario();
+//        Tto1.c(id);
+//       
+//        RSAITN.lblId.setText(String.valueOf(id));
+
         ConsultorioExtRsTtoAntiparasitario Tto1 = new ConsultorioExtRsTtoAntiparasitario();
         Tto1.ConsultoriosExtTTOListar(id);
        
@@ -2204,6 +2246,106 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         }
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+       RSAISHM SHM =new RSAISHM();
+        Contenedor.add(SHM);
+        if(lblGenero.getText().equals("F")){
+            RSAISHM.lblNina.setText(txtPaciente.getText());
+            RSAISHM.lblNina.setVisible(true);
+            RSAISHM.lblNino.setVisible(false);
+        } else {
+            RSAISHM.lblNino.setText(txtPaciente.getText());
+            RSAISHM.lblNino.setVisible(true);
+            RSAISHM.lblNina.setVisible(false);
+        }
+        ConsultorioExtRsSuplementacionHierro SHM1 = new ConsultorioExtRsSuplementacionHierro();
+        SHM1.ConsultoriosExtSHMListar(id);
+       
+        RSAISHM.lblId.setText(String.valueOf(id));
+    
+        try {
+            SHM.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        RSAIEEP EEP =new RSAIEEP();
+        Contenedor.add(EEP);
+        if(lblGenero.getText().equals("F")){
+            RSAIEEP.lblNina.setText(txtPaciente.getText());
+            RSAIEEP.lblNina.setVisible(true);
+            RSAIEEP.lblNino.setVisible(false);
+        } else {
+            RSAIEEP.lblNino.setText(txtPaciente.getText());
+            RSAIEEP.lblNino.setVisible(true);
+            RSAIEEP.lblNina.setVisible(false);
+        }
+        ConsultorioExtRsEpisodiosEnfermedadesPrev EEP1 = new ConsultorioExtRsEpisodiosEnfermedadesPrev();
+        EEP1.ConsultoriosExtEEPListar(id);
+       
+        RSAIEEP.lblId.setText(String.valueOf(id));
+    
+        try {
+            EEP.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        RSAISCVA SVA =new RSAISCVA();
+        Contenedor.add(SVA);
+        if(lblGenero.getText().equals("F")){
+            RSAISCVA.lblNina.setText(txtPaciente.getText());
+            RSAISCVA.lblNina.setVisible(true);
+            RSAISCVA.lblNino.setVisible(false);
+        } else {
+            RSAISCVA.lblNino.setText(txtPaciente.getText());
+            RSAISCVA.lblNino.setVisible(true);
+            RSAISCVA.lblNina.setVisible(false);
+        }
+        ConsultorioExtRsSuplementacionVitaminaA SVA1 = new ConsultorioExtRsSuplementacionVitaminaA();
+        SVA1.ConsultoriosExtSVAListar(id);
+       
+        RSAISCVA.lblId.setText(String.valueOf(id));
+    
+        try {
+            SVA.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jLabel14MouseClicked
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        RSAIVD VD =new RSAIVD();
+        Contenedor.add(VD);
+        if(lblGenero.getText().equals("F")){
+            RSAIVD.lblNina.setText(txtPaciente.getText());
+            RSAIVD.lblNina.setVisible(true);
+            RSAIVD.lblNino.setVisible(false);
+        } else {
+            RSAIVD.lblNino.setText(txtPaciente.getText());
+            RSAIVD.lblNino.setVisible(true);
+            RSAIVD.lblNina.setVisible(false);
+        }
+        ConsultorioExtRsVisitasDomiciliarias VD1 = new ConsultorioExtRsVisitasDomiciliarias();
+        VD1.ConsultoriosExtVDListar(id);
+       
+        RSAIVD.lblId.setText(String.valueOf(id));
+    
+        try {
+            VD.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jLabel15MouseClicked
 
     /**
      * @param args the command line arguments

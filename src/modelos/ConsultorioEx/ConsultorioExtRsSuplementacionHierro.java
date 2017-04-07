@@ -7,107 +7,309 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
+import vista.ConsultorioEx.RSAISHM;
+import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeSHM;
 
 /**
  *
  * @author PC02
  */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_SUPLEMENTACION_HIERRO")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findAll", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByShId", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.shId = :shId"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM1Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m1Fecha = :m1Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM1Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m1Fua = :m1Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM2Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m2Fecha = :m2Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM2Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m2Fua = :m2Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM3Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m3Fecha = :m3Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM3Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m3Fua = :m3Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM4Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m4Fecha = :m4Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM4Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m4Fua = :m4Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM5Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m5Fecha = :m5Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM5Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m5Fua = :m5Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM6Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m6Fecha = :m6Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM6Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m6Fua = :m6Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM7Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m7Fecha = :m7Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM7Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m7Fua = :m7Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM8Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m8Fecha = :m8Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM8Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m8Fua = :m8Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM9Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m9Fecha = :m9Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM9Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m9Fua = :m9Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM10Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m10Fecha = :m10Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM10Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m10Fua = :m10Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM11Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m11Fecha = :m11Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM11Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m11Fua = :m11Fua"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM12Fecha", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m12Fecha = :m12Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsSuplementacionHierro.findByM12Fua", query = "SELECT c FROM ConsultorioExtRsSuplementacionHierro c WHERE c.m12Fua = :m12Fua")})
 public class ConsultorioExtRsSuplementacionHierro implements Serializable {
     private static final long serialVersionUID = 1L;
     Conexion con = new Conexion();
     private Connection cn;
     private int rs_id;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "SH_ID")
     private Long shId;
-    @Column(name = "M1_FECHA")
     private String m1Fecha;
-    @Column(name = "M1_FUA")
     private String m1Fua;
-    @Column(name = "M2_FECHA")
     private String m2Fecha;
-    @Column(name = "M2_FUA")
     private String m2Fua;
-    @Column(name = "M3_FECHA")
     private String m3Fecha;
-    @Column(name = "M3_FUA")
     private String m3Fua;
-    @Column(name = "M4_FECHA")
     private String m4Fecha;
-    @Column(name = "M4_FUA")
     private String m4Fua;
-    @Column(name = "M5_FECHA")
     private String m5Fecha;
-    @Column(name = "M5_FUA")
     private String m5Fua;
-    @Column(name = "M6_FECHA")
     private String m6Fecha;
-    @Column(name = "M6_FUA")
     private String m6Fua;
-    @Column(name = "M7_FECHA")
     private String m7Fecha;
-    @Column(name = "M7_FUA")
     private String m7Fua;
-    @Column(name = "M8_FECHA")
     private String m8Fecha;
-    @Column(name = "M8_FUA")
     private String m8Fua;
-    @Column(name = "M9_FECHA")
     private String m9Fecha;
-    @Column(name = "M9_FUA")
     private String m9Fua;
-    @Column(name = "M10_FECHA")
     private String m10Fecha;
-    @Column(name = "M10_FUA")
     private String m10Fua;
-    @Column(name = "M11_FECHA")
     private String m11Fecha;
-    @Column(name = "M11_FUA")
     private String m11Fua;
-    @Column(name = "M12_FECHA")
     private String m12Fecha;
-    @Column(name = "M12_FUA")
     private String m12Fua;
+    private int rsId;
+    
+    public void ConsultoriosExtSHMListar(int rs_id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_RS_SUPLEMENTACION_HIERRO_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+    
+                try {
+                  if(r.getString(3).equals("")){
+                  RSAISHM.FDN1.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada1 = (String)(r.getString(3));
+                    DateFormat dfo1 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha1 = dfo1.parse(fechaSeleccionada1);
+                    RSAISHM.FDN1.setDate(fecha1);
+                    RSAISHM.FUADN1.setText(r.getString(4));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(5).equals("")){
+                  RSAISHM.FDN2.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada2 = (String)(r.getString(5));
+                    DateFormat dfo2 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha2 = dfo2.parse(fechaSeleccionada2);
+                    RSAISHM.FDN2.setDate(fecha2);
+                    RSAISHM.FUADN2.setText(r.getString(6));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(7).equals("")){
+                  RSAISHM.FDN3.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada3 = (String)(r.getString(7));
+                    DateFormat dfo3 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha3 = dfo3.parse(fechaSeleccionada3);
+                    RSAISHM.FDN3.setDate(fecha3);
+                    RSAISHM.FUADN3.setText(r.getString(8));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(9).equals("")){
+                  RSAISHM.FDN4.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada4 = (String)(r.getString(9));
+                    DateFormat dfo4 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha4 = dfo4.parse(fechaSeleccionada4);
+                    RSAISHM.FDN4.setDate(fecha4);
+                    RSAISHM.FUADN4.setText(r.getString(10));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(11).equals("")){
+                  RSAISHM.FDN5.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada5 = (String)(r.getString(11));
+                    DateFormat dfo5 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha5 = dfo5.parse(fechaSeleccionada5);
+                    RSAISHM.FDN5.setDate(fecha5);
+                    RSAISHM.FUADN5.setText(r.getString(12));
+                }
+                } catch (Exception e) {
+                }
+                try {
+                  if(r.getString(13).equals("")){
+                  RSAISHM.FDN6.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada6 = (String)(r.getString(13));
+                    DateFormat dfo6 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha6 = dfo6.parse(fechaSeleccionada6);
+                    RSAISHM.FDN6.setDate(fecha6);
+                    RSAISHM.FUADN6.setText(r.getString(14));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(15).equals("")){
+                  RSAISHM.FDN7.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada7 = (String)(r.getString(15));
+                    DateFormat dfo7 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha7 = dfo7.parse(fechaSeleccionada7);
+                    RSAISHM.FDN7.setDate(fecha7);
+                    RSAISHM.FUADN7.setText(r.getString(16));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(17).equals("")){
+                  RSAISHM.FDN8.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada8 = (String)(r.getString(17));
+                    DateFormat dfo8 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha8 = dfo8.parse(fechaSeleccionada8);
+                    RSAISHM.FDN8.setDate(fecha8);
+                    RSAISHM.FUADN8.setText(r.getString(18));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(19).equals("")){
+                  RSAISHM.FDN9.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada9 = (String)(r.getString(19));
+                    DateFormat dfo9 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha9 = dfo9.parse(fechaSeleccionada9);
+                    RSAISHM.FDN9.setDate(fecha9);
+                    RSAISHM.FUADN9.setText(r.getString(20));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(21).equals("")){
+                  RSAISHM.FDN10.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada10 = (String)(r.getString(21));
+                    DateFormat dfo10 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha10 = dfo10.parse(fechaSeleccionada10);
+                    RSAISHM.FDN10.setDate(fecha10);
+                    RSAISHM.FUADN10.setText(r.getString(22));
+                }
+                } catch (Exception e) {
+                }
+                
+                try {
+                  if(r.getString(23).equals("")){
+                  RSAISHM.FDN11.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada11 = (String)(r.getString(23));
+                    DateFormat dfo11 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha11 = dfo11.parse(fechaSeleccionada11);
+                    RSAISHM.FDN11.setDate(fecha11);
+                    RSAISHM.FUADN11.setText(r.getString(24));
+                }
+                } catch (Exception e) {
+                }
+                try {
+                  if(r.getString(25).equals("")){
+                  RSAISHM.FDN12.setDate(null);
+                } else {
+                
+                    String fechaSeleccionada12 = (String)(r.getString(25));
+                    DateFormat dfo12 = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha12 = dfo12.parse(fechaSeleccionada12);
+                    RSAISHM.FDN12.setDate(fecha12);
+                    RSAISHM.FUADN12.setText(r.getString(26));
+                }
+                } catch (Exception e) {
+                }
+
+            }
+ 
+        } catch (Exception e) {
+            System.out.println("Error: ConsultoriosExtVacunasListar " + e.getMessage());
+        }
+    }
+    
+    public boolean mantenimientoRSAISHM(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CONSULTORIO_EXT_MANTENIMIENTO_RS_SUPLEMENTACION_HIERRO ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getRsId());
+            cmd.setString(2, getM1Fecha());
+            cmd.setString(3, getM1Fua());
+            
+            cmd.setString(4, getM2Fecha());
+            cmd.setString(5, getM2Fua());
+            
+            cmd.setString(6, getM3Fecha());
+            cmd.setString(7, getM3Fua());
+            
+            cmd.setString(8, getM4Fecha());
+            cmd.setString(9, getM4Fua());
+            
+            cmd.setString(10, getM5Fecha());
+            cmd.setString(11, getM5Fua());
+            
+            cmd.setString(12, getM6Fecha());
+            cmd.setString(13, getM6Fua());
+            
+            cmd.setString(14, getM7Fecha());
+            cmd.setString(15, getM7Fua());
+            
+            cmd.setString(16, getM8Fecha());
+            cmd.setString(17, getM8Fua());
+            
+            cmd.setString(18, getM9Fecha());
+            cmd.setString(19, getM9Fua());
+            
+            cmd.setString(20, getM10Fecha());
+            cmd.setString(21, getM10Fua());
+            
+            cmd.setString(22, getM11Fecha());
+            cmd.setString(23, getM11Fua());
+            
+            cmd.setString(24, getM12Fecha());
+            cmd.setString(25, getM12Fua());
+
+            cmd.setString(26, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimiento Vacunas " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public void porcentajeSHM(int rs_id){
+        String consulta="";
+        try {
+            consulta="EXEC CONSULTORIO_EXT_RS_SUPLEMENTACION_HIERRO_PORCENTAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setInt(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblPorcentajeSHM.setText(r.getString(1) + " %"); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: porcentajeVacunas " + e.getMessage());
+        }
+    }
 
     public ConsultorioExtRsSuplementacionHierro() {
         Conexion con = new Conexion();
@@ -317,6 +519,16 @@ public class ConsultorioExtRsSuplementacionHierro implements Serializable {
     public void setM12Fua(String m12Fua) {
         this.m12Fua = m12Fua;
     }
+
+    public int getRsId() {
+        return rsId;
+    }
+
+    public void setRsId(int rsId) {
+        this.rsId = rsId;
+    }
+    
+    
 
     @Override
     public int hashCode() {

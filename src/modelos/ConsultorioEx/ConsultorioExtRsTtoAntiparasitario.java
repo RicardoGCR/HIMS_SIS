@@ -12,137 +12,50 @@ import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RSAITTO;
 import static vista.ConsultorioEx.RegistroSeguimiento.lblPorcentajeTTO;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_RS_TTO_ANTIPARASITARIO")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findAll", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByTaId", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.taId = :taId"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM11Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m11Fecha = :m11Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM11Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m11Fua = :m11Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM12Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m12Fecha = :m12Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM12Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m12Fua = :m12Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM21Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m21Fecha = :m21Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM21Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m21Fua = :m21Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM22Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m22Fecha = :m22Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM22Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m22Fua = :m22Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM31Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m31Fecha = :m31Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM31Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m31Fua = :m31Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM32Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m32Fecha = :m32Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM32Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m32Fua = :m32Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM41Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m41Fecha = :m41Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM41Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m41Fua = :m41Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM42Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m42Fecha = :m42Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM42Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m42Fua = :m42Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM51Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m51Fecha = :m51Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM51Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m51Fua = :m51Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM52Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m52Fecha = :m52Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM52Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m52Fua = :m52Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM61Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m61Fecha = :m61Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM61Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m61Fua = :m61Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM62Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m62Fecha = :m62Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM62Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m62Fua = :m62Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM71Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m71Fecha = :m71Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM71Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m71Fua = :m71Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM81Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m81Fecha = :m81Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM81Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m81Fua = :m81Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM91Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m91Fecha = :m91Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM91Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m91Fua = :m91Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM101Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m101Fecha = :m101Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM101Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m101Fua = :m101Fua"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM111Fecha", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m111Fecha = :m111Fecha"),
-    @NamedQuery(name = "ConsultorioExtRsTtoAntiparasitario.findByM111Fua", query = "SELECT c FROM ConsultorioExtRsTtoAntiparasitario c WHERE c.m111Fua = :m111Fua")})
 public class ConsultorioExtRsTtoAntiparasitario implements Serializable {
     private static final long serialVersionUID = 1L;
+
     Conexion con = new Conexion();
     private Connection cn;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "TA_ID")
     private Long taId;
-    @Column(name = "M1_1_FECHA")
     private String m11Fecha;
-    @Column(name = "M1_1_FUA")
     private String m11Fua;
-    @Column(name = "M1_2_FECHA")
     private String m12Fecha;
-    @Column(name = "M1_2_FUA")
     private String m12Fua;
-    @Column(name = "M2_1_FECHA")
     private String m21Fecha;
-    @Column(name = "M2_1_FUA")
     private String m21Fua;
-    @Column(name = "M2_2_FECHA")
     private String m22Fecha;
-    @Column(name = "M2_2_FUA")
     private String m22Fua;
-    @Column(name = "M3_1_FECHA")
     private String m31Fecha;
-    @Column(name = "M3_1_FUA")
     private String m31Fua;
-    @Column(name = "M3_2_FECHA")
     private String m32Fecha;
-    @Column(name = "M3_2_FUA")
     private String m32Fua;
-    @Column(name = "M4_1_FECHA")
     private String m41Fecha;
-    @Column(name = "M4_1_FUA")
     private String m41Fua;
-    @Column(name = "M4_2_FECHA")
     private String m42Fecha;
-    @Column(name = "M4_2_FUA")
     private String m42Fua;
-    @Column(name = "M5_1_FECHA")
     private String m51Fecha;
-    @Column(name = "M5_1_FUA")
     private String m51Fua;
-    @Column(name = "M5_2_FECHA")
     private String m52Fecha;
-    @Column(name = "M5_2_FUA")
     private String m52Fua;
-    @Column(name = "M6_1_FECHA")
     private String m61Fecha;
-    @Column(name = "M6_1_FUA")
     private String m61Fua;
-    @Column(name = "M6_2_FECHA")
     private String m62Fecha;
-    @Column(name = "M6_2_FUA")
     private String m62Fua;
-    @Column(name = "M7_1_FECHA")
     private String m71Fecha;
-    @Column(name = "M7_1_FUA")
     private String m71Fua;
-    @Column(name = "M8_1_FECHA")
     private String m81Fecha;
-    @Column(name = "M8_1_FUA")
     private String m81Fua;
-    @Column(name = "M9_1_FECHA")
     private String m91Fecha;
-    @Column(name = "M9_1_FUA")
     private String m91Fua;
-    @Column(name = "M10_1_FECHA")
     private String m101Fecha;
-    @Column(name = "M10_1_FUA")
     private String m101Fua;
-    @Column(name = "M11_1_FECHA")
     private String m111Fecha;
-    @Column(name = "M11_1_FUA")
     private String m111Fua;
     private int rsId;
     

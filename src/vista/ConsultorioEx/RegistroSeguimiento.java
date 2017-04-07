@@ -82,6 +82,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         lblGenero.setVisible(false);
         lblHcMadre.setVisible(false);
         lblEdad.setVisible(false);
+        lblFua.setVisible(false);
     }
     
     public void cerrar (){

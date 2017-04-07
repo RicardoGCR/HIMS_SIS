@@ -1364,6 +1364,7 @@ ConsultorioExtRsSuplementacionHierro SHM01 = new ConsultorioExtRsSuplementacionH
                 FUADN1.setEditable(false); 
                 fecha=FDN1;
                 fua = FUADN1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt1.setEnabled(false);
@@ -1381,6 +1382,7 @@ ConsultorioExtRsSuplementacionHierro SHM01 = new ConsultorioExtRsSuplementacionH
                 FUADN2.setEditable(false); 
                 fecha=FDN2;
                 fua = FUADN2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt2.setEnabled(false);
@@ -1398,6 +1400,7 @@ ConsultorioExtRsSuplementacionHierro SHM01 = new ConsultorioExtRsSuplementacionH
                 FUADN3.setEditable(false); 
                 fecha=FDN3;
                 fua = FUADN3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt3.setEnabled(false);
@@ -1415,6 +1418,7 @@ ConsultorioExtRsSuplementacionHierro SHM01 = new ConsultorioExtRsSuplementacionH
                 FUADN4.setEditable(false); 
                 fecha=FDN4;
                 fua = FUADN4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt4.setEnabled(false);
@@ -1432,6 +1436,7 @@ ConsultorioExtRsSuplementacionHierro SHM01 = new ConsultorioExtRsSuplementacionH
                 FUADN5.setEditable(false); 
                 fecha=FDN5;
                 fua = FUADN5;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt5.setEnabled(false);
@@ -1449,6 +1454,7 @@ ConsultorioExtRsSuplementacionHierro SHM01 = new ConsultorioExtRsSuplementacionH
                 FUADN6.setEditable(false); 
                 fecha=FDN6;
                 fua = FUADN6;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt6.setEnabled(false);
@@ -1466,6 +1472,7 @@ ConsultorioExtRsSuplementacionHierro SHM01 = new ConsultorioExtRsSuplementacionH
                 FUADN8.setEditable(false); 
                 fecha=FDN8;
                 fua = FUADN8;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt8.setEnabled(false);
@@ -1483,6 +1490,7 @@ ConsultorioExtRsSuplementacionHierro SHM01 = new ConsultorioExtRsSuplementacionH
                 FUADN9.setEditable(false); 
                 fecha=FDN9;
                 fua = FUADN9;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt9.setEnabled(false);
@@ -1500,6 +1508,7 @@ ConsultorioExtRsSuplementacionHierro SHM01 = new ConsultorioExtRsSuplementacionH
                 FUADN10.setEditable(false); 
                 fecha=FDN10;
                 fua = FUADN10;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt10.setEnabled(false);
@@ -1553,6 +1562,7 @@ ConsultorioExtRsSuplementacionHierro SHM01 = new ConsultorioExtRsSuplementacionH
                 FUADN7.setEditable(false); 
                 fecha=FDN7;
                 fua = FUADN7;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt7.setEnabled(false);
@@ -1570,6 +1580,7 @@ ConsultorioExtRsSuplementacionHierro SHM01 = new ConsultorioExtRsSuplementacionH
                 FUADN11.setEditable(false); 
                 fecha=FDN11;
                 fua = FUADN11;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt13.setEnabled(false);
@@ -1587,6 +1598,7 @@ ConsultorioExtRsSuplementacionHierro SHM01 = new ConsultorioExtRsSuplementacionH
                 FUADN12.setEditable(false); 
                 fecha=FDN12;
                 fua = FUADN12;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt14.setEnabled(false);

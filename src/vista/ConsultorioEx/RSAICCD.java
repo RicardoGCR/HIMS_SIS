@@ -4954,6 +4954,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDM9;
                 fua = FUACCDM9;
                 cie10=DXCCDM9;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDM9.setEnabled(false);
@@ -4973,6 +4974,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD14;
                 fua = FUACCD14;
                 cie10=DXCCD14;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD14.setEnabled(false);
@@ -4992,6 +4994,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD24;
                 fua = FUACCD24;
                 cie10=DXCCD24;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD21.setEnabled(false);
@@ -5011,6 +5014,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD3A4;
                 fua = FUACCD3A4;
                 cie10=DXCCD3A4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD3A4.setEnabled(false);
@@ -5030,6 +5034,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD4A4;
                 fua = FUACCD4A4;
                 cie10=DXCCD4A4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD4A4.setEnabled(false);
@@ -5078,6 +5083,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD11;
                 fua = FUACCD11;
                 cie10=DXCCD11;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD11.setEnabled(false);
@@ -5097,6 +5103,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD12;
                 fua = FUACCD12;
                 cie10=DXCCD12;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD12.setEnabled(false);
@@ -5116,6 +5123,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD13;
                 fua = FUACCD13;
                 cie10=DXCCD13;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD13.setEnabled(false);
@@ -5135,6 +5143,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD15;
                 fua = FUACCD15;
                 cie10=DXCCD15;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD15.setEnabled(false);
@@ -5154,6 +5163,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD16;
                 fua = FUACCD16;
                 cie10=DXCCD16;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD16.setEnabled(false);
@@ -5174,6 +5184,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDRN1;
                 fua = FUACCD11;
                 cie10=DXCCD11;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDRN1.setEnabled(false);
@@ -5193,6 +5204,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDRN2;
                 fua = FUACCDRN2;
                 cie10=DXCCDRN2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDRN2.setEnabled(false);
@@ -5212,6 +5224,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDRN3;
                 fua = FUACCDRN3;
                 cie10=DXCCDRN3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDRN3.setEnabled(false);
@@ -5231,6 +5244,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDRN4;
                 fua = FUACCDRN4;
                 cie10=DXCCDRN4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDRN4.setEnabled(false);
@@ -5250,6 +5264,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDM1;
                 fua = FUACCDM1;
                 cie10=DXCCDM1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDM1.setEnabled(false);
@@ -5269,6 +5284,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDM2;
                 fua = FUACCDM2;
                 cie10=DXCCDM2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDM2.setEnabled(false);
@@ -5288,6 +5304,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDM3;
                 fua = FUACCDM3;
                 cie10=DXCCDM3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDM3.setEnabled(false);
@@ -5307,6 +5324,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDM4;
                 fua = FUACCDM4;
                 cie10=DXCCDM4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDM4.setEnabled(false);
@@ -5326,6 +5344,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDM5;
                 fua = FUACCDM5;
                 cie10=DXCCDM5;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDM5.setEnabled(false);
@@ -5345,6 +5364,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDM6;
                 fua = FUACCDM6;
                 cie10=DXCCDM6;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDM6.setEnabled(false);
@@ -5364,6 +5384,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDM7;
                 fua = FUACCDM7;
                 cie10=DXCCDM7;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDM7.setEnabled(false);
@@ -5383,6 +5404,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDM8;
                 fua = FUACCDM8;
                 cie10=DXCCDM8;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDM8.setEnabled(false);
@@ -5402,6 +5424,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDM10;
                 fua = FUACCDM10;
                 cie10=DXCCDM10;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDM10.setEnabled(false);
@@ -5421,6 +5444,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCDM11;
                 fua = FUACCDM11;
                 cie10=DXCCDM11;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCDM11.setEnabled(false);
@@ -5440,6 +5464,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD21;
                 fua = FUACCD21;
                 cie10=DXCCD21;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD21.setEnabled(false);
@@ -5459,6 +5484,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD22;
                 fua = FUACCD22;
                 cie10=DXCCD22;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD22.setEnabled(false);
@@ -5478,6 +5504,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD23;
                 fua = FUACCD23;
                 cie10=DXCCD23;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD23.setEnabled(false);
@@ -5497,6 +5524,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD3A1;
                 fua = FUACCD3A1;
                 cie10=DXCCD3A1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD3A1.setEnabled(false);
@@ -5516,6 +5544,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD3A2;
                 fua = FUACCD3A2;
                 cie10=DXCCD3A2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD3A2.setEnabled(false);
@@ -5535,6 +5564,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD3A3;
                 fua = FUACCD3A3;
                 cie10=DXCCD3A3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD3A3.setEnabled(false);
@@ -5554,6 +5584,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD4A1;
                 fua = FUACCD4A1;
                 cie10=DXCCD4A1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD4A1.setEnabled(false);
@@ -5573,6 +5604,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD4A2;
                 fua = FUACCD4A2;
                 cie10=DXCCD4A2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD4A2.setEnabled(false);
@@ -5592,6 +5624,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD4A3;
                 fua = FUACCD4A3;
                 cie10=DXCCD4A3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD4A3.setEnabled(false);
@@ -5611,6 +5644,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD5A;
                 fua = FUACCD5A;
                 cie10=DXCCD5A;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD5A.setEnabled(false);
@@ -5630,6 +5664,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD6A;
                 fua = FUACCD6A;
                 cie10=DXCCD6A;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD6A.setEnabled(false);
@@ -5649,6 +5684,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD7A;
                 fua = FUACCD7A;
                 cie10=DXCCD7A;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD7A.setEnabled(false);
@@ -5668,6 +5704,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD8A;
                 fua = FUACCD8A;
                 cie10=DXCCD8A;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD8A.setEnabled(false);
@@ -5687,6 +5724,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD9A;
                 fua = FUACCD9A;
                 cie10=DXCCD9A;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD9A.setEnabled(false);
@@ -5706,6 +5744,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD10A;
                 fua = FUACCD10A;
                 cie10=DXCCD10A;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD10A.setEnabled(false);
@@ -5725,6 +5764,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 fecha=FCCD11A;
                 fua = FUACCD11A;
                 cie10=DXCCD11A;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             FCCD11A.setEnabled(false);

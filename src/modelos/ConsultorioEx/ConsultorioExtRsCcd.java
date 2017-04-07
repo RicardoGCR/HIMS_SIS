@@ -1028,7 +1028,6 @@ public class ConsultorioExtRsCcd implements Serializable {
             }
             //
         } catch (Exception e) {
-            System.out.println("Error: porcentajeCCD " + e.getMessage());
         }
     }
      

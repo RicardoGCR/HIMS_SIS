@@ -1665,6 +1665,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 fecha=FDN1;
                 fua = FUADN1;
                 cie10=DXDN1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt1.setEnabled(false);
@@ -1682,6 +1683,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 fecha=FDN2;
                 fua = FUADN2;
                 cie10=DXDN2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt2.setEnabled(false);
@@ -1699,6 +1701,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 fecha=FDN3;
                 fua = FUADN3;
                 cie10=DXDN3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt3.setEnabled(false);
@@ -1716,6 +1719,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 fecha=FDN4;
                 fua = FUADN4;
                 cie10=DXDN4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt4.setEnabled(false);
@@ -1733,6 +1737,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 fecha=FDN5;
                 fua = FUADN5;
                 cie10=DXDN5;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt5.setEnabled(false);
@@ -1750,6 +1755,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 fecha=FDN6;
                 fua = FUADN6;
                 cie10=DXDN6;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt6.setEnabled(false);
@@ -1767,6 +1773,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 fecha=FDN8;
                 fua = FUADN8;
                 cie10=DXDN8;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt8.setEnabled(false);
@@ -1784,6 +1791,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 fecha=FDN9;
                 fua = FUADN9;
                 cie10=DXDN9;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt9.setEnabled(false);
@@ -1801,6 +1809,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 fecha=FDN10;
                 fua = FUADN10;
                 cie10=DXDN10;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt1.setEnabled(false);
@@ -1941,6 +1950,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 fecha=FDN7;
                 fua = FUADN7;
                 cie10=DXDN7;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             rbt7.setEnabled(false);

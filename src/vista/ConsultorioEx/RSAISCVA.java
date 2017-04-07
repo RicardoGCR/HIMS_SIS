@@ -1412,6 +1412,7 @@ public void QuitarLaBarraTitulo()
                 TNFUAA2.setEditable(false); 
                 fecha=TNFA2;
                 fua = TNFUAA2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD2.setEnabled(false);
@@ -1429,6 +1430,7 @@ public void QuitarLaBarraTitulo()
                 TNFUAA3.setEditable(false); 
                 fecha=TNFA3;
                 fua = TNFUAA3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD3.setEnabled(false);
@@ -1446,6 +1448,7 @@ public void QuitarLaBarraTitulo()
                 TNFUAP1.setEditable(false); 
                 fecha=TNFP1;
                 fua = TNFUAP1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD7.setEnabled(false);
@@ -1463,6 +1466,7 @@ public void QuitarLaBarraTitulo()
                 TNFUAP2.setEditable(false); 
                 fecha=TNFP1;
                 fua = TNFUAP2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD8.setEnabled(false);
@@ -1480,6 +1484,7 @@ public void QuitarLaBarraTitulo()
                 TNFUAT1.setEditable(false); 
                 fecha=TNFT1;
                 fua = TNFUAT1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD12.setEnabled(false);
@@ -1497,6 +1502,7 @@ public void QuitarLaBarraTitulo()
                 TNFUAT2.setEditable(false); 
                 fecha=TNFT2;
                 fua = TNFUAT2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD13.setEnabled(false);
@@ -1553,6 +1559,7 @@ public void QuitarLaBarraTitulo()
                 TNFUAT3.setEditable(false); 
                 fecha=TNFT3;
                 fua = TNFUAT3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD14.setEnabled(false);
@@ -1570,6 +1577,7 @@ public void QuitarLaBarraTitulo()
                 TNFUAT4.setEditable(false); 
                 fecha=TNFT4;
                 fua = TNFUAT4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD15.setEnabled(false);
@@ -1587,6 +1595,7 @@ public void QuitarLaBarraTitulo()
                 TNFUAT6.setEditable(false); 
                 fecha=TNFT5;
                 fua = TNFUAT6;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD16.setEnabled(false);
@@ -1604,6 +1613,7 @@ public void QuitarLaBarraTitulo()
                 TNFUAT5.setEditable(false); 
                 fecha=TNFT6;
                 fua = TNFUAT5;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD17.setEnabled(false);

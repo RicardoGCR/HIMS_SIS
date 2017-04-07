@@ -40,6 +40,7 @@ private Dimension DimensionBarra = null;
         ConsultorioExtRsSeguimientoAnemia seguimiento = new ConsultorioExtRsSeguimientoAnemia();
         seguimiento.inicializarTabla(tbSeguimientoA);
         seguimiento.listarDiagnostico(lblId.getText(), tbSeguimientoA);
+        habilitarDatos(false);
     }
     public void QuitarLaBarraTitulo(){ 
         Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 

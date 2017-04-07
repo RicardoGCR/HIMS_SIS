@@ -289,6 +289,7 @@ public class ConsultorioExtRsDiagnosticoNutricional implements Serializable {
             int c=1;
             while(r.next()){
                 lblPorcentajeDN.setText(r.getString(1) + " %"); 
+                RSAIDN.lblPorcentajeV.setText(r.getString(1) + " % Completado"); 
             }
             //
         } catch (Exception e) {

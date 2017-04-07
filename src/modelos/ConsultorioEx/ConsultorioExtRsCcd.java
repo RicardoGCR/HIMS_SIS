@@ -1022,6 +1022,9 @@ public class ConsultorioExtRsCcd implements Serializable {
             int c=1;
             while(r.next()){
                 lblPorcentajeCCD.setText(r.getString(1) + " %"); 
+                RSAICCD.lblPorcentajeV.setText(r.getString(1) + " % Completado"); 
+                RSAICCD.lblPorcentajeV1.setText(r.getString(1) + " % Completado"); 
+                RSAICCD.lblPorcentajeV2.setText(r.getString(1) + " % Completado"); 
             }
             //
         } catch (Exception e) {

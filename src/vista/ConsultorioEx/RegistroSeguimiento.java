@@ -1225,8 +1225,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel25Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(101, Short.MAX_VALUE))
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(130, Short.MAX_VALUE))
                 );
                 jPanel25Layout.setVerticalGroup(
                     jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1857,13 +1857,13 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         RSAICCD CCD =new RSAICCD();
         Contenedor.add(CCD);
         if(lblGenero.getText().equals("F")){
-            CCD.lblNina.setText(txtPaciente.getText());
-            CCD.lblNina.setVisible(true);
-            CCD.lblNino.setVisible(false);
+            CCD.lblNina2.setText(txtPaciente.getText());
+            CCD.lblNina2.setVisible(true);
+            CCD.lblNino2.setVisible(false);
         } else {
-            CCD.lblNino.setText(txtPaciente.getText());
-            CCD.lblNino.setVisible(true);
-            CCD.lblNina.setVisible(false);
+            CCD.lblNino2.setText(txtPaciente.getText());
+            CCD.lblNino2.setVisible(true);
+            CCD.lblNina2.setVisible(false);
         }
         RSAICCD.lblId.setText(String.valueOf(id));
         try {
@@ -1883,19 +1883,22 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         RSAICCD CCD =new RSAICCD();
         Contenedor.add(CCD);
         if(lblGenero.getText().equals("F")){
-            CCD.lblNina.setText(txtPaciente.getText());
-            CCD.lblNina.setVisible(true);
-            CCD.lblNino.setVisible(false);
+            CCD.lblNina2.setText(txtPaciente.getText());
+            CCD.lblNina2.setVisible(true);
+            CCD.lblNino2.setVisible(false);
         } else {
-            CCD.lblNino.setText(txtPaciente.getText());
-            CCD.lblNino.setVisible(true);
-            CCD.lblNina.setVisible(false);
+            CCD.lblNino2.setText(txtPaciente.getText());
+            CCD.lblNino2.setVisible(true);
+            CCD.lblNina2.setVisible(false);
         }
         ConsultorioExtRsCcd CCDLISTAR = new ConsultorioExtRsCcd();
         CCDLISTAR.ConsultoriosExtCCDListar(id);
        
       
         RSAICCD.lblId.setText(String.valueOf(id));
+        RSAICCD.lblPorcentajeV.setText(lblPorcentajeCCD.getText() + " Completado");
+        RSAICCD.lblPorcentajeV1.setText(lblPorcentajeCCD.getText() + " Completado");
+        RSAICCD.lblPorcentajeV2.setText(lblPorcentajeCCD.getText() + " Completado");
         try {
             CCD.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1920,6 +1923,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         DN1.ConsultoriosExtDNListar(id);
         
         RSAIDN.lblId.setText(String.valueOf(id));
+        RSAIDN.lblPorcentajeV.setText(lblPorcentajeDN.getText() + " Completado");
         try {
             DN.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1945,7 +1949,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         ET1.ConsultoriosExtETListar(id);
        
         RSAIET.lblId.setText(String.valueOf(id));
-        
+        RSAIET.lblPorcentajeV.setText(lblPorcentajeET.getText() + " Completado");
         try {
             ET12.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -2237,6 +2241,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         DD1.ConsultoriosExtDDListar(id);
         
         RSAIDD.lblId.setText(String.valueOf(id));
+        RSAIDD.lblPorcentajeV.setText(lblPorcentajeDD.getText() + " Completado");
         try {
             DD.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -2286,7 +2291,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         SHM1.ConsultoriosExtSHMListar(id);
        
         RSAISHM.lblId.setText(String.valueOf(id));
-    
+        RSAISHM.lblPorcentajeV.setText(lblPorcentajeSHM.getText() + " Completado");
         try {
             SHM.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -2311,7 +2316,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         EEP1.ConsultoriosExtEEPListar(id);
        
         RSAIEEP.lblId.setText(String.valueOf(id));
-    
+        RSAIEEP.lblPorcentajeV.setText(lblPorcentajeEEP.getText() + " Completado");
         try {
             EEP.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -2336,7 +2341,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         SVA1.ConsultoriosExtSVAListar(id);
        
         RSAISCVA.lblId.setText(String.valueOf(id));
-    
+        RSAISCVA.lblPorcentajeV.setText(lblPorcentajeSVA.getText() + " Completado");
         try {
             SVA.setMaximum(true);
         } catch (PropertyVetoException ex) {

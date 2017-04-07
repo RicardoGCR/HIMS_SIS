@@ -242,6 +242,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsDN2.ConsultoriosExtDNListar(Integer.parseInt(lblId.getText()));
+                CXRsDN2.porcentajeDN(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
                 habilitarRadio(true);
             }else {
@@ -344,6 +345,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsDN2.ConsultoriosExtDNListar(Integer.parseInt(lblId.getText()));
+                CXRsDN2.porcentajeDN(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
                 habilitarRadio(true);
             }else {
@@ -384,10 +386,6 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                 return false; //Disallow the editing of any cell
             }};
             DN = new javax.swing.JPanel();
-            jPanel202 = new javax.swing.JPanel();
-            jLabel126 = new javax.swing.JLabel();
-            jPanel203 = new javax.swing.JPanel();
-            jLabel127 = new javax.swing.JLabel();
             CCDM13 = new javax.swing.JPanel();
             jPanel133 = new javax.swing.JPanel();
             jLabel129 = new javax.swing.JLabel();
@@ -453,8 +451,6 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             DXDN8 = new javax.swing.JLabel();
             DXDN9 = new javax.swing.JLabel();
             DXDN10 = new javax.swing.JLabel();
-            lblNina = new javax.swing.JLabel();
-            lblNino = new javax.swing.JLabel();
             lblId = new javax.swing.JLabel();
             Opciones = new javax.swing.JPanel();
             jPanel28 = new javax.swing.JPanel();
@@ -465,6 +461,14 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             men = new javax.swing.JLabel();
             b = new javax.swing.JButton();
             b1 = new javax.swing.JButton();
+            jPanel26 = new javax.swing.JPanel();
+            jLabel10 = new javax.swing.JLabel();
+            jPanel27 = new javax.swing.JPanel();
+            jLabel13 = new javax.swing.JLabel();
+            lblPorcentajeV = new javax.swing.JLabel();
+            jPanel2 = new javax.swing.JPanel();
+            lblNina = new javax.swing.JLabel();
+            lblNino = new javax.swing.JLabel();
 
             FrmCie10.setMinimumSize(new java.awt.Dimension(750, 400));
             FrmCie10.setResizable(false);
@@ -620,61 +624,6 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             setVisible(true);
 
             DN.setBackground(new java.awt.Color(255, 255, 255));
-
-            jPanel202.setBackground(new java.awt.Color(50, 151, 219));
-            jPanel202.setPreferredSize(new java.awt.Dimension(83, 45));
-
-            jLabel126.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel126.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel126.setText("DIAGNOSTICO NUTRICIONAL");
-
-            jPanel203.setBackground(new java.awt.Color(41, 127, 184));
-
-            jLabel127.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel127.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel127.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Izquierda Filled-30.png"))); // NOI18N
-            jLabel127.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    jLabel127MouseClicked(evt);
-                }
-            });
-
-            javax.swing.GroupLayout jPanel203Layout = new javax.swing.GroupLayout(jPanel203);
-            jPanel203.setLayout(jPanel203Layout);
-            jPanel203Layout.setHorizontalGroup(
-                jPanel203Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel203Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel127)
-                    .addContainerGap())
-            );
-            jPanel203Layout.setVerticalGroup(
-                jPanel203Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel203Layout.createSequentialGroup()
-                    .addGap(5, 5, 5)
-                    .addComponent(jLabel127)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            );
-
-            javax.swing.GroupLayout jPanel202Layout = new javax.swing.GroupLayout(jPanel202);
-            jPanel202.setLayout(jPanel202Layout);
-            jPanel202Layout.setHorizontalGroup(
-                jPanel202Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel202Layout.createSequentialGroup()
-                    .addComponent(jPanel203, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jLabel126)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            );
-            jPanel202Layout.setVerticalGroup(
-                jPanel202Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel202Layout.createSequentialGroup()
-                    .addComponent(jPanel203, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(jPanel202Layout.createSequentialGroup()
-                    .addComponent(jLabel126, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap())
-            );
 
             CCDM13.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -1401,30 +1350,6 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                         .addComponent(FUADN10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             );
 
-            lblNina.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            lblNina.setForeground(new java.awt.Color(102, 102, 102));
-            lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
-            lblNina.setText("NIÑOS");
-            lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-            lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-            lblNina.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    lblNinaMouseClicked(evt);
-                }
-            });
-
-            lblNino.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            lblNino.setForeground(new java.awt.Color(102, 102, 102));
-            lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
-            lblNino.setText("NIÑOS");
-            lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-            lblNino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-            lblNino.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    lblNinoMouseClicked(evt);
-                }
-            });
-
             lblId.setText("jLabel1");
 
             Opciones.setBackground(new java.awt.Color(102, 102, 102));
@@ -1574,13 +1499,114 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                     .addContainerGap())
             );
 
+            jPanel26.setBackground(new java.awt.Color(50, 151, 219));
+            jPanel26.setPreferredSize(new java.awt.Dimension(83, 45));
+
+            jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+            jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+            jLabel10.setText("Diagnóstico Nutricional");
+
+            jPanel27.setBackground(new java.awt.Color(41, 127, 184));
+
+            jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+            jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Izquierda Filled-30.png"))); // NOI18N
+            jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    jLabel13MouseClicked(evt);
+                }
+            });
+
+            javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
+            jPanel27.setLayout(jPanel27Layout);
+            jPanel27Layout.setHorizontalGroup(
+                jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+            );
+            jPanel27Layout.setVerticalGroup(
+                jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel27Layout.createSequentialGroup()
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap())
+            );
+
+            lblPorcentajeV.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            lblPorcentajeV.setForeground(new java.awt.Color(21, 85, 127));
+            lblPorcentajeV.setText("100 %  Completado");
+            lblPorcentajeV.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+            jPanel2.setBackground(new java.awt.Color(41, 127, 184));
+            jPanel2.setPreferredSize(new java.awt.Dimension(1, 100));
+
+            javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+            jPanel2.setLayout(jPanel2Layout);
+            jPanel2Layout.setHorizontalGroup(
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 1, Short.MAX_VALUE)
+            );
+            jPanel2Layout.setVerticalGroup(
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 100, Short.MAX_VALUE)
+            );
+
+            lblNina.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
+            lblNina.setForeground(new java.awt.Color(21, 85, 127));
+            lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-50.png"))); // NOI18N
+            lblNina.setText("NIÑOS");
+            lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+            lblNino.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
+            lblNino.setForeground(new java.awt.Color(21, 85, 127));
+            lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-50.png"))); // NOI18N
+            lblNino.setText("NIÑOS");
+            lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            lblNino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+            javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+            jPanel26.setLayout(jPanel26Layout);
+            jPanel26Layout.setHorizontalGroup(
+                jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel26Layout.createSequentialGroup()
+                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblPorcentajeV)
+                        .addComponent(jLabel10))
+                    .addGap(31, 31, 31)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(31, 31, 31)
+                    .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+            jPanel26Layout.setVerticalGroup(
+                jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel26Layout.createSequentialGroup()
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(lblPorcentajeV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap())
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel26Layout.createSequentialGroup()
+                    .addGap(26, 26, 26)
+                    .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblNina)
+                        .addComponent(lblNino))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+
             javax.swing.GroupLayout DNLayout = new javax.swing.GroupLayout(DN);
             DN.setLayout(DNLayout);
             DNLayout.setHorizontalGroup(
                 DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel202, javax.swing.GroupLayout.DEFAULT_SIZE, 1423, Short.MAX_VALUE)
                 .addGroup(DNLayout.createSequentialGroup()
-                    .addContainerGap()
+                    .addGap(16, 16, 16)
                     .addGroup(DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(DNLayout.createSequentialGroup()
                             .addComponent(LEYENDA2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1589,23 +1615,16 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                         .addGroup(DNLayout.createSequentialGroup()
                             .addComponent(CCDR3A2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(lblId))
-                        .addGroup(DNLayout.createSequentialGroup()
-                            .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblId)))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addComponent(Opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel26, javax.swing.GroupLayout.DEFAULT_SIZE, 1423, Short.MAX_VALUE)
             );
             DNLayout.setVerticalGroup(
                 DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DNLayout.createSequentialGroup()
-                    .addComponent(jPanel202, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addGroup(DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblNina)
-                        .addComponent(lblNino))
-                    .addGap(18, 18, 18)
+                    .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(50, 50, 50)
                     .addGroup(DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCDM13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LEYENDA2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
@@ -1613,7 +1632,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
                     .addGroup(DNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(CCDR3A2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblId))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
@@ -1627,28 +1646,13 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 432, Short.MAX_VALUE)
+                .addGap(0, 445, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
             pack();
         }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel127MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel127MouseClicked
-        RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
-        ConsultorioExtRsDiagnosticoNutricional DN1 = new ConsultorioExtRsDiagnosticoNutricional();
-        DN1.porcentajeDN(Integer.parseInt(lblId.getText()));
-        this.dispose();
-    }//GEN-LAST:event_jLabel127MouseClicked
-
-    private void lblNinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNinaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblNinaMouseClicked
-
-    private void lblNinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNinoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblNinoMouseClicked
 
     private void rbt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbt1ActionPerformed
         if(FDN1.getDate()==null){
@@ -1943,6 +1947,11 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
         }
     }//GEN-LAST:event_rbt7ActionPerformed
 
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
+        this.dispose();
+    }//GEN-LAST:event_jLabel13MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CCDM13;
@@ -1988,10 +1997,10 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel125;
-    private javax.swing.JLabel jLabel126;
-    private javax.swing.JLabel jLabel127;
     private javax.swing.JLabel jLabel129;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel137;
     private javax.swing.JLabel jLabel138;
     private javax.swing.JLabel jLabel139;
@@ -2014,8 +2023,9 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
     private javax.swing.JPanel jPanel142;
     private javax.swing.JPanel jPanel143;
     private javax.swing.JPanel jPanel144;
-    private javax.swing.JPanel jPanel202;
-    private javax.swing.JPanel jPanel203;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel32;
@@ -2023,6 +2033,7 @@ ConsultorioExtRsDiagnosticoNutricional DN01 = new ConsultorioExtRsDiagnosticoNut
     public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
+    public static javax.swing.JLabel lblPorcentajeV;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
     private javax.swing.JRadioButton rbt1;

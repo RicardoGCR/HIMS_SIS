@@ -1222,8 +1222,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel25Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(101, Short.MAX_VALUE))
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(130, Short.MAX_VALUE))
                 );
                 jPanel25Layout.setVerticalGroup(
                     jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1849,13 +1849,13 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         RSAICCD CCD =new RSAICCD();
         Contenedor.add(CCD);
         if(lblGenero.getText().equals("F")){
-            CCD.lblNina.setText(txtPaciente.getText());
-            CCD.lblNina.setVisible(true);
-            CCD.lblNino.setVisible(false);
+            CCD.lblNina2.setText(txtPaciente.getText());
+            CCD.lblNina2.setVisible(true);
+            CCD.lblNino2.setVisible(false);
         } else {
-            CCD.lblNino.setText(txtPaciente.getText());
-            CCD.lblNino.setVisible(true);
-            CCD.lblNina.setVisible(false);
+            CCD.lblNino2.setText(txtPaciente.getText());
+            CCD.lblNino2.setVisible(true);
+            CCD.lblNina2.setVisible(false);
         }
         RSAICCD.lblId.setText(String.valueOf(id));
         try {
@@ -1875,13 +1875,13 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         RSAICCD CCD =new RSAICCD();
         Contenedor.add(CCD);
         if(lblGenero.getText().equals("F")){
-            CCD.lblNina.setText(txtPaciente.getText());
-            CCD.lblNina.setVisible(true);
-            CCD.lblNino.setVisible(false);
+            CCD.lblNina2.setText(txtPaciente.getText());
+            CCD.lblNina2.setVisible(true);
+            CCD.lblNino2.setVisible(false);
         } else {
-            CCD.lblNino.setText(txtPaciente.getText());
-            CCD.lblNino.setVisible(true);
-            CCD.lblNina.setVisible(false);
+            CCD.lblNino2.setText(txtPaciente.getText());
+            CCD.lblNino2.setVisible(true);
+            CCD.lblNina2.setVisible(false);
         }
         ConsultorioExtRsCcd CCDLISTAR = new ConsultorioExtRsCcd();
         CCDLISTAR.ConsultoriosExtCCDListar(id);

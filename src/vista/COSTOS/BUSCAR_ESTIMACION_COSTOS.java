@@ -286,6 +286,7 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
         ));
         tb_Buscar_Estimacion.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Buscar_Estimacion.setComponentPopupMenu(REPORTES);
+        tb_Buscar_Estimacion.setRowHeight(24);
         tb_Buscar_Estimacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tb_Buscar_EstimacionKeyPressed(evt);

@@ -6,6 +6,7 @@
 
 package vista.COSTOS;
 
+import campos.LimitadorDeDocumento;
 import static vista.COSTOS.Costos_Sustentacion.tbServiciosBasicos;
 import static vista.COSTOS.TipoSustentacion.fechaActual;
 import java.awt.Color;
@@ -101,6 +102,19 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
 
             }
         });
+        
+        LimitadorDeDocumento limitConsumoMensual = new LimitadorDeDocumento(10);
+        txtConsumoMensual.setDocument(limitConsumoMensual);
+        LimitadorDeDocumento limitConsumoMensualAgua = new LimitadorDeDocumento(10);
+        txtConsumoMensualAgua.setDocument(limitConsumoMensualAgua);
+        LimitadorDeDocumento limitArea = new LimitadorDeDocumento(5);
+        txtArea.setDocument(limitArea);
+        LimitadorDeDocumento limitConsultasMensual = new LimitadorDeDocumento(5);
+        txtConsultas_Mensuales.setDocument(limitConsultasMensual);
+        LimitadorDeDocumento limitPonderacionEnergia = new LimitadorDeDocumento(3);
+        txtPonderacionEnergia.setDocument(limitPonderacionEnergia);
+        LimitadorDeDocumento limitPonderacionAgua = new LimitadorDeDocumento(3);
+        txtPonderacionAgua.setDocument(limitPonderacionAgua);
     }
     
     
@@ -520,6 +534,7 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaTipoSB.setRowHeight(24);
         tablaTipoSB.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tablaTipoSBKeyPressed(evt);
@@ -604,6 +619,7 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TablaServiciosB.setRowHeight(24);
         TablaServiciosB.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 TablaServiciosBPropertyChange(evt);
@@ -780,6 +796,11 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
             }
         });
 
+        txtConsumoMensual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtConsumoMensualActionPerformed(evt);
+            }
+        });
         txtConsumoMensual.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtConsumoMensualKeyTyped(evt);
@@ -1050,7 +1071,7 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCodigo_Sustentacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCodigo_Servicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
@@ -1111,6 +1132,7 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
             }
         ));
         tablaServiciosBasicosEA.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tablaServiciosBasicosEA.setRowHeight(20);
         jScrollPane4.setViewportView(tablaServiciosBasicosEA);
 
         jPanel6.setBackground(new java.awt.Color(204, 204, 204));
@@ -1240,6 +1262,7 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
              
              BUSCAR_TIPO_SUSTENTACION.setVisible(false);
              btnBuscarServicios.setEnabled(true);
+             btnBuscarServicios.requestFocus();
         }
         
         } catch (Exception e) {
@@ -1439,6 +1462,10 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
             modelo1 = (DefaultTableModel) tablaServiciosBasicosEA.getModel();
             limpiarTabla();
             
+            if(tablaServiciosBasicosEA.getRowCount()==0){
+                JOptionPane.showMessageDialog(null, "No hay registros que cargar");
+            }else{
+            
             //pasar datos de una tabla a otra
             for (int i=0;i<modelo1.getRowCount(); i++){
             String cod_sustentacion, cod_servicio, sustentacion, servicio,
@@ -1574,6 +1601,7 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
            cargarResumenCostoSBasicos();
             dispose();
             }
+        }    
         } catch (Exception e) {
         }
 
@@ -1829,6 +1857,10 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
     } catch (Exception e) {
     } 
     }//GEN-LAST:event_txtConsultas_MensualesKeyTyped
+
+    private void txtConsumoMensualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConsumoMensualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtConsumoMensualActionPerformed
 
      public void cargarResumenCostoSBasicos(){
         try{

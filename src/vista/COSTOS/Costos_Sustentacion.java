@@ -75,6 +75,7 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
         this.getContentPane().setBackground(Color.WHITE);
         con=conectar.conectar();
         inicializar_tabla();
+       
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
         btnEliminar.setEnabled(false);
         btnModificar.setEnabled(false);
@@ -302,7 +303,7 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
             
         }
     }
-    public void formatoInicializarTabla(){
+    public static void formatoInicializarTabla(){
     //Personal
     tbPersonal.getColumnModel().getColumn(2).setPreferredWidth(150);
     tbPersonal.getColumnModel().getColumn(3).setPreferredWidth(180);
@@ -2309,8 +2310,7 @@ if(txtCodigoCPT.getText().equalsIgnoreCase("")){
                       btnModificar.setEnabled(false);
                       JOptionPane.showMessageDialog(this, "Datos Guardados");
                       dispose();
-        BUSCAR_NOMENCLATURA cs=new BUSCAR_NOMENCLATURA();
-        cs.setVisible(true);
+
                   }
                   else{
                       JOptionPane.showMessageDialog(this, "El Producto ya se encuentra registrado\nIntente nuevamente");   
@@ -2367,8 +2367,6 @@ if(txtCodigoCPT.getText().equalsIgnoreCase("")){
                       JOptionPane.showMessageDialog(this, "Datos Modificados");
                       btnModificar.setEnabled(false);
                       dispose();
-        BUSCAR_NOMENCLATURA cs=new BUSCAR_NOMENCLATURA();
-        cs.setVisible(true);
                   }
                   else{
                       JOptionPane.showMessageDialog(this, "El Servicio ya se encuentra registrado\nIntente nuevamente");
@@ -2845,8 +2843,6 @@ public void cargar_tbprincipal_tbserviciosBasicos(){
                     limpiar();
                     habilitar();
                     dispose();
-        BUSCAR_NOMENCLATURA cs=new BUSCAR_NOMENCLATURA();
-        cs.setVisible(true);
                 }
             }
         }catch(Exception e){
@@ -3811,6 +3807,7 @@ public void cargar_tbprincipal_tbserviciosBasicos(){
          }}}
     
     public void guardarDetalleInfra(){
+        try{
         if(tbInfraestructura.getRowCount()==0){
                FP_Infraestructura rin0=new FP_Infraestructura();
                rin0.setCod_sustento_costo(txtCodigoSustento.getText());
@@ -3842,6 +3839,7 @@ public void cargar_tbprincipal_tbserviciosBasicos(){
                rin.setCosto_total(Double.parseDouble(tbInfraestructura.getValueAt(i, 5).toString()));
                rin.setRequerimiento_area(Double.parseDouble(tbInfraestructura.getValueAt(i, 6).toString()));
                rin.setValor_unitario_dep(Double.parseDouble(tbInfraestructura.getValueAt(i, 7).toString()));
+                
                rin.setCosto_construccion(Double.parseDouble(tbInfraestructura.getValueAt(i, 8).toString()));
                rin.setDep_infra_min(Double.parseDouble(tbInfraestructura.getValueAt(i, 10).toString()));
                rin.setTiempo_hora_proc(Integer.parseInt(tbInfraestructura.getValueAt(i, 11).toString()));
@@ -3849,8 +3847,12 @@ public void cargar_tbprincipal_tbserviciosBasicos(){
                rin.setCosto_estandar(Double.parseDouble(tbInfraestructura.getValueAt(i, 13).toString()));
                rin.setNom_usu(lblUsu.getText());
                rin.guardarFP_Infraestructura();
-                
-         }}}
+            
+         }}
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "inf "+e.getMessage());
+        }
+        }
     
     public void guardarDetalleServiciosAdmin(){
         if(tbServiciosAdministr.getRowCount()==0){

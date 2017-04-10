@@ -161,6 +161,7 @@ Conexion conectar=new Conexion();
             }
         ));
         tbNomenclatura.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbNomenclatura.setRowHeight(24);
         tbNomenclatura.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tbNomenclatura.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -196,9 +197,9 @@ Conexion conectar=new Conexion();
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(199, 199, 199)
-                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(180, 180, 180)
+                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(176, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()

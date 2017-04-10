@@ -1711,9 +1711,14 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
             valor_uni=txtValorUnitarioDepreciado.getText();
             costo_cons=txtCostoDeConstruccion.getText();
             tiempo=txtTiempodeVidaUtil.getText();
+            
             depreciacion=txtDepreciacionInfr.getText();
             tiempoH=txtHora.getText();
             tiempoM=txtMin.getText();
+            
+//            Double c=Double.parseDouble(txtCostoEstandar.getText());
+//            BigDecimal costo = new BigDecimal(c);
+//            costo = costo.setScale(4, BigDecimal.ROUND_HALF_UP);
             costo_estandar=txtCostoEstandar.getText();
          
             if(Costos_Sustentacion.tbInfraestructura.getRowCount()==0){

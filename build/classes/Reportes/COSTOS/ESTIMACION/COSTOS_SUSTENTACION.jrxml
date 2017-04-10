@@ -1397,9 +1397,15 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 												</jr:table>
 											</componentElement>
 										</jr:columnHeader>
+<<<<<<< HEAD
 										<jr:detailCell height="16" rowSpan="1">
 											<componentElement>
 												<reportElement key="table 27" style="table 27" x="0" y="0" width="500" height="16" uuid="8d63fc26-7d87-4d5c-949d-6fbb1e2acfb2"/>
+=======
+										<jr:detailCell height="28" rowSpan="1">
+											<componentElement>
+												<reportElement key="table 27" style="table 27" x="0" y="0" width="500" height="28" uuid="8d63fc26-7d87-4d5c-949d-6fbb1e2acfb2"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 												<jr:table>
 													<datasetRun subDataset="COSTOS" uuid="f48f2e0a-f0ec-428b-aa46-e1ff4336ce9d">
 														<datasetParameter name="cod_sustentoCosto">
@@ -1408,21 +1414,31 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 														<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 													</datasetRun>
 													<jr:column width="400" uuid="9118ea67-e588-427e-9f1c-73b543673795">
+<<<<<<< HEAD
 														<jr:detailCell height="16" rowSpan="1">
 															<staticText>
 																<reportElement x="0" y="0" width="400" height="16" uuid="6a7240f6-3cfe-449f-b3fa-354876083794"/>
+=======
+														<jr:detailCell height="30" rowSpan="1">
+															<staticText>
+																<reportElement x="0" y="0" width="400" height="30" uuid="6a7240f6-3cfe-449f-b3fa-354876083794"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																<textElement textAlignment="Center" verticalAlignment="Middle"/>
 																<text><![CDATA[TOTAL GENERAL DE GASTOS DIRECTOS E INDIRECTOS]]></text>
 															</staticText>
 														</jr:detailCell>
 													</jr:column>
 													<jr:column width="101" uuid="69cfcfe6-604a-42cf-9e4f-0ecc7ffe2de2">
+<<<<<<< HEAD
 														<jr:detailCell style="table 27_TD" height="16" rowSpan="1">
 															<textField>
 																<reportElement x="0" y="0" width="101" height="16" uuid="4162f0ec-3f09-483c-8682-f65981a4813e"/>
 																<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 															</textField>
 														</jr:detailCell>
+=======
+														<jr:detailCell style="table 27_TD" height="30" rowSpan="1"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 													</jr:column>
 												</jr:table>
 											</componentElement>

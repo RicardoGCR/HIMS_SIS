@@ -109,6 +109,10 @@
                     <Column editable="true" title="Title 4" type="java.lang.Object"/>
                   </Table>
                 </Property>
+<<<<<<< HEAD
+=======
+                <Property name="rowHeight" type="int" value="24"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
               </Properties>
               <Events>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tablaTipoSBKeyPressed"/>
@@ -224,6 +228,10 @@
                     <Column editable="true" title="Title 4" type="java.lang.Object"/>
                   </Table>
                 </Property>
+<<<<<<< HEAD
+=======
+                <Property name="rowHeight" type="int" value="24"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
               </Properties>
               <Events>
                 <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="TablaServiciosBPropertyChange"/>
@@ -614,7 +622,11 @@
                       <Component id="txtCodigo_Sustentacion" min="-2" max="-2" attributes="0"/>
                       <Component id="txtCodigo_Servicio" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace max="-2" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -712,6 +724,10 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtConsumoMensual">
           <Events>
+<<<<<<< HEAD
+=======
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtConsumoMensualActionPerformed"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtConsumoMensualKeyTyped"/>
           </Events>
           <AuxValues>
@@ -1062,6 +1078,10 @@
               </Table>
             </Property>
             <Property name="autoResizeMode" type="int" value="0"/>
+<<<<<<< HEAD
+=======
+            <Property name="rowHeight" type="int" value="20"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

@@ -161,7 +161,11 @@ Conexion conectar=new Conexion();
             }
         ));
         tbNomenclatura.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+<<<<<<< HEAD
         tbNomenclatura.setRowHeight(24);
+=======
+        tbNomenclatura.setRowHeight(20);
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
         tbNomenclatura.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tbNomenclatura.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {

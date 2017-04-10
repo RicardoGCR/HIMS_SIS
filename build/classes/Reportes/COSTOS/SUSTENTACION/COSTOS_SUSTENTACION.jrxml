@@ -949,7 +949,11 @@ left(csi.costo_total,len(csi.costo_total)) AS COSTO_TOTAL,
 left(csi.requerimiento_area,len(csi.requerimiento_area)) AS REQUERIMIENTO,
 left(csi.valor_unitario_dep,len(csi.valor_unitario_dep)) AS VALOR_UNI_DEP,
 left(csi.costo_construccion,len(csi.costo_construccion)) AS COSTO_CONST,
+<<<<<<< HEAD
 csi.tiempo_vida_util,csi.dep_infra_min AS DEP_MIN,
+=======
+csi.tiempo_vida_util,left(csi.dep_infra_min,len(csi.dep_infra_min)) AS DEP_MIN,
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 tiempo_hora_proc,tiempo_min_proc,left(csi.costo_estandar,len(csi.costo_estandar)) AS TOTAL
 FROM COSTOS_SUSTENTACION cs, COSTOS_TIPO_SUSTENTACION cts,COSTOS_SERVICIO_VARIOS csv,COSTOS_SUSTENTACION_DET_INFRAESTRUCTURA csi
 WHERE cs.cod_sustento_costo=csi.cod_sustento_costo and cts.cod_tipo_susten=csi.cod_tipo_susten and csv.cod_servi_va=csi.cod_servi_va
@@ -1080,12 +1084,21 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 		<band height="16" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
+<<<<<<< HEAD
 		<band height="2" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
 		<band height="292" splitType="Stretch">
 			<componentElement>
 				<reportElement key="table" style="table" x="0" y="43" width="802" height="249" uuid="27c21931-dc91-4f37-b31b-59a823306e3a"/>
+=======
+		<band height="12" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="273" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="0" y="43" width="802" height="230" uuid="27c21931-dc91-4f37-b31b-59a823306e3a"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="COSTOS" uuid="2245ab23-da5c-417e-af20-57551799f710">
 						<datasetParameter name="cod_sustentoCosto">
@@ -1309,7 +1322,11 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																			<textField>
 																				<reportElement x="0" y="0" width="90" height="14" uuid="f1c1ba1c-5e4b-441d-adb6-449e7dceb2e6"/>
 																				<textElement>
+<<<<<<< HEAD
 																					<font size="7"/>
+=======
+																					<font size="8"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				</textElement>
 																				<textFieldExpression><![CDATA[$F{nom_servi_va}]]></textFieldExpression>
 																			</textField>
@@ -1533,7 +1550,11 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																				<textFieldExpression><![CDATA[$F{nombre_tipo_susten}]]></textFieldExpression>
 																			</textField>
 																		</jr:columnHeader>
+<<<<<<< HEAD
 																		<jr:detailCell height="14" rowSpan="1"/>
+=======
+																		<jr:detailCell height="16" rowSpan="1"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																	</jr:column>
 																	<jr:column width="171" uuid="023fd020-950b-48a5-bc4b-6c7fe393e166">
 																		<jr:columnHeader style="table 30_CH" height="13" rowSpan="1">
@@ -1545,9 +1566,15 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																				<text><![CDATA[INSUMOS]]></text>
 																			</staticText>
 																		</jr:columnHeader>
+<<<<<<< HEAD
 																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
 																			<textField>
 																				<reportElement x="0" y="0" width="171" height="14" uuid="1cad96b1-baba-4c53-aee5-c3acf1e5a57a"/>
+=======
+																		<jr:detailCell style="table 30_TD" height="16" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="171" height="16" uuid="1cad96b1-baba-4c53-aee5-c3acf1e5a57a"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Left" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -1565,9 +1592,15 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																				<text><![CDATA[PRECIO]]></text>
 																			</staticText>
 																		</jr:columnHeader>
+<<<<<<< HEAD
 																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
 																			<textField>
 																				<reportElement x="0" y="0" width="47" height="14" uuid="f7930d6a-f014-4d53-a1bf-d87d6aafeada"/>
+=======
+																		<jr:detailCell style="table 30_TD" height="16" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="47" height="16" uuid="f7930d6a-f014-4d53-a1bf-d87d6aafeada"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -1585,9 +1618,15 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																				<text><![CDATA[CANTIDAD]]></text>
 																			</staticText>
 																		</jr:columnHeader>
+<<<<<<< HEAD
 																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
 																			<textField>
 																				<reportElement x="0" y="0" width="54" height="14" uuid="e4ea9da9-07cd-4f91-a641-3bede9698a66"/>
+=======
+																		<jr:detailCell style="table 30_TD" height="16" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="54" height="16" uuid="e4ea9da9-07cd-4f91-a641-3bede9698a66"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -1605,9 +1644,15 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																				<text><![CDATA[RENDIMIENTO]]></text>
 																			</staticText>
 																		</jr:columnHeader>
+<<<<<<< HEAD
 																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
 																			<textField>
 																				<reportElement x="0" y="0" width="55" height="14" uuid="40255d1a-5f92-4548-ae0e-2e41d40cd474"/>
+=======
+																		<jr:detailCell style="table 30_TD" height="16" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="55" height="16" uuid="40255d1a-5f92-4548-ae0e-2e41d40cd474"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -1625,9 +1670,15 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																				<text><![CDATA[UM]]></text>
 																			</staticText>
 																		</jr:columnHeader>
+<<<<<<< HEAD
 																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
 																			<textField>
 																				<reportElement x="0" y="0" width="107" height="14" uuid="15f97d59-f20e-48b6-84fd-4c25bf12025c"/>
+=======
+																		<jr:detailCell style="table 30_TD" height="16" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="107" height="16" uuid="15f97d59-f20e-48b6-84fd-4c25bf12025c"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -1645,9 +1696,15 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																				<text><![CDATA[CONSUMO]]></text>
 																			</staticText>
 																		</jr:columnHeader>
+<<<<<<< HEAD
 																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
 																			<textField>
 																				<reportElement x="0" y="0" width="51" height="14" uuid="fc6f6263-8352-42e7-a932-6539e6cf35e7"/>
+=======
+																		<jr:detailCell style="table 30_TD" height="16" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="51" height="16" uuid="fc6f6263-8352-42e7-a932-6539e6cf35e7"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -1665,9 +1722,15 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																				<text><![CDATA[TOTAL]]></text>
 																			</staticText>
 																		</jr:columnHeader>
+<<<<<<< HEAD
 																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
 																			<textField>
 																				<reportElement x="0" y="0" width="36" height="14" uuid="41c16550-3567-48ed-b619-3ae774adaa0d"/>
+=======
+																		<jr:detailCell style="table 30_TD" height="16" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="36" height="16" uuid="41c16550-3567-48ed-b619-3ae774adaa0d"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -1714,7 +1777,11 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																			<textField>
 																				<reportElement x="0" y="0" width="90" height="14" uuid="88f85a49-274d-475b-bc6e-6d490c33b6da"/>
 																				<textElement verticalAlignment="Middle">
+<<<<<<< HEAD
 																					<font size="7"/>
+=======
+																					<font size="8"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				</textElement>
 																				<textFieldExpression><![CDATA[$F{descripcion_producto}]]></textFieldExpression>
 																			</textField>
@@ -2608,10 +2675,17 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																			</textField>
 																		</jr:detailCell>
 																	</jr:column>
+<<<<<<< HEAD
 																	<jr:column width="38" uuid="5cad56d3-9256-4b2f-a7e9-446910328b4f">
 																		<jr:columnHeader style="table 36_CH" height="13" rowSpan="1">
 																			<staticText>
 																				<reportElement x="0" y="0" width="38" height="13" uuid="1906ce87-3563-4e95-8044-bf2a11dbcb21"/>
+=======
+																	<jr:column width="39" uuid="5cad56d3-9256-4b2f-a7e9-446910328b4f">
+																		<jr:columnHeader style="table 36_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="39" height="13" uuid="1906ce87-3563-4e95-8044-bf2a11dbcb21"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -2620,7 +2694,11 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																		</jr:columnHeader>
 																		<jr:detailCell style="table 36_TD" height="15" rowSpan="1">
 																			<textField>
+<<<<<<< HEAD
 																				<reportElement x="0" y="0" width="38" height="15" uuid="e538d220-c6c7-4408-ad23-2fe50e9f214d"/>
+=======
+																				<reportElement x="0" y="0" width="39" height="15" uuid="e538d220-c6c7-4408-ad23-2fe50e9f214d"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -2747,9 +2825,15 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																		<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 																	</datasetRun>
 																	<jr:column width="90" uuid="73370458-c6ca-4b1c-aaa1-8236e9fa9b25">
+<<<<<<< HEAD
 																		<jr:columnHeader height="12" rowSpan="1">
 																			<textField>
 																				<reportElement x="0" y="0" width="90" height="12" uuid="6e98c4a0-8cf8-46c8-bf3a-d5eb70d9ff50"/>
+=======
+																		<jr:columnHeader height="13" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="90" height="13" uuid="6e98c4a0-8cf8-46c8-bf3a-d5eb70d9ff50"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Bottom">
 																					<font size="7"/>
 																				</textElement>
@@ -2759,9 +2843,15 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																		<jr:detailCell height="14" rowSpan="1"/>
 																	</jr:column>
 																	<jr:column width="170" uuid="d890f949-a36e-4d02-ac61-8b974bf6d453">
+<<<<<<< HEAD
 																		<jr:columnHeader style="table 38_CH" height="12" rowSpan="1">
 																			<staticText>
 																				<reportElement x="0" y="0" width="170" height="12" uuid="fd529e58-8192-42d1-b069-c2f594d42457"/>
+=======
+																		<jr:columnHeader style="table 38_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="170" height="13" uuid="fd529e58-8192-42d1-b069-c2f594d42457"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -2779,9 +2869,15 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																		</jr:detailCell>
 																	</jr:column>
 																	<jr:column width="157" uuid="1681c41e-ffe1-46a8-98f4-fc97a8603ef7">
+<<<<<<< HEAD
 																		<jr:columnHeader style="table 38_CH" height="12" rowSpan="1">
 																			<staticText>
 																				<reportElement x="0" y="0" width="157" height="12" uuid="0d7b3d18-1f7f-40d9-872e-5d308315e0f8"/>
+=======
+																		<jr:columnHeader style="table 38_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="157" height="13" uuid="0d7b3d18-1f7f-40d9-872e-5d308315e0f8"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -2799,9 +2895,15 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																		</jr:detailCell>
 																	</jr:column>
 																	<jr:column width="158" uuid="f0a6c6ad-5cb9-40f4-944e-acd2a46019a9">
+<<<<<<< HEAD
 																		<jr:columnHeader style="table 38_CH" height="12" rowSpan="1">
 																			<staticText>
 																				<reportElement x="0" y="0" width="158" height="12" uuid="c7e836b1-b758-414a-a523-190723412dc1"/>
+=======
+																		<jr:columnHeader style="table 38_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="158" height="13" uuid="c7e836b1-b758-414a-a523-190723412dc1"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -2818,10 +2920,17 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																			</textField>
 																		</jr:detailCell>
 																	</jr:column>
+<<<<<<< HEAD
 																	<jr:column width="38" uuid="1562a0d6-a5c7-4f48-b149-c333f84b4143">
 																		<jr:columnHeader style="table 38_CH" height="12" rowSpan="1">
 																			<staticText>
 																				<reportElement x="0" y="0" width="38" height="12" uuid="d9b7ea96-ec1e-4e02-b96f-8b0cc91ac022"/>
+=======
+																	<jr:column width="39" uuid="1562a0d6-a5c7-4f48-b149-c333f84b4143">
+																		<jr:columnHeader style="table 38_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="39" height="13" uuid="d9b7ea96-ec1e-4e02-b96f-8b0cc91ac022"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -2830,7 +2939,11 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 																		</jr:columnHeader>
 																		<jr:detailCell style="table 38_TD" height="14" rowSpan="1">
 																			<textField>
+<<<<<<< HEAD
 																				<reportElement x="0" y="0" width="38" height="14" uuid="6a217282-a79c-4f9c-aa92-3af0d6e39dfe"/>
+=======
+																				<reportElement x="0" y="0" width="39" height="14" uuid="6a217282-a79c-4f9c-aa92-3af0d6e39dfe"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																				<textElement textAlignment="Center" verticalAlignment="Middle">
 																					<font size="8"/>
 																				</textElement>
@@ -2845,9 +2958,15 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 												</jr:table>
 											</componentElement>
 										</jr:columnHeader>
+<<<<<<< HEAD
 										<jr:detailCell height="19" rowSpan="1">
 											<componentElement>
 												<reportElement key="table 27" style="table 27" x="0" y="0" width="611" height="19" uuid="8d63fc26-7d87-4d5c-949d-6fbb1e2acfb2"/>
+=======
+										<jr:detailCell height="28" rowSpan="1">
+											<componentElement>
+												<reportElement key="table 27" style="table 27" x="0" y="0" width="611" height="28" uuid="8d63fc26-7d87-4d5c-949d-6fbb1e2acfb2"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 												<jr:table>
 													<datasetRun subDataset="COSTOS" uuid="f48f2e0a-f0ec-428b-aa46-e1ff4336ce9d">
 														<datasetParameter name="cod_sustentoCosto">
@@ -2856,18 +2975,30 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 														<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 													</datasetRun>
 													<jr:column width="575" uuid="9118ea67-e588-427e-9f1c-73b543673795">
+<<<<<<< HEAD
 														<jr:detailCell height="19" rowSpan="1">
 															<staticText>
 																<reportElement x="0" y="0" width="575" height="19" uuid="6a7240f6-3cfe-449f-b3fa-354876083794"/>
+=======
+														<jr:detailCell height="30" rowSpan="1">
+															<staticText>
+																<reportElement x="0" y="0" width="575" height="30" uuid="6a7240f6-3cfe-449f-b3fa-354876083794"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																<textElement textAlignment="Center" verticalAlignment="Middle"/>
 																<text><![CDATA[TOTAL GENERAL DE GASTOS DIRECTOS E INDIRECTOS]]></text>
 															</staticText>
 														</jr:detailCell>
 													</jr:column>
 													<jr:column width="37" uuid="69cfcfe6-604a-42cf-9e4f-0ecc7ffe2de2">
+<<<<<<< HEAD
 														<jr:detailCell style="table 27_TD" height="19" rowSpan="1">
 															<textField>
 																<reportElement x="0" y="0" width="37" height="19" uuid="234d9163-ab2d-4839-93d7-e844d3ae5d55"/>
+=======
+														<jr:detailCell style="table 27_TD" height="30" rowSpan="1">
+															<textField>
+																<reportElement x="0" y="0" width="37" height="30" uuid="234d9163-ab2d-4839-93d7-e844d3ae5d55"/>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 																<textElement textAlignment="Center" verticalAlignment="Middle"/>
 																<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 															</textField>
@@ -2987,7 +3118,11 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 		</band>
 	</detail>
 	<pageFooter>
+<<<<<<< HEAD
 		<band height="21" splitType="Stretch">
+=======
+		<band height="19" splitType="Stretch">
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
 			<textField evaluationTime="Report">
 				<reportElement x="752" y="0" width="40" height="19" uuid="794bb5b2-70e7-4f26-b422-a1a0571aabbe"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>

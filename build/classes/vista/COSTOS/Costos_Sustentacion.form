@@ -1207,7 +1207,14 @@
                                   </Group>
                               </Group>
                           </Group>
+<<<<<<< HEAD
                           <Component id="jScrollPane21" min="-2" pref="876" max="-2" attributes="0"/>
+=======
+                          <Group type="102" attributes="0">
+                              <Component id="jScrollPane21" min="-2" pref="876" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          </Group>
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
                       </Group>
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>

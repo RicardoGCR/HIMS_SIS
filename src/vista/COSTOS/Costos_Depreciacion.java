@@ -301,6 +301,7 @@ public class Costos_Depreciacion extends javax.swing.JFrame implements Runnable{
             }
         ));
         tableHerramientas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tableHerramientas.setRowHeight(22);
         tableHerramientas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tableHerramientasKeyPressed(evt);
@@ -402,6 +403,7 @@ public class Costos_Depreciacion extends javax.swing.JFrame implements Runnable{
             }
         ));
         tableDepreciacion.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tableDepreciacion.setRowHeight(22);
         tableDepreciacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tableDepreciacionKeyPressed(evt);
@@ -1026,10 +1028,11 @@ public class Costos_Depreciacion extends javax.swing.JFrame implements Runnable{
     private void btnNuevoDepreciacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoDepreciacionActionPerformed
         txtfechaFinDepreciar.setDate(null); 
         nuevo();
-        habilitar();
+        habilitarN();
         limpiar_Nuevo(); 
         txt_primer_registro.setText("G");
         btnGrabarDepreciacion.setEnabled(true);
+        btnBuscarHerraminetaDepre.requestFocus();
         
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNuevoDepreciacionActionPerformed
@@ -1059,6 +1062,8 @@ public class Costos_Depreciacion extends javax.swing.JFrame implements Runnable{
              txtFechaCompra.setText(String.valueOf(tableHerramientas.getValueAt(fila, 5)));
              Buscar_herramientas_depreciacion.setVisible(false);
              txtVidaUtilAñosN.requestFocus();
+             habilitar();
+             
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_tableHerramientasKeyPressed
@@ -1743,6 +1748,25 @@ public class Costos_Depreciacion extends javax.swing.JFrame implements Runnable{
       txtdpAcumulada.setEnabled(true);
       txtValorNeto.setEnabled(true);
       btnBuscarHerraminetaDepre.requestFocus();
+    }
+    
+    public void habilitarN(){
+      txtCodigoS.setEnabled(true);
+      txtNombreProducto.setEnabled(true);
+      btnBuscarHerraminetaDepre.setEnabled(true);
+      txtCodigoPatrimonial.setEnabled(true);
+//      txtValorCompra.setEnabled(true);
+//      //cbxVidaUtil.setEnabled(true);
+//      txtVidaUtilAñosN.setEnabled(true);
+//      txtVidaUtilMeses.setEnabled(true);
+//      txtDepreciacionDiaria.setEnabled(true);
+//      txtDepreciacionMensual.setEnabled(true);
+//      txtFechaCompra.setEnabled(true);
+//      txtfechaFinDepreciar.setEnabled(true);
+//      txtTotalMesesDepreciar.setEnabled(true);
+//      txtdpAcumulada.setEnabled(true);
+//      txtValorNeto.setEnabled(true);
+//      btnBuscarHerraminetaDepre.requestFocus();
     }
 
         public void habilitar_nuevo(){

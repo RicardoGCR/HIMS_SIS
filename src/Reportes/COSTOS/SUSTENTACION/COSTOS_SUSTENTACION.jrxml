@@ -1036,22 +1036,22 @@ and cts.nombre_tipo_susten='SERVICIOS INTERMEDIOS' and cs.cod_sustento_costo=$P{
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select cs.cod_sustento_costo,a.cod_precio,b.nomen_caja,c.nombre_grupo_nomen,d.AR_DESC,
+		<![CDATA[select cs.cod_sustento_costo,a.cod_precio,b.nomen_caja,SS.SE_DESC,d.AR_DESC,
 e.nom_forma_pago,cast(LEFT(a.precio,LEN(A.PRECIO)) as smallmoney)as precio,
 cs.tiempo_hora,cs.tiempo_min,LEFT(cs.saldo_ganancia_perdida_total
 ,LEN(cs.saldo_ganancia_perdida_total)) as gananciaPerdida,b.descripcion_nomen_tipo,
 CAST(LEFT(cs.saldo_ganancia_perdida_total,LEN(cs.saldo_ganancia_perdida_total)) AS smallmoney) AS NOMBRE,CAST(LEFT(a.precio-cs.saldo_ganancia_perdida_total,LEN(a.precio-cs.saldo_ganancia_perdida_total))AS smallmoney) AS TOTAL
 from COSTOS_SUSTENTACION cs,CAJA_PRECIOS a, CAJA_NOMENCLATURA_CAJA b, CAJA_GRUPO_NOMENCLATURA_ATENCION c,
- SISTEMA_AREAS d,CAJA_JERARQUIA_FORMA_PAGO e
+ SISTEMA_AREAS d,CAJA_JERARQUIA_FORMA_PAGO e,SISTEMA_SERVICIO SS
 where cs.cod_precio=a.cod_precio and a.cod_nomen_caja = b.cod_nomen_caja and
-b.cod_grupo_nomen_aten=c.cod_grupo_nomen_aten and b.AR_ID=d.AR_ID and
+b.cod_grupo_nomen_aten=c.cod_grupo_nomen_aten and b.AR_ID=d.AR_ID and SS.SE_ID=D.SE_ID AND
 e.cod_jerar_forma_pago=a.cod_jerar_forma_pago and b.estado_nomen_caja='A' and a.estado_precios = 'A'
 and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 	</queryString>
 	<field name="cod_sustento_costo" class="java.lang.String"/>
 	<field name="cod_precio" class="java.lang.String"/>
 	<field name="nomen_caja" class="java.lang.String"/>
-	<field name="nombre_grupo_nomen" class="java.lang.String"/>
+	<field name="SE_DESC" class="java.lang.String"/>
 	<field name="AR_DESC" class="java.lang.String"/>
 	<field name="nom_forma_pago" class="java.lang.String"/>
 	<field name="precio" class="java.math.BigDecimal"/>
@@ -2942,11 +2942,7 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 				<text><![CDATA[ESTADO DEL COSTO REAL:     S/.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="63" y="0" width="100" height="20" uuid="b97cab5e-7497-44dd-9d38-66b5ed36ebab"/>
-				<textFieldExpression><![CDATA[$F{nombre_grupo_nomen}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="385" y="0" width="100" height="20" uuid="b2445115-5bab-4112-9df1-d7d9e1227b22"/>
+				<reportElement x="385" y="0" width="204" height="20" uuid="b2445115-5bab-4112-9df1-d7d9e1227b22"/>
 				<textFieldExpression><![CDATA[$F{AR_DESC}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -2983,6 +2979,10 @@ and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
 			<textField>
 				<reportElement x="163" y="23" width="38" height="20" uuid="6617f952-d608-40f8-a056-afa308c3822f"/>
 				<textFieldExpression><![CDATA[$F{gananciaPerdida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="0" width="224" height="20" uuid="eb2592a9-c817-44de-bd48-d1ef82f36ed7"/>
+				<textFieldExpression><![CDATA[$F{SE_DESC}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

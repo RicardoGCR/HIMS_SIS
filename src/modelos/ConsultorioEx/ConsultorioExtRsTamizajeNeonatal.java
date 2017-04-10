@@ -148,6 +148,7 @@ public class ConsultorioExtRsTamizajeNeonatal implements Serializable {
             int c=1;
             while(r.next()){
                 lblPorcentajeTN.setText(r.getString(1) + " %"); 
+                RSAITN.lblPorcentajeTn.setText(r.getString(1) + " % Completado"); 
             }
             //
         } catch (Exception e) {

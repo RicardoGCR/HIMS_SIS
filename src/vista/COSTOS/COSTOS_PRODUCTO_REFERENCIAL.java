@@ -262,6 +262,10 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                 public boolean isCellEditable(int rowIndex, int colIndex){
                     return false; //Disallow the editing of any cell
                 }};
+                jPopupMenu1 = new javax.swing.JPopupMenu();
+                jMenuItem1 = new javax.swing.JMenuItem();
+                jSeparator1 = new javax.swing.JPopupMenu.Separator();
+                jMenuItem2 = new javax.swing.JMenuItem();
                 jpanel = new javax.swing.JPanel();
                 titulo5 = new javax.swing.JLabel();
                 jLabel14 = new javax.swing.JLabel();
@@ -298,7 +302,8 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                     PRODUCTOS.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                     PRODUCTOS.setAlwaysOnTop(true);
                     PRODUCTOS.setAutoRequestFocus(false);
-                    PRODUCTOS.setMinimumSize(new java.awt.Dimension(937, 574));
+                    PRODUCTOS.setMinimumSize(new java.awt.Dimension(928, 574));
+                    PRODUCTOS.setResizable(false);
 
                     jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
                     jLabel2.setText("Búsqueda de Productos");
@@ -338,6 +343,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                             "Title 1", "Title 2", "Title 3", "Title 4"
                         }
                     ));
+                    tbProductoAlmacen.setComponentPopupMenu(jPopupMenu1);
                     tbProductoAlmacen.setRowHeight(25);
                     tbProductoAlmacen.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -371,7 +377,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                         .addGroup(PRODUCTOSLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 897, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(30, Short.MAX_VALUE))
+                            .addContainerGap(21, Short.MAX_VALUE))
                     );
                     PRODUCTOSLayout.setVerticalGroup(
                         PRODUCTOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,6 +397,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                     PRODUCTO_REFERENCIAL.setAlwaysOnTop(true);
                     PRODUCTO_REFERENCIAL.setAutoRequestFocus(false);
                     PRODUCTO_REFERENCIAL.setMinimumSize(new java.awt.Dimension(558, 570));
+                    PRODUCTO_REFERENCIAL.setResizable(false);
 
                     jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
                     jLabel4.setText("Producto Referencial");
@@ -476,6 +483,25 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addContainerGap(49, Short.MAX_VALUE))
                     );
+
+                    jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/mas.png"))); // NOI18N
+                    jMenuItem1.setText("Agregar");
+                    jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                            jMenuItem1ActionPerformed(evt);
+                        }
+                    });
+                    jPopupMenu1.add(jMenuItem1);
+                    jPopupMenu1.add(jSeparator1);
+
+                    jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salir16x16.png"))); // NOI18N
+                    jMenuItem2.setText("Regresar");
+                    jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                            jMenuItem2ActionPerformed(evt);
+                        }
+                    });
+                    jPopupMenu1.add(jMenuItem2);
 
                     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                     setTitle("SISGESH .::. Producto Referencial");
@@ -652,6 +678,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                             "Title 1", "Title 2", "Title 3", "Title 4"
                         }
                     ));
+                    tb_productodetalle.setRowHeight(20);
                     tb_productodetalle.addKeyListener(new java.awt.event.KeyAdapter() {
                         public void keyPressed(java.awt.event.KeyEvent evt) {
                             tb_productodetalleKeyPressed(evt);
@@ -816,8 +843,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
         btnAgregar.setEnabled(true);
         btnQuitar.setEnabled(true);
         inicializar_tabla();
-        tb_productodetalle.setEnabled(true);
-        tb_productodetalle.setBackground(Color.white);
+        
             
     }//GEN-LAST:event_btnNuevoActionPerformed
 
@@ -936,7 +962,11 @@ enableDatos();
                        btnguardar.setEnabled(true);
                        btnmodificar.setEnabled(false);
                        btneliminar.setEnabled(false);
+                       
+                          btnAgregar.setEnabled(true);
+                         btnQuitar.setEnabled(true);
                     limpiar();
+                    enableDatos();
                 }
             }
         }catch(Exception e){
@@ -1060,11 +1090,11 @@ enableDatos();
 
     private void tbProductoAlmacenKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbProductoAlmacenKeyPressed
         // TODO add your handling code here:
-         char tecla= evt.getKeyChar();
-                if(tecla==KeyEvent.VK_ENTER){
-                     PRODUCTOS.setVisible(false);
-                    mostrarDetalle();
-                }
+//         char tecla= evt.getKeyChar();
+//                if(tecla==KeyEvent.VK_ENTER){
+//                     PRODUCTOS.setVisible(false);
+//                    mostrarDetalle();
+//                }
                 
     }//GEN-LAST:event_tbProductoAlmacenKeyPressed
 
@@ -1160,6 +1190,15 @@ char tecla= evt.getKeyChar();
     private void tbProductoReferencialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbProductoReferencialKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_tbProductoReferencialKeyTyped
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        mostrarDetalle();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+PRODUCTOS.setVisible(false);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
     public void enableDatos(){                    
                        txtProducto.setEnabled(true);
 }
@@ -1188,7 +1227,8 @@ char tecla= evt.getKeyChar();
     txtProducto.setText("");
     tb_productodetalle.setModel(new DefaultTableModel());
     inicializar_tabla();
-   
+   tb_productodetalle.setEnabled(true);
+        tb_productodetalle.setBackground(Color.white);
 }
 
      public void mostrarDetalle(){
@@ -1217,7 +1257,7 @@ String Codigo,Nombre_del_Producto,Clase_producto,Descripcion_de_la_clase_product
           }
           else{
            if(repiteDetalle()==true){
-               JOptionPane.showMessageDialog(rootPane,"El Producto ya ha sido ingresado.");   
+               JOptionPane.showMessageDialog(PRODUCTOS,"El Producto ya ha sido ingresado.");   
           }
            else{
                 m1=(DefaultTableModel) tb_productodetalle.getModel();
@@ -1618,10 +1658,14 @@ String Codigo,Nombre_del_Producto,Clase_producto,Descripcion_de_la_clase_product
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPanel jpanel;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;

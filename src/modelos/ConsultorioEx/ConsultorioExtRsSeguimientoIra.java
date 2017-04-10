@@ -6,7 +6,6 @@
 package modelos.ConsultorioEx;
 
 import java.io.Serializable;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,35 +16,36 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
-public class ConsultorioExtRsSeguimientoAnemia implements Serializable {
+
+public class ConsultorioExtRsSeguimientoIra implements Serializable {
 
     private static final long serialVersionUID = 1L;
     DefaultTableModel m;
     private Connection cn;
     private int rs_id;
-    private int saId;
-    private String saFecha;
-    private String saEdad;
-    private String saRes;
+    private int siId;
+    private String siFecha;
+    private String siEdad;
+    private String siRes;
     private Character estado;
     private String codUsu;
     private String nomPc;
     private int id_cie10;
-
-    public boolean mantenimientoConsultorioExtRsSeguimientoAnemia(String tipo)
+    
+    public boolean mantenimientoConsultorioExtRsSeguimientoIra(String tipo)
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_RS_SEGUIMIENTO_ANEMIA ?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_RS_SEGUIIENTO_IRA ?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getRs_id());
-            cmd.setString(2, getSaFecha());
-            cmd.setString(3, getSaEdad());
-            cmd.setString(4, getSaRes());
+            cmd.setString(2, getSiFecha());
+            cmd.setString(3, getSiEdad());
+            cmd.setString(4, getSiRes());
             cmd.setInt(5, getId_cie10());
             cmd.setString(6, getCodUsu());
             cmd.setString(7, tipo);
-            cmd.setInt(8, getSaId());
+            cmd.setInt(8, getSiId());
             if(!cmd.execute())
             {
                 resp = true;
@@ -54,7 +54,7 @@ public class ConsultorioExtRsSeguimientoAnemia implements Serializable {
         }
         catch(Exception ex)
         {
-            System.out.println("Error: mantenimientoConsultorioExtRsSeguimientoAnemia: " + ex.getMessage());
+            System.out.println("Error: mantenimientoConsultorioExtRsSeguimientoIra: " + ex.getMessage());
         }
         return resp;
     }
@@ -101,7 +101,7 @@ public class ConsultorioExtRsSeguimientoAnemia implements Serializable {
                 JTable p=new JTable(m);
                 String fila[]=new String[7];
                 //int index = cbxTipoBusqueda.getSelectedIndex();
-                consulta="EXEC CONSULTORIO_EXT_RS_SEGUIMIENTO_ANEMIA_LISTAR ?";
+                consulta="EXEC CONSULTORIO_EXT_RS_SEGUIMIENTO_IRA_LISTAR ?";
                 PreparedStatement cmd = getCn().prepareStatement(consulta);
                 cmd.setString(1, id);
                 ResultSet r= cmd.executeQuery();
@@ -127,45 +127,45 @@ public class ConsultorioExtRsSeguimientoAnemia implements Serializable {
         }
     }
     
-    public ConsultorioExtRsSeguimientoAnemia() {
+    public ConsultorioExtRsSeguimientoIra() {
         Conexion con = new Conexion();
         cn = con.conectar();
     }
 
-    public ConsultorioExtRsSeguimientoAnemia(int saId) {
-        this.saId = saId;
+    public ConsultorioExtRsSeguimientoIra(int siId) {
+        this.siId = siId;
     }
 
-    public int getSaId() {
-        return saId;
+    public int getSiId() {
+        return siId;
     }
 
-    public void setSaId(int saId) {
-        this.saId = saId;
+    public void setSiId(int siId) {
+        this.siId = siId;
     }
 
-    public String getSaFecha() {
-        return saFecha;
+    public String getSiFecha() {
+        return siFecha;
     }
 
-    public void setSaFecha(String saFecha) {
-        this.saFecha = saFecha;
+    public void setSiFecha(String siFecha) {
+        this.siFecha = siFecha;
     }
 
-    public String getSaEdad() {
-        return saEdad;
+    public String getSiEdad() {
+        return siEdad;
     }
 
-    public void setSaEdad(String saEdad) {
-        this.saEdad = saEdad;
+    public void setSiEdad(String siEdad) {
+        this.siEdad = siEdad;
     }
 
-    public String getSaRes() {
-        return saRes;
+    public String getSiRes() {
+        return siRes;
     }
 
-    public void setSaRes(String saRes) {
-        this.saRes = saRes;
+    public void setSiRes(String siRes) {
+        this.siRes = siRes;
     }
 
     public Character getEstado() {
@@ -194,7 +194,7 @@ public class ConsultorioExtRsSeguimientoAnemia implements Serializable {
 
     @Override
     public String toString() {
-        return "modelos.ConsultorioEx.ConsultorioExtRsSeguimientoAnemia[ saId=" + saId + " ]";
+        return "modelos.ConsultorioEx.ConsultorioExtRsSeguiientoIra[ siId=" + siId + " ]";
     }
     /**
      * @return the cn

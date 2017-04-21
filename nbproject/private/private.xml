@@ -3,6 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADO_INSUMOS.java</file>
+            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADO_MUESTRA.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/OrdenPCR.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsCabecera.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAITTO.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtOrdenpcr.java</file>
+=======
+<<<<<<< HEAD
+>>>>>>> 5f3619dd16ff49624d1083d075839407ac3df70b
             <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Insumo.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/COSTOS/BUSCAR_ESTIMACION_COSTOS.java</file>
@@ -15,6 +29,7 @@
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/REGSEGSEGD.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIREGSEG.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAICCD.java</file>
+<<<<<<< HEAD
             <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Servicio_Basicos.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/COSTOS/COSTOS_PRODUCTO_REFERENCIAL.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/COSTOS/TipoSustentacion.java</file>
@@ -23,6 +38,12 @@
             <file>file:/D:/pry/SISGESH/src/vista/admisionEmergencia/FrmFormatoEmergencia.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Depreciacion.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/COSTOS/BUSCAR_COSTOS_SERVICIOS_VARIOS.java</file>
+=======
+>>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
+>>>>>>> 5128bd9978909b92bfd2f23d4a85d3cb0d47cd65
+>>>>>>> 270a7861ef98080bec860ff23d1f264a0b7d3246
+>>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
+>>>>>>> 5f3619dd16ff49624d1083d075839407ac3df70b
         </group>
     </open-files>
 </project-private>

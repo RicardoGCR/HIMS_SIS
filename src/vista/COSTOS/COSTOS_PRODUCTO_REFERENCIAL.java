@@ -161,7 +161,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
      public void cargarProducto(){
     try {
              String titulos[]={"Nº","Codigo","Nombre del Producto","Clase producto","Descripcion de la clase producto", "Marca",
-                "Unidad medida","Presentacion","Fabricante"};
+                "Unidad medida","Lote","Fabricante"};
             m2=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m2);
             String fila[]=new String[16];
@@ -302,7 +302,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                     PRODUCTOS.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                     PRODUCTOS.setAlwaysOnTop(true);
                     PRODUCTOS.setAutoRequestFocus(false);
-                    PRODUCTOS.setMinimumSize(new java.awt.Dimension(928, 574));
+                    PRODUCTOS.setMinimumSize(new java.awt.Dimension(917, 574));
                     PRODUCTOS.setResizable(false);
 
                     jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -377,7 +377,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                         .addGroup(PRODUCTOSLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 897, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(21, Short.MAX_VALUE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
                     PRODUCTOSLayout.setVerticalGroup(
                         PRODUCTOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1048,7 +1048,7 @@ enableDatos();
         try {
             tbProductoAlmacen.setModel(new DefaultTableModel());
             String titulos[]={"Nº","Codigo","Nombre del Producto","Clase producto","Descripcion de la clase producto", "Marca",
-                "Unidad medida","Presentacion","Fabricante"};
+                "Unidad medida","Lote","Fabricante"};
             m3=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m3);
             String fila[]=new String[15];

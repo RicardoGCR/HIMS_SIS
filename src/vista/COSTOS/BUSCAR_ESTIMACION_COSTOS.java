@@ -49,6 +49,8 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 import static vista.COSTOS.Costos_Sustentacion.*;
+import static vista.COSTOS.Costos_Sustentacion.formatoInicializarTabla;
+
 
 /**
  *
@@ -414,6 +416,7 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
             tbServiciosIntermedios.setBackground(Color.lightGray);
             btnAgregarServiciosInterm.setEnabled(false);
             btnQuitarServiciosInterm.setEnabled(false);
+            formatoInicializarTabla();
         }
         } catch (Exception e) {
         }
@@ -1148,7 +1151,7 @@ JOptionPane.showMessageDialog(null, "Documento Exportado Exitosamente!", "Guarda
                 txtGananciaPerdida.setForeground(Color.red);
             txtGananciaPerdida.setText(String.valueOf(ganper));
             }
-            txtNomenclatura.setText(tb_Buscar_Estimacion.getValueAt(filaselec,10).toString());
+            txtNomenclatura.setText("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"+tb_Buscar_Estimacion.getValueAt(filaselec,10).toString());
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }

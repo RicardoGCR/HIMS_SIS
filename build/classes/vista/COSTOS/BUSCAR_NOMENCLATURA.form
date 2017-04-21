@@ -29,15 +29,9 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-<<<<<<< HEAD
               <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
               <Component id="txtBuscar" min="-2" pref="240" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-=======
-              <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
-              <Component id="txtBuscar" min="-2" pref="217" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
->>>>>>> 174a37581c1907b2a33dee5eb20e788259eda61a
               <Component id="btnBuscar" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace pref="176" max="32767" attributes="0"/>
           </Group>

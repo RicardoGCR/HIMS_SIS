@@ -3,27 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Insumo.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/COSTOS_PRODUCTO_REFERENCIAL.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/E:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Insumo.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/COSTOS/Costos_Depreciacion.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIDD.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIVacunas.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIVD.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/BUSCAR_ESTIMACION_COSTOS.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/COSTOS_SERVICIOS_VARIOS.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/BuscarTipoSustentacion.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/BUSCAR_NOMENCLATURA.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
-=======
->>>>>>> 151fcb9d2ef2e7a5f4e49d226352408d85588d19
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/REGSEGMONITOREO.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/REGSEGSEGA.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/REGSEGSEGD.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIREGSEG.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAICCD.java</file>
->>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
->>>>>>> 5128bd9978909b92bfd2f23d4a85d3cb0d47cd65
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Servicio_Basicos.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/COSTOS_PRODUCTO_REFERENCIAL.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/TipoSustentacion.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/REGSEGSEGIRA.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/REGSEGSEGP.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/admisionEmergencia/FrmFormatoEmergencia.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Depreciacion.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/BUSCAR_COSTOS_SERVICIOS_VARIOS.java</file>
         </group>
     </open-files>
 </project-private>

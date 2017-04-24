@@ -22,7 +22,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel7" min="-2" pref="137" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane3" pref="190" max="32767" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
@@ -58,8 +58,8 @@
                       <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel27" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jPanel8" min="-2" pref="16" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="549" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -670,11 +670,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                  <EmptySpace min="0" pref="1701" max="32767" attributes="0"/>
-=======
                   <EmptySpace min="0" pref="1589" max="32767" attributes="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -705,11 +701,7 @@
                               <Component id="pnlContenedor" min="-2" max="-2" attributes="0"/>
                               <Component id="txtSis" min="-2" max="-2" attributes="0"/>
                           </Group>
-<<<<<<< HEAD
-                          <EmptySpace min="0" pref="112" max="32767" attributes="0"/>
-=======
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2002,15 +1994,9 @@
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                                              <Component id="lblTriaje" min="-2" pref="49" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="lblHc" min="-2" pref="49" max="-2" attributes="0"/>
-=======
                                               <Component id="txtHc" min="-2" pref="49" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="lblTriaje" min="-2" pref="49" max="-2" attributes="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="lblFua" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
@@ -2066,13 +2052,8 @@
                                       <Component id="lblEdad" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-<<<<<<< HEAD
-                                          <Component id="lblTriaje" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblHc" alignment="3" min="-2" max="-2" attributes="0"/>
-=======
                                           <Component id="txtHc" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblTriaje" alignment="3" min="-2" max="-2" attributes="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                           <Component id="lblFua" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblGenero" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -2345,11 +2326,7 @@
                                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                           <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                                                          <Component id="txtCodigo" min="-2" pref="122" max="-2" attributes="0"/>
-=======
                                                           <Component id="txtCodigoSis" min="-2" pref="122" max="-2" attributes="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                                           <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -2364,11 +2341,7 @@
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                               <Group type="102" attributes="0">
-<<<<<<< HEAD
-                                                                  <Component id="txtPadre1" max="32767" attributes="0"/>
-=======
                                                                   <Component id="txtPadre" max="32767" attributes="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                                   <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
                                                               </Group>
@@ -2379,24 +2352,15 @@
                                                           </Group>
                                                           <EmptySpace max="32767" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                                                              <Component id="txDniPadre" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
-                                                              <Component id="txDniMadre" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
-=======
                                                               <Component id="txtDniPadre" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
                                                               <Component id="txtDniMadre" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                                           </Group>
                                                       </Group>
                                                   </Group>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-<<<<<<< HEAD
-                                                  <Component id="txtPadre" min="-2" pref="531" max="-2" attributes="0"/>
-=======
                                                   <Component id="txtReferencia" min="-2" pref="531" max="-2" attributes="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                               </Group>
                                           </Group>
                                       </Group>
@@ -2413,36 +2377,22 @@
                                       <Component id="jPanel10" min="-2" pref="27" max="-2" attributes="0"/>
                                       <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-<<<<<<< HEAD
-                                          <Component id="txDniMadre" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-=======
                                           <Component id="txtDniMadre" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                           <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                                      <Component id="txtPadre1" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                                      <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txDniPadre" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-=======
                                       <Component id="txtPadre" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                       <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtDniPadre" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txtRiesgo" alignment="3" max="32767" attributes="0"/>
                                       <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                                      <Component id="txtCodigo" alignment="3" max="32767" attributes="0"/>
-=======
                                       <Component id="txtCodigoSis" alignment="3" max="32767" attributes="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                       <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2454,11 +2404,7 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-<<<<<<< HEAD
-                                      <Component id="txtPadre" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-=======
                                       <Component id="txtReferencia" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                       <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -2494,11 +2440,7 @@
                             <Property name="text" type="java.lang.String" value="C&#xf3;digo SIS"/>
                           </Properties>
                         </Component>
-<<<<<<< HEAD
-                        <Component class="javax.swing.JTextField" name="txtCodigo">
-=======
                         <Component class="javax.swing.JTextField" name="txtCodigoSis">
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="15" style="0"/>
@@ -2516,11 +2458,7 @@
                             </Property>
                           </Properties>
                           <Events>
-<<<<<<< HEAD
-                            <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtCodigoCaretUpdate"/>
-=======
                             <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtCodigoSisCaretUpdate"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2693,8 +2631,6 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cbxTipoSeguro">
-<<<<<<< HEAD
-=======
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="14" style="0"/>
@@ -2772,39 +2708,9 @@
                           </AuxValues>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel32">
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="14" style="0"/>
-                            </Property>
-                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="4">
-                                <StringItem index="0" value="Seleccionar..."/>
-                                <StringItem index="1" value="Seguro1"/>
-                                <StringItem index="2" value="Seguro2"/>
-                                <StringItem index="3" value="Seguro2"/>
-                              </StringArray>
-                            </Property>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxTipoSeguroActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel22">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="14" style="0"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="33" green="33" red="33" type="rgb"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="Nombres del Padre           "/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="txtPadre">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Tahoma" size="15" style="0"/>
                             </Property>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -2832,11 +2738,7 @@
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="66" green="66" red="66" type="rgb"/>
                             </Property>
-<<<<<<< HEAD
-                            <Property name="horizontalAlignment" type="int" value="2"/>
-=======
                             <Property name="horizontalAlignment" type="int" value="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                 <LineBorder>
@@ -2844,85 +2746,9 @@
                                 </LineBorder>
                               </Border>
                             </Property>
-<<<<<<< HEAD
-                          </Properties>
-                          <Events>
-                            <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtPadreCaretUpdate"/>
-                          </Events>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-                          </AuxValues>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="txDniPadre">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Tahoma" size="15" style="0"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="66" green="66" red="66" type="rgb"/>
-                            </Property>
-                            <Property name="horizontalAlignment" type="int" value="2"/>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                <LineBorder>
-                                  <Color PropertyName="color" blue="99" green="99" red="99" type="rgb"/>
-                                </LineBorder>
-                              </Border>
-                            </Property>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txDniPadreCaretUpdate"/>
-                          </Events>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-                          </AuxValues>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel32">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="14" style="0"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="33" green="33" red="33" type="rgb"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="DNI"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel33">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="14" style="0"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="33" green="33" red="33" type="rgb"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="DNI"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="txDniMadre">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Tahoma" size="15" style="0"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="66" green="66" red="66" type="rgb"/>
-                            </Property>
-                            <Property name="horizontalAlignment" type="int" value="2"/>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                <LineBorder>
-                                  <Color PropertyName="color" blue="99" green="99" red="99" type="rgb"/>
-                                </LineBorder>
-                              </Border>
-                            </Property>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txDniMadreCaretUpdate"/>
-=======
                           </Properties>
                           <Events>
                             <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtDniMadreCaretUpdate"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2939,11 +2765,7 @@
                             <Property name="text" type="java.lang.String" value="Referencia"/>
                           </Properties>
                         </Component>
-<<<<<<< HEAD
-                        <Component class="javax.swing.JTextField" name="txtPadre1">
-=======
                         <Component class="javax.swing.JTextField" name="txtPadre">
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="15" style="0"/>
@@ -2951,11 +2773,7 @@
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="66" green="66" red="66" type="rgb"/>
                             </Property>
-<<<<<<< HEAD
-                            <Property name="horizontalAlignment" type="int" value="2"/>
-=======
                             <Property name="horizontalAlignment" type="int" value="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                 <LineBorder>
@@ -2965,11 +2783,7 @@
                             </Property>
                           </Properties>
                           <Events>
-<<<<<<< HEAD
-                            <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtPadre1CaretUpdate"/>
-=======
                             <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtPadreCaretUpdate"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -3111,11 +2925,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="0" pref="1701" max="32767" attributes="0"/>
-=======
                       <EmptySpace min="0" pref="1589" max="32767" attributes="0"/>
->>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">

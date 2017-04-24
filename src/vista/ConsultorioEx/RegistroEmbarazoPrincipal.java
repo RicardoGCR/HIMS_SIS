@@ -11,8 +11,7 @@ import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
-import static vista.ConsultorioEx.RegistroSeguimiento.Contenedor;
-import static vista.ConsultorioEx.RegistroSeguimiento.jTabbedPane1;
+
 
 /**
  *
@@ -657,15 +656,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        this.dispose();
-        RegistroEmbarazoAO AO =new RegistroEmbarazoAO();
-        Contenedor.add(AO);
-        try {
-            AO.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+    
     }//GEN-LAST:event_jLabel7MouseClicked
 
 

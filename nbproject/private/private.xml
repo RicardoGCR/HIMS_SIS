@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/AgendaCita.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/OrdenPCR.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
@@ -21,6 +22,11 @@
             <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsCabecera.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/Consultorio.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioAsignacion.java</file>
+=======
+            <file>file:/D:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADO_INSUMOS.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADO_MUESTRA.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADOS_MUESTRA_INGRESO.java</file>
+>>>>>>> 4aa79983fa958cb6642c698e764e0cd8ff066831
         </group>
     </open-files>
 </project-private>

@@ -75,7 +75,7 @@ DefaultTableModel m,n,muestra;
         setResizable(false);//para que no funcione el boton maximizar
         formato();
         //ocultar
-        panelOcultar.setVisible(false);
+//        panelOcultar.setVisible(false);
    
         //fecha
         Calendar cal=Calendar.getInstance(); 
@@ -2005,8 +2005,73 @@ public void Muestras_cargar(String nomen,String area){
     }//GEN-LAST:event_txthospiServKeyReleased
 
     private void btnInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsumosActionPerformed
-        // TODO add your handling code here:
+       frm_LAB_RESULTADO_INSUMOS RI=new frm_LAB_RESULTADO_INSUMOS();
+        RI.setVisible(true);
+        Insumos_cargar(lblid_cod_doc_det.getText());
+        
     }//GEN-LAST:event_btnInsumosActionPerformed
+    public void Insumos_cargar(String cod){
+    try {
+        int filaselec=frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getSelectedRow();
+             String titulos[]={"N°","codigoKardex","Codigo Produc","Descripcion del Producto",
+                 "Entrada","Cantidad","Saldo","UM","Fecha de Vencimiento","Lote","Marca"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[11];
+
+            LAB_Toma_Muestra_Cabecera obj=new LAB_Toma_Muestra_Cabecera();
+        String consulta="exec sp_LAB_BUSQUEDA_RESULTADO_INSUMOS ?";
+        
+        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1, cod);
+        ResultSet r=cmd.executeQuery();
+        int c=1;
+        while(r.next()){
+            fila[0]=String.valueOf(c)+"º";
+            fila[1]=r.getString(1);
+            fila[2]=r.getString(2);
+            fila[3]=r.getString(3);
+            fila[4]=r.getString(4);
+            fila[5]=r.getString(5);
+            fila[6]=r.getString(6);
+            fila[7]=r.getString(7);
+            fila[8]=r.getString(8);
+            fila[9]=r.getString(9);
+            fila[10]=r.getString(10);
+                m.addRow(fila);
+                c++;
+            }
+            frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.setRowSorter(elQueOrdena);
+           
+            Insumos_formato();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(rootPane, "Error en la tabla");
+    }
+}
+    public void Insumos_formato(){
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(0).setPreferredWidth(35);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(3).setPreferredWidth(230);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(5).setPreferredWidth(80);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(7).setPreferredWidth(110);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(8).setPreferredWidth(120);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(9).setPreferredWidth(120);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(10).setPreferredWidth(150);
+       //Ocultar    
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(1).setMinWidth(0);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(1).setMaxWidth(0);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(2).setMinWidth(0);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(2).setMaxWidth(0);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(4).setMinWidth(0);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(4).setMaxWidth(0);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(6).setMinWidth(0);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(6).setMaxWidth(0);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getSelectionModel().setSelectionInterval(0, 0);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.requestFocus();
+}
+    
+    
     public void enableDatos(){
     tb_Detalle.setEnabled(true);
     tb_Detalle.setBackground(Color.white);

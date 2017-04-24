@@ -3,15 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIDD.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIVacunas.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAIVD.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
-=======
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAICCD.java</file>
->>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoGA.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoAF.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoEXL.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/SolicitudTransfusional.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/Triaje.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoPrincipal.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoAP.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoAO.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RetiroVoluntario.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/Turno.java</file>
         </group>
     </open-files>
 </project-private>

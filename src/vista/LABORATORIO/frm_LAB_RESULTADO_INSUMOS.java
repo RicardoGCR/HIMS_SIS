@@ -7,11 +7,18 @@ package vista.LABORATORIO;
 
 import java.awt.Color;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import modelos.LABORATORIO.LAB_Contenedor_Muestra;
+import modelos.LABORATORIO.LAB_Toma_Muestra_Cabecera;
 import servicios.Conexion;
 import static vista.Principal.fechaActual;
 
@@ -25,6 +32,7 @@ String hora, minutos, segundos, ampm;
     Thread h1;
     Connection conexion=null;
 Conexion c=new Conexion();
+DefaultTableModel m;
     /**
      * Creates new form LAB_MUESTRA_EXAMEN
      */
@@ -43,7 +51,9 @@ Conexion c=new Conexion();
        Calendar cal=Calendar.getInstance(); 
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
         lblFecha.setText(fechaActual());
-
+         jtab1.setBackground(Color.white); 
+    
+        
    //salir presionando escape
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
         javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
@@ -73,6 +83,9 @@ public void calcula() {
         minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
         segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
     }
+
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -82,6 +95,12 @@ public void calcula() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jtab1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbResultadoInsumos = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
         jpanel = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -100,14 +119,68 @@ public void calcula() {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbResultadoInsumos = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SISGESH .::. Muestra Examen");
+        setMinimumSize(new java.awt.Dimension(814, 414));
+        setPreferredSize(new java.awt.Dimension(0, 0));
+        getContentPane().setLayout(null);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 350, 820, 30);
+
+        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+
+        tbResultadoInsumos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbResultadoInsumos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbResultadoInsumos.setRowHeight(20);
+        jScrollPane1.setViewportView(tbResultadoInsumos);
+
+        javax.swing.GroupLayout jtab1Layout = new javax.swing.GroupLayout(jtab1);
+        jtab1.setLayout(jtab1Layout);
+        jtab1Layout.setHorizontalGroup(
+            jtab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jtab1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jtab1Layout.setVerticalGroup(
+            jtab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jtab1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                .addGap(17, 17, 17))
+        );
+
+        jTabbedPane1.addTab("tab1", jtab1);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 790, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 242, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab2", jPanel3);
+
+        getContentPane().add(jTabbedPane1);
+        jTabbedPane1.setBounds(10, 111, 795, 270);
 
         jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
@@ -204,7 +277,7 @@ public void calcula() {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(titulo5))
-                .addGap(292, 292, 292)
+                .addGap(322, 322, 322)
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jpanelLayout.createSequentialGroup()
@@ -217,7 +290,7 @@ public void calcula() {
                                 .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblHora)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 40, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jpanelLayout.setVerticalGroup(
@@ -245,6 +318,9 @@ public void calcula() {
                 .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        getContentPane().add(jpanel);
+        jpanel.setBounds(0, 0, 820, 93);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -281,7 +357,7 @@ public void calcula() {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(8, 8, 8))
         );
@@ -299,71 +375,8 @@ public void calcula() {
                 .addGap(5, 5, 5))
         );
 
-        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
-
-        tbResultadoInsumos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tbResultadoInsumos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jScrollPane1.setViewportView(tbResultadoInsumos);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab1", jPanel2);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 235, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab2", jPanel3);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 390, 820, 26);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -463,7 +476,7 @@ public void calcula() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNuevo;
     public static javax.swing.JButton btneliminar;
-    private javax.swing.JButton btnguardar;
+    public static javax.swing.JButton btnguardar;
     public static javax.swing.JButton btnmodificar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
@@ -479,10 +492,11 @@ public void calcula() {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel jpanel;
+    private javax.swing.JPanel jtab1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;
     public static javax.swing.JLabel lblUsu;
-    private javax.swing.JTable tbResultadoInsumos;
+    public static javax.swing.JTable tbResultadoInsumos;
     private javax.swing.JLabel titulo5;
     // End of variables declaration//GEN-END:variables
 }

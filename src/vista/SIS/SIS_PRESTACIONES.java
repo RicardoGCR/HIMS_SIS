@@ -51,7 +51,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
         BUSCAR_PRESTACION.setLocationRelativeTo(null);
         BUSCAR_PRESTACION.getContentPane().setBackground(Color.white);
         deshabilitar();
-        //txtGM.setVisible(false);
+        txtGM.setVisible(false);
         
         
         //FECHA Y HORA
@@ -131,6 +131,10 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
         jLabel23 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JEditorPane();
+        cbxDMA = new javax.swing.JComboBox();
+        cbxDMAM = new javax.swing.JComboBox();
+        jLabel29 = new javax.swing.JLabel();
+        txtValor = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -487,6 +491,17 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
 
         cbxRegimen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "1", "2", "1 - 2" }));
 
+        cbxDMA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Dias", "Meses", "Años" }));
+
+        cbxDMAM.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Dìas", "Meses", "Años" }));
+        cbxDMAM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxDMAMActionPerformed(evt);
+            }
+        });
+
+        jLabel29.setText("Valor de Prestación:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -498,11 +513,8 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
                             .addComponent(jLabel8)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addGap(18, 18, 18)
-                                .addComponent(cbxN_Gestante_N_Puerp, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())
+                            .addComponent(jLabel21))
+                        .addContainerGap(549, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -514,9 +526,6 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtEdad_Minima, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtNum_Prestacion, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtCodigoPrestacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
@@ -524,28 +533,43 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
                                 .addComponent(txtGM, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(78, 78, 78))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(cbxSexo_Prestacion, 0, 124, Short.MAX_VALUE)
-                                            .addComponent(cbxGestante, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(69, 69, 69)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel19)
-                                            .addComponent(jLabel20)
-                                            .addComponent(jLabel23)
-                                            .addComponent(jLabel7))
-                                        .addGap(30, 30, 30)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtEdad_Maxima, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(cbxHospitalizacion_Prestacion, 0, 124, Short.MAX_VALUE)
-                                                .addComponent(cbxPuerpera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(cbxRegimen, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                            .addComponent(cbxGestante, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                            .addComponent(cbxSexo_Prestacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                            .addComponent(cbxN_Gestante_N_Puerp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGap(57, 57, 57)
+                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jLabel19)
+                                                            .addComponent(jLabel20)
+                                                            .addComponent(jLabel23)
+                                                            .addComponent(jLabel7)))
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addComponent(txtEdad_Minima, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(0, 0, 0)
+                                                        .addComponent(cbxDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(txtEtapa_Vida, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel29)
+                                                .addGap(18, 18, 18)))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cbxHospitalizacion_Prestacion, 0, 130, Short.MAX_VALUE)
+                                            .addComponent(cbxPuerpera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cbxRegimen, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(txtEdad_Maxima, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, 0)
+                                                .addComponent(cbxDMAM, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(txtValor, javax.swing.GroupLayout.Alignment.TRAILING)))
                                     .addComponent(cbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEtapa_Vida, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(77, Short.MAX_VALUE))))))
+                                    .addComponent(jScrollPane2))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -558,7 +582,9 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtNum_Prestacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNum_Prestacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29)
+                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -575,10 +601,12 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
-                        .addComponent(txtEdad_Maxima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtEdad_Maxima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbxDMAM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel6)
-                        .addComponent(txtEdad_Minima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtEdad_Minima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbxDMA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -957,10 +985,13 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
             tabla.addColumn("ID Prestación");
             tabla.addColumn("Número de Prestación");
             tabla.addColumn("Descripción");
+            tabla.addColumn("Valor");
             tabla.addColumn("Tipo");
             tabla.addColumn("Etapa de Vida");
             tabla.addColumn("Edad Mínima");
+            tabla.addColumn("Día/Mes/Año");
             tabla.addColumn("Edad Máxima");
+            tabla.addColumn("Día/Mes/Año");
             tabla.addColumn("Sexo");
             tabla.addColumn("Hospitalización");
             tabla.addColumn("Gestante");
@@ -972,8 +1003,8 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
             cst.setString(1, pres);
             r=cst.executeQuery();
             while (r.next()){
-                Object dato[]=new  Object[13];
-                for (int i=0; i<13; i++){
+                Object dato[]=new  Object[16];
+                for (int i=0; i<16; i++){
                     dato[i]=r.getString(i+1);
 
                 }
@@ -1035,13 +1066,16 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
                         cg.setTIPO(cbxTipo.getSelectedItem().toString());
                         cg.setETAPA_VIDA(txtEtapa_Vida.getText());
                         cg.setEDAD_MINIMA(txtEdad_Minima.getText());
+                        cg.setDMA(cbxDMA.getSelectedItem().toString());
                         cg.setEDAD_MAXIMA(txtEdad_Maxima.getText());
+                        cg.setDMAM(cbxDMAM.getSelectedItem().toString());
                         cg.setSEXO(cbxSexo_Prestacion.getSelectedItem().toString());
                         cg.setHOSPITALIZACION(cbxHospitalizacion_Prestacion.getSelectedItem().toString());
                         cg.setGESTANTE(cbxGestante.getSelectedItem().toString());
                         cg.setPUERPERA(cbxPuerpera.getSelectedItem().toString());
                         cg.setN_GESTANTE_N_PUERPERA(cbxN_Gestante_N_Puerp.getSelectedItem().toString());
                         cg.setREGIMEN_COMPONENTE(cbxRegimen.getSelectedItem().toString());
+                        cg.setVALOR(txtValor.getText());
                         cg.setNOM_USU(lblUsu.getText());
 
                         if(cg.SIS_PRESTACIONES_Guardar()){
@@ -1071,13 +1105,16 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
                                 cm.setTIPO(cbxTipo.getSelectedItem().toString());
                                 cm.setETAPA_VIDA(txtEtapa_Vida.getText());
                                 cm.setEDAD_MINIMA(txtEdad_Minima.getText());
+                                cm.setDMA(cbxDMA.getSelectedItem().toString());
                                 cm.setEDAD_MAXIMA(txtEdad_Maxima.getText());
+                                cm.setDMAM(cbxDMAM.getSelectedItem().toString());
                                 cm.setSEXO(cbxSexo_Prestacion.getSelectedItem().toString());
                                 cm.setHOSPITALIZACION(cbxHospitalizacion_Prestacion.getSelectedItem().toString());
                                 cm.setGESTANTE(cbxGestante.getSelectedItem().toString());
                                 cm.setPUERPERA(cbxPuerpera.getSelectedItem().toString());
                                 cm.setN_GESTANTE_N_PUERPERA(cbxN_Gestante_N_Puerp.getSelectedItem().toString());
                                 cm.setREGIMEN_COMPONENTE(cbxRegimen.getSelectedItem().toString());
+                                cm.setVALOR(txtValor.getText());
                                 cm.setNOM_USU(lblUsu.getText());
 
                                  SIS_CLS_PRESTACION_DESTINO q = new SIS_CLS_PRESTACION_DESTINO();
@@ -1362,6 +1399,10 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
 
         }
     }//GEN-LAST:event_tb_PresKeyPressed
+
+    private void cbxDMAMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDMAMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxDMAMActionPerformed
     
     public void guardarDetalleDestino(){
          for (int i = 0; i < tbDetalle_Pres_Destino.getRowCount(); i++){      
@@ -1389,10 +1430,13 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
        tabla.addColumn("ID Prestación");
        tabla.addColumn("Número de Prestación");
        tabla.addColumn("Descripción");
+       tabla.addColumn("Valor");
        tabla.addColumn("Tipo");
        tabla.addColumn("Etapa de Vida");
        tabla.addColumn("Edad Mínima");
+       tabla.addColumn("Dìa/Mes/Año");
        tabla.addColumn("Edad Máxima");
+       tabla.addColumn("Dìa/Mes/Año");
        tabla.addColumn("Sexo");
        tabla.addColumn("Hospitalización");
        tabla.addColumn("Gestante");
@@ -1403,8 +1447,8 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
        cst=con.prepareCall("exec SIS_PRESTACIONES_LISTAR");
        r=cst.executeQuery();
        while (r.next()){
-       Object dato[]=new  Object[13];
-       for (int i=0; i<13; i++){
+       Object dato[]=new  Object[16];
+       for (int i=0; i<16; i++){
            dato[i]=r.getString(i+1);
        }
        tabla.addRow(dato);
@@ -1540,6 +1584,9 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
        tb_Pres.getColumnModel().getColumn(10).setPreferredWidth(100);
        tb_Pres.getColumnModel().getColumn(11).setPreferredWidth(150);
        tb_Pres.getColumnModel().getColumn(12).setPreferredWidth(150);
+       tb_Pres.getColumnModel().getColumn(13).setPreferredWidth(150);
+       tb_Pres.getColumnModel().getColumn(14).setPreferredWidth(150);
+       tb_Pres.getColumnModel().getColumn(15).setPreferredWidth(150);
     }
     
     public void formatoPrestacionDetalle(){
@@ -1564,13 +1611,16 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
         cbxTipo.setEnabled(true);
         txtEtapa_Vida.setEnabled(true);
         txtEdad_Minima.setEnabled(true);
+        cbxDMA.setEnabled(true);
         txtEdad_Maxima.setEnabled(true);
+        cbxDMAM.setEnabled(true);
         cbxSexo_Prestacion.setEnabled(true);
         cbxHospitalizacion_Prestacion.setEnabled(true);
         cbxGestante.setEnabled(true);
         cbxPuerpera.setEnabled(true);
         cbxN_Gestante_N_Puerp.setEnabled(true);
         cbxRegimen.setEnabled(true);
+        txtValor.setEnabled(true);
     }
     
     public void deshabilitar(){
@@ -1579,13 +1629,16 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
         cbxTipo.setEnabled(false);
         txtEtapa_Vida.setEnabled(false);
         txtEdad_Minima.setEnabled(false);
+        cbxDMA.setEnabled(false);
         txtEdad_Maxima.setEnabled(false);
+        cbxDMAM.setEnabled(false);
         cbxSexo_Prestacion.setEnabled(false);
         cbxHospitalizacion_Prestacion.setEnabled(false);
         cbxGestante.setEnabled(false);
         cbxPuerpera.setEnabled(false);
         cbxN_Gestante_N_Puerp.setEnabled(false);
         cbxRegimen.setEnabled(false);
+        txtValor.setEnabled(false);
     }
     
     public void limpiar()
@@ -1600,7 +1653,9 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
         cbxTipo.setSelectedIndex(0);
         txtEtapa_Vida.setText("");
         txtEdad_Minima.setText("");
+        cbxDMA.setSelectedIndex(0);
         txtEdad_Maxima.setText("");
+        cbxDMAM.setSelectedIndex(0);
         cbxSexo_Prestacion.setSelectedIndex(0);
         cbxHospitalizacion_Prestacion.setSelectedIndex(0);
         cbxGestante.setSelectedIndex(0);
@@ -1609,6 +1664,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
         cbxRegimen.setSelectedIndex(0);
         txtNumeroPrestacion.setText("");
         txtDescrip.setText("");
+        txtValor.setText("");
         txtGM.setText("G");
    
     }
@@ -1685,6 +1741,8 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
     public static javax.swing.JButton btneliminar;
     public static javax.swing.JButton btnguardar;
     public static javax.swing.JButton btnmodificar;
+    private javax.swing.JComboBox cbxDMA;
+    private javax.swing.JComboBox cbxDMAM;
     private javax.swing.JComboBox cbxGestante;
     private javax.swing.JComboBox cbxHospitalizacion_Prestacion;
     private javax.swing.JComboBox cbxN_Gestante_N_Puerp;
@@ -1713,6 +1771,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1754,6 +1813,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
     private javax.swing.JTextField txtGM;
     private javax.swing.JTextField txtNum_Prestacion;
     public static javax.swing.JTextField txtNumeroPrestacion;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 
     @Override

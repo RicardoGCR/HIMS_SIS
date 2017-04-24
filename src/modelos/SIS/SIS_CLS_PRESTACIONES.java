@@ -22,13 +22,16 @@ public class SIS_CLS_PRESTACIONES {
     private String TIPO;
     private String ETAPA_VIDA;
     private String EDAD_MINIMA;
+    private String DMA;
     private String EDAD_MAXIMA;
+    private String DMAM;
     private String SEXO;
     private String HOSPITALIZACION;
     private String GESTANTE;
     private String PUERPERA;
     private String N_GESTANTE_N_PUERPERA;
     private String REGIMEN_COMPONENTE;
+    private String VALOR;
     private String NOM_USU;
 
     public SIS_CLS_PRESTACIONES()
@@ -61,7 +64,7 @@ public class SIS_CLS_PRESTACIONES {
         boolean resp = false;
         try
         {
-            String sql = "exec SIS_PRESTACIONES_INSERTAR ?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "exec SIS_PRESTACIONES_INSERTAR ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getID_PRESTACION());
             cmd.setString(2, getNUM_PRESTACION());
@@ -69,14 +72,17 @@ public class SIS_CLS_PRESTACIONES {
             cmd.setString(4, getTIPO());
             cmd.setString(5, getETAPA_VIDA());
             cmd.setString(6, getEDAD_MINIMA());
-            cmd.setString(7, getEDAD_MAXIMA());
-            cmd.setString(8, getSEXO());
-            cmd.setString(9, getHOSPITALIZACION());
-            cmd.setString(10, getGESTANTE());
-            cmd.setString(11, getPUERPERA());
-            cmd.setString(12, getN_GESTANTE_N_PUERPERA());
-            cmd.setString(13, getREGIMEN_COMPONENTE());
-            cmd.setString(14, getNOM_USU());           
+            cmd.setString(7, getDMA());
+            cmd.setString(8, getEDAD_MAXIMA());
+            cmd.setString(9, getDMAM());
+            cmd.setString(10, getSEXO());
+            cmd.setString(11, getHOSPITALIZACION());
+            cmd.setString(12, getGESTANTE());
+            cmd.setString(13, getPUERPERA());
+            cmd.setString(14, getN_GESTANTE_N_PUERPERA());
+            cmd.setString(15, getREGIMEN_COMPONENTE());
+            cmd.setString(16, getVALOR());
+            cmd.setString(17, getNOM_USU());           
             
             if(!cmd.execute())
             {
@@ -97,7 +103,7 @@ public class SIS_CLS_PRESTACIONES {
         boolean resp = false;
         try
         {
-            String sql = "exec SIS_PRESTACIONES_MODIFICAR ?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "exec SIS_PRESTACIONES_MODIFICAR ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getID_PRESTACION());
             cmd.setString(2, getNUM_PRESTACION());
@@ -105,14 +111,17 @@ public class SIS_CLS_PRESTACIONES {
             cmd.setString(4, getTIPO());
             cmd.setString(5, getETAPA_VIDA());
             cmd.setString(6, getEDAD_MINIMA());
-            cmd.setString(7, getEDAD_MAXIMA());
-            cmd.setString(8, getSEXO());
-            cmd.setString(9, getHOSPITALIZACION());
-            cmd.setString(10, getGESTANTE());
-            cmd.setString(11, getPUERPERA());
-            cmd.setString(12, getN_GESTANTE_N_PUERPERA());
-            cmd.setString(13, getREGIMEN_COMPONENTE());
-            cmd.setString(14, getNOM_USU());
+            cmd.setString(7, getDMA());
+            cmd.setString(8, getEDAD_MAXIMA());
+            cmd.setString(9, getDMAM());
+            cmd.setString(10, getSEXO());
+            cmd.setString(11, getHOSPITALIZACION());
+            cmd.setString(12, getGESTANTE());
+            cmd.setString(13, getPUERPERA());
+            cmd.setString(14, getN_GESTANTE_N_PUERPERA());
+            cmd.setString(15, getREGIMEN_COMPONENTE());
+            cmd.setString(16, getVALOR());
+            cmd.setString(17, getNOM_USU());      
             if(!cmd.execute())
             {
                 resp = true;
@@ -367,6 +376,31 @@ public class SIS_CLS_PRESTACIONES {
     public void setREGIMEN_COMPONENTE(String REGIMEN_COMPONENTE) {
         this.REGIMEN_COMPONENTE = REGIMEN_COMPONENTE;
     }
+
+    public String getDMA() {
+        return DMA;
+    }
+
+    public void setDMA(String DMA) {
+        this.DMA = DMA;
+    }
+
+    public String getDMAM() {
+        return DMAM;
+    }
+
+    public void setDMAM(String DMAM) {
+        this.DMAM = DMAM;
+    }
+
+    public String getVALOR() {
+        return VALOR;
+    }
+
+    public void setVALOR(String VALOR) {
+        this.VALOR = VALOR;
+    }
+    
     
     
 }

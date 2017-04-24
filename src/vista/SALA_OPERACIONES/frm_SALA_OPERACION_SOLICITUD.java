@@ -2480,9 +2480,9 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
       try{        
           if(txtGM.getText().equalsIgnoreCase("G")){
             if(txthc.getText().equalsIgnoreCase("")){
-              JOptionPane.showMessageDialog(rootPane, "Busque el Código  de Historia Clinica");
-         }  
-          else{
+              JOptionPane.showMessageDialog(rootPane, "Busque el Código de Historia Clinica");
+            }  
+            else{
               int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
                       "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
               if(guardar == 0 ){
@@ -2551,7 +2551,7 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
                       JOptionPane.showMessageDialog(this, "Datos Guardados");
                   }
                   else{
-                      JOptionPane.showMessageDialog(this, "El registro ya existe\nIntente nuevamente");   
+                      JOptionPane.showMessageDialog(this, "El registro ya existe\n Intente nuevamente");   
                  }
                        
                 
@@ -2573,7 +2573,7 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
                   int mes = dateCFechaSolicitud.getCalendar().get(Calendar.MONTH) + 1;
                   int anio = dateCFechaSolicitud.getCalendar().get(Calendar.YEAR);
                        
-                    String fecha;
+                  String fecha;
                        
                        if(mes<10 && dia<10){
                            fecha = "0" + dia + "/"+ "0" + mes + "/" + anio;

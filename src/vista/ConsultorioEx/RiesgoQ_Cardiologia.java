@@ -70,6 +70,12 @@ public class RiesgoQ_Cardiologia extends javax.swing.JFrame {
         txtId1.setVisible(false);
         cbxMedico.setModel(medicos());
         txtMedico.setVisible(false);
+        lblMant.setVisible(false);
+        txtId.setVisible(false);
+        lblTriaje.setVisible(false);
+        lblHc.setVisible(false);
+        lblPreventa.setVisible(false);
+        lblArea.setVisible(false);
     }
 
     public void cerrar (){

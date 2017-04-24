@@ -9,13 +9,6 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -27,14 +20,9 @@ import servicios.Conexion;
  *
  * @author PC02
  */
-@Entity
-@Table(name = "CONSULTORIO_EXT_ORDENPCR")
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtOrdenpcr.findAll", query = "SELECT c FROM ConsultorioExtOrdenpcr c")})
 public class ConsultorioExtOrdenpcr implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
+
     DefaultTableModel m;
     private Conexion con = new Conexion();
     private Connection cn;
@@ -189,14 +177,14 @@ public class ConsultorioExtOrdenpcr implements Serializable {
     
     public void formatoTablaOrdenPcr(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(50);
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(250);
         tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(70);
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(250);
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(40);
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);
-        tabla.getColumnModel().getColumn(7).setPreferredWidth(50);
-        tabla.getColumnModel().getColumn(8).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(9).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(10).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(11).setPreferredWidth(100);

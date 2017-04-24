@@ -31,17 +31,19 @@ import static vista.ConsultorioEx.REGSEGMONITOREO.tbMonitoreo;
 public class OrdenPCR extends javax.swing.JFrame {
 
     ConsultorioExtOrdenpcr consultorio = new ConsultorioExtOrdenpcr();
+    String check = "T";
     public OrdenPCR() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
         pnlMensaje.setVisible(false);
         habilitarDatos(false);
-        consultorio.listarOrdenPcr(txtBuscar.getText(), "C",tbOrdenpcr);
+        consultorio.listarOrdenPcr(txtBuscar.getText(), "T",tbOrdenpcr);
         lblMant.setVisible(false);
         lblId.setVisible(false);
         lblHc.setVisible(false);
         txtIdHc.setVisible(false);
+        chkHoy.setSelected(false);
     }
 
     public void limpiar(){
@@ -123,6 +125,14 @@ public class OrdenPCR extends javax.swing.JFrame {
         lblId.setText(String.valueOf(tbOrdenpcr.getValueAt(0, 0)));
         txtMadre.setText(String.valueOf(tbOrdenpcr.getValueAt(0, 1)));
         txtDniMadre.setText(String.valueOf(tbOrdenpcr.getValueAt(0, 2)));
+        if(String.valueOf(tbOrdenpcr.getValueAt(0, 7)).equals("X"))
+            chkST.setSelected(true);
+        else
+            chkST.setSelected(false);
+        if(String.valueOf(tbOrdenpcr.getValueAt(0, 8)).equals("X"))
+            chkTPF.setSelected(true);
+        else
+            chkTPF.setSelected(false);
         String fechaSolicitud = (String) tbOrdenpcr.getModel().getValueAt(0, 12);
         try {
             DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
@@ -131,26 +141,26 @@ public class OrdenPCR extends javax.swing.JFrame {
         } catch (Exception e) {
         }
         String pcr1 = (String) tbOrdenpcr.getModel().getValueAt(0, 9);
-        try {
-            DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
-            Date fecha = dfo.parse(pcr1);
-            dtPcr1.setDate(fecha);
-        } catch (Exception e) {
-        }
+            try {
+                DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+                Date fecha = dfo.parse(pcr1);
+                dtPcr1.setDate(fecha);
+            } catch (Exception e) {
+            }
         String pcr2 = (String) tbOrdenpcr.getModel().getValueAt(0, 10);
-        try {
-            DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
-            Date fecha = dfo.parse(pcr2);
-            dtPcr2.setDate(fecha);
-        } catch (Exception e) {
-        }
+            try {
+                DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+                Date fecha = dfo.parse(pcr2);
+                dtPcr2.setDate(fecha);
+            } catch (Exception e) {
+            }
         String pcr3 = (String) tbOrdenpcr.getModel().getValueAt(0, 11);
-        try {
-            DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
-            Date fecha = dfo.parse(pcr3);
-            dtPcr3.setDate(fecha);
-        } catch (Exception e) {
-        }
+            try {
+                DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+                Date fecha = dfo.parse(pcr3);
+                dtPcr3.setDate(fecha);
+            } catch (Exception e) {
+            }
     }
     
     public boolean guardarDatos(){
@@ -158,6 +168,8 @@ public class OrdenPCR extends javax.swing.JFrame {
         try {
             ConsultorioExtOrdenpcr ordenpcr1 = new ConsultorioExtOrdenpcr();
             AdmisionEmergenciaCabecera adEmerCab = new AdmisionEmergenciaCabecera();
+            if(lblMant.getText().equals("U"))
+                ordenpcr1.setCeoId(Integer.parseInt(lblId.getText()));
             ordenpcr1.setCeoFechSolicitud(determinarFecha(dtFechaSolicitud));
             ordenpcr1.setCeoMadre(txtMadre.getText());
             ordenpcr1.setCeoDniMadre(txtDniMadre.getText());
@@ -185,7 +197,8 @@ public class OrdenPCR extends javax.swing.JFrame {
                 ordenpcr1.setCeoPcr3(determinarFecha(dtPcr3));
             if(ordenpcr1.mantenimientoConsultorioOrdenpcr(lblMant.getText())==true){
                 System.out.println("ID Orden PCR: " + Integer.parseInt(ordenpcr1.ordenpcrID()));
-                ordenpcr1.listarOrdenPcr(txtBuscar.getText(), "C",tbOrdenpcr);
+                ordenpcr1.listarOrdenPcr(txtBuscar.getText(), "T",tbOrdenpcr);
+                chkHoy.setSelected(false);
                 pnlMensaje.setVisible(true);
                 lblMensaje.setText("Datos guardados de forma correcta");
                 limpiar();
@@ -214,13 +227,25 @@ public class OrdenPCR extends javax.swing.JFrame {
             ResultSet res = cmd.executeQuery();
             if(res.next()){
                 txtIdHc.setText(lblHc.getText());
+                lblMant.setText("U");
+                txtBuscar.setEnabled(false);
+                chkHoy.setEnabled(false);
             }else {
                 txtIdHc.setText("");
                 txtMadre.setText("");
                 txtDniMadre.setText("");
+                lblMant.setText("I");
+                txtBuscar.setEnabled(true);
+                chkHoy.setEnabled(true);
+                dtPcr1.setDate(null);
+                dtPcr2.setDate(null);
+                dtPcr3.setDate(null);
+                chkST.setSelected(false);
+                chkTPF.setSelected(false);
+                dtFechaSolicitud.setDate(null);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error: validaHC: " + e.toString());
+            System.out.println("Error: validaHC: " + e.toString());
         }
     }
     
@@ -315,6 +340,7 @@ public class OrdenPCR extends javax.swing.JFrame {
                 txtIdHc = new javax.swing.JTextField();
                 lblHc = new javax.swing.JLabel();
                 lblId = new javax.swing.JLabel();
+                jLabel8 = new javax.swing.JLabel();
 
                 BuscarNinos.setAlwaysOnTop(true);
                 BuscarNinos.setMinimumSize(new java.awt.Dimension(615, 333));
@@ -819,6 +845,12 @@ public class OrdenPCR extends javax.swing.JFrame {
                     }
                 });
 
+                txtBuscar.addCaretListener(new javax.swing.event.CaretListener() {
+                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                        txtBuscarCaretUpdate(evt);
+                    }
+                });
+
                 chkHoy.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
                 chkHoy.setText("Hoy");
                 chkHoy.setContentAreaFilled(false);
@@ -905,6 +937,10 @@ public class OrdenPCR extends javax.swing.JFrame {
 
                 lblId.setText("jLabel8");
 
+                jLabel8.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+                jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+                jLabel8.setText("Apellidos y Nombres / DNI del niño");
+
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
                 layout.setHorizontalGroup(
@@ -975,6 +1011,9 @@ public class OrdenPCR extends javax.swing.JFrame {
                                             .addComponent(Sexo3))))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(jScrollPane3)
                                     .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 );
@@ -984,7 +1023,9 @@ public class OrdenPCR extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)
+                        .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(dtFechaSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
@@ -1044,7 +1085,7 @@ public class OrdenPCR extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(dtPcr3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Sexo6))
-                                .addContainerGap(24, Short.MAX_VALUE))
+                                .addContainerGap(27, Short.MAX_VALUE))
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 );
 
@@ -1057,6 +1098,8 @@ public class OrdenPCR extends javax.swing.JFrame {
             habilitarDatos(true);
             lblMant.setText("I");
             btnGuardar.setEnabled(true);
+            txtBuscar.setEnabled(true);
+            chkHoy.setEnabled(true);
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnNuevoActionPerformed
@@ -1176,7 +1219,7 @@ public class OrdenPCR extends javax.swing.JFrame {
 
     private void btnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiActionPerformed
         if(btnSi.getText().equals("Si")){ // Al guardar
-            if(lblMant.getText().equals("I")){
+            if(lblMant.getText().equals("I") || lblMant.getText().equals("U")){
                 guardarDatos();
             }
         } else
@@ -1212,7 +1255,15 @@ public class OrdenPCR extends javax.swing.JFrame {
     }//GEN-LAST:event_T7MouseClicked
 
     private void chkHoyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkHoyActionPerformed
-       
+        if(chkHoy.isSelected()){
+            check = "H";
+            ConsultorioExtOrdenpcr consultorio1 = new ConsultorioExtOrdenpcr();
+            consultorio1.listarOrdenPcr(txtBuscar.getText(), check, tbOrdenpcr);
+        }else{
+            check = "T";
+            ConsultorioExtOrdenpcr consultorio1 = new ConsultorioExtOrdenpcr();
+            consultorio1.listarOrdenPcr(txtBuscar.getText(), check, tbOrdenpcr);
+        }
     }//GEN-LAST:event_chkHoyActionPerformed
 
     private void tbOrdenpcrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbOrdenpcrMouseClicked
@@ -1286,9 +1337,15 @@ public class OrdenPCR extends javax.swing.JFrame {
             consultorio1.listarOrdenPcr(txtIdHc.getText(), "A", tbOrdenpcr);
             enviarDatosOrdenPcr();
         } else {
-           consultorio.listarOrdenPcr(txtBuscar.getText(), "C",tbOrdenpcr); 
+           consultorio.listarOrdenPcr(txtBuscar.getText(), "T",tbOrdenpcr); 
+           chkHoy.setSelected(false);
         }
     }//GEN-LAST:event_txtIdHcCaretUpdate
+
+    private void txtBuscarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCaretUpdate
+        ConsultorioExtOrdenpcr consultorio1 = new ConsultorioExtOrdenpcr();
+        consultorio1.listarOrdenPcr(txtBuscar.getText(), check, tbOrdenpcr);
+    }//GEN-LAST:event_txtBuscarCaretUpdate
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1355,6 +1412,7 @@ public class OrdenPCR extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel26;

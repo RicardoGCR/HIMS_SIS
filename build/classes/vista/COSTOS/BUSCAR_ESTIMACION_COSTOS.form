@@ -235,6 +235,7 @@
             <Property name="componentPopupMenu" type="javax.swing.JPopupMenu" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="REPORTES"/>
             </Property>
+            <Property name="rowHeight" type="int" value="24"/>
           </Properties>
           <Events>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tb_Buscar_EstimacionKeyPressed"/>

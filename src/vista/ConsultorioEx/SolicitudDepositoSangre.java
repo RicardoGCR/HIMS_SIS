@@ -65,8 +65,9 @@ public class SolicitudDepositoSangre extends javax.swing.JFrame {
         txtRH.setDocument(limite);
         txtHematocrito.setDocument(limite);
         txtHemoglobina.setDocument(limite);
-        
-        
+        lblArea.setVisible(false);
+        lblMant.setVisible(false);
+        lblHc.setVisible(false);
     }
     
     public void cerrar (){

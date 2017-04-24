@@ -87,6 +87,7 @@
                   </Table>
                 </Property>
                 <Property name="autoResizeMode" type="int" value="0"/>
+                <Property name="rowHeight" type="int" value="22"/>
               </Properties>
               <Events>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tableHerramientasKeyPressed"/>
@@ -223,6 +224,7 @@
                   </Table>
                 </Property>
                 <Property name="autoResizeMode" type="int" value="0"/>
+                <Property name="rowHeight" type="int" value="22"/>
               </Properties>
               <Events>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tableDepreciacionKeyPressed"/>
@@ -837,9 +839,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtFechaCompra">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>

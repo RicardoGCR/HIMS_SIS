@@ -5,6 +5,7 @@
  */
 package vista.ConsultorioEx;
 
+import campos.LimitadorDeDocumento;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.KeyEvent;
@@ -73,15 +74,26 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             }
         });
         conexion = c.conectar();
-        lblHc.setVisible(false);
+        lblTriaje.setVisible(false);
         txtPaciente.requestFocus();
         pnlPadres.setVisible(false);
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
         pnlContenedor.setVisible(false);
-        lblTriaje.setVisible(false);
+        txtHc.setVisible(false);
         lblGenero.setVisible(false);
         lblHcMadre.setVisible(false);
         lblEdad.setVisible(false);
+<<<<<<< HEAD
+=======
+        lblFua.setVisible(false);
+        LimitadorDeDocumento limitDniPadre = new LimitadorDeDocumento(8);
+        txtDniPadre.setDocument(limitDniPadre);
+        LimitadorDeDocumento limitReferencia = new LimitadorDeDocumento(200);
+        txtReferencia.setDocument(limitReferencia);
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
     }
     
     public void cerrar (){
@@ -105,8 +117,13 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         RegistroSeguimiento.lblNHC.setText(String.valueOf(tbNinos.getValueAt(fila, 3)));
         RegistroSeguimiento.lblEdad.setText(String.valueOf(tbNinos.getValueAt(fila, 7)));
         RegistroSeguimiento.txtPaciente.setText(String.valueOf(tbNinos.getValueAt(fila, 4)));
+<<<<<<< HEAD
         RegistroSeguimiento.lblTriaje.setText(String.valueOf(tbNinos.getValueAt(fila, 0)));
        // RegistroSeguimiento.lblTriaje.setText(String.valueOf(tbNinos.getValueAt(fila, 9)));
+=======
+        RegistroSeguimiento.txtHc.setText(String.valueOf(tbNinos.getValueAt(fila, 0)));
+        RegistroSeguimiento.lblTriaje.setText(String.valueOf(tbNinos.getValueAt(fila, 9)));
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
         RegistroSeguimiento.lblGenero.setText(String.valueOf(tbNinos.getValueAt(fila, 5)));
         RegistroSeguimiento.lblFecNac.setText(String.valueOf(tbNinos.getValueAt(fila, 6)));
         RegistroSeguimiento.lblFua.setText(String.valueOf(tbNinos.getValueAt(fila, 10)));
@@ -122,10 +139,12 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     
     public void enviarDatosMadres(){
         int fila = tbMadres.getSelectedRow();
+        RegistroSeguimiento.txtDniMadre.setText(String.valueOf(tbMadres.getValueAt(fila, 0)));
         RegistroSeguimiento.txtMadre.setText(String.valueOf(tbMadres.getValueAt(fila, 2)));
         RegistroSeguimiento.lblTelefono.setText(String.valueOf(tbMadres.getValueAt(fila, 3)));
         RegistroSeguimiento.lblDireccion.setText(String.valueOf(tbMadres.getValueAt(fila, 4)));
         RegistroSeguimiento.lblHcMadre.setText(String.valueOf(tbMadres.getValueAt(fila, 5)));
+        RegistroSeguimiento.lblSector.setText(String.valueOf(tbMadres.getValueAt(fila, 6)));
         BuscarMadres.dispose();
     }
     
@@ -134,14 +153,16 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
             if(cbxTipoSeguro.getSelectedIndex()>0 || txtPadre.getText().equals("")){
             ConsultorioExtRsCabecera consultorio1  = new ConsultorioExtRsCabecera();
                 AdmisionEmergenciaCabecera adEmerCab7 = new AdmisionEmergenciaCabecera();
-                consultorio1.setHc_nino(lblHc.getText());
+                consultorio1.setHc_nino(txtHc.getText());
                 consultorio1.setHc_madre(lblHcMadre.getText());
                 consultorio1.setRsTipoRiesgo(txtRiesgo.getText());
                 consultorio1.setRsPadre(txtPadre.getText());
-                consultorio1.setRsAfilSis(txtCodigo.getText());
+                consultorio1.setRsAfilSis(txtCodigoSis.getText());
                 consultorio1.setTriaje_id(lblTriaje.getText());
                 consultorio1.setTipo_seguro(cbxTipoSeguro.getSelectedItem().toString());
                 consultorio1.setUsuario(adEmerCab7.codUsuario(lblusu.getText()));
+                consultorio1.setRsDniPadre(txtDniPadre.getText());
+                consultorio1.setRsDirReferencia(txtReferencia.getText());
                 if(consultorio1.mantenimientoConsultorioRsCabecera("I")==true){
     //              OBTENER ID DEL ULTIMO REGISTRO
                     id = cabecera.idCabecera();
@@ -150,7 +171,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     pnlContenedor.setVisible(true);
     //                limpiar();
     //                habilitarCampos(false);
-                    btnGuardar.setEnabled(false);
+                    btnGuardar.setVisible(false);
                     pnlMensaje.setBackground(new Color(33,115,70));
                     btnSi.setVisible(true);
                     btnSi.setText("OK");
@@ -191,7 +212,22 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 lblSector.setText(r.getString(5)); 
                 cbxTipoSeguro.setSelectedItem(r.getString(6)); 
                 txtPadre.setText(r.getString(7)); 
+                txtCodigoSis.setText(r.getString(8)); 
+                txtDniPadre.setText(r.getString(9)); 
+                txtReferencia.setText(r.getString(10)); 
+                txtDniMadre.setText(r.getString(11)); 
             }
+            txtMadre.setEditable(false);
+            txtRiesgo.setEditable(false);
+            lblTelefono.setEditable(false);
+            lblDireccion.setEditable(false);
+            lblSector.setEnabled(false);
+            cbxTipoSeguro.setEditable(false);
+            txtPadre.setEditable(false);
+            txtCodigoSis.setEditable(false);
+            txtDniPadre.setEditable(false);
+            txtReferencia.setEditable(false);
+            txtDniMadre.setEditable(false);
             //
         } catch (Exception e) {
             System.out.println("Error: datosPadres " + e.getMessage());
@@ -236,15 +272,23 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 vis.porcentajeVD(id);
                 datosPadres(triaje);
                 pnlPadres.setVisible(true);
+<<<<<<< HEAD
     
+=======
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                 btnGuardar.setVisible(false);
                 pnlContenedor.setVisible(true);
+            btnBuscarMadres.setEnabled(false);
             }else {
                 limpiarDatosPadres();
                 habilitarDatos(true);
                 pnlContenedor.setVisible(false);
                 btnGuardar.setVisible(true);
                 pnlPadres.setVisible(true);
+<<<<<<< HEAD
+=======
+                btnBuscarMadres.setEnabled(true);
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
       
             }
         } catch (Exception e) {
@@ -254,21 +298,27 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     
     public void limpiarDatosPadres(){
         lblTelefono.setText("_____________________");
-        lblDireccion.setText("_______________________________________________________________");
+        lblDireccion.setText("___________________________________");
         txtMadre.setText("");
-        txtCodigo.setText("");
+        txtCodigoSis.setText("");
         cbxTipoSeguro.setSelectedIndex(0);
+        txtReferencia.setText("");
         txtPadre.setText("");
         lblSector.setText("_______________");
         txtRiesgo.setText("");
+        txtDniMadre.setText("");
+        txtDniPadre.setText("");
     }
     
     public void habilitarDatos(boolean opcion){
         txtRiesgo.setEditable(opcion);
-        cbxTipoSeguro.setEditable(opcion);
+        cbxTipoSeguro.setEnabled(opcion);
+        txtReferencia.setEditable(opcion);
         txtPadre.setEditable(opcion);
+        txtDniPadre.setEditable(opcion);
         lblDireccion.setEditable(opcion);
         lblTelefono.setEditable(opcion);
+        txtCodigoSis.setEditable(opcion);
     }
     
     @SuppressWarnings("unchecked")
@@ -372,13 +422,17 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 lblFecNac = new javax.swing.JLabel();
                 jLabel28 = new javax.swing.JLabel();
                 lblActoMedico = new javax.swing.JLabel();
-                lblHc = new javax.swing.JLabel();
+                lblTriaje = new javax.swing.JLabel();
                 jLabel29 = new javax.swing.JLabel();
                 lblNHC = new javax.swing.JLabel();
                 pnlPadres = new javax.swing.JPanel();
                 jLabel23 = new javax.swing.JLabel();
                 jLabel26 = new javax.swing.JLabel();
+<<<<<<< HEAD
                 txtCodigo = new javax.swing.JTextField();
+=======
+                txtCodigoSis = new javax.swing.JTextField();
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                 lblHcMadre = new javax.swing.JLabel();
                 txtRiesgo = new javax.swing.JTextField();
                 lblTelefono = new javax.swing.JTextField();
@@ -390,6 +444,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel10 = new javax.swing.JLabel();
                 cbxTipoSeguro = new javax.swing.JComboBox();
                 jLabel22 = new javax.swing.JLabel();
+<<<<<<< HEAD
                 txtPadre = new javax.swing.JTextField();
                 txDniPadre = new javax.swing.JTextField();
                 jLabel32 = new javax.swing.JLabel();
@@ -399,6 +454,17 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 txtPadre1 = new javax.swing.JTextField();
                 btnGuardar = new javax.swing.JButton();
                 lblTriaje = new javax.swing.JTextField();
+=======
+                txtReferencia = new javax.swing.JTextField();
+                txtDniPadre = new javax.swing.JTextField();
+                jLabel32 = new javax.swing.JLabel();
+                jLabel33 = new javax.swing.JLabel();
+                txtDniMadre = new javax.swing.JTextField();
+                jLabel20 = new javax.swing.JLabel();
+                txtPadre = new javax.swing.JTextField();
+                btnGuardar = new javax.swing.JButton();
+                txtHc = new javax.swing.JTextField();
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                 lblGenero = new javax.swing.JLabel();
                 lblEdad = new javax.swing.JLabel();
                 lblFua = new javax.swing.JLabel();
@@ -735,7 +801,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(150, 150, 150))
                 );
                 jPanel1Layout.setVerticalGroup(
                     jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1523,10 +1590,17 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                             .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                             .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                         .addGap(0, 0, 0)
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+=======
+                            .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(0, 0, 0)
+                        .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, Short.MAX_VALUE)
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                             .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                             .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1541,11 +1615,19 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlContenedorLayout.createSequentialGroup()
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+<<<<<<< HEAD
                             .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                             .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                             .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                             .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                             .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
+=======
+                            .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 111, Short.MAX_VALUE))
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1553,7 +1635,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                             .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, 0)
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+<<<<<<< HEAD
                             .addComponent(jPanel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+=======
+                            .addComponent(jPanel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, Short.MAX_VALUE)
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                             .addComponent(jPanel23, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                             .addComponent(jPanel22, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
@@ -1651,7 +1737,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 lblActoMedico.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                 lblActoMedico.setText("_____________________");
 
-                lblHc.setText("jLabel32");
+                lblTriaje.setText("jLabel32");
 
                 jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel29.setForeground(new java.awt.Color(51, 51, 51));
@@ -1671,13 +1757,21 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel26.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel26.setText("Código SIS");
 
+<<<<<<< HEAD
                 txtCodigo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
                 txtCodigo.setForeground(new java.awt.Color(102, 102, 102));
                 txtCodigo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
                 txtCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
                 txtCodigo.addCaretListener(new javax.swing.event.CaretListener() {
+=======
+                txtCodigoSis.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+                txtCodigoSis.setForeground(new java.awt.Color(102, 102, 102));
+                txtCodigoSis.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+                txtCodigoSis.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                txtCodigoSis.addCaretListener(new javax.swing.event.CaretListener() {
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtCodigoCaretUpdate(evt);
+                        txtCodigoSisCaretUpdate(evt);
                     }
                 });
 
@@ -1762,7 +1856,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel10.setText("Tipo de Seguro");
 
                 cbxTipoSeguro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+<<<<<<< HEAD
                 cbxTipoSeguro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Seguro1", "Seguro2", "Seguro2" }));
+=======
+                cbxTipoSeguro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Seguro1", "Seguro2", "Seguro3" }));
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                 cbxTipoSeguro.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         cbxTipoSeguroActionPerformed(evt);
@@ -1773,6 +1871,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel22.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel22.setText("Nombres del Padre           ");
 
+<<<<<<< HEAD
                 txtPadre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
                 txtPadre.setForeground(new java.awt.Color(102, 102, 102));
                 txtPadre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -1790,6 +1889,25 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 txDniPadre.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
                         txDniPadreCaretUpdate(evt);
+=======
+                txtReferencia.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+                txtReferencia.setForeground(new java.awt.Color(102, 102, 102));
+                txtReferencia.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+                txtReferencia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                txtReferencia.addCaretListener(new javax.swing.event.CaretListener() {
+                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                        txtReferenciaCaretUpdate(evt);
+                    }
+                });
+
+                txtDniPadre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+                txtDniPadre.setForeground(new java.awt.Color(102, 102, 102));
+                txtDniPadre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtDniPadre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                txtDniPadre.addCaretListener(new javax.swing.event.CaretListener() {
+                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                        txtDniPadreCaretUpdate(evt);
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                     }
                 });
 
@@ -1801,6 +1919,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel33.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel33.setText("DNI");
 
+<<<<<<< HEAD
                 txDniMadre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
                 txDniMadre.setForeground(new java.awt.Color(102, 102, 102));
                 txDniMadre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -1808,6 +1927,16 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 txDniMadre.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
                         txDniMadreCaretUpdate(evt);
+=======
+                txtDniMadre.setEditable(false);
+                txtDniMadre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+                txtDniMadre.setForeground(new java.awt.Color(102, 102, 102));
+                txtDniMadre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtDniMadre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                txtDniMadre.addCaretListener(new javax.swing.event.CaretListener() {
+                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                        txtDniMadreCaretUpdate(evt);
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                     }
                 });
 
@@ -1815,6 +1944,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel20.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel20.setText("Referencia");
 
+<<<<<<< HEAD
                 txtPadre1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
                 txtPadre1.setForeground(new java.awt.Color(102, 102, 102));
                 txtPadre1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -1822,6 +1952,15 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 txtPadre1.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
                         txtPadre1CaretUpdate(evt);
+=======
+                txtPadre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+                txtPadre.setForeground(new java.awt.Color(102, 102, 102));
+                txtPadre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtPadre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                txtPadre.addCaretListener(new javax.swing.event.CaretListener() {
+                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                        txtPadreCaretUpdate(evt);
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                     }
                 });
 
@@ -1860,7 +1999,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jLabel26)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+<<<<<<< HEAD
                                                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                                                .addComponent(txtCodigoSis, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jLabel24)
                                                 .addGap(14, 14, 14)
@@ -1873,7 +2016,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                             .addGroup(pnlPadresLayout.createSequentialGroup()
                                                 .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                     .addGroup(pnlPadresLayout.createSequentialGroup()
+<<<<<<< HEAD
                                                         .addComponent(txtPadre1)
+=======
+                                                        .addComponent(txtPadre)
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                                         .addGap(18, 18, 18)
                                                         .addComponent(jLabel32))
                                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPadresLayout.createSequentialGroup()
@@ -1881,11 +2028,19 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                                         .addComponent(jLabel33)))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                                                     .addComponent(txDniPadre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(txDniMadre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPadresLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtPadre, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+=======
+                                                    .addComponent(txtDniPadre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtDniMadre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPadresLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                         .addContainerGap(15, Short.MAX_VALUE))
                 );
                 pnlPadresLayout.setVerticalGroup(
@@ -1896,19 +2051,33 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                             .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel21)
                             .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+<<<<<<< HEAD
                                 .addComponent(txDniMadre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                                .addComponent(txtDniMadre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                 .addComponent(jLabel33)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel22)
+<<<<<<< HEAD
                             .addComponent(txtPadre1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel32)
                             .addComponent(txDniPadre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                            .addComponent(txtPadre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel32)
+                            .addComponent(txtDniPadre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtRiesgo)
                             .addComponent(jLabel26)
+<<<<<<< HEAD
                             .addComponent(txtCodigo)
+=======
+                            .addComponent(txtCodigoSis)
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                             .addComponent(jLabel23)
                             .addComponent(jLabel24)
                             .addComponent(lblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1918,7 +2087,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                             .addComponent(cbxTipoSeguro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+<<<<<<< HEAD
                             .addComponent(txtPadre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                            .addComponent(txtReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                             .addComponent(jLabel20))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlPadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1927,9 +2100,9 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addContainerGap(15, Short.MAX_VALUE))
                 );
 
-                lblTriaje.addCaretListener(new javax.swing.event.CaretListener() {
+                txtHc.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        lblTriajeCaretUpdate(evt);
+                        txtHcCaretUpdate(evt);
                     }
                 });
 
@@ -1991,6 +2164,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(txtSisLayout.createSequentialGroup()
                                 .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                                     .addGroup(txtSisLayout.createSequentialGroup()
                                         .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(txtSisLayout.createSequentialGroup()
@@ -2009,6 +2183,26 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                         .addComponent(lblTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblHc, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                                    .addGroup(txtSisLayout.createSequentialGroup()
+                                        .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(txtSisLayout.createSequentialGroup()
+                                                .addComponent(jLabel2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                            .addGroup(txtSisLayout.createSequentialGroup()
+                                                .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(18, 18, 18)))
+                                        .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblDni)
+                                            .addComponent(lblFecNac)))
+                                    .addGroup(txtSisLayout.createSequentialGroup()
+                                        .addComponent(txtHc, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblFua)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2052,8 +2246,13 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                                 .addComponent(lblEdad)
                                 .addGap(4, 4, 4)
                                 .addGroup(txtSisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+<<<<<<< HEAD
                                     .addComponent(lblTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblHc)
+=======
+                                    .addComponent(txtHc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTriaje)
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                                     .addComponent(lblFua)
                                     .addComponent(lblGenero)))
                             .addComponent(pnlPadres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2069,7 +2268,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pnlContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                         .addGap(0, 112, Short.MAX_VALUE))
+=======
+                        .addGap(0, 0, Short.MAX_VALUE))
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                 );
                 jPanel4Layout.setVerticalGroup(
                     jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2084,7 +2287,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jPanel2.setLayout(jPanel2Layout);
                 jPanel2Layout.setHorizontalGroup(
                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addGap(0, 1701, Short.MAX_VALUE)
+=======
+                    .addGap(0, 1589, Short.MAX_VALUE)
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
@@ -2101,7 +2308,11 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 Contenedor.setLayout(ContenedorLayout);
                 ContenedorLayout.setHorizontalGroup(
                     ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addGap(0, 1701, Short.MAX_VALUE)
+=======
+                    .addGap(0, 1589, Short.MAX_VALUE)
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
                 );
                 ContenedorLayout.setVerticalGroup(
                     ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2127,7 +2338,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane1)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1594, Short.MAX_VALUE)
                 );
                 layout.setVerticalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2272,6 +2483,8 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         }
         //enviar el id de rs_id a todos los formularios
         RSAIREGSEG.lblId.setText(String.valueOf(id));
+        ConsultorioExtRsCabecera cabecera = new ConsultorioExtRsCabecera();
+        cabecera.rsObservacion(id);
         try {
             REGSEG.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -2284,9 +2497,9 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMadreCaretUpdate
 
-    private void txtPadreCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadreCaretUpdate
+    private void txtReferenciaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtReferenciaCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadreCaretUpdate
+    }//GEN-LAST:event_txtReferenciaCaretUpdate
 
     private void lblTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblTelefonoActionPerformed
         // TODO add your handling code here:
@@ -2366,7 +2579,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_T7MouseClicked
 
     private void tbMadresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMadresMouseClicked
-        if(evt.getClickCount()==1){
+        if(evt.getClickCount()==2){
             enviarDatosMadres();
         }
     }//GEN-LAST:event_tbMadresMouseClicked
@@ -2405,9 +2618,9 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         consultorio1.listarMadres(tbMadres, txtBuscarMadres.getText());
     }//GEN-LAST:event_btnBuscarMadresActionPerformed
 
-    private void txtCodigoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtCodigoCaretUpdate
+    private void txtCodigoSisCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtCodigoSisCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoCaretUpdate
+    }//GEN-LAST:event_txtCodigoSisCaretUpdate
 
     private void txtRiesgoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtRiesgoCaretUpdate
 
@@ -2417,13 +2630,9 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         btnGuardar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void cbxTipoSeguroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoSeguroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxTipoSeguroActionPerformed
-
-    private void lblTriajeCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_lblTriajeCaretUpdate
-        validaTriaje(lblTriaje.getText());
-    }//GEN-LAST:event_lblTriajeCaretUpdate
+    private void txtHcCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtHcCaretUpdate
+        validaTriaje(txtHc.getText());
+    }//GEN-LAST:event_txtHcCaretUpdate
 
     private void jPanel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel16MouseClicked
 
@@ -2683,6 +2892,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jLabel15MouseClicked
 
+<<<<<<< HEAD
     private void txDniPadreCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txDniPadreCaretUpdate
         // TODO add your handling code here:
     }//GEN-LAST:event_txDniPadreCaretUpdate
@@ -2694,6 +2904,23 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     private void txtPadre1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre1CaretUpdate
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPadre1CaretUpdate
+=======
+    private void txtDniPadreCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDniPadreCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDniPadreCaretUpdate
+
+    private void txtDniMadreCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDniMadreCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDniMadreCaretUpdate
+
+    private void txtPadreCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadreCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadreCaretUpdate
+
+    private void cbxTipoSeguroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoSeguroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxTipoSeguroActionPerformed
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
 
     /**
      * @param args the command line arguments
@@ -2822,7 +3049,6 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     public static javax.swing.JLabel lblFecNac;
     public static javax.swing.JLabel lblFua;
     public static javax.swing.JLabel lblGenero;
-    public static javax.swing.JLabel lblHc;
     public static javax.swing.JLabel lblHcMadre;
     private javax.swing.JLabel lblMensaje;
     public static javax.swing.JLabel lblNHC;
@@ -2840,7 +3066,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     public static javax.swing.JLabel lblPorcentajeVacunas;
     public static javax.swing.JLabel lblSector;
     public static javax.swing.JTextField lblTelefono;
-    public static javax.swing.JTextField lblTriaje;
+    public static javax.swing.JLabel lblTriaje;
     public static javax.swing.JLabel lblusu;
     private javax.swing.JPanel pnlContenedor;
     private javax.swing.JPanel pnlMensaje;
@@ -2852,11 +3078,18 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     public static javax.swing.JTextField txDniPadre;
     private javax.swing.JTextField txtBuscarMadres;
     private javax.swing.JTextField txtBuscarNino;
-    public static javax.swing.JTextField txtCodigo;
+    public static javax.swing.JTextField txtCodigoSis;
+    public static javax.swing.JTextField txtDniMadre;
+    public static javax.swing.JTextField txtDniPadre;
+    public static javax.swing.JTextField txtHc;
     public static javax.swing.JTextField txtMadre;
     public static javax.swing.JTextField txtPaciente;
     public static javax.swing.JTextField txtPadre;
+<<<<<<< HEAD
     public static javax.swing.JTextField txtPadre1;
+=======
+    public static javax.swing.JTextField txtReferencia;
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
     public static javax.swing.JTextField txtRiesgo;
     private javax.swing.JPanel txtSis;
     // End of variables declaration//GEN-END:variables

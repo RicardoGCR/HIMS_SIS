@@ -18,7 +18,11 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
     
+<<<<<<< HEAD
     static String servidor="192.168.1.38";
+=======
+    static String servidor="localhost";
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
     static String puerto="1433";
     static String user="sa";
     static String password="sistemas";

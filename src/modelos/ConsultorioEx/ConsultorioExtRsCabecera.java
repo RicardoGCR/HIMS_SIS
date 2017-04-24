@@ -18,6 +18,7 @@ import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import servicios.Conexion;
+import vista.ConsultorioEx.RSAIREGSEG;
 
 public class ConsultorioExtRsCabecera implements Serializable {
     DefaultTableModel m;
@@ -37,6 +38,9 @@ public class ConsultorioExtRsCabecera implements Serializable {
     private String hc_madre;
     private String triaje_id;
     private String tipo_seguro;
+    private String rsDniPadre;
+    private String rsDirReferencia;
+    private String rsObservacion;
     private Collection<ConsultorioExtRsCcd> consultorioExtRsCcdCollection;
 
     private Collection<ConsultorioExtRsVacunas> consultorioExtRsVacunasCollection;
@@ -200,7 +204,7 @@ public class ConsultorioExtRsCabecera implements Serializable {
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_RS_CABECERA ?,?,?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_RS_CABECERA ?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getRsId());
             cmd.setString(2, getHc_nino());
@@ -212,6 +216,9 @@ public class ConsultorioExtRsCabecera implements Serializable {
             cmd.setString(8, getUsuario());
             cmd.setString(9, getTipo_seguro());
             cmd.setString(10, tipo);
+            cmd.setString(11, getRsDniPadre());
+            cmd.setString(12, getRsDirReferencia());
+            cmd.setString(13, getRsObservacion());
             if(!cmd.execute())
             {
                 resp = true;
@@ -238,6 +245,29 @@ public class ConsultorioExtRsCabecera implements Serializable {
             System.out.println("Error: idVacunas: " + ex.getMessage());
         }
         return id;
+    }
+    
+    public String rsObservacion(int rs_id)
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT RS_OBSERVACION\n" +
+                        "FROM CONSULTORIO_EXT_RS_CABECERA\n" +
+                        "WHERE RS_ID = ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, rs_id);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               RSAIREGSEG.txtObservacion.setText(rs.getString(1));
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: rsObservacion: " + ex.getMessage());
+        }
+        return cod;
     }
     
     public ConsultorioExtRsCabecera()
@@ -414,6 +444,48 @@ public class ConsultorioExtRsCabecera implements Serializable {
      */
     public void setTipo_seguro(String tipo_seguro) {
         this.tipo_seguro = tipo_seguro;
+    }
+
+    /**
+     * @return the rsDniPadre
+     */
+    public String getRsDniPadre() {
+        return rsDniPadre;
+    }
+
+    /**
+     * @param rsDniPadre the rsDniPadre to set
+     */
+    public void setRsDniPadre(String rsDniPadre) {
+        this.rsDniPadre = rsDniPadre;
+    }
+
+    /**
+     * @return the rsDirReferencia
+     */
+    public String getRsDirReferencia() {
+        return rsDirReferencia;
+    }
+
+    /**
+     * @param rsDirReferencia the rsDirReferencia to set
+     */
+    public void setRsDirReferencia(String rsDirReferencia) {
+        this.rsDirReferencia = rsDirReferencia;
+    }
+
+    /**
+     * @return the rsObservacion
+     */
+    public String getRsObservacion() {
+        return rsObservacion;
+    }
+
+    /**
+     * @param rsObservacion the rsObservacion to set
+     */
+    public void setRsObservacion(String rsObservacion) {
+        this.rsObservacion = rsObservacion;
     }
     
 }

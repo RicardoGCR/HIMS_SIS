@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoGA.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoAF.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoEXL.java</file>
@@ -14,6 +15,32 @@
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoAO.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RetiroVoluntario.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/Turno.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/AgendaCita.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/OrdenPCR.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/REGSEGMONITOREO.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/REGSEGSEGD.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/REGSEGSEGA.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAITTO.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/FrmSolicitudPruebaELISVIH.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RSAICCD.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtOrdenpcr.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioExt.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ESNITSS.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsentimientoInformadoR.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/REGSEGSEGIRA.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/REGSEGSEGP.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsCabecera.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/Consultorio.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioAsignacion.java</file>
+=======
+            <file>file:/D:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADO_INSUMOS.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADO_MUESTRA.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADOS_MUESTRA_INGRESO.java</file>
+>>>>>>> 4aa79983fa958cb6642c698e764e0cd8ff066831
+>>>>>>> ef119d0aa9247901d86c30d7fa45748b63a0877e
         </group>
     </open-files>
 </project-private>

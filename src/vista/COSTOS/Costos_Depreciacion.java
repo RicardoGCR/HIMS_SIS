@@ -685,8 +685,6 @@ public class Costos_Depreciacion extends javax.swing.JFrame implements Runnable{
         jLabel10.setFont(new java.awt.Font("Palatino Linotype", 1, 13)); // NOI18N
         jLabel10.setText("Fecha de Compra:");
 
-        txtFechaCompra.setEditable(false);
-
         jLabel11.setFont(new java.awt.Font("Palatino Linotype", 1, 13)); // NOI18N
         jLabel11.setText("Fecha Fin a Depreciar:");
 

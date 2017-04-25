@@ -41,58 +41,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         habilitarDatos(false);
         this.Habilitar();
         mensaje.setVisible(false);
-        LimitadorDeDocumento limiteFuaAmadu = new LimitadorDeDocumento(13);
-        txtFuaAmaDu.setDocument(limiteFuaAmadu);
-        LimitadorDeDocumento limiteFuaR1 = new LimitadorDeDocumento(13);
-        txtFuaApoR1.setDocument(limiteFuaR1);
-        LimitadorDeDocumento limiteFuaR2 = new LimitadorDeDocumento(13);
-        txtFuaApoR2.setDocument(limiteFuaR2);
-        LimitadorDeDocumento limiteFuaBcg = new LimitadorDeDocumento(13);
-        txtFuaBcg.setDocument(limiteFuaBcg);
-        LimitadorDeDocumento limiteFuaDpt1 = new LimitadorDeDocumento(13);
-        txtFuaDpt1.setDocument(limiteFuaDpt1);
-        LimitadorDeDocumento limiteFuaDpt2 = new LimitadorDeDocumento(13);
-        txtFuaDpt2.setDocument(limiteFuaDpt2);
-        LimitadorDeDocumento limiteFuaEjec = new LimitadorDeDocumento(13);
-        txtFuaEjec.setDocument(limiteFuaEjec);
-        LimitadorDeDocumento limiteFuaElab = new LimitadorDeDocumento(13);
-        txtFuaElab.setDocument(limiteFuaElab);
-        LimitadorDeDocumento limiteFuaHvb = new LimitadorDeDocumento(13);
-        txtFuaHvb.setDocument(limiteFuaHvb);
-        LimitadorDeDocumento limiteFuaInfl1 = new LimitadorDeDocumento(13);
-        txtFuaInfl1.setDocument(limiteFuaInfl1);
-        LimitadorDeDocumento limiteFuaInfl2 = new LimitadorDeDocumento(13);
-        txtFuaInfl2.setDocument(limiteFuaInfl2);
-        LimitadorDeDocumento limiteFuaIpv1 = new LimitadorDeDocumento(13);
-        txtFuaIpv1.setDocument(limiteFuaIpv1);
-        LimitadorDeDocumento limiteFuaIpv2 = new LimitadorDeDocumento(13);
-        txtFuaIpv2.setDocument(limiteFuaIpv2);
-        LimitadorDeDocumento limiteFuaIpv3 = new LimitadorDeDocumento(13);
-        txtFuaIpv3.setDocument(limiteFuaIpv3);
-        LimitadorDeDocumento limiteFuaNeumo1 = new LimitadorDeDocumento(13);
-        txtFuaNeumo1.setDocument(limiteFuaNeumo1);
-        LimitadorDeDocumento limiteFuaNeumo2 = new LimitadorDeDocumento(13);
-        txtFuaNeumo2.setDocument(limiteFuaNeumo2);
-        LimitadorDeDocumento limiteFuaNeumo3 = new LimitadorDeDocumento(13);
-        txtFuaNeumo3.setDocument(limiteFuaNeumo3);
-        LimitadorDeDocumento limiteFuaPent1 = new LimitadorDeDocumento(13);
-        txtFuaPent1.setDocument(limiteFuaPent1);
-        LimitadorDeDocumento limiteFuaPent2 = new LimitadorDeDocumento(13);
-        txtFuaPent2.setDocument(limiteFuaPent2);
-        LimitadorDeDocumento limiteFuaPent3 = new LimitadorDeDocumento(13);
-        txtFuaPent3.setDocument(limiteFuaPent3);
-        LimitadorDeDocumento limiteFuaRot1 = new LimitadorDeDocumento(13);
-        txtFuaRot1.setDocument(limiteFuaRot1);
-        LimitadorDeDocumento limiteFuaRot2 = new LimitadorDeDocumento(13);
-        txtFuaRot2.setDocument(limiteFuaRot2);
-        LimitadorDeDocumento limiteFuaSpr1 = new LimitadorDeDocumento(13);
-        txtFuaSpr1.setDocument(limiteFuaSpr1);
-        LimitadorDeDocumento limiteFuaSpr2 = new LimitadorDeDocumento(13);
-        txtFuaSpr2.setDocument(limiteFuaSpr2);
-        LimitadorDeDocumento limiteFuaInflR1 = new LimitadorDeDocumento(13);
-        txtInflR1.setDocument(limiteFuaInflR1);
-        LimitadorDeDocumento limiteFuaInflR2 = new LimitadorDeDocumento(13);
-        txtInflR2.setDocument(limiteFuaInflR2);
+        Botones(false);
     }
     public void QuitarLaBarraTitulo()
     { 
@@ -754,7 +703,11 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 Guardar(fecha);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error: validaRegistro: " + e.toString());
+            mensaje.setVisible(true);
+            mensaje.setBackground(new Color(255,91,70)); 
+            men.setText("Ocurrió un error, Verifique");
+            b.setVisible(false);
+            b1.setVisible(false);
         }
     }
     
@@ -784,6 +737,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel27 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
+        lblPorcentajeV = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblNina = new javax.swing.JLabel();
+        lblNino = new javax.swing.JLabel();
         ELAB = new javax.swing.JPanel();
         dtElab = new com.toedter.calendar.JDateChooser();
         txtFuaElab = new javax.swing.JTextField();
@@ -930,8 +887,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         men = new javax.swing.JLabel();
         b = new javax.swing.JButton();
         b1 = new javax.swing.JButton();
-        lblNino = new javax.swing.JLabel();
-        lblNina = new javax.swing.JLabel();
         lblId = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -943,14 +898,15 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel26.setBackground(new java.awt.Color(25, 188, 157));
         jPanel26.setPreferredSize(new java.awt.Dimension(83, 45));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("VACUNAS");
+        jLabel10.setText("Vacunas");
 
         jPanel27.setBackground(new java.awt.Color(23, 160, 134));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Izquierda Filled-30.png"))); // NOI18N
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -962,18 +918,51 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         jPanel27.setLayout(jPanel27Layout);
         jPanel27Layout.setHorizontalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel27Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13)
-                .addContainerGap())
+            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
         );
         jPanel27Layout.setVerticalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel27Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jLabel13)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        lblPorcentajeV.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblPorcentajeV.setForeground(new java.awt.Color(12, 97, 81));
+        lblPorcentajeV.setText("100 %  Completado");
+        lblPorcentajeV.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jPanel2.setBackground(new java.awt.Color(23, 160, 134));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1, 100));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        lblNina.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
+        lblNina.setForeground(new java.awt.Color(12, 97, 81));
+        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-50.png"))); // NOI18N
+        lblNina.setText("NIÑOS");
+        lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        lblNino.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
+<<<<<<< HEAD
+        lblNino.setForeground(new java.awt.Color(12, 97, 81));
+=======
+        lblNino.setForeground(new java.awt.Color(109, 23, 16));
+>>>>>>> 1a559f5a806a95270e8690bb3fe964f1d4994744
+        lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-50.png"))); // NOI18N
+        lblNino.setText("NIÑOS");
+        lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblNino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
@@ -981,16 +970,34 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel26Layout.createSequentialGroup()
                 .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPorcentajeV)
+                    .addComponent(jLabel10))
+                .addGap(59, 59, 59)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10)
-                .addContainerGap(1260, Short.MAX_VALUE))
+                .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel26Layout.createSequentialGroup()
-                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(lblPorcentajeV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNina)
+                    .addComponent(lblNino))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1001,6 +1008,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         dtElab.setDateFormatString("dd/MM/yyyy");
         dtElab.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        txtFuaElab.setEditable(false);
         txtFuaElab.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaElabCaretUpdate(evt);
@@ -1071,6 +1079,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
         dtEjec.setDateFormatString("dd/MM/yyyy");
         dtEjec.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
+        txtFuaEjec.setEditable(false);
         txtFuaEjec.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaEjecCaretUpdate(evt);
@@ -1212,12 +1221,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtHvb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaBcg.setEditable(false);
         txtFuaBcg.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaBcgCaretUpdate(evt);
             }
         });
 
+        txtFuaHvb.setEditable(false);
         txtFuaHvb.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaHvbCaretUpdate(evt);
@@ -1242,7 +1253,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             RNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RNLayout.createSequentialGroup()
                 .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(RNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1379,18 +1390,21 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtNeumo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaNeumo3.setEditable(false);
         txtFuaNeumo3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaNeumo3CaretUpdate(evt);
             }
         });
 
+        txtFuaNeumo1.setEditable(false);
         txtFuaNeumo1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaNeumo1CaretUpdate(evt);
             }
         });
 
+        txtFuaNeumo2.setEditable(false);
         txtFuaNeumo2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaNeumo2CaretUpdate(evt);
@@ -1420,7 +1434,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             NEUMOCOCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(NEUMOCOCOLayout.createSequentialGroup()
                 .addComponent(jPanel52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(NEUMOCOCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(NEUMOCOCOLayout.createSequentialGroup()
                         .addGroup(NEUMOCOCOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1528,12 +1542,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtInfl2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaInfl1.setEditable(false);
         txtFuaInfl1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaInfl1CaretUpdate(evt);
             }
         });
 
+        txtFuaInfl2.setEditable(false);
         txtFuaInfl2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaInfl2CaretUpdate(evt);
@@ -1558,7 +1574,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             INFLUENZALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(INFLUENZALayout.createSequentialGroup()
                 .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(INFLUENZALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1661,12 +1677,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtRot2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaRot1.setEditable(false);
         txtFuaRot1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaRot1CaretUpdate(evt);
             }
         });
 
+        txtFuaRot2.setEditable(false);
         txtFuaRot2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaRot2CaretUpdate(evt);
@@ -1691,7 +1709,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             ROTAVIRUSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ROTAVIRUSLayout.createSequentialGroup()
                 .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(ROTAVIRUSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1794,12 +1812,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtSpr2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaSpr1.setEditable(false);
         txtFuaSpr1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaSpr1CaretUpdate(evt);
             }
         });
 
+        txtFuaSpr2.setEditable(false);
         txtFuaSpr2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaSpr2CaretUpdate(evt);
@@ -1824,7 +1844,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             SPRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SPRLayout.createSequentialGroup()
                 .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(SPRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1892,6 +1912,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtAmadu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaAmaDu.setEditable(false);
         txtFuaAmaDu.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaAmaDuCaretUpdate(evt);
@@ -1916,7 +1937,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             AMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AMALayout.createSequentialGroup()
                 .addComponent(jPanel51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(txtFuaAmaDu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2050,18 +2071,21 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtIpv3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaIpv3.setEditable(false);
         txtFuaIpv3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaIpv3CaretUpdate(evt);
             }
         });
 
+        txtFuaIpv1.setEditable(false);
         txtFuaIpv1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaIpv1CaretUpdate(evt);
             }
         });
 
+        txtFuaIpv2.setEditable(false);
         txtFuaIpv2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaIpv2CaretUpdate(evt);
@@ -2091,7 +2115,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             ANTIPOLIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ANTIPOLIOLayout.createSequentialGroup()
                 .addComponent(jPanel57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(ANTIPOLIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ANTIPOLIOLayout.createSequentialGroup()
                         .addGroup(ANTIPOLIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -2234,18 +2258,21 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtPent3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaPent3.setEditable(false);
         txtFuaPent3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaPent3CaretUpdate(evt);
             }
         });
 
+        txtFuaPent1.setEditable(false);
         txtFuaPent1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaPent1CaretUpdate(evt);
             }
         });
 
+        txtFuaPent2.setEditable(false);
         txtFuaPent2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaPent2CaretUpdate(evt);
@@ -2275,13 +2302,13 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             PENTAVALENTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PENTAVALENTELayout.createSequentialGroup()
                 .addComponent(jPanel61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(PENTAVALENTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PENTAVALENTELayout.createSequentialGroup()
                         .addGroup(PENTAVALENTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel64, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 1, Short.MAX_VALUE)
                         .addGroup(PENTAVALENTELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtFuaPent3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtFuaPent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2383,12 +2410,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtDpt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaDpt1.setEditable(false);
         txtFuaDpt1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaDpt1CaretUpdate(evt);
             }
         });
 
+        txtFuaDpt2.setEditable(false);
         txtFuaDpt2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaDpt2CaretUpdate(evt);
@@ -2413,7 +2442,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             DPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DPTLayout.createSequentialGroup()
                 .addComponent(jPanel40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(DPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2516,12 +2545,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtInflR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtInflR1.setEditable(false);
         txtInflR1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtInflR1CaretUpdate(evt);
             }
         });
 
+        txtInflR2.setEditable(false);
         txtInflR2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtInflR2CaretUpdate(evt);
@@ -2546,7 +2577,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             INFLUENZA_REFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(INFLUENZA_REFLayout.createSequentialGroup()
                 .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(INFLUENZA_REFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2649,12 +2680,14 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(dtApoR2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        txtFuaApoR1.setEditable(false);
         txtFuaApoR1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaApoR1CaretUpdate(evt);
             }
         });
 
+        txtFuaApoR2.setEditable(false);
         txtFuaApoR2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFuaApoR2CaretUpdate(evt);
@@ -2679,7 +2712,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
             INFLUENZA_REF1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(INFLUENZA_REF1Layout.createSequentialGroup()
                 .addComponent(jPanel50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addGroup(INFLUENZA_REF1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2806,7 +2839,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(871, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mensajeLayout.setVerticalGroup(
             mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2837,27 +2870,13 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        lblNino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblNino.setForeground(new java.awt.Color(102, 102, 102));
-        lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
-        lblNino.setText("NIÑOS");
-        lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblNino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-        lblNina.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblNina.setForeground(new java.awt.Color(102, 102, 102));
-        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
-        lblNina.setText("NIÑOS");
-        lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
         lblId.setText("jLabel1");
 
         javax.swing.GroupLayout VACUNASLayout = new javax.swing.GroupLayout(VACUNAS);
         VACUNAS.setLayout(VACUNASLayout);
         VACUNASLayout.setHorizontalGroup(
             VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel26, javax.swing.GroupLayout.DEFAULT_SIZE, 1383, Short.MAX_VALUE)
+            .addComponent(jPanel26, javax.swing.GroupLayout.DEFAULT_SIZE, 1252, Short.MAX_VALUE)
             .addComponent(Opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(VACUNASLayout.createSequentialGroup()
                 .addContainerGap()
@@ -2883,10 +2902,6 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                         .addGap(1, 1, 1)
                         .addComponent(AMA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(VACUNASLayout.createSequentialGroup()
-                        .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(VACUNASLayout.createSequentialGroup()
                         .addComponent(DPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(INFLUENZA_REF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2894,23 +2909,19 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                         .addComponent(INFLUENZA_REF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblId)))
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         VACUNASLayout.setVerticalGroup(
             VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VACUNASLayout.createSequentialGroup()
-                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNino)
-                    .addComponent(lblNina))
-                .addGap(18, 18, 18)
+                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
                 .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(EJEC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
                     .addComponent(PENTAVALENTE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(RN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ANTIPOLIO, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ELAB, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
+                    .addComponent(EJEC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(ELAB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(VACUNASLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(NEUMOCOCO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3090,12 +3101,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaPent1.setEnabled(true);
                 dtPent1.setEnabled(true);
-                txtFuaPent1.requestFocus();
-                txtFuaPent1.setEditable(true); 
                 fecha=dtPent1;
                 fua = txtFuaPent1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rp1.setEnabled(false);
@@ -3108,12 +3117,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaDpt2.setEnabled(true);
                 dtDpt2.setEnabled(true);
-                txtFuaDpt2.requestFocus();
-                txtFuaDpt2.setEditable(true); 
                 fecha=dtDpt2;
                 fua = txtFuaDpt2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rdpt2.setEnabled(false);
@@ -3126,12 +3133,11 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtInflR2.setEnabled(true);
                 dtInflR2.setEnabled(true);
-                txtInflR2.requestFocus();
-                txtInflR2.setEditable(true);  
                 fecha=dtInflR2;
                 fua = txtInflR2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
+                JOptionPane.showMessageDialog(this, RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rir2.setEnabled(false);
@@ -3144,12 +3150,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaApoR2.setEnabled(true);
                 dtApoR2.setEnabled(true);
-                txtFuaApoR2.requestFocus();
-                txtFuaApoR2.setEditable(true); 
                 fecha=dtApoR2;
                 fua = txtFuaApoR2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rapo2.setEnabled(false);
@@ -3166,12 +3170,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaElab.setEnabled(true);
                 dtElab.setEnabled(true);
-                txtFuaElab.requestFocus();
-                txtFuaElab.setEditable(true); 
                 fecha=dtElab;
                 fua = txtFuaElab;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Relab.setEnabled(false);
@@ -3184,12 +3186,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaEjec.setEnabled(true);
                 dtEjec.setEnabled(true);
-                txtFuaEjec.requestFocus();
-                txtFuaEjec.setEditable(true); 
                 fecha=dtEjec;
                 fua = txtFuaEjec;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rejec.setEnabled(false);
@@ -3202,12 +3202,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaBcg.setEnabled(true);
                 dtBcg.setEnabled(true);
-                txtFuaBcg.requestFocus();
-                txtFuaBcg.setEditable(true); 
                 fecha=dtBcg;
                 fua = txtFuaBcg;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rbcg.setEnabled(false);
@@ -3220,12 +3218,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaHvb.setEnabled(true);
-                dtHvb.setEnabled(true);
-                txtFuaHvb.requestFocus();
-                txtFuaHvb.setEditable(true);  
+                dtHvb.setEnabled(true); 
                 fecha=dtHvb;
                 fua = txtFuaHvb;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rhvb.setEnabled(false);
@@ -3238,12 +3234,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaPent3.setEnabled(true);
                 dtPent3.setEnabled(true);
-                txtFuaPent3.requestFocus();
-                txtFuaPent3.setEditable(true);  
                 fecha=dtPent3;
                 fua = txtFuaPent3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rp3.setEnabled(false);
@@ -3256,12 +3250,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaPent2.setEnabled(true);
                 dtPent2.setEnabled(true);
-                txtFuaPent2.requestFocus();
-                txtFuaPent2.setEditable(true);  
                 fecha=dtPent2;
                 fua = txtFuaPent2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rp2.setEnabled(false);
@@ -3274,12 +3266,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaIpv3.setEnabled(true);
                 dtIpv3.setEnabled(true);
-                txtFuaIpv3.requestFocus();
-                txtFuaIpv3.setEditable(true); 
                 fecha=dtIpv3;
                 fua = txtFuaIpv3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Ripv3.setEnabled(false);
@@ -3294,12 +3284,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaIpv2.setEnabled(true);
-                dtIpv2.setEnabled(true);
-                txtFuaIpv2.requestFocus();
-                txtFuaIpv2.setEditable(true);  
+                dtIpv2.setEnabled(true);  
                 fecha=dtIpv2;
                 fua = txtFuaIpv2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Ripv2.setEnabled(false);
@@ -3312,12 +3300,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaIpv1.setEnabled(true);
                 dtIpv1.setEnabled(true);
-                txtFuaIpv1.requestFocus();
-                txtFuaIpv1.setEditable(true); 
                 fecha=dtIpv1;
                 fua = txtFuaIpv1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Ripv1.setEnabled(false);
@@ -3330,12 +3316,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaNeumo1.setEnabled(true);
                 dtNeumo1.setEnabled(true);
-                txtFuaNeumo1.requestFocus();
-                txtFuaNeumo1.setEditable(true);  
                 fecha=dtNeumo1;
                 fua = txtFuaNeumo1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rn1.setEnabled(false);
@@ -3348,12 +3332,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaNeumo2.setEnabled(true);
                 dtNeumo2.setEnabled(true);
-                txtFuaNeumo2.requestFocus();
-                txtFuaNeumo2.setEditable(true); 
                 fecha=dtNeumo2;
                 fua = txtFuaNeumo2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rn2.setEnabled(false);
@@ -3366,12 +3348,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaNeumo3.setEnabled(true);
                 dtNeumo3.setEnabled(true);
-                txtFuaNeumo3.requestFocus();
-                txtFuaNeumo3.setEditable(true); 
                 fecha=dtNeumo3;
                 fua = txtFuaNeumo3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rn3.setEnabled(false);
@@ -3384,12 +3364,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaInfl1.setEnabled(true);
-                dtInfl1.setEnabled(true);
-                txtFuaInfl1.requestFocus();
-                txtFuaInfl1.setEditable(true);  
+                dtInfl1.setEnabled(true); 
                 fecha=dtInfl1;
                 fua = txtFuaInfl1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Ri1.setEnabled(false);
@@ -3402,12 +3380,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaInfl2.setEnabled(true);
                 dtInfl2.setEnabled(true);
-                txtFuaInfl2.requestFocus();
-                txtFuaInfl2.setEditable(true); 
                 fecha=dtInfl2;
                 fua = txtFuaInfl2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Ri2.setEnabled(false);
@@ -3420,12 +3396,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaRot1.setEnabled(true);
                 dtRot1.setEnabled(true);
-                txtFuaRot1.requestFocus();
-                txtFuaRot1.setEditable(true);  
                 fecha=dtRot1;
                 fua = txtFuaRot1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rr1.setEnabled(false);
@@ -3438,12 +3412,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaRot2.setEnabled(true);
                 dtRot2.setEnabled(true);
-                txtFuaRot2.requestFocus();
-                txtFuaRot2.setEditable(true); 
                 fecha=dtRot2;
                 fua = txtFuaRot2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rr2.setEnabled(false);
@@ -3456,12 +3428,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaSpr1.setEnabled(true);
                 dtSpr1.setEnabled(true);
-                txtFuaSpr1.requestFocus();
-                txtFuaSpr1.setEditable(true); 
                 fecha=dtSpr1;
                 fua = txtFuaSpr1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rspr1.setEnabled(false);
@@ -3474,12 +3444,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaSpr2.setEnabled(true);
-                dtSpr2.setEnabled(true);
-                txtFuaSpr2.requestFocus();
-                txtFuaSpr2.setEditable(true);  
+                dtSpr2.setEnabled(true); 
                 fecha=dtSpr2;
                 fua = txtFuaSpr2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rspr2.setEnabled(false);
@@ -3492,12 +3460,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaAmaDu.setEnabled(true);
                 dtAmadu.setEnabled(true);
-                txtFuaAmaDu.requestFocus();
-                txtFuaAmaDu.setEditable(true); 
                 fecha=dtAmadu;
                 fua = txtFuaAmaDu;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rama.setEnabled(false);
@@ -3510,12 +3476,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaDpt1.setEnabled(true);
-                dtDpt1.setEnabled(true);
-                txtFuaDpt1.requestFocus();
-                txtFuaDpt1.setEditable(true);  
+                dtDpt1.setEnabled(true);  
                 fecha=dtDpt1;
                 fua = txtFuaDpt1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rdpt1.setEnabled(false);
@@ -3528,12 +3492,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtInflR1.setEnabled(true);
-                dtInflR1.setEnabled(true);
-                txtInflR1.requestFocus();
-                txtInflR1.setEditable(true);  
+                dtInflR1.setEnabled(true); 
                 fecha=dtInflR1;
                 fua = txtInflR1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rir1.setEnabled(false);
@@ -3546,12 +3508,10 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
                 habilitarDatos(false);
                 habilitarRadio(false);
                 Botones(true);
-                txtFuaApoR1.setEnabled(true);
-                dtApoR1.setEnabled(true);
-                txtFuaApoR1.requestFocus();
-                txtFuaApoR1.setEditable(true);  
+                dtApoR1.setEnabled(true); 
                 fecha=dtApoR1;
                 fua = txtFuaApoR1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             Rapo1.setEnabled(false);
@@ -3674,6 +3634,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel53;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
@@ -3715,6 +3676,7 @@ public class RSAIVacunas extends javax.swing.JInternalFrame {
     public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
+    public static javax.swing.JLabel lblPorcentajeV;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
     public static javax.swing.JTextField txtFuaAmaDu;

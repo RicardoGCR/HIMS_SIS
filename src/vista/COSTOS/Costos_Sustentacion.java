@@ -1085,6 +1085,7 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
                                                 jLabel16.setText("Área:");
 
                                                 txtSubServicio.setEditable(false);
+                                                txtSubServicio.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
                                                 txtSubServicio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
                                                 spHora.setModel(new javax.swing.SpinnerNumberModel(0, 0, 24, 1));

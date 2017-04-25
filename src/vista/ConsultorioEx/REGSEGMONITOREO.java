@@ -9,7 +9,10 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -38,6 +41,7 @@ private Dimension DimensionBarra = null;
         CCDBUSCAR.cargarDatosCie10("", tbCiePresun);
         lblMant.setText("I");
         ConsultorioExtRsMonitoreo monitoreo = new ConsultorioExtRsMonitoreo();
+        monitoreo.inicializarTabla(tbMonitoreo);
         monitoreo.listarDiagnostico(lblId.getText(), tbMonitoreo);
     }
     
@@ -71,6 +75,26 @@ private Dimension DimensionBarra = null;
         FrmCie10.dispose();
         txtCie10.setText(String.valueOf(tbCiePresun.getValueAt(fila, 1)));
         lblIdCie10.setText(String.valueOf(tbCiePresun.getValueAt(fila, 0)));
+    }
+    
+    public void enviarDatosMonitoreo(){
+        int fila = tbMonitoreo.getSelectedRow();
+        txtEdad.setText(String.valueOf(tbMonitoreo.getValueAt(fila, 2)));
+        txtPeso.setText(String.valueOf(tbMonitoreo.getValueAt(fila, 3)));
+        txtTalla.setText(String.valueOf(tbMonitoreo.getValueAt(fila, 4)));
+        lblIdCie10.setText(String.valueOf(tbMonitoreo.getValueAt(fila, 7)));
+        txtCie10.setText(String.valueOf(tbMonitoreo.getValueAt(fila, 5)));
+        lblIdMo.setText(String.valueOf(tbMonitoreo.getValueAt(fila, 0)));
+        lblMant.setText("U");
+        btnGuardar.setEnabled(true);
+        habilitarDatos(true);
+        String fechaSeleccionada = (String) tbMonitoreo.getModel().getValueAt(fila, 1);
+         try {
+         DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+         Date fecha = dfo.parse(fechaSeleccionada);
+         dtFecha.setDate(fecha);
+        } catch (Exception e) {
+        }
     }
     
     public String determinarFecha(JDateChooser calendario){
@@ -120,6 +144,8 @@ private Dimension DimensionBarra = null;
                 pnlMensaje.setVisible(true);
                 lblMensaje.setText("Datos guardados de forma correcta");
                 monitoreo1.listarDiagnostico(lblId.getText(), tbMonitoreo);
+                habilitarDatos(false);
+                btnGuardar.setEnabled(false);
                 limpiar();
                 btnGuardar.setEnabled(false);
                 pnlMensaje.setBackground(new Color(33,115,70));
@@ -135,6 +161,71 @@ private Dimension DimensionBarra = null;
             }
         } catch (Exception e) {
             System.out.println("Error: guardarDatos" + e.getMessage());
+        }
+        return retorna;
+    }
+    
+    public boolean modificarDatos(){
+        boolean retorna = false;
+        try {
+            ConsultorioExtRsMonitoreo monitoreo1 = new ConsultorioExtRsMonitoreo();
+            monitoreo1.setMoId(Integer.parseInt(lblIdMo.getText()));
+            monitoreo1.setMoEdad(txtEdad.getText());
+            monitoreo1.setMoFecha(determinarFecha(dtFecha));
+            monitoreo1.setMoPeso(txtPeso.getText());
+            monitoreo1.setMoTalla(txtTalla.getText());
+            monitoreo1.setId_cie10(Integer.parseInt(lblIdCie10.getText()));
+            if(monitoreo1.mantenimientoConsultorioExtRsMonitoreo(lblMant.getText())==true){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Datos modificados de forma correcta");
+                monitoreo1.listarDiagnostico(lblId.getText(), tbMonitoreo);
+                limpiar();
+                habilitarDatos(false);
+                btnGuardar.setEnabled(false);
+                btnGuardar.setEnabled(false);
+                pnlMensaje.setBackground(new Color(33,115,70));
+                btnSi.setVisible(true);
+                btnSi.setText("OK");
+                btnNo.setVisible(false);
+            } else {
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Ocurrió un error, verifique");
+                pnlMensaje.setBackground(new Color(255,91,70));
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+            }
+        } catch (Exception e) {
+            System.out.println("Error: modificarDatos" + e.getMessage());
+        }
+        return retorna;
+    }
+    
+    public boolean eliminarDatos(){
+        boolean retorna = false;
+        try {
+            ConsultorioExtRsMonitoreo monitoreo1 = new ConsultorioExtRsMonitoreo();
+            monitoreo1.setMoId(Integer.parseInt(lblIdMo.getText()));
+            if(monitoreo1.mantenimientoConsultorioExtRsMonitoreo(lblMant.getText())==true){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Datos eliminados de forma correcta");
+                monitoreo1.listarDiagnostico(lblId.getText(), tbMonitoreo);
+                limpiar();
+                habilitarDatos(false);
+                btnGuardar.setEnabled(false);
+                btnGuardar.setEnabled(false);
+                pnlMensaje.setBackground(new Color(33,115,70));
+                btnSi.setVisible(true);
+                btnSi.setText("OK");
+                btnNo.setVisible(false);
+            } else {
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Ocurrió un error, verifique");
+                pnlMensaje.setBackground(new Color(255,91,70));
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+            }
+        } catch (Exception e) {
+            System.out.println("Error: eliminarDatos" + e.getMessage());
         }
         return retorna;
     }
@@ -168,7 +259,6 @@ private Dimension DimensionBarra = null;
             txtEdad = new javax.swing.JTextField();
             txtPeso = new javax.swing.JTextField();
             txtTalla = new javax.swing.JTextField();
-            jLabel11 = new javax.swing.JLabel();
             jScrollPane4 = new javax.swing.JScrollPane();
             tbMonitoreo = new javax.swing.JTable(){
                 public boolean isCellEditable(int rowIndex, int colIndex){
@@ -176,7 +266,6 @@ private Dimension DimensionBarra = null;
                 }};
                 mensaje = new javax.swing.JPanel();
                 jPanel31 = new javax.swing.JPanel();
-                btneditar4 = new javax.swing.JButton();
                 btnGuardar = new javax.swing.JButton();
                 btnNuevo = new javax.swing.JButton();
                 pnlMensaje = new javax.swing.JPanel();
@@ -186,6 +275,13 @@ private Dimension DimensionBarra = null;
                 lblId = new javax.swing.JLabel();
                 lblMant = new javax.swing.JLabel();
                 lblIdCie10 = new javax.swing.JLabel();
+                lblIdMo = new javax.swing.JLabel();
+                jPanel14 = new javax.swing.JPanel();
+                jPanel12 = new javax.swing.JPanel();
+                jPanel13 = new javax.swing.JPanel();
+                jPanel15 = new javax.swing.JPanel();
+                jPanel16 = new javax.swing.JPanel();
+                jPanel17 = new javax.swing.JPanel();
 
                 FrmCie10.setMinimumSize(new java.awt.Dimension(750, 400));
                 FrmCie10.setResizable(false);
@@ -380,6 +476,7 @@ private Dimension DimensionBarra = null;
                 btnBuscarCie10.setToolTipText("");
                 btnBuscarCie10.setContentAreaFilled(false);
                 btnBuscarCie10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                btnBuscarCie10.setEnabled(false);
                 btnBuscarCie10.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         btnBuscarCie10ActionPerformed(evt);
@@ -409,17 +506,18 @@ private Dimension DimensionBarra = null;
 
                 dtFecha.setBackground(new java.awt.Color(255, 255, 255));
                 dtFecha.setDateFormatString("dd/MM/yyyy");
+                dtFecha.setEnabled(false);
                 dtFecha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+                txtEdad.setEditable(false);
                 txtEdad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                txtEdad.setEnabled(false);
 
                 txtPeso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                txtPeso.setEnabled(false);
 
                 txtTalla.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-                jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-                jLabel11.setForeground(new java.awt.Color(51, 51, 51));
-                jLabel11.setText("Monitoreo / Supervisión de Micronutrientes__________________________________________________________________________________________________________");
+                txtTalla.setEnabled(false);
 
                 jScrollPane4.setBorder(null);
                 jScrollPane4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -437,6 +535,7 @@ private Dimension DimensionBarra = null;
                         "Title 1", "Title 2", "Title 3", "Title 4"
                     }
                 ));
+                tbMonitoreo.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                 tbMonitoreo.setGridColor(new java.awt.Color(255, 255, 255));
                 tbMonitoreo.setRowHeight(25);
                 tbMonitoreo.setSelectionBackground(new java.awt.Color(25, 188, 157));
@@ -463,19 +562,7 @@ private Dimension DimensionBarra = null;
                 mensaje.setBackground(new java.awt.Color(102, 102, 102));
 
                 jPanel31.setBackground(new java.awt.Color(51, 51, 51));
-
-                btneditar4.setForeground(new java.awt.Color(240, 240, 240));
-                btneditar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Editar-32.png"))); // NOI18N
-                btneditar4.setMnemonic('N');
-                btneditar4.setContentAreaFilled(false);
-                btneditar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                btneditar4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                btneditar4.setIconTextGap(30);
-                btneditar4.addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        btneditar4ActionPerformed(evt);
-                    }
-                });
+                jPanel31.setPreferredSize(new java.awt.Dimension(169, 49));
 
                 btnGuardar.setForeground(new java.awt.Color(240, 240, 240));
                 btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
@@ -509,21 +596,18 @@ private Dimension DimensionBarra = null;
                 jPanel31Layout.setHorizontalGroup(
                     jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel31Layout.createSequentialGroup()
-                        .addContainerGap(13, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btneditar4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))
+                        .addGap(71, 71, 71))
                 );
                 jPanel31Layout.setVerticalGroup(
                     jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel31Layout.createSequentialGroup()
                         .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btneditar4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                 );
 
@@ -594,7 +678,7 @@ private Dimension DimensionBarra = null;
                 );
                 mensajeLayout.setVerticalGroup(
                     mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                     .addComponent(pnlMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 );
 
@@ -603,6 +687,118 @@ private Dimension DimensionBarra = null;
                 lblMant.setText("jLabel4");
 
                 lblIdCie10.setText("jLabel4");
+
+                lblIdMo.setText("jLabel4");
+
+                jPanel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+                jPanel12.setBackground(new java.awt.Color(25, 188, 157));
+                jPanel12.setPreferredSize(new java.awt.Dimension(83, 45));
+                jPanel12.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jPanel12MouseClicked(evt);
+                    }
+                });
+
+                javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+                jPanel12.setLayout(jPanel12Layout);
+                jPanel12Layout.setHorizontalGroup(
+                    jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 233, Short.MAX_VALUE)
+                );
+                jPanel12Layout.setVerticalGroup(
+                    jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 23, Short.MAX_VALUE)
+                );
+
+                jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+                jPanel13.setPreferredSize(new java.awt.Dimension(298, 45));
+                jPanel13.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        jPanel13MouseClicked(evt);
+                    }
+                });
+
+                javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+                jPanel13.setLayout(jPanel13Layout);
+                jPanel13Layout.setHorizontalGroup(
+                    jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 209, Short.MAX_VALUE)
+                );
+                jPanel13Layout.setVerticalGroup(
+                    jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 0, Short.MAX_VALUE)
+                );
+
+                jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+                jPanel15.setPreferredSize(new java.awt.Dimension(205, 45));
+
+                javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+                jPanel15.setLayout(jPanel15Layout);
+                jPanel15Layout.setHorizontalGroup(
+                    jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 216, Short.MAX_VALUE)
+                );
+                jPanel15Layout.setVerticalGroup(
+                    jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 0, Short.MAX_VALUE)
+                );
+
+                jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+                jPanel16.setPreferredSize(new java.awt.Dimension(222, 45));
+
+                javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+                jPanel16.setLayout(jPanel16Layout);
+                jPanel16Layout.setHorizontalGroup(
+                    jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 225, Short.MAX_VALUE)
+                );
+                jPanel16Layout.setVerticalGroup(
+                    jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 0, Short.MAX_VALUE)
+                );
+
+                jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+                jPanel17.setPreferredSize(new java.awt.Dimension(238, 45));
+
+                javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+                jPanel17.setLayout(jPanel17Layout);
+                jPanel17Layout.setHorizontalGroup(
+                    jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 207, Short.MAX_VALUE)
+                );
+                jPanel17Layout.setVerticalGroup(
+                    jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 47, Short.MAX_VALUE)
+                );
+
+                javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+                jPanel14.setLayout(jPanel14Layout);
+                jPanel14Layout.setHorizontalGroup(
+                    jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                        .addGap(0, 0, 0))
+                );
+                jPanel14Layout.setVerticalGroup(
+                    jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                );
 
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
@@ -623,8 +819,9 @@ private Dimension DimensionBarra = null;
                                         .addGap(40, 40, 40)
                                         .addComponent(lblId)
                                         .addGap(248, 248, 248)
-                                        .addComponent(lblMant))
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 1049, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblMant)
+                                        .addGap(112, 112, 112)
+                                        .addComponent(lblIdMo))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addGap(55, 55, 55)
@@ -641,15 +838,15 @@ private Dimension DimensionBarra = null;
                                         .addComponent(jLabel9)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtTalla, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(31, Short.MAX_VALUE))))
+                                .addContainerGap(215, Short.MAX_VALUE))))
                     .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 );
                 jPanel1Layout.setVerticalGroup(
                     jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -667,7 +864,8 @@ private Dimension DimensionBarra = null;
                                 .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblMant)
-                                .addComponent(lblIdCie10))
+                                .addComponent(lblIdCie10)
+                                .addComponent(lblIdMo))
                             .addComponent(lblId))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
@@ -700,7 +898,10 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_btnBuscarCie10ActionPerformed
 
     private void tbMonitoreoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMonitoreoMouseClicked
-
+        if(evt.getClickCount()==1){
+            enviarDatosMonitoreo();
+            lblMant.setText("U");
+        }
     }//GEN-LAST:event_tbMonitoreoMouseClicked
 
     private void tbMonitoreoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMonitoreoMousePressed
@@ -708,16 +909,24 @@ private Dimension DimensionBarra = null;
     }//GEN-LAST:event_tbMonitoreoMousePressed
 
     private void tbMonitoreoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbMonitoreoKeyPressed
-        // TODO add your handling code here:
+        char teclaPresionada = evt.getKeyChar();
+        if(teclaPresionada==KeyEvent.VK_DELETE){
+            pnlMensaje.setVisible(true);
+            lblMensaje.setText("¿Seguro que desea ELIMINAR los datos?");
+            pnlMensaje.setBackground(new Color(33,115,70));
+            btnSi.setText("Si");
+            btnSi.setVisible(true);
+            btnNo.setVisible(true);
+            lblMant.setText("E");
+        }
     }//GEN-LAST:event_tbMonitoreoKeyPressed
 
     private void tbMonitoreoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbMonitoreoKeyReleased
-
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN || evt.getExtendedKeyCode()==KeyEvent.VK_UP){
+            enviarDatosMonitoreo();
+            lblMant.setText("U");
+        }
     }//GEN-LAST:event_tbMonitoreoKeyReleased
-
-    private void btneditar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar4ActionPerformed
-
-    }//GEN-LAST:event_btneditar4ActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if(lblMant.getText().equals("I")){
@@ -749,7 +958,8 @@ private Dimension DimensionBarra = null;
             else {
                 pnlMensaje.setVisible(true);
                 lblMensaje.setText("¿Seguro que desea GUARDAR los datos?");
-                pnlMensaje.setBackground(new Color(255,153,51));
+                pnlMensaje.setBackground(new Color(33,115,70));
+                btnSi.setText("Si");
                 btnSi.setVisible(true);
                 btnNo.setVisible(true);
                 lblMant.setText("I");
@@ -783,7 +993,8 @@ private Dimension DimensionBarra = null;
             else {
                 pnlMensaje.setVisible(true);
                 lblMensaje.setText("¿Seguro que desea MODIFICAR los datos?");
-                pnlMensaje.setBackground(new Color(255,153,51));
+                pnlMensaje.setBackground(new Color(33,115,70));
+                btnSi.setText("Si");
                 btnSi.setVisible(true);
                 btnNo.setVisible(true);
                 lblMant.setText("U");
@@ -802,6 +1013,12 @@ private Dimension DimensionBarra = null;
         if(btnSi.getText().equals("Si")){ // Al guardar
             if(lblMant.getText().equals("I")){
                 guardarDatos();
+            }
+            if(lblMant.getText().equals("U")){
+                modificarDatos();
+            }
+            if(lblMant.getText().equals("E")){
+                eliminarDatos();
             }
         } else
         if(btnSi.getText().equals("OK")){ // Al hacer OK hacerloinvisible
@@ -849,6 +1066,14 @@ private Dimension DimensionBarra = null;
         }
     }//GEN-LAST:event_tbCiePresunKeyPressed
 
+    private void jPanel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel12MouseClicked
+
+    }//GEN-LAST:event_jPanel12MouseClicked
+
+    private void jPanel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel13MouseClicked
+
+    }//GEN-LAST:event_jPanel13MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog FrmCie10;
@@ -858,17 +1083,21 @@ private Dimension DimensionBarra = null;
     private javax.swing.JButton btnNo;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnSi;
-    private javax.swing.JButton btneditar4;
     private com.toedter.calendar.JDateChooser dtFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
@@ -877,6 +1106,7 @@ private Dimension DimensionBarra = null;
     private javax.swing.JScrollPane jScrollPane5;
     public static javax.swing.JLabel lblId;
     private javax.swing.JLabel lblIdCie10;
+    private javax.swing.JLabel lblIdMo;
     private javax.swing.JLabel lblMant;
     private javax.swing.JLabel lblMensaje;
     private javax.swing.JPanel mensaje;

@@ -556,6 +556,7 @@ public class ConsultorioExtRsVacunas implements Serializable {
             int c=1;
             while(r.next()){
                 lblPorcentajeVacunas.setText(r.getString(1) + " %"); 
+                RSAIVacunas.lblPorcentajeV.setText(r.getString(1) + " % Completado"); 
             }
             //
         } catch (Exception e) {

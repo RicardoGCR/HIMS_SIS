@@ -257,6 +257,7 @@ public void QuitarLaBarraTitulo()
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsTA2.ConsultoriosExtTAListar(Integer.parseInt(lblId.getText()));
+                CXRsTA2.porcentajeTAP(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
                 habilitarRadio(true);
             }else {
@@ -383,6 +384,7 @@ public void QuitarLaBarraTitulo()
                 btnGuardar.setEnabled(false);
                 tge=1;
                 CXRsTA2.ConsultoriosExtTAListar(Integer.parseInt(lblId.getText()));
+                CXRsTA2.porcentajeTAP(Integer.parseInt(lblId.getText()));
                 habilitarCampos(false);
                 habilitarRadio(true);
             }else {
@@ -427,10 +429,6 @@ public void QuitarLaBarraTitulo()
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         CCD = new javax.swing.JPanel();
-        jPanel28 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jPanel29 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
         LEYENDA = new javax.swing.JPanel();
         jLabel63 = new javax.swing.JLabel();
         CCDM12 = new javax.swing.JPanel();
@@ -464,8 +462,6 @@ public void QuitarLaBarraTitulo()
         jLabel66 = new javax.swing.JLabel();
         jPanel76 = new javax.swing.JPanel();
         jLabel67 = new javax.swing.JLabel();
-        lblNina = new javax.swing.JLabel();
-        lblNino = new javax.swing.JLabel();
         CCDM15 = new javax.swing.JPanel();
         jPanel99 = new javax.swing.JPanel();
         TNFP1 = new com.toedter.calendar.JDateChooser();
@@ -518,58 +514,19 @@ public void QuitarLaBarraTitulo()
         men = new javax.swing.JLabel();
         b = new javax.swing.JButton();
         b1 = new javax.swing.JButton();
+        jPanel26 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel27 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        lblPorcentajeTa = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblNina = new javax.swing.JLabel();
+        lblNino = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
 
         CCD.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel28.setBackground(new java.awt.Color(39, 174, 97));
-        jPanel28.setPreferredSize(new java.awt.Dimension(83, 45));
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Tamizaje De Anemia Parasitosis Y Test De Graham");
-
-        jPanel29.setBackground(new java.awt.Color(45, 204, 112));
-
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Izquierda Filled-30.png"))); // NOI18N
-        jLabel20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel20MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
-        jPanel29.setLayout(jPanel29Layout);
-        jPanel29Layout.setHorizontalGroup(
-            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
-        jPanel29Layout.setVerticalGroup(
-            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
-        jPanel28.setLayout(jPanel28Layout);
-        jPanel28Layout.setHorizontalGroup(
-            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel28Layout.createSequentialGroup()
-                .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel17)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel28Layout.setVerticalGroup(
-            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-        );
 
         LEYENDA.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -937,30 +894,6 @@ public void QuitarLaBarraTitulo()
                 .addComponent(jLabel67)
                 .addGap(20, 20, 20))
         );
-
-        lblNina.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNina.setForeground(new java.awt.Color(102, 102, 102));
-        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-48.png"))); // NOI18N
-        lblNina.setText("NIÑOS");
-        lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        lblNina.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblNinaMouseClicked(evt);
-            }
-        });
-
-        lblNino.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNino.setForeground(new java.awt.Color(102, 102, 102));
-        lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-48.png"))); // NOI18N
-        lblNino.setText("NIÑOS");
-        lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblNino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        lblNino.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblNinoMouseClicked(evt);
-            }
-        });
 
         CCDM15.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -1572,11 +1505,112 @@ public void QuitarLaBarraTitulo()
                 .addContainerGap())
         );
 
+        jPanel26.setBackground(new java.awt.Color(39, 174, 97));
+        jPanel26.setPreferredSize(new java.awt.Dimension(83, 45));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Tamizaje De Anemia Parasitosis Y Test De Graham");
+
+        jPanel27.setBackground(new java.awt.Color(45, 204, 112));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Izquierda Filled-30.png"))); // NOI18N
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
+        jPanel27.setLayout(jPanel27Layout);
+        jPanel27Layout.setHorizontalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+        );
+        jPanel27Layout.setVerticalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel27Layout.createSequentialGroup()
+                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        lblPorcentajeTa.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblPorcentajeTa.setForeground(new java.awt.Color(137, 226, 175));
+        lblPorcentajeTa.setText("100 %  Completado");
+        lblPorcentajeTa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jPanel2.setBackground(new java.awt.Color(45, 204, 112));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1, 100));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        lblNina.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
+        lblNina.setForeground(new java.awt.Color(137, 226, 175));
+        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-50.png"))); // NOI18N
+        lblNina.setText("NIÑOS");
+        lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        lblNino.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
+        lblNino.setForeground(new java.awt.Color(137, 226, 175));
+        lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-50.png"))); // NOI18N
+        lblNino.setText("NIÑOS");
+        lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblNino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPorcentajeTa)
+                    .addComponent(jLabel10))
+                .addGap(20, 20, 20)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 39, Short.MAX_VALUE))
+        );
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(lblPorcentajeTa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNino)
+                    .addComponent(lblNina))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout CCDLayout = new javax.swing.GroupLayout(CCD);
         CCD.setLayout(CCDLayout);
         CCDLayout.setHorizontalGroup(
             CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 1417, Short.MAX_VALUE)
             .addGroup(CCDLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1586,10 +1620,6 @@ public void QuitarLaBarraTitulo()
                             .addGap(0, 0, 0)
                             .addComponent(CCDM16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGroup(CCDLayout.createSequentialGroup()
-                            .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(CCDLayout.createSequentialGroup()
                             .addComponent(LEYENDA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
                             .addComponent(CCDM12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1598,18 +1628,15 @@ public void QuitarLaBarraTitulo()
                             .addGap(0, 0, 0)
                             .addComponent(CCDM15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addComponent(lblId))
-                .addContainerGap(545, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(Opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel26, javax.swing.GroupLayout.DEFAULT_SIZE, 1494, Short.MAX_VALUE)
         );
         CCDLayout.setVerticalGroup(
             CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CCDLayout.createSequentialGroup()
-                .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNina)
-                    .addComponent(lblNino))
-                .addGap(18, 18, 18)
+                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
                 .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(CCDM12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LEYENDA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1623,7 +1650,7 @@ public void QuitarLaBarraTitulo()
                     .addComponent(jPanel76, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(lblId)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(Opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -1631,7 +1658,7 @@ public void QuitarLaBarraTitulo()
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1417, Short.MAX_VALUE)
+            .addGap(0, 1494, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(CCD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1644,21 +1671,6 @@ public void QuitarLaBarraTitulo()
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
-        RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
-        ConsultorioExtRsTamizajeAnemiaParasitosis tAnemia = new ConsultorioExtRsTamizajeAnemiaParasitosis();
-        tAnemia.porcentajeTAP(Integer.parseInt(lblId.getText()));
-        this.dispose();
-    }//GEN-LAST:event_jLabel20MouseClicked
-
-    private void lblNinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNinaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblNinaMouseClicked
-
-    private void lblNinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNinoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblNinoMouseClicked
 
     private void TNFUAA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TNFUAA3ActionPerformed
         // TODO add your handling code here:
@@ -1681,6 +1693,7 @@ public void QuitarLaBarraTitulo()
                 TNFA1.setEnabled(true);
                 fecha=TNFA1;
                 fua = TNFUAA1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD1.setEnabled(false);
@@ -1697,6 +1710,7 @@ public void QuitarLaBarraTitulo()
                 TNFA2.setEnabled(true);
                 fecha=TNFA2;
                 fua = TNFUAA2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD2.setEnabled(false);
@@ -1712,6 +1726,7 @@ public void QuitarLaBarraTitulo()
                 TNFA3.setEnabled(true);
                 fecha=TNFA3;
                 fua = TNFUAA3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD3.setEnabled(false);
@@ -1727,6 +1742,7 @@ public void QuitarLaBarraTitulo()
                 TNFA4.setEnabled(true);
                 fecha=TNFA4;
                 fua = TNFUAA4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD4.setEnabled(false);
@@ -1742,6 +1758,7 @@ public void QuitarLaBarraTitulo()
                 TNFA5.setEnabled(true);
                 fecha=TNFA5;
                 fua = TNFUAA5;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD5.setEnabled(false);
@@ -1757,6 +1774,7 @@ public void QuitarLaBarraTitulo()
                 TNFA6.setEnabled(true);
                 fecha=TNFA6;
                 fua = TNFUAA6;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD6.setEnabled(false);
@@ -1772,6 +1790,7 @@ public void QuitarLaBarraTitulo()
                 TNFP1.setEnabled(true);
                 fecha=TNFP1;
                 fua = TNFUAP1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD7.setEnabled(false);
@@ -1787,6 +1806,7 @@ public void QuitarLaBarraTitulo()
                 TNFP2.setEnabled(true);
                 fecha=TNFP2;
                 fua = TNFUAP2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD8.setEnabled(false);
@@ -1802,6 +1822,7 @@ public void QuitarLaBarraTitulo()
                 TNFP3.setEnabled(true);
                 fecha=TNFP3;
                 fua = TNFUAP3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD9.setEnabled(false);
@@ -1817,6 +1838,7 @@ public void QuitarLaBarraTitulo()
                 TNFP4.setEnabled(true);
                 fecha=TNFP4;
                 fua = TNFUAP4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD10.setEnabled(false);
@@ -1832,6 +1854,7 @@ public void QuitarLaBarraTitulo()
                 TNFP5.setEnabled(true);
                 fecha=TNFP5;
                 fua = TNFUAP5;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD11.setEnabled(false);
@@ -1847,6 +1870,7 @@ public void QuitarLaBarraTitulo()
                 TNFT1.setEnabled(true);
                 fecha=TNFT1;
                 fua = TNFUAT1;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD12.setEnabled(false);
@@ -1862,6 +1886,7 @@ public void QuitarLaBarraTitulo()
                 TNFT2.setEnabled(true);
                 fecha=TNFT2;
                 fua = TNFUAT2;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD13.setEnabled(false);
@@ -1877,6 +1902,7 @@ public void QuitarLaBarraTitulo()
                 TNFT3.setEnabled(true);
                 fecha=TNFT3;
                 fua = TNFUAT3;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD14.setEnabled(false);
@@ -1892,6 +1918,7 @@ public void QuitarLaBarraTitulo()
                 TNFT4.setEnabled(true);
                 fecha=TNFT4;
                 fua = TNFUAT4;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD15.setEnabled(false);
@@ -1907,6 +1934,7 @@ public void QuitarLaBarraTitulo()
                 TNFT5.setEnabled(true);
                 fecha=TNFT5;
                 fua = TNFUAT5;
+                fua.setText(RegistroSeguimiento.lblFua.getText());
             }
         } else {
             RDD16.setEnabled(false);
@@ -1947,6 +1975,11 @@ public void QuitarLaBarraTitulo()
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
         mensaje.setVisible(false);
     }//GEN-LAST:event_b1ActionPerformed
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        RegistroSeguimiento.jTabbedPane1.setSelectedIndex(0);
+        this.dispose();
+    }//GEN-LAST:event_jLabel13MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2010,8 +2043,8 @@ public void QuitarLaBarraTitulo()
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
@@ -2025,8 +2058,9 @@ public void QuitarLaBarraTitulo()
     private javax.swing.JPanel jPanel106;
     private javax.swing.JPanel jPanel107;
     private javax.swing.JPanel jPanel108;
-    private javax.swing.JPanel jPanel28;
-    private javax.swing.JPanel jPanel29;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel75;
     private javax.swing.JPanel jPanel76;
@@ -2041,6 +2075,7 @@ public void QuitarLaBarraTitulo()
     public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblNino;
+    public static javax.swing.JLabel lblPorcentajeTa;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
     // End of variables declaration//GEN-END:variables

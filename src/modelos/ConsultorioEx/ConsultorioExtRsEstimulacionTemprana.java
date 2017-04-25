@@ -369,10 +369,11 @@ public class ConsultorioExtRsEstimulacionTemprana implements Serializable {
             int c=1;
             while(r.next()){
                 lblPorcentajeET.setText(r.getString(1) + " %"); 
+                RSAIET.lblPorcentajeV.setText(r.getString(1) + " %"); 
             }
             //
         } catch (Exception e) {
-            System.out.println("Error: porcentajeDN " + e.getMessage());
+            System.out.println("Error: porcentajeET " + e.getMessage());
         }
     }  
     

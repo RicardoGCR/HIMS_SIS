@@ -6,26 +6,24 @@
 package modelos.ConsultorioEx;
 
 import java.io.Serializable;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 
-/**
- *
- * @author PC02
- */
 public class ConsultorioExtRsMonitoreo implements Serializable {
     private static final long serialVersionUID = 1L;
     DefaultTableModel m;
     private Connection cn;
     private int rs_id;
-    private Long moId;
+    private int moId;
     private String moFecha;
     private String moEdad;
     private String moPeso;
@@ -39,7 +37,7 @@ public class ConsultorioExtRsMonitoreo implements Serializable {
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_RS_MONITOREO ?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_RS_MONITOREO ?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getRs_id());
             cmd.setString(2, getMoFecha());
@@ -49,6 +47,7 @@ public class ConsultorioExtRsMonitoreo implements Serializable {
             cmd.setInt(6, getId_cie10());
             cmd.setString(7, getCodUsu());
             cmd.setString(8, tipo);
+            cmd.setInt(9, getMoId());
             if(!cmd.execute())
             {
                 resp = true;
@@ -63,24 +62,31 @@ public class ConsultorioExtRsMonitoreo implements Serializable {
     }
     
     public void formatoTablaDiagnostico(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(40);
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(60);
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(60);
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(60);
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(60);
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(150);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(150);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(150);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(150);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(610);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(0);
 //        COLUMNAS OCULTAS
-//        TableColumn columna = tabla.getColumnModel().getColumn(0);
-//            columna.setMaxWidth(0);
-//            columna.setMinWidth(0);
-//            columna.setPreferredWidth(0);
-//            tabla.doLayout();
+        TableColumn columna0 = tabla.getColumnModel().getColumn(0);
+            columna0.setMaxWidth(0);
+            columna0.setMinWidth(0);
+            columna0.setPreferredWidth(0);
+            tabla.doLayout();
+        TableColumn columna7 = tabla.getColumnModel().getColumn(7);
+            columna7.setMaxWidth(0);
+            columna7.setMinWidth(0);
+            columna7.setPreferredWidth(0);
+            tabla.doLayout();
         tabla.setRowHeight(30);
     }
     
     public void inicializarTabla(JTable tabla){
         tabla.setModel(new DefaultTableModel());
-        String titulos[]={"ID","Edad","Peso","Talla","Código CIE 10","Diagnóstico"};
+        String titulos[]={"ID","Fecha","Edad","Peso","Talla","Código CIE 10","Diagnóstico","ID"};
         m=new DefaultTableModel(null,titulos);
         tabla.setModel(m);
         TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
@@ -93,10 +99,10 @@ public class ConsultorioExtRsMonitoreo implements Serializable {
     String consulta="";
         try {
                 tabla.setModel(new DefaultTableModel());
-        String titulos[]={"ID","Edad","Peso","Talla","Código CIE 10","Diagnóstico"};
+        String titulos[]={"ID","Fecha","Edad","Peso","Talla","Código CIE 10","Diagnóstico","ID"};
                 m=new DefaultTableModel(null,titulos);
                 JTable p=new JTable(m);
-                String fila[]=new String[6];
+                String fila[]=new String[8];
                 //int index = cbxTipoBusqueda.getSelectedIndex();
                 consulta="EXEC CONSULTORIO_EXT_RS_MONITOREO_LISTAR ?";
                 PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -110,6 +116,8 @@ public class ConsultorioExtRsMonitoreo implements Serializable {
                     fila[3]=r.getString(4); // id
                     fila[4]=r.getString(5); // dni
                     fila[5]=r.getString(6); // nhc
+                    fila[6]=r.getString(7); // dni
+                    fila[7]=r.getString(8); // nhc
                         m.addRow(fila);
                         c++;
                 }
@@ -128,15 +136,15 @@ public class ConsultorioExtRsMonitoreo implements Serializable {
         cn = con.conectar();
     }
 
-    public ConsultorioExtRsMonitoreo(Long moId) {
+    public ConsultorioExtRsMonitoreo(int moId) {
         this.moId = moId;
     }
 
-    public Long getMoId() {
+    public int getMoId() {
         return moId;
     }
 
-    public void setMoId(Long moId) {
+    public void setMoId(int moId) {
         this.moId = moId;
     }
 
@@ -194,26 +202,6 @@ public class ConsultorioExtRsMonitoreo implements Serializable {
 
     public void setNomPc(String nomPc) {
         this.nomPc = nomPc;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (moId != null ? moId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ConsultorioExtRsMonitoreo)) {
-            return false;
-        }
-        ConsultorioExtRsMonitoreo other = (ConsultorioExtRsMonitoreo) object;
-        if ((this.moId == null && other.moId != null) || (this.moId != null && !this.moId.equals(other.moId))) {
-            return false;
-        }
-        return true;
     }
 
     @Override

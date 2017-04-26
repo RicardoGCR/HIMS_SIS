@@ -52,6 +52,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
         BUSCAR_PRESTACION.getContentPane().setBackground(Color.white);
         deshabilitar();
         txtGM.setVisible(false);
+        txtNumeroPrestacion.setEnabled(false);
         
         
         //FECHA Y HORA
@@ -857,8 +858,8 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
                         .addComponent(btnBuscarPrestacion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -1085,6 +1086,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
                             Clear_Tb_Detalle_Destino();
                             deshabilitar();
                             txtGM.setText("G");
+                            tb_destino.getSelectionModel().setSelectionInterval(0, 0);
                         }
                         else{
                             JOptionPane.showMessageDialog(this, "El registro ya existe\nIntente nuevamente");
@@ -1380,16 +1382,19 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
             txtCodigoPrestacion.setText(String.valueOf(tb_Pres.getValueAt(fila1, 0)));
             txtNum_Prestacion.setText(String.valueOf(tb_Pres.getValueAt(fila1, 1)));
             txtDescripcion.setText(String.valueOf(tb_Pres.getValueAt(fila1, 2)));
-            cbxTipo.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 3)));
-            txtEtapa_Vida.setText(String.valueOf(tb_Pres.getValueAt(fila1, 4)));
-            txtEdad_Minima.setText(String.valueOf(tb_Pres.getValueAt(fila1, 5)));
-            txtEdad_Maxima.setText(String.valueOf(tb_Pres.getValueAt(fila1, 6)));
-            cbxSexo_Prestacion.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 7)));
-            cbxHospitalizacion_Prestacion.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 8)));
-            cbxGestante.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 9)));
-            cbxPuerpera.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 10)));
-            cbxN_Gestante_N_Puerp.setSelectedItem(tb_Pres.getValueAt(fila1, 11));
-            cbxRegimen.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 12).toString()));
+            txtValor.setText(String.valueOf(tb_Pres.getValueAt(fila1, 3)));
+            cbxTipo.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 4)));
+            txtEtapa_Vida.setText(String.valueOf(tb_Pres.getValueAt(fila1, 5)));
+            txtEdad_Minima.setText(String.valueOf(tb_Pres.getValueAt(fila1, 6)));
+            cbxDMA.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 7)));
+            txtEdad_Maxima.setText(String.valueOf(tb_Pres.getValueAt(fila1, 8)));
+            cbxDMAM.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 9)));
+            cbxSexo_Prestacion.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 10)));
+            cbxHospitalizacion_Prestacion.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 11)));
+            cbxGestante.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 12)));
+            cbxPuerpera.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 13)));
+            cbxN_Gestante_N_Puerp.setSelectedItem(tb_Pres.getValueAt(fila1, 14));
+            cbxRegimen.setSelectedItem(String.valueOf(tb_Pres.getValueAt(fila1, 15).toString()));
             mostrarCabecerayDetalle();
 
             jTabbedPane1.setSelectedIndex(0);

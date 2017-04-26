@@ -19,11 +19,14 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
@@ -2010,6 +2013,9 @@ public void Muestras_cargar(String nomen,String area){
         Insumos_cargar(lblid_cod_doc_det.getText());
         
     }//GEN-LAST:event_btnInsumosActionPerformed
+    //Combobox JTable
+    String [] datos = {"Pendiente","Salida","Retorno"};
+    JComboBox jcbx = new JComboBox(datos);
     public void Insumos_cargar(String cod){
     try {
         int filaselec=frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getSelectedRow();
@@ -2017,7 +2023,7 @@ public void Muestras_cargar(String nomen,String area){
                  "Entrada","Cantidad","Saldo","UM","Fecha de Vencimiento","Lote","Marca"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[11];
+            String fila[]=new String[12];
 
             LAB_Toma_Muestra_Cabecera obj=new LAB_Toma_Muestra_Cabecera();
         String consulta="exec sp_LAB_BUSQUEDA_RESULTADO_INSUMOS ?";
@@ -2038,13 +2044,17 @@ public void Muestras_cargar(String nomen,String area){
             fila[8]=r.getString(8);
             fila[9]=r.getString(9);
             fila[10]=r.getString(10);
+            fila[11]=r.getString(11);//combo
                 m.addRow(fila);
                 c++;
             }
             frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.setModel(m);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.setRowSorter(elQueOrdena);
-           
+           //combobox en jTable
+            TableColumn tc = frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(11);
+            TableCellEditor tce = new DefaultCellEditor(jcbx);
+            tc.setCellEditor(tce);
             Insumos_formato();
     } catch (Exception e) {
         JOptionPane.showMessageDialog(rootPane, "Error en la tabla");

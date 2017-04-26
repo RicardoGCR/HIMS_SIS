@@ -110,38 +110,35 @@ public class ConsultorioEXTriaje {
     }
     
     public void formatoTablaTriajeListar(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setMinWidth(0);
-        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//nhc
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);//nhc
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(80);//dni
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(240);//paciente
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);//fecha de ingreso
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(30);//traido por
-        tabla.getColumnModel().getColumn(7).setMinWidth(0);
-        tabla.getColumnModel().getColumn(7).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(8).setPreferredWidth(40);//parentesco
-        tabla.getColumnModel().getColumn(9).setPreferredWidth(40);//fc
-        tabla.getColumnModel().getColumn(10).setPreferredWidth(40);//fr  
-        tabla.getColumnModel().getColumn(11).setPreferredWidth(40);//pa
-        tabla.getColumnModel().getColumn(12).setPreferredWidth(40);//peso
-        tabla.getColumnModel().getColumn(13).setPreferredWidth(40);//peso
-        TableColumn columna = tabla.getColumnModel().getColumn(0);//
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);//
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(170);//
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(170);//
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(80);//
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(80);//
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(200);//
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);//
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(50);//
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(11).setPreferredWidth(50);
+        tabla.setRowHeight(25);
+        TableColumn columna = tabla.getColumnModel().getColumn(0);
             columna.setMaxWidth(1);
             columna.setMinWidth(1);
             columna.setPreferredWidth(1);
+            tabla.setRowHeight(0);
             tabla.doLayout();
-            tabla.setRowHeight(30);
     }
      public void TriajeListarReporte(String nhc,JTable tabla,String f1, String f2,String tipo){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
             String titulos[]={"ID","Acto Médico","DNI","N° H.C.","Paciente",
-                "Fecha","Edad","","FC","FR","PA","Peso","Tº","Talla","IDM"};
+                "Fecha","Edad","","FC","FR","PA","Peso","Tº","Talla"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[15];
+            String fila[]=new String[14];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="exec CONSULTORIO_EXT_TRIAJE_LISTAR ?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -166,7 +163,6 @@ public class ConsultorioEXTriaje {
                 fila[11]=r.getString(12); // 
                 fila[12]=r.getString(13); // 
                 fila[13]=r.getString(14); // 
-                fila[14]=r.getString(15); // 
 
                     m.addRow(fila);
                     c++;
@@ -186,12 +182,12 @@ public class ConsultorioEXTriaje {
             tabla.setModel(new DefaultTableModel());
             String titulos[]={"N.","N° de Registro","Id Triaje","Fecha de ing",
                 "Hora de ing","Traído por","Parentesco","FC","FR",
-                "PA","Peso","T°","Talla","IDM"};
+                "PA","Peso","T°","Talla"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[15];
+            String fila[]=new String[14];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CONSULTORIO_EXT_TRIAJE_MODIF_MOSTRAR_LISTASEMER ?,?,?";
+            consulta="EXEC ADMISION_EMERGENCIA_TRIAJE_MODIF_MOSTRAR_LISTASEMER ?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, idhc);
             cmd.setString(2, fecha);
@@ -214,7 +210,6 @@ public class ConsultorioEXTriaje {
                 fila[11]=r.getString(12); // 
                 fila[12]=r.getString(13); // 
                 fila[13]=r.getString(14); //
-                fila[14]=r.getString(15); //
                     m.addRow(fila);
                     c++;
             }
@@ -244,7 +239,6 @@ public class ConsultorioEXTriaje {
         tabla.getColumnModel().getColumn(10).setPreferredWidth(40);//fr  
         tabla.getColumnModel().getColumn(11).setPreferredWidth(40);//pa
         tabla.getColumnModel().getColumn(12).setPreferredWidth(40);//peso
-        tabla.getColumnModel().getColumn(13).setPreferredWidth(40);//peso
         TableColumn columna = tabla.getColumnModel().getColumn(0);//
             columna.setMaxWidth(1);
             columna.setMinWidth(1);

@@ -26,7 +26,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public RegistroEmbarazoPrincipal() {
         initComponents();
         QuitarLaBarraTitulo();
-        this.getContentPane().setBackground(new Color(234,234,234)); 
+        this.getContentPane().setBackground(new Color(248,245,245)); 
 
         OP2.setVisible(false);
         OP3.setVisible(false);
@@ -59,6 +59,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         btnbuscar1 = new javax.swing.JButton();
         btnbuscar2 = new javax.swing.JButton();
         OP3 = new javax.swing.JPanel();
+        lblId = new javax.swing.JLabel();
         LblTitulo = new javax.swing.JLabel();
         FA = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -177,7 +178,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         lblNina.setBackground(new java.awt.Color(0, 153, 0));
         lblNina.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
         lblNina.setForeground(new java.awt.Color(255, 255, 255));
-        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario femenino en círculo-80.png"))); // NOI18N
+        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Embarazada-80.png"))); // NOI18N
         lblNina.setText("Martha Arias Torres");
         lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -245,6 +246,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
+        lblId.setText("jLabel1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -271,6 +274,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addGap(8, 8, 8)
                         .addComponent(OP3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(OP2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(88, 88, 88)
+                .addComponent(lblId)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,6 +299,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnbuscar2)
                     .addComponent(OP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(106, 106, 106)
+                .addComponent(lblId)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -299,7 +308,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         LblTitulo.setForeground(new java.awt.Color(51, 51, 51));
         LblTitulo.setText("Filiación y antecedentes");
 
-        FA.setBackground(new java.awt.Color(234, 234, 234));
+        FA.setBackground(new java.awt.Color(248, 245, 245));
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -379,7 +388,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
         );
 
-        jPanel6.setBackground(new java.awt.Color(232, 76, 61));
+        jPanel6.setBackground(new java.awt.Color(141, 68, 173));
 
         btnNuevo1.setForeground(new java.awt.Color(240, 240, 240));
         btnNuevo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Coche de niño-50.png"))); // NOI18N
@@ -404,7 +413,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addComponent(btnNuevo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel15.setBackground(new java.awt.Color(243, 156, 17));
+        jPanel15.setBackground(new java.awt.Color(248, 26, 70));
         jPanel15.setPreferredSize(new java.awt.Dimension(78, 85));
 
         btnNuevo2.setForeground(new java.awt.Color(240, 240, 240));
@@ -430,7 +439,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addComponent(btnNuevo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel5.setBackground(new java.awt.Color(193, 57, 45));
+        jPanel5.setBackground(new java.awt.Color(154, 89, 181));
 
         btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
         btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Hojas-50.png"))); // NOI18N
@@ -455,7 +464,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel7.setBackground(new java.awt.Color(241, 197, 14));
+        jPanel7.setBackground(new java.awt.Color(255, 102, 102));
 
         btnNuevo3.setForeground(new java.awt.Color(240, 240, 240));
         btnNuevo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Jeringa-50.png"))); // NOI18N
@@ -556,7 +565,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addContainerGap(28, Short.MAX_VALUE))))
         );
 
-        DBEA1.setBackground(new java.awt.Color(234, 234, 234));
+        DBEA1.setBackground(new java.awt.Color(248, 245, 245));
 
         jPanel23.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -605,7 +614,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
         );
 
         jPanel25.setBackground(new java.awt.Color(255, 255, 255));
@@ -707,7 +716,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         );
         jPanel29Layout.setVerticalGroup(
             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnNuevo6, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+            .addComponent(btnNuevo6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel30.setBackground(new java.awt.Color(241, 197, 14));
@@ -846,10 +855,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         DBEA1Layout.setVerticalGroup(
             DBEA1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DBEA1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(DBEA1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(DBEA1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -866,10 +875,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGroup(DBEA1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        DBEA2.setBackground(new java.awt.Color(234, 234, 234));
+        DBEA2.setBackground(new java.awt.Color(248, 245, 245));
 
         jPanel42.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1162,7 +1171,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         DBEA2Layout.setVerticalGroup(
             DBEA2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DBEA2Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(DBEA2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1194,12 +1203,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(FA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(DBEA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(DBEA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 738, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(DBEA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 727, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1208,11 +1217,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addComponent(LblTitulo)
                 .addGap(48, 48, 48)
                 .addComponent(FA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(DBEA2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DBEA1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(49, 71, Short.MAX_VALUE))
+                .addGap(49, 77, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -1318,13 +1327,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void btnNuevo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo4ActionPerformed
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V PT_A_TS_F_D_FUM_H_E_V =new RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V();
         RegistroEmbarazo.ContenedorTablas.add(PT_A_TS_F_D_FUM_H_E_V);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.LblTitulo.setText("Antitetánica");
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P1.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P2.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P3.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P4.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P5.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P6.setVisible(false);
-        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P7.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         try {
@@ -1338,13 +1348,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void btnNuevo5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo5ActionPerformed
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V PT_A_TS_F_D_FUM_H_E_V =new RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V();
         RegistroEmbarazo.ContenedorTablas.add(PT_A_TS_F_D_FUM_H_E_V);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.LblTitulo.setText("Tipo de Sangre");
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P1.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P2.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P3.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P4.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P5.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P6.setVisible(false);
-        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P7.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         try {
@@ -1358,14 +1369,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void btnNuevo6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo6ActionPerformed
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V PT_A_TS_F_D_FUM_H_E_V =new RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V();
         RegistroEmbarazo.ContenedorTablas.add(PT_A_TS_F_D_FUM_H_E_V);
-        
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.LblTitulo.setText("<html>Peso y <br>talla</html>");
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P1.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P2.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P3.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P4.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P5.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P6.setVisible(false);
-        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P7.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         try {
@@ -1379,13 +1390,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void btnNuevo7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo7ActionPerformed
        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V PT_A_TS_F_D_FUM_H_E_V =new RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V();
         RegistroEmbarazo.ContenedorTablas.add(PT_A_TS_F_D_FUM_H_E_V);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.LblTitulo.setText("Fuma / Droga");
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P1.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P2.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P3.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P4.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P5.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P6.setVisible(false);
-        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P7.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(true);
         try {
@@ -1415,13 +1427,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void btnNuevo12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo12ActionPerformed
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V PT_A_TS_F_D_FUM_H_E_V =new RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V();
         RegistroEmbarazo.ContenedorTablas.add(PT_A_TS_F_D_FUM_H_E_V);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.LblTitulo.setText("Hospitalización");
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P1.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P2.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P3.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P4.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P5.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P6.setVisible(false);
-        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P7.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         try {
@@ -1435,13 +1448,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void btnNuevo13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo13ActionPerformed
        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V PT_A_TS_F_D_FUM_H_E_V =new RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V();
         RegistroEmbarazo.ContenedorTablas.add(PT_A_TS_F_D_FUM_H_E_V);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.LblTitulo.setText("Emergencia");
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P1.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P2.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P3.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P4.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P5.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P6.setVisible(false);
-        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P7.setVisible(true);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         try {
@@ -1455,13 +1469,15 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void btnNuevo14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo14ActionPerformed
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V PT_A_TS_F_D_FUM_H_E_V =new RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V();
         RegistroEmbarazo.ContenedorTablas.add(PT_A_TS_F_D_FUM_H_E_V);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.LblTitulo.setText("<html>Fecha Ultima <br>de Menstruación</html>");
+        
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P1.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P2.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P3.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P4.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P5.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P6.setVisible(false);
-        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P7.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         try {
@@ -1475,13 +1491,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void btnNuevo15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo15ActionPerformed
        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V PT_A_TS_F_D_FUM_H_E_V =new RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V();
         RegistroEmbarazo.ContenedorTablas.add(PT_A_TS_F_D_FUM_H_E_V);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.LblTitulo.setText("Violencia / Género");
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P1.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P2.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P3.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P4.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P5.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P6.setVisible(true);
-        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P7.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         try {
@@ -1497,7 +1514,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_jLabel32MouseClicked
 
     private void btnNuevo16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo16ActionPerformed
-        // TODO add your handling code here:
+         RegistroEmbarazoEXF EXF =new RegistroEmbarazoEXF();
+        RegistroEmbarazo.ContenedorTablas.add(EXF);
+        try {
+            EXF.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        RegistroEmbarazo.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_btnNuevo16ActionPerformed
 
     private void jLabel33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseClicked
@@ -1505,7 +1529,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_jLabel33MouseClicked
 
     private void btnNuevo17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo17ActionPerformed
-        // TODO add your handling code here:
+        RegistroEmbarazoEXL EXL =new RegistroEmbarazoEXL();
+        RegistroEmbarazo.ContenedorTablas.add(EXL);
+        try {
+            EXL.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        RegistroEmbarazo.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_btnNuevo17ActionPerformed
 
     private void jLabel34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel34MouseClicked
@@ -1513,6 +1544,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_jLabel34MouseClicked
 
     private void btnbuscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar2ActionPerformed
+        OP1.setVisible(false);
+        OP2.setVisible(false);
+        OP3.setVisible(true);
         RegistroEmbarazoAtencionesP AP =new RegistroEmbarazoAtencionesP();
         RegistroEmbarazo.ContenedorTablas.add(AP);
         try {
@@ -1594,6 +1628,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JPanel jPanel53;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     // End of variables declaration//GEN-END:variables
 }

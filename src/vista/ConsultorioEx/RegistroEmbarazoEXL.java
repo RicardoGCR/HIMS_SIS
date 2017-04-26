@@ -40,10 +40,28 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        lblNina = new javax.swing.JLabel();
+        mensaje = new javax.swing.JPanel();
+        men = new javax.swing.JLabel();
+        b = new javax.swing.JButton();
+        b1 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        lblusu1 = new javax.swing.JLabel();
+        btnCaccnelar1 = new javax.swing.JButton();
+        btnGuardar1 = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        ChkAnalf2 = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        ChkEdad2 = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        jPanel38 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        btneditar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
@@ -243,30 +261,275 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        setPreferredSize(new java.awt.Dimension(900, 724));
         setVisible(true);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Exámenes de laboratorio");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel6.setBackground(new java.awt.Color(39, 174, 97));
-        jPanel6.setPreferredSize(new java.awt.Dimension(15, 34));
+        lblNina.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
+        lblNina.setForeground(new java.awt.Color(12, 97, 81));
+        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Embarazada Filled-60.png"))); // NOI18N
+        lblNina.setText("Martha Arias Torres");
+        lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        mensaje.setBackground(new java.awt.Color(33, 115, 70));
+
+        men.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        men.setForeground(new java.awt.Color(255, 255, 255));
+        men.setText("Desea Actualizar el Registro ?");
+
+        b.setForeground(new java.awt.Color(240, 240, 240));
+        b.setText("Si");
+        b.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        b.setContentAreaFilled(false);
+        b.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        b.setIconTextGap(30);
+        b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bActionPerformed(evt);
+            }
+        });
+
+        b1.setForeground(new java.awt.Color(240, 240, 240));
+        b1.setText("No");
+        b1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        b1.setContentAreaFilled(false);
+        b1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        b1.setIconTextGap(30);
+        b1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout mensajeLayout = new javax.swing.GroupLayout(mensaje);
+        mensaje.setLayout(mensajeLayout);
+        mensajeLayout.setHorizontalGroup(
+            mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mensajeLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(men)
+                .addGap(46, 46, 46)
+                .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        mensajeLayout.setVerticalGroup(
+            mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mensajeLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(men)
+                    .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
+        jPanel6.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("<html>Exámenes de <br>Laboratorio</html>");
+
+        lblusu1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        lblusu1.setForeground(new java.awt.Color(255, 255, 255));
+        lblusu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+        lblusu1.setText("Silvana");
+        lblusu1.setFocusable(false);
+        lblusu1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        btnCaccnelar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnCaccnelar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnCaccnelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Casa-32.png"))); // NOI18N
+        btnCaccnelar1.setText("Detalles");
+        btnCaccnelar1.setToolTipText("");
+        btnCaccnelar1.setContentAreaFilled(false);
+        btnCaccnelar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaccnelar1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnCaccnelar1.setIconTextGap(30);
+        btnCaccnelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaccnelar1ActionPerformed(evt);
+            }
+        });
+
+        btnGuardar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnGuardar1.setForeground(new java.awt.Color(240, 240, 240));
+        btnGuardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
+        btnGuardar1.setText("Guardar");
+        btnGuardar1.setContentAreaFilled(false);
+        btnGuardar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnGuardar1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnGuardar1.setIconTextGap(30);
+        btnGuardar1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardar1ActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel28.setText("Leyenda");
+
+        ChkAnalf2.setEditable(false);
+        ChkAnalf2.setBackground(new java.awt.Color(255, 204, 51));
+        ChkAnalf2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ChkAnalf2.setForeground(new java.awt.Color(102, 102, 102));
+        ChkAnalf2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ChkAnalf2.setBorder(null);
+        ChkAnalf2.setPreferredSize(new java.awt.Dimension(28, 28));
+        ChkAnalf2.setSelectionColor(new java.awt.Color(255, 204, 51));
+        ChkAnalf2.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                ChkAnalf2CaretUpdate(evt);
+            }
+        });
+        ChkAnalf2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ChkAnalf2MouseClicked(evt);
+            }
+        });
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("ALERTA");
+
+        ChkEdad2.setEditable(false);
+        ChkEdad2.setBackground(new java.awt.Color(255, 51, 51));
+        ChkEdad2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ChkEdad2.setForeground(new java.awt.Color(255, 255, 255));
+        ChkEdad2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ChkEdad2.setBorder(null);
+        ChkEdad2.setPreferredSize(new java.awt.Dimension(28, 28));
+        ChkEdad2.setSelectionColor(new java.awt.Color(255, 51, 51));
+        ChkEdad2.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                ChkEdad2CaretUpdate(evt);
+            }
+        });
+        ChkEdad2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ChkEdad2MouseClicked(evt);
+            }
+        });
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel38.setText("Requiere Seguimiento Continuo");
+
+        jPanel38.setBackground(new java.awt.Color(39, 174, 97));
+
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Izquierda Filled-30.png"))); // NOI18N
+        jLabel34.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel34MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel38Layout = new javax.swing.GroupLayout(jPanel38);
+        jPanel38.setLayout(jPanel38Layout);
+        jPanel38Layout.setHorizontalGroup(
+            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel34)
+        );
+        jPanel38Layout.setVerticalGroup(
+            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel38Layout.createSequentialGroup()
+                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        btneditar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btneditar.setForeground(new java.awt.Color(240, 240, 240));
+        btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Editar-32.png"))); // NOI18N
+        btneditar.setMnemonic('N');
+        btneditar.setText("Modificar");
+        btneditar.setContentAreaFilled(false);
+        btneditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btneditar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btneditar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btneditar.setIconTextGap(30);
+        btneditar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btneditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneditarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 15, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnGuardar1, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(lblusu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnCaccnelar1)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(ChkAnalf2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel33))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(ChkEdad2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel38))))
+                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 37, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(100, 100, 100)
+                .addComponent(btnGuardar1)
+                .addGap(18, 18, 18)
+                .addComponent(btneditar)
+                .addGap(18, 18, 18)
+                .addComponent(btnCaccnelar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(90, 90, 90)
+                .addComponent(lblusu1)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ChkAnalf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ChkEdad2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel38))
+                .addGap(249, 249, 249))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setBorder(null);
 
-        jPanel1.setBackground(new java.awt.Color(245, 245, 245));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel7.setBackground(new java.awt.Color(245, 245, 245));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
@@ -355,72 +618,72 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel55.setForeground(new java.awt.Color(51, 51, 51));
         jLabel55.setText("Fecha");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9))
                 .addGap(67, 67, 67)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(txtPadre33, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(fechaf18, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPadre17, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPadre15, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(fechaf16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fechaf17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel55))))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel45)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel7))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtPadre15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel55)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(fechaf16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel8)
                                 .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtPadre17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(fechaf17, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtPadre33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -618,7 +881,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(txtPadre52, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPadre51, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
+                        .addGap(104, 104, 104)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtPadre53, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPadre55, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -628,14 +891,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addComponent(jLabel48)
                         .addGap(29, 29, 29)
                         .addComponent(jLabel49)))
-                .addGap(36, 36, 36)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtPadre14, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtPadre19, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtPadre18, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1183,35 +1446,46 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     .addComponent(jLabel43))
                 .addGap(41, 41, 41)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel51))
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtPadre56, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPadre57, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPadre70, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPadre74, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(57, 57, 57)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel51))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPadre56, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPadre57, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPadre70, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPadre74, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtPadre75, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtPadre75, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtPadre69, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre66, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtPadre72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(txtPadre78, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(32, 32, 32)))
+                                .addComponent(txtPadre69, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPadre60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPadre61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPadre59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPadre66, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtPadre72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtPadre78, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtPadre58, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPadre65, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPadre71, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPadre77, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPadre68, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPadre73, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fechaf9, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaf10, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaf7, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaf8, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaf5, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaf6, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaf11, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1221,50 +1495,27 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(txtPadre67, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPadre79, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPadre76, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 52, 52)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPadre82, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre81, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre83, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre84, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre85, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtPadre68, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre73, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fechaf9, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fechaf10, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(fechaf7, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(fechaf8, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(fechaf5, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(fechaf6, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(fechaf11, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(fechaf12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPadre82, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPadre81, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPadre83, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPadre84, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPadre85, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 141, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(fechaf12, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(2, 2, 2)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(fechaf12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaf6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaf11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaf5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaf9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaf10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaf7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaf8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1276,8 +1527,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(txtPadre56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel32)
                             .addComponent(txtPadre61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtPadre62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(fechaf12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel31)
                             .addComponent(txtPadre57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1323,7 +1577,21 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(txtPadre77, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPadre78, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPadre79, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre84, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtPadre84, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(fechaf6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fechaf11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fechaf5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fechaf9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fechaf10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fechaf7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fechaf8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2169,7 +2437,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(jLabel63)
                             .addComponent(jLabel64)
                             .addComponent(jLabel65))
-                        .addGap(41, 41, 41)
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPadre92, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPadre95, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2187,7 +2455,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                     .addComponent(txtPadre118, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPadre119, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPadre120, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(45, 45, 45)
+                                .addGap(36, 36, 36)
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtPadre126, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPadre125, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2218,7 +2486,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(jLabel71)
                             .addComponent(jLabel72)
                             .addComponent(jLabel73))))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPadre88, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2237,7 +2505,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     .addComponent(txtPadre132, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
+                        .addGap(19, 19, 19)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2249,7 +2517,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                     .addComponent(txtPadre113, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPadre133, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                                .addGap(0, 0, 0)
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(fechaf23, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2641,14 +2909,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(jLabel53)
                             .addComponent(jLabel77)
                             .addComponent(jLabel78))
-                        .addGap(88, 88, 88)
+                        .addGap(79, 79, 79)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPadre144, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtPadre139, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPadre141, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(45, 45, 45)
+                                .addGap(33, 33, 33)
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtPadre142, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPadre138, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2658,19 +2926,19 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addComponent(jLabel74)
                         .addGap(29, 29, 29)
                         .addComponent(jLabel75)))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPadre140, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPadre146, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPadre143, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPadre163, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPadre162, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel84, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPadre185, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(fechaf33, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2723,165 +2991,438 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(59, 59, 59))
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(5, 5, 5))
+                        .addGap(5, 5, 5)
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+
+        jScrollPane1.setViewportView(jPanel5);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 167, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(lblNina)
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPadre15CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre15CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre15CaretUpdate
+    private void btnCaccnelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelar1ActionPerformed
 
-    private void txtPadre17CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre17CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre17CaretUpdate
+    }//GEN-LAST:event_btnCaccnelar1ActionPerformed
 
-    private void txtPadre14CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre14CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre14CaretUpdate
+    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
 
-    private void txtPadre18CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre18CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre18CaretUpdate
+    }//GEN-LAST:event_btnGuardar1ActionPerformed
 
-    private void txtPadre19CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre19CaretUpdate
+    private void ChkAnalf2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_ChkAnalf2CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre19CaretUpdate
+    }//GEN-LAST:event_ChkAnalf2CaretUpdate
 
-    private void txtPadre33CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre33CaretUpdate
+    private void ChkAnalf2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChkAnalf2MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre33CaretUpdate
+    }//GEN-LAST:event_ChkAnalf2MouseClicked
 
-    private void txtPadre16CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre16CaretUpdate
+    private void ChkEdad2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_ChkEdad2CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre16CaretUpdate
+    }//GEN-LAST:event_ChkEdad2CaretUpdate
 
-    private void txtPadre51CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre51CaretUpdate
+    private void ChkEdad2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChkEdad2MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre51CaretUpdate
+    }//GEN-LAST:event_ChkEdad2MouseClicked
 
-    private void txtPadre52CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre52CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre52CaretUpdate
+    private void jLabel34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel34MouseClicked
+        RegistroEmbarazo.jTabbedPane1.setSelectedIndex(1);
+        this.dispose();
+    }//GEN-LAST:event_jLabel34MouseClicked
 
-    private void txtPadre53CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre53CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre53CaretUpdate
+    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
 
-    private void txtPadre54CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre54CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre54CaretUpdate
+    }//GEN-LAST:event_btneditarActionPerformed
 
-    private void txtPadre55CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre55CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre55CaretUpdate
+    private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
 
-    private void txtPadre56CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre56CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre56CaretUpdate
+    }//GEN-LAST:event_bActionPerformed
 
-    private void txtPadre57CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre57CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre57CaretUpdate
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
+        mensaje.setVisible(false);
+    }//GEN-LAST:event_b1ActionPerformed
 
-    private void txtPadre58CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre58CaretUpdate
+    private void txtPadre185CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre185CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre58CaretUpdate
+    }//GEN-LAST:event_txtPadre185CaretUpdate
 
-    private void txtPadre59CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre59CaretUpdate
+    private void txtPadre163CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre163CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre59CaretUpdate
+    }//GEN-LAST:event_txtPadre163CaretUpdate
 
-    private void txtPadre60CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre60CaretUpdate
+    private void txtPadre162CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre162CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre60CaretUpdate
+    }//GEN-LAST:event_txtPadre162CaretUpdate
 
-    private void txtPadre61CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre61CaretUpdate
+    private void txtPadre146CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre146CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre61CaretUpdate
+    }//GEN-LAST:event_txtPadre146CaretUpdate
 
-    private void txtPadre62CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre62CaretUpdate
+    private void txtPadre145CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre145CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre62CaretUpdate
+    }//GEN-LAST:event_txtPadre145CaretUpdate
 
-    private void txtPadre63CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre63CaretUpdate
+    private void txtPadre144CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre144CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre63CaretUpdate
+    }//GEN-LAST:event_txtPadre144CaretUpdate
 
-    private void txtPadre64CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre64CaretUpdate
+    private void txtPadre143CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre143CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre64CaretUpdate
+    }//GEN-LAST:event_txtPadre143CaretUpdate
 
-    private void txtPadre65CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre65CaretUpdate
+    private void txtPadre142CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre142CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre65CaretUpdate
+    }//GEN-LAST:event_txtPadre142CaretUpdate
 
-    private void txtPadre66CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre66CaretUpdate
+    private void txtPadre141CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre141CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre66CaretUpdate
+    }//GEN-LAST:event_txtPadre141CaretUpdate
 
-    private void txtPadre67CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre67CaretUpdate
+    private void txtPadre140CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre140CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre67CaretUpdate
+    }//GEN-LAST:event_txtPadre140CaretUpdate
+
+    private void txtPadre139CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre139CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre139CaretUpdate
+
+    private void txtPadre138CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre138CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre138CaretUpdate
+
+    private void txtPadre137CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre137CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre137CaretUpdate
+
+    private void txtPadre136CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre136CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre136CaretUpdate
+
+    private void txtPadre135CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre135CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre135CaretUpdate
+
+    private void txtPadre134CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre134CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre134CaretUpdate
+
+    private void txtPadre133CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre133CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre133CaretUpdate
+
+    private void txtPadre132CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre132CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre132CaretUpdate
+
+    private void txtPadre131CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre131CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre131CaretUpdate
+
+    private void txtPadre130CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre130CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre130CaretUpdate
+
+    private void txtPadre129CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre129CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre129CaretUpdate
+
+    private void txtPadre128CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre128CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre128CaretUpdate
+
+    private void txtPadre127CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre127CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre127CaretUpdate
+
+    private void txtPadre126CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre126CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre126CaretUpdate
+
+    private void txtPadre125CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre125CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre125CaretUpdate
+
+    private void txtPadre124CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre124CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre124CaretUpdate
+
+    private void txtPadre123CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre123CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre123CaretUpdate
+
+    private void txtPadre122CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre122CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre122CaretUpdate
+
+    private void txtPadre121CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre121CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre121CaretUpdate
+
+    private void txtPadre120CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre120CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre120CaretUpdate
+
+    private void txtPadre119CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre119CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre119CaretUpdate
+
+    private void txtPadre118CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre118CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre118CaretUpdate
+
+    private void txtPadre117CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre117CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre117CaretUpdate
+
+    private void txtPadre116CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre116CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre116CaretUpdate
+
+    private void txtPadre115CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre115CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre115CaretUpdate
+
+    private void txtPadre114CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre114CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre114CaretUpdate
+
+    private void txtPadre113CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre113CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre113CaretUpdate
+
+    private void txtPadre112CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre112CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre112CaretUpdate
+
+    private void txtPadre111CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre111CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre111CaretUpdate
+
+    private void txtPadre110CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre110CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre110CaretUpdate
+
+    private void txtPadre109CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre109CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre109CaretUpdate
+
+    private void txtPadre108CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre108CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre108CaretUpdate
+
+    private void txtPadre107CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre107CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre107CaretUpdate
+
+    private void txtPadre106CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre106CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre106CaretUpdate
+
+    private void txtPadre105CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre105CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre105CaretUpdate
+
+    private void txtPadre104CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre104CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre104CaretUpdate
+
+    private void txtPadre103CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre103CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre103CaretUpdate
+
+    private void txtPadre102CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre102CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre102CaretUpdate
+
+    private void txtPadre101CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre101CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre101CaretUpdate
+
+    private void txtPadre100CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre100CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre100CaretUpdate
+
+    private void txtPadre99CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre99CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre99CaretUpdate
+
+    private void txtPadre98CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre98CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre98CaretUpdate
+
+    private void txtPadre97CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre97CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre97CaretUpdate
+
+    private void txtPadre96CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre96CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre96CaretUpdate
+
+    private void txtPadre95CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre95CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre95CaretUpdate
+
+    private void txtPadre94CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre94CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre94CaretUpdate
+
+    private void txtPadre93CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre93CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre93CaretUpdate
+
+    private void txtPadre92CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre92CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre92CaretUpdate
+
+    private void txtPadre91CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre91CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre91CaretUpdate
+
+    private void txtPadre90CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre90CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre90CaretUpdate
+
+    private void txtPadre89CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre89CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre89CaretUpdate
+
+    private void txtPadre88CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre88CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre88CaretUpdate
+
+    private void txtPadre87CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre87CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre87CaretUpdate
+
+    private void txtPadre86CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre86CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre86CaretUpdate
+
+    private void txtPadre85CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre85CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre85CaretUpdate
+
+    private void txtPadre84CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre84CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre84CaretUpdate
+
+    private void txtPadre83CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre83CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre83CaretUpdate
+
+    private void txtPadre82CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre82CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre82CaretUpdate
+
+    private void txtPadre81CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre81CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre81CaretUpdate
+
+    private void txtPadre79CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre79CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre79CaretUpdate
+
+    private void txtPadre78CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre78CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre78CaretUpdate
+
+    private void txtPadre77CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre77CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre77CaretUpdate
+
+    private void txtPadre76CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre76CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre76CaretUpdate
+
+    private void txtPadre75CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre75CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre75CaretUpdate
+
+    private void txtPadre74CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre74CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre74CaretUpdate
+
+    private void txtPadre73CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre73CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre73CaretUpdate
+
+    private void txtPadre72CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre72CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre72CaretUpdate
+
+    private void txtPadre71CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre71CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre71CaretUpdate
 
     private void txtPadre68CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre68CaretUpdate
         // TODO add your handling code here:
@@ -2895,324 +3436,115 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPadre70CaretUpdate
 
-    private void txtPadre71CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre71CaretUpdate
+    private void txtPadre67CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre67CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre71CaretUpdate
+    }//GEN-LAST:event_txtPadre67CaretUpdate
 
-    private void txtPadre72CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre72CaretUpdate
+    private void txtPadre66CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre66CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre72CaretUpdate
+    }//GEN-LAST:event_txtPadre66CaretUpdate
 
-    private void txtPadre73CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre73CaretUpdate
+    private void txtPadre65CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre65CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre73CaretUpdate
+    }//GEN-LAST:event_txtPadre65CaretUpdate
 
-    private void txtPadre74CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre74CaretUpdate
+    private void txtPadre64CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre64CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre74CaretUpdate
+    }//GEN-LAST:event_txtPadre64CaretUpdate
 
-    private void txtPadre75CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre75CaretUpdate
+    private void txtPadre59CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre59CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre75CaretUpdate
+    }//GEN-LAST:event_txtPadre59CaretUpdate
 
-    private void txtPadre76CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre76CaretUpdate
+    private void txtPadre58CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre58CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre76CaretUpdate
+    }//GEN-LAST:event_txtPadre58CaretUpdate
 
-    private void txtPadre77CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre77CaretUpdate
+    private void txtPadre63CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre63CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre77CaretUpdate
+    }//GEN-LAST:event_txtPadre63CaretUpdate
 
-    private void txtPadre78CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre78CaretUpdate
+    private void txtPadre60CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre60CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre78CaretUpdate
+    }//GEN-LAST:event_txtPadre60CaretUpdate
 
-    private void txtPadre79CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre79CaretUpdate
+    private void txtPadre57CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre57CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre79CaretUpdate
+    }//GEN-LAST:event_txtPadre57CaretUpdate
 
-    private void txtPadre81CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre81CaretUpdate
+    private void txtPadre62CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre62CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre81CaretUpdate
+    }//GEN-LAST:event_txtPadre62CaretUpdate
 
-    private void txtPadre82CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre82CaretUpdate
+    private void txtPadre56CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre56CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre82CaretUpdate
+    }//GEN-LAST:event_txtPadre56CaretUpdate
 
-    private void txtPadre83CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre83CaretUpdate
+    private void txtPadre61CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre61CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre83CaretUpdate
-
-    private void txtPadre84CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre84CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre84CaretUpdate
-
-    private void txtPadre85CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre85CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre85CaretUpdate
-
-    private void txtPadre86CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre86CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre86CaretUpdate
-
-    private void txtPadre87CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre87CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre87CaretUpdate
-
-    private void txtPadre88CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre88CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre88CaretUpdate
-
-    private void txtPadre89CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre89CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre89CaretUpdate
-
-    private void txtPadre90CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre90CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre90CaretUpdate
-
-    private void txtPadre91CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre91CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre91CaretUpdate
-
-    private void txtPadre92CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre92CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre92CaretUpdate
-
-    private void txtPadre93CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre93CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre93CaretUpdate
-
-    private void txtPadre94CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre94CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre94CaretUpdate
-
-    private void txtPadre95CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre95CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre95CaretUpdate
-
-    private void txtPadre96CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre96CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre96CaretUpdate
-
-    private void txtPadre97CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre97CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre97CaretUpdate
-
-    private void txtPadre98CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre98CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre98CaretUpdate
-
-    private void txtPadre99CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre99CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre99CaretUpdate
-
-    private void txtPadre100CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre100CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre100CaretUpdate
-
-    private void txtPadre101CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre101CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre101CaretUpdate
-
-    private void txtPadre102CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre102CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre102CaretUpdate
-
-    private void txtPadre103CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre103CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre103CaretUpdate
-
-    private void txtPadre104CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre104CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre104CaretUpdate
-
-    private void txtPadre105CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre105CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre105CaretUpdate
-
-    private void txtPadre106CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre106CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre106CaretUpdate
-
-    private void txtPadre107CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre107CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre107CaretUpdate
-
-    private void txtPadre108CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre108CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre108CaretUpdate
-
-    private void txtPadre109CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre109CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre109CaretUpdate
-
-    private void txtPadre110CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre110CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre110CaretUpdate
-
-    private void txtPadre111CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre111CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre111CaretUpdate
-
-    private void txtPadre112CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre112CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre112CaretUpdate
-
-    private void txtPadre113CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre113CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre113CaretUpdate
-
-    private void txtPadre114CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre114CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre114CaretUpdate
-
-    private void txtPadre115CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre115CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre115CaretUpdate
-
-    private void txtPadre116CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre116CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre116CaretUpdate
-
-    private void txtPadre117CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre117CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre117CaretUpdate
-
-    private void txtPadre118CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre118CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre118CaretUpdate
-
-    private void txtPadre119CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre119CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre119CaretUpdate
-
-    private void txtPadre120CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre120CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre120CaretUpdate
-
-    private void txtPadre121CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre121CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre121CaretUpdate
-
-    private void txtPadre122CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre122CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre122CaretUpdate
-
-    private void txtPadre123CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre123CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre123CaretUpdate
-
-    private void txtPadre124CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre124CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre124CaretUpdate
-
-    private void txtPadre125CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre125CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre125CaretUpdate
-
-    private void txtPadre126CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre126CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre126CaretUpdate
-
-    private void txtPadre127CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre127CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre127CaretUpdate
-
-    private void txtPadre128CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre128CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre128CaretUpdate
-
-    private void txtPadre129CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre129CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre129CaretUpdate
-
-    private void txtPadre130CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre130CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre130CaretUpdate
-
-    private void txtPadre131CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre131CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre131CaretUpdate
-
-    private void txtPadre132CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre132CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre132CaretUpdate
-
-    private void txtPadre133CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre133CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre133CaretUpdate
-
-    private void txtPadre134CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre134CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre134CaretUpdate
-
-    private void txtPadre135CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre135CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre135CaretUpdate
-
-    private void txtPadre136CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre136CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre136CaretUpdate
-
-    private void txtPadre137CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre137CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre137CaretUpdate
-
-    private void txtPadre138CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre138CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre138CaretUpdate
-
-    private void txtPadre139CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre139CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre139CaretUpdate
-
-    private void txtPadre140CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre140CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre140CaretUpdate
-
-    private void txtPadre141CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre141CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre141CaretUpdate
-
-    private void txtPadre142CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre142CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre142CaretUpdate
-
-    private void txtPadre143CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre143CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre143CaretUpdate
-
-    private void txtPadre144CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre144CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre144CaretUpdate
-
-    private void txtPadre145CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre145CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre145CaretUpdate
-
-    private void txtPadre146CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre146CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre146CaretUpdate
-
-    private void txtPadre162CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre162CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre162CaretUpdate
-
-    private void txtPadre163CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre163CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre163CaretUpdate
-
-    private void txtPadre185CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre185CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre185CaretUpdate
+    }//GEN-LAST:event_txtPadre61CaretUpdate
 
     private void txtPadre147CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre147CaretUpdate
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPadre147CaretUpdate
 
+    private void txtPadre51CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre51CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre51CaretUpdate
+
+    private void txtPadre16CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre16CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre16CaretUpdate
+
+    private void txtPadre19CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre19CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre19CaretUpdate
+
+    private void txtPadre55CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre55CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre55CaretUpdate
+
+    private void txtPadre54CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre54CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre54CaretUpdate
+
+    private void txtPadre18CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre18CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre18CaretUpdate
+
+    private void txtPadre53CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre53CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre53CaretUpdate
+
+    private void txtPadre14CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre14CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre14CaretUpdate
+
+    private void txtPadre52CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre52CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre52CaretUpdate
+
+    private void txtPadre33CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre33CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre33CaretUpdate
+
+    private void txtPadre17CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre17CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre17CaretUpdate
+
+    private void txtPadre15CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre15CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPadre15CaretUpdate
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JTextField ChkAnalf2;
+    public static javax.swing.JTextField ChkEdad2;
+    private javax.swing.JButton b;
+    private javax.swing.JButton b1;
+    private javax.swing.JButton btnCaccnelar1;
+    private javax.swing.JButton btnGuardar1;
+    private javax.swing.JButton btneditar;
     private com.toedter.calendar.JDateChooser fechaf10;
     private com.toedter.calendar.JDateChooser fechaf11;
     private com.toedter.calendar.JDateChooser fechaf12;
@@ -3247,10 +3579,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
@@ -3299,119 +3635,126 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel38;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    public static javax.swing.JTextField txtPadre100;
-    public static javax.swing.JTextField txtPadre101;
-    public static javax.swing.JTextField txtPadre102;
-    public static javax.swing.JTextField txtPadre103;
-    public static javax.swing.JTextField txtPadre104;
-    public static javax.swing.JTextField txtPadre105;
-    public static javax.swing.JTextField txtPadre106;
-    public static javax.swing.JTextField txtPadre107;
-    public static javax.swing.JTextField txtPadre108;
-    public static javax.swing.JTextField txtPadre109;
-    public static javax.swing.JTextField txtPadre110;
-    public static javax.swing.JTextField txtPadre111;
-    public static javax.swing.JTextField txtPadre112;
-    public static javax.swing.JTextField txtPadre113;
-    public static javax.swing.JTextField txtPadre114;
-    public static javax.swing.JTextField txtPadre115;
-    public static javax.swing.JTextField txtPadre116;
-    public static javax.swing.JTextField txtPadre117;
-    public static javax.swing.JTextField txtPadre118;
-    public static javax.swing.JTextField txtPadre119;
-    public static javax.swing.JTextField txtPadre120;
-    public static javax.swing.JTextField txtPadre121;
-    public static javax.swing.JTextField txtPadre122;
-    public static javax.swing.JTextField txtPadre123;
-    public static javax.swing.JTextField txtPadre124;
-    public static javax.swing.JTextField txtPadre125;
-    public static javax.swing.JTextField txtPadre126;
-    public static javax.swing.JTextField txtPadre127;
-    public static javax.swing.JTextField txtPadre128;
-    public static javax.swing.JTextField txtPadre129;
-    public static javax.swing.JTextField txtPadre130;
-    public static javax.swing.JTextField txtPadre131;
-    public static javax.swing.JTextField txtPadre132;
-    public static javax.swing.JTextField txtPadre133;
-    public static javax.swing.JTextField txtPadre134;
-    public static javax.swing.JTextField txtPadre135;
-    public static javax.swing.JTextField txtPadre136;
-    public static javax.swing.JTextField txtPadre137;
-    public static javax.swing.JTextField txtPadre138;
-    public static javax.swing.JTextField txtPadre139;
-    public static javax.swing.JTextField txtPadre14;
-    public static javax.swing.JTextField txtPadre140;
-    public static javax.swing.JTextField txtPadre141;
-    public static javax.swing.JTextField txtPadre142;
-    public static javax.swing.JTextField txtPadre143;
-    public static javax.swing.JTextField txtPadre144;
-    public static javax.swing.JTextField txtPadre145;
-    public static javax.swing.JTextField txtPadre146;
-    public static javax.swing.JTextField txtPadre147;
-    public static javax.swing.JTextField txtPadre15;
-    public static javax.swing.JTextField txtPadre16;
-    public static javax.swing.JTextField txtPadre162;
-    public static javax.swing.JTextField txtPadre163;
-    public static javax.swing.JTextField txtPadre17;
-    public static javax.swing.JTextField txtPadre18;
-    public static javax.swing.JTextField txtPadre185;
-    public static javax.swing.JTextField txtPadre19;
-    public static javax.swing.JTextField txtPadre33;
-    public static javax.swing.JTextField txtPadre51;
-    public static javax.swing.JTextField txtPadre52;
-    public static javax.swing.JTextField txtPadre53;
-    public static javax.swing.JTextField txtPadre54;
-    public static javax.swing.JTextField txtPadre55;
-    public static javax.swing.JTextField txtPadre56;
-    public static javax.swing.JTextField txtPadre57;
-    public static javax.swing.JTextField txtPadre58;
-    public static javax.swing.JTextField txtPadre59;
-    public static javax.swing.JTextField txtPadre60;
-    public static javax.swing.JTextField txtPadre61;
-    public static javax.swing.JTextField txtPadre62;
-    public static javax.swing.JTextField txtPadre63;
-    public static javax.swing.JTextField txtPadre64;
-    public static javax.swing.JTextField txtPadre65;
-    public static javax.swing.JTextField txtPadre66;
-    public static javax.swing.JTextField txtPadre67;
-    public static javax.swing.JTextField txtPadre68;
-    public static javax.swing.JTextField txtPadre69;
-    public static javax.swing.JTextField txtPadre70;
-    public static javax.swing.JTextField txtPadre71;
-    public static javax.swing.JTextField txtPadre72;
-    public static javax.swing.JTextField txtPadre73;
-    public static javax.swing.JTextField txtPadre74;
-    public static javax.swing.JTextField txtPadre75;
-    public static javax.swing.JTextField txtPadre76;
-    public static javax.swing.JTextField txtPadre77;
-    public static javax.swing.JTextField txtPadre78;
-    public static javax.swing.JTextField txtPadre79;
-    public static javax.swing.JTextField txtPadre81;
-    public static javax.swing.JTextField txtPadre82;
-    public static javax.swing.JTextField txtPadre83;
-    public static javax.swing.JTextField txtPadre84;
-    public static javax.swing.JTextField txtPadre85;
-    public static javax.swing.JTextField txtPadre86;
-    public static javax.swing.JTextField txtPadre87;
-    public static javax.swing.JTextField txtPadre88;
-    public static javax.swing.JTextField txtPadre89;
-    public static javax.swing.JTextField txtPadre90;
-    public static javax.swing.JTextField txtPadre91;
-    public static javax.swing.JTextField txtPadre92;
-    public static javax.swing.JTextField txtPadre93;
-    public static javax.swing.JTextField txtPadre94;
-    public static javax.swing.JTextField txtPadre95;
-    public static javax.swing.JTextField txtPadre96;
-    public static javax.swing.JTextField txtPadre97;
-    public static javax.swing.JTextField txtPadre98;
-    public static javax.swing.JTextField txtPadre99;
+    public static javax.swing.JLabel lblNina;
+    public static javax.swing.JLabel lblusu1;
+    private javax.swing.JLabel men;
+    private javax.swing.JPanel mensaje;
+    private javax.swing.JTextField txtPadre100;
+    private javax.swing.JTextField txtPadre101;
+    private javax.swing.JTextField txtPadre102;
+    private javax.swing.JTextField txtPadre103;
+    private javax.swing.JTextField txtPadre104;
+    private javax.swing.JTextField txtPadre105;
+    private javax.swing.JTextField txtPadre106;
+    private javax.swing.JTextField txtPadre107;
+    private javax.swing.JTextField txtPadre108;
+    private javax.swing.JTextField txtPadre109;
+    private javax.swing.JTextField txtPadre110;
+    private javax.swing.JTextField txtPadre111;
+    private javax.swing.JTextField txtPadre112;
+    private javax.swing.JTextField txtPadre113;
+    private javax.swing.JTextField txtPadre114;
+    private javax.swing.JTextField txtPadre115;
+    private javax.swing.JTextField txtPadre116;
+    private javax.swing.JTextField txtPadre117;
+    private javax.swing.JTextField txtPadre118;
+    private javax.swing.JTextField txtPadre119;
+    private javax.swing.JTextField txtPadre120;
+    private javax.swing.JTextField txtPadre121;
+    private javax.swing.JTextField txtPadre122;
+    private javax.swing.JTextField txtPadre123;
+    private javax.swing.JTextField txtPadre124;
+    private javax.swing.JTextField txtPadre125;
+    private javax.swing.JTextField txtPadre126;
+    private javax.swing.JTextField txtPadre127;
+    private javax.swing.JTextField txtPadre128;
+    private javax.swing.JTextField txtPadre129;
+    private javax.swing.JTextField txtPadre130;
+    private javax.swing.JTextField txtPadre131;
+    private javax.swing.JTextField txtPadre132;
+    private javax.swing.JTextField txtPadre133;
+    private javax.swing.JTextField txtPadre134;
+    private javax.swing.JTextField txtPadre135;
+    private javax.swing.JTextField txtPadre136;
+    private javax.swing.JTextField txtPadre137;
+    private javax.swing.JTextField txtPadre138;
+    private javax.swing.JTextField txtPadre139;
+    private javax.swing.JTextField txtPadre14;
+    private javax.swing.JTextField txtPadre140;
+    private javax.swing.JTextField txtPadre141;
+    private javax.swing.JTextField txtPadre142;
+    private javax.swing.JTextField txtPadre143;
+    private javax.swing.JTextField txtPadre144;
+    private javax.swing.JTextField txtPadre145;
+    private javax.swing.JTextField txtPadre146;
+    private javax.swing.JTextField txtPadre147;
+    private javax.swing.JTextField txtPadre15;
+    private javax.swing.JTextField txtPadre16;
+    private javax.swing.JTextField txtPadre162;
+    private javax.swing.JTextField txtPadre163;
+    private javax.swing.JTextField txtPadre17;
+    private javax.swing.JTextField txtPadre18;
+    private javax.swing.JTextField txtPadre185;
+    private javax.swing.JTextField txtPadre19;
+    private javax.swing.JTextField txtPadre33;
+    private javax.swing.JTextField txtPadre51;
+    private javax.swing.JTextField txtPadre52;
+    private javax.swing.JTextField txtPadre53;
+    private javax.swing.JTextField txtPadre54;
+    private javax.swing.JTextField txtPadre55;
+    private javax.swing.JTextField txtPadre56;
+    private javax.swing.JTextField txtPadre57;
+    private javax.swing.JTextField txtPadre58;
+    private javax.swing.JTextField txtPadre59;
+    private javax.swing.JTextField txtPadre60;
+    private javax.swing.JTextField txtPadre61;
+    private javax.swing.JTextField txtPadre62;
+    private javax.swing.JTextField txtPadre63;
+    private javax.swing.JTextField txtPadre64;
+    private javax.swing.JTextField txtPadre65;
+    private javax.swing.JTextField txtPadre66;
+    private javax.swing.JTextField txtPadre67;
+    private javax.swing.JTextField txtPadre68;
+    private javax.swing.JTextField txtPadre69;
+    private javax.swing.JTextField txtPadre70;
+    private javax.swing.JTextField txtPadre71;
+    private javax.swing.JTextField txtPadre72;
+    private javax.swing.JTextField txtPadre73;
+    private javax.swing.JTextField txtPadre74;
+    private javax.swing.JTextField txtPadre75;
+    private javax.swing.JTextField txtPadre76;
+    private javax.swing.JTextField txtPadre77;
+    private javax.swing.JTextField txtPadre78;
+    private javax.swing.JTextField txtPadre79;
+    private javax.swing.JTextField txtPadre81;
+    private javax.swing.JTextField txtPadre82;
+    private javax.swing.JTextField txtPadre83;
+    private javax.swing.JTextField txtPadre84;
+    private javax.swing.JTextField txtPadre85;
+    private javax.swing.JTextField txtPadre86;
+    private javax.swing.JTextField txtPadre87;
+    private javax.swing.JTextField txtPadre88;
+    private javax.swing.JTextField txtPadre89;
+    private javax.swing.JTextField txtPadre90;
+    private javax.swing.JTextField txtPadre91;
+    private javax.swing.JTextField txtPadre92;
+    private javax.swing.JTextField txtPadre93;
+    private javax.swing.JTextField txtPadre94;
+    private javax.swing.JTextField txtPadre95;
+    private javax.swing.JTextField txtPadre96;
+    private javax.swing.JTextField txtPadre97;
+    private javax.swing.JTextField txtPadre98;
+    private javax.swing.JTextField txtPadre99;
     // End of variables declaration//GEN-END:variables
 }

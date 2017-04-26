@@ -11,6 +11,7 @@ import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAO;
 
 
 /**
@@ -59,6 +60,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         btnbuscar1 = new javax.swing.JButton();
         btnbuscar2 = new javax.swing.JButton();
         OP3 = new javax.swing.JPanel();
+        lblId = new javax.swing.JLabel();
         LblTitulo = new javax.swing.JLabel();
         FA = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -245,6 +247,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
+        lblId.setText("jLabel1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -271,6 +275,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addGap(8, 8, 8)
                         .addComponent(OP3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(OP2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblId)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,6 +300,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnbuscar2)
                     .addComponent(OP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(171, 171, 171)
+                .addComponent(lblId)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1248,13 +1258,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_btnbuscar1ActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        ConsultorioExtCarnetPerinatalAO AO1 = new ConsultorioExtCarnetPerinatalAO();
+        AO1.ConsultoriosExtVacunasListar(Integer.parseInt(lblId.getText()));        
+        
         RegistroEmbarazoAO AO =new RegistroEmbarazoAO();
         RegistroEmbarazo.ContenedorTablas.add(AO);
+        
         try {
             AO.setMaximum(true);
         } catch (PropertyVetoException ex) {
             Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
+      
         RegistroEmbarazo.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
@@ -1619,6 +1634,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JPanel jPanel53;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    public static javax.swing.JLabel lblId;
     public static javax.swing.JLabel lblNina;
     // End of variables declaration//GEN-END:variables
 }

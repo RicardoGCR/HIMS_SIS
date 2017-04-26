@@ -339,15 +339,15 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         });
 
-        fechaf16.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf16.setBackground(new java.awt.Color(245, 245, 245));
         fechaf16.setDateFormatString("dd-MM-yyyy");
         fechaf16.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf17.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf17.setBackground(new java.awt.Color(245, 245, 245));
         fechaf17.setDateFormatString("dd-MM-yyyy");
         fechaf17.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf18.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf18.setBackground(new java.awt.Color(245, 245, 245));
         fechaf18.setDateFormatString("dd-MM-yyyy");
         fechaf18.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
@@ -571,15 +571,15 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("Tolerancia Glucosa");
 
-        fechaf13.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf13.setBackground(new java.awt.Color(245, 245, 245));
         fechaf13.setDateFormatString("dd-MM-yyyy");
         fechaf13.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf14.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf14.setBackground(new java.awt.Color(245, 245, 245));
         fechaf14.setDateFormatString("dd-MM-yyyy");
         fechaf14.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf15.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf15.setBackground(new java.awt.Color(245, 245, 245));
         fechaf15.setDateFormatString("dd-MM-yyyy");
         fechaf15.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
@@ -1126,42 +1126,42 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         });
 
-        fechaf12.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf12.setBackground(new java.awt.Color(245, 245, 245));
         fechaf12.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf12.setDateFormatString("dd-MM-yyyy");
         fechaf12.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf6.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf6.setBackground(new java.awt.Color(245, 245, 245));
         fechaf6.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf6.setDateFormatString("dd-MM-yyyy");
         fechaf6.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf11.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf11.setBackground(new java.awt.Color(245, 245, 245));
         fechaf11.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf11.setDateFormatString("dd-MM-yyyy");
         fechaf11.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf5.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf5.setBackground(new java.awt.Color(245, 245, 245));
         fechaf5.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf5.setDateFormatString("dd-MM-yyyy");
         fechaf5.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf9.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf9.setBackground(new java.awt.Color(245, 245, 245));
         fechaf9.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf9.setDateFormatString("dd-MM-yyyy");
         fechaf9.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf10.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf10.setBackground(new java.awt.Color(245, 245, 245));
         fechaf10.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf10.setDateFormatString("dd-MM-yyyy");
         fechaf10.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf7.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf7.setBackground(new java.awt.Color(245, 245, 245));
         fechaf7.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf7.setDateFormatString("dd-MM-yyyy");
         fechaf7.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf8.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf8.setBackground(new java.awt.Color(245, 245, 245));
         fechaf8.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf8.setDateFormatString("dd-MM-yyyy");
         fechaf8.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
@@ -1755,42 +1755,42 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         });
 
-        fechaf19.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf19.setBackground(new java.awt.Color(245, 245, 245));
         fechaf19.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf19.setDateFormatString("dd-MM-yyyy");
         fechaf19.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf20.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf20.setBackground(new java.awt.Color(245, 245, 245));
         fechaf20.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf20.setDateFormatString("dd-MM-yyyy");
         fechaf20.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf21.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf21.setBackground(new java.awt.Color(245, 245, 245));
         fechaf21.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf21.setDateFormatString("dd-MM-yyyy");
         fechaf21.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf22.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf22.setBackground(new java.awt.Color(245, 245, 245));
         fechaf22.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf22.setDateFormatString("dd-MM-yyyy");
         fechaf22.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf23.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf23.setBackground(new java.awt.Color(245, 245, 245));
         fechaf23.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf23.setDateFormatString("dd-MM-yyyy");
         fechaf23.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf24.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf24.setBackground(new java.awt.Color(245, 245, 245));
         fechaf24.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf24.setDateFormatString("dd-MM-yyyy");
         fechaf24.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf25.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf25.setBackground(new java.awt.Color(245, 245, 245));
         fechaf25.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf25.setDateFormatString("dd-MM-yyyy");
         fechaf25.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf26.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf26.setBackground(new java.awt.Color(245, 245, 245));
         fechaf26.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf26.setDateFormatString("dd-MM-yyyy");
         fechaf26.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
@@ -2122,32 +2122,32 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         });
 
-        fechaf27.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf27.setBackground(new java.awt.Color(245, 245, 245));
         fechaf27.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf27.setDateFormatString("dd-MM-yyyy");
         fechaf27.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf28.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf28.setBackground(new java.awt.Color(245, 245, 245));
         fechaf28.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf28.setDateFormatString("dd-MM-yyyy");
         fechaf28.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf29.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf29.setBackground(new java.awt.Color(245, 245, 245));
         fechaf29.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf29.setDateFormatString("dd-MM-yyyy");
         fechaf29.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf30.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf30.setBackground(new java.awt.Color(245, 245, 245));
         fechaf30.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf30.setDateFormatString("dd-MM-yyyy");
         fechaf30.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf31.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf31.setBackground(new java.awt.Color(245, 245, 245));
         fechaf31.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf31.setDateFormatString("dd-MM-yyyy");
         fechaf31.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf32.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf32.setBackground(new java.awt.Color(245, 245, 245));
         fechaf32.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf32.setDateFormatString("dd-MM-yyyy");
         fechaf32.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
@@ -2597,17 +2597,17 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         });
 
-        fechaf33.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf33.setBackground(new java.awt.Color(245, 245, 245));
         fechaf33.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf33.setDateFormatString("dd-MM-yyyy");
         fechaf33.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf34.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf34.setBackground(new java.awt.Color(245, 245, 245));
         fechaf34.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf34.setDateFormatString("dd-MM-yyyy");
         fechaf34.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf35.setBackground(new java.awt.Color(255, 255, 255));
+        fechaf35.setBackground(new java.awt.Color(245, 245, 245));
         fechaf35.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaf35.setDateFormatString("dd-MM-yyyy");
         fechaf35.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N

@@ -12,7 +12,7 @@ import servicios.Conexion;
 
 /**
  *
- * @author PC-SISTEMA
+ * @author Silvana
  */
 public class LAB_Resultado_Muestra_Cabecera {
     private Connection cn;

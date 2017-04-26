@@ -1,0 +1,6 @@
+SELECT AHC.ape_pat + ' ' + AHC.ape_mat + ' ' + AHC.primer_nombre + ' ' + AHC.segundo_nombre + ' ' + AHC.tercer_nombre,
+ca.RS_TIPO_RIESGO, ahc.telefono,ahc.tipo_dir_nom + ' ' + ahc.nom_dir + ' '+ ahc.NUM + ' ' + ahc.LOT AS 'DIRECCION',
+AHC.SE_COD, CA.TIPO_SEGURO, CA.RS_PADRE
+FROM CONSULTORIO_EXT_RS_CABECERA CA, ADMISION_HISTORIA_CLINICA AHC
+WHERE TRIAJE_ID = 'TR000000000000000020'
+AND AHC.id_hc = CA.HC_MADRE

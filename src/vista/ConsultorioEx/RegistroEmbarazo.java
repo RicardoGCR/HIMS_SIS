@@ -58,10 +58,11 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         txtPaciente.setText(String.valueOf(tbMadres.getValueAt(fila, 4)));
         lblHc.setText(String.valueOf(tbMadres.getValueAt(fila, 3)));
         txtIdHc.setText(String.valueOf(tbMadres.getValueAt(fila, 13)));
-        BuscarMadres.dispose();
         pnlControl.setVisible(true);
         btnGuardar.setVisible(true);
         lblMant.setText("I");
+        ConsultorioExtCarnetPerinatalCabecera consultorio1 = new ConsultorioExtCarnetPerinatalCabecera();
+        consultorio1.mantenimientoConsultorioExtCarnetPerinatalCabecera("T",String.valueOf(tbMadres.getValueAt(fila, 0)));
     }
 
     public boolean mantenimientoRegistroEmbarazo(){
@@ -72,17 +73,10 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             if(lblMant.getText().equals("U") || lblMant.getText().equals("E"))
                 consultorio1.setCpId(Integer.parseInt(lblId.getText()));
             consultorio1.setIdHc(txtIdHc.getText());
+            consultorio1.setCpAniosAprob(ChkAnAp.getText());
             consultorio1.setCodUsu(adEmerCab.codUsuario(lblusu.getText()));
             if(consultorio1.mantenimientoConsultorioExtCarnetPerinatalCabecera(lblMant.getText(),lblTriaje.getText())==true){
                 System.out.println("ID CARNET PERINATAL CABECERA: " + Integer.parseInt(consultorio1.perinatalCabeceraID()));
-                RegistroEmbarazoPrincipal.lblId.setText(consultorio1.perinatalCabeceraID());
-                pnlMensaje.setVisible(true);
-                lblMensaje.setText("Datos guardados de forma correcta");
-                btnGuardar.setVisible(false);
-                pnlMensaje.setBackground(new Color(33,115,70));
-                btnSi.setVisible(true);
-                btnSi.setText("OK");
-                btnNo.setVisible(false);
                 RegistroEmbarazoPrincipal GA =new RegistroEmbarazoPrincipal();
                 Contenedor.add(GA);
                 try {
@@ -91,6 +85,14 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 jTabbedPane1.setSelectedIndex(1);
+                RegistroEmbarazoPrincipal.lblId.setText(consultorio1.perinatalCabeceraID());
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Datos guardados de forma correcta");
+                btnGuardar.setVisible(false);
+                pnlMensaje.setBackground(new Color(33,115,70));
+                btnSi.setVisible(true);
+                btnSi.setText("OK");
+                btnNo.setVisible(false);
             } else {
                 pnlMensaje.setVisible(true);
                 lblMensaje.setText("Ocurrió un error, verifique");
@@ -103,6 +105,61 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         }
         return retorna;
     }
+    
+//    public void validaSiEx(String triaje){
+//        try {
+//            ConsultorioExtRsVacunas vacs = new ConsultorioExtRsVacunas();
+//            ConsultorioExtRsCcd ccd = new ConsultorioExtRsCcd();
+//            ConsultorioExtRsDiagnosticoNutricional nutr = new ConsultorioExtRsDiagnosticoNutricional();
+//            ConsultorioExtRsDiagnosticoDesarrollo desarrollo = new ConsultorioExtRsDiagnosticoDesarrollo();
+//            ConsultorioExtRsEstimulacionTemprana estiTemp = new ConsultorioExtRsEstimulacionTemprana();
+//            ConsultorioExtRsTamizajeNeonatal tamiNeo = new ConsultorioExtRsTamizajeNeonatal();
+//            ConsultorioExtRsTamizajeAnemiaParasitosis tAnemia = new ConsultorioExtRsTamizajeAnemiaParasitosis();
+//            ConsultorioExtRsTtoAntiparasitario tto = new ConsultorioExtRsTtoAntiparasitario();
+//            ConsultorioExtRsSuplementacionHierro spHi = new ConsultorioExtRsSuplementacionHierro(); 
+//            ConsultorioExtRsEpisodiosEnfermedadesPrev prev = new ConsultorioExtRsEpisodiosEnfermedadesPrev();
+//            ConsultorioExtRsSuplementacionVitaminaA supV = new ConsultorioExtRsSuplementacionVitaminaA();
+//            ConsultorioExtRsVisitasDomiciliarias vis = new ConsultorioExtRsVisitasDomiciliarias();
+//            PreparedStatement cmd = cabecera.getCn().prepareStatement("SELECT        CONSULTORIO_EXT_RS_CABECERA.RS_ID\n" +
+//"\n" +
+//"FROM            CONSULTORIO_EXT_RS_CABECERA INNER JOIN\n" +
+//"                         ADMISION_EMERGENCIA_TRIAJE ON CONSULTORIO_EXT_RS_CABECERA.TRIAJE_ID = ADMISION_EMERGENCIA_TRIAJE.TRIAJE_ID INNER JOIN\n" +
+//"                         CAJA_DOCUMENTO_CABECERA ON ADMISION_EMERGENCIA_TRIAJE.id_documento = CAJA_DOCUMENTO_CABECERA.id_documento\n" +
+//"WHERE CAJA_DOCUMENTO_CABECERA.id_hc = '"+triaje+"'");
+//            ResultSet res = cmd.executeQuery();
+//            if(res.next()){
+//                id = Integer.parseInt(res.getString("RS_ID"));
+//                //Porcentajes de avance
+//                vacs.porcentajeVacunas(id);
+//                ccd.porcentajeCCD(id);
+//                nutr.porcentajeDN(id);
+//                desarrollo.porcentajeDD(id);
+//                estiTemp.porcentajeET(id);
+//                tamiNeo.porcentajeTN(id);
+//                tAnemia.porcentajeTAP(id);
+//                tto.porcentajeTTO(id);
+//                spHi.porcentajeSHM(id);
+//                prev.porcentajeEET(id);
+//                supV.porcentajeSVA(id);
+//                vis.porcentajeVD(id);
+//                datosPadres(triaje);
+//                pnlPadres.setVisible(true);
+//                btnGuardar.setVisible(false);
+//                pnlContenedor.setVisible(true);
+//            btnBuscarMadres.setEnabled(false);
+//            }else {
+//                limpiarDatosPadres();
+//                habilitarDatos(true);
+//                pnlContenedor.setVisible(false);
+//                btnGuardar.setVisible(true);
+//                pnlPadres.setVisible(true);
+//                btnBuscarMadres.setEnabled(true);
+//      
+//            }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Error: validaTriaje: " + e.toString());
+//        }
+//    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -123,6 +180,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             buttonGroup1 = new javax.swing.ButtonGroup();
             buttonGroup2 = new javax.swing.ButtonGroup();
             Confirmacion = new javax.swing.JDialog();
+            btnConfirmeSi = new javax.swing.JButton();
+            btnConfirmeNo = new javax.swing.JButton();
             jTabbedPane1 = new javax.swing.JTabbedPane();
             jPanel2 = new javax.swing.JPanel();
             jPanel1 = new javax.swing.JPanel();
@@ -366,15 +425,42 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     .addGap(0, 0, 0))
             );
 
+            Confirmacion.setAlwaysOnTop(true);
+            Confirmacion.setMinimumSize(new java.awt.Dimension(400, 300));
+
+            btnConfirmeSi.setText("Si");
+            btnConfirmeSi.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnConfirmeSiActionPerformed(evt);
+                }
+            });
+
+            btnConfirmeNo.setText("No");
+            btnConfirmeNo.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnConfirmeNoActionPerformed(evt);
+                }
+            });
+
             javax.swing.GroupLayout ConfirmacionLayout = new javax.swing.GroupLayout(Confirmacion.getContentPane());
             Confirmacion.getContentPane().setLayout(ConfirmacionLayout);
             ConfirmacionLayout.setHorizontalGroup(
                 ConfirmacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 400, Short.MAX_VALUE)
+                .addGroup(ConfirmacionLayout.createSequentialGroup()
+                    .addGap(85, 85, 85)
+                    .addComponent(btnConfirmeSi)
+                    .addGap(72, 72, 72)
+                    .addComponent(btnConfirmeNo)
+                    .addContainerGap(157, Short.MAX_VALUE))
             );
             ConfirmacionLayout.setVerticalGroup(
                 ConfirmacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 300, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConfirmacionLayout.createSequentialGroup()
+                    .addContainerGap(218, Short.MAX_VALUE)
+                    .addGroup(ConfirmacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnConfirmeSi)
+                        .addComponent(btnConfirmeNo))
+                    .addGap(59, 59, 59))
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1543,7 +1629,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                     .addContainerGap())
             );
 
@@ -1898,7 +1984,11 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
 
     private void tbMadresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMadresMouseClicked
         if(evt.getClickCount()==2){
-            enviarDatosMadres();
+//            enviarDatosMadres();
+            Confirmacion.setVisible(true);
+            Confirmacion.setLocationRelativeTo(null);//en el centro
+            Confirmacion.setResizable(false);
+            Confirmacion.getContentPane().setBackground(Color.WHITE);
         }
     }//GEN-LAST:event_tbMadresMouseClicked
 
@@ -1913,7 +2003,11 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         }
         char teclaPresionada = evt.getKeyChar();
         if(teclaPresionada==KeyEvent.VK_ENTER){
-            enviarDatosMadres();
+//            enviarDatosMadres();
+            Confirmacion.setVisible(true);
+            Confirmacion.setLocationRelativeTo(null);//en el centro
+            Confirmacion.setResizable(false);
+            Confirmacion.getContentPane().setBackground(Color.WHITE);
         }
     }//GEN-LAST:event_tbMadresKeyPressed
 
@@ -1971,6 +2065,16 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ChkAnApKeyTyped
 
+    private void btnConfirmeSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmeSiActionPerformed
+        BuscarMadres.dispose();
+        Confirmacion.dispose();
+        enviarDatosMadres();
+    }//GEN-LAST:event_btnConfirmeSiActionPerformed
+
+    private void btnConfirmeNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmeNoActionPerformed
+        Confirmacion.dispose();
+    }//GEN-LAST:event_btnConfirmeNoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2022,6 +2126,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane ContenedorTablas;
     private javax.swing.JLabel T7;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnConfirmeNo;
+    private javax.swing.JButton btnConfirmeSi;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnNo;
     private javax.swing.JButton btnNuevo;

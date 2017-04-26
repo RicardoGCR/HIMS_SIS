@@ -9,76 +9,31 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RegistroEmbarazo;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_CARNET_PERINATAL_CABECERA")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findAll", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpId", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpId = :cpId"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpEstbOrigen", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpEstbOrigen = :cpEstbOrigen"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpEstbAct", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpEstbAct = :cpEstbAct"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpTipoSeguro", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpTipoSeguro = :cpTipoSeguro"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpEdad", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpEdad = :cpEdad"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpCodigoAfil", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpCodigoAfil = :cpCodigoAfil"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpEstudios", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpEstudios = :cpEstudios"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpAniosAprob", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpAniosAprob = :cpAniosAprob"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpPadreRn", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpPadreRn = :cpPadreRn"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByFechaActu", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.fechaActu = :fechaActu"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByHoraActu", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.horaActu = :horaActu"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByEstado", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.estado = :estado"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByNomPc", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.nomPc = :nomPc"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCodUsu", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.codUsu = :codUsu")})
 public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "CP_ID")
+
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private int cpId;
     private String idHc;
-    @Column(name = "CP_ESTB_ORIGEN")
     private String cpEstbOrigen;
-    @Column(name = "CP_ESTB_ACT")
     private String cpEstbAct;
-    @Column(name = "CP_TIPO_SEGURO")
     private String cpTipoSeguro;
-    @Column(name = "CP_EDAD")
     private String cpEdad;
-    @Column(name = "CP_CODIGO_AFIL")
     private String cpCodigoAfil;
-    @Column(name = "CP_ESTUDIOS")
     private String cpEstudios;
-    @Column(name = "CP_ANIOS_APROB")
     private String cpAniosAprob;
-    @Column(name = "CP_PADRE_RN")
     private String cpPadreRn;
-    @Column(name = "FECHA_ACTU")
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "ESTADO")
     private Character estado;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "COD_USU")
     private String codUsu;
 
     public boolean mantenimientoConsultorioExtCarnetPerinatalCabecera(String tipo,String triaje)

@@ -33,16 +33,10 @@
           <Group type="102" attributes="0">
               <Component id="jPanel13" min="-2" pref="284" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                  <Component id="mensaje" max="32767" attributes="0"/>
-=======
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
                   <Group type="102" attributes="0">
                       <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="89" max="32767" attributes="0"/>
                   </Group>
-<<<<<<< HEAD
-=======
                   <Group type="102" attributes="0">
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -53,22 +47,12 @@
                           <Component id="mensaje" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="mensaje" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
-          </Group>
-          <Component id="jPanel13" alignment="1" max="32767" attributes="0"/>
-=======
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Component id="lblNina" min="-2" max="-2" attributes="0"/>
@@ -78,7 +62,6 @@
               <Component id="mensaje" min="-2" max="-2" attributes="0"/>
           </Group>
           <Component id="jPanel13" max="32767" attributes="0"/>
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
       </Group>
     </DimensionLayout>
   </Layout>
@@ -131,18 +114,12 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-<<<<<<< HEAD
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jPanel51" max="32767" attributes="0"/>
-                              <Component id="jPanel33" max="32767" attributes="0"/>
-=======
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jPanel51" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="jPanel33" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -246,11 +223,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace max="-2" attributes="0"/>
-=======
                       <EmptySpace max="32767" attributes="0"/>
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel25" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
@@ -312,10 +285,6 @@
                           <Component id="jLabel52" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jPanel52" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
-<<<<<<< HEAD
-                      <EmptySpace max="32767" attributes="0"/>
-=======
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1341,11 +1310,7 @@
                           <Component id="jPanel66" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="jLabel58" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-<<<<<<< HEAD
-                      <EmptySpace pref="31" max="32767" attributes="0"/>
-=======
                       <EmptySpace max="32767" attributes="0"/>
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2627,11 +2592,7 @@
                       <Component id="txtPadre23" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-<<<<<<< HEAD
-                  <EmptySpace max="32767" attributes="0"/>
-=======
                   <EmptySpace pref="93" max="32767" attributes="0"/>
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
               </Group>
           </Group>
         </DimensionLayout>
@@ -3768,8 +3729,6 @@
         </Component>
       </SubComponents>
     </Container>
-<<<<<<< HEAD
-=======
     <Component class="javax.swing.JLabel" name="lblNina">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -3791,7 +3750,6 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
     <Container class="javax.swing.JPanel" name="mensaje">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -3809,32 +3767,20 @@
                   <Component id="b" min="-2" pref="29" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="b1" min="-2" pref="29" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  <EmptySpace max="32767" attributes="0"/>
-=======
                   <EmptySpace pref="929" max="32767" attributes="0"/>
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-=======
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="men" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="b" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="b1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
-<<<<<<< HEAD
-                  <EmptySpace max="32767" attributes="0"/>
-=======
                   <EmptySpace pref="17" max="32767" attributes="0"/>
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
               </Group>
           </Group>
         </DimensionLayout>

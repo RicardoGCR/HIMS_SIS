@@ -1,39 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_DX_MEDICAMENTO_INSUMO_PROCEDIMIENTO.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_ACTIVIDADES_PREVENTIVAS_VACUNAS.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazo.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtCarnetPerinatalCabecera.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_ACTIVIDADES_PREVENTIVAS_VACUNAS.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ESNITSS.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtCarnetPerinatalAO.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoPrincipal.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtEsnitss.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazo.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtCarnetPerinatalCabecera.java</file>
-            <file>file:/D:/pry/SISGESH/src/servicios/Conexion.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADO_INSUMOS.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADO_MUESTRA.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADOS_MUESTRA_INGRESO.java</file>
-=======
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoEXL1.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazo.java</file>
->>>>>>> fe220f7034ebbc0e7eb0cc7e5fcaabef635011b6
->>>>>>> 9e2a51192f2b4d428cbe59fc761ab715b581797f
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
->>>>>>> 98268bcde27f302a6ffbc902d62802503831cf7c
->>>>>>> ce35edef0474231f503ce58bb7d3537484c4d095
         </group>
     </open-files>
 </project-private>

@@ -140,25 +140,6 @@
                       </Group>
                       <Component id="lblNina" min="-2" pref="184" max="-2" attributes="0"/>
                   </Group>
-<<<<<<< HEAD
-=======
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btnbuscar1" min="-2" max="-2" attributes="0"/>
-                      <Component id="OP2" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btnbuscar2" min="-2" max="-2" attributes="0"/>
-                      <Component id="OP3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                  <Component id="lblId" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-=======
->>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
->>>>>>> 98268bcde27f302a6ffbc902d62802503831cf7c
->>>>>>> ce35edef0474231f503ce58bb7d3537484c4d095
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>

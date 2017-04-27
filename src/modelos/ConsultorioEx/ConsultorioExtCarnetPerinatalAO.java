@@ -45,111 +45,37 @@ public class ConsultorioExtCarnetPerinatalAO {
 	private String ESTADO;  
 	private String COD_USU;  
         
-
-    public void ConsultoriosExtVacunasListar(int rs_id){
+ public void ConsultoriosExtAOListar(String rs_id){
         String consulta="";
         try {
             consulta="CONSULTORIO_EXT_LISTAR_CARNET_PERINATAL_AO ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setInt(1, rs_id);
+            cmd.setString(1, rs_id);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-       
-                    
-                try {
-                RegistroEmbarazoAO.txtGestas.setText(r.getString(3));
-             
-                } catch (Exception e) {
-                }
                 
-                try {
+                RegistroEmbarazoAO.txtGestas.setText(r.getString(3)); 
                 RegistroEmbarazoAO.txtAborto.setText(r.getString(4));
-             
-                } catch (Exception e) {
-                }
-                
-                try {
                 RegistroEmbarazoAO.txtPartos.setText(r.getString(8));
-             
-                } catch (Exception e) {
-                }
-                
-                try {
                 RegistroEmbarazoAO.txtVaginales.setText(r.getString(5));
-             
-                } catch (Exception e) {
-                }
-                
-                try {
                 RegistroEmbarazoAO.txtCesareas.setText(r.getString(9));
-             
-                } catch (Exception e) {
-                }
-                
-                try {
                 RegistroEmbarazoAO.txtRN.setText(r.getString(6));
-             
-                } catch (Exception e) {
-                }
-                
-                try {
                 RegistroEmbarazoAO.txtNacidos.setText(r.getString(10));
-             
-                } catch (Exception e) {
-                }
-                
-                try {
                 RegistroEmbarazoAO.txtViven.setText(r.getString(7));
-             
-                } catch (Exception e) {
-                }
-                
-                try {
                 RegistroEmbarazoAO.txtMuerto1.setText(r.getString(11));
-             
-                } catch (Exception e) {
-                }
-                
-                try {
                 RegistroEmbarazoAO.txtDespues.setText(r.getString(12));
-             
-                } catch (Exception e) {
-                }
-                
-                try {
                 RegistroEmbarazoAO.chk1.setText(r.getString(13));
-             
-                } catch (Exception e) {
-                }
-                
-                try {
                 RegistroEmbarazoAO.chk2.setText(r.getString(14));
-             
-                } catch (Exception e) {
-                }
-                
-                try {
                 RegistroEmbarazoAO.chk3.setText(r.getString(15));
-             
-                } catch (Exception e) {
-                }
-                
-                try {
                 RegistroEmbarazoAO.chk4.setText(r.getString(16));
-             
-                } catch (Exception e) {
-                }
-                
-                try {
                 RegistroEmbarazoAO.txtRNmayor.setText(r.getString(17));
-             
-                } catch (Exception e) {
-                }
+                RegistroEmbarazoAO.lblIdAO.setText(r.getString(1));
+
                 }
             //
         } catch (Exception e) {
-            System.out.println("Error: ConsultoriosExtVacunasListar " + e.getMessage());
+            System.out.println("Error: Consultorios AO  " + e.getMessage());
         }
     }
         
@@ -157,26 +83,27 @@ public class ConsultorioExtCarnetPerinatalAO {
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_AO ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_AO ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setInt(1, getCP_ID());
-            cmd.setString(2, getAO_GESTAS());
-            cmd.setString(3, getAO_ABORTOS());
-            cmd.setString(4, getAO_VAGINALES());
-            cmd.setString(5, getAO_NAC_VIVOS());
-            cmd.setString(6, getAO_VIVEN());
-            cmd.setString(7, getAO_PARTOS());
-            cmd.setString(8, getAO_CESAREAS());
-            cmd.setString(9, getAO_NAC_MUERTOS());
-            cmd.setString(10, getAO_MUERTO_P_SEM());
-            cmd.setString(11, getAO_MUERTO_D_PSEM());
-            cmd.setString(12, getAO_PARTO_0());
-            cmd.setString(13, getAO_PARTO_2500());
-            cmd.setString(14, getAO_PARTO_MULT());
-            cmd.setString(15, getAO_PARTO_37_SEM());
-            cmd.setString(16, getAO_RN_MAYOR_PESO());
-            cmd.setString(17, getCOD_USU());
-            cmd.setString(18, tipo);
+            cmd.setInt(1, getAO_ID());
+            cmd.setInt(2, getCP_ID());
+            cmd.setString(3, getAO_GESTAS());
+            cmd.setString(4, getAO_ABORTOS());
+            cmd.setString(5, getAO_VAGINALES());
+            cmd.setString(6, getAO_NAC_VIVOS());
+            cmd.setString(7, getAO_VIVEN());
+            cmd.setString(8, getAO_PARTOS());
+            cmd.setString(9, getAO_CESAREAS());
+            cmd.setString(10, getAO_NAC_MUERTOS());
+            cmd.setString(11, getAO_MUERTO_P_SEM());
+            cmd.setString(12, getAO_MUERTO_D_PSEM());
+            cmd.setString(13, getAO_PARTO_0());
+            cmd.setString(14, getAO_PARTO_2500());
+            cmd.setString(15, getAO_PARTO_MULT());
+            cmd.setString(16, getAO_PARTO_37_SEM());
+            cmd.setString(17, getAO_RN_MAYOR_PESO());
+            cmd.setString(18, getCOD_USU());
+            cmd.setString(19, tipo);
             if(!cmd.execute())
             {
                 resp = true;

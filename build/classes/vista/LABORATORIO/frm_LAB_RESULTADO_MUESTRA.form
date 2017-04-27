@@ -244,6 +244,16 @@
           <Component id="jpanel" alignment="0" max="32767" attributes="0"/>
           <Component id="panelOcultar" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
+<<<<<<< HEAD
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="panelPaciente" max="32767" attributes="0"/>
+                          <Component id="panelAnalisis" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+=======
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -252,10 +262,26 @@
                           <Component id="panelPaciente" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="panelTM" max="32767" attributes="0"/>
                           <Component id="panelResultado" max="32767" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane5" min="-2" pref="1035" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnGenerar" min="-2" pref="105" max="-2" attributes="0"/>
+                          <Component id="btnInsumos" min="-2" pref="105" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+=======
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Component id="btnInsumos" min="-2" pref="105" max="-2" attributes="0"/>
@@ -270,6 +296,7 @@
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Group>
       </Group>
     </DimensionLayout>
@@ -278,6 +305,30 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jpanel" min="-2" pref="82" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="panelPaciente" min="-2" max="-2" attributes="0"/>
+                  <Component id="panelTM" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="panelResultado" min="-2" max="-2" attributes="0"/>
+                  <Component id="panelAnalisis" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane5" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      <Component id="btnInsumos" min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace pref="87" max="32767" attributes="0"/>
+                      <Component id="btnGenerar" min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" pref="36" max="-2" attributes="0"/>
+                  </Group>
+=======
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="panelPaciente" max="32767" attributes="0"/>
                   <Component id="panelTM" max="32767" attributes="0"/>
@@ -299,6 +350,7 @@
                       <EmptySpace min="0" pref="43" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane5" alignment="0" pref="0" max="32767" attributes="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="panelOcultar" min="-2" max="-2" attributes="0"/>
@@ -334,7 +386,11 @@
                       </Group>
                       <Component id="lblUsu" alignment="0" max="32767" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
+                  <EmptySpace pref="69" max="32767" attributes="0"/>
+=======
                   <EmptySpace pref="31" max="32767" attributes="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
               </Group>
           </Group>
         </DimensionLayout>
@@ -454,9 +510,12 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="tb_Detalle">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="22" rowCount="0">
                 <Column editable="false" title="cod_esquema" type="java.lang.Object"/>
@@ -620,6 +679,11 @@
     </Container>
     <Container class="javax.swing.JPanel" name="panelPaciente">
       <Properties>
+<<<<<<< HEAD
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Datos del Paciente"/>
+=======
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
@@ -632,6 +696,7 @@
               <Font PropertyName="font" name="Segoe UI Semilight" size="13" style="1"/>
               <Color PropertyName="color" blue="33" green="33" red="33" type="rgb"/>
             </TitledBorder>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Border>
         </Property>
       </Properties>
@@ -651,7 +716,11 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Component id="jLabel18" min="-2" pref="216" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                                  <EmptySpace pref="22" max="32767" attributes="0"/>
+=======
                                   <EmptySpace max="32767" attributes="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
@@ -691,10 +760,17 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
+                  <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel22" max="32767" attributes="0"/>
                       <Component id="jLabel7" max="32767" attributes="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
                   </Group>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -723,7 +799,11 @@
                       <Component id="txtEdad" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtSexo" alignment="3" max="32767" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
+                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+=======
                   <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
               </Group>
           </Group>
         </DimensionLayout>
@@ -731,20 +811,31 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel23">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="DNI"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDni">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -752,20 +843,31 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel22">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="N&#xba; de H.C."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtHc">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -773,11 +875,19 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtPacientes">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -785,29 +895,43 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Paciente"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel17">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Fecha de Nac."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtFecha">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -815,20 +939,31 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Sexo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtSexo">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -836,20 +971,31 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel24">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Edad"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtEdad">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -859,11 +1005,16 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnGenerar">
       <Properties>
+<<<<<<< HEAD
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+=======
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="12" style="1"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagenes/iconos/guardar16x16.png"/>
@@ -871,7 +1022,10 @@
         <Property name="mnemonic" type="int" value="71"/>
         <Property name="text" type="java.lang.String" value="Guardar"/>
         <Property name="toolTipText" type="java.lang.String" value="Guardar(Alt + G)"/>
+<<<<<<< HEAD
+=======
         <Property name="contentAreaFilled" type="boolean" value="false"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor de Mano"/>
         </Property>
@@ -882,18 +1036,26 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
+<<<<<<< HEAD
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+=======
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="12" style="1"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagenes/iconos/salir16x16.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Regresar"/>
         <Property name="toolTipText" type="java.lang.String" value="Regresar(Esc)"/>
+<<<<<<< HEAD
+=======
         <Property name="contentAreaFilled" type="boolean" value="false"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor de Mano"/>
         </Property>
@@ -904,6 +1066,11 @@
     </Component>
     <Container class="javax.swing.JPanel" name="panelResultado">
       <Properties>
+<<<<<<< HEAD
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Resultado"/>
+=======
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
@@ -916,6 +1083,7 @@
                 </LineBorder>
               </Border>
             </CompoundBorder>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Border>
         </Property>
       </Properties>
@@ -957,16 +1125,23 @@
                       </Group>
                   </Group>
               </Group>
+<<<<<<< HEAD
+=======
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+<<<<<<< HEAD
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+=======
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -976,6 +1151,18 @@
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
+<<<<<<< HEAD
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel40" alignment="3" max="32767" attributes="0"/>
+                              <Component id="jLabel43" alignment="3" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel45" alignment="3" pref="17" max="32767" attributes="0"/>
+=======
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -992,6 +1179,7 @@
                   </Group>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel45" alignment="3" max="32767" attributes="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
                       <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -1008,9 +1196,12 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel40">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Personal - Responsable Resultado"/>
           </Properties>
@@ -1043,27 +1234,36 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel43">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Personal - Registra Resultado"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel44">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Fecha Registro Resul."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel45">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Hora Registro Resul."/>
           </Properties>
@@ -1071,7 +1271,11 @@
         <Component class="javax.swing.JLabel" name="lblFecha1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+<<<<<<< HEAD
+              <Font name="Tahoma" size="12" style="0"/>
+=======
               <Font name="Segoe UI" size="12" style="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="00/00/00"/>
@@ -1080,7 +1284,11 @@
         <Component class="javax.swing.JLabel" name="lblHora1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+<<<<<<< HEAD
+              <Font name="Tahoma" size="12" style="0"/>
+=======
               <Font name="Segoe UI" size="12" style="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="00:00:00"/>
@@ -1088,9 +1296,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Resultado"/>
           </Properties>
@@ -1108,6 +1319,8 @@
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtResult_PNKeyReleased"/>
           </Events>
         </Component>
+<<<<<<< HEAD
+=======
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1116,6 +1329,7 @@
             <Property name="text" type="java.lang.String" value="Resultado__________________________________________________________________________________________________________________________"/>
           </Properties>
         </Component>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelOcultar">
@@ -1147,7 +1361,11 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblcod_det_toma" min="-2" pref="139" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                  <Component id="lblHc" pref="68" max="32767" attributes="0"/>
+=======
                   <Component id="lblHc" pref="30" max="32767" attributes="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblid_cod_doc_det" min="-2" pref="77" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
@@ -1424,6 +1642,11 @@
     </Container>
     <Container class="javax.swing.JPanel" name="panelTM">
       <Properties>
+<<<<<<< HEAD
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Toma de Muestra"/>
+=======
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
@@ -1436,6 +1659,7 @@
               <Font PropertyName="font" name="Segoe UI Semilight" size="14" style="1"/>
               <Color PropertyName="color" blue="33" green="33" red="33" type="rgb"/>
             </TitledBorder>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Border>
         </Property>
       </Properties>
@@ -1563,20 +1787,31 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel19">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Acto M&#xe9;dico"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtActoMedico">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1584,11 +1819,19 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtFormaPago">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="11" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFormaPagoActionPerformed"/>
@@ -1601,29 +1844,43 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel30">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Forma de Pago"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel29">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="N&#xb0; de Toma de Muestra"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNToma">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="11" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNTomaKeyPressed"/>
@@ -1635,20 +1892,31 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel25">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Personal - Toma de Muestra"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtPersonalTomaMuestra">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="10" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="10" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPersonalTomaMuestraActionPerformed"/>
@@ -1661,20 +1929,31 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel27">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Fecha Toma Muestra"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtFechaTM">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="11" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaTMActionPerformed"/>
@@ -1687,20 +1966,31 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel28">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Hora Toma Muestra"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtHoraTM">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="11" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHoraTMActionPerformed"/>
@@ -1713,20 +2003,31 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel26">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Personal - Solicita Muestra"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtPersonalSolicita">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="10" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="10" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPersonalSolicitaActionPerformed"/>
@@ -1739,20 +2040,31 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel32">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Piso"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtPiso">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="11" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPisoActionPerformed"/>
@@ -1765,20 +2077,31 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel33">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Cama"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCama">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="11" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCamaActionPerformed"/>
@@ -1791,29 +2114,43 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel31">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Fecha Orden"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel37">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Hora Orden"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtFechaOrden">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="11" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaOrdenActionPerformed"/>
@@ -1826,11 +2163,19 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtHoraOrden">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="11" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHoraOrdenActionPerformed"/>
@@ -1843,11 +2188,19 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txthospiServ">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="11" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txthospiServActionPerformed"/>
@@ -1860,9 +2213,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel36">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Hospitalizaci&#xf3;n-Servicio"/>
           </Properties>
@@ -1871,6 +2227,11 @@
     </Container>
     <Container class="javax.swing.JPanel" name="panelAnalisis">
       <Properties>
+<<<<<<< HEAD
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="An&#xe1;lisis"/>
+=======
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
@@ -1883,6 +2244,7 @@
               <Font PropertyName="font" name="Segoe UI Semilight" size="13" style="1"/>
               <Color PropertyName="color" blue="33" green="33" red="33" type="rgb"/>
             </TitledBorder>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Border>
         </Property>
       </Properties>
@@ -1907,7 +2269,11 @@
                       <Component id="jLabel39" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtServArea" alignment="0" max="32767" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
+                  <EmptySpace max="32767" attributes="0"/>
+=======
                   <EmptySpace pref="27" max="32767" attributes="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
               </Group>
           </Group>
         </DimensionLayout>
@@ -1939,6 +2305,10 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+<<<<<<< HEAD
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+=======
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
               </Group>
           </Group>
         </DimensionLayout>
@@ -1946,11 +2316,19 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="txtNomenclatura">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="11" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="10" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomenclaturaActionPerformed"/>
@@ -1963,29 +2341,43 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel35">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="An&#xe1;lisis / Examen"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel34">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="C&#xf3;digo CPT"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCPT">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="11" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCPTActionPerformed"/>
@@ -1998,20 +2390,31 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel39">
           <Properties>
+<<<<<<< HEAD
+=======
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
             </Property>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Servicio/&#xc1;rea"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtServArea">
           <Properties>
+<<<<<<< HEAD
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="enabled" type="boolean" value="false"/>
+=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="11" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
           </Properties>
           <Events>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtServAreaKeyPressed"/>
@@ -2025,11 +2428,16 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnInsumos">
       <Properties>
+<<<<<<< HEAD
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+=======
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="12" style="1"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagenes/iconos/guardar16x16.png"/>
@@ -2037,7 +2445,10 @@
         <Property name="mnemonic" type="int" value="71"/>
         <Property name="text" type="java.lang.String" value="Insumos"/>
         <Property name="toolTipText" type="java.lang.String" value="Guardar(Alt + G)"/>
+<<<<<<< HEAD
+=======
         <Property name="contentAreaFilled" type="boolean" value="false"/>
+>>>>>>> 88b8a16ed5c40efcd9bf9e2948f243b860e3aa2e
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor de Mano"/>
         </Property>

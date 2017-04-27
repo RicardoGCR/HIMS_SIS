@@ -49,8 +49,27 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         lblTriaje.setVisible(false);
         lblId.setVisible(false);
     }
+    
+    public void limpiar(){
+        txtEstabOrigen.setText("");
+        chkNoAplica.setText("");
+        chkRef.setText("");
+        txtEstablecimiento.setText("");
+        chkSis.setSelected(false);
+        chkEssalud.setSelected(false);
+        chkPrivado.setSelected(false);
+        txtCodigo.setText("");
+        ChkAnalf.setText("");
+        Chkprim.setText("");
+        ChkSec.setText("");
+        ChkSup.setText("");
+        ChkSupnU.setText("");
+        ChkAnAp.setText("");
+        txtPadreRN.setText("");
+    }
 
-    public void enviarDatosMadres(){
+    public void enviarDatosMadres(){        
+        limpiar();
         int fila = tbMadres.getSelectedRow();
         lblTriaje.setText(String.valueOf(tbMadres.getValueAt(fila, 0)));
         lblActoMed.setText(String.valueOf(tbMadres.getValueAt(fila, 1)));

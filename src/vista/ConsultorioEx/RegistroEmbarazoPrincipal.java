@@ -1345,6 +1345,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "antitetanica";
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1366,6 +1367,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "tipoSangre";
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1387,6 +1389,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "peso";
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1408,6 +1411,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(true);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "fumaDroga";
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {

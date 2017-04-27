@@ -7,25 +7,51 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
+<<<<<<< HEAD
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 import vista.ConsultorioEx.RegistroEmbarazoAO;
 import vista.ConsultorioEx.RegistroEmbarazoGA;
+=======
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.swing.table.DefaultTableModel;
+import servicios.Conexion;
+>>>>>>> c3b2434dc16157f6274ede3e52fdd47a1c9aadfc
 
 /**
  *
  * @author PC02
  */
+<<<<<<< HEAD
 public class ConsultorioExtCarnetPerinatalGa implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int gaId;
+=======
+@Entity
+@Table(name = "CONSULTORIO_EXT_CARNET_PERINATAL_GA")
+@NamedQueries({
+    @NamedQuery(name = "ConsultorioExtCarnetPerinatalGa.findAll", query = "SELECT c FROM ConsultorioExtCarnetPerinatalGa c")})
+public class ConsultorioExtCarnetPerinatalGa implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "GA_ID")
+    private Long gaId;
+>>>>>>> c3b2434dc16157f6274ede3e52fdd47a1c9aadfc
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private int cpId;
+<<<<<<< HEAD
     private String gaIntergenesico;
     private String gaTerminacion;
     private String gaTipoAborto;
@@ -135,12 +161,37 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
             }
         return resp;
     }
+=======
+    @Column(name = "GA_INTERGENESICO")
+    private String gaIntergenesico;
+    @Column(name = "GA_TERMINACION")
+    private String gaTerminacion;
+    @Column(name = "GA_TIPO_ABORTO")
+    private String gaTipoAborto;
+    @Column(name = "GA_LACTANCIA_MAT")
+    private String gaLactanciaMat;
+    @Column(name = "GA_LUGAR_PARTO")
+    private String gaLugarParto;
+    @Column(name = "GA_FECHA_GESTACION")
+    private String gaFechaGestacion;
+    @Column(name = "FECHA_ACTU")
+    private String fechaActu;
+    @Column(name = "HORA_ACTU")
+    private String horaActu;
+    @Column(name = "NOM_PC")
+    private String nomPc;
+    @Column(name = "ESTADO")
+    private Character estado;
+    @Column(name = "COD_USU")
+    private String codUsu;
+>>>>>>> c3b2434dc16157f6274ede3e52fdd47a1c9aadfc
 
     public ConsultorioExtCarnetPerinatalGa() {
         Conexion con = new Conexion();
         cn = con.conectar();
     }
 
+<<<<<<< HEAD
     public ConsultorioExtCarnetPerinatalGa(int gaId) {
         this.gaId = gaId;
     }
@@ -150,6 +201,17 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
     }
 
     public void setGaId(int gaId) {
+=======
+    public ConsultorioExtCarnetPerinatalGa(Long gaId) {
+        this.gaId = gaId;
+    }
+
+    public Long getGaId() {
+        return gaId;
+    }
+
+    public void setGaId(Long gaId) {
+>>>>>>> c3b2434dc16157f6274ede3e52fdd47a1c9aadfc
         this.gaId = gaId;
     }
 
@@ -201,6 +263,7 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
         this.gaFechaGestacion = gaFechaGestacion;
     }
 
+<<<<<<< HEAD
     public String getGA_CAPTADA() {
         return GA_CAPTADA;
     }
@@ -219,6 +282,8 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
     
     
 
+=======
+>>>>>>> c3b2434dc16157f6274ede3e52fdd47a1c9aadfc
     public String getFechaActu() {
         return fechaActu;
     }
@@ -259,9 +324,36 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
         this.codUsu = codUsu;
     }
 
+<<<<<<< HEAD
     
 
     
+=======
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (gaId != null ? gaId.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof ConsultorioExtCarnetPerinatalGa)) {
+            return false;
+        }
+        ConsultorioExtCarnetPerinatalGa other = (ConsultorioExtCarnetPerinatalGa) object;
+        if ((this.gaId == null && other.gaId != null) || (this.gaId != null && !this.gaId.equals(other.gaId))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalGa[ gaId=" + gaId + " ]";
+    }
+>>>>>>> c3b2434dc16157f6274ede3e52fdd47a1c9aadfc
 
     /**
      * @return the cn

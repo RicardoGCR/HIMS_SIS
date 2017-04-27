@@ -1515,6 +1515,11 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             }
         });
 
+        txtNombre1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombre1ActionPerformed(evt);
+            }
+        });
         txtNombre1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombre1KeyTyped(evt);
@@ -3346,6 +3351,10 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         cbxDepartamento.setSelectedIndex(11);
         cbxProvincia.setSelectedIndex(2);
     }//GEN-LAST:event_btnAsignarDistritoActionPerformed
+
+    private void txtNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombre1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombre1ActionPerformed
     
     //HORA
     public void run() {

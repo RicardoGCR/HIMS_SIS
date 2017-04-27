@@ -129,7 +129,7 @@ Conexion conectar=new Conexion();
         });
 
         txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
-        txtBuscar.setText("Ingresar Nomenclatura ");
+        txtBuscar.setText("Ingresar Nomenclatura o Código CPT");
         txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarActionPerformed(evt);
@@ -161,6 +161,7 @@ Conexion conectar=new Conexion();
             }
         ));
         tbNomenclatura.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbNomenclatura.setRowHeight(20);
         tbNomenclatura.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tbNomenclatura.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -290,7 +291,7 @@ Conexion conectar=new Conexion();
             Costos_Sustentacion.txtFormadePago.setText(String.valueOf(tbNomenclatura.getValueAt(fila, 1)));
             Costos_Sustentacion.txtPrecio.setText(String.valueOf(tbNomenclatura.getValueAt(fila, 2)));
             Costos_Sustentacion.txtPrecio1.setText(String.valueOf(tbNomenclatura.getValueAt(fila, 2)));
-            Costos_Sustentacion.txtNomenclatura.setText(String.valueOf(tbNomenclatura.getValueAt(fila, 6)));
+            Costos_Sustentacion.txtNomenclatura.setText(String.valueOf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"+tbNomenclatura.getValueAt(fila, 6)));
            
         }
 

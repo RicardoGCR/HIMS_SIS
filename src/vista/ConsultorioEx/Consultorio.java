@@ -42,6 +42,8 @@ public class Consultorio extends javax.swing.JFrame {
         });
         cerrar();
         pnlMensaje.setVisible(false);
+        lblMant.setVisible(false);
+        txtID.setVisible(false);
     }
     
     public void cerrar (){

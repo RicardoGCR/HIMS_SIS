@@ -933,12 +933,21 @@ public class Costos_Sustentacion_Detalle_Insumo extends javax.swing.JFrame imple
                         txtCantidadAUsar.setText("");
                         txtTotal.setText("");
           }
-                else if(!txtPrecio.getText().equalsIgnoreCase("") && !txtCantidad.getText().equalsIgnoreCase("")&& !txtCantidadAUsar.getText().equalsIgnoreCase("")){
-                        double t=Double.parseDouble(txtCantidad.getText())*(Double.parseDouble(txtPrecio.getText())*Double.parseDouble(txtCantidadAUsar.getText())/Double.parseDouble(txtCantidadMedida.getText()));
+                      if(txtPrecio.getText().equalsIgnoreCase("") || txtCantidad.getText().equalsIgnoreCase("")|| txtCantidadAUsar.getText().equalsIgnoreCase("")){
+                        txtTotal.setText("");
+          }
+                        else{
+                        double t=Double.parseDouble(txtCantidad.getText())*((Double.parseDouble(txtPrecio.getText())*Double.parseDouble(txtCantidadAUsar.getText()))/Double.parseDouble(txtCantidadMedida.getText()));
                         BigDecimal total = new BigDecimal(t);
                         total = total.setScale(2, BigDecimal.ROUND_HALF_UP);
                         txtTotal.setText(String.valueOf(total));
                         }
+//                else if(!txtPrecio.getText().equalsIgnoreCase("") && !txtCantidad.getText().equalsIgnoreCase("")&& !txtCantidadAUsar.getText().equalsIgnoreCase("")){
+//                        double t=Double.parseDouble(txtCantidad.getText())*(Double.parseDouble(txtPrecio.getText())*Double.parseDouble(txtCantidadAUsar.getText())/Double.parseDouble(txtCantidadMedida.getText()));
+//                        BigDecimal total = new BigDecimal(t);
+//                        total = total.setScale(2, BigDecimal.ROUND_HALF_UP);
+//                        txtTotal.setText(String.valueOf(total));
+//                        }
     }//GEN-LAST:event_txtCantidadAUsarKeyReleased
 
     private void txtCantidadAUsarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadAUsarKeyTyped

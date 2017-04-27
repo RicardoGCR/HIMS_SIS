@@ -93,6 +93,7 @@ byte tge;
         txtT.setText("");
         txtPeso.setText("");
         txtTalla.setText("");
+        txtIDM.setText("");
         
         txtFC.setEditable(true);
         txtFR.setEditable(true);
@@ -100,6 +101,7 @@ byte tge;
         txtT.setEditable(true);
         txtPeso.setEditable(true);
         txtTalla.setEditable(true);
+        txtIDM.setEditable(true);
     }
      public void habilitarDatosTriaje(){
         txtNHCTri.requestFocus();
@@ -246,6 +248,8 @@ byte tge;
                                 limpiarDatosTriaje();
                       
                                 btnGuardar.setEnabled(false);
+                                btnsubir.setEnabled(false);
+                                 btnbuscar.setEnabled(true);
                                 tge=1;
                                 listar();
                             
@@ -288,6 +292,8 @@ byte tge;
                                 limpiarDatosTriaje();
                       
                                 btnGuardar.setEnabled(false);
+                                btnsubir.setEnabled(false);
+                                btnbuscar.setEnabled(true);
                           tge=1;
                          listar();
                 
@@ -1222,6 +1228,7 @@ tg=2;
         txtPeso.setEditable(true);
         txtT.setEditable(true);
         txtTalla.setEditable(true);
+        txtIDM.setEditable(true);
 
     }//GEN-LAST:event_btneditarActionPerformed
 
@@ -1322,6 +1329,7 @@ tg=2;
             txtPeso.setText(String.valueOf(tbTriaje.getValueAt(fila, 11)));
             txtT.setText(String.valueOf(tbTriaje.getValueAt(fila, 12)));
             txtTalla.setText(String.valueOf(tbTriaje.getValueAt(fila, 13)));
+            txtIDM.setText(String.valueOf(tbTriaje.getValueAt(fila, 14)));
             id.setText(String.valueOf(tbTriaje.getValueAt(fila, 0)));
             txtNHCTri.setText(String.valueOf(tbTriaje.getValueAt(fila, 4)));
         txtFC.setEditable(false);
@@ -1330,6 +1338,7 @@ tg=2;
         txtT.setEditable(false);
         txtPeso.setEditable(false);
         txtTalla.setEditable(false);
+        txtIDM.setEditable(false);
         }
         if(evt.getClickCount()==2){
 
@@ -1345,6 +1354,7 @@ tg=2;
         txtPeso.setEditable(false);
         txtT.setEditable(false);
         txtTalla.setEditable(false);
+        txtIDM.setEditable(false);
         }
         
 
@@ -1367,6 +1377,7 @@ tg=2;
             txtPeso.setText(String.valueOf(tbTriaje.getValueAt(fila, 11)));
             txtT.setText(String.valueOf(tbTriaje.getValueAt(fila, 12)));
             txtTalla.setText(String.valueOf(tbTriaje.getValueAt(fila, 13)));
+            txtIDM.setText(String.valueOf(tbTriaje.getValueAt(fila, 14)));
             id.setText(String.valueOf(tbTriaje.getValueAt(fila, 0)));
             txtNHCTri.setText(String.valueOf(tbTriaje.getValueAt(fila, 4)));
             

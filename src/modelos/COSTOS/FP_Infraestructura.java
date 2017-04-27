@@ -317,4 +317,5 @@ private String nom_usu;
         this.nom_usu = nom_usu;
     }
 
+
 }

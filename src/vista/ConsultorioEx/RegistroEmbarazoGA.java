@@ -5,9 +5,13 @@
  */
 package vista.ConsultorioEx;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.Calendar;
 import javax.swing.JComponent;
+import javax.swing.JTextField;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalGa;
 import static vista.ConsultorioEx.RegistroEmbarazoAO.chk1;
 
 /**
@@ -17,6 +21,15 @@ import static vista.ConsultorioEx.RegistroEmbarazoAO.chk1;
 public class RegistroEmbarazoGA extends javax.swing.JInternalFrame {
 private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
     private Dimension DimensionBarra = null; 
+    byte tg;
+    byte tge;
+    JTextField Inter;
+    JTextField Terminacion;
+    JTextField TipoAborto;
+    JTextField Lactancia;
+    JTextField LugarParto;
+    JTextField Captada;
+    JTextField Referida;
     /**
      * Creates new form RegistroEmbarazoAO
      */
@@ -24,6 +37,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         initComponents();
         QuitarLaBarraTitulo();
         this.getContentPane().setBackground(Color.WHITE);
+        mensaje.setVisible(false);
     }
  public void QuitarLaBarraTitulo(){ 
         Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
@@ -31,6 +45,132 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         Barra.setSize(0,0); 
         Barra.setPreferredSize(new Dimension(0,0)); 
         repaint(); 
+    }
+ public String determinarFecha(JDateChooser calendario){
+         
+        String fecha = "";
+        try {
+        int dia = calendario.getCalendar().get(Calendar.DAY_OF_MONTH);
+        int mes = calendario.getCalendar().get(Calendar.MONTH)+1;
+        int anio = calendario.getCalendar().get(Calendar.YEAR); 
+        
+            if(dia < 10 && mes < 10){
+            fecha = String.valueOf("0" + dia + "/" + "0" + mes + "/" + anio);
+        }else 
+            if(dia < 10 || mes < 10){
+                if(dia < 10 && mes >=10){
+                    fecha = String.valueOf("0" + dia + "/" + mes + "/" + anio);
+                } else 
+                    if(dia >= 10 && mes < 10){
+                        fecha = String.valueOf(dia + "/" + "0" + mes + "/" + anio);
+                    } 
+            } else 
+                fecha = String.valueOf(dia + "/" + mes + "/" + anio); 
+         } catch (Exception e) {
+                           mensaje.setVisible(true);
+                           mensaje.setBackground(new Color(255,91,70)); 
+                           men.setText("Ingrese una fecha correcta");
+                           b.setVisible(false);
+                           b1.setVisible(false); 
+         }
+        
+        return fecha;
+    }
+
+  public void Guardar(JTextField Inter ,JTextField Terminacion ,JTextField TipoAborto ,JTextField Lactancia,JTextField LugarParto,JTextField Captada,JTextField Referida ){
+        
+    ConsultorioExtCarnetPerinatalGa CXRsGA= new ConsultorioExtCarnetPerinatalGa();
+    ConsultorioExtCarnetPerinatalGa CXRsGA2 = new ConsultorioExtCarnetPerinatalGa();
+    
+          
+            CXRsGA.setGaId(0);
+            CXRsGA.setCpId(Integer.parseInt(RegistroEmbarazoPrincipal.lblId.getText()));
+            CXRsGA.setGaIntergenesico(Inter.getText());
+            CXRsGA.setGaTerminacion(Terminacion.getText());
+            CXRsGA.setGaTipoAborto(TipoAborto.getText());
+            CXRsGA.setGaLactanciaMat(Lactancia.getText());
+            CXRsGA.setGaLugarParto(LugarParto.getText());
+            CXRsGA.setGaFechaGestacion(determinarFecha(fechaGA));
+            CXRsGA.setGA_CAPTADA(Captada.getText());
+            CXRsGA.setGA_REFERIDA(Referida.getText());
+            CXRsGA.setCodUsu(lblusu.getText());//falta 
+
+            
+                if(CXRsGA.mantenimientoConsultorioExtGA("I")==true){
+                    mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(33,115,70)); 
+                    men.setText("Datos Guardados de forma correcta");
+                    b.setText("OK");
+                    b.setVisible(true);
+                    b1.setVisible(false);
+
+                    btnGuardar.setEnabled(false);
+                    btneditar.setEnabled(true);
+             
+                    tge=1;
+                    CXRsGA2.ConsultoriosExtGAListar(RegistroEmbarazoPrincipal.lblId.getText());  
+
+//                    habilitarDatos(false);
+                }else {
+
+                        mensaje.setVisible(true);
+                        mensaje.setBackground(new Color(255,91,70)); 
+                        men.setText("Ocurrio un error, Verifique");
+                        b.setVisible(false);
+                        b1.setVisible(false);
+                        tge=7;
+                }  
+             
+  
+    }
+  
+  public void Modificar(JTextField Inter ,JTextField Terminacion ,JTextField TipoAborto ,JTextField Lactancia,JTextField LugarParto,JTextField Captada,JTextField Referida ){
+        
+    ConsultorioExtCarnetPerinatalGa CXRsGA= new ConsultorioExtCarnetPerinatalGa();
+    ConsultorioExtCarnetPerinatalGa CXRsGA2 = new ConsultorioExtCarnetPerinatalGa();
+    try {
+          
+            CXRsGA.setGaId(0);
+            CXRsGA.setCpId(Integer.parseInt(RegistroEmbarazoPrincipal.lblId.getText()));
+            CXRsGA.setGaIntergenesico(Inter.getText());
+            CXRsGA.setGaTerminacion(Terminacion.getText());
+            CXRsGA.setGaTipoAborto(TipoAborto.getText());
+            CXRsGA.setGaLactanciaMat(Lactancia.getText());
+            CXRsGA.setGaLugarParto(LugarParto.getText());
+            CXRsGA.setGaFechaGestacion(determinarFecha(fechaGA));
+            CXRsGA.setGA_CAPTADA(Captada.getText());
+            CXRsGA.setGA_REFERIDA(Referida.getText());
+            CXRsGA.setCodUsu(lblusu.getText());//falta 
+
+            
+                if(CXRsGA.mantenimientoConsultorioExtGA("I")==true){
+                    mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(33,115,70)); 
+                    men.setText("Datos Guardados de forma correcta");
+                    b.setText("OK");
+                    b.setVisible(true);
+                    b1.setVisible(false);
+
+                    btnGuardar.setEnabled(false);
+                    btneditar.setEnabled(true);
+             
+                    tge=1;
+                    CXRsGA2.ConsultoriosExtGAListar(RegistroEmbarazoPrincipal.lblId.getText());  
+
+//                    habilitarDatos(false);
+                }else {
+
+                        mensaje.setVisible(true);
+                        mensaje.setBackground(new Color(255,91,70)); 
+                        men.setText("Ocurrio un error, Verifique");
+                        b.setVisible(false);
+                        b1.setVisible(false);
+                        tge=7;
+                }  
+             } catch (Exception e) {
+                System.out.println("Error: guardar " + e.getMessage());
+            }
+  
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -102,6 +242,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jPanel12 = new javax.swing.JPanel();
         chkCno = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
+        txtGeneral = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         lblusu = new javax.swing.JLabel();
@@ -188,6 +329,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtLm3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtLm3CaretUpdate(evt);
+            }
+        });
+        txtLm3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtLm3MouseClicked(evt);
             }
         });
 
@@ -329,6 +475,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 txtLm4CaretUpdate(evt);
             }
         });
+        txtLm4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtLm4MouseClicked(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
@@ -348,6 +499,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtTa4.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtTa4CaretUpdate(evt);
+            }
+        });
+        txtTa4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTa4MouseClicked(evt);
             }
         });
 
@@ -379,6 +535,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 txtTa1CaretUpdate(evt);
             }
         });
+        txtTa1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTa1MouseClicked(evt);
+            }
+        });
 
         txtLm2.setEditable(false);
         txtLm2.setBackground(new java.awt.Color(255, 204, 51));
@@ -390,6 +551,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtLm2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtLm2CaretUpdate(evt);
+            }
+        });
+        txtLm2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtLm2MouseClicked(evt);
             }
         });
 
@@ -417,6 +583,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 txtLp1CaretUpdate(evt);
             }
         });
+        txtLp1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtLp1MouseClicked(evt);
+            }
+        });
 
         txtLm1.setEditable(false);
         txtLm1.setBackground(new java.awt.Color(255, 51, 51));
@@ -428,6 +599,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtLm1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtLm1CaretUpdate(evt);
+            }
+        });
+        txtLm1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtLm1MouseClicked(evt);
             }
         });
 
@@ -509,6 +685,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 txtTa3CaretUpdate(evt);
             }
         });
+        txtTa3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTa3MouseClicked(evt);
+            }
+        });
 
         txtTa5.setEditable(false);
         txtTa5.setBackground(new java.awt.Color(255, 255, 255));
@@ -522,6 +703,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 txtTa5CaretUpdate(evt);
             }
         });
+        txtTa5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTa5MouseClicked(evt);
+            }
+        });
 
         txtLp2.setEditable(false);
         txtLp2.setBackground(new java.awt.Color(255, 255, 255));
@@ -533,6 +719,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtLp2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtLp2CaretUpdate(evt);
+            }
+        });
+        txtLp2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtLp2MouseClicked(evt);
             }
         });
 
@@ -550,6 +741,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtTa2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtTa2CaretUpdate(evt);
+            }
+        });
+        txtTa2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTa2MouseClicked(evt);
             }
         });
 
@@ -739,12 +935,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        txtGeneral.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtGeneralMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -840,7 +1042,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addGap(18, 18, 18)
                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -934,7 +1137,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtT6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel27)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -945,7 +1148,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     .addComponent(jLabel28)
                     .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
@@ -1140,7 +1345,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ChkEdad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel43))
-                .addGap(249, 249, 249))
+                .addGap(45, 45, 45))
         );
 
         mensaje.setBackground(new java.awt.Color(33, 115, 70));
@@ -1212,27 +1417,28 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblMadreGA, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                        .addGap(0, 10, Short.MAX_VALUE))
+                    .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(lblMadreGA)
                         .addGap(23, 23, 23)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(75, 75, 75)
-                        .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0))
         );
 
@@ -1244,11 +1450,17 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_chkNoCaretUpdate
 
     private void chkNoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkNoMouseClicked
-       if(chk1.getText().equals("") && evt.getClickCount()==1){
-           chk1.setText("X");
+       
+       
+        if(chkNo.getText().equals("") && evt.getClickCount()==1){
+           chkNo.setText("X");
+           chkSi.setText(""); 
+           Inter=chkNo;
         }else
-        if(chk1.getText().equals("X") && evt.getClickCount()==1){
-           chk1.setText(""); 
+        if(chkNo.getText().equals("X") && evt.getClickCount()==1){
+           chkNo.setText("");
+           chkSi.setText(""); 
+           Inter=txtGeneral;
         }
     }//GEN-LAST:event_chkNoMouseClicked
 
@@ -1258,11 +1470,15 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
     private void chkSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkSiMouseClicked
 
-        if(chkNo.getText().equals("") && evt.getClickCount()==1){
-           chkNo.setText("X");
-        }else
-        if(chkNo.getText().equals("X") && evt.getClickCount()==1){
+       if(chkSi.getText().equals("") && evt.getClickCount()==1){
+           chkSi.setText("X");
            chkNo.setText(""); 
+           Inter=chkSi;
+        }else
+        if(chkSi.getText().equals("X") && evt.getClickCount()==1){
+           chkSi.setText(""); 
+           chkNo.setText(""); 
+           Inter=txtGeneral;
         }
     }//GEN-LAST:event_chkSiMouseClicked
 
@@ -1339,7 +1555,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_chkCsiCaretUpdate
 
     private void chkCsiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkCsiMouseClicked
-        // TODO add your handling code here:
+        if(chkCsi.getText().equals("") && evt.getClickCount()==1){
+           chkCsi.setText("X");
+           chkCno.setText("");
+           Captada=chkCsi;
+        }else
+        if(chkCsi.getText().equals("X") && evt.getClickCount()==1){
+           chkCsi.setText(""); 
+           chkCno.setText("");
+           Captada=txtGeneral;
+        }
     }//GEN-LAST:event_chkCsiMouseClicked
 
     private void chkCnoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_chkCnoCaretUpdate
@@ -1347,7 +1572,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_chkCnoCaretUpdate
 
     private void chkCnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkCnoMouseClicked
-        // TODO add your handling code here:
+        if(chkCno.getText().equals("") && evt.getClickCount()==1){
+           chkCno.setText("X");
+           chkCsi.setText("");
+           Captada=chkCno;
+        }else
+        if(chkCno.getText().equals("X") && evt.getClickCount()==1){
+           chkCno.setText(""); 
+           chkCsi.setText("");
+           Captada=txtGeneral;
+        }
     }//GEN-LAST:event_chkCnoMouseClicked
 
     private void chkRnoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_chkRnoCaretUpdate
@@ -1355,7 +1589,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_chkRnoCaretUpdate
 
     private void chkRnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkRnoMouseClicked
-        // TODO add your handling code here:
+        if(chkRno.getText().equals("") && evt.getClickCount()==1){
+           chkRno.setText("X");
+           chkRsi.setText("");
+           Referida=chkRno;
+        }else
+        if(chkRno.getText().equals("X") && evt.getClickCount()==1){
+           chkRno.setText(""); 
+           chkRsi.setText("");
+          Referida=txtGeneral;
+        }
     }//GEN-LAST:event_chkRnoMouseClicked
 
     private void chkRsiCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_chkRsiCaretUpdate
@@ -1363,7 +1606,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_chkRsiCaretUpdate
 
     private void chkRsiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkRsiMouseClicked
-        // TODO add your handling code here:
+        if(chkRsi.getText().equals("") && evt.getClickCount()==1){
+           chkRsi.setText("X");
+           chkRno.setText("");
+           Referida=chkRsi;
+        }else
+        if(chkRsi.getText().equals("X") && evt.getClickCount()==1){
+           chkRsi.setText(""); 
+           chkRno.setText("");
+           Referida=txtGeneral;
+        }
     }//GEN-LAST:event_chkRsiMouseClicked
 
     private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
@@ -1371,7 +1623,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_btnCaccnelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-
+        Guardar(Inter, Terminacion, TipoAborto, Lactancia, LugarParto, Captada, Referida);
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void ChkAnalf1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_ChkAnalf1CaretUpdate
@@ -1415,6 +1668,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT4.setText("");
            txtT5.setText("");
            txtT6.setText("");
+           Terminacion=txtT1;
         }else
         if(txtT1.getText().equals("X") && evt.getClickCount()==1){
            txtT1.setText(""); 
@@ -1423,6 +1677,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT4.setText("");
            txtT5.setText("");
            txtT6.setText("");
+           Terminacion=txtGeneral;
         }
     }//GEN-LAST:event_txtT1MouseClicked
 
@@ -1434,6 +1689,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT4.setText("");
            txtT5.setText("");
            txtT6.setText("");
+           Terminacion=txtT2;
         }else
         if(txtT2.getText().equals("X") && evt.getClickCount()==1){
            txtT2.setText(""); 
@@ -1442,6 +1698,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT4.setText("");
            txtT5.setText("");
            txtT6.setText("");
+           Terminacion=txtGeneral;
         }
     }//GEN-LAST:event_txtT2MouseClicked
 
@@ -1453,6 +1710,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT4.setText("");
            txtT5.setText("");
            txtT6.setText("");
+           Terminacion=txtT3;
         }else
         if(txtT3.getText().equals("X") && evt.getClickCount()==1){
            txtT3.setText(""); 
@@ -1461,6 +1719,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT4.setText("");
            txtT5.setText("");
            txtT6.setText("");
+           Terminacion=txtGeneral;
         }
     }//GEN-LAST:event_txtT3MouseClicked
 
@@ -1472,6 +1731,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT3.setText("");
            txtT5.setText("");
            txtT6.setText("");
+           Terminacion=txtT4;
         }else
         if(txtT4.getText().equals("X") && evt.getClickCount()==1){
            txtT4.setText(""); 
@@ -1480,6 +1740,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT3.setText("");
            txtT5.setText("");
            txtT6.setText("");
+           Terminacion=txtGeneral;
         }
     }//GEN-LAST:event_txtT4MouseClicked
 
@@ -1491,6 +1752,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT3.setText("");
            txtT4.setText("");
            txtT6.setText("");
+           Terminacion=txtT5;
         }else
         if(txtT5.getText().equals("X") && evt.getClickCount()==1){
            txtT5.setText(""); 
@@ -1499,6 +1761,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT3.setText("");
            txtT4.setText("");
            txtT6.setText("");
+           Terminacion=txtGeneral;
         }
     }//GEN-LAST:event_txtT5MouseClicked
 
@@ -1510,6 +1773,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT3.setText("");
            txtT4.setText("");
            txtT5.setText("");
+           Terminacion=txtT6;
         }else
         if(txtT6.getText().equals("X") && evt.getClickCount()==1){
            txtT6.setText(""); 
@@ -1518,8 +1782,207 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT3.setText("");
            txtT4.setText("");
            txtT5.setText("");
+           Terminacion=txtGeneral;
         }
     }//GEN-LAST:event_txtT6MouseClicked
+
+    private void txtTa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTa1MouseClicked
+       if(txtTa1.getText().equals("") && evt.getClickCount()==1){
+           txtTa1.setText("X");
+           txtTa2.setText(""); 
+           txtTa3.setText(""); 
+           txtTa4.setText(""); 
+           txtTa5.setText(""); 
+           TipoAborto=txtTa1;
+           
+        }else
+        if(txtTa1.getText().equals("X") && evt.getClickCount()==1){
+           txtTa1.setText(""); 
+           txtTa2.setText(""); 
+           txtTa3.setText(""); 
+           txtTa4.setText(""); 
+           txtTa5.setText(""); 
+           TipoAborto=txtGeneral;
+        }
+    }//GEN-LAST:event_txtTa1MouseClicked
+
+    private void txtTa2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTa2MouseClicked
+        if(txtTa2.getText().equals("") && evt.getClickCount()==1){
+           txtTa2.setText("X");
+           txtTa1.setText(""); 
+           txtTa3.setText(""); 
+           txtTa4.setText(""); 
+           txtTa5.setText(""); 
+           TipoAborto=txtTa2;
+           
+        }else
+        if(txtTa2.getText().equals("X") && evt.getClickCount()==1){
+           txtTa2.setText(""); 
+           txtTa1.setText(""); 
+           txtTa3.setText(""); 
+           txtTa4.setText(""); 
+           txtTa5.setText("");
+           TipoAborto=txtGeneral;
+        }
+    }//GEN-LAST:event_txtTa2MouseClicked
+
+    private void txtTa3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTa3MouseClicked
+        if(txtTa3.getText().equals("") && evt.getClickCount()==1){
+           txtTa3.setText("X");
+           txtTa2.setText(""); 
+           txtTa1.setText(""); 
+           txtTa4.setText(""); 
+           txtTa5.setText(""); 
+           TipoAborto=txtTa3;
+           
+        }else
+        if(txtTa3.getText().equals("X") && evt.getClickCount()==1){
+           txtTa3.setText(""); 
+           txtTa2.setText(""); 
+           txtTa1.setText(""); 
+           txtTa4.setText(""); 
+           txtTa5.setText(""); 
+           TipoAborto=txtGeneral;
+        }
+    }//GEN-LAST:event_txtTa3MouseClicked
+
+    private void txtTa4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTa4MouseClicked
+        if(txtTa4.getText().equals("") && evt.getClickCount()==1){
+           txtTa4.setText("X");
+           txtTa2.setText(""); 
+           txtTa3.setText(""); 
+           txtTa1.setText(""); 
+           txtTa5.setText("");
+           TipoAborto=txtTa4;
+           
+        }else
+        if(txtTa4.getText().equals("X") && evt.getClickCount()==1){
+           txtTa4.setText(""); 
+           txtTa2.setText(""); 
+           txtTa3.setText(""); 
+           txtTa1.setText(""); 
+           txtTa5.setText(""); 
+           TipoAborto=txtGeneral;
+        }
+    }//GEN-LAST:event_txtTa4MouseClicked
+
+    private void txtTa5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTa5MouseClicked
+        if(txtTa5.getText().equals("") && evt.getClickCount()==1){
+           txtTa5.setText("X");
+           txtTa2.setText(""); 
+           txtTa3.setText(""); 
+           txtTa4.setText(""); 
+           txtTa1.setText(""); 
+           TipoAborto=txtTa5;
+           
+        }else
+        if(txtTa5.getText().equals("X") && evt.getClickCount()==1){
+           txtTa5.setText(""); 
+           txtTa2.setText(""); 
+           txtTa3.setText(""); 
+           txtTa4.setText(""); 
+           txtTa1.setText(""); 
+           TipoAborto=txtGeneral;
+        }
+    }//GEN-LAST:event_txtTa5MouseClicked
+
+    private void txtLm1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLm1MouseClicked
+        if(txtLm1.getText().equals("") && evt.getClickCount()==1){
+           txtLm1.setText("X");
+           txtLm2.setText(""); 
+           txtLm3.setText(""); 
+           txtLm4.setText(""); 
+           Lactancia=txtLm1;
+        }else
+        if(txtLm1.getText().equals("X") && evt.getClickCount()==1){
+           txtLm1.setText(""); 
+           txtLm2.setText(""); 
+           txtLm3.setText(""); 
+           txtLm4.setText("");
+           Lactancia=txtGeneral;
+        }
+    }//GEN-LAST:event_txtLm1MouseClicked
+
+    private void txtLm2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLm2MouseClicked
+        if(txtLm2.getText().equals("") && evt.getClickCount()==1){
+           txtLm2.setText("X");
+           txtLm1.setText(""); 
+           txtLm3.setText(""); 
+           txtLm4.setText(""); 
+           Lactancia=txtLm2;
+        }else
+        if(txtLm2.getText().equals("X") && evt.getClickCount()==1){
+           txtLm2.setText(""); 
+           txtLm1.setText(""); 
+           txtLm3.setText(""); 
+           txtLm4.setText(""); 
+           Lactancia=txtGeneral;
+        }
+    }//GEN-LAST:event_txtLm2MouseClicked
+
+    private void txtLm3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLm3MouseClicked
+        if(txtLm3.getText().equals("") && evt.getClickCount()==1){
+           txtLm3.setText("X");
+           txtLm2.setText(""); 
+           txtLm1.setText(""); 
+           txtLm4.setText(""); 
+           Lactancia=txtLm3;
+        }else
+        if(txtLm3.getText().equals("X") && evt.getClickCount()==1){
+           txtLm3.setText(""); 
+           txtLm2.setText(""); 
+           txtLm1.setText(""); 
+           txtLm4.setText(""); 
+           Lactancia=txtGeneral;
+        }
+    }//GEN-LAST:event_txtLm3MouseClicked
+
+    private void txtLm4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLm4MouseClicked
+        if(txtLm4.getText().equals("") && evt.getClickCount()==1){
+           txtLm4.setText("X");
+           txtLm2.setText(""); 
+           txtLm3.setText(""); 
+           txtLm1.setText(""); 
+           Lactancia=txtLm4;
+        }else
+        if(txtLm4.getText().equals("X") && evt.getClickCount()==1){
+           txtLm4.setText(""); 
+           txtLm2.setText(""); 
+           txtLm3.setText(""); 
+           txtLm1.setText(""); 
+           Lactancia=txtGeneral;
+        }
+    }//GEN-LAST:event_txtLm4MouseClicked
+
+    private void txtLp1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLp1MouseClicked
+        if(txtLp1.getText().equals("") && evt.getClickCount()==1){
+           txtLp1.setText("X");
+           txtLp2.setText(""); 
+           LugarParto=txtLp1;
+        }else
+        if(txtLp1.getText().equals("X") && evt.getClickCount()==1){
+           txtLp1.setText(""); 
+           txtLp2.setText(""); 
+           LugarParto=txtGeneral;
+        }
+    }//GEN-LAST:event_txtLp1MouseClicked
+
+    private void txtLp2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLp2MouseClicked
+        if(txtLp2.getText().equals("") && evt.getClickCount()==1){
+           txtLp2.setText("X");
+           txtLp1.setText(""); 
+           LugarParto=txtLp2;
+        }else
+        if(txtLp2.getText().equals("X") && evt.getClickCount()==1){
+           txtLp2.setText(""); 
+           txtLp1.setText(""); 
+           LugarParto=txtGeneral;
+        }
+    }//GEN-LAST:event_txtLp2MouseClicked
+
+    private void txtGeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtGeneralMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGeneralMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1585,6 +2048,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public static javax.swing.JLabel lblusu;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
+    private javax.swing.JTextField txtGeneral;
     public static javax.swing.JTextField txtLm1;
     public static javax.swing.JTextField txtLm2;
     public static javax.swing.JTextField txtLm3;

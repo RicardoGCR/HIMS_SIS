@@ -1282,6 +1282,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         } catch (PropertyVetoException ex) {
             Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        RegistroEmbarazoGA.lblMadreGA.setText(lblNina.getText());
         RegistroEmbarazo.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_btnNuevo1ActionPerformed
 

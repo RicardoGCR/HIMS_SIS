@@ -9,7 +9,11 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RegistroEmbarazo;
@@ -139,6 +143,51 @@ public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
             //
         } catch (Exception e) {
             System.out.println("mostrarDatosHC: " + e.getMessage());
+        }
+    }
+    
+    public void formatoTablaConsultorioExControlPerinatalCabListar(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(40);//
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(250);//
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(120);//
+        
+    }
+    
+    public void consultorioExControlPerinatalCabListar(String busqueda,String tipo,JTable tabla,String tamano){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID","Edad","Padre","Fecha"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[4];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CONSULTORIO_EXT_CARNET_PERINATAL_CAB_LISTAR_POR_PACIENTE ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, busqueda);
+            cmd.setString(2, tipo);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); 
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaConsultorioExControlPerinatalCabListar(tabla);
+            if(tamano.equals("actual"))
+                tabla.setRowHeight(50);
+            else
+                tabla.setRowHeight(30);
+        } catch (Exception e) {
+            System.out.println("Error: consultorioExControlPerinatalCabListar: " + e.getMessage());
         }
     }
     

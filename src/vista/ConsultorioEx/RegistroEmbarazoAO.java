@@ -79,9 +79,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         
         
         if (!txtGestas.getText().equals("") && !txtGestas.getText().equals("") && !txtVaginales.getText().equals("")){
-            txtGestas.setEditable(false);
-            txtAborto.setEditable(false);
-            txtPartos.setEditable(false);
+            txtGestas.setEnabled(false);
+            txtAborto.setEnabled(false);
+            txtPartos.setEnabled(false);
             txtVaginales.setEditable(false);
             txtCesareas.setEditable(false);
             txtRN.setEditable(false);
@@ -89,10 +89,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             txtViven.setEditable(false);
             txtMuerto1.setEditable(false);
             txtDespues.setEditable(false);
-            chk1.setEditable(false);
-            chk2.setEditable(false);
-            chk3.setEditable(false);
-            chk4.setEditable(false);
+           
             txtRNmayor.setEditable(false);
             btneditar.setEnabled(true);
             btnGuardar.setEnabled(false);
@@ -107,10 +104,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             txtViven.setEditable(true);
             txtMuerto1.setEditable(true);
             txtDespues.setEditable(true);
-            chk1.setEditable(true);
-            chk2.setEditable(true);
-            chk3.setEditable(true);
-            chk4.setEditable(true);
+           
             txtRNmayor.setEditable(true); 
             btneditar.setEnabled(true);
         }
@@ -127,10 +121,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtViven.setEditable(opcion);
         txtMuerto1.setEditable(opcion);
         txtDespues.setEditable(opcion);
-        chk1.setEditable(opcion);
-        chk2.setEditable(opcion);
-        chk3.setEditable(opcion);
-        chk4.setEditable(opcion);
         txtRNmayor.setEditable(opcion);
   }
  public void Guardar(){

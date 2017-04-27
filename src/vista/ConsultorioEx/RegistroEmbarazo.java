@@ -81,6 +81,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         btnGuardar.setVisible(true);
         lblMant.setText("I");
         ConsultorioExtCarnetPerinatalCabecera consultorio1 = new ConsultorioExtCarnetPerinatalCabecera();
+        txtEstablecimiento.setText(consultorio1.nombreEstablecimiento());
         consultorio1.mantenimientoConsultorioExtCarnetPerinatalCabecera("T",String.valueOf(tbMadres.getValueAt(fila, 0)));
     }
 

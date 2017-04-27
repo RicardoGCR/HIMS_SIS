@@ -5,6 +5,7 @@
  */
 package vista.ConsultorioEx;
 
+import campos.LimitadorDeDocumento;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.KeyEvent;
@@ -35,17 +36,19 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         pnlControl.setVisible(false);
         pnlMensaje.setVisible(false);
         btnGuardar.setVisible(false);
+        LimitadorDeDocumento limitCodigo = new LimitadorDeDocumento(13);
+        txtCodigo.setDocument(limitCodigo);
+        LimitadorDeDocumento limitAp = new LimitadorDeDocumento(2);
+        ChkAnAp.setDocument(limitAp);
+        LimitadorDeDocumento limitEstOrigen = new LimitadorDeDocumento(200);
+        txtEstabOrigen.setDocument(limitEstOrigen);
+        LimitadorDeDocumento limitPadreRN = new LimitadorDeDocumento(250);
+        txtPadreRN.setDocument(limitPadreRN);
+        lblMant.setVisible(false);
+        txtIdHc.setVisible(false);
+        lblTriaje.setVisible(false);
+        lblId.setVisible(false);
     }
-    
-    
-    public void limpiar(){
-//        lblActoMed.setText("");
-//        lblCelular.setText("");
-//        lblDepartamento.setText("");
-//        lblDireccion.setText("");
-    }
-    
-    public void habilitarDatos(boolean opcion){}
 
     public void enviarDatosMadres(){
         int fila = tbMadres.getSelectedRow();
@@ -72,16 +75,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             consultorio1.setCodUsu(adEmerCab.codUsuario(lblusu.getText()));
             if(consultorio1.mantenimientoConsultorioExtCarnetPerinatalCabecera(lblMant.getText(),lblTriaje.getText())==true){
                 System.out.println("ID CARNET PERINATAL CABECERA: " + Integer.parseInt(consultorio1.perinatalCabeceraID()));
-                pnlMensaje.setVisible(true);
-                lblMensaje.setText("Datos guardados de forma correcta");
-                btnGuardar.setVisible(false);
-                limpiar();
-                habilitarDatos(false);
-                pnlMensaje.setBackground(new Color(33,115,70));
-                btnSi.setVisible(true);
-                btnSi.setText("OK");
-                btnNo.setVisible(false);
-                RegistroEmbarazoPrincipal GA =new RegistroEmbarazoPrincipal();
+                RegistroEmbarazoPrincipal.lblId.setText(consultorio1.perinatalCabeceraID());
+                 RegistroEmbarazoPrincipal GA =new RegistroEmbarazoPrincipal();
                 Contenedor.add(GA);
                 try {
                     GA.setMaximum(true);
@@ -89,6 +84,14 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 jTabbedPane1.setSelectedIndex(1);
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Datos guardados de forma correcta");
+                btnGuardar.setVisible(false);
+                pnlMensaje.setBackground(new Color(33,115,70));
+                btnSi.setVisible(true);
+                btnSi.setText("OK");
+                btnNo.setVisible(false);
+               
             } else {
                 pnlMensaje.setVisible(true);
                 lblMensaje.setText("Ocurrió un error, verifique");
@@ -120,6 +123,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             }};
             buttonGroup1 = new javax.swing.ButtonGroup();
             buttonGroup2 = new javax.swing.ButtonGroup();
+            Confirmacion = new javax.swing.JDialog();
             jTabbedPane1 = new javax.swing.JTabbedPane();
             jPanel2 = new javax.swing.JPanel();
             jPanel1 = new javax.swing.JPanel();
@@ -196,7 +200,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             chkNoAplica = new javax.swing.JTextField();
             jLabel46 = new javax.swing.JLabel();
             jPanel15 = new javax.swing.JPanel();
-            txtPaciente2 = new javax.swing.JTextField();
+            txtEstabOrigen = new javax.swing.JTextField();
             jLabel38 = new javax.swing.JLabel();
             lblHc = new javax.swing.JLabel();
             jLabel48 = new javax.swing.JLabel();
@@ -361,6 +365,17 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                     .addGap(0, 0, 0))
+            );
+
+            javax.swing.GroupLayout ConfirmacionLayout = new javax.swing.GroupLayout(Confirmacion.getContentPane());
+            Confirmacion.getContentPane().setLayout(ConfirmacionLayout);
+            ConfirmacionLayout.setHorizontalGroup(
+                ConfirmacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 400, Short.MAX_VALUE)
+            );
+            ConfirmacionLayout.setVerticalGroup(
+                ConfirmacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 300, Short.MAX_VALUE)
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -858,6 +873,11 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     ChkAnApMouseClicked(evt);
                 }
             });
+            ChkAnAp.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    ChkAnApKeyTyped(evt);
+                }
+            });
 
             jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
             jLabel36.setForeground(new java.awt.Color(51, 51, 51));
@@ -890,6 +910,11 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             txtCodigo.addCaretListener(new javax.swing.event.CaretListener() {
                 public void caretUpdate(javax.swing.event.CaretEvent evt) {
                     txtCodigoCaretUpdate(evt);
+                }
+            });
+            txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    txtCodigoKeyTyped(evt);
                 }
             });
 
@@ -1092,13 +1117,19 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             jPanel15.setBackground(new java.awt.Color(255, 255, 255));
             jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-            txtPaciente2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-            txtPaciente2.setForeground(new java.awt.Color(102, 102, 102));
-            txtPaciente2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-            txtPaciente2.setBorder(null);
-            txtPaciente2.addCaretListener(new javax.swing.event.CaretListener() {
+            txtEstabOrigen.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+            txtEstabOrigen.setForeground(new java.awt.Color(102, 102, 102));
+            txtEstabOrigen.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtEstabOrigen.setBorder(null);
+            txtEstabOrigen.setEnabled(false);
+            txtEstabOrigen.addCaretListener(new javax.swing.event.CaretListener() {
                 public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                    txtPaciente2CaretUpdate(evt);
+                    txtEstabOrigenCaretUpdate(evt);
+                }
+            });
+            txtEstabOrigen.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    txtEstabOrigenKeyTyped(evt);
                 }
             });
 
@@ -1106,13 +1137,13 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             jPanel15.setLayout(jPanel15Layout);
             jPanel15Layout.setHorizontalGroup(
                 jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(txtPaciente2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                .addComponent(txtEstabOrigen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
             );
             jPanel15Layout.setVerticalGroup(
                 jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel15Layout.createSequentialGroup()
                     .addGap(0, 0, 0)
-                    .addComponent(txtPaciente2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEstabOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
@@ -1197,6 +1228,13 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
 
             lblEdad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
             lblEdad.setBorder(null);
+
+            txtPadreRN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            txtPadreRN.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    txtPadreRNKeyTyped(evt);
+                }
+            });
 
             lblId.setText("jLabel12");
 
@@ -1332,12 +1370,13 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     .addGap(7, 7, 7)
                     .addGroup(pnlControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel9)
-                        .addGroup(pnlControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblActoMed)
-                            .addComponent(lblDni, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel48)
-                            .addComponent(jLabel10)
-                            .addComponent(lblHc)))
+                        .addGroup(pnlControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDni, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel48, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblActoMed)
+                                .addComponent(jLabel10)
+                                .addComponent(lblHc))))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(pnlControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(pnlControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1473,13 +1512,13 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             );
             pnlMensajeLayout.setVerticalGroup(
                 pnlMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlMensajeLayout.createSequentialGroup()
-                    .addContainerGap()
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMensajeLayout.createSequentialGroup()
+                    .addContainerGap(17, Short.MAX_VALUE)
                     .addGroup(pnlMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblMensaje)
                         .addComponent(btnSi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnNo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(17, Short.MAX_VALUE))
+                    .addContainerGap())
             );
 
             javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1489,13 +1528,11 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(pnlMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(pnlMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addContainerGap())
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(pnlControl, javax.swing.GroupLayout.PREFERRED_SIZE, 986, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap())
             );
             jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1504,7 +1541,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     .addComponent(pnlControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(12, Short.MAX_VALUE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addContainerGap())
@@ -1581,13 +1618,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     }//GEN-LAST:event_ChkEdadCaretUpdate
 
     private void ChkEdadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChkEdadMouseClicked
-        
-        if(ChkEdad.getText().equals("") && evt.getClickCount()==1){
-           ChkEdad.setText("X");
-        }else
-        if(ChkEdad.getText().equals("X") && evt.getClickCount()==1){
-           ChkEdad.setText(""); 
-        }
+
     }//GEN-LAST:event_ChkEdadMouseClicked
 
     private void ChkprimCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_ChkprimCaretUpdate
@@ -1678,9 +1709,9 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
   
     }//GEN-LAST:event_ChkAnApMouseClicked
 
-    private void txtPaciente2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPaciente2CaretUpdate
+    private void txtEstabOrigenCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtEstabOrigenCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPaciente2CaretUpdate
+    }//GEN-LAST:event_txtEstabOrigenCaretUpdate
 
     private void chkNoAplicaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_chkNoAplicaCaretUpdate
         // TODO add your handling code here:
@@ -1690,9 +1721,13 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         if(chkRef.getText().equals("")){
             if(chkNoAplica.getText().equals("") && evt.getClickCount()==1){
                chkNoAplica.setText("X");
+               txtEstabOrigen.setEnabled(false);
+               txtEstabOrigen.setText("");
             }else
             if(chkNoAplica.getText().equals("X") && evt.getClickCount()==1){
                chkNoAplica.setText(""); 
+               txtEstabOrigen.setEnabled(false);
+               txtEstabOrigen.setText("");
             }
         } else {
             if(evt.getClickCount()==1){
@@ -1709,9 +1744,13 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         if(chkNoAplica.getText().equals("")){
             if(chkRef.getText().equals("") && evt.getClickCount()==1){
                chkRef.setText("X");
+               txtEstabOrigen.setEnabled(true);
+               txtEstabOrigen.requestFocus();
             }else
             if(chkRef.getText().equals("X") && evt.getClickCount()==1){
                chkRef.setText(""); 
+               txtEstabOrigen.setEnabled(false);
+               txtEstabOrigen.setText("");
             }
         } else {
             if(evt.getClickCount()==1){
@@ -1896,6 +1935,42 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         pnlMensaje.setVisible(false);
     }//GEN-LAST:event_btnNoActionPerformed
 
+    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
+        char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
+            evt.consume();
+            getToolkit().beep();            
+        }
+    }//GEN-LAST:event_txtCodigoKeyTyped
+
+    private void txtPadreRNKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPadreRNKeyTyped
+        char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isLetter(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
+            evt.consume();
+            getToolkit().beep();            
+        }
+    }//GEN-LAST:event_txtPadreRNKeyTyped
+
+    private void txtEstabOrigenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEstabOrigenKeyTyped
+        char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isLetter(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
+            evt.consume();
+            getToolkit().beep();            
+        }
+    }//GEN-LAST:event_txtEstabOrigenKeyTyped
+
+    private void ChkAnApKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ChkAnApKeyTyped
+        char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
+            evt.consume();
+            getToolkit().beep();            
+        }
+    }//GEN-LAST:event_ChkAnApKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -1942,6 +2017,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     public static javax.swing.JTextField ChkSup;
     public static javax.swing.JTextField ChkSupnU;
     public static javax.swing.JTextField Chkprim;
+    private javax.swing.JDialog Confirmacion;
     private javax.swing.JDesktopPane Contenedor;
     public static javax.swing.JDesktopPane ContenedorTablas;
     private javax.swing.JLabel T7;
@@ -2035,10 +2111,10 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     private javax.swing.JTable tbMadres;
     private javax.swing.JTextField txtBuscar;
     public static javax.swing.JTextField txtCodigo;
+    public static javax.swing.JTextField txtEstabOrigen;
     public static javax.swing.JTextField txtEstablecimiento;
     private javax.swing.JTextField txtIdHc;
     public static javax.swing.JTextField txtPaciente;
-    public static javax.swing.JTextField txtPaciente2;
     private javax.swing.JTextField txtPadreRN;
     // End of variables declaration//GEN-END:variables
 }

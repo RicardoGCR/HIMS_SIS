@@ -147,7 +147,8 @@ public class ConsultorioExtEsnitss implements Serializable {
         tabla.getColumnModel().getColumn(9).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(10).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(11).setPreferredWidth(50);
-        tabla.getColumnModel().getColumn(12).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(12).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(13).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(14).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(15).setPreferredWidth(0);
         tabla.setRowHeight(30);
@@ -156,7 +157,11 @@ public class ConsultorioExtEsnitss implements Serializable {
             columna.setMinWidth(0);
             columna.setPreferredWidth(0);
             tabla.doLayout();
-            
+        TableColumn columna13 = tabla.getColumnModel().getColumn(13);
+            columna13.setMaxWidth(0);
+            columna13.setMinWidth(0);
+            columna13.setPreferredWidth(0);
+            tabla.doLayout();
         TableColumn columna14 = tabla.getColumnModel().getColumn(14);
             columna14.setMaxWidth(0);
             columna14.setMinWidth(0);

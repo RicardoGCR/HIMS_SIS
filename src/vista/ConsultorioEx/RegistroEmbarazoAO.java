@@ -11,6 +11,9 @@ import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.util.Locale;
 import javax.swing.JComponent;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAO;
+import static vista.ConsultorioEx.RSAIVacunas.txtFuaAmaDu;
+import static vista.ConsultorioEx.RSAIVacunas.txtFuaApoR1;
 
 /**
  *
@@ -19,6 +22,8 @@ import javax.swing.JComponent;
 public class RegistroEmbarazoAO extends javax.swing.JInternalFrame {
 private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
     private Dimension DimensionBarra = null; 
+    byte tg;
+    byte tge;
     /**
      * Creates new form RegistroEmbarazoAO
      */
@@ -66,6 +71,77 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         Barra.setPreferredSize(new Dimension(0,0)); 
         repaint(); 
     }
+  public void habilitarDatos(boolean opcion){
+        txtGestas.setEditable(opcion);
+        txtAborto.setEditable(opcion);
+        txtPartos.setEditable(opcion);
+        txtVaginales.setEditable(opcion);
+        txtCesareas.setEditable(opcion);
+        txtRN.setEditable(opcion);
+        txtNacidos.setEditable(opcion);
+        txtViven.setEditable(opcion);
+        txtMuerto1.setEditable(opcion);
+        txtDespues.setEditable(opcion);
+        chk1.setEditable(opcion);
+        chk2.setEditable(opcion);
+        chk3.setEditable(opcion);
+        chk4.setEditable(opcion);
+        txtRNmayor.setEditable(opcion);
+  }
+ public void Guardar(){
+        
+    ConsultorioExtCarnetPerinatalAO CXRsAO= new ConsultorioExtCarnetPerinatalAO();
+    ConsultorioExtCarnetPerinatalAO CXRsAO2 = new ConsultorioExtCarnetPerinatalAO();
+    try {
+                 
+            CXRsAO.setCP_ID(Integer.parseInt(RegistroEmbarazoPrincipal.lblId.getText()));
+            CXRsAO.setAO_GESTAS(txtGestas.getText());
+            CXRsAO.setAO_ABORTOS(txtAborto.getText());
+            CXRsAO.setAO_VAGINALES(txtVaginales.getText());
+            CXRsAO.setAO_NAC_VIVOS(txtRN.getText());
+            CXRsAO.setAO_VIVEN(txtViven.getText());
+            CXRsAO.setAO_PARTOS(txtPartos.getText());
+            CXRsAO.setAO_CESAREAS(txtCesareas.getText());
+            CXRsAO.setAO_NAC_MUERTOS(txtNacidos.getText());
+            CXRsAO.setAO_MUERTO_P_SEM(txtMuerto1.getText());
+            CXRsAO.setAO_MUERTO_D_PSEM(txtDespues.getText());
+            CXRsAO.setAO_PARTO_0(chk1.getText());
+            CXRsAO.setAO_PARTO_2500(chk2.getText());
+            CXRsAO.setAO_PARTO_MULT(chk3.getText());
+            CXRsAO.setAO_PARTO_37_SEM(chk4.getText());
+            CXRsAO.setAO_RN_MAYOR_PESO(txtRNmayor.getText());
+            CXRsAO.setCOD_USU(lblusu.getText());//falta 
+
+            
+                if(CXRsAO.mantenimientoConsultorioExtAO("I")==true){
+                    mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(33,115,70)); 
+                    men.setText("Datos Guardados de forma correcta");
+                    b.setText("OK");
+                    b.setVisible(true);
+                    b1.setVisible(false);
+
+                    btnGuardar.setEnabled(false);
+             
+
+                    CXRsAO.ConsultoriosExtVacunasListar(Integer.parseInt(RegistroEmbarazoPrincipal.lblId.getText()));  
+
+                    habilitarDatos(false);
+                }else {
+
+                        mensaje.setVisible(true);
+                        mensaje.setBackground(new Color(255,91,70)); 
+                        men.setText("Ocurrio un error, Verifique");
+                        b.setVisible(false);
+                        b1.setVisible(false);
+                        tge=7;
+                }  
+             } catch (Exception e) {
+                System.out.println("Error: guardar " + e.getMessage());
+            }
+  
+    }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

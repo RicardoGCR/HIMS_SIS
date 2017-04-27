@@ -1,0 +1,3002 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="COSTOS_SUSTENTACION" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="886cf88b-640e-48eb-b8af-af0a54729988">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 11">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 11_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 11_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 11_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 12">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 12_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 12_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 12_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 13">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 13_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 13_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 13_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 14_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 15_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 16">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 16_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 16_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 16_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 17">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 17_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 17_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 17_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 18">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 18_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 18_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 18_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 19">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 19_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 19_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 19_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 20">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 20_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 20_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 20_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 21">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 21_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 21_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 21_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 22">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 22_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 22_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 22_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 23">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 23_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 23_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 23_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 24">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 24_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 24_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 24_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 25">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 25_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 25_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 25_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 26">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 26_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 26_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 26_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 27">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 27_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 27_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 27_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 28">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 28_TH" mode="Opaque" backcolor="#4E6F6F">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 28_CH" mode="Opaque" backcolor="#CFE6E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 28_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 29">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 29_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 29_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 29_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 30">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 30_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 30_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 30_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 31">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 31_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 31_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 31_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 32">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 32_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 32_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 32_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 33">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 33_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 33_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 33_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 34">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 34_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 34_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 34_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 35">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 35_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 35_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 35_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 36">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 36_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 36_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 36_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 37">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 37_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 37_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 37_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 38">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 38_TH" mode="Opaque" backcolor="#5A7F80">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 38_CH" mode="Opaque" backcolor="#CFE5E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 38_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="COSTOS" uuid="9d2b2f29-48b0-45e3-a335-96ec4c1afc6a">
+		<parameter name="cod_sustentoCosto" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[select cs.cod_sustento_costo,a.cod_precio,b.nomen_caja,c.nombre_grupo_nomen,d.AR_DESC,
+e.nom_forma_pago,LEFT(a.precio,LEN(A.PRECIO)) as precio,cs.tiempo_hora,cs.tiempo_min,LEFT(cs.saldo_ganancia_perdida_total
+,LEN(cs.saldo_ganancia_perdida_total)) as gananciaPerdida,b.descripcion_nomen_tipo,
+LEFT(a.precio-cs.saldo_ganancia_perdida_total,LEN(a.precio-cs.saldo_ganancia_perdida_total)) AS TOTAL
+from COSTOS_SUSTENTACION cs,CAJA_PRECIOS a, CAJA_NOMENCLATURA_CAJA b, CAJA_GRUPO_NOMENCLATURA_ATENCION c,
+ SISTEMA_AREAS d,CAJA_JERARQUIA_FORMA_PAGO e
+where cs.cod_precio=a.cod_precio and a.cod_nomen_caja = b.cod_nomen_caja and
+b.cod_grupo_nomen_aten=c.cod_grupo_nomen_aten and b.AR_ID=d.AR_ID and
+e.cod_jerar_forma_pago=a.cod_jerar_forma_pago and b.estado_nomen_caja='A' and a.estado_precios = 'A'
+and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{cod_sustentoCosto}]]>
+		</queryString>
+		<field name="cod_sustento_costo" class="java.lang.String"/>
+		<field name="cod_precio" class="java.lang.String"/>
+		<field name="nomen_caja" class="java.lang.String"/>
+		<field name="nombre_grupo_nomen" class="java.lang.String"/>
+		<field name="AR_DESC" class="java.lang.String"/>
+		<field name="nom_forma_pago" class="java.lang.String"/>
+		<field name="precio" class="java.lang.String"/>
+		<field name="tiempo_hora" class="java.lang.Integer"/>
+		<field name="tiempo_min" class="java.lang.Integer"/>
+		<field name="gananciaPerdida" class="java.lang.String"/>
+		<field name="descripcion_nomen_tipo" class="java.lang.String"/>
+		<field name="TOTAL" class="java.lang.String"/>
+		<group name="nomen_caja">
+			<groupExpression><![CDATA[$F{nomen_caja}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="PERSONAL" uuid="91c9f742-e053-4521-bc2b-4b122f1bf68b">
+		<parameter name="codsus_personal" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[Select ct.nombre_tipo_susten,PC.descripcion_cargo,
+cper.hora_mes_susten,left(cper.sueldo_susten,len(cper.sueldo_susten))as sueldo,left(cper.total_susten,len(cper.total_susten))as total
+from COSTOS_SUSTENTACION cs,COSTOS_TIPO_SUSTENTACION ct,COSTOS_SUSTENTACION_DET_PERSONAL cper,PERSONAL_PERSONAL PP,PERSONAL_NIVEL PN,PERSONAL_CARGO PC,PERSONAL_SUELDO_BRUTO PSB
+where pp.estado_personal ='A' AND ct.estado_tipo_sustentacion='A' and cper.estado_susten_det_personal='A' and
+PP.cod_nivel=PN.cod_nivel AND PN.cod_cargo=PC.cod_cargo and PSB.cod_per=PP.cod_per and cs.cod_sustento_costo=cper.cod_sustento_costo
+and ct.cod_tipo_susten=cper.cod_tipo_susten and cper.cod_sueldo_bru=psb.cod_sueldo_bru and cs.cod_sustento_costo=$P{codsus_personal}]]>
+		</queryString>
+		<field name="nombre_tipo_susten" class="java.lang.String"/>
+		<field name="descripcion_cargo" class="java.lang.String"/>
+		<field name="hora_mes_susten" class="java.lang.Integer"/>
+		<field name="sueldo" class="java.lang.String"/>
+		<field name="total" class="java.lang.String"/>
+		<group name="descripcion_cargo">
+			<groupExpression><![CDATA[$F{descripcion_cargo}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="INSUMOS" uuid="7c78b25b-322d-4441-93f1-1ad220a3b1a9">
+		<parameter name="codsus_insumos" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT cpi.consumible,cts.nombre_tipo_susten,pc.nombre_producto_ref,left(cpi.cantidad_susten,len(cpi.cantidad_susten))
+as cantidad,
+left(cpi.rendimiento_um,len(cpi.rendimiento_um))as rendimiento ,left(CPI.um,len(CPI.um))as um,
+left(cpi.cantidad_um,len(cpi.cantidad_um)) as cantidad_um,
+left(cpi.precio_susten,len(cpi.precio_susten))as precio,left(cpi.total_susten,len(cpi.total_susten))as total
+FROM COSTOS_SUSTENTACION cs,COSTOS_TIPO_SUSTENTACION cts,COSTOS_SUSTENTACION_DET_PROD_INSU cpi,COSTOS_PRODUCTO_REFERENCIAL_CABECERA pc
+WHERE cs.cod_sustento_costo=cpi.cod_sustento_costo and cts.cod_tipo_susten=cpi.cod_tipo_susten and
+cpi.cod_prod_refe=pc.cod_prod_refe and cpi.estado_sus_det_pro_ins='A' and pc.estado_prod_refe_cab='A' and cts.estado_tipo_sustentacion='A' and
+cs.estado_sustentacion='A' and cs.cod_sustento_costo =$P{codsus_insumos}]]>
+		</queryString>
+		<field name="consumible" class="java.lang.String"/>
+		<field name="nombre_tipo_susten" class="java.lang.String"/>
+		<field name="nombre_producto_ref" class="java.lang.String"/>
+		<field name="cantidad" class="java.lang.String"/>
+		<field name="rendimiento" class="java.lang.String"/>
+		<field name="um" class="java.lang.String"/>
+		<field name="cantidad_um" class="java.lang.String"/>
+		<field name="precio" class="java.lang.String"/>
+		<field name="total" class="java.lang.String"/>
+		<group name="nombre_producto_ref">
+			<groupExpression><![CDATA[$F{nombre_producto_ref}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="SERVICIOS_BASICOS" uuid="bc1bb296-bdff-437b-a33f-e8914c5197a4">
+		<parameter name="codsus_sbasicos" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT c.nombre_tipo_susten,d.nom_servi_va,left(a.area,len(a.area)-3)AS area,
+left(a.ponderacion_cons_energia,len(a.ponderacion_cons_energia)-3)as ponderacion_cons_energia,
+left(a.base_asig_cons_energia,len(a.base_asig_cons_energia))as base_asig_cons_energia,
+left(a.sum_base_asig_cons_energia,len(a.sum_base_asig_cons_energia)) as sum_base_asig_cons_energia,
+a.coefic_cons_energia,left(a.consumo_energia,len(a.consumo_energia)) as consumo_energia,
+left(a.coefic_cons_energia*a.consumo_energia,len(a.coefic_cons_energia*a.consumo_energia))as importe_energia,
+left(a.costo_estandar_energia,len(a.costo_estandar_energia)) as costo_energia,
+left(a.ponderacion_cons_agua,len(a.ponderacion_cons_agua)-3) as ponderacion_cons_agua,
+left(a.base_asig_cons_agua,len(a.base_asig_cons_agua)) as base_asig_cons_agua,
+left(a.sum_base_asig_cons_agua,len(a.sum_base_asig_cons_agua)) as sum_base_asig_cons_agua,
+a.coefic_cons_agua,left(a.consumo_agua,len(a.consumo_agua)) as consumo_agua,
+left(a.coefic_cons_agua*a.consumo_agua,len(a.coefic_cons_agua*a.consumo_agua)) as importe_agua,
+left(a.costo_estandar_agua,len(a.costo_estandar_agua)) as costo_agua,
+left(a.total_consultas,len(a.total_consultas)-3) as consultas,
+left(a.costo_estandar_total,len(a.costo_estandar_total)) as total
+FROM COSTOS_SUSTENTACION_DET_SERVICIO_BASICO a, COSTOS_SUSTENTACION b, COSTOS_TIPO_SUSTENTACION c, COSTOS_SERVICIO_VARIOS d
+WHERE a.estado_sus_serv_bas = 'A' and
+b.estado_sustentacion = 'A' and
+c.estado_tipo_sustentacion = 'A' and
+d.estado_servicio_va = 'A' and
+a.cod_sustento_costo = b.cod_sustento_costo and
+a.cod_tipo_susten = c.cod_tipo_susten and
+a.cod_servi_va = d.cod_servi_va and a.cod_sustento_costo=$P{codsus_sbasicos} order by c.nombre_tipo_susten]]>
+		</queryString>
+		<field name="nombre_tipo_susten" class="java.lang.String"/>
+		<field name="nom_servi_va" class="java.lang.String"/>
+		<field name="area" class="java.lang.String"/>
+		<field name="ponderacion_cons_energia" class="java.lang.String"/>
+		<field name="base_asig_cons_energia" class="java.lang.String"/>
+		<field name="sum_base_asig_cons_energia" class="java.lang.String"/>
+		<field name="coefic_cons_energia" class="java.math.BigDecimal"/>
+		<field name="consumo_energia" class="java.lang.String"/>
+		<field name="importe_energia" class="java.lang.String"/>
+		<field name="costo_energia" class="java.lang.String"/>
+		<field name="ponderacion_cons_agua" class="java.lang.String"/>
+		<field name="base_asig_cons_agua" class="java.lang.String"/>
+		<field name="sum_base_asig_cons_agua" class="java.lang.String"/>
+		<field name="coefic_cons_agua" class="java.math.BigDecimal"/>
+		<field name="consumo_agua" class="java.lang.String"/>
+		<field name="importe_agua" class="java.lang.String"/>
+		<field name="costo_agua" class="java.lang.String"/>
+		<field name="consultas" class="java.lang.String"/>
+		<field name="total" class="java.lang.String"/>
+		<group name="nombre_tipo_susten">
+			<groupExpression><![CDATA[]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="EQUIP_BASICO" uuid="8e879993-fdcf-49be-804d-09303a712435">
+		<parameter name="codsus_equibas" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT cts.nombre_tipo_susten,api.descripcion_producto,aed.cod_patrimonial,aed.fecha_compra,
+left(aed.precio_compra,len(aed.precio_compra)) as precio_compra,cd.fecha_fin_depreciar,cd.vida_util_meses,
+LEFT(cd.depreciacion_mensual,LEN(cd.depreciacion_mensual)) as dep_mensual,
+cd.total_mes_depreciar,LEFT(cd.depreciacion_acumulada,LEN(cd.depreciacion_acumulada)) as dep_acum,
+LEFT(cd.valor_neto,LEN(cd.valor_neto)) as valor_neto,
+LEFT(cd.depreciacion_diaria,LEN(cd.depreciacion_diaria)) as dep_diaria
+FROM COSTOS_SUSTENTACION cs,COSTOS_TIPO_SUSTENTACION cts,COSTOS_SUSTENTACION_MAQUI_HERRA cmh,COSTOS_DEPRECIACION cd,
+ ALMACEN_ENTRADA_DETALLE aed,ALMACEN_PRODUCTOS_INSUMOS api
+WHERE cs.cod_sustento_costo=cmh.cod_sustento_costo and cts.cod_tipo_susten=cmh.cod_tipo_susten and
+cmh.cod_depreciacion=cd.cod_depreciacion and aed.cod_entrada_det=cd.cod_entrada_det and aed.cod_produc=api.cod_produc and
+cmh.estado_sus_maq_herra='A' and cd.estado_depreciacion='A' and cts.estado_tipo_sustentacion='A' and
+cs.estado_sustentacion='A' and cs.cod_sustento_costo = $P{codsus_equibas}]]>
+		</queryString>
+		<field name="nombre_tipo_susten" class="java.lang.String"/>
+		<field name="descripcion_producto" class="java.lang.String"/>
+		<field name="cod_patrimonial" class="java.lang.String"/>
+		<field name="fecha_compra" class="java.lang.String"/>
+		<field name="precio_compra" class="java.lang.String"/>
+		<field name="fecha_fin_depreciar" class="java.lang.String"/>
+		<field name="vida_util_meses" class="java.lang.Integer"/>
+		<field name="dep_mensual" class="java.lang.String"/>
+		<field name="total_mes_depreciar" class="java.lang.Integer"/>
+		<field name="dep_acum" class="java.lang.String"/>
+		<field name="valor_neto" class="java.lang.String"/>
+		<field name="dep_diaria" class="java.lang.String"/>
+		<group name="descripcion_producto">
+			<groupExpression><![CDATA[$F{descripcion_producto}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="INFRAESTRUCTURA" uuid="511d17fb-6440-458f-b223-d8d6983b3929">
+		<parameter name="codsus_infra" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT cts.nombre_tipo_susten,csv.nom_servi_va,
+left(csi.area_total,len(csi.area_total)) AS AREA,
+left(csi.costo_total,len(csi.costo_total)) AS COSTO_TOTAL,
+left(csi.requerimiento_area,len(csi.requerimiento_area)) AS REQUERIMIENTO,
+left(csi.valor_unitario_dep,len(csi.valor_unitario_dep)) AS VALOR_UNI_DEP,
+left(csi.costo_construccion,len(csi.costo_construccion)) AS COSTO_CONST,
+csi.tiempo_vida_util,csi.dep_infra_min AS DEP_MIN,
+tiempo_hora_proc,tiempo_min_proc,left(csi.costo_estandar,len(csi.costo_estandar)) AS TOTAL
+FROM COSTOS_SUSTENTACION cs, COSTOS_TIPO_SUSTENTACION cts,COSTOS_SERVICIO_VARIOS csv,COSTOS_SUSTENTACION_DET_INFRAESTRUCTURA csi
+WHERE cs.cod_sustento_costo=csi.cod_sustento_costo and cts.cod_tipo_susten=csi.cod_tipo_susten and csv.cod_servi_va=csi.cod_servi_va
+and cs.estado_sustentacion='A' and cts.estado_tipo_sustentacion='A' and csv.estado_servicio_va='A' and
+csi.estado_sus_infr='A' and cs.cod_sustento_costo=$P{codsus_infra}]]>
+		</queryString>
+		<field name="nombre_tipo_susten" class="java.lang.String"/>
+		<field name="nom_servi_va" class="java.lang.String"/>
+		<field name="AREA" class="java.lang.String"/>
+		<field name="COSTO_TOTAL" class="java.lang.String"/>
+		<field name="REQUERIMIENTO" class="java.lang.String"/>
+		<field name="VALOR_UNI_DEP" class="java.lang.String"/>
+		<field name="COSTO_CONST" class="java.lang.String"/>
+		<field name="tiempo_vida_util" class="java.lang.Integer"/>
+		<field name="DEP_MIN" class="java.lang.String"/>
+		<field name="tiempo_hora_proc" class="java.lang.Integer"/>
+		<field name="tiempo_min_proc" class="java.lang.Integer"/>
+		<field name="TOTAL" class="java.lang.String"/>
+		<group name="nom_servi_va">
+			<groupExpression><![CDATA[$F{nom_servi_va}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="SERVICIOS_ADMINIS" uuid="34ddcc9c-fef5-4fc0-b976-b5768adcfb91">
+		<parameter name="codsus_seradmin" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT cts.nombre_tipo_susten,csv.nom_servi_va,left(cds.cantidad_susten,len(cds.cantidad_susten)) AS CANTIDAD
+,left(cds.precio_susten,len(cds.precio_susten)) AS PRECIO,left(cds.total_susten,len(cds.total_susten)) AS TOTAL
+FROM COSTOS_SUSTENTACION cs, COSTOS_TIPO_SUSTENTACION cts,COSTOS_SERVICIO_VARIOS csv,COSTOS_SUSTENTACION_DET_SERVICIO cds
+WHERE cs.cod_sustento_costo=cds.cod_sustento_costo and cts.cod_tipo_susten=cds.cod_tipo_susten and csv.cod_servi_va=cds.cod_servi_va
+and cs.estado_sustentacion='A' and cts.estado_tipo_sustentacion='A' and csv.estado_servicio_va='A' and
+cds.estado_susten_det_servi='A'
+and cts.nombre_tipo_susten='SERVICIOS ADMINISTRATIVOS'  and cs.cod_sustento_costo=$P{codsus_seradmin}]]>
+		</queryString>
+		<field name="nombre_tipo_susten" class="java.lang.String"/>
+		<field name="nom_servi_va" class="java.lang.String"/>
+		<field name="CANTIDAD" class="java.lang.String"/>
+		<field name="PRECIO" class="java.lang.String"/>
+		<field name="TOTAL" class="java.lang.String"/>
+		<group name="nom_servi_va">
+			<groupExpression><![CDATA[$F{nom_servi_va}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="SERVICIOS_GENERALES" uuid="af351d47-0184-40cb-a822-693b2cc50f06">
+		<parameter name="codsus_ServGene" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT cts.nombre_tipo_susten,csv.nom_servi_va,left(cds.cantidad_susten,len(cds.cantidad_susten)) AS CANTIDAD
+,left(cds.precio_susten,len(cds.precio_susten)) AS PRECIO,left(cds.total_susten,len(cds.total_susten)) AS TOTAL
+FROM COSTOS_SUSTENTACION cs, COSTOS_TIPO_SUSTENTACION cts,COSTOS_SERVICIO_VARIOS csv,COSTOS_SUSTENTACION_DET_SERVICIO cds
+WHERE cs.cod_sustento_costo=cds.cod_sustento_costo and cts.cod_tipo_susten=cds.cod_tipo_susten and csv.cod_servi_va=cds.cod_servi_va
+and cs.estado_sustentacion='A' and cts.estado_tipo_sustentacion='A' and csv.estado_servicio_va='A' and
+cds.estado_susten_det_servi='A'
+and cts.nombre_tipo_susten='SERVICIOS GENERALES' and cs.cod_sustento_costo=$P{codsus_ServGene}]]>
+		</queryString>
+		<field name="nombre_tipo_susten" class="java.lang.String"/>
+		<field name="nom_servi_va" class="java.lang.String"/>
+		<field name="CANTIDAD" class="java.lang.String"/>
+		<field name="PRECIO" class="java.lang.String"/>
+		<field name="TOTAL" class="java.lang.String"/>
+		<group name="nom_servi_va">
+			<groupExpression><![CDATA[$F{nom_servi_va}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="SERVICIOS_INTERMEDIOS" uuid="d9f98714-81a8-421b-a20f-e6135ff9e1c5">
+		<parameter name="codsus_servInter" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT cts.nombre_tipo_susten,csv.nom_servi_va,left(cds.cantidad_susten,len(cds.cantidad_susten)) AS CANTIDAD
+,left(cds.precio_susten,len(cds.precio_susten)) AS PRECIO,left(cds.total_susten,len(cds.total_susten)) AS TOTAL
+FROM COSTOS_SUSTENTACION cs, COSTOS_TIPO_SUSTENTACION cts,COSTOS_SERVICIO_VARIOS csv,COSTOS_SUSTENTACION_DET_SERVICIO cds
+WHERE cs.cod_sustento_costo=cds.cod_sustento_costo and cts.cod_tipo_susten=cds.cod_tipo_susten and csv.cod_servi_va=cds.cod_servi_va
+and cs.estado_sustentacion='A' and cts.estado_tipo_sustentacion='A' and csv.estado_servicio_va='A' and
+cds.estado_susten_det_servi='A'
+and cts.nombre_tipo_susten='SERVICIOS INTERMEDIOS' and cs.cod_sustento_costo=$P{codsus_servInter}]]>
+		</queryString>
+		<field name="nombre_tipo_susten" class="java.lang.String"/>
+		<field name="nom_servi_va" class="java.lang.String"/>
+		<field name="CANTIDAD" class="java.lang.String"/>
+		<field name="PRECIO" class="java.lang.String"/>
+		<field name="TOTAL" class="java.lang.String"/>
+		<group name="nom_servi_va">
+			<groupExpression><![CDATA[$F{nom_servi_va}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="COD_SUSTENTO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select cs.cod_sustento_costo,a.cod_precio,b.nomen_caja,SS.SE_DESC,d.AR_DESC,
+e.nom_forma_pago,cast(LEFT(a.precio,LEN(A.PRECIO)) as smallmoney)as precio,
+cs.tiempo_hora,cs.tiempo_min,LEFT(cs.saldo_ganancia_perdida_total
+,LEN(cs.saldo_ganancia_perdida_total)) as gananciaPerdida,b.descripcion_nomen_tipo,
+CAST(LEFT(cs.saldo_ganancia_perdida_total,LEN(cs.saldo_ganancia_perdida_total)) AS smallmoney) AS NOMBRE,CAST(LEFT(a.precio-cs.saldo_ganancia_perdida_total,LEN(a.precio-cs.saldo_ganancia_perdida_total))AS smallmoney) AS TOTAL
+from COSTOS_SUSTENTACION cs,CAJA_PRECIOS a, CAJA_NOMENCLATURA_CAJA b, CAJA_GRUPO_NOMENCLATURA_ATENCION c,
+ SISTEMA_AREAS d,CAJA_JERARQUIA_FORMA_PAGO e,SISTEMA_SERVICIO SS
+where cs.cod_precio=a.cod_precio and a.cod_nomen_caja = b.cod_nomen_caja and
+b.cod_grupo_nomen_aten=c.cod_grupo_nomen_aten and b.AR_ID=d.AR_ID and SS.SE_ID=D.SE_ID AND
+e.cod_jerar_forma_pago=a.cod_jerar_forma_pago and b.estado_nomen_caja='A' and a.estado_precios = 'A'
+and cs.estado_sustentacion='A' and cs.cod_sustento_costo=$P{COD_SUSTENTO}]]>
+	</queryString>
+	<field name="cod_sustento_costo" class="java.lang.String"/>
+	<field name="cod_precio" class="java.lang.String"/>
+	<field name="nomen_caja" class="java.lang.String"/>
+	<field name="SE_DESC" class="java.lang.String"/>
+	<field name="AR_DESC" class="java.lang.String"/>
+	<field name="nom_forma_pago" class="java.lang.String"/>
+	<field name="precio" class="java.math.BigDecimal"/>
+	<field name="tiempo_hora" class="java.lang.Integer"/>
+	<field name="tiempo_min" class="java.lang.Integer"/>
+	<field name="gananciaPerdida" class="java.lang.String"/>
+	<field name="descripcion_nomen_tipo" class="java.lang.String"/>
+	<field name="NOMBRE" class="java.math.BigDecimal"/>
+	<field name="TOTAL" class="java.math.BigDecimal"/>
+	<variable name="variable1" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="20" uuid="a9336d7a-afcc-4b26-b6d2-ac812846cc87"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIDAD DE PLANIFICACIÓN Y PRESUPUESTO - ÁREA DE COSTOS HOSPITALARIOS - HSJCH]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="16" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="2" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="292" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="0" y="43" width="802" height="249" uuid="27c21931-dc91-4f37-b31b-59a823306e3a"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="COSTOS" uuid="2245ab23-da5c-417e-af20-57551799f710">
+						<datasetParameter name="cod_sustentoCosto">
+							<datasetParameterExpression><![CDATA[$P{COD_SUSTENTO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="48" uuid="579f7576-ccec-4c64-aa9c-1c0ebe5a6087">
+						<jr:columnHeader style="table_CH" height="28" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="48" height="14" uuid="2ca89733-84bb-477f-92ce-0209a8a0b10f"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Segoe UI" isBold="true" isItalic="false" isUnderline="false"/>
+								</textElement>
+								<text><![CDATA[CÓDIGO]]></text>
+							</staticText>
+							<staticText>
+								<reportElement x="0" y="14" width="48" height="14" uuid="3bab0195-92ab-4a13-8d06-506ef1e45262"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Segoe UI" isBold="true"/>
+								</textElement>
+								<text><![CDATA[CPT]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="226" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="48" height="226" uuid="8a6c99aa-cc83-4c23-a78d-168c01bde9c9"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{nomen_caja}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="88" uuid="0af51c52-f783-4bab-a312-1c27d2df4de3">
+						<jr:columnHeader style="table_CH" height="28" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="88" height="28" uuid="f35a988c-a01a-4486-90a4-53090ea920ab"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Segoe UI" size="10" isBold="true" isItalic="false" isUnderline="false"/>
+								</textElement>
+								<text><![CDATA[NOMENCLATURA]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="226" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="88" height="226" uuid="075f6e99-9858-4990-a447-0a0568eeff2a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{descripcion_nomen_tipo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="611" uuid="d9f207a7-fe85-4386-8f58-d5ece8f9522c">
+						<jr:columnHeader style="table_CH" height="28" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="611" height="28" uuid="4d9d4df0-06d2-46cb-8936-66d3841ec3df"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Segoe UI" size="12" isBold="true" isItalic="false" isUnderline="false"/>
+								</textElement>
+								<text><![CDATA[FACTORES DE PRODUCCIÓN]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="226" rowSpan="1">
+							<componentElement>
+								<reportElement key="table 4" style="table 4" x="0" y="0" width="611" height="226" uuid="15298bfb-647a-4b98-a7f8-d5fda25ab65d"/>
+								<jr:table>
+									<datasetRun subDataset="COSTOS" uuid="11ac144f-3d8e-4cae-acb1-a3daf8f35bc9">
+										<datasetParameter name="cod_sustentoCosto">
+											<datasetParameterExpression><![CDATA[$F{cod_sustento_costo}]]></datasetParameterExpression>
+										</datasetParameter>
+										<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+									</datasetRun>
+									<jr:column width="611" uuid="0df96445-aadb-4640-8679-17d5a1cbbe3a">
+										<jr:tableHeader height="40" rowSpan="1">
+											<componentElement>
+												<reportElement key="table 11" style="table 11" x="0" y="0" width="611" height="40" uuid="b9acd50a-5ced-49e3-805c-7d98fdd0e0fc"/>
+												<jr:table>
+													<datasetRun subDataset="COSTOS" uuid="5e9db26d-54c5-4f9c-879c-21bd46e76e8c">
+														<datasetParameter name="cod_sustentoCosto">
+															<datasetParameterExpression><![CDATA[$F{cod_sustento_costo}]]></datasetParameterExpression>
+														</datasetParameter>
+														<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+													</datasetRun>
+													<jr:column width="611" uuid="145aacdf-38f9-48fe-bcd7-0018998d8207">
+														<jr:tableHeader height="26" rowSpan="1">
+															<componentElement>
+																<reportElement key="table 29" style="table 29" x="0" y="0" width="611" height="26" uuid="f1ca3327-c960-4ef7-8599-7aa9d9caa1ea"/>
+																<jr:table>
+																	<datasetRun subDataset="PERSONAL" uuid="6665eb19-df22-4b44-b449-8025f308fc53">
+																		<datasetParameter name="codsus_personal">
+																			<datasetParameterExpression><![CDATA[$F{cod_sustento_costo}]]></datasetParameterExpression>
+																		</datasetParameter>
+																		<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+																	</datasetRun>
+																	<jr:column width="90" uuid="789b1dac-b9a0-4ac1-b6e9-ceb0fe13f044">
+																		<jr:columnHeader height="13" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="90" height="13" uuid="04bb256f-99a7-48bc-abeb-c7e10d244be9"/>
+																				<textElement textAlignment="Center" verticalAlignment="Bottom">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nombre_tipo_susten}]]></textFieldExpression>
+																			</textField>
+																		</jr:columnHeader>
+																		<jr:detailCell height="14" rowSpan="1"/>
+																	</jr:column>
+																	<jr:column width="171" uuid="265b654d-c498-41b3-8d10-e1f54b87e1c1">
+																		<jr:columnHeader style="table 29_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="171" height="13" uuid="8475f985-f080-4b97-af07-d059474b8666"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[CARGO]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 29_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="171" height="14" uuid="f9fa23b9-aa24-41a0-87ff-19fe36fd9f64"/>
+																				<textElement verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{descripcion_cargo}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="156" uuid="2282c347-9730-45d9-9335-8afe9a8949bf">
+																		<jr:columnHeader style="table 29_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="156" height="13" uuid="4ef57ee9-62f6-4ef4-8f5e-b90d3dc47063"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[HORAS AL MES]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 29_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="156" height="14" uuid="30e6037f-d7c8-4fb3-93d8-431b545d7a8e"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{hora_mes_susten}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="158" uuid="e0aead42-6e3c-43d9-a8f4-ccca41f3c951">
+																		<jr:columnHeader style="table 29_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="158" height="13" uuid="171bda08-1178-4252-988b-aebce4a133ee"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[SUELDO]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 29_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="158" height="14" uuid="98caa330-895e-4388-ba22-230eea120d33"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{sueldo}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="37" uuid="f9bfb07d-f6b4-42a9-8f9b-7296d186d0d5">
+																		<jr:columnHeader style="table 29_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="37" height="13" uuid="6da049ba-e6d6-465f-9989-99aad79fce2a"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[TOTAL]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 29_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="37" height="14" uuid="64fba757-17be-4955-a477-82457a792c44"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																</jr:table>
+															</componentElement>
+														</jr:tableHeader>
+														<jr:tableFooter height="25" rowSpan="1">
+															<componentElement>
+																<reportElement key="table 35" style="table 35" x="0" y="0" width="611" height="25" uuid="1f5ce59d-d3d4-4d05-b821-7063f4ce8319"/>
+																<jr:table>
+																	<datasetRun subDataset="INFRAESTRUCTURA" uuid="ab1b34d2-97d8-486a-96b2-d461ddd81ea0">
+																		<datasetParameter name="codsus_infra">
+																			<datasetParameterExpression><![CDATA[$F{cod_sustento_costo}]]></datasetParameterExpression>
+																		</datasetParameter>
+																		<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+																	</datasetRun>
+																	<jr:column width="90" uuid="6425dd0d-d7bf-4f9a-8900-406c93c48424">
+																		<jr:columnHeader height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="90" height="14" uuid="d6a32e2a-d0d2-494c-bf8e-826766c66fb0"/>
+																				<textElement textAlignment="Center" verticalAlignment="Bottom">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nombre_tipo_susten}]]></textFieldExpression>
+																			</textField>
+																		</jr:columnHeader>
+																		<jr:detailCell height="14" rowSpan="1"/>
+																	</jr:column>
+																	<jr:column width="90" uuid="b9adf342-ef0f-4945-b51a-ce7d8c661531">
+																		<jr:columnHeader style="table 35_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="90" height="14" uuid="f6fbdd7c-f2c1-47bc-b7c4-ffec4f2a8053"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[CENTRO DE COSTOS]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 35_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="90" height="14" uuid="f1c1ba1c-5e4b-441d-adb6-449e7dceb2e6"/>
+																				<textElement>
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nom_servi_va}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="55" uuid="f2ef9e69-7f7e-4d39-91ae-2e4336b53a2c">
+																		<jr:columnHeader style="table 35_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="55" height="14" uuid="5d790a37-dc35-4179-94e0-4e1892be31fa"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[AREA TOTAL]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 35_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="55" height="14" uuid="8b8b2eb4-3ff8-44c0-a103-cffc6db2359d"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{AREA}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="57" uuid="acd52c99-3404-4a9e-96e3-3286f6656a6f">
+																		<jr:columnHeader style="table 35_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="57" height="14" uuid="e3ba19f7-d41f-4dd6-97c0-1d62ea77bb4d"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[COSTO TOTAL]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 35_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="57" height="14" uuid="0ba067e3-1cc5-4e49-8cb5-f9e75f62fc20"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{COSTO_TOTAL}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="59" uuid="64f347d4-2687-4380-8e34-e90d5498f53c">
+																		<jr:columnHeader style="table 35_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="59" height="7" uuid="8165e284-c327-4a69-93e9-42265cba8f5a"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[REQUERIMIENTO]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="59" height="7" uuid="176d6dd8-8b10-4056-8fcf-0689a8878e5e"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[ÁREA]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 35_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="58" height="14" uuid="c67a5ff3-aac3-406b-b04f-66e7e9223109"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{REQUERIMIENTO}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="56" uuid="0f22ba2f-d8f7-44f2-8193-fcabc65dc4dd">
+																		<jr:columnHeader style="table 35_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="56" height="7" uuid="e2ffb124-5294-4e4f-a008-28f70fc34af6"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[VALOR UNITARIO]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="56" height="7" uuid="fdf23a18-8e63-46bd-8f4b-4719e686dc85"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[DEPRECIADO ANUAL]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 35_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="56" height="14" uuid="2461ca24-c79f-4fca-bad5-e2c666fe380d"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{VALOR_UNI_DEP}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="58" uuid="e61b7414-4e9f-4060-b475-d0547e8265ce">
+																		<jr:columnHeader style="table 35_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="58" height="7" uuid="6990587d-4787-407c-b638-dddc2d3f0836"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[COSTO DE]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="58" height="7" uuid="f40c602e-c82b-4ed6-b057-cb234724d057"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[CONSTRUCCIÓN]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 35_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="58" height="14" uuid="03f1ef9f-6673-4279-be3e-e8feb0c16d2e"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{COSTO_CONST}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="50" uuid="c3524992-8978-4004-8b53-103897ed612b">
+																		<jr:columnHeader style="table 35_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="50" height="7" uuid="6c4f7fa3-be45-4c72-be11-77e850579cd9"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[TIEMPO]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="50" height="7" uuid="a681438f-6290-45f5-bcc6-ba84de2aecdc"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[(MIN)]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 35_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="50" height="14" uuid="b703a48f-f1e3-4296-9bae-b60d0fb385c3"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{tiempo_vida_util}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="60" uuid="00a5f5be-d231-4ca7-8ed5-00a745fbe8fe">
+																		<jr:columnHeader style="table 35_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="60" height="7" uuid="e61e5a45-c888-4e63-ac67-a537883c170a"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[DEPRECIACIÓM]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="60" height="7" uuid="85c9e0c1-022c-47f6-9f4f-91b2c00c8c60"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[(MIN)]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 35_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="60" height="14" uuid="78d6702d-6aea-478e-b660-91d75a07d595"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{DEP_MIN}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="36" uuid="e159af34-76de-4541-9a74-cb139c827376">
+																		<jr:columnHeader style="table 35_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="36" height="14" uuid="a04afd7f-3f5a-4ca6-8bb4-22f874f3f897"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[TOTAL]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 35_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="36" height="14" uuid="91533889-80d4-43e9-9ce7-ea4cfc5edaaf"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																</jr:table>
+															</componentElement>
+														</jr:tableFooter>
+														<jr:columnHeader height="22" rowSpan="1">
+															<componentElement>
+																<reportElement key="table 30" style="table 30" x="0" y="0" width="611" height="22" uuid="a3779cf8-08c9-4e92-b0e6-444098a00e92"/>
+																<jr:table>
+																	<datasetRun subDataset="INSUMOS" uuid="ababf520-d014-4b39-8613-2c659ee75325">
+																		<datasetParameter name="codsus_insumos">
+																			<datasetParameterExpression><![CDATA[$F{cod_sustento_costo}]]></datasetParameterExpression>
+																		</datasetParameter>
+																		<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+																	</datasetRun>
+																	<jr:column width="90" uuid="73266371-d30a-4b64-91ed-2adc8c1bc86b">
+																		<jr:columnHeader height="13" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="90" height="13" uuid="064424ea-734f-4e9a-850a-df842df9c83b"/>
+																				<textElement textAlignment="Center" verticalAlignment="Bottom">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nombre_tipo_susten}]]></textFieldExpression>
+																			</textField>
+																		</jr:columnHeader>
+																		<jr:detailCell height="14" rowSpan="1"/>
+																	</jr:column>
+																	<jr:column width="171" uuid="023fd020-950b-48a5-bc4b-6c7fe393e166">
+																		<jr:columnHeader style="table 30_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="171" height="13" uuid="9747ea14-cbf2-44d8-a062-cfe2c9729f68"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[INSUMOS]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="171" height="14" uuid="1cad96b1-baba-4c53-aee5-c3acf1e5a57a"/>
+																				<textElement textAlignment="Left" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nombre_producto_ref}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="47" uuid="2cb1f058-3928-44c2-8e31-4bc272a2dd59">
+																		<jr:columnHeader style="table 30_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="47" height="13" uuid="6ecb5d8b-de94-4984-b9fd-dd9c59bd20af"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[PRECIO]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="47" height="14" uuid="f7930d6a-f014-4d53-a1bf-d87d6aafeada"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="54" uuid="d0362c24-cbd9-4289-a4c5-386abf38c37f">
+																		<jr:columnHeader style="table 30_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="54" height="13" uuid="cf7a131c-f694-4bae-a7f7-d1fb546590f7"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[CANTIDAD]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="54" height="14" uuid="e4ea9da9-07cd-4f91-a641-3bede9698a66"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="55" uuid="d802e582-f4c3-415f-9132-886c20143ff4">
+																		<jr:columnHeader style="table 30_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="55" height="13" uuid="9119149e-4b05-413d-b518-e5340e9d3332"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="7"/>
+																				</textElement>
+																				<text><![CDATA[RENDIMIENTO]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="55" height="14" uuid="40255d1a-5f92-4548-ae0e-2e41d40cd474"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{rendimiento}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="107" uuid="624510d9-d302-405a-97c3-4110ffddc533">
+																		<jr:columnHeader style="table 30_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="107" height="13" uuid="7078c2a2-2fda-47de-83c5-eb000cad042a"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[UM]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="107" height="14" uuid="15f97d59-f20e-48b6-84fd-4c25bf12025c"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{um}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="51" uuid="96ba641f-80e5-45e5-969d-ccc19251de42">
+																		<jr:columnHeader style="table 30_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="51" height="13" uuid="98a3a1fc-4e47-4566-a0be-6e269cb3b0c1"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[CONSUMO]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="51" height="14" uuid="fc6f6263-8352-42e7-a932-6539e6cf35e7"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{cantidad_um}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="36" uuid="b34a6958-89df-42fe-8aef-eae78d59a3bd">
+																		<jr:columnHeader style="table 30_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="36" height="13" uuid="51dd0f55-31dd-4dd2-b2ef-7410af952814"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[TOTAL]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 30_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="36" height="14" uuid="41c16550-3567-48ed-b619-3ae774adaa0d"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																</jr:table>
+															</componentElement>
+														</jr:columnHeader>
+														<jr:columnFooter height="24" rowSpan="1">
+															<componentElement>
+																<reportElement key="table 34" style="table 34" x="0" y="0" width="611" height="24" uuid="a7959847-177d-420a-a82d-d4a92af76f4b"/>
+																<jr:table>
+																	<datasetRun subDataset="EQUIP_BASICO" uuid="959774e6-b037-497f-9ebd-961c394894cf">
+																		<datasetParameter name="codsus_equibas">
+																			<datasetParameterExpression><![CDATA[$F{cod_sustento_costo}]]></datasetParameterExpression>
+																		</datasetParameter>
+																		<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+																	</datasetRun>
+																	<jr:column width="90" uuid="36830316-ec69-4e05-8bec-845379501fa8">
+																		<jr:columnHeader height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="90" height="14" uuid="1c18ae10-4981-4108-ac7d-ff3d45f164d2"/>
+																				<textElement textAlignment="Center" verticalAlignment="Bottom">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nombre_tipo_susten}]]></textFieldExpression>
+																			</textField>
+																		</jr:columnHeader>
+																		<jr:detailCell height="14" rowSpan="1"/>
+																	</jr:column>
+																	<jr:column width="90" uuid="1459c28e-06b5-475f-bf66-b55a448b3c24">
+																		<jr:columnHeader style="table 34_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="90" height="14" uuid="33f9f095-85b9-4ca0-aa44-446c8b5ddc22"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[PRODUCTO]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 34_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="90" height="14" uuid="88f85a49-274d-475b-bc6e-6d490c33b6da"/>
+																				<textElement verticalAlignment="Middle">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{descripcion_producto}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="55" uuid="7ccc4f74-f6c6-4c28-9bf3-7707441ba882">
+																		<jr:columnHeader style="table 34_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="55" height="7" uuid="1554fef9-8847-46bf-8026-8150d18356a5"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[CÓDIGO]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="55" height="7" uuid="1618a4a6-5874-43cb-bf95-19e83a961f01"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[PATRIMONIAL]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 34_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="55" height="14" uuid="ffdc1aef-3ea4-4c53-b4fe-d42175ad250e"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="6"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{cod_patrimonial}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="57" uuid="6f311707-d37e-4aac-b96d-de829c7fef24">
+																		<jr:columnHeader style="table 34_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="57" height="14" uuid="c27a423d-3903-407a-a233-b040f93b1a4e"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[FECHA COMPRA]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 34_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="57" height="14" uuid="5eaceb70-75b9-49f7-9725-85a331860736"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{fecha_compra}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="59" uuid="4d7438b2-6828-4054-a941-f0a38372bbeb">
+																		<jr:columnHeader style="table 34_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="59" height="14" uuid="13c9a5d3-cfa6-4767-bee4-87a12ff0d41d"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[VALOR]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 34_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="59" height="14" uuid="496f8915-4fc2-40a5-95d8-28bd4ea78f93"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{precio_compra}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="56" uuid="ef2caa91-92e5-4b45-83bf-1c0586257a75">
+																		<jr:columnHeader style="table 34_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="56" height="7" uuid="753b2e3b-04ac-4409-91e7-a89e6925f52d"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[FECHA FIN]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="56" height="7" uuid="3d65c720-9c63-419a-8cde-52b9369888aa"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[A DEPRECIAR]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 34_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="56" height="14" uuid="b959ee17-9f42-4abf-b902-a9cdec638807"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{fecha_fin_depreciar}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="58" uuid="f8297747-6e92-45e8-90e3-911451ef886f">
+																		<jr:columnHeader style="table 34_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="58" height="14" uuid="9baa4ac6-5e79-40bd-b5e3-b067e104ec0b"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="7"/>
+																				</textElement>
+																				<text><![CDATA[DEP-ACU]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 34_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="58" height="14" uuid="44585ea7-a1ae-4363-942b-5eb0a3b07ba9"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{dep_acum}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="50" uuid="b20b85c8-cdea-4a37-a889-611a1fb78fa3">
+																		<jr:columnHeader style="table 34_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="49" height="7" uuid="d387e67a-097f-4762-a005-c01ab0684a52"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[VALOR-]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="49" height="7" uuid="c51bfba1-f499-4c1e-9a93-61772b4f43a8"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[NETO]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 34_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="49" height="14" uuid="89dbf434-3b3f-45a6-be52-5c5785201b8f"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{valor_neto}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="60" uuid="2a87ce43-2fcf-4c37-ab16-7798da0c8dfc">
+																		<jr:columnHeader style="table 34_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="60" height="14" uuid="01731e49-32fc-4070-84a4-51734bfc94a4"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[DEP-MENS]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 34_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="60" height="14" uuid="1c23c0f2-95b4-4ed7-8ca3-d78fe853b9c4"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{dep_mensual}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="36" uuid="e99eba0c-59fe-4afa-b5c1-4326f34600c2">
+																		<jr:columnHeader style="table 34_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="36" height="7" uuid="af9ceecd-9516-4121-9871-1ee86c993caf"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[DEP]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="36" height="7" uuid="b8071917-1a35-4961-931d-74d2982c52b6"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[DIARIA]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 34_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="36" height="14" uuid="4d023212-ec89-4da3-b2db-5aab37069d82"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{dep_diaria}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																</jr:table>
+															</componentElement>
+														</jr:columnFooter>
+														<jr:detailCell height="23" rowSpan="1">
+															<componentElement>
+																<reportElement key="table 33" style="table 33" mode="Transparent" x="0" y="0" width="611" height="23" uuid="76c89b12-6ec2-4012-9783-6b9719222fd2"/>
+																<jr:table>
+																	<datasetRun subDataset="SERVICIOS_BASICOS" uuid="98a7c1a2-aa86-4d4c-8707-5394a96c4583">
+																		<datasetParameter name="codsus_sbasicos">
+																			<datasetParameterExpression><![CDATA[$F{cod_sustento_costo}]]></datasetParameterExpression>
+																		</datasetParameter>
+																		<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+																	</datasetRun>
+																	<jr:column width="90" uuid="51ebb614-e5f8-42e6-b777-7bf43e422893">
+																		<jr:tableHeader height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="90" height="14" uuid="4ec10e03-1aa7-41a0-b456-425fd3cae08a"/>
+																				<textElement textAlignment="Center" verticalAlignment="Bottom">
+																					<font size="7"/>
+																				</textElement>
+																				<text><![CDATA[SERVICIOS]]></text>
+																			</staticText>
+																		</jr:tableHeader>
+																		<jr:columnHeader height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="90" height="14" uuid="5eed107b-d794-4301-84b9-101ae82ba309"/>
+																				<textElement textAlignment="Center" verticalAlignment="Bottom">
+																					<font size="7"/>
+																				</textElement>
+																				<text><![CDATA[BÁSICOS]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter height="18" rowSpan="1"/>
+																		<jr:detailCell height="15" rowSpan="1"/>
+																	</jr:column>
+																	<jr:column width="90" uuid="bae67799-4ced-4988-aca8-00ce3e98e3bf">
+																		<jr:tableHeader height="14" rowSpan="1">
+																			<line direction="BottomUp">
+																				<reportElement style="table_TH" x="0" y="0" width="1" height="14" forecolor="#666666" uuid="e797c379-f16f-43fa-a9ee-81632994f4e7"/>
+																				<graphicElement>
+																					<pen lineWidth="1.5"/>
+																				</graphicElement>
+																			</line>
+																		</jr:tableHeader>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="90" height="7" uuid="d5071482-ddc4-4c99-96d8-e16fa068868c"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[UNIDAD PRODUCTORA DE ]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="90" height="7" uuid="923c47a2-8e03-428e-8e44-2673e1b9b3fe"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[SERVICIOS(UPS)]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1"/>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="90" height="15" uuid="7f1256e2-941a-4ba4-ae2c-f5cf27590237"/>
+																				<textElement verticalAlignment="Middle">
+																					<font size="6"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nombre_tipo_susten}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="82" uuid="27c417e2-87df-4cd6-b0ed-0abda88a4c39">
+																		<jr:tableHeader height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="82" height="7" uuid="3a5dbcf0-7d51-488a-b84e-8d3f804bef00"/>
+																				<textElement>
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[CENTRO DE ]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="82" height="7" uuid="d02f99b5-df32-4bea-9b10-a42f7df8108a"/>
+																				<textElement>
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[  COSTOS]]></text>
+																			</staticText>
+																		</jr:tableHeader>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="82" height="14" uuid="562358d0-94b2-46ee-9504-9ac301feed8f"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[SERVICIOS]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="82" height="9" uuid="51d5ed1f-2209-4a81-a01b-9462593f6527"/>
+																				<textElement verticalAlignment="Middle">
+																					<font fontName="SansSerif" size="7" isItalic="false"/>
+																				</textElement>
+																				<text><![CDATA[∑ de Base de Asignación]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="9" width="82" height="9" uuid="5dbbf5a1-4e4d-418e-8124-39012e1c3c22"/>
+																				<textElement>
+																					<font size="7"/>
+																				</textElement>
+																				<text><![CDATA[Consumo Mensual]]></text>
+																			</staticText>
+																		</jr:columnFooter>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="82" height="15" uuid="6f2aee58-2591-4b19-87b4-e5f944b2a698"/>
+																				<textElement verticalAlignment="Middle">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nom_servi_va}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="24" uuid="2f2dbab9-c5f1-4267-8f91-196f33093593">
+																		<jr:tableHeader height="14" rowSpan="1"/>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="24" height="14" uuid="666f5908-14a5-4624-bf9a-5442ab7f9649"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="7"/>
+																				</textElement>
+																				<text><![CDATA[ÁREA]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1"/>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="24" height="15" uuid="a1216a3a-558c-4fd7-bf27-323e8295ad4e"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{area}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="22" uuid="994b1b32-16df-465d-903f-16b8642842ff">
+																		<jr:tableHeader height="14" rowSpan="1">
+																			<line>
+																				<reportElement x="0" y="0" width="1" height="14" uuid="7e6322b3-8e9c-46ca-9f4a-5d332fb2fec5"/>
+																			</line>
+																		</jr:tableHeader>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="22" height="7" uuid="7dcc4b5b-faeb-420e-bcf3-671a65764afd"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[Pond. de ]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="22" height="7" uuid="a0add810-da0b-40c9-a695-9588129b026f"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[consumo]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1"/>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="22" height="15" uuid="93a03f7a-181a-417e-9b79-a97356c9b0d0"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{ponderacion_cons_energia}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="29" uuid="8a16154c-f148-40b4-beac-0c5c03a6c808">
+																		<jr:tableHeader height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="29" height="7" uuid="6dec32f2-2054-43ed-9ea9-c358df421752"/>
+																				<textElement textAlignment="Right" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[SERVI]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="29" height="7" uuid="ae0d40bd-7538-4723-a3a7-783ae694e678"/>
+																				<textElement>
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[]]></text>
+																			</staticText>
+																		</jr:tableHeader>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement mode="Transparent" x="0" y="0" width="29" height="7" forecolor="#000000" backcolor="#FFFFFF" uuid="441103be-d142-460e-a5c7-959524de51ff"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+																					<font fontName="SansSerif" size="5" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+																					<paragraph lineSpacing="Single"/>
+																				</textElement>
+																				<text><![CDATA[Base de]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="29" height="7" uuid="514c7160-4598-46f1-a703-3d540f03f766"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[asignación]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="29" height="9" uuid="be0b55ae-cb6a-40ba-a257-091da3a63a9b"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{sum_base_asig_cons_energia}]]></textFieldExpression>
+																			</textField>
+																			<staticText>
+																				<reportElement x="0" y="9" width="29" height="9" uuid="eddbc30a-1638-421a-afd5-34d7a20d8999"/>
+																				<textElement>
+																					<font size="7"/>
+																				</textElement>
+																				<text><![CDATA[]]></text>
+																			</staticText>
+																		</jr:columnFooter>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="29" height="15" uuid="adeccf34-7992-4729-9e2c-6420b5f73a02"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{base_asig_cons_energia}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="28" uuid="16b3757b-7f94-4091-9a8e-97e1c696fa5d">
+																		<jr:tableHeader height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="28" height="7" uuid="232721c4-f8b8-4a72-8013-94e0e207461a"/>
+																				<textElement verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[CIO   DE]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="28" height="7" uuid="602d05ba-7ebc-4444-a63f-f58d3ce70c09"/>
+																				<textElement textAlignment="Right" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[ELÉCTRICA]]></text>
+																			</staticText>
+																		</jr:tableHeader>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="28" height="14" uuid="b6b9b231-ee65-47bf-8843-39920c28cf1b"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[Coefic.]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="28" height="9" uuid="3a50f640-42b9-415c-9ee6-e44d99484b65"/>
+																				<textElement>
+																					<font size="7"/>
+																				</textElement>
+																				<text><![CDATA[]]></text>
+																			</staticText>
+																			<textField>
+																				<reportElement x="0" y="9" width="28" height="9" uuid="a4a46e1f-5197-4bd1-97c7-930c10ac0bc1"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{consumo_energia}]]></textFieldExpression>
+																			</textField>
+																		</jr:columnFooter>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="28" height="15" uuid="25dea711-9d8b-4da8-8084-9e5fd989bdc4"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{coefic_cons_energia}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="28" uuid="79ec14d6-96dc-4c41-9f34-bebdf8596cbf">
+																		<jr:tableHeader height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="28" height="7" uuid="74c112d1-bf8c-43ca-b24e-d0ceddeccfae"/>
+																				<textElement verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[ENERGIA]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="28" height="7" uuid="0c59fa81-bfc5-43a0-8c51-05ea7e6f1c20"/>
+																				<textElement verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[A]]></text>
+																			</staticText>
+																		</jr:tableHeader>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="28" height="14" uuid="a0971718-d86d-4290-a44e-900a41fac5c8"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[Importe]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1"/>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="28" height="15" uuid="152e6adc-b86f-489c-aa1a-d13b1610a633"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{importe_energia}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="29" uuid="2a4d5ede-ff58-4e34-9a94-fa853b6c7896">
+																		<jr:tableHeader height="14" rowSpan="1"/>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="29" height="7" uuid="ed91674b-53a0-47c2-b198-539d1b1f5115"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5" isBold="true"/>
+																				</textElement>
+																				<text><![CDATA[Costo ]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="29" height="7" uuid="0dfe4e72-944c-4902-8ec8-5b822ef6c503"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5" isBold="true"/>
+																				</textElement>
+																				<text><![CDATA[estándar]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1"/>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="29" height="15" uuid="2c97f6ef-aa2c-4f14-9539-569a2747fddc"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{costo_energia}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="22" uuid="3c151351-75eb-46b6-9d15-4c5d1cc3c788">
+																		<jr:tableHeader height="14" rowSpan="1">
+																			<line>
+																				<reportElement x="0" y="0" width="1" height="14" uuid="e4129a2e-c853-4cd8-a1c7-15d3e35dc3d0"/>
+																			</line>
+																		</jr:tableHeader>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="22" height="7" uuid="12bddf88-cf98-466c-aea8-7378578608a4"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[Pond. de]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="22" height="7" uuid="53667bb9-94f0-4449-8005-3963be1fc15c"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[consumo]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1"/>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="22" height="15" uuid="db1c6f35-3fd6-47b9-86c1-6712d608ed56"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{ponderacion_cons_agua}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="26" uuid="4b80d381-6d30-41e0-a2cb-167bdbb01916">
+																		<jr:tableHeader height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="26" height="14" uuid="d845ef70-4083-4e30-995d-04ce4bb52796"/>
+																				<textElement textAlignment="Right" verticalAlignment="Middle">
+																					<font size="6"/>
+																				</textElement>
+																				<text><![CDATA[SERVI]]></text>
+																			</staticText>
+																		</jr:tableHeader>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="26" height="7" uuid="2a4f5309-199c-40fa-a34b-fc0e0ad2acf9"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[Base de]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="26" height="7" uuid="a85eedda-7c6f-4aea-b30d-c6a250592901"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[asignación]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="26" height="9" uuid="8f387846-abbc-45fb-8555-ca935f9c1469"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{sum_base_asig_cons_agua}]]></textFieldExpression>
+																			</textField>
+																			<staticText>
+																				<reportElement x="0" y="9" width="26" height="9" uuid="3a434b3b-dc52-4637-84ac-c2620afc2562"/>
+																				<textElement>
+																					<font size="7"/>
+																				</textElement>
+																				<text><![CDATA[]]></text>
+																			</staticText>
+																		</jr:columnFooter>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="26" height="15" uuid="60d32391-3f5d-4d6e-94f2-7b4b96efaa71"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{base_asig_cons_agua}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="25" uuid="5e0c552b-4f42-4484-8d59-ef4f1efd18f6">
+																		<jr:tableHeader height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="25" height="14" uuid="a26dd3e4-31ed-4164-bfa3-0f84e3366397"/>
+																				<textElement verticalAlignment="Middle">
+																					<font size="6"/>
+																				</textElement>
+																				<text><![CDATA[CIO  DE]]></text>
+																			</staticText>
+																		</jr:tableHeader>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="25" height="14" uuid="c47a16f5-d777-4f83-98c8-7ec06d1a6eee"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[Coefic.]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="25" height="9" uuid="a6240c1e-9b76-426c-bf3b-c074d7d2c306"/>
+																				<textElement>
+																					<font size="7"/>
+																				</textElement>
+																				<text><![CDATA[]]></text>
+																			</staticText>
+																			<textField>
+																				<reportElement x="0" y="9" width="25" height="9" uuid="c78ba8ef-fced-4769-ac06-92c224dd354b"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{consumo_agua}]]></textFieldExpression>
+																			</textField>
+																		</jr:columnFooter>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="25" height="15" uuid="7c0cdec5-8a51-400f-8066-c20f5910cf89"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{coefic_cons_agua}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="28" uuid="6fe25867-162b-4c85-8d68-4820d7f6093c">
+																		<jr:tableHeader height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="28" height="14" uuid="ef90f6ca-f881-468f-96f6-6454975b59b3"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="6"/>
+																				</textElement>
+																				<text><![CDATA[AGUA]]></text>
+																			</staticText>
+																		</jr:tableHeader>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="28" height="14" uuid="454b8a3a-c8c4-4e81-8298-cfb80336c28c"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[Importe]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1"/>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="28" height="15" uuid="842eb6c7-26e8-4437-942f-3bf09b1e82b3"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{importe_agua}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="29" uuid="ab21205c-424a-4e5a-a313-fb125dfd1f45">
+																		<jr:tableHeader height="14" rowSpan="1"/>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="29" height="7" uuid="bf9e9d5e-500f-4a4f-b94e-b0e826638c3e"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5" isBold="true"/>
+																				</textElement>
+																				<text><![CDATA[Costo]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="29" height="7" uuid="715611d7-35ac-4484-bde4-de2614e596ba"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5" isBold="true"/>
+																				</textElement>
+																				<text><![CDATA[estándar]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1"/>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="29" height="15" uuid="cbcb0081-13ae-4cda-ae2a-ce6bf93bb697"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{costo_agua}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="23" uuid="ff43de79-ba41-4989-8693-e76a32dc318c">
+																		<jr:tableHeader height="14" rowSpan="1">
+																			<line>
+																				<reportElement x="0" y="0" width="1" height="14" uuid="8bb7f487-41ee-45d9-a8a5-afd457fa1ee3"/>
+																			</line>
+																		</jr:tableHeader>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="23" height="7" uuid="4780e1ef-7e49-48ae-9bd5-a182bead7876"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[N° de]]></text>
+																			</staticText>
+																			<staticText>
+																				<reportElement x="0" y="7" width="23" height="7" uuid="e69c3800-e191-4e83-bfbe-3cd4a138a185"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="5"/>
+																				</textElement>
+																				<text><![CDATA[consultas]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1"/>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="23" height="15" uuid="0772b062-6bd6-491c-a844-a9ec515af87f"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{consultas}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="36" uuid="e87f5b96-01e7-40e8-9064-a83b7ea1f71b">
+																		<jr:tableHeader height="14" rowSpan="1"/>
+																		<jr:columnHeader style="table 33_CH" height="14" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="36" height="14" uuid="6ae3f9e9-e7ae-4d44-b1e6-f0ea985c5bfb"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[TOTAL]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:columnFooter style="table 33_CH" height="18" rowSpan="1"/>
+																		<jr:detailCell style="table 33_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="36" height="15" uuid="20dd8a57-d91e-49eb-84de-63b552ed8e7b"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																</jr:table>
+															</componentElement>
+														</jr:detailCell>
+													</jr:column>
+												</jr:table>
+											</componentElement>
+										</jr:tableHeader>
+										<jr:columnHeader height="30" rowSpan="1">
+											<componentElement>
+												<reportElement key="table 23" style="table 23" x="0" y="0" width="611" height="30" uuid="6fb2799b-eb40-4c88-913c-5e93c1638ed2"/>
+												<jr:table>
+													<datasetRun subDataset="COSTOS" uuid="85697865-c2fe-413a-91a5-b8b84fc48a8e">
+														<datasetParameter name="cod_sustentoCosto">
+															<datasetParameterExpression><![CDATA[$F{cod_sustento_costo}]]></datasetParameterExpression>
+														</datasetParameter>
+														<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+													</datasetRun>
+													<jr:column width="612" uuid="a51e79f8-f6bc-4fa5-a409-b9b35bdb6bcf">
+														<jr:tableHeader height="25" rowSpan="1">
+															<componentElement>
+																<reportElement key="table 36" style="table 36" x="0" y="0" width="612" height="25" uuid="9127eafc-d8b6-4e3b-b53f-bd4d207500b4"/>
+																<jr:table>
+																	<datasetRun subDataset="SERVICIOS_ADMINIS" uuid="35aae78f-7c0b-42e2-aa23-a930ee77fda4">
+																		<datasetParameter name="codsus_seradmin">
+																			<datasetParameterExpression><![CDATA[$F{cod_sustento_costo}]]></datasetParameterExpression>
+																		</datasetParameter>
+																		<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+																	</datasetRun>
+																	<jr:column width="90" uuid="86042101-b9f8-44ef-9aaa-c1f7c6abf30a">
+																		<jr:columnHeader height="13" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="90" height="13" uuid="8655655d-1b2d-47ce-8f98-2e2959efef21"/>
+																				<textElement textAlignment="Center" verticalAlignment="Bottom">
+																					<font size="6"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nombre_tipo_susten}]]></textFieldExpression>
+																			</textField>
+																		</jr:columnHeader>
+																		<jr:detailCell height="15" rowSpan="1"/>
+																	</jr:column>
+																	<jr:column width="170" uuid="4316d364-fa0b-46c8-b94f-ac34ef21fdde">
+																		<jr:columnHeader style="table 36_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="170" height="13" uuid="ef56b6af-9c3e-43f3-99dc-cac93f97b1fd"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[CENTRO DE COSTOS]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 36_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="170" height="15" uuid="a4acdfda-4cc4-45e5-bc41-0532897da8b6"/>
+																				<textElement textAlignment="Left" verticalAlignment="Middle">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nom_servi_va}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="157" uuid="42f56159-aa2d-43c9-ace4-2ef3a8398058">
+																		<jr:columnHeader style="table 36_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="157" height="13" uuid="178426ed-5502-4e99-a7f9-f0fa4d673ff8"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[CANTIDAD]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 36_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="157" height="15" uuid="894078ba-1792-451e-a205-571d99d6df84"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="158" uuid="fbf77939-ef74-4bad-b88c-3380cda1b458">
+																		<jr:columnHeader style="table 36_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="158" height="13" uuid="76d287db-8ae0-43f5-8278-0799e462b77d"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[PRECIO]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 36_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="158" height="15" uuid="6b474a3f-f5af-4342-b0da-f6fd528230c2"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="38" uuid="5cad56d3-9256-4b2f-a7e9-446910328b4f">
+																		<jr:columnHeader style="table 36_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="38" height="13" uuid="1906ce87-3563-4e95-8044-bf2a11dbcb21"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[TOTAL]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 36_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="38" height="15" uuid="e538d220-c6c7-4408-ad23-2fe50e9f214d"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																</jr:table>
+															</componentElement>
+														</jr:tableHeader>
+														<jr:columnHeader height="24" rowSpan="1">
+															<componentElement>
+																<reportElement key="table 37" style="table 37" x="0" y="0" width="612" height="24" uuid="636e13d8-6f20-4872-b086-040b29164139"/>
+																<jr:table>
+																	<datasetRun subDataset="SERVICIOS_GENERALES" uuid="231eb319-04e9-4e36-a62b-806a45dd862c">
+																		<datasetParameter name="codsus_ServGene">
+																			<datasetParameterExpression><![CDATA[$F{cod_sustento_costo}]]></datasetParameterExpression>
+																		</datasetParameter>
+																		<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+																	</datasetRun>
+																	<jr:column width="90" uuid="16fe0167-a069-42e7-a58a-a10ae76019b1">
+																		<jr:columnHeader height="13" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="90" height="13" uuid="b564a26a-494d-46d7-b8ba-5ba843440fd2"/>
+																				<textElement textAlignment="Center" verticalAlignment="Bottom">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nombre_tipo_susten}]]></textFieldExpression>
+																			</textField>
+																		</jr:columnHeader>
+																		<jr:detailCell height="15" rowSpan="1"/>
+																	</jr:column>
+																	<jr:column width="170" uuid="5f4ca5f9-1c3c-43c4-a447-209401cb439b">
+																		<jr:columnHeader style="table 37_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="170" height="13" uuid="9daa3c6e-9d99-40c2-8ee6-d2061bdc1368"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[CENTRO DE COSTOS]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 37_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="170" height="15" uuid="7870dc71-7781-495e-8d77-ee33b41924df"/>
+																				<textElement verticalAlignment="Middle">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nom_servi_va}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="157" uuid="fd7d8549-53e8-4989-bbef-e45bfd9799ce">
+																		<jr:columnHeader style="table 37_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="157" height="13" uuid="d60c6afc-f256-482a-a8e3-79c3055cbdb5"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[CANTIDAD]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 37_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="157" height="15" uuid="9ff35f66-f0fd-4101-9e8b-4f119d28e4af"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="158" uuid="3498b986-62c3-4637-b9f2-8b85f6466177">
+																		<jr:columnHeader style="table 37_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="158" height="13" uuid="08ccf712-1986-4b04-a35e-2d7146f7692f"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[PRECIO]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 37_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="158" height="15" uuid="ffe09857-5ec6-4428-abc9-de08173b3781"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="38" uuid="39111c08-292f-4ddf-a4d6-be55203b031a">
+																		<jr:columnHeader style="table 37_CH" height="13" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="38" height="13" uuid="a525836c-d1bb-4005-ac6a-b6cba28caf33"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[TOTAL]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 37_TD" height="15" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="38" height="15" uuid="f504baad-3121-45f7-a01a-c37b503ef9c3"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																</jr:table>
+															</componentElement>
+														</jr:columnHeader>
+														<jr:detailCell height="24" rowSpan="1">
+															<componentElement>
+																<reportElement key="table 38" style="table 38" x="0" y="0" width="612" height="24" uuid="5cf4e3c0-2fbb-4d9b-bec6-86142c8f32bb"/>
+																<jr:table>
+																	<datasetRun subDataset="SERVICIOS_INTERMEDIOS" uuid="27bcfddd-ffaa-4930-ab6d-6e0980b4ab41">
+																		<datasetParameter name="codsus_servInter">
+																			<datasetParameterExpression><![CDATA[$F{cod_sustento_costo}]]></datasetParameterExpression>
+																		</datasetParameter>
+																		<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+																	</datasetRun>
+																	<jr:column width="90" uuid="73370458-c6ca-4b1c-aaa1-8236e9fa9b25">
+																		<jr:columnHeader height="12" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="90" height="12" uuid="6e98c4a0-8cf8-46c8-bf3a-d5eb70d9ff50"/>
+																				<textElement textAlignment="Center" verticalAlignment="Bottom">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nombre_tipo_susten}]]></textFieldExpression>
+																			</textField>
+																		</jr:columnHeader>
+																		<jr:detailCell height="14" rowSpan="1"/>
+																	</jr:column>
+																	<jr:column width="170" uuid="d890f949-a36e-4d02-ac61-8b974bf6d453">
+																		<jr:columnHeader style="table 38_CH" height="12" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="170" height="12" uuid="fd529e58-8192-42d1-b069-c2f594d42457"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[CENTRO DE COSTOS]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 38_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="170" height="14" uuid="f889dc3c-eb6c-41ba-81cf-2e7655ff8911"/>
+																				<textElement verticalAlignment="Middle">
+																					<font size="7"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{nom_servi_va}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="157" uuid="1681c41e-ffe1-46a8-98f4-fc97a8603ef7">
+																		<jr:columnHeader style="table 38_CH" height="12" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="157" height="12" uuid="0d7b3d18-1f7f-40d9-872e-5d308315e0f8"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[CANTIDAD]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 38_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="157" height="14" uuid="2a737506-5fbd-4c97-8219-e30be36c62e5"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="158" uuid="f0a6c6ad-5cb9-40f4-944e-acd2a46019a9">
+																		<jr:columnHeader style="table 38_CH" height="12" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="158" height="12" uuid="c7e836b1-b758-414a-a523-190723412dc1"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[PRECIO]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 38_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="158" height="14" uuid="c077951e-e041-434d-ad01-1a5bf55f6db4"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																	<jr:column width="38" uuid="1562a0d6-a5c7-4f48-b149-c333f84b4143">
+																		<jr:columnHeader style="table 38_CH" height="12" rowSpan="1">
+																			<staticText>
+																				<reportElement x="0" y="0" width="38" height="12" uuid="d9b7ea96-ec1e-4e02-b96f-8b0cc91ac022"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<text><![CDATA[TOTAL]]></text>
+																			</staticText>
+																		</jr:columnHeader>
+																		<jr:detailCell style="table 38_TD" height="14" rowSpan="1">
+																			<textField>
+																				<reportElement x="0" y="0" width="38" height="14" uuid="6a217282-a79c-4f9c-aa92-3af0d6e39dfe"/>
+																				<textElement textAlignment="Center" verticalAlignment="Middle">
+																					<font size="8"/>
+																				</textElement>
+																				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+																			</textField>
+																		</jr:detailCell>
+																	</jr:column>
+																</jr:table>
+															</componentElement>
+														</jr:detailCell>
+													</jr:column>
+												</jr:table>
+											</componentElement>
+										</jr:columnHeader>
+										<jr:detailCell height="19" rowSpan="1">
+											<componentElement>
+												<reportElement key="table 27" style="table 27" x="0" y="0" width="611" height="19" uuid="8d63fc26-7d87-4d5c-949d-6fbb1e2acfb2"/>
+												<jr:table>
+													<datasetRun subDataset="COSTOS" uuid="f48f2e0a-f0ec-428b-aa46-e1ff4336ce9d">
+														<datasetParameter name="cod_sustentoCosto">
+															<datasetParameterExpression><![CDATA[$F{cod_sustento_costo}]]></datasetParameterExpression>
+														</datasetParameter>
+														<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+													</datasetRun>
+													<jr:column width="575" uuid="9118ea67-e588-427e-9f1c-73b543673795">
+														<jr:detailCell height="19" rowSpan="1">
+															<staticText>
+																<reportElement x="0" y="0" width="575" height="19" uuid="6a7240f6-3cfe-449f-b3fa-354876083794"/>
+																<textElement textAlignment="Center" verticalAlignment="Middle"/>
+																<text><![CDATA[TOTAL GENERAL DE GASTOS DIRECTOS E INDIRECTOS]]></text>
+															</staticText>
+														</jr:detailCell>
+													</jr:column>
+													<jr:column width="37" uuid="69cfcfe6-604a-42cf-9e4f-0ecc7ffe2de2">
+														<jr:detailCell style="table 27_TD" height="19" rowSpan="1">
+															<textField>
+																<reportElement x="0" y="0" width="37" height="19" uuid="234d9163-ab2d-4839-93d7-e844d3ae5d55"/>
+																<textElement textAlignment="Center" verticalAlignment="Middle"/>
+																<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+															</textField>
+														</jr:detailCell>
+													</jr:column>
+												</jr:table>
+											</componentElement>
+										</jr:detailCell>
+									</jr:column>
+								</jr:table>
+							</componentElement>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="55" uuid="31b860e8-267e-40d1-817d-c8b374f15ad1">
+						<jr:columnHeader style="table_CH" height="28" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="55" height="28" uuid="9d39190a-4df8-4601-80de-902f317e8dba"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[U.R.V]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="226" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="55" height="226" uuid="d47d5682-038a-4132-bbb7-00a7c058f570"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="0" y="0" width="63" height="20" uuid="97331abe-d71d-4a4d-99f5-60c176cf1dff"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICIO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="0" width="42" height="20" uuid="4e0fa62c-557c-4ee3-ada4-1194d0d4a6c1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ÁREA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="599" y="0" width="132" height="20" uuid="cf426def-6194-4d5e-9678-e4147e40a0ad"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiempo del Procedimiento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="748" y="0" width="11" height="20" uuid="12385997-15af-4a1f-9b58-084152c8c383"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<text><![CDATA[h]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="778" y="0" width="24" height="20" uuid="3cad190a-54cf-4026-aeaf-0b9fadb377da"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<text><![CDATA[min]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="23" width="166" height="20" uuid="4aba5f99-5cd1-4ca6-b624-d9c544f1a19c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTADO DEL COSTO REAL:     S/.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="385" y="0" width="204" height="20" uuid="b2445115-5bab-4112-9df1-d7d9e1227b22"/>
+				<textFieldExpression><![CDATA[$F{AR_DESC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="731" y="0" width="17" height="20" uuid="1b069621-1814-405b-bddf-487eb6758496"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{tiempo_hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="759" y="0" width="17" height="20" uuid="abc91165-2758-4538-a579-1e8d91794759"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{tiempo_min}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="213" y="23" width="62" height="20" uuid="7bbf1be1-e0e8-4276-96e1-5011e89513a0"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{TOTAL}<$F{precio})? "GANANCIA" : "PÉRDIDA"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="201" y="23" width="12" height="20" uuid="5569dd0d-5a5f-44ee-9af4-43fb61f094a3"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="23" width="12" height="20" uuid="9e83739c-22ad-47a8-9053-8ee8f044d3f4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="163" y="23" width="38" height="20" uuid="6617f952-d608-40f8-a056-afa308c3822f"/>
+				<textFieldExpression><![CDATA[$F{gananciaPerdida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="0" width="224" height="20" uuid="eb2592a9-c817-44de-bd48-d1ef82f36ed7"/>
+				<textFieldExpression><![CDATA[$F{SE_DESC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="752" y="0" width="40" height="19" uuid="794bb5b2-70e7-4f26-b422-a1a0571aabbe"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="672" y="0" width="80" height="19" uuid="fe9cfcdd-72fe-4c10-a7ac-f5873e439b9f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

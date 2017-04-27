@@ -45,6 +45,7 @@ public class ConsultorioExtCarnetPerinatalAO {
 	private String ESTADO;  
 	private String COD_USU;  
         
+
     public void ConsultoriosExtVacunasListar(int rs_id){
         String consulta="";
         try {
@@ -152,7 +153,7 @@ public class ConsultorioExtCarnetPerinatalAO {
         }
     }
         
-    public boolean mantenimientoConsultorioExtAO(String tipo,String triaje)
+    public boolean mantenimientoConsultorioExtAO(String tipo)
         {
         boolean resp = false;
         try{
@@ -188,6 +189,7 @@ public class ConsultorioExtCarnetPerinatalAO {
         }
         return resp;
     }
+
         
     public ConsultorioExtCarnetPerinatalAO() {
         Conexion con = new Conexion();

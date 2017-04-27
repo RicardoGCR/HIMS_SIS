@@ -25,9 +25,7 @@ import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
  */
 public class RegistroEmbarazo extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RegistroEmbarazo
-     */
+    String estadoSeleccion = "";
     public RegistroEmbarazo() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -72,19 +70,33 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     public void enviarDatosMadres(){        
         limpiar();
         int fila = tbMadres.getSelectedRow();
-        lblTriaje.setText(String.valueOf(tbMadres.getValueAt(fila, 0)));
-        lblActoMed.setText(String.valueOf(tbMadres.getValueAt(fila, 1)));
-        lblDni.setText(String.valueOf(tbMadres.getValueAt(fila, 2)));
-        txtPaciente.setText(String.valueOf(tbMadres.getValueAt(fila, 4)));
-        lblHc.setText(String.valueOf(tbMadres.getValueAt(fila, 3)));
-        txtIdHc.setText(String.valueOf(tbMadres.getValueAt(fila, 13)));
-        pnlControl.setVisible(true);
-        btnGuardar.setVisible(true);
-        lblMant.setText("I");
-        ConsultorioExtCarnetPerinatalCabecera consultorio1 = new ConsultorioExtCarnetPerinatalCabecera();
-        txtEstablecimiento.setText(consultorio1.nombreEstablecimiento());
-        consultorio1.mantenimientoConsultorioExtCarnetPerinatalCabecera("T",String.valueOf(tbMadres.getValueAt(fila, 0)));//para cambiar el estado de triaje de pendiente a ya atendido
-        //Listar los registro de la paciente, ACTUALES Y ANTIGUOS
+        if(estadoSeleccion.equals("enter")){
+            lblTriaje.setText(String.valueOf(tbMadres.getValueAt(fila-1, 0)));
+            lblActoMed.setText(String.valueOf(tbMadres.getValueAt(fila-1, 1)));
+            lblDni.setText(String.valueOf(tbMadres.getValueAt(fila-1, 2)));
+            txtPaciente.setText(String.valueOf(tbMadres.getValueAt(fila-1, 4)));
+            lblHc.setText(String.valueOf(tbMadres.getValueAt(fila-1, 3)));
+            txtIdHc.setText(String.valueOf(tbMadres.getValueAt(fila-1, 13)));
+            pnlControl.setVisible(true);
+            btnGuardar.setVisible(true);
+            lblMant.setText("I");
+            ConsultorioExtCarnetPerinatalCabecera consultorio1 = new ConsultorioExtCarnetPerinatalCabecera();
+            txtEstablecimiento.setText(consultorio1.nombreEstablecimiento());
+            consultorio1.mantenimientoConsultorioExtCarnetPerinatalCabecera("T",String.valueOf(tbMadres.getValueAt(fila-1, 0)));//para cambiar el estado de triaje de pendiente a ya atendido
+        } else {
+            lblTriaje.setText(String.valueOf(tbMadres.getValueAt(fila, 0)));
+            lblActoMed.setText(String.valueOf(tbMadres.getValueAt(fila, 1)));
+            lblDni.setText(String.valueOf(tbMadres.getValueAt(fila, 2)));
+            txtPaciente.setText(String.valueOf(tbMadres.getValueAt(fila, 4)));
+            lblHc.setText(String.valueOf(tbMadres.getValueAt(fila, 3)));
+            txtIdHc.setText(String.valueOf(tbMadres.getValueAt(fila, 13)));
+            pnlControl.setVisible(true);
+            btnGuardar.setVisible(true);
+            lblMant.setText("I");
+            ConsultorioExtCarnetPerinatalCabecera consultorio1 = new ConsultorioExtCarnetPerinatalCabecera();
+            txtEstablecimiento.setText(consultorio1.nombreEstablecimiento());
+            consultorio1.mantenimientoConsultorioExtCarnetPerinatalCabecera("T",String.valueOf(tbMadres.getValueAt(fila, 0)));//para cambiar el estado de triaje de pendiente a ya atendido
+        }
     }
 
     public boolean mantenimientoRegistroEmbarazo(){
@@ -2301,10 +2313,13 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             ConsultorioExtCarnetPerinatalCabecera consultorio1 = new ConsultorioExtCarnetPerinatalCabecera();
             consultorio1.consultorioExControlPerinatalCabListar(String.valueOf(tbMadres.getValueAt(fila, 13)),"AC",tbActual,"actual"); //llenar tabla de registro actuales
             consultorio1.consultorioExControlPerinatalCabListar(String.valueOf(tbMadres.getValueAt(fila, 13)),"AN",tbAntigua,"antigua"); //llenar tabla de registro antiguos
+            lblPaciente.setText(String.valueOf(tbMadres.getValueAt(fila, 4)));
             if(tbActual.getRowCount()!=0)
                 btnNuevoRegistro.setEnabled(false);
             else
                 btnNuevoRegistro.setEnabled(true);
+            BuscarMadres.dispose();
+            estadoSeleccion = "click";
         }
     }//GEN-LAST:event_tbMadresMouseClicked
 
@@ -2333,6 +2348,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                 btnNuevoRegistro.setEnabled(false);
             else
                 btnNuevoRegistro.setEnabled(true);
+            BuscarMadres.dispose();
+            estadoSeleccion = "enter";
         }
     }//GEN-LAST:event_tbMadresKeyPressed
 

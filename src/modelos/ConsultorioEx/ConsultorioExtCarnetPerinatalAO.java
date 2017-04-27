@@ -16,6 +16,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
+import vista.ConsultorioEx.RegistroEmbarazoAO;
 /**
  *
  * @author MYS1
@@ -44,7 +45,78 @@ public class ConsultorioExtCarnetPerinatalAO {
 	private String ESTADO;  
 	private String COD_USU;  
         
-//    
+ public void ConsultoriosExtAOListar(String rs_id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_LISTAR_CARNET_PERINATAL_AO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                
+                RegistroEmbarazoAO.txtGestas.setText(r.getString(3)); 
+                RegistroEmbarazoAO.txtAborto.setText(r.getString(4));
+                RegistroEmbarazoAO.txtPartos.setText(r.getString(8));
+                RegistroEmbarazoAO.txtVaginales.setText(r.getString(5));
+                RegistroEmbarazoAO.txtCesareas.setText(r.getString(9));
+                RegistroEmbarazoAO.txtRN.setText(r.getString(6));
+                RegistroEmbarazoAO.txtNacidos.setText(r.getString(10));
+                RegistroEmbarazoAO.txtViven.setText(r.getString(7));
+                RegistroEmbarazoAO.txtMuerto1.setText(r.getString(11));
+                RegistroEmbarazoAO.txtDespues.setText(r.getString(12));
+                RegistroEmbarazoAO.chk1.setText(r.getString(13));
+                RegistroEmbarazoAO.chk2.setText(r.getString(14));
+                RegistroEmbarazoAO.chk3.setText(r.getString(15));
+                RegistroEmbarazoAO.chk4.setText(r.getString(16));
+                RegistroEmbarazoAO.txtRNmayor.setText(r.getString(17));
+                RegistroEmbarazoAO.lblIdAO.setText(r.getString(1));
+
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: Consultorios AO  " + e.getMessage());
+        }
+    }
+        
+    public boolean mantenimientoConsultorioExtAO(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_AO ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getAO_ID());
+            cmd.setInt(2, getCP_ID());
+            cmd.setString(3, getAO_GESTAS());
+            cmd.setString(4, getAO_ABORTOS());
+            cmd.setString(5, getAO_VAGINALES());
+            cmd.setString(6, getAO_NAC_VIVOS());
+            cmd.setString(7, getAO_VIVEN());
+            cmd.setString(8, getAO_PARTOS());
+            cmd.setString(9, getAO_CESAREAS());
+            cmd.setString(10, getAO_NAC_MUERTOS());
+            cmd.setString(11, getAO_MUERTO_P_SEM());
+            cmd.setString(12, getAO_MUERTO_D_PSEM());
+            cmd.setString(13, getAO_PARTO_0());
+            cmd.setString(14, getAO_PARTO_2500());
+            cmd.setString(15, getAO_PARTO_MULT());
+            cmd.setString(16, getAO_PARTO_37_SEM());
+            cmd.setString(17, getAO_RN_MAYOR_PESO());
+            cmd.setString(18, getCOD_USU());
+            cmd.setString(19, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoConsultorioExtAO: " + ex.getMessage());
+        }
+        return resp;
+    }
+
         
     public ConsultorioExtCarnetPerinatalAO() {
         Conexion con = new Conexion();

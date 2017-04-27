@@ -11,6 +11,9 @@ import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.util.Locale;
 import javax.swing.JComponent;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAO;
+import static vista.ConsultorioEx.RSAIVacunas.txtFuaAmaDu;
+import static vista.ConsultorioEx.RSAIVacunas.txtFuaApoR1;
 
 /**
  *
@@ -19,6 +22,8 @@ import javax.swing.JComponent;
 public class RegistroEmbarazoAO extends javax.swing.JInternalFrame {
 private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
     private Dimension DimensionBarra = null; 
+    byte tg;
+    byte tge;
     /**
      * Creates new form RegistroEmbarazoAO
      */
@@ -26,6 +31,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         initComponents();
         QuitarLaBarraTitulo();
         this.getContentPane().setBackground(Color.WHITE);
+        mensaje.setVisible(false);
+        btneditar.setEnabled(false);
+        verificarModificar();
         LimitadorDeDocumento limitGestas = new LimitadorDeDocumento(2);
         txtGestas.setDocument(limitGestas);
         
@@ -66,6 +74,168 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         Barra.setPreferredSize(new Dimension(0,0)); 
         repaint(); 
     }
+ 
+   public void verificarModificar(){
+        
+        
+        if (!txtGestas.getText().equals("") && !txtGestas.getText().equals("") && !txtVaginales.getText().equals("")){
+            txtGestas.setEnabled(false);
+            txtAborto.setEnabled(false);
+            txtPartos.setEnabled(false);
+            txtVaginales.setEditable(false);
+            txtCesareas.setEditable(false);
+            txtRN.setEditable(false);
+            txtNacidos.setEditable(false);
+            txtViven.setEditable(false);
+            txtMuerto1.setEditable(false);
+            txtDespues.setEditable(false);
+           
+            txtRNmayor.setEditable(false);
+            btneditar.setEnabled(true);
+            btnGuardar.setEnabled(false);
+        }else{
+            txtGestas.setEditable(true);
+            txtAborto.setEditable(true);
+            txtPartos.setEditable(true);
+            txtVaginales.setEditable(true);
+            txtCesareas.setEditable(true);
+            txtRN.setEditable(true);
+            txtNacidos.setEditable(true);
+            txtViven.setEditable(true);
+            txtMuerto1.setEditable(true);
+            txtDespues.setEditable(true);
+           
+            txtRNmayor.setEditable(true); 
+            btneditar.setEnabled(true);
+        }
+        
+    }
+  public void habilitarDatos(boolean opcion){
+        txtGestas.setEditable(opcion);
+        txtAborto.setEditable(opcion);
+        txtPartos.setEditable(opcion);
+        txtVaginales.setEditable(opcion);
+        txtCesareas.setEditable(opcion);
+        txtRN.setEditable(opcion);
+        txtNacidos.setEditable(opcion);
+        txtViven.setEditable(opcion);
+        txtMuerto1.setEditable(opcion);
+        txtDespues.setEditable(opcion);
+        txtRNmayor.setEditable(opcion);
+  }
+ public void Guardar(){
+        
+    ConsultorioExtCarnetPerinatalAO CXRsAO= new ConsultorioExtCarnetPerinatalAO();
+    ConsultorioExtCarnetPerinatalAO CXRsAO2 = new ConsultorioExtCarnetPerinatalAO();
+    try {
+          if(lblMant.getText().equals("U"))
+            CXRsAO.setAO_ID(0);
+
+            CXRsAO.setCP_ID(Integer.parseInt(RegistroEmbarazoPrincipal.lblId.getText()));
+            CXRsAO.setAO_GESTAS(txtGestas.getText());
+            CXRsAO.setAO_ABORTOS(txtAborto.getText());
+            CXRsAO.setAO_VAGINALES(txtVaginales.getText());
+            CXRsAO.setAO_NAC_VIVOS(txtRN.getText());
+            CXRsAO.setAO_VIVEN(txtViven.getText());
+            CXRsAO.setAO_PARTOS(txtPartos.getText());
+            CXRsAO.setAO_CESAREAS(txtCesareas.getText());
+            CXRsAO.setAO_NAC_MUERTOS(txtNacidos.getText());
+            CXRsAO.setAO_MUERTO_P_SEM(txtMuerto1.getText());
+            CXRsAO.setAO_MUERTO_D_PSEM(txtDespues.getText());
+            CXRsAO.setAO_PARTO_0(chk1.getText());
+            CXRsAO.setAO_PARTO_2500(chk2.getText());
+            CXRsAO.setAO_PARTO_MULT(chk3.getText());
+            CXRsAO.setAO_PARTO_37_SEM(chk4.getText());
+            CXRsAO.setAO_RN_MAYOR_PESO(txtRNmayor.getText());
+            CXRsAO.setCOD_USU(lblusu.getText());//falta 
+
+            
+                if(CXRsAO.mantenimientoConsultorioExtAO("I")==true){
+                    mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(33,115,70)); 
+                    men.setText("Datos Guardados de forma correcta");
+                    b.setText("OK");
+                    b.setVisible(true);
+                    b1.setVisible(false);
+
+                    btnGuardar.setEnabled(false);
+                    btneditar.setEnabled(true);
+             
+                    tge=1;
+                    CXRsAO.ConsultoriosExtAOListar(RegistroEmbarazoPrincipal.lblId.getText());  
+
+                    habilitarDatos(false);
+                }else {
+
+                        mensaje.setVisible(true);
+                        mensaje.setBackground(new Color(255,91,70)); 
+                        men.setText("Ocurrio un error, Verifique");
+                        b.setVisible(false);
+                        b1.setVisible(false);
+                        tge=7;
+                }  
+             } catch (Exception e) {
+                System.out.println("Error: guardar " + e.getMessage());
+            }
+  
+    }
+ 
+  public void Modificar(){
+        
+    ConsultorioExtCarnetPerinatalAO CXRsAO= new ConsultorioExtCarnetPerinatalAO();
+    ConsultorioExtCarnetPerinatalAO CXRsAO2 = new ConsultorioExtCarnetPerinatalAO();
+    try {
+  
+            CXRsAO.setAO_ID(Integer.parseInt(lblIdAO.getText()));
+
+            CXRsAO.setCP_ID(Integer.parseInt(RegistroEmbarazoPrincipal.lblId.getText()));
+            CXRsAO.setAO_GESTAS(txtGestas.getText());
+            CXRsAO.setAO_ABORTOS(txtAborto.getText());
+            CXRsAO.setAO_VAGINALES(txtVaginales.getText());
+            CXRsAO.setAO_NAC_VIVOS(txtRN.getText());
+            CXRsAO.setAO_VIVEN(txtViven.getText());
+            CXRsAO.setAO_PARTOS(txtPartos.getText());
+            CXRsAO.setAO_CESAREAS(txtCesareas.getText());
+            CXRsAO.setAO_NAC_MUERTOS(txtNacidos.getText());
+            CXRsAO.setAO_MUERTO_P_SEM(txtMuerto1.getText());
+            CXRsAO.setAO_MUERTO_D_PSEM(txtDespues.getText());
+            CXRsAO.setAO_PARTO_0(chk1.getText());
+            CXRsAO.setAO_PARTO_2500(chk2.getText());
+            CXRsAO.setAO_PARTO_MULT(chk3.getText());
+            CXRsAO.setAO_PARTO_37_SEM(chk4.getText());
+            CXRsAO.setAO_RN_MAYOR_PESO(txtRNmayor.getText());
+            CXRsAO.setCOD_USU(lblusu.getText());//falta 
+
+            
+                if(CXRsAO.mantenimientoConsultorioExtAO("U")==true){
+                    mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(33,115,70)); 
+                    men.setText("Datos Actualizados de forma correcta");
+                    b.setText("OK");
+                    b.setVisible(true);
+                    b1.setVisible(false);
+
+                    btnGuardar.setEnabled(false);
+             
+                    tge=1;
+                    CXRsAO.ConsultoriosExtAOListar(RegistroEmbarazoPrincipal.lblId.getText());  
+
+                    habilitarDatos(false);
+                }else {
+
+                        mensaje.setVisible(true);
+                        mensaje.setBackground(new Color(255,91,70)); 
+                        men.setText("Ocurrio un error, Verifique");
+                        b.setVisible(false);
+                        b1.setVisible(false);
+                        tge=5;
+                }  
+             } catch (Exception e) {
+                System.out.println("Error: guardar " + e.getMessage());
+            }
+  
+    }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -122,6 +292,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel23 = new javax.swing.JLabel();
         txtRNmayor = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
+        lblIdAO = new javax.swing.JLabel();
         mensaje = new javax.swing.JPanel();
         men = new javax.swing.JLabel();
         b = new javax.swing.JButton();
@@ -139,7 +310,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jPanel37 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         btneditar = new javax.swing.JButton();
-        lblNina = new javax.swing.JLabel();
+        lblMant = new javax.swing.JLabel();
+        lbMadreAO = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -422,6 +594,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         chk3.setForeground(new java.awt.Color(102, 102, 102));
         chk3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         chk3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        chk3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         chk3.setPreferredSize(new java.awt.Dimension(18, 18));
         chk3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -440,6 +613,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         chk2.setForeground(new java.awt.Color(102, 102, 102));
         chk2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         chk2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        chk2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         chk2.setPreferredSize(new java.awt.Dimension(18, 18));
         chk2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -460,6 +634,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         chk4.setForeground(new java.awt.Color(102, 102, 102));
         chk4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         chk4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        chk4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         chk4.setPreferredSize(new java.awt.Dimension(18, 18));
         chk4.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -480,6 +655,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         chk1.setForeground(new java.awt.Color(102, 102, 102));
         chk1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         chk1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        chk1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         chk1.setPreferredSize(new java.awt.Dimension(18, 18));
         chk1.setSelectionColor(new java.awt.Color(255, 204, 51));
         chk1.addCaretListener(new javax.swing.event.CaretListener() {
@@ -648,7 +824,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtDespues.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDespues.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtDespues.setPreferredSize(new java.awt.Dimension(28, 28));
-        txtDespues.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtDespues.setSelectionColor(new java.awt.Color(255, 204, 51));
         txtDespues.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtDespuesCaretUpdate(evt);
@@ -698,7 +874,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtMuerto1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtMuerto1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtMuerto1.setPreferredSize(new java.awt.Dimension(28, 28));
-        txtMuerto1.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtMuerto1.setSelectionColor(new java.awt.Color(255, 204, 51));
         txtMuerto1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtMuerto1CaretUpdate(evt);
@@ -766,6 +942,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel22.setText("g");
 
+        lblIdAO.setBackground(new java.awt.Color(255, 255, 255));
+        lblIdAO.setText("jLabel3");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -800,11 +979,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel23)
-                .addGap(18, 18, 18)
-                .addComponent(txtRNmayor, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel22)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtRNmayor, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel22))
+                    .addComponent(lblIdAO))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -842,7 +1024,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(jLabel23)
                             .addComponent(txtRNmayor, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel22))))
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lblIdAO)
+                .addContainerGap(107, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
@@ -1044,6 +1228,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         });
 
+        lblMant.setForeground(new java.awt.Color(51, 51, 51));
+        lblMant.setText("I");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1073,7 +1260,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                 .addComponent(ChkEdad1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel37))))
-                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lblMant)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1082,7 +1272,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(100, 100, 100)
+                .addGap(35, 35, 35)
+                .addComponent(lblMant)
+                .addGap(51, 51, 51)
                 .addComponent(btnGuardar)
                 .addGap(18, 18, 18)
                 .addComponent(btneditar)
@@ -1103,12 +1295,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGap(249, 249, 249))
         );
 
-        lblNina.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
-        lblNina.setForeground(new java.awt.Color(12, 97, 81));
-        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Embarazada Filled-60.png"))); // NOI18N
-        lblNina.setText("Martha Arias Torres");
-        lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        lbMadreAO.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
+        lbMadreAO.setForeground(new java.awt.Color(12, 97, 81));
+        lbMadreAO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Embarazada Filled-60.png"))); // NOI18N
+        lbMadreAO.setText("Martha Arias Torres");
+        lbMadreAO.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbMadreAO.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1125,7 +1317,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lbMadreAO, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1133,7 +1325,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(lblNina)
+                .addComponent(lbMadreAO)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
@@ -1227,12 +1419,23 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_jLabel32MouseClicked
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-     
-      
+     btnGuardar.setEnabled(true);
+     habilitarDatos(true);
+     tg=2;
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
-       
+         if (tge==3 || tge==1){
+   mensaje.setVisible(false);  
+
+   }
+        
+        if (tge==2){
+        Modificar();
+
+        btneditar.setEnabled(false);
+
+   }  
     }//GEN-LAST:event_bActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
@@ -1240,11 +1443,25 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_b1ActionPerformed
 
     private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
-       
+       ConsultorioExtCarnetPerinatalAO AO1 = new ConsultorioExtCarnetPerinatalAO();
+        AO1.ConsultoriosExtAOListar("2");     
     }//GEN-LAST:event_btnCaccnelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-
+       tg=1;
+       if(tg==1){
+             Guardar();  
+           
+        }
+        if(tg==2){
+           mensaje.setVisible(true);
+           mensaje.setBackground(new Color(255,153,51)); 
+           men.setText("Desea Actualizar el Registro ?");
+           b.setText("Si");
+           b.setVisible(true);
+           b1.setVisible(true); 
+           tge=2;
+        }       
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void ChkAnalf1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_ChkAnalf1CaretUpdate
@@ -1404,7 +1621,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    public static javax.swing.JLabel lblNina;
+    public static javax.swing.JLabel lbMadreAO;
+    public static javax.swing.JLabel lblIdAO;
+    private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblusu;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;

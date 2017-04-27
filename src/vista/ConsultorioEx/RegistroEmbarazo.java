@@ -1350,7 +1350,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     txtEstablecimiento.setEditable(false);
                     txtEstablecimiento.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
                     txtEstablecimiento.setForeground(new java.awt.Color(102, 102, 102));
-                    txtEstablecimiento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+                    txtEstablecimiento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                     txtEstablecimiento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
                     txtEstablecimiento.addCaretListener(new javax.swing.event.CaretListener() {
                         public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1949,7 +1949,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addContainerGap())
                     );
 

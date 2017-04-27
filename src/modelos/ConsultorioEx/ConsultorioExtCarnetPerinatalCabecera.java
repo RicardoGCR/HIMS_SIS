@@ -91,6 +91,26 @@ public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
         return cod;
     }
     
+    public String nombreEstablecimiento()
+    {
+        String establecimiento="";
+        try
+        {
+            String sql = "SELECT TOP 1 UE_DESC FROM SISTEMA_UNIDAD_EJECUTORA";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               establecimiento = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("perinatalCabeceraID: " + ex.getMessage());
+        }
+        return establecimiento;
+    }
+    
     public void mostrarDatosHC(String id_hc){
         String consulta="";
         try {

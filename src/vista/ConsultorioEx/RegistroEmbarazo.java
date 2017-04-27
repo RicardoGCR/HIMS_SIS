@@ -49,8 +49,27 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         lblTriaje.setVisible(false);
         lblId.setVisible(false);
     }
+    
+    public void limpiar(){
+        txtEstabOrigen.setText("");
+        chkNoAplica.setText("");
+        chkRef.setText("");
+        txtEstablecimiento.setText("");
+        chkSis.setSelected(false);
+        chkEssalud.setSelected(false);
+        chkPrivado.setSelected(false);
+        txtCodigo.setText("");
+        ChkAnalf.setText("");
+        Chkprim.setText("");
+        ChkSec.setText("");
+        ChkSup.setText("");
+        ChkSupnU.setText("");
+        ChkAnAp.setText("");
+        txtPadreRN.setText("");
+    }
 
-    public void enviarDatosMadres(){
+    public void enviarDatosMadres(){        
+        limpiar();
         int fila = tbMadres.getSelectedRow();
         lblTriaje.setText(String.valueOf(tbMadres.getValueAt(fila, 0)));
         lblActoMed.setText(String.valueOf(tbMadres.getValueAt(fila, 1)));
@@ -62,6 +81,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         btnGuardar.setVisible(true);
         lblMant.setText("I");
         ConsultorioExtCarnetPerinatalCabecera consultorio1 = new ConsultorioExtCarnetPerinatalCabecera();
+        txtEstablecimiento.setText(consultorio1.nombreEstablecimiento());
         consultorio1.mantenimientoConsultorioExtCarnetPerinatalCabecera("T",String.valueOf(tbMadres.getValueAt(fila, 0)));
     }
 
@@ -73,12 +93,41 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             if(lblMant.getText().equals("U") || lblMant.getText().equals("E"))
                 consultorio1.setCpId(Integer.parseInt(lblId.getText()));
             consultorio1.setIdHc(txtIdHc.getText());
+            consultorio1.setCpEstbOrigen(txtEstabOrigen.getText());
             consultorio1.setCpAniosAprob(ChkAnAp.getText());
+            consultorio1.setCpEstbAct(txtEstablecimiento.getText());
+            if(chkSis.isSelected())
+                consultorio1.setCpTipoSeguro("SIS");
+            else
+            if(chkEssalud.isSelected())
+                consultorio1.setCpTipoSeguro("ESSALUD");
+            else
+            if(chkPrivado.isSelected())
+                consultorio1.setCpTipoSeguro("PRIVADO");
+            consultorio1.setCpEdad(lblEdad.getText());
+            consultorio1.setCpCodigoAfil(txtCodigo.getText());
+            if(ChkAnalf.getText().equals("X"))
+                consultorio1.setCpEstudios("Analfabeta");
+            else
+            if(Chkprim.getText().equals("X"))
+                consultorio1.setCpEstudios("Primaria");
+            else
+            if(ChkSec.getText().equals("X"))
+                consultorio1.setCpEstudios("Secundaria");
+            else
+            if(ChkSup.getText().equals("X"))
+                consultorio1.setCpEstudios("Superior");
+            else
+            if(ChkSupnU.getText().equals("X"))
+                consultorio1.setCpEstudios("Superior No Univ.");
+            consultorio1.setCpPadreRn(txtPadreRN.getText());
             consultorio1.setCodUsu(adEmerCab.codUsuario(lblusu.getText()));
             if(consultorio1.mantenimientoConsultorioExtCarnetPerinatalCabecera(lblMant.getText(),lblTriaje.getText())==true){
                 System.out.println("ID CARNET PERINATAL CABECERA: " + Integer.parseInt(consultorio1.perinatalCabeceraID()));
                 RegistroEmbarazoPrincipal GA =new RegistroEmbarazoPrincipal();
                 Contenedor.add(GA);
+                RegistroEmbarazoPrincipal.lblId.setText(consultorio1.perinatalCabeceraID());
+                RegistroEmbarazoPrincipal.lblNina.setText(txtPaciente.getText());
                 try {
                     GA.setMaximum(true);
                 } catch (PropertyVetoException ex) {

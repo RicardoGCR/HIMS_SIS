@@ -6,91 +6,101 @@
 package modelos.ConsultorioEx;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.table.DefaultTableModel;
+import servicios.Conexion;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_CARNET_PERINATAL_VP")
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalVp.findAll", query = "SELECT c FROM ConsultorioExtCarnetPerinatalVp c")})
 public class ConsultorioExtCarnetPerinatalVp implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "VP_ID")
-    private Long vpId;
-    @Column(name = "VP_RUBEOLA")
-    private Character vpRubeola;
-    @Column(name = "VP_HEPATITIS")
-    private Character vpHepatitis;
-    @Column(name = "VP_PAPILOMA")
-    private Character vpPapiloma;
-    @Column(name = "VP_FIEBRE")
-    private Character vpFiebre;
-    @Column(name = "FECHA_ACTU")
+    DefaultTableModel m;
+    Conexion con = new Conexion();
+    private Connection cn;
+    private int cpId;
+    private int vpId;
+    private String vpRubeola;
+    private String vpHepatitis;
+    private String vpPapiloma;
+    private String vpFiebre;
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "ESTADO")
     private Character estado;
-    @Column(name = "COD_USU")
     private String codUsu;
 
+    public boolean mantenimientoConsultorioExtCarnetPerinatalVp(String tipo,String triaje)
+        {
+        boolean resp = false;
+        try{
+            String sql = "[CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_VP] ?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getVpId());
+            cmd.setInt(2, getCpId());
+            cmd.setString(3, getVpRubeola());
+            cmd.setString(4, getVpHepatitis());
+            cmd.setString(5, getVpPapiloma());
+            cmd.setString(6, getVpFiebre());
+            cmd.setString(7, getCodUsu());
+            cmd.setString(8, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoConsultorioExtCarnetPerinatalVp: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public ConsultorioExtCarnetPerinatalVp() {
+        Conexion con = new Conexion();
+        cn = con.conectar();
     }
 
-    public ConsultorioExtCarnetPerinatalVp(Long vpId) {
+    public ConsultorioExtCarnetPerinatalVp(int vpId) {
         this.vpId = vpId;
     }
 
-    public Long getVpId() {
+    public int getVpId() {
         return vpId;
     }
 
-    public void setVpId(Long vpId) {
+    public void setVpId(int vpId) {
         this.vpId = vpId;
     }
 
-    public Character getVpRubeola() {
+    public String getVpRubeola() {
         return vpRubeola;
     }
 
-    public void setVpRubeola(Character vpRubeola) {
+    public void setVpRubeola(String vpRubeola) {
         this.vpRubeola = vpRubeola;
     }
 
-    public Character getVpHepatitis() {
+    public String getVpHepatitis() {
         return vpHepatitis;
     }
 
-    public void setVpHepatitis(Character vpHepatitis) {
+    public void setVpHepatitis(String vpHepatitis) {
         this.vpHepatitis = vpHepatitis;
     }
 
-    public Character getVpPapiloma() {
+    public String getVpPapiloma() {
         return vpPapiloma;
     }
 
-    public void setVpPapiloma(Character vpPapiloma) {
+    public void setVpPapiloma(String vpPapiloma) {
         this.vpPapiloma = vpPapiloma;
     }
 
-    public Character getVpFiebre() {
+    public String getVpFiebre() {
         return vpFiebre;
     }
 
-    public void setVpFiebre(Character vpFiebre) {
+    public void setVpFiebre(String vpFiebre) {
         this.vpFiebre = vpFiebre;
     }
 
@@ -133,30 +143,33 @@ public class ConsultorioExtCarnetPerinatalVp implements Serializable {
     public void setCodUsu(String codUsu) {
         this.codUsu = codUsu;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (vpId != null ? vpId.hashCode() : 0);
-        return hash;
+    
+    /**
+     * @return the cn
+     */
+    public Connection getCn() {
+        return cn;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ConsultorioExtCarnetPerinatalVp)) {
-            return false;
-        }
-        ConsultorioExtCarnetPerinatalVp other = (ConsultorioExtCarnetPerinatalVp) object;
-        if ((this.vpId == null && other.vpId != null) || (this.vpId != null && !this.vpId.equals(other.vpId))) {
-            return false;
-        }
-        return true;
+    /**
+     * @param cn the cn to set
+     */
+    public void setCn(Connection cn) {
+        this.cn = cn;
     }
 
-    @Override
-    public String toString() {
-        return "modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalVp[ vpId=" + vpId + " ]";
+    /**
+     * @return the cpId
+     */
+    public int getCpId() {
+        return cpId;
+    }
+
+    /**
+     * @param cpId the cpId to set
+     */
+    public void setCpId(int cpId) {
+        this.cpId = cpId;
     }
     
 }

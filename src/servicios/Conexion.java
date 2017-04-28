@@ -17,7 +17,10 @@ import javax.swing.JOptionPane;
  * @author Profe
  */
 public class Conexion {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6ee212cbb5c96ee7dbbd05032ec08e68f84fb49b
     static String servidor="192.168.1.33";
     static String puerto="1433";
     static String user="sa";

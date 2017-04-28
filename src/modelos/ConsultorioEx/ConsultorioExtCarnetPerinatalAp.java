@@ -7,99 +7,49 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_CARNET_PERINATAL_AP")
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalAp.findAll", query = "SELECT c FROM ConsultorioExtCarnetPerinatalAp c")})
 public class ConsultorioExtCarnetPerinatalAp implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "AP_ID")
+
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private int cpId;
     private int apId;
-    @Column(name = "AP_1")
     private Character ap1;
-    @Column(name = "AP_2")
     private Character ap2;
-    @Column(name = "AP_3")
     private Character ap3;
-    @Column(name = "AP_4")
     private Character ap4;
-    @Column(name = "AP_5")
     private Character ap5;
-    @Column(name = "AP_6")
     private Character ap6;
-    @Column(name = "AP_7")
     private Character ap7;
-    @Column(name = "AP_8")
     private Character ap8;
-    @Column(name = "AP_9")
     private Character ap9;
-    @Column(name = "AP_10")
     private Character ap10;
-    @Column(name = "AP_11")
     private Character ap11;
-    @Column(name = "AP_12")
     private Character ap12;
-    @Column(name = "AP_13")
     private Character ap13;
-    @Column(name = "AP_14")
     private Character ap14;
-    @Column(name = "AP_15")
     private Character ap15;
-    @Column(name = "AP_16")
     private Character ap16;
-    @Column(name = "AP_17")
     private Character ap17;
-    @Column(name = "AP_18")
     private Character ap18;
-    @Column(name = "AP_19")
     private Character ap19;
-    @Column(name = "AP_20")
     private Character ap20;
-    @Column(name = "AP_21")
     private Character ap21;
-    @Column(name = "AP_22")
     private Character ap22;
-    @Column(name = "AP_23")
     private Character ap23;
-    @Column(name = "AP_24")
     private Character ap24;
-    @Column(name = "AP_25")
     private Character ap25;
-    @Column(name = "AP_26")
     private Character ap26;
-    @Column(name = "AP_27")
     private Character ap27;
-    @Column(name = "AP_28")
     private Character ap28;
-    @Column(name = "FECHA_ACTU")
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "ESTADO")
     private Character estado;
-    @Column(name = "COD_USU")
     private String codUsu;
 
     public ConsultorioExtCarnetPerinatalAp() {

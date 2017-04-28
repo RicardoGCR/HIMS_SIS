@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JComponent;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAO;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAn;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFd;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalPt;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalTs;
 import static vista.ConsultorioEx.RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId;
@@ -1469,6 +1470,21 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "fumaDroga";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
+        ConsultorioExtCarnetPerinatalFd FD = new ConsultorioExtCarnetPerinatalFd();
+        FD.ConsultoriosExtFdListar(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.getText());
+        if(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdFd.getText().equals("")){
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMantFd.setText("I");
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNCigarros.setEditable(true);
+        }else{
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMantFd.setText("U");
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNCigarros.setEditable(false);
+        }
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {

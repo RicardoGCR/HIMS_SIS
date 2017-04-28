@@ -204,22 +204,17 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             ConsultorioExtCarnetPerinatalFd consultorio1 = new ConsultorioExtCarnetPerinatalFd();
             AdmisionEmergenciaCabecera adEmerCab = new AdmisionEmergenciaCabecera();
             consultorio1.setFdNCigarros(txtNCigarros.getText());
-            consultorio1.setFdDroga(title);
+            if(chkFdSi.getText().equals(""))
+                consultorio1.setFdDroga("SI");
+            if(chkFdNo.getText().equals(""))
+                consultorio1.setFdDroga("NO");
             consultorio1.setCodUsu(adEmerCab.codUsuario(lblusu.getText()));
-            if(consultorio1.mantenimientoConsultorioExtCarnetPerinatalTs(lblMantGs.getText())==true){
-                if(lblMantGs.getText().equals("I")){
-                    lblIdGs.setText(consultorio1.perinatalTsID());
+            if(consultorio1.mantenimientoConsultorioExtCarnetPerinatalFd(lblMantFd.getText())==true){
+                if(lblMantFd.getText().equals("I")){
+                    lblIdFd.setText(consultorio1.perinatalFdID());
 //                    lblMantGs.setText("U");
                 }
-                lblMantGs.setText("");
-                txtRhNegativo.setEditable(false);
-                txtNoDesc.setEditable(false);
-                txtRhSen.setEditable(false);
-                txtRhPositivo.setEditable(false);
-                txtO.setEditable(false);
-                txtAB.setEditable(false);
-                txtB.setEditable(false);
-                txtA.setEditable(false);
+                lblMantFd.setText("");
                 pnlMensaje.setVisible(true);
                 lblMensaje.setText("Datos guardados de forma correcta");
                 btnGuardar.setEnabled(false);

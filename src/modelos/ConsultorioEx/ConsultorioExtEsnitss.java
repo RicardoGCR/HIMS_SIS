@@ -9,13 +9,7 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -28,81 +22,54 @@ import servicios.Conexion;
  *
  * @author PC02
  */
-@Entity
-@Table(name = "CONSULTORIO_EXT_ESNITSS")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtEsnitss.findAll", query = "SELECT c FROM ConsultorioExtEsnitss c"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsId", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esId = :esId"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsCodigoPac", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esCodigoPac = :esCodigoPac"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsTenofovir", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esTenofovir = :esTenofovir"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsZidobudina", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esZidobudina = :esZidobudina"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsAbacavir", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esAbacavir = :esAbacavir"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsLamivudina", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esLamivudina = :esLamivudina"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsEfavirenz", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esEfavirenz = :esEfavirenz"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsNevirapina", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esNevirapina = :esNevirapina"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsRitonavir", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esRitonavir = :esRitonavir"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsAtazanavir", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esAtazanavir = :esAtazanavir"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsRateigravir", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esRateigravir = :esRateigravir"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsDuobir", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esDuobir = :esDuobir"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsDuovirN", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esDuovirN = :esDuovirN"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsKelatra", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esKelatra = :esKelatra"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsCotrimoxazol", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esCotrimoxazol = :esCotrimoxazol"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEsInh", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.esInh = :esInh"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByFechaActu", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.fechaActu = :fechaActu"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByHoraActu", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.horaActu = :horaActu"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByNomPc", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.nomPc = :nomPc"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByEstado", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.estado = :estado"),
-    @NamedQuery(name = "ConsultorioExtEsnitss.findByCodUsu", query = "SELECT c FROM ConsultorioExtEsnitss c WHERE c.codUsu = :codUsu")})
+
 public class ConsultorioExtEsnitss implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "ES_ID")
+
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private int esId;
     private String idHc;
-    @Column(name = "ES_CODIGO_PAC")
+
     private String esCodigoPac;
-    @Column(name = "ES_TENOFOVIR")
+
     private String esTenofovir;
-    @Column(name = "ES_ZIDOBUDINA")
+
     private String esZidobudina;
-    @Column(name = "ES_ABACAVIR")
+
     private String esAbacavir;
-    @Column(name = "ES_LAMIVUDINA")
+
     private String esLamivudina;
-    @Column(name = "ES_EFAVIRENZ")
+
     private String esEfavirenz;
-    @Column(name = "ES_NEVIRAPINA")
+
     private String esNevirapina;
-    @Column(name = "ES_RITONAVIR")
+
     private String esRitonavir;
-    @Column(name = "ES_ATAZANAVIR")
+
     private String esAtazanavir;
-    @Column(name = "ES_RATEIGRAVIR")
+
     private String esRateigravir;
-    @Column(name = "ES_DUOBIR")
+  
     private String esDuobir;
-    @Column(name = "ES_DUOVIR_N")
+
     private String esDuovirN;
-    @Column(name = "ES_KELATRA")
+
     private String esKelatra;
-    @Column(name = "ES_COTRIMOXAZOL")
+
     private String esCotrimoxazol;
-    @Column(name = "ES_INH")
+
     private String esInh;
-    @Column(name = "FECHA_ACTU")
+
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
+
     private String horaActu;
-    @Column(name = "NOM_PC")
+
     private String nomPc;
-    @Column(name = "ESTADO")
+
     private Character estado;
-    @Column(name = "COD_USU")
+
     private String codUsu;
 
     public boolean mantenimientoConsultorioExtEsnitss(String tipo,String triaje)
@@ -180,7 +147,8 @@ public class ConsultorioExtEsnitss implements Serializable {
         tabla.getColumnModel().getColumn(9).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(10).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(11).setPreferredWidth(50);
-        tabla.getColumnModel().getColumn(12).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(12).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(13).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(14).setPreferredWidth(0);
         tabla.getColumnModel().getColumn(15).setPreferredWidth(0);
         tabla.setRowHeight(30);
@@ -189,7 +157,11 @@ public class ConsultorioExtEsnitss implements Serializable {
             columna.setMinWidth(0);
             columna.setPreferredWidth(0);
             tabla.doLayout();
-            
+        TableColumn columna13 = tabla.getColumnModel().getColumn(13);
+            columna13.setMaxWidth(0);
+            columna13.setMinWidth(0);
+            columna13.setPreferredWidth(0);
+            tabla.doLayout();
         TableColumn columna14 = tabla.getColumnModel().getColumn(14);
             columna14.setMaxWidth(0);
             columna14.setMinWidth(0);

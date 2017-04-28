@@ -2137,11 +2137,12 @@
             <Component class="javax.swing.JComboBox" name="cbxEstadoCivil">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="5">
                     <StringItem index="0" value="Soltero(a)"/>
                     <StringItem index="1" value="Casado(a)"/>
                     <StringItem index="2" value="Viudo(a)"/>
-                    <StringItem index="3" value="Divorciado(a)"/>
+                    <StringItem index="3" value="Divorciado(a),"/>
+                    <StringItem index="4" value="Conviviente"/>
                   </StringArray>
                 </Property>
               </Properties>

@@ -239,13 +239,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jPanel2 = new javax.swing.JPanel();
         var = new javax.swing.JLabel();
         panelVacunas = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
         txtHS = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -276,7 +273,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         men = new javax.swing.JLabel();
         b = new javax.swing.JButton();
         b1 = new javax.swing.JButton();
-        lblMadreGA = new javax.swing.JLabel();
+        lblMadreVP = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -288,35 +285,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
         panelVacunas.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 96, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
-        );
-
         jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(51, 51, 51));
         jLabel39.setText("<html>Papiloma<br>  Virus</br></html>");
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 96, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
-        );
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(51, 51, 51));
@@ -330,19 +301,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel27.setForeground(new java.awt.Color(51, 51, 51));
         jLabel27.setText("Rubeola");
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 96, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
-        );
-
         txtHS.setEditable(false);
         txtHS.setBackground(new java.awt.Color(255, 255, 255));
         txtHS.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -355,6 +313,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtHS.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtHSCaretUpdate(evt);
+            }
+        });
+        txtHS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtHSMouseClicked(evt);
             }
         });
 
@@ -378,6 +341,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 txtHNCaretUpdate(evt);
             }
         });
+        txtHN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtHNMouseClicked(evt);
+            }
+        });
 
         txtRN.setEditable(false);
         txtRN.setBackground(new java.awt.Color(255, 255, 255));
@@ -391,6 +359,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtRN.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtRNCaretUpdate(evt);
+            }
+        });
+        txtRN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtRNMouseClicked(evt);
             }
         });
 
@@ -409,6 +382,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtRS.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtRSCaretUpdate(evt);
+            }
+        });
+        txtRS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtRSMouseClicked(evt);
             }
         });
 
@@ -432,6 +410,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 txtPSCaretUpdate(evt);
             }
         });
+        txtPS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtPSMouseClicked(evt);
+            }
+        });
 
         jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel41.setText("NO");
@@ -450,6 +433,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 txtPNCaretUpdate(evt);
             }
         });
+        txtPN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtPNMouseClicked(evt);
+            }
+        });
 
         txtFS.setEditable(false);
         txtFS.setBackground(new java.awt.Color(255, 255, 255));
@@ -463,6 +451,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtFS.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFSCaretUpdate(evt);
+            }
+        });
+        txtFS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtFSMouseClicked(evt);
             }
         });
 
@@ -486,13 +479,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 txtFNCaretUpdate(evt);
             }
         });
+        txtFN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtFNMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelVacunasLayout = new javax.swing.GroupLayout(panelVacunas);
         panelVacunas.setLayout(panelVacunasLayout);
         panelVacunasLayout.setHorizontalGroup(
             panelVacunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelVacunasLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelVacunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelVacunasLayout.createSequentialGroup()
                         .addComponent(jLabel27)
@@ -526,7 +524,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addComponent(txtPN, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVacunasLayout.createSequentialGroup()
                         .addComponent(jLabel28)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtHS, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -534,33 +532,24 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtHN, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(156, 156, 156)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(675, 675, 675))
         );
         panelVacunasLayout.setVerticalGroup(
             panelVacunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelVacunasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelVacunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelVacunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(panelVacunasLayout.createSequentialGroup()
-                            .addGap(2, 2, 2)
-                            .addComponent(jLabel27)))
-                    .addGroup(panelVacunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelVacunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtRN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGroup(panelVacunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtRS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))))
+                .addGroup(panelVacunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelVacunasLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVacunasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelVacunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelVacunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtRN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2))
+                            .addGroup(panelVacunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtRS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1)))))
                 .addGap(35, 35, 35)
                 .addGroup(panelVacunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
@@ -592,19 +581,19 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelVacunas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addComponent(var, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(var, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panelVacunas, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(panelVacunas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(var, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(43, 43, 43))
         );
@@ -736,7 +725,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGap(18, 18, 18)
                 .addComponent(btneditar)
                 .addGap(18, 18, 18)
-                .addComponent(btnCaccnelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCaccnelar)
                 .addGap(47, 47, 47)
                 .addComponent(lblIdVP, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -800,12 +789,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        lblMadreGA.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
-        lblMadreGA.setForeground(new java.awt.Color(12, 97, 81));
-        lblMadreGA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Embarazada Filled-60.png"))); // NOI18N
-        lblMadreGA.setText("Martha Arias Torres");
-        lblMadreGA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblMadreGA.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        lblMadreVP.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
+        lblMadreVP.setForeground(new java.awt.Color(12, 97, 81));
+        lblMadreVP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Embarazada Filled-60.png"))); // NOI18N
+        lblMadreVP.setText("Martha Arias Torres");
+        lblMadreVP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMadreVP.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -814,20 +803,20 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblMadreGA, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMadreVP, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(77, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(lblMadreGA)
+                .addComponent(lblMadreVP)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -935,6 +924,126 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRNCaretUpdate
 
+    private void txtRSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRSMouseClicked
+        if (lblIdVP.getText().equals("")|| lblMant.getText().equals("U")){
+       if(txtRS.getText().equals("") && evt.getClickCount()==1){
+           txtRS.setText("X");
+           txtRN.setText(""); 
+  
+        }else
+        if(txtRS.getText().equals("X") && evt.getClickCount()==1){
+           txtRS.setText(""); 
+           txtRN.setText(""); 
+
+        }
+          }
+    }//GEN-LAST:event_txtRSMouseClicked
+
+    private void txtRNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRNMouseClicked
+        if (lblIdVP.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtRN.getText().equals("") && evt.getClickCount()==1){
+           txtRN.setText("X");
+           txtRS.setText(""); 
+  
+        }else
+        if(txtRN.getText().equals("X") && evt.getClickCount()==1){
+           txtRN.setText(""); 
+           txtRS.setText(""); 
+
+        }
+          }
+    }//GEN-LAST:event_txtRNMouseClicked
+
+    private void txtHSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHSMouseClicked
+        if (lblIdVP.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtHS.getText().equals("") && evt.getClickCount()==1){
+           txtHS.setText("X");
+           txtHN.setText(""); 
+  
+        }else
+        if(txtHS.getText().equals("X") && evt.getClickCount()==1){
+           txtHS.setText(""); 
+           txtHN.setText(""); 
+
+        }
+          }
+    }//GEN-LAST:event_txtHSMouseClicked
+
+    private void txtHNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHNMouseClicked
+        if (lblIdVP.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtHN.getText().equals("") && evt.getClickCount()==1){
+           txtHN.setText("X");
+           txtHS.setText(""); 
+  
+        }else
+        if(txtHN.getText().equals("X") && evt.getClickCount()==1){
+           txtHN.setText(""); 
+           txtHS.setText(""); 
+
+        }
+          }
+    }//GEN-LAST:event_txtHNMouseClicked
+
+    private void txtPSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPSMouseClicked
+        if (lblIdVP.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtPS.getText().equals("") && evt.getClickCount()==1){
+           txtPS.setText("X");
+           txtPN.setText(""); 
+  
+        }else
+        if(txtPS.getText().equals("X") && evt.getClickCount()==1){
+           txtPS.setText(""); 
+           txtPN.setText(""); 
+
+        }
+          }
+    }//GEN-LAST:event_txtPSMouseClicked
+
+    private void txtFSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFSMouseClicked
+        if (lblIdVP.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtFS.getText().equals("") && evt.getClickCount()==1){
+           txtFS.setText("X");
+           txtFN.setText(""); 
+  
+        }else
+        if(txtFS.getText().equals("X") && evt.getClickCount()==1){
+           txtFS.setText(""); 
+           txtFN.setText(""); 
+
+        }
+          }
+    }//GEN-LAST:event_txtFSMouseClicked
+
+    private void txtPNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPNMouseClicked
+        if (lblIdVP.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtPN.getText().equals("") && evt.getClickCount()==1){
+           txtPN.setText("X");
+           txtPS.setText(""); 
+  
+        }else
+        if(txtPN.getText().equals("X") && evt.getClickCount()==1){
+           txtPN.setText(""); 
+           txtPS.setText(""); 
+
+        }
+          }
+    }//GEN-LAST:event_txtPNMouseClicked
+
+    private void txtFNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFNMouseClicked
+        if (lblIdVP.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtFN.getText().equals("") && evt.getClickCount()==1){
+           txtFN.setText("X");
+           txtFS.setText(""); 
+  
+        }else
+        if(txtFN.getText().equals("X") && evt.getClickCount()==1){
+           txtFN.setText(""); 
+           txtFS.setText(""); 
+
+        }
+          }
+    }//GEN-LAST:event_txtFNMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b;
@@ -958,12 +1067,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel37;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     public static javax.swing.JLabel lblIdVP;
-    public static javax.swing.JLabel lblMadreGA;
+    public static javax.swing.JLabel lblMadreVP;
     private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblusu;
     private javax.swing.JLabel men;

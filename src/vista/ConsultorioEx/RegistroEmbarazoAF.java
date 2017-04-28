@@ -283,6 +283,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 txtAf8CaretUpdate(evt);
             }
         });
+        txtAf8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAf8MouseClicked(evt);
+            }
+        });
 
         txtAf9.setEditable(false);
         txtAf9.setBackground(new java.awt.Color(255, 204, 51));
@@ -296,6 +301,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtAf9.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtAf9CaretUpdate(evt);
+            }
+        });
+        txtAf9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAf9MouseClicked(evt);
             }
         });
 
@@ -321,6 +331,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 txtAf10CaretUpdate(evt);
             }
         });
+        txtAf10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAf10MouseClicked(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(51, 51, 51));
@@ -340,6 +355,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 txtAf11CaretUpdate(evt);
             }
         });
+        txtAf11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAf11MouseClicked(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(51, 51, 51));
@@ -357,6 +377,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtAf12.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtAf12CaretUpdate(evt);
+            }
+        });
+        txtAf12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAf12MouseClicked(evt);
             }
         });
 
@@ -1059,6 +1084,81 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         }
     }//GEN-LAST:event_txtAf7MouseClicked
 
+    private void txtAf8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAf8MouseClicked
+         if (lblIdAF.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtAf8.getText().equals("") && evt.getClickCount()==1){
+           txtAf8.setText("X");
+        }else
+        if(txtAf8.getText().equals("X") && evt.getClickCount()==1){
+           txtAf8.setText(""); 
+        }
+        
+        if(txtAf1.getText().equals("X") && evt.getClickCount()==1){
+           txtAf8.setText(""); 
+        }
+        }
+    }//GEN-LAST:event_txtAf8MouseClicked
+
+    private void txtAf9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAf9MouseClicked
+         if (lblIdAF.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtAf9.getText().equals("") && evt.getClickCount()==1){
+           txtAf9.setText("X");
+        }else
+        if(txtAf9.getText().equals("X") && evt.getClickCount()==1){
+           txtAf9.setText(""); 
+        }
+        
+        if(txtAf1.getText().equals("X") && evt.getClickCount()==1){
+           txtAf9.setText(""); 
+        }
+        }
+    }//GEN-LAST:event_txtAf9MouseClicked
+
+    private void txtAf10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAf10MouseClicked
+         if (lblIdAF.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtAf10.getText().equals("") && evt.getClickCount()==1){
+           txtAf10.setText("X");
+        }else
+        if(txtAf10.getText().equals("X") && evt.getClickCount()==1){
+           txtAf10.setText(""); 
+        }
+        
+        if(txtAf1.getText().equals("X") && evt.getClickCount()==1){
+           txtAf10.setText(""); 
+        }
+        }
+    }//GEN-LAST:event_txtAf10MouseClicked
+
+    private void txtAf11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAf11MouseClicked
+         if (lblIdAF.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtAf11.getText().equals("") && evt.getClickCount()==1){
+           txtAf11.setText("X");
+        }else
+        if(txtAf11.getText().equals("X") && evt.getClickCount()==1){
+           txtAf11.setText(""); 
+        }
+        
+        if(txtAf1.getText().equals("X") && evt.getClickCount()==1){
+           txtAf11.setText(""); 
+        }
+        }
+    }//GEN-LAST:event_txtAf11MouseClicked
+
+    private void txtAf12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAf12MouseClicked
+         if (lblIdAF.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtAf12.getText().equals("") && evt.getClickCount()==1){
+           txtAf12.setText("X");
+        }else
+        if(txtAf12.getText().equals("X") && evt.getClickCount()==1){
+           txtAf12.setText(""); 
+        }
+        
+        if(txtAf1.getText().equals("X") && evt.getClickCount()==1){
+           txtAf12.setText(""); 
+        }
+        }
+    }//GEN-LAST:event_txtAf12MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ChkAnalf2;
@@ -1066,8 +1166,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JButton b;
     private javax.swing.JButton b1;
     private javax.swing.JButton btnCaccnelar;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btneditar;
+    public static javax.swing.JButton btnGuardar;
+    public static javax.swing.JButton btneditar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

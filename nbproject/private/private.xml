@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoGA.java</file>
             <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtCarnetPerinatalGa.java</file>
             <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsTamizajeNeonatal.java</file>
@@ -12,7 +13,10 @@
 =======
             <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtCarnetPerinatalPt.java</file>
             <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtCarnetPerinatalAn.java</file>
+=======
+>>>>>>> ecb6f28039c35ef6accf4728b36a23b34167e9c9
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoPrincipal.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtCarnetPerinatalTs.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.java</file>
 >>>>>>> 99b3462d2df3a0dc8b83cf1d7d0eb118893908f3
         </group>

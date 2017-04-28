@@ -9,76 +9,35 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RegistroEmbarazo;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_CARNET_PERINATAL_CABECERA")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findAll", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpId", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpId = :cpId"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpEstbOrigen", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpEstbOrigen = :cpEstbOrigen"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpEstbAct", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpEstbAct = :cpEstbAct"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpTipoSeguro", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpTipoSeguro = :cpTipoSeguro"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpEdad", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpEdad = :cpEdad"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpCodigoAfil", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpCodigoAfil = :cpCodigoAfil"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpEstudios", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpEstudios = :cpEstudios"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpAniosAprob", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpAniosAprob = :cpAniosAprob"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCpPadreRn", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.cpPadreRn = :cpPadreRn"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByFechaActu", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.fechaActu = :fechaActu"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByHoraActu", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.horaActu = :horaActu"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByEstado", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.estado = :estado"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByNomPc", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.nomPc = :nomPc"),
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalCabecera.findByCodUsu", query = "SELECT c FROM ConsultorioExtCarnetPerinatalCabecera c WHERE c.codUsu = :codUsu")})
 public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "CP_ID")
+
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private int cpId;
     private String idHc;
-    @Column(name = "CP_ESTB_ORIGEN")
     private String cpEstbOrigen;
-    @Column(name = "CP_ESTB_ACT")
     private String cpEstbAct;
-    @Column(name = "CP_TIPO_SEGURO")
     private String cpTipoSeguro;
-    @Column(name = "CP_EDAD")
     private String cpEdad;
-    @Column(name = "CP_CODIGO_AFIL")
     private String cpCodigoAfil;
-    @Column(name = "CP_ESTUDIOS")
     private String cpEstudios;
-    @Column(name = "CP_ANIOS_APROB")
     private String cpAniosAprob;
-    @Column(name = "CP_PADRE_RN")
     private String cpPadreRn;
-    @Column(name = "FECHA_ACTU")
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "ESTADO")
     private Character estado;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "COD_USU")
     private String codUsu;
 
     public boolean mantenimientoConsultorioExtCarnetPerinatalCabecera(String tipo,String triaje)
@@ -136,6 +95,26 @@ public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
         return cod;
     }
     
+    public String nombreEstablecimiento()
+    {
+        String establecimiento="";
+        try
+        {
+            String sql = "SELECT TOP 1 UE_DESC FROM SISTEMA_UNIDAD_EJECUTORA";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               establecimiento = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("perinatalCabeceraID: " + ex.getMessage());
+        }
+        return establecimiento;
+    }
+    
     public void mostrarDatosHC(String id_hc){
         String consulta="";
         try {
@@ -164,6 +143,51 @@ public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
             //
         } catch (Exception e) {
             System.out.println("mostrarDatosHC: " + e.getMessage());
+        }
+    }
+    
+    public void formatoTablaConsultorioExControlPerinatalCabListar(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(40);//
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(250);//
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(120);//
+        
+    }
+    
+    public void consultorioExControlPerinatalCabListar(String busqueda,String tipo,JTable tabla,String tamano){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID","Edad","Padre","Fecha"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[4];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CONSULTORIO_EXT_CARNET_PERINATAL_CAB_LISTAR_POR_PACIENTE ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, busqueda);
+            cmd.setString(2, tipo);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); 
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaConsultorioExControlPerinatalCabListar(tabla);
+            if(tamano.equals("actual"))
+                tabla.setRowHeight(50);
+            else
+                tabla.setRowHeight(30);
+        } catch (Exception e) {
+            System.out.println("Error: consultorioExControlPerinatalCabListar: " + e.getMessage());
         }
     }
     

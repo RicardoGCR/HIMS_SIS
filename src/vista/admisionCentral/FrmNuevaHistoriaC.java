@@ -2049,7 +2049,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         jLabel33.setText("Teléfono");
 
-        cbxEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Soltero(a)", "Casado(a)", "Viudo(a)", "Divorciado(a)" }));
+        cbxEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Soltero(a)", "Casado(a)", "Viudo(a)", "Divorciado(a),", "Conviviente" }));
 
         txtReligion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {

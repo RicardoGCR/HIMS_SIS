@@ -101,13 +101,13 @@ DefaultTableModel m,n,muestra;
     public void formato(){
     
     tb_Detalle.getColumnModel().getColumn(1).setPreferredWidth(155);
-    tb_Detalle.getColumnModel().getColumn(5).setPreferredWidth(180);
-    tb_Detalle.getColumnModel().getColumn(6).setPreferredWidth(150);
+    tb_Detalle.getColumnModel().getColumn(5).setPreferredWidth(190);
+    tb_Detalle.getColumnModel().getColumn(6).setPreferredWidth(160);
     
     tb_Detalle.getColumnModel().getColumn(16).setPreferredWidth(100);
     tb_Detalle.getColumnModel().getColumn(17).setPreferredWidth(100);
     tb_Detalle.getColumnModel().getColumn(18).setPreferredWidth(150);
-    tb_Detalle.getColumnModel().getColumn(20).setPreferredWidth(182);
+    tb_Detalle.getColumnModel().getColumn(20).setPreferredWidth(190);
             //Ocultar    
   tb_Detalle.getColumnModel().getColumn(0).setMinWidth(0);
   tb_Detalle.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -467,7 +467,7 @@ public void calcula() {
             jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
             titulo5.setBackground(new java.awt.Color(0, 102, 102));
-            titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+            titulo5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
             titulo5.setForeground(new java.awt.Color(255, 255, 255));
             titulo5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
             titulo5.setText("Resultado");
@@ -1456,17 +1456,8 @@ public void calcula() {
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelOcultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(6, 6, 6)
+                .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(panelAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(panelPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(10, 10, 10)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(panelTM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panelResultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -1474,7 +1465,15 @@ public void calcula() {
                                 .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1)))))
+                                    .addComponent(jButton1))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(panelAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(panelPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(panelTM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panelResultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGap(7, 7, 7))
             );
             layout.setVerticalGroup(
@@ -2061,7 +2060,7 @@ public void Muestras_cargar(String nomen,String area){
     
     public void Insumos_cargar(String cod){
         //Combobox JTable
-    String [] datos = {"Completo","Perdida"};
+    String [] datos = {"Todo","Pérdida"};
     JComboBox jcbx = new JComboBox(datos);
     try {
         int filaselec=frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getSelectedRow();
@@ -2110,7 +2109,7 @@ public void Muestras_cargar(String nomen,String area){
     }
 }
     public void Insumos_formato(){
-    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(0).setPreferredWidth(35);
+    frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(0).setPreferredWidth(30);
     frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(3).setPreferredWidth(230);
     frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(5).setPreferredWidth(80);
     frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos.getColumnModel().getColumn(7).setPreferredWidth(110);

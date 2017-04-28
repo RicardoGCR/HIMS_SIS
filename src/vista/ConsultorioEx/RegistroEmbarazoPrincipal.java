@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAO;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalGa;
 
 
 /**
@@ -1271,6 +1272,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         ConsultorioExtCarnetPerinatalAO AO1 = new ConsultorioExtCarnetPerinatalAO();
         AO1.ConsultoriosExtAOListar(lblId.getText());  
         RegistroEmbarazoAO.lbMadreAO.setText(lblNina.getText());
+        ////////////////////////
+        
+        ////////////////////////
         RegistroEmbarazo.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
@@ -1282,6 +1286,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         } catch (PropertyVetoException ex) {
             Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        ConsultorioExtCarnetPerinatalGa GA1 = new ConsultorioExtCarnetPerinatalGa();
+        GA1.ConsultoriosExtGAListar(lblId.getText()); 
+        
         RegistroEmbarazoGA.lblMadreGA.setText(lblNina.getText());
         RegistroEmbarazo.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_btnNuevo1ActionPerformed

@@ -71,6 +71,22 @@ public class ConsultorioExtCarnetPerinatalAO {
                 RegistroEmbarazoAO.chk4.setText(r.getString(16));
                 RegistroEmbarazoAO.txtRNmayor.setText(r.getString(17));
                 RegistroEmbarazoAO.lblIdAO.setText(r.getString(1));
+                if (!RegistroEmbarazoAO.lblIdAO.getText().equals("") ){
+                    RegistroEmbarazoAO.btnGuardar.setEnabled(false);
+                    RegistroEmbarazoAO.btneditar.setEnabled(true);
+                    RegistroEmbarazoAO.var.setText("2");
+                    RegistroEmbarazoAO.txtGestas.setEditable(false);
+                    RegistroEmbarazoAO.txtAborto.setEditable(false);
+                    RegistroEmbarazoAO.txtPartos.setEditable(false);
+                    RegistroEmbarazoAO.txtVaginales.setEditable(false);
+                    RegistroEmbarazoAO.txtCesareas.setEditable(false);
+                    RegistroEmbarazoAO.txtRN.setEditable(false);
+                    RegistroEmbarazoAO.txtNacidos.setEditable(false);
+                    RegistroEmbarazoAO.txtViven.setEditable(false);
+                    RegistroEmbarazoAO.txtMuerto1.setEditable(false);
+                    RegistroEmbarazoAO.txtDespues.setEditable(false);
+                    RegistroEmbarazoAO.txtRNmayor.setEditable(false);
+                }
 
                 }
             //

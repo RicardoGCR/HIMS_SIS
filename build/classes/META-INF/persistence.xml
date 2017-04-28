@@ -32,6 +32,11 @@
     <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalPt</class>
     <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalTs</class>
     <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFd</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFu</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEm</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEf</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalVg</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalHo</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://192.168.1.36:1433;databaseName=SISGESH_NET"/>
       <property name="javax.persistence.jdbc.password" value="sistemas"/>

@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
+import vista.ConsultorioEx.RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V;
 
 public class ConsultorioExtCarnetPerinatalPt implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -74,6 +75,26 @@ public class ConsultorioExtCarnetPerinatalPt implements Serializable {
         }
         return cod;
     }   
+    
+    public void ConsultoriosExtPTListar(String cp_id){
+        String consulta="";
+        try {
+            consulta="[CONSULTORIO_EXT_LISTAR_CARNET_PERINATAL_PT] ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, cp_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdPeso.setText(r.getString(1)); 
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtPeso.setText(r.getString(3));
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtTalla.setText(r.getString(4));
+
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: ConsultoriosExtPTListar: " + e.getMessage());
+        }
+    }
     
     public ConsultorioExtCarnetPerinatalPt() {
         Conexion con = new Conexion();

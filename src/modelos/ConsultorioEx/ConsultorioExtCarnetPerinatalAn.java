@@ -91,17 +91,26 @@ public class ConsultorioExtCarnetPerinatalAn implements Serializable {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNDosisPrevia.setText(r.getString(1)); 
-                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtDosis1.setText(r.getString(3));
-                if(r.getString(4).equals("Sin dosis"))
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdAn.setText(r.getString(1)); 
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNDosisPrevia.setText(r.getString(2)); 
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtDosis1.setText(r.getString(4));
+                if(r.getString(5).equals("Sin dosis ")){
                     RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtSinDosis1.setText("X");
-                else
+                    RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNoAplica1.setText("");
+                }
+                if(r.getString(5).equals("No aplica ")){
                     RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNoAplica1.setText("X");
-                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtDosis2.setText(r.getString(5));
-                if(r.getString(6).equals("Sin dosis"))
+                    RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtSinDosis1.setText("");
+                }
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtDosis2.setText(r.getString(6));
+                if(r.getString(7).equals("Sin dosis ")){
                     RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtSinDosis2.setText("X");
-                else
+                    RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNoAplica2.setText("");
+                }
+                if(r.getString(7).equals("No aplica ")){
                     RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNoAplica2.setText("X");
+                    RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtSinDosis2.setText("");
+                }
                 }
             //
         } catch (Exception e) {

@@ -67,7 +67,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         txtPadreRN.setText("");
     }
 
-    public void enviarDatosMadres(){        
+    public void enviarDatosMadres(){    
+        RegistroEmbarazoPrincipal.lblMadre.setText("");
         limpiar();
         int fila = tbMadres.getSelectedRow();
         if(estadoSeleccion.equals("enter")){
@@ -2419,6 +2420,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                 Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
             }
             jTabbedPane1.setSelectedIndex(1);
+            RegistroEmbarazoPrincipal.lblMadre.setText(lblPaciente.getText());
             RegistroEmbarazoPrincipal.lblId.setText(String.valueOf(tbActual.getValueAt(fila, 0)));
             Confirmacion.dispose();
             BuscarMadres.dispose();
@@ -2435,15 +2437,15 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         char teclaPresionada = evt.getKeyChar();
         if(teclaPresionada==KeyEvent.VK_ENTER){
             RegistroEmbarazoPrincipal GA =new RegistroEmbarazoPrincipal();
-            Contenedor.add(GA);
             RegistroEmbarazoPrincipal.lblMadre.setText(lblPaciente.getText());
+            RegistroEmbarazoPrincipal.lblId.setText(String.valueOf(tbActual.getValueAt(fila, 0)));
+            Contenedor.add(GA);
             try {
                 GA.setMaximum(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
             }
             jTabbedPane1.setSelectedIndex(1);
-            RegistroEmbarazoPrincipal.lblId.setText(String.valueOf(tbActual.getValueAt(fila, 0)));
             Confirmacion.dispose();
             BuscarMadres.dispose();
         }

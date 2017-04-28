@@ -146,7 +146,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                 RegistroEmbarazoPrincipal GA =new RegistroEmbarazoPrincipal();
                 Contenedor.add(GA);
                 RegistroEmbarazoPrincipal.lblId.setText(consultorio1.perinatalCabeceraID());
-                RegistroEmbarazoPrincipal.lblNina.setText(txtPaciente.getText());
+                RegistroEmbarazoPrincipal.lblMadre.setText(txtPaciente.getText());
                 try {
                     GA.setMaximum(true);
                 } catch (PropertyVetoException ex) {
@@ -2412,7 +2412,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             int fila = tbActual.getSelectedRow();
             RegistroEmbarazoPrincipal GA =new RegistroEmbarazoPrincipal();
             Contenedor.add(GA);
-            RegistroEmbarazoPrincipal.lblNina.setText(lblPaciente.getText());
+            RegistroEmbarazoPrincipal.lblMadre.setText(lblPaciente.getText());
             try {
                 GA.setMaximum(true);
             } catch (PropertyVetoException ex) {
@@ -2436,7 +2436,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         if(teclaPresionada==KeyEvent.VK_ENTER){
             RegistroEmbarazoPrincipal GA =new RegistroEmbarazoPrincipal();
             Contenedor.add(GA);
-            RegistroEmbarazoPrincipal.lblNina.setText(lblPaciente.getText());
+            RegistroEmbarazoPrincipal.lblMadre.setText(lblPaciente.getText());
             try {
                 GA.setMaximum(true);
             } catch (PropertyVetoException ex) {

@@ -107,6 +107,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         return fecha;
     }
 
+
   public void Guardar( ){
         
     ConsultorioExtCarnetPerinatalGa CXRsGA= new ConsultorioExtCarnetPerinatalGa();
@@ -256,6 +257,103 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }
   
  
+
+//  public void Guardar(JTextField Inter ,JTextField Terminacion ,JTextField TipoAborto ,JTextField Lactancia,JTextField LugarParto,JTextField Captada,JTextField Referida ){
+//        
+//    ConsultorioExtCarnetPerinatalGa CXRsGA= new ConsultorioExtCarnetPerinatalGa();
+//    ConsultorioExtCarnetPerinatalGa CXRsGA2 = new ConsultorioExtCarnetPerinatalGa();
+//    
+//          
+//            CXRsGA.setGaId(0);
+//            CXRsGA.setCpId(Integer.parseInt(RegistroEmbarazoPrincipal.lblId.getText()));
+//            CXRsGA.setGaIntergenesico(Inter.getText());
+//            CXRsGA.setGaTerminacion(Terminacion.getText());
+//            CXRsGA.setGaTipoAborto(TipoAborto.getText());
+//            CXRsGA.setGaLactanciaMat(Lactancia.getText());
+//            CXRsGA.setGaLugarParto(LugarParto.getText());
+//            CXRsGA.setGaFechaGestacion(determinarFecha(fechaGA));
+//            CXRsGA.setGA_CAPTADA(Captada.getText());
+//            CXRsGA.setGA_REFERIDA(Referida.getText());
+//            CXRsGA.setCodUsu(lblusu.getText());//falta 
+//
+//            
+//                if(CXRsGA.mantenimientoConsultorioExtGA("I")==true){
+//                    mensaje.setVisible(true);
+//                    mensaje.setBackground(new Color(33,115,70)); 
+//                    men.setText("Datos Guardados de forma correcta");
+//                    b.setText("OK");
+//                    b.setVisible(true);
+//                    b1.setVisible(false);
+//
+//                    btnGuardar.setEnabled(false);
+//                    btneditar.setEnabled(true);
+//             
+//                    tge=1;
+//                    CXRsGA2.ConsultoriosExtGAListar(RegistroEmbarazoPrincipal.lblId.getText());  
+//
+////                    habilitarDatos(false);
+//                }else {
+//
+//                        mensaje.setVisible(true);
+//                        mensaje.setBackground(new Color(255,91,70)); 
+//                        men.setText("Ocurrio un error, Verifique");
+//                        b.setVisible(false);
+//                        b1.setVisible(false);
+//                        tge=7;
+//                }  
+//             
+//  
+//    }
+//  
+//  public void Modificar(JTextField Inter ,JTextField Terminacion ,JTextField TipoAborto ,JTextField Lactancia,JTextField LugarParto,JTextField Captada,JTextField Referida ){
+//        
+//    ConsultorioExtCarnetPerinatalGa CXRsGA= new ConsultorioExtCarnetPerinatalGa();
+//    ConsultorioExtCarnetPerinatalGa CXRsGA2 = new ConsultorioExtCarnetPerinatalGa();
+//    try {
+//          
+//            CXRsGA.setGaId(0);
+//            CXRsGA.setCpId(Integer.parseInt(RegistroEmbarazoPrincipal.lblId.getText()));
+//            CXRsGA.setGaIntergenesico(Inter.getText());
+//            CXRsGA.setGaTerminacion(Terminacion.getText());
+//            CXRsGA.setGaTipoAborto(TipoAborto.getText());
+//            CXRsGA.setGaLactanciaMat(Lactancia.getText());
+//            CXRsGA.setGaLugarParto(LugarParto.getText());
+//            CXRsGA.setGaFechaGestacion(determinarFecha(fechaGA));
+//            CXRsGA.setGA_CAPTADA(Captada.getText());
+//            CXRsGA.setGA_REFERIDA(Referida.getText());
+//            CXRsGA.setCodUsu(lblusu.getText());//falta 
+//
+//            
+//                if(CXRsGA.mantenimientoConsultorioExtGA("I")==true){
+//                    mensaje.setVisible(true);
+//                    mensaje.setBackground(new Color(33,115,70)); 
+//                    men.setText("Datos Guardados de forma correcta");
+//                    b.setText("OK");
+//                    b.setVisible(true);
+//                    b1.setVisible(false);
+//
+//                    btnGuardar.setEnabled(false);
+//                    btneditar.setEnabled(true);
+//             
+//                    tge=1;
+//                    CXRsGA2.ConsultoriosExtGAListar(RegistroEmbarazoPrincipal.lblId.getText());  
+//
+////                    habilitarDatos(false);
+//                }else {
+//
+//                        mensaje.setVisible(true);
+//                        mensaje.setBackground(new Color(255,91,70)); 
+//                        men.setText("Ocurrio un error, Verifique");
+//                        b.setVisible(false);
+//                        b1.setVisible(false);
+//                        tge=7;
+//                }  
+//             } catch (Exception e) {
+//                System.out.println("Error: guardar " + e.getMessage());
+//            }
+//  
+//    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1739,6 +1837,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_btnCaccnelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+
          String variable;
         variable=var.getText();
 
@@ -1755,6 +1854,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            b1.setVisible(true); 
            tge=2;
         }       
+
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -1788,7 +1888,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
- if (tge==3 || tge==1||tge==9){
+ if (tge==3 || tge==1|| tge==9){
    mensaje.setVisible(false);  
 
    }
@@ -1797,8 +1897,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         Guardar();
 
         btneditar.setEnabled(false);
+        tge=9;
 
    }  
+//        if (tge==9){
+//   mensaje.setVisible(false);  
+//   btnGuardar.setEnabled(false);
+//                    btneditar.setEnabled(true);
+//   
+//
+//   }
     }//GEN-LAST:event_bActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed

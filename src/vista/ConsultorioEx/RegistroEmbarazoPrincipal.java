@@ -12,7 +12,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAO;
+
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalGa;
+
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAn;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAp;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalPt;
+import static vista.ConsultorioEx.RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId;
+import static vista.ConsultorioEx.RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdPeso;
+
 
 
 /**
@@ -56,7 +64,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         OP2 = new javax.swing.JPanel();
         jPanel27 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        lblNina = new javax.swing.JLabel();
+        lblMadre = new javax.swing.JLabel();
         btnbuscar = new javax.swing.JButton();
         btnbuscar1 = new javax.swing.JButton();
         btnbuscar2 = new javax.swing.JButton();
@@ -177,16 +185,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
         );
 
-        lblNina.setBackground(new java.awt.Color(0, 153, 0));
-        lblNina.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        lblNina.setForeground(new java.awt.Color(255, 255, 255));
-        lblNina.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Embarazada-80.png"))); // NOI18N
-        lblNina.setText("Martha Arias Torres");
-        lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblNina.setIconTextGap(10);
-        lblNina.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lblMadre.setBackground(new java.awt.Color(0, 153, 0));
+        lblMadre.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        lblMadre.setForeground(new java.awt.Color(255, 255, 255));
+        lblMadre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMadre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Embarazada-80.png"))); // NOI18N
+        lblMadre.setText("Martha Arias Torres");
+        lblMadre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMadre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblMadre.setIconTextGap(10);
+        lblMadre.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnbuscar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnbuscar.setForeground(new java.awt.Color(240, 240, 240));
@@ -260,7 +268,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnbuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblNina, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblMadre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(OP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -288,7 +296,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNina)
+                        .addComponent(lblMadre)
                         .addGap(88, 88, 88))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(OP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1271,7 +1279,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         }
         ConsultorioExtCarnetPerinatalAO AO1 = new ConsultorioExtCarnetPerinatalAO();
         AO1.ConsultoriosExtAOListar(lblId.getText());  
-        RegistroEmbarazoAO.lbMadreAO.setText(lblNina.getText());
+        RegistroEmbarazoAO.lbMadreAO.setText(lblMadre.getText());
         ////////////////////////
         
         ////////////////////////
@@ -1289,7 +1297,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         ConsultorioExtCarnetPerinatalGa GA1 = new ConsultorioExtCarnetPerinatalGa();
         GA1.ConsultoriosExtGAListar(lblId.getText()); 
         
-        RegistroEmbarazoGA.lblMadreGA.setText(lblNina.getText());
+        RegistroEmbarazoGA.lblMadreGA.setText(lblMadre.getText());
+        if (RegistroEmbarazoGA.lblIdGA.getText().equals("") ){
+                    RegistroEmbarazoGA.btnGuardar.setEnabled(true);
+                    RegistroEmbarazoGA.btneditar.setEnabled(false);
+        }
         RegistroEmbarazo.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_btnNuevo1ActionPerformed
 
@@ -1324,6 +1336,17 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         } catch (PropertyVetoException ex) {
             Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        ConsultorioExtCarnetPerinatalAp AP1 = new ConsultorioExtCarnetPerinatalAp();
+        AP1.ConsultoriosExtAPListar(lblId.getText()); 
+        
+        RegistroEmbarazoAP.lblMadre.setText(lblMadre.getText());
+        if (RegistroEmbarazoAP.lblIdAP.getText().equals("") ){
+                    RegistroEmbarazoAP.btnGuardar.setEnabled(true);
+                    RegistroEmbarazoAP.btneditar.setEnabled(false);
+        }
+        
+        
         RegistroEmbarazo.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_btnNuevo3ActionPerformed
 
@@ -1352,6 +1375,33 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "antitetanica";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
+        ConsultorioExtCarnetPerinatalAn AN = new ConsultorioExtCarnetPerinatalAn();
+        AN.ConsultoriosExtANListar(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.getText());
+        if(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdAn.getText().equals("")){
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMantAn.setText("I");
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNDosisPrevia.setEditable(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtDosis1.setEditable(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtDosis2.setEditable(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtSinDosis1.setEditable(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtSinDosis2.setEditable(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNoAplica1.setEditable(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtSinDosis2.setEditable(true);
+        }else{
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMant.setText("U");
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNDosisPrevia.setEditable(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtDosis1.setEditable(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtDosis2.setEditable(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtSinDosis1.setEditable(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtSinDosis2.setEditable(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNoAplica1.setEditable(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtSinDosis2.setEditable(false);
+        }
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1373,6 +1423,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "tipoSangre";
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1394,6 +1445,23 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "peso";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
+        ConsultorioExtCarnetPerinatalPt PT = new ConsultorioExtCarnetPerinatalPt();
+        PT.ConsultoriosExtPTListar(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.getText());
+        if(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdPeso.getText().equals("")){
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMant.setText("I");
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtPeso.setEditable(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtTalla.setEditable(true);
+        }else{
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMant.setText("U");
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtPeso.setEditable(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtTalla.setEditable(false);
+        }
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1415,6 +1483,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(true);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "fumaDroga";
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1644,6 +1713,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     public static javax.swing.JLabel lblId;
-    public static javax.swing.JLabel lblNina;
+    public static javax.swing.JLabel lblMadre;
     // End of variables declaration//GEN-END:variables
 }

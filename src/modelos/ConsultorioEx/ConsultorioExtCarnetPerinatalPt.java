@@ -6,55 +6,110 @@
 package modelos.ConsultorioEx;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
+import servicios.Conexion;
+import vista.ConsultorioEx.RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_CARNET_PERINATAL_PT")
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalPt.findAll", query = "SELECT c FROM ConsultorioExtCarnetPerinatalPt c")})
 public class ConsultorioExtCarnetPerinatalPt implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "PT_ID")
-    private Long ptId;
-    @Column(name = "PT_PESO")
+    DefaultTableModel m;
+    Conexion con = new Conexion();
+    private Connection cn;
+    private int cpId;
+    private int ptId;
     private String ptPeso;
-    @Column(name = "PT_TALLA")
     private String ptTalla;
-    @Column(name = "FECHA_ACTU")
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "ESTADO")
     private Character estado;
-    @Column(name = "COD_USU")
     private String codUsu;
 
+    public boolean mantenimientoConsultorioExtCarnetPerinatalPt(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "[CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_PT] ?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getPtId());
+            cmd.setInt(2, getCpId());
+            cmd.setString(3, getPtPeso());
+            cmd.setString(4, getPtTalla());
+            cmd.setString(5, getCodUsu());
+            cmd.setString(6, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoConsultorioExtCarnetPerinatalPt: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public String perinatalPtID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 PT_ID\n" +
+                        "FROM CONSULTORIO_EXT_CARNET_PERINATAL_PT \n" +
+                        "WHERE NOM_PC = HOST_NAME()\n" +
+                        "ORDER BY PT_ID DESC ";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("esnitssID: " + ex.getMessage());
+        }
+        return cod;
+    }   
+    
+    public void ConsultoriosExtPTListar(String cp_id){
+        String consulta="";
+        try {
+            consulta="[CONSULTORIO_EXT_LISTAR_CARNET_PERINATAL_PT] ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, cp_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdPeso.setText(r.getString(1)); 
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtPeso.setText(r.getString(3));
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtTalla.setText(r.getString(4));
+
+                }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: ConsultoriosExtPTListar: " + e.getMessage());
+        }
+    }
+    
     public ConsultorioExtCarnetPerinatalPt() {
+        Conexion con = new Conexion();
+        cn = con.conectar();
     }
 
-    public ConsultorioExtCarnetPerinatalPt(Long ptId) {
+    public ConsultorioExtCarnetPerinatalPt(int ptId) {
         this.ptId = ptId;
     }
 
-    public Long getPtId() {
+    public int getPtId() {
         return ptId;
     }
 
-    public void setPtId(Long ptId) {
+    public void setPtId(int ptId) {
         this.ptId = ptId;
     }
 
@@ -115,28 +170,36 @@ public class ConsultorioExtCarnetPerinatalPt implements Serializable {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (ptId != null ? ptId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ConsultorioExtCarnetPerinatalPt)) {
-            return false;
-        }
-        ConsultorioExtCarnetPerinatalPt other = (ConsultorioExtCarnetPerinatalPt) object;
-        if ((this.ptId == null && other.ptId != null) || (this.ptId != null && !this.ptId.equals(other.ptId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
     public String toString() {
         return "modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalPt[ ptId=" + ptId + " ]";
+    }
+
+    /**
+     * @return the cn
+     */
+    public Connection getCn() {
+        return cn;
+    }
+
+    /**
+     * @param cn the cn to set
+     */
+    public void setCn(Connection cn) {
+        this.cn = cn;
+    }
+
+    /**
+     * @return the cpId
+     */
+    public int getCpId() {
+        return cpId;
+    }
+
+    /**
+     * @param cpId the cpId to set
+     */
+    public void setCpId(int cpId) {
+        this.cpId = cpId;
     }
     
 }

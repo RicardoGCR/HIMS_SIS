@@ -13,13 +13,6 @@ import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 import vista.ConsultorioEx.RegistroEmbarazoAO;
 import vista.ConsultorioEx.RegistroEmbarazoGA;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 
@@ -30,9 +23,6 @@ import servicios.Conexion;
 public class ConsultorioExtCarnetPerinatalGa implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @Basic(optional = false)
-    @Column(name = "GA_ID")
     private int gaId;
     DefaultTableModel m;
     Conexion con = new Conexion();

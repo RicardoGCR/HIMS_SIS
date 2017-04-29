@@ -12,11 +12,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+
+
+
 /**
  *
  * @author Profe
  */
 public class Conexion {
+
     static String servidor="localhost";
     static String puerto="1433";
     static String user="sa";
@@ -24,11 +28,9 @@ public class Conexion {
     static String baseDatos="SISGESH_NET";
     Connection conexion=null;
     
-     public Connection conectar()
-    {
+     public Connection conectar(){
         
-        try
-        {
+        try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String url="jdbc:sqlserver://"+servidor+":"+puerto+";"+"databaseName="+baseDatos
                     +";user="+user+";password="+password;

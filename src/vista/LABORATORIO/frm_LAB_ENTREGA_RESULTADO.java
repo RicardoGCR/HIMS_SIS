@@ -2189,7 +2189,7 @@ public void calcula() {
                             titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                             titulo5.setForeground(new java.awt.Color(255, 255, 255));
                             titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                            titulo5.setText("Exámenes Realizados");
+                            titulo5.setText("Entrega de Resultados");
                             titulo5.setToolTipText("");
                             titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -2220,8 +2220,8 @@ public void calcula() {
                                 jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                                     .addGap(16, 16, 16)
-                                    .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(568, 568, 568)
+                                    .addComponent(titulo5)
+                                    .addGap(561, 561, 561)
                                     .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(jpanelLayout.createSequentialGroup()
                                             .addComponent(jLabel15)

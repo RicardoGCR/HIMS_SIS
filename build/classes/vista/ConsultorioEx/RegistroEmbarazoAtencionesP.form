@@ -32,6 +32,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="jPanel13" min="-2" pref="284" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
@@ -48,18 +49,42 @@
                       </Group>
                   </Group>
               </Group>
+=======
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblNina" min="-2" pref="449" max="-2" attributes="0"/>
+                          <Component id="jPanel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="pnlMensaje" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+<<<<<<< HEAD
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Component id="lblNina" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jPanel11" min="-2" pref="574" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="mensaje" min="-2" max="-2" attributes="0"/>
+=======
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblNina" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jPanel11" min="-2" pref="574" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              <Component id="pnlMensaje" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
           </Group>
           <Component id="jPanel13" max="32767" attributes="0"/>
       </Group>
@@ -84,6 +109,7 @@
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           <Component id="jPanel51" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="jPanel61" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -92,6 +118,23 @@
                           <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jSpinner2" min="-2" pref="224" max="-2" attributes="0"/>
+=======
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jPanel61" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblMant" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="lblId" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="LblAtencion" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Component id="lblAtencion" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lblFecha" min="-2" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                       </Group>
                   </Group>
                   <EmptySpace pref="106" max="32767" attributes="0"/>
@@ -104,13 +147,26 @@
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="LblAtencion" alignment="3" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jSpinner2" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+                      <Component id="lblFecha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblAtencion" alignment="3" min="-2" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jPanel61" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
+=======
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblMant" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblId" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -137,10 +193,17 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="61" green="ae" red="27" type="rgb"/>
             </Property>
+<<<<<<< HEAD
             <Property name="text" type="java.lang.String" value="Atenci&#xf3;n 1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel21">
+=======
+            <Property name="text" type="java.lang.String" value="Atenci&#xf3;n"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblFecha">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -151,6 +214,7 @@
             <Property name="text" type="java.lang.String" value="Fecha y Hora de Atenci&#xf3;n"/>
           </Properties>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JSpinner" name="jSpinner2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -161,6 +225,8 @@
             </Property>
           </Properties>
         </Component>
+=======
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
         <Container class="javax.swing.JPanel" name="jPanel33">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -309,7 +375,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre15" max="32767" attributes="0"/>
+=======
+                          <Component id="txtPesoMadre" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="T7" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -321,7 +391,11 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
+<<<<<<< HEAD
                               <Component id="txtMadre15" alignment="0" pref="25" max="32767" attributes="0"/>
+=======
+                              <Component id="txtPesoMadre" alignment="0" pref="25" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                               <Component id="T7" alignment="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -330,7 +404,11 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre15">
+=======
+                <Component class="javax.swing.JTextField" name="txtPesoMadre">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -345,7 +423,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre15CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtPesoMadreCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -387,7 +469,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre16" max="32767" attributes="0"/>
+=======
+                          <Component id="txtPA" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="T8" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -399,7 +485,11 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
+<<<<<<< HEAD
                               <Component id="txtMadre16" alignment="0" pref="25" max="32767" attributes="0"/>
+=======
+                              <Component id="txtPA" alignment="0" pref="25" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                               <Component id="T8" alignment="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -408,7 +498,11 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre16">
+=======
+                <Component class="javax.swing.JTextField" name="txtPA">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -423,7 +517,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre16CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtPACaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -476,7 +574,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre17" max="32767" attributes="0"/>
+=======
+                          <Component id="txtTemp" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -485,14 +587,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre17" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtTemp" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre17">
+=======
+                <Component class="javax.swing.JTextField" name="txtTemp">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -507,7 +617,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre17CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtTempCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -534,7 +648,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre18" max="32767" attributes="0"/>
+=======
+                          <Component id="txtAu" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="T9" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -546,7 +664,11 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
+<<<<<<< HEAD
                               <Component id="txtMadre18" alignment="0" pref="25" max="32767" attributes="0"/>
+=======
+                              <Component id="txtAu" alignment="0" pref="25" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                               <Component id="T9" alignment="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -555,7 +677,11 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre18">
+=======
+                <Component class="javax.swing.JTextField" name="txtAu">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -570,7 +696,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre18CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtAuCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -667,7 +797,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre19" pref="128" max="32767" attributes="0"/>
+=======
+                          <Component id="txtPresentacion" pref="128" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -676,14 +810,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre19" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtPresentacion" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre19">
+=======
+                <Component class="javax.swing.JTextField" name="txtPresentacion">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -698,7 +840,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre19CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtPresentacionCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -736,7 +882,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre20" max="32767" attributes="0"/>
+=======
+                          <Component id="txtPm" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -745,14 +895,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre20" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtPm" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre20">
+=======
+                <Component class="javax.swing.JTextField" name="txtPm">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -767,7 +925,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre20CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtPmCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -805,7 +967,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre21" max="32767" attributes="0"/>
+=======
+                          <Component id="txtSituacion" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -814,14 +980,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre21" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtSituacion" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre21">
+=======
+                <Component class="javax.swing.JTextField" name="txtSituacion">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -836,7 +1010,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre21CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtSituacionCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -863,7 +1041,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre23" max="32767" attributes="0"/>
+=======
+                          <Component id="txtEdad" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -872,14 +1054,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre23" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtEdad" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre23">
+=======
+                <Component class="javax.swing.JTextField" name="txtEdad">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -894,7 +1084,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre23CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtEdadCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -932,7 +1126,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre35" max="32767" attributes="0"/>
+=======
+                          <Component id="txtPosicion" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -941,14 +1139,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre35" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtPosicion" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre35">
+=======
+                <Component class="javax.swing.JTextField" name="txtPosicion">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -963,7 +1169,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre35CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtPosicionCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -990,7 +1200,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre37" max="32767" attributes="0"/>
+=======
+                          <Component id="txtFcf" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -999,14 +1213,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre37" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtFcf" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre37">
+=======
+                <Component class="javax.swing.JTextField" name="txtFcf">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -1021,7 +1243,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre37CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtFcfCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1059,7 +1285,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre38" max="32767" attributes="0"/>
+=======
+                          <Component id="txtMovFetal" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="T10" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -1071,7 +1301,11 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
+<<<<<<< HEAD
                               <Component id="txtMadre38" alignment="0" pref="25" max="32767" attributes="0"/>
+=======
+                              <Component id="txtMovFetal" alignment="0" pref="25" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                               <Component id="T10" alignment="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -1080,7 +1314,11 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre38">
+=======
+                <Component class="javax.swing.JTextField" name="txtMovFetal">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -1095,7 +1333,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre38CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMovFetalCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1148,7 +1390,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre36" pref="128" max="32767" attributes="0"/>
+=======
+                          <Component id="txtProteinuria" pref="128" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1157,14 +1403,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre36" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtProteinuria" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre36">
+=======
+                <Component class="javax.swing.JTextField" name="txtProteinuria">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -1179,7 +1433,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre36CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtProteinuriaCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1297,7 +1555,11 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
+<<<<<<< HEAD
                           <Component id="jPanel64" alignment="1" min="-2" pref="27" max="-2" attributes="0"/>
+=======
+                          <Component id="jPanel64" alignment="1" min="-2" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <Component id="jLabel61" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1379,7 +1641,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre39" max="32767" attributes="0"/>
+=======
+                          <Component id="txtEdema" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1388,14 +1654,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre39" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtEdema" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre39">
+=======
+                <Component class="javax.swing.JTextField" name="txtEdema">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -1410,7 +1684,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre39CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtEdemaCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1437,7 +1715,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre40" max="32767" attributes="0"/>
+=======
+                          <Component id="txtReflejo" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1446,14 +1728,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre40" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtReflejo" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre40">
+=======
+                <Component class="javax.swing.JTextField" name="txtReflejo">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -1468,7 +1758,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre40CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtReflejoCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1495,7 +1789,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre41" max="32767" attributes="0"/>
+=======
+                          <Component id="txtExamenP" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1504,14 +1802,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre41" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtExamenP" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre41">
+=======
+                <Component class="javax.swing.JTextField" name="txtExamenP">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -1526,7 +1832,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre41CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtExamenPCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1553,7 +1863,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre42" max="32767" attributes="0"/>
+=======
+                          <Component id="txtIndicFierro" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1562,14 +1876,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre42" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtIndicFierro" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre42">
+=======
+                <Component class="javax.swing.JTextField" name="txtIndicFierro">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -1584,7 +1906,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre42CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtIndicFierroCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1622,7 +1948,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre43" max="32767" attributes="0"/>
+=======
+                          <Component id="txtIndicCalcio" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1631,14 +1961,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre43" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtIndicCalcio" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre43">
+=======
+                <Component class="javax.swing.JTextField" name="txtIndicCalcio">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -1653,7 +1991,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre43CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtIndicCalcioCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1691,7 +2033,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre44" max="32767" attributes="0"/>
+=======
+                          <Component id="txtIndicFolico" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1700,14 +2046,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre44" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtIndicFolico" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre44">
+=======
+                <Component class="javax.swing.JTextField" name="txtIndicFolico">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -1722,7 +2076,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre44CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtIndicFolicoCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1749,7 +2107,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre50" max="32767" attributes="0"/>
+=======
+                          <Component id="txtOrient" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1758,14 +2120,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre50" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtOrient" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre50">
+=======
+                <Component class="javax.swing.JTextField" name="txtOrient">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -1780,7 +2150,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre50CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtOrientCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1829,7 +2203,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre45" max="32767" attributes="0"/>
+=======
+                          <Component id="txtEco" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1838,14 +2216,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre45" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtEco" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre45">
+=======
+                <Component class="javax.swing.JTextField" name="txtEco">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -1860,7 +2246,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre45CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtEcoCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1898,7 +2288,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre46" max="32767" attributes="0"/>
+=======
+                          <Component id="txtPerfilBiofisico" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1907,14 +2301,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre46" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtPerfilBiofisico" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre46">
+=======
+                <Component class="javax.swing.JTextField" name="txtPerfilBiofisico">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -1929,7 +2331,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre46CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtPerfilBiofisicoCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1965,24 +2371,33 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                           <Component id="txtMadre47" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
+=======
+                      <Component id="dtCita" alignment="0" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="txtMadre47" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
+=======
+                      <Component id="dtCita" alignment="0" pref="31" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre47">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -2003,6 +2418,15 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
+=======
+                <Component class="com.toedter.calendar.JDateChooser" name="dtCita">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+                  </Properties>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                 </Component>
               </SubComponents>
             </Container>
@@ -2036,7 +2460,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre48" max="32767" attributes="0"/>
+=======
+                          <Component id="txtVisitDomic" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -2045,14 +2473,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre48" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtVisitDomic" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre48">
+=======
+                <Component class="javax.swing.JTextField" name="txtVisitDomic">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -2067,7 +2503,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre48CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtVisitDomicCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2105,7 +2545,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre49" pref="129" max="32767" attributes="0"/>
+=======
+                          <Component id="txtPlanParto" pref="129" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -2114,14 +2558,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre49" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtPlanParto" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre49">
+=======
+                <Component class="javax.swing.JTextField" name="txtPlanParto">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -2136,7 +2588,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre49CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtPlanPartoCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2227,7 +2683,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre51" pref="128" max="32767" attributes="0"/>
+=======
+                          <Component id="txtEstabAtencion" pref="128" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -2236,14 +2696,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre51" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtEstabAtencion" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre51">
+=======
+                <Component class="javax.swing.JTextField" name="txtEstabAtencion">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -2258,7 +2726,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre51CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtEstabAtencionCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2296,7 +2768,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre52" max="32767" attributes="0"/>
+=======
+                          <Component id="txtResponAtencion" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -2305,14 +2781,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre52" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtResponAtencion" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre52">
+=======
+                <Component class="javax.swing.JTextField" name="txtResponAtencion">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -2327,7 +2811,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre52CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtResponAtencionCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2365,7 +2853,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre53" max="32767" attributes="0"/>
+=======
+                          <Component id="txtSis" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -2374,14 +2866,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="txtMadre53" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                          <Component id="txtSis" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JTextField" name="txtMadre53">
+=======
+                <Component class="javax.swing.JTextField" name="txtSis">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="13" style="0"/>
@@ -2396,7 +2896,11 @@
                     </Property>
                   </Properties>
                   <Events>
+<<<<<<< HEAD
                     <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtMadre53CaretUpdate"/>
+=======
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtSisCaretUpdate"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2406,6 +2910,30 @@
             </Container>
           </SubComponents>
         </Container>
+<<<<<<< HEAD
+=======
+        <Component class="javax.swing.JLabel" name="lblAtencion">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="61" green="ae" red="27" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblMant">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="I"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblId">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel13"/>
+          </Properties>
+        </Component>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel13">
@@ -2592,7 +3120,11 @@
                       <Component id="txtPadre23" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace pref="93" max="32767" attributes="0"/>
+=======
+                  <EmptySpace pref="75" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
               </Group>
           </Group>
         </DimensionLayout>
@@ -3750,7 +4282,11 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
+<<<<<<< HEAD
     <Container class="javax.swing.JPanel" name="mensaje">
+=======
+    <Container class="javax.swing.JPanel" name="pnlMensaje">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="46" green="73" red="21" type="rgb"/>
@@ -3762,12 +4298,21 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Component id="men" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="b" min="-2" pref="29" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="b1" min="-2" pref="29" max="-2" attributes="0"/>
                   <EmptySpace pref="929" max="32767" attributes="0"/>
+=======
+                  <Component id="lblMensaje" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="btnSi" min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnNo" min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace pref="919" max="32767" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
               </Group>
           </Group>
         </DimensionLayout>
@@ -3776,9 +4321,15 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+<<<<<<< HEAD
                       <Component id="men" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="b" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="b1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+=======
+                      <Component id="lblMensaje" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSi" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="btnNo" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
                   </Group>
                   <EmptySpace pref="17" max="32767" attributes="0"/>
               </Group>
@@ -3786,7 +4337,11 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
+<<<<<<< HEAD
         <Component class="javax.swing.JLabel" name="men">
+=======
+        <Component class="javax.swing.JLabel" name="lblMensaje">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
@@ -3797,7 +4352,11 @@
             <Property name="text" type="java.lang.String" value="Desea Actualizar el Registro ?"/>
           </Properties>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JButton" name="b">
+=======
+        <Component class="javax.swing.JButton" name="btnSi">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -3818,10 +4377,17 @@
             <Property name="iconTextGap" type="int" value="30"/>
           </Properties>
           <Events>
+<<<<<<< HEAD
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b1">
+=======
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnNo">
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -3842,7 +4408,11 @@
             <Property name="iconTextGap" type="int" value="30"/>
           </Properties>
           <Events>
+<<<<<<< HEAD
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b1ActionPerformed"/>
+=======
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNoActionPerformed"/>
+>>>>>>> a762b2023cb85eea437680e53e1fa0fe0b9cc45e
           </Events>
         </Component>
       </SubComponents>

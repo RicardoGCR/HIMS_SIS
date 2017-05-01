@@ -7,55 +7,141 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
+import vista.ConsultorioEx.RegistroEmbarazoEXF;
+import vista.ConsultorioEx.RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_CARNET_PERINATAL_EF")
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalEf.findAll", query = "SELECT c FROM ConsultorioExtCarnetPerinatalEf c")})
 public class ConsultorioExtCarnetPerinatalEf implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "EF_ID")
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private int cpId;
     private int efId;
-    @Column(name = "EF_EC")
     private String efEc;
-    @Column(name = "EF_MAMAS")
     private String efMamas;
-    @Column(name = "EF_CUE_UTE")
     private String efCueUte;
-    @Column(name = "EF_PELVIS")
     private String efPelvis;
-    @Column(name = "EF_ODONT")
     private String efOdont;
-    @Column(name = "FECHA_ACTU")
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "ESTADO")
     private Character estado;
-    @Column(name = "COD_USU")
     private String codUsu;
 
+    public boolean mantenimientoConsultorioExtCarnetPerinatalEf(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_EF ?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getEfId());
+            cmd.setInt(2, getCpId());
+            cmd.setString(3, getEfEc());
+            cmd.setString(4, getEfMamas());
+            cmd.setString(5, getEfCueUte());
+            cmd.setString(6, getEfPelvis());
+            cmd.setString(7, getEfOdont());
+            cmd.setString(8, getCodUsu());
+            cmd.setString(9, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoConsultorioExtCarnetPerinatalEf: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public String perinatalEfID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 EF_ID\n" +
+                        "FROM CONSULTORIO_EXT_CARNET_PERINATAL_EF \n" +
+                        "WHERE NOM_PC = HOST_NAME()\n" +
+                        "ORDER BY EF_ID DESC ";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("perinatalEfID: " + ex.getMessage());
+        }
+        return cod;
+    }   
+    
+    public void ConsultoriosExtEfListar(String cp_id){
+        String consulta="";
+        try {
+            consulta="[CONSULTORIO_EXT_LISTAR_CARNET_PERINATAL_EF] ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, cp_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                RegistroEmbarazoEXF.lblId.setText(r.getString(1)); 
+                //CLINICO
+                if(r.getString(2).equals("Sin examen"))
+                    RegistroEmbarazoEXF.txtClinicoSinExamen.setText("X");
+                if(r.getString(2).equals("Patologico"))
+                    RegistroEmbarazoEXF.txtClinicoPatologico.setText("X");
+                if(r.getString(2).equals("Normal"))
+                    RegistroEmbarazoEXF.txtClinicoNormal.setText("X");
+                
+                //MAMAS
+                if(r.getString(3).equals("Sin examen"))
+                    RegistroEmbarazoEXF.txtMamasSinExamen.setText("X");
+                if(r.getString(3).equals("Patologico"))
+                    RegistroEmbarazoEXF.txtMamasPatologico.setText("X");
+                if(r.getString(3).equals("Normal"))
+                    RegistroEmbarazoEXF.txtMamasNormal.setText("X");
+                
+                //CUELLO UTERINO
+                if(r.getString(4).equals("Sin examen"))
+                    RegistroEmbarazoEXF.txtCUSinExamen.setText("X");
+                if(r.getString(4).equals("Patologico"))
+                    RegistroEmbarazoEXF.txtCuPatologico.setText("X");
+                if(r.getString(4).equals("Normal"))
+                    RegistroEmbarazoEXF.txtCuNormal.setText("X");
+                
+                //PELVIS
+                if(r.getString(5).equals("Sin examen"))
+                    RegistroEmbarazoEXF.txtPelvisSinExamen.setText("X");
+                if(r.getString(5).equals("Patologico"))
+                    RegistroEmbarazoEXF.txtPelvisPatologico.setText("X");
+                if(r.getString(5).equals("Normal"))
+                    RegistroEmbarazoEXF.txtPelvisNormal.setText("X");
+                
+                //ODONTOLOGICO
+                if(r.getString(6).equals("Sin examen"))
+                    RegistroEmbarazoEXF.txtOdontSinExamen.setText("X");
+                if(r.getString(6).equals("Patologico"))
+                    RegistroEmbarazoEXF.txtOdontPatologico.setText("X");
+                if(r.getString(6).equals("Normal"))
+                    RegistroEmbarazoEXF.txtOdontNormal.setText("X");
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: ConsultoriosExtEfListar: " + e.getMessage());
+        }
+    }
+    
     public ConsultorioExtCarnetPerinatalEf() {
         Conexion con = new Conexion();
         cn = con.conectar();

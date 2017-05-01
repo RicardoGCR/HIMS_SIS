@@ -149,7 +149,7 @@ public boolean nuevaNomenclatura(){
             JTable p=new JTable(m);
             String fila[]=new String[13];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CAJA_NOMENCLATURA_CAJA_LISTAR_EMER ?";
+            consulta="EXEC [CAJA_NOMENCLATURA_CAJA_LISTAR_EMER] ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, descripcion);
             ResultSet r= cmd.executeQuery();

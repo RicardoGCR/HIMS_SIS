@@ -1,25 +1,266 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RESULTADOS" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ec354669-dec9-4a6b-8d69-6d1e50ee2625">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="RESULTADOS" uuid="cca44c95-b982-4600-97e1-f40805026256">
+		<parameter name="ID_COD_DET_RESUL" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT RD.nombre_resultado_exa,RD.valor_de_resultado_analisis,
+CASE
+when RD.tipo_valor_referencia_resul='N'
+then cast( rd.valor_minimo_resul as varchar(10))+'-'+cast(rd.valor_maximo_resul as varchar(10))
+when RD.tipo_valor_referencia_resul='S'
+then rd.valor_texto_referencia_resul
+else '-'
+end valor_ref
+,UM.descripcion_unidad_medida
+FROM LABORATORIO_RESULTADOS_MUESTRA_CABECERA RC,LABORATORIO_RESULTADOS_MUESTRA_DETALLE RD,
+LABORATORIO_TOMA_MUESTRA_DETALLE TD,LABORATORIO_ESQUEMA_RESULTADO_ANALISIS ES,LABORATORIO_UNIDAD_MEDIDA_RESULTADO UM
+WHERE ES.cod_esquema_resul=RD.cod_esquema_resul AND
+TD.cod_det_toma_mu_ana=RC.cod_det_toma_mu_ana AND
+RC.cod_cab_resultado_mu_ana=RD.cod_cab_resultado_mu_ana AND
+UM.cod_uni_med_exa=RD.cod_uni_med_exa
+AND TD.id_cod_det=$P{ID_COD_DET_RESUL}]]>
+		</queryString>
+		<field name="nombre_resultado_exa" class="java.lang.String"/>
+		<field name="valor_de_resultado_analisis" class="java.lang.String"/>
+		<field name="valor_ref" class="java.lang.String"/>
+		<field name="descripcion_unidad_medida" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="ID_COD_DET" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  RC.cod_cab_resultado_mu_ana,ss.SE_DESC+'/'+ce.nombre_clasi_exa AS SERVICIOAREA,ae.nombre_ana_exa,nc.descripcion_nomen_tipo,
+CONCAT(SUBSTRING(hc.cod_hc,1,4),'-',SUBSTRING(hc.cod_hc,5,2)) as 'CODIGO' ,
+hc.ape_pat+' '+hc.ape_mat+' '+ hc.primer_nombre+' '+hc.segundo_nombre+' '+hc.tercer_nombre as Paciente,
+hc.dni, hc.FEC_NAC,case
+when cast(datediff(dd,hc.FEC_NAC,GETDATE()) / 30 as int) =0
+then convert(varchar(10),datediff(DD,  hc.FEC_NAC, getdate())) + ' D'
+when cast( DATEDIFF( DD, hc.FEC_NAC, GETDATE() ) / 365.25 as int)=0
+then convert(varchar(10),datediff(month,  hc.FEC_NAC, getdate())) + ' M'
+else convert(varchar(10),cast(datediff(dd,CONVERT(date,hc.FEC_NAC,103),GETDATE()) / 365.25 as int))
+end AÑOS,hc.sexo,am.NUM_ACTOMEDICO,tc.num_toma_mu_exa,fp.nom_forma_pago,
+td.fecha_orden,td.hora_orden,TD.nom_per_solicita,td.hosp_servicio,TD.hab_nom,td.ca_desc,
+RC.num_resul_exa,rc.nombre_personal_resultado,rc.nombre_personal_regis_resul,rc.fecha_reg_resul,rc.hora_reg_resul,
+dd.id_cod_doc_det
+from ADMISION_HISTORIA_CLINICA HC,CAJA_DOCUMENTO_CABECERA DC,CAJA_DOCUMENTO_DETALLE DD,
+CAJA_PRECIOS CP, CAJA_NOMENCLATURA_CAJA NC ,CAJA_JERARQUIA_FORMA_PAGO fp,CAJA_ACTO_MEDICO am,
+SISTEMA_AREAS SA,SISTEMA_SERVICIO ss,LABORATORIO_ANALISIS_EXAMEN ae,
+LABORATORIO_TOMA_MUESTRA_CABECERA tc,LABORATORIO_TOMA_MUESTRA_DETALLE td,
+LABORATORIO_RESULTADOS_MUESTRA_CABECERA RC,LABORATORIO_CLASIFICACION_EXAMEN ce
+WHERE ce.cod_uni_organica_jerar=sa.AR_ID and
+TC.cod_cab_toma_mu_exa=td.cod_cab_toma_mu_exa
+and ae.cod_exa_ana=td.cod_exa_ana
+and tc.id_documento=dc.id_documento
+and td.id_cod_det=dd.id_cod_doc_det
+and AM.ID_ACTOMEDICO=DC.Id_ActoMedico
+AND SA.AR_ID=NC.AR_ID
+and ss.SE_ID=sa.SE_ID
+AND NC.cod_nomen_caja=CP.cod_nomen_caja
+AND CP.cod_precio=DD.cod_precio
+AND fp.cod_jerar_forma_pago=cp.cod_jerar_forma_pago and
+ DD.id_documento=DC.id_documento AND DC.id_hc=HC.id_hc
+ AND RC.cod_det_toma_mu_ana=TD.cod_det_toma_mu_ana
+and tc.estado_toma_mu_exa_cab='A' and td.estado_toma_muestra_det='A'
+AND TD.id_cod_det=$P{ID_COD_DET}
+group by RC.cod_cab_resultado_mu_ana,ae.cod_exa_ana,hc.id_hc,ss.SE_DESC+'/'+ce.nombre_clasi_exa,
+nc.nomen_caja,nc.descripcion_nomen_tipo,
+ae.nombre_ana_exa,CONCAT(SUBSTRING(hc.cod_hc,1,4),'-',SUBSTRING(hc.cod_hc,5,2)) ,
+hc.ape_pat+' '+hc.ape_mat+' '+ hc.primer_nombre+' '+hc.segundo_nombre+' '+hc.tercer_nombre ,
+hc.dni, hc.FEC_NAC,hc.sexo,am.NUM_ACTOMEDICO,tc.num_toma_mu_exa,fp.nom_forma_pago,
+td.fecha_orden,td.hora_orden,TD.nom_per_solicita,td.hosp_servicio,TD.hab_nom,td.ca_desc,
+RC.num_resul_exa,rc.nombre_personal_resultado,rc.nombre_personal_regis_resul,rc.fecha_reg_resul,rc.hora_reg_resul,
+dd.id_cod_doc_det]]>
+	</queryString>
+	<field name="cod_cab_resultado_mu_ana" class="java.lang.String"/>
+	<field name="SERVICIOAREA" class="java.lang.String"/>
+	<field name="nombre_ana_exa" class="java.lang.String"/>
+	<field name="descripcion_nomen_tipo" class="java.lang.String"/>
+	<field name="CODIGO" class="java.lang.String"/>
+	<field name="Paciente" class="java.lang.String"/>
+	<field name="dni" class="java.lang.String"/>
+	<field name="FEC_NAC" class="java.sql.Date"/>
+	<field name="AÑOS" class="java.lang.String"/>
+	<field name="sexo" class="java.lang.String"/>
+	<field name="NUM_ACTOMEDICO" class="java.lang.Long"/>
+	<field name="num_toma_mu_exa" class="java.lang.String"/>
+	<field name="nom_forma_pago" class="java.lang.String"/>
+	<field name="fecha_orden" class="java.lang.String"/>
+	<field name="hora_orden" class="java.lang.String"/>
+	<field name="nom_per_solicita" class="java.lang.String"/>
+	<field name="hosp_servicio" class="java.lang.String"/>
+	<field name="hab_nom" class="java.lang.String"/>
+	<field name="ca_desc" class="java.lang.String"/>
+	<field name="num_resul_exa" class="java.lang.String"/>
+	<field name="nombre_personal_resultado" class="java.lang.String"/>
+	<field name="nombre_personal_regis_resul" class="java.lang.String"/>
+	<field name="fecha_reg_resul" class="java.lang.String"/>
+	<field name="hora_reg_resul" class="java.lang.String"/>
+	<field name="id_cod_doc_det" class="java.lang.Long"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="37" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="20" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="0" width="209" height="20" uuid="f65599be-1dcc-4b90-9d97-50085cf0c186"/>
+				<textFieldExpression><![CDATA[$F{Paciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="a510e897-3680-416e-89f0-d5f5061001d7"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Paciente:]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="125" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 1" style="table 1" x="73" y="0" width="360" height="111" uuid="300a5c32-34c9-4e9b-b713-900c11e35e29"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="RESULTADOS" uuid="e363422a-d7cd-4508-9c7a-5a8597d75cfc">
+						<datasetParameter name="ID_COD_DET_RESUL">
+							<datasetParameterExpression><![CDATA[$P{ID_COD_DET}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="d4bf377f-3a2f-4656-a3b9-e0ad5feb1921">
+						<jr:tableHeader style="table 1_TH" height="30"/>
+						<jr:tableFooter style="table 1_TH" height="30"/>
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="ccdf24b8-9a9a-4ed7-bf5f-93eabc8129f2"/>
+								<text><![CDATA[nombre_resultado_exa]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="a9bd05ea-50e7-429c-bf07-8571f0b3a01b"/>
+								<textFieldExpression><![CDATA[$F{nombre_resultado_exa}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="5c397b8c-c488-4f59-84d5-edebfeecef82">
+						<jr:tableHeader style="table 1_TH" height="30"/>
+						<jr:tableFooter style="table 1_TH" height="30"/>
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="c3d337bd-44d6-4be8-81a3-5c0f170327c9"/>
+								<text><![CDATA[valor_de_resultado_analisis]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="4d9961a7-014c-4f1c-bb65-3a22b856c3c3"/>
+								<textFieldExpression><![CDATA[$F{valor_de_resultado_analisis}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="f4ea9ba0-2282-4d1b-9619-c7998c1ae89c">
+						<jr:tableHeader style="table 1_TH" height="30"/>
+						<jr:tableFooter style="table 1_TH" height="30"/>
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="670fb70c-efc8-4fc0-bfc8-38ecbdd475de"/>
+								<text><![CDATA[valor_ref]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="a09c81bd-a49f-4417-9bc5-168c52e8bd18"/>
+								<textFieldExpression><![CDATA[$F{valor_ref}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="c96a16a5-4e32-4b5e-b44a-6159d8006f40">
+						<jr:tableHeader style="table 1_TH" height="30"/>
+						<jr:tableFooter style="table 1_TH" height="30"/>
+						<jr:columnHeader style="table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="a10adb96-afd7-4711-a3ce-f43b2be00a2a"/>
+								<text><![CDATA[descripcion_unidad_medida]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 1_CH" height="30"/>
+						<jr:detailCell style="table 1_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="d488c352-09f6-4397-a93e-fec296e0e53e"/>
+								<textFieldExpression><![CDATA[$F{descripcion_unidad_medida}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="433" y="0" width="80" height="19" uuid="b9d5ab9a-78cd-4129-90c7-c32e81f32ca7"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="513" y="0" width="42" height="20" uuid="e851fe9f-6a9a-47a7-8b75-fc822c691e8e"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>

@@ -13,7 +13,9 @@ import java.util.logging.Logger;
 import javax.swing.JComponent;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAO;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAn;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEf;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFd;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFu;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalPt;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalTs;
 import static vista.ConsultorioEx.RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId;
@@ -1564,6 +1566,27 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "fum";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
+        ConsultorioExtCarnetPerinatalFu FU = new ConsultorioExtCarnetPerinatalFu();
+        FU.ConsultoriosExtFuListar(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.getText());
+        if(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdFum.getText().equals("")){
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMantFum.setText("I");
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtEcografia.setEditable(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFUM.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFechaEco.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFechaProbableParto.setEnabled(true);
+        }else{
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtEcografia.setEditable(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFUM.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFechaEco.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFechaProbableParto.setEnabled(false);
+        }
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1600,6 +1623,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void btnNuevo16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo16ActionPerformed
          RegistroEmbarazoEXF EXF =new RegistroEmbarazoEXF();
         RegistroEmbarazo.ContenedorTablas.add(EXF);
+        RegistroEmbarazoEXF.lblCpId.setText(lblId.getText());
+        RegistroEmbarazoEXF.lblMadre.setText(lblMadre.getText());
+        ConsultorioExtCarnetPerinatalEf EF = new ConsultorioExtCarnetPerinatalEf();
+        EF.ConsultoriosExtEfListar(RegistroEmbarazoEXF.lblCpId.getText());
+        if(RegistroEmbarazoEXF.lblId.getText().equals("")){
+            RegistroEmbarazoEXF.lblMant.setText("I");
+            RegistroEmbarazoEXF.btnGuardar.setEnabled(true);
+            RegistroEmbarazoEXF.btnModificar.setEnabled(false);
+        }else{
+            RegistroEmbarazoEXF.btnGuardar.setEnabled(false);
+            RegistroEmbarazoEXF.btnModificar.setEnabled(true);
+        }
         try {
             EXF.setMaximum(true);
         } catch (PropertyVetoException ex) {

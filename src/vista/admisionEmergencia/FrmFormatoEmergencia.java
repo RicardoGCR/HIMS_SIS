@@ -992,7 +992,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                 String ubicacion_egreso = cbxUbicacionEgreso.getSelectedItem().toString();
                 String anot_medica = txtaAnotMed.getText();
                 String anot_enf = txtaAnotacionesEnf.getText();
-                String usuario = adEmerCab5.codUsuario(lblUsuUsuario.getText());
+                String usuario = adEmerCab5.codUsuario(lblusu.getText());
                 String prioridad = cbxPrioridad.getSelectedItem().toString();
                 AdmisionEmergenciaTopico adEmertopico = new AdmisionEmergenciaTopico();
                 habilitarPestanas(3, true);
@@ -1037,7 +1037,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                 Caja_DetallePreventa cdp = new Caja_DetallePreventa();
                 cdp.setId_topico(txtIDTopico.getText());
                 cdp.setCod_precio(tbExamAux.getValueAt(i,2).toString());
-                cdp.setCod_usu(adEmer2.codUsuario(lblUsuUsuario.getText()));
+                cdp.setCod_usu(adEmer2.codUsuario(lblusu.getText()));
                 cdp.setId_Preventa(Integer.parseInt(lblCabpT.getText()));
                 if(cdp.cajaDetallePreventaInsertar()==true)
                     retorna = true;
@@ -1048,7 +1048,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                 AdmisionEmergenciaTopicoDetalleDiagFinal adEmerTop2=new AdmisionEmergenciaTopicoDetalleDiagFinal();
                 adEmerTop2.setId_topico(txtIDTopico.getText());
                 adEmerTop2.setId_cie10(Integer.parseInt(tbDxAlta.getValueAt(i, 0).toString()));
-                adEmerTop2.setUsu_cod(adEmer2.codUsuario(lblUsuUsuario.getText()));
+                adEmerTop2.setUsu_cod(adEmer2.codUsuario(lblusu.getText()));
                 if(adEmerTop2.insertarDetalleDiagFinal()==true)
                     retorna = true;
                 //adEmerTop2.guardarReferencialDetalle();
@@ -1057,7 +1057,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                 AdmisionEmergenciaTopicoDetalleDiagPresun adEmerTop3=new AdmisionEmergenciaTopicoDetalleDiagPresun();
                 adEmerTop3.setId_topico(txtIDTopico.getText());
                 adEmerTop3.setId_cie10(Integer.parseInt(tbImpDx.getValueAt(i, 0).toString()));
-                adEmerTop3.setUsu_cod(adEmer2.codUsuario(lblUsuUsuario.getText()));
+                adEmerTop3.setUsu_cod(adEmer2.codUsuario(lblusu.getText()));
                 if(adEmerTop3.insertarDetalleDiagPresuntivo()==true)
                     retorna = true;
                 //adEmerTop2.guardarReferencialDetalle();
@@ -1298,7 +1298,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             jLabel15 = new javax.swing.JLabel();
             jLabel14 = new javax.swing.JLabel();
             lblFecha = new javax.swing.JLabel();
-            lblUsuUsuario = new javax.swing.JLabel();
+            lblusu = new javax.swing.JLabel();
             jLabel19 = new javax.swing.JLabel();
             btnNuevo = new javax.swing.JButton();
             btnModificar = new javax.swing.JButton();
@@ -1468,7 +1468,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             txtIDTopico = new javax.swing.JTextField();
             jSeparator7 = new javax.swing.JSeparator();
             lblIDHCTo = new javax.swing.JLabel();
-            jLabel84 = new javax.swing.JLabel();
             jLabel85 = new javax.swing.JLabel();
             jPanel15 = new javax.swing.JPanel();
             jLabel36 = new javax.swing.JLabel();
@@ -2834,9 +2833,9 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             lblFecha.setForeground(new java.awt.Color(255, 255, 255));
             lblFecha.setText("00/00/00");
 
-            lblUsuUsuario.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-            lblUsuUsuario.setForeground(new java.awt.Color(255, 255, 255));
-            lblUsuUsuario.setText("Nombre");
+            lblusu.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+            lblusu.setForeground(new java.awt.Color(255, 255, 255));
+            lblusu.setText("Silvana");
 
             jLabel19.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
             jLabel19.setForeground(new java.awt.Color(51, 51, 51));
@@ -2949,7 +2948,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                         .addGroup(jPanel8Layout.createSequentialGroup()
                             .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(lblUsuUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap())
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addContainerGap()
@@ -2997,7 +2996,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                                         .addGroup(jPanel8Layout.createSequentialGroup()
                                             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lblUsuUsuario))
+                                                .addComponent(lblusu))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(lblCabpT))
                                         .addComponent(lblNewMod))
@@ -3409,7 +3408,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
 
             jLabel21.setText("Alt + B");
 
-            txtNroRegistro.setForeground(new java.awt.Color(255, 255, 255));
             txtNroRegistro.setText("jLabel1");
 
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -4356,8 +4354,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             lblIDHCTo.setForeground(new java.awt.Color(255, 255, 255));
             lblIDHCTo.setText("jLabel65");
 
-            jLabel84.setText("Alt + B");
-
             jLabel85.setText("Alt + B");
 
             javax.swing.GroupLayout pnlTopicoLayout = new javax.swing.GroupLayout(pnlTopico);
@@ -4384,11 +4380,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtIDTopico, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(27, 27, 27))))
-                .addGroup(pnlTopicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlTopicoLayout.createSequentialGroup()
-                        .addGap(285, 285, 285)
-                        .addComponent(jLabel84)
-                        .addContainerGap(303, Short.MAX_VALUE)))
             );
             pnlTopicoLayout.setVerticalGroup(
                 pnlTopicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4407,11 +4398,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(pnlTopicoP, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap())
-                .addGroup(pnlTopicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlTopicoLayout.createSequentialGroup()
-                        .addGap(184, 184, 184)
-                        .addComponent(jLabel84)
-                        .addContainerGap(185, Short.MAX_VALUE)))
             );
 
             tbPaneles.addTab("Tópico", pnlTopico);
@@ -4538,11 +4524,10 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                             caja1.setEMER_TRAIDOPOR(txtTraidopor.getText());
                             caja1.setEMER_PARENTESCO(txtParentesco.getText());
                             caja1.setEMER_FORMA_LLEGADA_ID(caja1.codFormaLlegada(cbxFormaLlegada.getSelectedItem().toString()));
-                            caja1.setCod_usu(caja1.codUsuario(lblUsuUsuario.getText()));
-                            caja1.setId_preventa(Integer.parseInt(txtNroRegistro.getText()));
+                            caja1.setCod_usu(caja1.codUsuario(lblusu.getText()));
+//                            caja1.setId_preventa(Integer.parseInt(txtNroRegistro.getText()));
                             caja1.setCod_nomen(txtCPT.getText());
                             if(caja1.mantanimientoCajaPreventaEmergencia("I")==true){
-                                String nroregistro = txtNroRegistro.getText();
                                 //VISUALIZAR EL REPORTE
                                 String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Cabecera.jasper";
                                 JOptionPane.showMessageDialog(this, "Datos guardados");
@@ -4620,7 +4605,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                             adEmerTr1.setTriaje_fv_peso(txtPeso.getText());
                             adEmerTr1.setTriaje_fv_fr(txtFR.getText());
                             adEmerTr1.setTriaje_talla(txtTalla.getText());
-                            adEmerTr1.setCod_usu(adEmerCab3.codUsuario(lblUsuUsuario.getText()));
+                            adEmerTr1.setCod_usu(adEmerCab3.codUsuario(lblusu.getText()));
                             adEmerTr1.setModulo("EME");
                             if(adEmerTr1.mantenimientoAdmisionemergenciaTriaje("I")==true){
                                 JOptionPane.showMessageDialog(this, "Datos guardados");
@@ -5147,7 +5132,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                     for(int i =0;i<filase;i++){
                         m3.removeRow(0);
                     }
-                    lblUsuario.setText(lblUsuUsuario.getText());
+                    lblUsuario.setText(lblusu.getText());
                 }else{
                     JOptionPane.showMessageDialog(this, "No hay registros");
                     txtNHCTo.setText("");
@@ -5797,7 +5782,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
-    private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -5892,8 +5876,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
     private javax.swing.JLabel lblTipo;
     public static javax.swing.JLabel lblTipoDiag;
     public static javax.swing.JLabel lblTraidoporTriaje;
-    public static javax.swing.JLabel lblUsuUsuario;
     public static javax.swing.JLabel lblUsuario;
+    public static javax.swing.JLabel lblusu;
     private javax.swing.JPanel plTriaje;
     private javax.swing.JPanel pnlB;
     private javax.swing.JPanel pnlDatosCabecera;

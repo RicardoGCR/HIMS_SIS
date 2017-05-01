@@ -2135,7 +2135,7 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabel19" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblUsuUsuario" min="-2" pref="85" max="-2" attributes="0"/>
+                          <Component id="lblusu" min="-2" pref="85" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2194,7 +2194,7 @@
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Component id="jLabel19" min="-2" pref="24" max="-2" attributes="0"/>
-                                              <Component id="lblUsuUsuario" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblusu" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lblCabpT" min="-2" max="-2" attributes="0"/>
@@ -2282,7 +2282,7 @@
             <Property name="text" type="java.lang.String" value="00/00/00"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblUsuUsuario">
+        <Component class="javax.swing.JLabel" name="lblusu">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Palatino Linotype" size="14" style="1"/>
@@ -2290,7 +2290,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nombre"/>
+            <Property name="text" type="java.lang.String" value="Silvana"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -3290,9 +3290,6 @@
             </Component>
             <Component class="javax.swing.JLabel" name="txtNroRegistro">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
               <AuxValues>
@@ -3950,13 +3947,6 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="285" max="-2" attributes="0"/>
-                          <Component id="jLabel84" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="303" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -3978,13 +3968,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnlTopicoP" min="-2" pref="312" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
-                          <Component id="jLabel84" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="185" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -5082,11 +5065,6 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel84">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Alt + B"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel85">
               <Properties>

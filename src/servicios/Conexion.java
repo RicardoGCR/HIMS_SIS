@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
 
-    static String servidor="localhost";
+    static String servidor="192.168.1.38";
     static String puerto="1433";
     static String user="sa";
     static String password="sistemas";

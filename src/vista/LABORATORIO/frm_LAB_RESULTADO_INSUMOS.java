@@ -8,6 +8,7 @@ package vista.LABORATORIO;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -316,7 +317,6 @@ public void calcula() {
                 jLabel2 = new javax.swing.JLabel();
                 jpanel = new javax.swing.JPanel();
                 titulo5 = new javax.swing.JLabel();
-                lblUsu = new javax.swing.JLabel();
                 jPanel7 = new javax.swing.JPanel();
                 jPanel8 = new javax.swing.JPanel();
                 tb_valores1 = new javax.swing.JScrollPane();
@@ -494,7 +494,7 @@ public void calcula() {
                     }
                 });
                 tbResultadoInsumos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-                tbResultadoInsumos.setRowHeight(22);
+                tbResultadoInsumos.setRowHeight(25);
                 tbResultadoInsumos.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
                     public void propertyChange(java.beans.PropertyChangeEvent evt) {
                         tbResultadoInsumosPropertyChange(evt);
@@ -693,6 +693,9 @@ public void calcula() {
 
                 txtCantidadPer.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                 txtCantidadPer.addKeyListener(new java.awt.event.KeyAdapter() {
+                    public void keyReleased(java.awt.event.KeyEvent evt) {
+                        txtCantidadPerKeyReleased(evt);
+                    }
                     public void keyTyped(java.awt.event.KeyEvent evt) {
                         txtCantidadPerKeyTyped(evt);
                     }
@@ -701,6 +704,8 @@ public void calcula() {
                 jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 jLabel7.setText("Cantidad Reasignada");
 
+                txtCantidadReasig.setEditable(false);
+                txtCantidadReasig.setBackground(new java.awt.Color(153, 153, 153));
                 txtCantidadReasig.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                 txtCantidadReasig.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -893,7 +898,7 @@ public void calcula() {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(35, Short.MAX_VALUE))
+                        .addContainerGap(41, Short.MAX_VALUE))
                 );
 
                 tab.addTab("tab2", jPanel3);
@@ -911,11 +916,6 @@ public void calcula() {
                 titulo5.setToolTipText("");
                 titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-                lblUsu.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
-                lblUsu.setForeground(new java.awt.Color(255, 255, 255));
-                lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
-                lblUsu.setText("Usuario");
-
                 javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
                 jpanel.setLayout(jpanelLayout);
                 jpanelLayout.setHorizontalGroup(
@@ -923,19 +923,13 @@ public void calcula() {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(titulo5)
-                        .addGap(502, 502, 502)
-                        .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addContainerGap(656, Short.MAX_VALUE))
                 );
                 jpanelLayout.setVerticalGroup(
                     jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addComponent(titulo5)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jpanelLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addGap(0, 45, Short.MAX_VALUE))
                 );
 
                 getContentPane().add(jpanel);
@@ -1194,11 +1188,9 @@ public void calcula() {
     private void txtCantidadPerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadPerKeyTyped
          char tecla;
         tecla = evt.getKeyChar();
-        if(!Character.isDigit(tecla)&&tecla !='.'){
-            evt.consume();            
-        }
-        if(tecla =='.' && txtCantidadPer.getText().contains(".")){
-            evt.consume();            
+        if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE &&tecla!=KeyEvent.VK_BACK_SPACE){
+            evt.consume();
+            getToolkit().beep();            
         }
         if (txtCantidadPer.getText().length()>6){
         evt.consume();
@@ -1236,21 +1228,31 @@ public void calcula() {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
            try {  
-              
-               int cantidad=Integer.parseInt(lblCantidad.getText());
+               
+               BigDecimal bd = new BigDecimal(txtCantidadPer.getText());       
+                bd = bd.setScale(0, BigDecimal.ROUND_HALF_UP);
+                BigDecimal bd1 = new BigDecimal(txtCantidadReasig.getText());       
+                bd1 = bd1.setScale(0, BigDecimal.ROUND_HALF_UP);
+                
+                BigDecimal bdc = new BigDecimal(lblCantidad.getText());       
+                bdc = bdc.setScale(2, BigDecimal.ROUND_HALF_UP);
+                BigDecimal bds = new BigDecimal(lblSaldo.getText());       
+                bds = bds.setScale(2, BigDecimal.ROUND_HALF_UP);
+                
+                int cantidad=Integer.parseInt(lblCantidad.getText());
                int saldo=Integer.parseInt(lblSaldo.getText());
+               
             if(txtMotivoPerdida.getText().equalsIgnoreCase("")){
                 JOptionPane.showMessageDialog(rootPane, "Ingrese el Motivo de la Perdida del Insumo");
             }else if(txtCantidadPer.getText().equalsIgnoreCase("")){
                 JOptionPane.showMessageDialog(rootPane, "Ingrese la Cantidad Perdida");
             }else if(Integer.parseInt(txtCantidadPer.getText())>cantidad){
                 txtCantidadPer.setText("");
+                txtCantidadReasig.setText("");
                 JOptionPane.showMessageDialog(rootPane, "La Cantidad Perdida debe ser menor a "+lblCantidad.getText());
             }else if(txtCantidadReasig.getText().equalsIgnoreCase("")){
                 JOptionPane.showMessageDialog(rootPane, "Ingrese la Cantidad Reasignada");
-            }else if(Integer.parseInt(txtCantidadReasig.getText())>cantidad){
-                JOptionPane.showMessageDialog(rootPane, "La Cantidad Reasignada debe ser menor a "+lblCantidad.getText());
-            }else if(Integer.parseInt(txtCantidadReasig.getText())>saldo){
+            }else if(Integer.parseInt(txtCantidadPer.getText())>saldo){
                 JOptionPane.showMessageDialog(rootPane, "La Cantidad Reasignada no cubre el Stock del Producto.");
             }else{
         String cod_kardex,motivo_perdi,cant_perdida,cant_reasig;
@@ -1277,6 +1279,7 @@ public void calcula() {
                 tab.setSelectedIndex(0);
                
         } } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "La Cantidad Perdida debe ser menor a "+lblCantidad.getText());
             System.out.println("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
@@ -1377,6 +1380,10 @@ public void calcula() {
         dispose();
             }
     }//GEN-LAST:event_btnInsumosSustenActionPerformed
+
+    private void txtCantidadPerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadPerKeyReleased
+       txtCantidadReasig.setText(txtCantidadPer.getText());
+    }//GEN-LAST:event_txtCantidadPerKeyReleased
     public void enableDatos(){
    
 }
@@ -1490,7 +1497,6 @@ public void calcula() {
     private javax.swing.JLabel lblSaldo;
     public static javax.swing.JLabel lblServicio;
     private javax.swing.JLabel lblUM;
-    public static javax.swing.JLabel lblUsu;
     private javax.swing.JLabel lbltipo;
     private javax.swing.JDialog personal;
     private javax.swing.JTabbedPane tab;

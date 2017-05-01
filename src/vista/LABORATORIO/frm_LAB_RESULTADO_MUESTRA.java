@@ -105,8 +105,8 @@ DefaultTableModel m,n,muestra;
     tb_Detalle.getColumnModel().getColumn(5).setPreferredWidth(190);
     tb_Detalle.getColumnModel().getColumn(6).setPreferredWidth(160);
     
-    tb_Detalle.getColumnModel().getColumn(16).setPreferredWidth(100);
-    tb_Detalle.getColumnModel().getColumn(17).setPreferredWidth(100);
+    tb_Detalle.getColumnModel().getColumn(16).setPreferredWidth(105);
+    tb_Detalle.getColumnModel().getColumn(17).setPreferredWidth(105);
     tb_Detalle.getColumnModel().getColumn(18).setPreferredWidth(150);
     tb_Detalle.getColumnModel().getColumn(20).setPreferredWidth(220);
             //Ocultar    

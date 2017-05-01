@@ -7,55 +7,147 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
-
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_CARNET_PERINATAL_FU")
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalFu.findAll", query = "SELECT c FROM ConsultorioExtCarnetPerinatalFu c")})
+import vista.ConsultorioEx.RSAIVacunas;
+import vista.ConsultorioEx.RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V;
 public class ConsultorioExtCarnetPerinatalFu implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "FU_ID")
+
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private int cpId;
     private int fuId;
-    @Column(name = "FU_FECHA_ULT_MENS")
     private String fuFechaUltMens;
-    @Column(name = "FU_DUDA_FECHA")
     private String fuDudaFecha;
-    @Column(name = "FU_ECO")
     private String fuEco;
-    @Column(name = "FU_FECHA_ECO")
     private String fuFechaEco;
-    @Column(name = "FU_FECHA_P_PARTO")
     private String fuFechaPParto;
-    @Column(name = "FECHA_ACTU")
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "ESTADO")
     private Character estado;
-    @Column(name = "COD_USU")
     private String codUsu;
 
+    public boolean mantenimientoConsultorioExtCarnetPerinatalFu(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_FU ?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getFuId());
+            cmd.setInt(2, getCpId());
+            cmd.setString(3, getFuFechaUltMens());
+            cmd.setString(4, getFuDudaFecha());
+            cmd.setString(5, getFuEco());
+            cmd.setString(6, getFuFechaEco());
+            cmd.setString(7, getFuFechaPParto());
+            cmd.setString(8, getCodUsu());
+            cmd.setString(9, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoConsultorioExtCarnetPerinatalFu: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public String perinatalFuID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 FU_ID\n" +
+                        "FROM CONSULTORIO_EXT_CARNET_PERINATAL_FU \n" +
+                        "WHERE NOM_PC = HOST_NAME()\n" +
+                        "ORDER BY FU_ID DESC ";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("perinatalFuID: " + ex.getMessage());
+        }
+        return cod;
+    }   
+    
+    public void ConsultoriosExtFuListar(String cp_id){
+        String consulta="";
+        try {
+            consulta="[CONSULTORIO_EXT_LISTAR_CARNET_PERINATAL_FU] ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, cp_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdFum.setText(r.getString(1)); 
+                try { // llenar el campo fecha FUM
+                  if(r.getString(2).equals("")){
+                  RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFUM.setDate(null);
+                } else {
+                    String fechaFUM = (String)(r.getString(2));
+                    DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha = dfo.parse(fechaFUM);
+                    RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFUM.setDate(fecha);
+                }
+                } catch (Exception e) {
+                }
+                if(r.getString(3).equals("SI"))
+                    RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.chkDudaSi.setText("X");
+                if(r.getString(3).equals("NO"))
+                    RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.chkDudaNo.setText("X");
+                if(r.getString(4).equals(""))
+                    RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.chkNoAplica.setText("");
+                else{
+                    RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.chkNoAplica.setText("");
+                    RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtEcografia.setText(r.getString(4));
+                    try { // llenar el campo fecha FUM
+                        if(r.getString(5).equals("")){
+                        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFechaEco.setDate(null);
+                      } else {
+                          String fechaEco = (String)(r.getString(5));
+                          DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+                          Date fecha = dfo.parse(fechaEco);
+                          RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFechaEco.setDate(fecha);
+                      }
+                    } catch (Exception e) {
+                    }
+                }
+                
+                try { // fecha parto
+                        if(r.getString(6).equals("")){
+                        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFechaProbableParto.setDate(null);
+                      } else {
+                          String fechaParto = (String)(r.getString(6));
+                          DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+                          Date fecha = dfo.parse(fechaParto);
+                          RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFechaProbableParto.setDate(fecha);
+                      }
+                    } catch (Exception e) {
+                    }
+                    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: ConsultoriosExtFuListar: " + e.getMessage());
+        }
+    }
+    
     public ConsultorioExtCarnetPerinatalFu() {
         Conexion con = new Conexion();
         cn = con.conectar();

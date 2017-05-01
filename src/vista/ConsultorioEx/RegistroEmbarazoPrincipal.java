@@ -21,7 +21,11 @@ import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAn;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAp;
 
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFd;
+<<<<<<< HEAD
 
+=======
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFu;
+>>>>>>> 512319828ebd54997999ca9545a259af557f7b10
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalPt;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalTs;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalVp;
@@ -1673,6 +1677,27 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "fum";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
+        ConsultorioExtCarnetPerinatalFu FU = new ConsultorioExtCarnetPerinatalFu();
+        FU.ConsultoriosExtFuListar(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.getText());
+        if(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdFum.getText().equals("")){
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMantFum.setText("I");
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtEcografia.setEditable(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFUM.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFechaEco.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFechaProbableParto.setEnabled(true);
+        }else{
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtEcografia.setEditable(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFUM.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFechaEco.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.dtFechaProbableParto.setEnabled(false);
+        }
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {

@@ -7,6 +7,8 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 
@@ -29,6 +31,57 @@ public class ConsultorioExtCarnetPerinatalEf implements Serializable {
     private Character estado;
     private String codUsu;
 
+    public boolean mantenimientoConsultorioExtCarnetPerinatalEf(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_EF ?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getEfId());
+            cmd.setInt(2, getCpId());
+            cmd.setString(3, getEfEc());
+            cmd.setString(4, getEfMamas());
+            cmd.setString(5, getEfCueUte());
+            cmd.setString(6, getEfPelvis());
+            cmd.setString(7, getEfOdont());
+            cmd.setString(8, getCodUsu());
+            cmd.setString(9, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoConsultorioExtCarnetPerinatalEf: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public String perinatalEfID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 EF_ID\n" +
+                        "FROM CONSULTORIO_EXT_CARNET_PERINATAL_EF \n" +
+                        "WHERE NOM_PC = HOST_NAME()\n" +
+                        "ORDER BY EF_ID DESC ";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("perinatalEfID: " + ex.getMessage());
+        }
+        return cod;
+    }   
+    
     public ConsultorioExtCarnetPerinatalEf() {
         Conexion con = new Conexion();
         cn = con.conectar();

@@ -1,0 +1,159 @@
+
+CREATE PROCEDURE [dbo].[CONSULTORIO_EXT_LISTAR_CARNET_PERINATAL_FU]
+@CP_ID BIGINT
+AS
+SELECT FU_ID,FU_FECHA_ULT_MENS,FU_DUDA_FECHA,FU_ECO,FU_FECHA_ECO,FU_FECHA_P_PARTO
+FROM CONSULTORIO_EXT_CARNET_PERINATAL_FU
+WHERE CP_ID = @CP_ID
+AND ESTADO = 'A'
+
+
+-------
+
+CREATE PROCEDURE CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_EM
+@EM_ID BIGINT,
+@CP_ID bigint,
+@EM_FECHA char(10),
+@ID_CIE10 bigint,
+@COD_USU CHAR(8),
+@TIPO CHAR(1)
+AS
+IF @TIPO = 'I'
+BEGIN
+	INSERT INTO [dbo].[CONSULTORIO_EXT_CARNET_PERINATAL_EM]
+           ([CP_ID]
+           ,[EM_FECHA]
+           ,[ID_CIE10]
+           ,[FECHA_ACTU]
+           ,[HORA_ACTU]
+           ,[NOM_PC]
+           ,[ESTADO]
+           ,[COD_USU])
+     VALUES
+           (@CP_ID, 
+           @EM_FECHA, 
+           @ID_CIE10, 
+           CONVERT(VARCHAR(10),GETDATE(),103),
+		   CONVERT(VARCHAR(8),GETDATE(),108), 
+           HOST_NAME(),
+           'A',
+		   @COD_USU)
+END
+IF @TIPO = 'U'
+BEGIN
+	UPDATE [dbo].[CONSULTORIO_EXT_CARNET_PERINATAL_EM]
+   SET [EM_FECHA] = @EM_FECHA, 
+     [ID_CIE10] = @ID_CIE10
+ WHERE EM_ID = @EM_ID
+END
+IF @TIPO = 'E'
+BEGIN
+	UPDATE [dbo].[CONSULTORIO_EXT_CARNET_PERINATAL_EM]
+   SET ESTADO = 'D'
+ WHERE EM_ID = @EM_ID
+END
+GO
+
+CREATE PROCEDURE CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_VG
+@VG_ID BIGINT,
+@CP_ID bigint,
+@VG_FICHA_TAMIZAJE char(2),
+@VG_VIOLENCIA char(2),
+@VG_FECHA char(10),
+@COD_USU char(8),
+@TIPO CHAR(1)
+AS
+IF @TIPO = 'I'
+BEGIN
+	INSERT INTO [dbo].[CONSULTORIO_EXT_CARNET_PERINATAL_VG]
+           ([CP_ID]
+           ,[VG_FICHA_TAMIZAJE]
+           ,[VG_VIOLENCIA]
+           ,[VG_FECHA]
+           ,[FECHA_ACTU]
+           ,[HORA_ACTU]
+           ,[NOM_PC]
+           ,[ESTADO]
+           ,[COD_USU])
+     VALUES
+           (@CP_ID, 
+           @VG_FICHA_TAMIZAJE,
+           @VG_VIOLENCIA, 
+           @VG_FECHA, 
+           CONVERT(VARCHAR(10),GETDATE(),103),
+		   CONVERT(VARCHAR(8),GETDATE(),108), 
+           HOST_NAME(),
+           'A',
+           @COD_USU)
+END
+IF @TIPO = 'U'
+BEGIN
+	UPDATE [dbo].[CONSULTORIO_EXT_CARNET_PERINATAL_VG]
+   SET [VG_FICHA_TAMIZAJE] = @VG_FICHA_TAMIZAJE
+      ,[VG_VIOLENCIA] = @VG_VIOLENCIA
+      ,[VG_FECHA] = @VG_FECHA
+ WHERE VG_ID = @VG_ID
+END
+IF @TIPO = 'E'
+BEGIN
+	UPDATE [dbo].[CONSULTORIO_EXT_CARNET_PERINATAL_VG]
+   SET ESTADO = 'D'
+ WHERE VG_ID = @VG_ID
+END
+GO
+
+CREATE PROCEDURE CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_EF
+@EF_ID BIGINT, 
+@CP_ID bigint,
+@EF_EC varchar(20),
+@EF_MAMAS varchar(20),
+@EF_CUE_UTE varchar(20),
+@EF_PELVIS varchar(20),
+@EF_ODONT varchar(20),
+@COD_USU char(8),
+@TIPO CHAR(1)
+AS
+IF @TIPO = 'I'
+BEGIN
+INSERT INTO [dbo].[CONSULTORIO_EXT_CARNET_PERINATAL_EF]
+           ([CP_ID]
+           ,[EF_EC]
+           ,[EF_MAMAS]
+           ,[EF_CUE_UTE]
+           ,[EF_PELVIS]
+           ,[EF_ODONT]
+           ,[FECHA_ACTU]
+           ,[HORA_ACTU]
+           ,[NOM_PC]
+           ,[ESTADO]
+           ,[COD_USU])
+     VALUES
+           (@CP_ID, 
+           @EF_EC, 
+           @EF_MAMAS, 
+           @EF_CUE_UTE, 
+           @EF_PELVIS, 
+           @EF_ODONT, 
+           CONVERT(VARCHAR(10),GETDATE(),103),
+		   CONVERT(VARCHAR(8),GETDATE(),108), 
+           HOST_NAME(),
+           'A',
+           @COD_USU)
+END
+IF @TIPO = 'U'
+BEGIN
+	UPDATE [dbo].[CONSULTORIO_EXT_CARNET_PERINATAL_EF]
+   SET [EF_EC] = @EF_EC
+      ,[EF_MAMAS] = @EF_MAMAS
+      ,[EF_CUE_UTE] = @EF_CUE_UTE
+      ,[EF_PELVIS] = @EF_PELVIS
+      ,[EF_ODONT] = @EF_ODONT
+ WHERE EF_ID = @EF_ID
+END
+IF @TIPO = 'E'
+BEGIN
+	UPDATE [dbo].[CONSULTORIO_EXT_CARNET_PERINATAL_EF]
+   SET ESTADO = 'D'
+ WHERE EF_ID = @EF_ID
+END
+GO

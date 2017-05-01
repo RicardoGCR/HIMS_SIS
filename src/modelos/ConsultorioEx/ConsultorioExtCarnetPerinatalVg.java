@@ -7,6 +7,8 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 
@@ -27,6 +29,55 @@ public class ConsultorioExtCarnetPerinatalVg implements Serializable {
     private Character estado;
     private String codUsu;
 
+    public boolean mantenimientoConsultorioExtCarnetPerinatalVg(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_VG ?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getVgId());
+            cmd.setInt(2, getCpId());
+            cmd.setString(3, getVgFichaTamizaje());
+            cmd.setString(4, getVgViolencia());
+            cmd.setString(5, getVgFecha());
+            cmd.setString(6, getCodUsu());
+            cmd.setString(7, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoConsultorioExtCarnetPerinatalVg: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public String perinatalVgID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 VG_ID\n" +
+                        "FROM CONSULTORIO_EXT_CARNET_PERINATAL_VG \n" +
+                        "WHERE NOM_PC = HOST_NAME()\n" +
+                        "ORDER BY VG_ID DESC ";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("perinatalVgID: " + ex.getMessage());
+        }
+        return cod;
+    }   
+    
     public ConsultorioExtCarnetPerinatalVg() {
         Conexion con = new Conexion();
         cn = con.conectar();

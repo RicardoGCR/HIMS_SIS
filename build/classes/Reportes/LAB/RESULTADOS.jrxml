@@ -3,6 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<property name="ireport.callouts" value="##Mon May 01 11:04:40 COT 2017"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -43,6 +44,77 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<style name="table 2">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#45678A">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#CFDAE6">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#45678A">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#CFDAE6">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#45678A">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#CFDAE6">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
 	<subDataset name="RESULTADOS" uuid="cca44c95-b982-4600-97e1-f40805026256">
 		<parameter name="ID_COD_DET_RESUL" class="java.lang.String">
 			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -74,8 +146,9 @@ AND TD.id_cod_det=$P{ID_COD_DET_RESUL}]]>
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select  RC.cod_cab_resultado_mu_ana,ss.SE_DESC+'/'+ce.nombre_clasi_exa AS SERVICIOAREA,ae.nombre_ana_exa,nc.descripcion_nomen_tipo,
-CONCAT(SUBSTRING(hc.cod_hc,1,4),'-',SUBSTRING(hc.cod_hc,5,2)) as 'CODIGO' ,
+		<![CDATA[select  RC.cod_cab_resultado_mu_ana,upper (ss.SE_DESC+' - '+ce.nombre_clasi_exa) AS SERVICIOAREA,
+ae.nombre_ana_exa,nc.cod_nomen_caja,
+upper(CONCAT(SUBSTRING(hc.cod_hc,1,4),'-',SUBSTRING(hc.cod_hc,5,2))) as 'CODIGO' ,
 hc.ape_pat+' '+hc.ape_mat+' '+ hc.primer_nombre+' '+hc.segundo_nombre+' '+hc.tercer_nombre as Paciente,
 hc.dni, hc.FEC_NAC,case
 when cast(datediff(dd,hc.FEC_NAC,GETDATE()) / 30 as int) =0
@@ -86,7 +159,12 @@ else convert(varchar(10),cast(datediff(dd,CONVERT(date,hc.FEC_NAC,103),GETDATE()
 end AÑOS,hc.sexo,am.NUM_ACTOMEDICO,tc.num_toma_mu_exa,fp.nom_forma_pago,
 td.fecha_orden,td.hora_orden,TD.nom_per_solicita,td.hosp_servicio,TD.hab_nom,td.ca_desc,
 RC.num_resul_exa,rc.nombre_personal_resultado,rc.nombre_personal_regis_resul,rc.fecha_reg_resul,rc.hora_reg_resul,
-dd.id_cod_doc_det
+dd.id_cod_doc_det,
+case
+when rc.resultado_PN =''
+then ''
+else 'Resultado:'
+end mostrar,rc.resultado_PN
 from ADMISION_HISTORIA_CLINICA HC,CAJA_DOCUMENTO_CABECERA DC,CAJA_DOCUMENTO_DETALLE DD,
 CAJA_PRECIOS CP, CAJA_NOMENCLATURA_CAJA NC ,CAJA_JERARQUIA_FORMA_PAGO fp,CAJA_ACTO_MEDICO am,
 SISTEMA_AREAS SA,SISTEMA_SERVICIO ss,LABORATORIO_ANALISIS_EXAMEN ae,
@@ -107,19 +185,19 @@ AND fp.cod_jerar_forma_pago=cp.cod_jerar_forma_pago and
  AND RC.cod_det_toma_mu_ana=TD.cod_det_toma_mu_ana
 and tc.estado_toma_mu_exa_cab='A' and td.estado_toma_muestra_det='A'
 AND TD.id_cod_det=$P{ID_COD_DET}
-group by RC.cod_cab_resultado_mu_ana,ae.cod_exa_ana,hc.id_hc,ss.SE_DESC+'/'+ce.nombre_clasi_exa,
-nc.nomen_caja,nc.descripcion_nomen_tipo,
-ae.nombre_ana_exa,CONCAT(SUBSTRING(hc.cod_hc,1,4),'-',SUBSTRING(hc.cod_hc,5,2)) ,
+group by RC.cod_cab_resultado_mu_ana,ae.cod_exa_ana,hc.id_hc,ss.SE_DESC+' - '+ce.nombre_clasi_exa,
+ae.nombre_ana_exa,nc.cod_nomen_caja,
+CONCAT(SUBSTRING(hc.cod_hc,1,4),'-',SUBSTRING(hc.cod_hc,5,2)) ,
 hc.ape_pat+' '+hc.ape_mat+' '+ hc.primer_nombre+' '+hc.segundo_nombre+' '+hc.tercer_nombre ,
 hc.dni, hc.FEC_NAC,hc.sexo,am.NUM_ACTOMEDICO,tc.num_toma_mu_exa,fp.nom_forma_pago,
 td.fecha_orden,td.hora_orden,TD.nom_per_solicita,td.hosp_servicio,TD.hab_nom,td.ca_desc,
 RC.num_resul_exa,rc.nombre_personal_resultado,rc.nombre_personal_regis_resul,rc.fecha_reg_resul,rc.hora_reg_resul,
-dd.id_cod_doc_det]]>
+dd.id_cod_doc_det,rc.resultado_PN]]>
 	</queryString>
 	<field name="cod_cab_resultado_mu_ana" class="java.lang.String"/>
 	<field name="SERVICIOAREA" class="java.lang.String"/>
 	<field name="nombre_ana_exa" class="java.lang.String"/>
-	<field name="descripcion_nomen_tipo" class="java.lang.String"/>
+	<field name="cod_nomen_caja" class="java.lang.String"/>
 	<field name="CODIGO" class="java.lang.String"/>
 	<field name="Paciente" class="java.lang.String"/>
 	<field name="dni" class="java.lang.String"/>
@@ -141,113 +219,244 @@ dd.id_cod_doc_det]]>
 	<field name="fecha_reg_resul" class="java.lang.String"/>
 	<field name="hora_reg_resul" class="java.lang.String"/>
 	<field name="id_cod_doc_det" class="java.lang.Long"/>
+	<field name="mostrar" class="java.lang.String"/>
+	<field name="resultado_PN" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="37" splitType="Stretch"/>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="0" width="504" height="21" uuid="5c26088e-db19-4a7d-a696-006363b62184"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICIO DE LABORATORIO CLÍNICO]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
-		<band height="20" splitType="Stretch"/>
+		<band height="10" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="55" splitType="Stretch">
+		<band height="158" splitType="Stretch">
+			<rectangle>
+				<reportElement x="26" y="10" width="504" height="122" uuid="4f06df91-184d-4a98-8512-ecbeda7d3901"/>
+			</rectangle>
 			<textField>
-				<reportElement x="100" y="0" width="209" height="20" uuid="f65599be-1dcc-4b90-9d97-50085cf0c186"/>
+				<reportElement x="115" y="50" width="192" height="20" uuid="f65599be-1dcc-4b90-9d97-50085cf0c186"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{Paciente}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="0" width="100" height="20" uuid="a510e897-3680-416e-89f0-d5f5061001d7"/>
-				<textElement textAlignment="Right"/>
+				<reportElement x="42" y="50" width="73" height="20" uuid="a510e897-3680-416e-89f0-d5f5061001d7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Paciente:]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="42" y="70" width="73" height="20" uuid="92622de4-67b5-4b55-b804-8927edea0754"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Edad:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="115" y="70" width="100" height="20" uuid="8f027733-a87c-4f8b-954e-f2b054bd051a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AÑOS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="90" width="108" height="20" uuid="befbe6d9-e8a6-418e-a9fb-edc7cf519209"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mostrar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="90" width="89" height="20" uuid="0555a2fb-12d2-4061-8d70-0554dc476ffb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resultado_PN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="50" width="47" height="20" uuid="e0b3162e-e3e6-4bf4-812e-35eccf6f0a7e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_orden}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="332" y="50" width="108" height="20" uuid="5b73f4ca-64de-4a3b-9f6e-29ba31ccb3da"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Orden:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="90" width="73" height="20" uuid="ebea4fcc-2b9b-4400-9acb-e74423323be6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Médico:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="115" y="90" width="192" height="20" uuid="9540d085-d9c5-4856-9ac8-ae10e7b0a0b6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom_per_solicita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="42" y="30" width="73" height="20" uuid="2d30e016-eb74-4077-804f-2ac18e745ac1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID de Atención:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="487" y="50" width="42" height="20" uuid="a498ba33-ac00-4100-934b-3f3051c62e29"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hora_orden}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="332" y="70" width="108" height="20" uuid="9c5e866f-6c4d-4bc6-bb9e-cb29cfc293f7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Resultado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="440" y="70" width="47" height="20" uuid="b33fcb1e-a869-440d-bfaa-b9f3d5d98478"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_reg_resul}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="487" y="70" width="42" height="20" uuid="e3f9ea9c-fd9c-4094-9400-f7b924df2fd1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hora_reg_resul}]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="155" splitType="Stretch">
 			<componentElement>
-				<reportElement key="table 1" style="table 1" x="73" y="0" width="360" height="111" uuid="300a5c32-34c9-4e9b-b713-900c11e35e29"/>
+				<reportElement key="table 4" style="table 4" x="26" y="45" width="504" height="71" uuid="be4635ba-d683-4435-b8f6-26b115a4c652"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="RESULTADOS" uuid="e363422a-d7cd-4508-9c7a-5a8597d75cfc">
+					<datasetRun subDataset="RESULTADOS" uuid="8e1037c8-0f1c-4dd5-968b-25a8e4767c1a">
 						<datasetParameter name="ID_COD_DET_RESUL">
-							<datasetParameterExpression><![CDATA[$P{ID_COD_DET}]]></datasetParameterExpression>
+							<datasetParameterExpression><![CDATA[$F{id_cod_doc_det}]]></datasetParameterExpression>
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column width="90" uuid="d4bf377f-3a2f-4656-a3b9-e0ad5feb1921">
-						<jr:tableHeader style="table 1_TH" height="30"/>
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnHeader style="table 1_CH" height="30">
+					<jr:column width="158" uuid="d4412858-ec10-4c68-a397-aca72c9f622e">
+						<jr:tableHeader style="table 4_TH" height="21" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="ccdf24b8-9a9a-4ed7-bf5f-93eabc8129f2"/>
-								<text><![CDATA[nombre_resultado_exa]]></text>
+								<reportElement x="0" y="0" width="158" height="21" forecolor="#FFFFFF" uuid="ad3909b0-d0e4-4e18-bc49-def20e4d4df1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Segoe UI Semilight" size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[ANALISIS]]></text>
 							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20">
+						</jr:tableHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="a9bd05ea-50e7-429c-bf07-8571f0b3a01b"/>
+								<reportElement x="0" y="0" width="158" height="20" uuid="3da5ef10-f457-4c8f-ae11-e455d4037e36"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Segoe UI Semilight"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{nombre_resultado_exa}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="90" uuid="5c397b8c-c488-4f59-84d5-edebfeecef82">
-						<jr:tableHeader style="table 1_TH" height="30"/>
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnHeader style="table 1_CH" height="30">
+					<jr:column width="108" uuid="998eafa7-99fc-42ca-8ab5-a2f7e23c55f9">
+						<jr:tableHeader style="table 4_TH" height="21" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="c3d337bd-44d6-4be8-81a3-5c0f170327c9"/>
-								<text><![CDATA[valor_de_resultado_analisis]]></text>
+								<reportElement x="0" y="0" width="108" height="21" forecolor="#FFFFFF" uuid="7494a040-1da1-41c0-89e1-78074c9ce4a9"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Segoe UI Semilight" size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[RESULTADO]]></text>
 							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20">
+						</jr:tableHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="4d9961a7-014c-4f1c-bb65-3a22b856c3c3"/>
+								<reportElement x="0" y="0" width="108" height="20" uuid="1caf4033-4c9e-4cad-b3ad-850928bb22a6"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Segoe UI Semilight"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{valor_de_resultado_analisis}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="90" uuid="f4ea9ba0-2282-4d1b-9619-c7998c1ae89c">
-						<jr:tableHeader style="table 1_TH" height="30"/>
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnHeader style="table 1_CH" height="30">
+					<jr:column width="109" uuid="03936981-f17e-4edf-afc7-f721629ea404">
+						<jr:tableHeader style="table 4_TH" height="21" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="670fb70c-efc8-4fc0-bfc8-38ecbdd475de"/>
-								<text><![CDATA[valor_ref]]></text>
+								<reportElement x="0" y="0" width="109" height="21" forecolor="#FFFFFF" uuid="65f92573-8171-41d7-9700-8d6f0c9115f1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Segoe UI Semilight" size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[RANGO REFERENCIAL]]></text>
 							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20">
+						</jr:tableHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="a09c81bd-a49f-4417-9bc5-168c52e8bd18"/>
+								<reportElement x="0" y="0" width="109" height="20" uuid="5b35d780-237f-420f-981d-67c238880fdd"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Segoe UI Semilight"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{valor_ref}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="90" uuid="c96a16a5-4e32-4b5e-b44a-6159d8006f40">
-						<jr:tableHeader style="table 1_TH" height="30"/>
-						<jr:tableFooter style="table 1_TH" height="30"/>
-						<jr:columnHeader style="table 1_CH" height="30">
+					<jr:column width="129" uuid="063594a2-9d35-41f5-b1fc-b70507d8831d">
+						<jr:tableHeader style="table 4_TH" height="21" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="a10adb96-afd7-4711-a3ce-f43b2be00a2a"/>
-								<text><![CDATA[descripcion_unidad_medida]]></text>
+								<reportElement x="0" y="0" width="129" height="21" forecolor="#FFFFFF" uuid="6e633eb6-087c-4d87-ae06-f7b039b00eae"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Segoe UI Semilight" size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[UNID]]></text>
 							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30"/>
-						<jr:detailCell style="table 1_TD" height="20">
+						</jr:tableHeader>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="d488c352-09f6-4397-a93e-fec296e0e53e"/>
+								<reportElement x="0" y="0" width="129" height="20" uuid="f149cdba-9689-4b7b-8717-3cad86f0d40c"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Segoe UI Semilight"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{descripcion_unidad_medida}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 				</jr:table>
 			</componentElement>
+			<rectangle>
+				<reportElement x="26" y="15" width="504" height="20" backcolor="#999999" uuid="2143ed25-23de-4bbf-ae0d-ef3a125e2386"/>
+			</rectangle>
+			<textField>
+				<reportElement x="25" y="15" width="504" height="20" forecolor="#FFFFFF" uuid="d2cca767-a73b-4f16-8a5b-6e764f8e8611"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" size="10" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SERVICIOAREA}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="40" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="28" splitType="Stretch">

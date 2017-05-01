@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JComponent;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAO;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAn;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEf;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFd;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFu;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalPt;
@@ -1622,6 +1623,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void btnNuevo16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo16ActionPerformed
          RegistroEmbarazoEXF EXF =new RegistroEmbarazoEXF();
         RegistroEmbarazo.ContenedorTablas.add(EXF);
+        RegistroEmbarazoEXF.lblCpId.setText(lblId.getText());
+        RegistroEmbarazoEXF.lblMadre.setText(lblMadre.getText());
+        ConsultorioExtCarnetPerinatalEf EF = new ConsultorioExtCarnetPerinatalEf();
+        EF.ConsultoriosExtEfListar(RegistroEmbarazoEXF.lblCpId.getText());
+        if(RegistroEmbarazoEXF.lblId.getText().equals("")){
+            RegistroEmbarazoEXF.lblMant.setText("I");
+            RegistroEmbarazoEXF.btnGuardar.setEnabled(true);
+            RegistroEmbarazoEXF.btnModificar.setEnabled(false);
+        }else{
+            RegistroEmbarazoEXF.btnGuardar.setEnabled(false);
+            RegistroEmbarazoEXF.btnModificar.setEnabled(true);
+        }
         try {
             EXF.setMaximum(true);
         } catch (PropertyVetoException ex) {

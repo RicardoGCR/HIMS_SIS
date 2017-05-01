@@ -4732,7 +4732,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         FrmFormatoEmergencia frmEmer = new FrmFormatoEmergencia();
         frmEmer.setVisible(true);
         String u=PrincipalMDI.lblUsu.getText();
-        frmEmer.lblUsuUsuario.setText(u);
+        frmEmer.lblusu.setText(u);
     }//GEN-LAST:event_btnFormatEmergenciaActionPerformed
 
     private void HospitalicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalicacionActionPerformed

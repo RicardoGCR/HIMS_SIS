@@ -9,48 +9,24 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 import vista.ConsultorioEx.RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "CONSULTORIO_EXT_CARNET_PERINATAL_FD")
-@NamedQueries({
-    @NamedQuery(name = "ConsultorioExtCarnetPerinatalFd.findAll", query = "SELECT c FROM ConsultorioExtCarnetPerinatalFd c")})
 public class ConsultorioExtCarnetPerinatalFd implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "FD_ID")
+
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private int cpId;
     private int fdId;
-    @Column(name = "FD_N_CIGARROS")
     private String fdNCigarros;
-    @Column(name = "FD_DROGA")
     private String fdDroga;
-    @Column(name = "FECHA_ACTU")
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "ESTADO")
     private Character estado;
-    @Column(name = "COD_USU")
     private String codUsu;
 
     public boolean mantenimientoConsultorioExtCarnetPerinatalFd(String tipo)

@@ -272,7 +272,7 @@ public class FrmAdmision extends javax.swing.JFrame {
         frmEmer.setVisible(true);
         this.dispose();
         String u=Principal.lblUsu.getText();
-        frmEmer.lblUsuUsuario.setText(u);
+        frmEmer.lblusu.setText(u);
     }//GEN-LAST:event_mnuCabeceraActionPerformed
 
     private void mnuFormatEmergenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuFormatEmergenciaActionPerformed

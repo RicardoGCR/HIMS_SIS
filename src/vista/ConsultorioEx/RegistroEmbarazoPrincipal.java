@@ -1395,6 +1395,17 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         } catch (PropertyVetoException ex) {
             Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        ConsultorioExtCarnetPerinatalAf AF1 = new ConsultorioExtCarnetPerinatalAf();
+        AF1.ConsultoriosExtAFListar(lblId.getText()); 
+        
+        RegistroEmbarazoAF.lblMadreAf.setText(lblMadre.getText());
+        if (RegistroEmbarazoAF.lblIdAF.getText().equals("") ){
+                    RegistroEmbarazoAF.btnGuardar.setEnabled(true);
+                    RegistroEmbarazoAF.btneditar.setEnabled(false);
+        }
+        
+        
         RegistroEmbarazo.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_btnNuevo2ActionPerformed
 
@@ -1578,7 +1589,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(false);
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNCigarros.setEditable(true);
         }else{
-            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMantFd.setText("U");
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(false);
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(true);
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtNCigarros.setEditable(false);

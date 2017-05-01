@@ -3,22 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoGA.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtCarnetPerinatalGa.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtRsTamizajeNeonatal.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoAO.java</file>
-            <file>file:/D:/pry/SISGESH/src/servicios/Conexion.java</file>
-=======
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtCarnetPerinatalPt.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtCarnetPerinatalAn.java</file>
-=======
->>>>>>> ecb6f28039c35ef6accf4728b36a23b34167e9c9
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoPrincipal.java</file>
-            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtCarnetPerinatalTs.java</file>
-            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.java</file>
->>>>>>> 99b3462d2df3a0dc8b83cf1d7d0eb118893908f3
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Insumo.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/BUSCAR_ESTIMACION_COSTOS.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Infraestructura.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/COSTOS_SERVICIOS_VARIOS.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Personal.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioExt.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Servicio_Basicos.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Servicios_Adminis.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazo.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/BUSCAR_PERSONAL.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Servicios_Generales.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/BuscarTipoSustentacion.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/BUSCAR_NOMENCLATURA.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/OrdenPCR.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/FrmSolicitudPruebaELISVIH.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ESNITSS.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/COSTOS_PRODUCTO_REFERENCIAL.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Herramientas.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsentimientoInformadoR.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/TipoSustentacion.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Sustentacion_Detalle_Servicios_Intermedios.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/Consultorio.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/Costos_Depreciacion.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioAsignacion.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/COSTOS/BUSCAR_COSTOS_SERVICIOS_VARIOS.java</file>
         </group>
     </open-files>
 </project-private>

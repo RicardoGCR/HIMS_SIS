@@ -99,14 +99,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtSinDosis1.getText().equals("X"))
                 consultorio1.setAn1raDAplicacion("Sin dosis");
             else
-<<<<<<< HEAD
-         
-            consultorio1.setCodUsu(adEmerCab.codUsuario(lblusu.getText()));
-            if(consultorio1.mantenimientoConsultorioExtCarnetPerinatalAn(lblMant.getText())==true){
-                if(lblMant.getText().equals("I")){
-//                    lblIdPeso.setText(consultorio1.perinatalPtID());
-                    lblMant.setText("U");
-=======
                 consultorio1.setAn1raDAplicacion("No aplica");
             if(txtSinDosis2.getText().equals("X"))
                 consultorio1.setAn2raDAplicacion("Sin dosis");
@@ -117,7 +109,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 if(lblMantAn.getText().equals("I")){
                     lblIdAn.setText(consultorio1.perinatalAnID());
                     lblMantAn.setText("U");
->>>>>>> ecb6f28039c35ef6accf4728b36a23b34167e9c9
                 }
                 txtNDosisPrevia.setEditable(false);
                 txtDosis1.setEditable(false);
@@ -212,10 +203,13 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         try {
             ConsultorioExtCarnetPerinatalFd consultorio1 = new ConsultorioExtCarnetPerinatalFd();
             AdmisionEmergenciaCabecera adEmerCab = new AdmisionEmergenciaCabecera();
+            if(lblMantFd.getText().equals("U") || lblMantFd.getText().equals("E"))
+                consultorio1.setFdId(Integer.parseInt(lblIdFd.getText()));
             consultorio1.setFdNCigarros(txtNCigarros.getText());
-            if(chkFdSi.getText().equals(""))
+            consultorio1.setCpId(Integer.parseInt(lblCpId.getText()));
+            if(chkFdSi.getText().equals("X"))
                 consultorio1.setFdDroga("SI");
-            if(chkFdNo.getText().equals(""))
+            if(chkFdNo.getText().equals("X"))
                 consultorio1.setFdDroga("NO");
             consultorio1.setCodUsu(adEmerCab.codUsuario(lblusu.getText()));
             if(consultorio1.mantenimientoConsultorioExtCarnetPerinatalFd(lblMantFd.getText())==true){
@@ -224,6 +218,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 //                    lblMantGs.setText("U");
                 }
                 lblMantFd.setText("");
+                txtNCigarros.setEditable(false);
                 pnlMensaje.setVisible(true);
                 lblMensaje.setText("Datos guardados de forma correcta");
                 btnGuardar.setEnabled(false);
@@ -1994,6 +1989,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 chkFdSiCaretUpdate(evt);
             }
         });
+        chkFdSi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chkFdSiMouseClicked(evt);
+            }
+        });
 
         jLabel81.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel81.setForeground(new java.awt.Color(51, 51, 51));
@@ -2029,6 +2029,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         chkFdNo.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 chkFdNoCaretUpdate(evt);
+            }
+        });
+        chkFdNo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chkFdNoMouseClicked(evt);
             }
         });
 
@@ -2652,6 +2657,32 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 pnlMensaje.setBackground(new Color(255,153,51));
             }
         }
+        
+        if(opcionGuardar.equals("fumaDroga")){ //PARA EL FORMULARIO DE FUMA DROGA
+            if(chkFdSi.getText().equals("") && chkFdNo.getText().equals("")){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Seleccione si se droga o no");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else 
+            if(lblMantFd.getText().equals("I")){
+                lblMensaje.setText("¿Guardar los datos?");
+                pnlMensaje.setVisible(true);
+                btnSi.setText("Si");
+                btnSi.setVisible(true);
+                btnNo.setVisible(true);
+                pnlMensaje.setBackground(new Color(255,153,51));
+            } else
+            if(lblMantFd.getText().equals("U")){
+                lblMensaje.setText("¿Modificar los datos?");
+                pnlMensaje.setVisible(true);
+                btnSi.setText("Si");
+                btnSi.setVisible(true);
+                btnNo.setVisible(true);
+                pnlMensaje.setBackground(new Color(255,153,51));
+            }
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void ChkAnalf1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_ChkAnalf1CaretUpdate
@@ -2698,6 +2729,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             btnGuardar.setEnabled(true);
             btnModificar.setEnabled(false);
             lblMantGs.setText("U");
+        } else
+        if(opcionGuardar.equals("fumaDroga")){ // PARA EL FORMULARIO DE ANTITETANICA
+            btnGuardar.setEnabled(true);
+            btnModificar.setEnabled(false);
+            lblMantFd.setText("U");
+            txtNCigarros.setEditable(true);
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 
@@ -2723,6 +2760,15 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         if(opcionGuardar.equals("tipoSangre")){ // formulario de Tipo Sangre
             if(btnSi.getText().equals("Si")){ // Al guardar
                 mantenimientoTS();
+            } else
+            if(btnSi.getText().equals("OK")){ // Al hacer OK hacerloinvisible
+                pnlMensaje.setVisible(false);
+            }
+        }
+        
+        if(opcionGuardar.equals("fumaDroga")){ // formulario de Tipo Sangre
+            if(btnSi.getText().equals("Si")){ // Al guardar
+                mantenimientoFD();
             } else
             if(btnSi.getText().equals("OK")){ // Al hacer OK hacerloinvisible
                 pnlMensaje.setVisible(false);
@@ -2917,6 +2963,24 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         }
     }//GEN-LAST:event_txtRhNegativoMouseClicked
+
+    private void chkFdSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkFdSiMouseClicked
+        if(lblIdFd.getText().equals("") || lblMantFd.getText().equals("U")){
+            if(evt.getClickCount()==1){
+                chkFdSi.setText("X");
+                chkFdNo.setText("");
+            }
+        }
+    }//GEN-LAST:event_chkFdSiMouseClicked
+
+    private void chkFdNoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkFdNoMouseClicked
+        if(lblIdFd.getText().equals("") || lblMantFd.getText().equals("U")){
+            if(evt.getClickCount()==1){
+                chkFdSi.setText("");
+                chkFdNo.setText("X");
+            }
+        }
+    }//GEN-LAST:event_chkFdNoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

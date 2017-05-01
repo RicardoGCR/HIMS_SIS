@@ -8,6 +8,7 @@ package vista.ConsultorioEx;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JComponent;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAf;
 
 /**
  *
@@ -16,6 +17,8 @@ import javax.swing.JComponent;
 public class RegistroEmbarazoAF extends javax.swing.JInternalFrame {
 private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
     private Dimension DimensionBarra = null; 
+    byte tg;
+    byte tge;
     /**
      * Creates new form RegistroEmbarazoAO
      */
@@ -30,6 +33,106 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         Barra.setSize(0,0); 
         Barra.setPreferredSize(new Dimension(0,0)); 
         repaint(); 
+    }
+ 
+ public void Guardar( ){
+        
+    ConsultorioExtCarnetPerinatalAf CXRsAf= new ConsultorioExtCarnetPerinatalAf();
+    ConsultorioExtCarnetPerinatalAf CXRsAf2 = new ConsultorioExtCarnetPerinatalAf();
+    
+           if(lblMant.getText().equals("U"))
+            CXRsAf.setAfId(Integer.parseInt(lblIdAF.getText()));
+            CXRsAf.setCpId(Integer.parseInt(RegistroEmbarazoPrincipal.lblId.getText()));
+            //////////////////////////////////
+            if(txtAf1.getText().equals("X"))
+                CXRsAf.setAfNinguno("X");
+            //////////////////////////////////
+            if(txtAf2.getText().equals("X"))
+                CXRsAf.setAfAlergias("X");
+            //////////////////////////////////
+            if(txtAf3.getText().equals("X"))
+                CXRsAf.setAfHipertens("X");
+            //////////////////////////////////
+            if(txtAf4.getText().equals("X"))
+                CXRsAf.setAfEpilepsia("X");
+            //////////////////////////////////
+            if(txtAf5.getText().equals("X"))
+                CXRsAf.setAfDiabetes("X");
+            //////////////////////////////////
+            if(txtAf6.getText().equals("X"))
+                CXRsAf.setAfEnfCongenitas("X");
+            //////////////////////////////////
+            if(txtAf7.getText().equals("X"))
+                CXRsAf.setAfEmbMultiple("X");
+            //////////////////////////////////
+            if(txtAf8.getText().equals("X"))
+                CXRsAf.setAfMalaria("X");
+            //////////////////////////////////
+            if(txtAf9.getText().equals("X"))
+                CXRsAf.setAfHiperArterial("X");
+            //////////////////////////////////
+            if(txtAf10.getText().equals("X"))
+                CXRsAf.setAfHipotiroidismo("X");
+            //////////////////////////////////
+            if(txtAf11.getText().equals("X"))
+                CXRsAf.setAfNeoplasica("X");
+            //////////////////////////////////
+            if(txtAf12.getText().equals("X"))
+                CXRsAf.setAfTbc("X");
+            //////////////////////////////////
+            
+            
+            if(txtAf13.getText().equals("X"))
+                
+                CXRsAf.setAfOtros(txtOtros.getText());
+
+                CXRsAf.setCodUsu(lblusu.getText());//falta 
+
+            
+                if(CXRsAf.mantenimientoConsultorioExtAF(lblMant.getText())==true){
+                    if (lblMant.getText().equals("I")){
+                     mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(33,115,70)); 
+                    men.setText("Datos Guardados de forma correcta");
+                    b.setText("OK");
+                    b.setVisible(true);
+                    b1.setVisible(false);
+
+                    btnGuardar.setEnabled(false);
+                    btneditar.setEnabled(true);
+             
+                    tge=1;
+                    CXRsAf2.ConsultoriosExtAFListar(RegistroEmbarazoPrincipal.lblId.getText());     
+                    }
+                    if (lblMant.getText().equals("U")){
+                     mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(33,115,70)); 
+                    men.setText("Datos Actualizados de forma correcta");
+                    b1.setText("OK");
+                    b1.setVisible(true);
+                    b.setVisible(false);
+
+                    btnGuardar.setEnabled(false);
+                    btneditar.setEnabled(true);
+             
+                    tge=9;
+ 
+                    CXRsAf2.ConsultoriosExtAFListar(RegistroEmbarazoPrincipal.lblId.getText());     
+                    }
+                    
+
+//                    habilitarDatos(false);
+                }else {
+
+                        mensaje.setVisible(true);
+                        mensaje.setBackground(new Color(255,91,70)); 
+                        men.setText("Ocurrio un error, Verifique");
+                        b.setVisible(false);
+                        b1.setVisible(false);
+                        tge=7;
+                }  
+             
+  
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -88,7 +191,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         men = new javax.swing.JLabel();
         b = new javax.swing.JButton();
         b1 = new javax.swing.JButton();
-        lblNina = new javax.swing.JLabel();
+        lblMadreAf = new javax.swing.JLabel();
         var = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -790,12 +893,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        lblNina.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
-        lblNina.setForeground(new java.awt.Color(12, 97, 81));
-        lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Embarazada Filled-60.png"))); // NOI18N
-        lblNina.setText("Martha Arias Torres");
-        lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        lblMadreAf.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
+        lblMadreAf.setForeground(new java.awt.Color(12, 97, 81));
+        lblMadreAf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Embarazada Filled-60.png"))); // NOI18N
+        lblMadreAf.setText("Martha Arias Torres");
+        lblMadreAf.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMadreAf.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         var.setText("1");
 
@@ -809,7 +912,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblMadreAf, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
@@ -824,7 +927,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(lblNina)
+                .addComponent(lblMadreAf)
                 .addGap(2, 2, 2)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -894,7 +997,22 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_btnCaccnelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+String variable;
+        variable=var.getText();
 
+       if(variable=="1"){
+             Guardar();  
+           
+        }
+        if(variable=="2"){
+           mensaje.setVisible(true);
+           mensaje.setBackground(new Color(255,153,51)); 
+           men.setText("Desea Actualizar el Registro ?");
+           b.setText("Si");
+           b.setVisible(true);
+           b1.setVisible(true); 
+           tge=2;
+        }       
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void ChkAnalf2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_ChkAnalf2CaretUpdate
@@ -919,11 +1037,29 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_jLabel33MouseClicked
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
+btnGuardar.setEnabled(true);
+         btneditar.setEnabled(false);
 
+         lblMant.setText("U");
+         
+         if (txtAf13.getText().equals("X")){
+             txtOtros.setEditable(true);
+         }
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
+if (tge==3 || tge==1|| tge==9){
+   mensaje.setVisible(false);  
 
+   }
+        
+        if (lblMant.getText().equals("U")){
+        Guardar();
+
+        btneditar.setEnabled(false);
+        tge=9;
+
+   }  
     }//GEN-LAST:event_bActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
@@ -1191,8 +1327,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JPanel jPanel37;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel lblIdAF;
+    public static javax.swing.JLabel lblMadreAf;
     private javax.swing.JLabel lblMant;
-    public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblusu;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;

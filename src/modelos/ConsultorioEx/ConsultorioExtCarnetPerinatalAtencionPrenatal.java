@@ -7,12 +7,14 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 
 /**
  *
- * @author PC02
+ * FORMULARIO DE ATENCIONES PRENATALES
  */
 public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -48,13 +50,88 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
     private String apEstabAtencion;
     private String apRespAtencion;
     private String apSis;
-    private Character apAtencion;
+    private String apAtencion;
     private String fechaActu;
     private String horaActu;
     private String nomPc;
     private Character estado;
     private String codUsu;
 
+    public boolean mantenimientoConsultorioExtCarnetPerinatalAtencionPrenatal(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_ATENCION_PRENATAL ?,?,?,?,?,?,?,?,?,?,"
+                    + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getApId());
+            cmd.setInt(2, getCpId());
+            cmd.setString(3, getApEdadSem());
+            cmd.setString(4, getApPesoMadre());
+            cmd.setString(5, getApTemp());
+            cmd.setString(6, getApPa());
+            cmd.setString(7, getApPm());
+            cmd.setString(8, getApAu());
+            cmd.setString(9, getApSit());
+            cmd.setString(10, getApPres());
+            cmd.setString(11, getApPosicion());
+            cmd.setString(12, getApFcf());
+            cmd.setString(13, getApMovFet());
+            cmd.setString(14, getApProtei());
+            cmd.setString(15, getApEdema());
+            cmd.setString(16, getApRo());
+            cmd.setString(17, getApExPezon());
+            cmd.setString(18, getApIndicFierro());
+            cmd.setString(19, getApIndicCalcio());
+            cmd.setString(20, getApIndicAcFolico());
+            cmd.setString(21, getApOrientConsej());
+            cmd.setString(22, getApEgEco());
+            cmd.setString(23, getApPerfilBio());
+            cmd.setString(24, getApCita());
+            cmd.setString(25, getApVisitDomic());
+            cmd.setString(26, getApPlanParto());
+            cmd.setString(27, getApEstabAtencion());
+            cmd.setString(28, getApRespAtencion());
+            cmd.setString(29, getApSis());
+            cmd.setString(30, getCodUsu());
+            cmd.setString(31, getApAtencion());
+            cmd.setString(32, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoConsultorioExtCarnetPerinatalAtencionPrenatal: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public String perinatalAtencionPrenatalID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 AP_ID\n" +
+                        "FROM CONSULTORIO_EXT_CARNET_PERINATAL_ATENCION_PRENATAL \n" +
+                        "WHERE NOM_PC = HOST_NAME()\n" +
+                        "ORDER BY AP_ID DESC ";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("perinatalAtencionPrenatalID: " + ex.getMessage());
+        }
+        return cod;
+    }   
+    
     public ConsultorioExtCarnetPerinatalAtencionPrenatal() {
         Conexion con = new Conexion();
         cn = con.conectar();
@@ -288,11 +365,11 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
         this.apSis = apSis;
     }
 
-    public Character getApAtencion() {
+    public String getApAtencion() {
         return apAtencion;
     }
 
-    public void setApAtencion(Character apAtencion) {
+    public void setApAtencion(String apAtencion) {
         this.apAtencion = apAtencion;
     }
 

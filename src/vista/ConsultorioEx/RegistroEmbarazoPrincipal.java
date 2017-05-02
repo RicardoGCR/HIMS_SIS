@@ -19,15 +19,16 @@ import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalGa;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAn;
 
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAp;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEm;
 
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFd;
-<<<<<<< HEAD
 
-=======
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFu;
->>>>>>> 512319828ebd54997999ca9545a259af557f7b10
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalHo;
+
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalPt;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalTs;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalVg;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalVp;
 import static vista.ConsultorioEx.RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId;
 import static vista.ConsultorioEx.RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdPeso;
@@ -150,7 +151,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(31, 31, 31));
 
         OP1.setBackground(new java.awt.Color(243, 156, 17));
 
@@ -202,7 +203,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         );
 
         lblMadre.setBackground(new java.awt.Color(0, 153, 0));
-        lblMadre.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        lblMadre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblMadre.setForeground(new java.awt.Color(255, 255, 255));
         lblMadre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMadre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Embarazada-80.png"))); // NOI18N
@@ -330,7 +331,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        LblTitulo.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
+        LblTitulo.setFont(new java.awt.Font("Segoe UI Light", 0, 40)); // NOI18N
         LblTitulo.setForeground(new java.awt.Color(51, 51, 51));
         LblTitulo.setText("Filiación y antecedentes");
 
@@ -1293,8 +1294,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addComponent(DBEA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(DBEA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(LblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 727, Short.MAX_VALUE))
+                    .addComponent(LblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 659, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1303,11 +1304,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addComponent(LblTitulo)
                 .addGap(48, 48, 48)
                 .addComponent(FA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(DBEA2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DBEA1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(49, 77, Short.MAX_VALUE))
+                .addGap(49, 98, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -1506,7 +1507,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
-            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "tipoSangre";
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "tipoSangre";//
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
@@ -1521,7 +1522,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(true);
         }
         } catch (Exception e) {
-        }
+        }//
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1634,6 +1635,25 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "hos";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
+        ConsultorioExtCarnetPerinatalHo HO = new ConsultorioExtCarnetPerinatalHo();
+        HO.ConsultoriosExtHoListar(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.getText());
+        if(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdHos.getText().equals("")){
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMantHo.setText("I");
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtEcografia.setEditable(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.fechaf3.setEnabled(true);
+        }else{
+
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtEcografia.setEditable(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.fechaf3.setEnabled(false);
+
+        }
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1655,6 +1675,24 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "eme";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
+        ConsultorioExtCarnetPerinatalEm EM = new ConsultorioExtCarnetPerinatalEm();
+        EM.ConsultoriosExtEmListar(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.getText());
+        if(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdEme.getText().equals("")){
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMantEme.setText("I");
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(false);
+
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.fechaEmer.setEnabled(true);
+        }else{
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(true);
+
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.fechaEmer.setEnabled(false);
+
+        }
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -1719,6 +1757,24 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.PEmergencia.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "vg";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
+        ConsultorioExtCarnetPerinatalVg VG = new ConsultorioExtCarnetPerinatalVg();
+        VG.ConsultoriosExtVgListar(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.getText());
+        if(RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdVG.getText().equals("")){
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMantVG.setText("I");
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(true);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(false);
+
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.FechaVG.setEnabled(true);
+        }else{
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnGuardar.setEnabled(false);
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.btnModificar.setEnabled(true);
+
+            RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.FechaVG.setEnabled(false);
+
+        }
         try {
             PT_A_TS_F_D_FUM_H_E_V.setMaximum(true);
         } catch (PropertyVetoException ex) {

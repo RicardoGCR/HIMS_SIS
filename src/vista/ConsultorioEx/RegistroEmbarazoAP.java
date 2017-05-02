@@ -1841,13 +1841,13 @@ if (tge==3 || tge==1|| tge==9){
     private void txtAp3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAp3MouseClicked
         if (lblIdAP.getText().equals("")|| lblMant.getText().equals("U")){
             
-        if(txtAp1.getText().equals("X") && evt.getClickCount()==1){
+        if(txtAp3.getText().equals("X") && evt.getClickCount()==1){
            txtAp3.setText(""); 
         }
         if(txtAp3.getText().equals("") && evt.getClickCount()==1){
            txtAp3.setText("X");
         }else
-        if(txtAp3.getText().equals("X") && evt.getClickCount()==1){
+        if(txtAp1.getText().equals("X") && evt.getClickCount()==1){
            txtAp3.setText(""); 
         }
         }

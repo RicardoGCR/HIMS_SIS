@@ -17,10 +17,14 @@ import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAf;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalGa;
 
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAn;
+<<<<<<< HEAD
 
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAp;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEm;
 
+=======
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEf;
+>>>>>>> 1aa902fe73a4c6c52763830b6782995d85290c0e
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFd;
 
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFu;
@@ -1790,6 +1794,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void btnNuevo16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo16ActionPerformed
          RegistroEmbarazoEXF EXF =new RegistroEmbarazoEXF();
         RegistroEmbarazo.ContenedorTablas.add(EXF);
+        RegistroEmbarazoEXF.lblCpId.setText(lblId.getText());
+        RegistroEmbarazoEXF.lblMadre.setText(lblMadre.getText());
+        ConsultorioExtCarnetPerinatalEf EF = new ConsultorioExtCarnetPerinatalEf();
+        EF.ConsultoriosExtEfListar(RegistroEmbarazoEXF.lblCpId.getText());
+        if(RegistroEmbarazoEXF.lblId.getText().equals("")){
+            RegistroEmbarazoEXF.lblMant.setText("I");
+            RegistroEmbarazoEXF.btnGuardar.setEnabled(true);
+            RegistroEmbarazoEXF.btnModificar.setEnabled(false);
+        }else{
+            RegistroEmbarazoEXF.btnGuardar.setEnabled(false);
+            RegistroEmbarazoEXF.btnModificar.setEnabled(true);
+        }
         try {
             EXF.setMaximum(true);
         } catch (PropertyVetoException ex) {

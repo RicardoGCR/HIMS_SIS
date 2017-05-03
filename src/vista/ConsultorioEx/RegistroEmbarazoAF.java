@@ -187,6 +187,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         btneditar = new javax.swing.JButton();
         lblMant = new javax.swing.JLabel();
         lblIdAF = new javax.swing.JLabel();
+        lblIdActoMedico = new javax.swing.JLabel();
         mensaje = new javax.swing.JPanel();
         men = new javax.swing.JLabel();
         b = new javax.swing.JButton();
@@ -195,7 +196,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         var = new javax.swing.JLabel();
         lblActoMedico = new javax.swing.JLabel();
         lblFP = new javax.swing.JLabel();
-        lblIdActoMedico = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createCompoundBorder());

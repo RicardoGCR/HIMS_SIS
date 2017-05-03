@@ -1728,6 +1728,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         lblFua.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblFua.setForeground(new java.awt.Color(243, 156, 17));
 
+        lblIdActoMedico.setText("ID AM");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(

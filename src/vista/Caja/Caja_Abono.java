@@ -697,7 +697,7 @@ try {
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addGap(62, 62, 62)
                                 .addComponent(jLabel9)
-                                .addContainerGap(30, Short.MAX_VALUE))
+                                .addContainerGap(67, Short.MAX_VALUE))
                         );
 
                         jTabbedPane2.addTab("tab2", jPanel9);
@@ -740,7 +740,7 @@ try {
                         );
                         jPanel10Layout.setVerticalGroup(
                             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                         );
 
                         jTabbedPane2.addTab("tab2", jPanel10);

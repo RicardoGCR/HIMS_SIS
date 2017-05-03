@@ -44,6 +44,7 @@ public class ConsultorioExtCarnetPerinatalAO {
 	private String AO_RN_MAYOR_PESO;  
 	private String ESTADO;  
 	private String COD_USU;  
+        private int idActoMedico;
         
  public void ConsultoriosExtAOListar(String rs_id){
         String consulta="";
@@ -71,6 +72,22 @@ public class ConsultorioExtCarnetPerinatalAO {
                 RegistroEmbarazoAO.chk4.setText(r.getString(16));
                 RegistroEmbarazoAO.txtRNmayor.setText(r.getString(17));
                 RegistroEmbarazoAO.lblIdAO.setText(r.getString(1));
+                if (!RegistroEmbarazoAO.lblIdAO.getText().equals("") ){
+                    RegistroEmbarazoAO.btnGuardar.setEnabled(false);
+                    RegistroEmbarazoAO.btneditar.setEnabled(true);
+                    RegistroEmbarazoAO.var.setText("2");
+                    RegistroEmbarazoAO.txtGestas.setEditable(false);
+                    RegistroEmbarazoAO.txtAborto.setEditable(false);
+                    RegistroEmbarazoAO.txtPartos.setEditable(false);
+                    RegistroEmbarazoAO.txtVaginales.setEditable(false);
+                    RegistroEmbarazoAO.txtCesareas.setEditable(false);
+                    RegistroEmbarazoAO.txtRN.setEditable(false);
+                    RegistroEmbarazoAO.txtNacidos.setEditable(false);
+                    RegistroEmbarazoAO.txtViven.setEditable(false);
+                    RegistroEmbarazoAO.txtMuerto1.setEditable(false);
+                    RegistroEmbarazoAO.txtDespues.setEditable(false);
+                    RegistroEmbarazoAO.txtRNmayor.setEditable(false);
+                }
 
                 }
             //
@@ -83,7 +100,7 @@ public class ConsultorioExtCarnetPerinatalAO {
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_AO ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_AO ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getAO_ID());
             cmd.setInt(2, getCP_ID());
@@ -104,6 +121,7 @@ public class ConsultorioExtCarnetPerinatalAO {
             cmd.setString(17, getAO_RN_MAYOR_PESO());
             cmd.setString(18, getCOD_USU());
             cmd.setString(19, tipo);
+            cmd.setInt(20, getIdActoMedico());
             if(!cmd.execute())
             {
                 resp = true;
@@ -297,6 +315,20 @@ public class ConsultorioExtCarnetPerinatalAO {
 
     public void setCOD_USU(String COD_USU) {
         this.COD_USU = COD_USU;
+    }
+
+    /**
+     * @return the idActoMedico
+     */
+    public int getIdActoMedico() {
+        return idActoMedico;
+    }
+
+    /**
+     * @param idActoMedico the idActoMedico to set
+     */
+    public void setIdActoMedico(int idActoMedico) {
+        this.idActoMedico = idActoMedico;
     }
     
 }

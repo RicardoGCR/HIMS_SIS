@@ -14,6 +14,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
 import servicios.Conexion;
+import vista.admisionEmergencia.FrmFormatoEmergencia;
 
 /**
  *
@@ -469,6 +470,7 @@ public class Caja_Preventa {
             r=con.Listar(consulta);
         if(r.next()){
                id = r.getInt(1);
+               FrmFormatoEmergencia.txtNroRegistro.setText(String.valueOf(id));
         }
         }catch(Exception ex){
             System.out.println("Error: idCajaPreventa: " + ex.getMessage());

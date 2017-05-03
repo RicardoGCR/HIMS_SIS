@@ -163,6 +163,7 @@ public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
                     RegistroEmbarazoPrincipal.lblFua.setText("");
                 else
                     RegistroEmbarazoPrincipal.lblFua.setText("Fua " + r.getString(4));
+                RegistroEmbarazoPrincipal.lblIdActoMedico.setText(r.getString(5));
             }
             //
         } catch (Exception e) {

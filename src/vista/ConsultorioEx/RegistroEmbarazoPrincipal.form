@@ -41,6 +41,7 @@
                               <Component id="lblFua" min="-2" pref="159" max="-2" attributes="0"/>
                           </Group>
                           <Component id="lblActoMedico" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblIdActoMedico" min="-2" pref="62" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="704" max="32767" attributes="0"/>
                   </Group>
@@ -74,7 +75,9 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <Component id="lblIdActoMedico" min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="FA" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1875,6 +1878,11 @@
           <Color blue="11" green="9c" red="f3" type="rgb"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblIdActoMedico">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>

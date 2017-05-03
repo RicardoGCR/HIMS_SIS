@@ -71,6 +71,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoAO AO =new RegistroEmbarazoAO();
         RegistroEmbarazo.ContenedorTablas.add(AO);
         RegistroEmbarazoAO.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoAO.lblIdActoMedico.setText(lblIdActoMedico.getText());
         RegistroEmbarazoAO.lblFP.setText(lblFP.getText());
         try {
             AO.setMaximum(true);
@@ -89,6 +90,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazo.ContenedorTablas.add(GA);
         RegistroEmbarazoGA.lblActoMedico.setText(lblActoMedico.getText());
         RegistroEmbarazoGA.lblFP.setText(lblFP.getText());
+        RegistroEmbarazoGA.lblIdActoMedico.setText(lblIdActoMedico.getText());
         try {
             GA.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -114,6 +116,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazo.ContenedorTablas.add(AF);
         RegistroEmbarazoAF.lblActoMedico.setText(lblActoMedico.getText());
         RegistroEmbarazoAF.lblFP.setText(lblFP.getText());
+        RegistroEmbarazoAF.lblIdActoMedico.setText(lblIdActoMedico.getText());
         try {
             AF.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -138,6 +141,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazo.ContenedorTablas.add(AP);
         RegistroEmbarazoAP.lblActoMedico.setText(lblActoMedico.getText());
         RegistroEmbarazoAP.lblFP.setText(lblFP.getText());
+        RegistroEmbarazoAP.lblIdActoMedico.setText(lblIdActoMedico.getText());
         try {
             AP.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -162,6 +166,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazo.ContenedorTablas.add(VP);
         RegistroEmbarazoVP.lblActoMedico.setText(lblActoMedico.getText());
         RegistroEmbarazoVP.lblFP.setText(lblFP.getText());
+        RegistroEmbarazoVP.lblIdActoMedico.setText(lblIdActoMedico.getText());
         try {
             VP.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -195,6 +200,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "peso";
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdActoMedico.setText(lblIdActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
         ConsultorioExtCarnetPerinatalPt PT = new ConsultorioExtCarnetPerinatalPt();
@@ -234,6 +240,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "antitetanica";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdActoMedico.setText(lblIdActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
@@ -277,6 +284,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "tipoSangre";//
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdActoMedico.setText(lblIdActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
@@ -316,6 +324,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "fumaDroga";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdActoMedico.setText(lblIdActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
@@ -355,6 +364,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "fum";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdActoMedico.setText(lblIdActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
@@ -399,6 +409,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "hos";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdActoMedico.setText(lblIdActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
@@ -441,6 +452,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "eme";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdActoMedico.setText(lblIdActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
@@ -482,6 +494,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "vg";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdActoMedico.setText(lblIdActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
@@ -516,8 +529,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoEXF.lblMadre.setText(lblMadre.getText());
         ConsultorioExtCarnetPerinatalEf EF = new ConsultorioExtCarnetPerinatalEf();
         EF.ConsultoriosExtEfListar(RegistroEmbarazoEXF.lblCpId.getText());
-        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
-        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
+        RegistroEmbarazoEXF.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoEXF.lblFP.setText(lblFP.getText());
+        RegistroEmbarazoEXF.lblIdActoMedico.setText(lblIdActoMedico.getText());
         if(RegistroEmbarazoEXF.lblId.getText().equals("")){
             RegistroEmbarazoEXF.lblMant.setText("I");
             RegistroEmbarazoEXF.btnGuardar.setEnabled(true);
@@ -614,6 +628,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         lblActoMedico = new javax.swing.JLabel();
         lblFP = new javax.swing.JLabel();
         lblFua = new javax.swing.JLabel();
+        lblIdActoMedico = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
@@ -1729,7 +1744,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                 .addComponent(lblFP)
                                 .addGap(18, 18, 18)
                                 .addComponent(lblFua, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblActoMedico))
+                            .addComponent(lblActoMedico)
+                            .addComponent(lblIdActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(704, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1752,7 +1768,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblFP)
                             .addComponent(lblFua, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(44, 44, 44)
+                .addGap(12, 12, 12)
+                .addComponent(lblIdActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(FA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -2019,6 +2037,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JLabel lblGA;
     private javax.swing.JLabel lblHO;
     public static javax.swing.JTextField lblId;
+    public static javax.swing.JLabel lblIdActoMedico;
     public static javax.swing.JLabel lblMadre;
     private javax.swing.JLabel lblPT;
     private javax.swing.JLabel lblTS;

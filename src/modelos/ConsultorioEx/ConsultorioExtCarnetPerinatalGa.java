@@ -193,7 +193,7 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
                 //////FECHA
                 
                 try {
-                    if(r.getString(5).equals("")){
+                    if(r.getString(8).equals("")){
                         RegistroEmbarazoGA.fechaGA.setDate(null);
                     } else {
                         String fechaSeleccionadaD2 = (String)(r.getString(8));

@@ -18,7 +18,7 @@ import static vista.ConsultorioEx.RegistroEmbarazoAO.chk1;
  *
  * @author MYS1
  */
-public class RegistroEmbarazoGA extends javax.swing.JInternalFrame {
+public class RegistroEmbarazoPM extends javax.swing.JInternalFrame {
 private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
     private Dimension DimensionBarra = null; 
     byte tg;
@@ -28,7 +28,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     /**
      * Creates new form RegistroEmbarazoAO
      */
-    public RegistroEmbarazoGA() {
+    public RegistroEmbarazoPM() {
         initComponents();
         QuitarLaBarraTitulo();
         this.getContentPane().setBackground(Color.WHITE);

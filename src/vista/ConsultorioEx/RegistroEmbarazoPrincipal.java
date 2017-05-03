@@ -17,14 +17,13 @@ import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAf;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalGa;
 
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAn;
-<<<<<<< HEAD
+
 
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAp;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEm;
 
-=======
+
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEf;
->>>>>>> 1aa902fe73a4c6c52763830b6782995d85290c0e
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFd;
 
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFu;

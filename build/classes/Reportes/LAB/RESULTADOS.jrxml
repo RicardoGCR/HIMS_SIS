@@ -115,6 +115,29 @@
 			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
 		</box>
 	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#45678A">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#CFDAE6">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
 	<subDataset name="RESULTADOS" uuid="cca44c95-b982-4600-97e1-f40805026256">
 		<parameter name="ID_COD_DET_RESUL" class="java.lang.String">
 			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -128,7 +151,11 @@ when RD.tipo_valor_referencia_resul='S'
 then rd.valor_texto_referencia_resul
 else '-'
 end valor_ref
-,UM.descripcion_unidad_medida
+,UM.descripcion_unidad_medida,case
+when rd.observaciones_resultado_exa=''
+then '-'
+else
+rd.observaciones_resultado_exa end OBSERV
 FROM LABORATORIO_RESULTADOS_MUESTRA_CABECERA RC,LABORATORIO_RESULTADOS_MUESTRA_DETALLE RD,
 LABORATORIO_TOMA_MUESTRA_DETALLE TD,LABORATORIO_ESQUEMA_RESULTADO_ANALISIS ES,LABORATORIO_UNIDAD_MEDIDA_RESULTADO UM
 WHERE ES.cod_esquema_resul=RD.cod_esquema_resul AND
@@ -141,6 +168,7 @@ AND TD.id_cod_det=$P{ID_COD_DET_RESUL}]]>
 		<field name="valor_de_resultado_analisis" class="java.lang.String"/>
 		<field name="valor_ref" class="java.lang.String"/>
 		<field name="descripcion_unidad_medida" class="java.lang.String"/>
+		<field name="OBSERV" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="ID_COD_DET" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -148,8 +176,8 @@ AND TD.id_cod_det=$P{ID_COD_DET_RESUL}]]>
 	<queryString>
 		<![CDATA[select  RC.cod_cab_resultado_mu_ana,upper (ss.SE_DESC+' - '+ce.nombre_clasi_exa) AS SERVICIOAREA,
 ae.nombre_ana_exa,nc.cod_nomen_caja,
-upper(CONCAT(SUBSTRING(hc.cod_hc,1,4),'-',SUBSTRING(hc.cod_hc,5,2))) as 'CODIGO' ,
-hc.ape_pat+' '+hc.ape_mat+' '+ hc.primer_nombre+' '+hc.segundo_nombre+' '+hc.tercer_nombre as Paciente,
+CONCAT(SUBSTRING(hc.cod_hc,1,4),'-',SUBSTRING(hc.cod_hc,5,2)) as 'CODIGO' ,
+upper(hc.ape_pat+' '+hc.ape_mat+' '+ hc.primer_nombre+' '+hc.segundo_nombre+' '+hc.tercer_nombre) as Paciente,
 hc.dni, hc.FEC_NAC,case
 when cast(datediff(dd,hc.FEC_NAC,GETDATE()) / 30 as int) =0
 then convert(varchar(10),datediff(DD,  hc.FEC_NAC, getdate())) + ' D'
@@ -157,7 +185,17 @@ when cast( DATEDIFF( DD, hc.FEC_NAC, GETDATE() ) / 365.25 as int)=0
 then convert(varchar(10),datediff(month,  hc.FEC_NAC, getdate())) + ' M'
 else convert(varchar(10),cast(datediff(dd,CONVERT(date,hc.FEC_NAC,103),GETDATE()) / 365.25 as int))
 end AÑOS,hc.sexo,am.NUM_ACTOMEDICO,tc.num_toma_mu_exa,fp.nom_forma_pago,
-td.fecha_orden,td.hora_orden,TD.nom_per_solicita,td.hosp_servicio,TD.hab_nom,td.ca_desc,
+td.fecha_orden,td.hora_orden,TD.nom_per_solicita,
+case
+when td.hosp_servicio=''
+then '-'
+else
+td.hosp_servicio end hosp_serv,
+case
+when td.hosp_servicio=''
+then '-'
+else
+TD.hab_nom+' - '+td.ca_desc end hab_cama,
 RC.num_resul_exa,rc.nombre_personal_resultado,rc.nombre_personal_regis_resul,rc.fecha_reg_resul,rc.hora_reg_resul,
 dd.id_cod_doc_det,
 case
@@ -190,7 +228,7 @@ ae.nombre_ana_exa,nc.cod_nomen_caja,
 CONCAT(SUBSTRING(hc.cod_hc,1,4),'-',SUBSTRING(hc.cod_hc,5,2)) ,
 hc.ape_pat+' '+hc.ape_mat+' '+ hc.primer_nombre+' '+hc.segundo_nombre+' '+hc.tercer_nombre ,
 hc.dni, hc.FEC_NAC,hc.sexo,am.NUM_ACTOMEDICO,tc.num_toma_mu_exa,fp.nom_forma_pago,
-td.fecha_orden,td.hora_orden,TD.nom_per_solicita,td.hosp_servicio,TD.hab_nom,td.ca_desc,
+td.fecha_orden,td.hora_orden,TD.nom_per_solicita,td.hosp_servicio,TD.hab_nom+' - '+td.ca_desc,
 RC.num_resul_exa,rc.nombre_personal_resultado,rc.nombre_personal_regis_resul,rc.fecha_reg_resul,rc.hora_reg_resul,
 dd.id_cod_doc_det,rc.resultado_PN]]>
 	</queryString>
@@ -210,9 +248,8 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 	<field name="fecha_orden" class="java.lang.String"/>
 	<field name="hora_orden" class="java.lang.String"/>
 	<field name="nom_per_solicita" class="java.lang.String"/>
-	<field name="hosp_servicio" class="java.lang.String"/>
-	<field name="hab_nom" class="java.lang.String"/>
-	<field name="ca_desc" class="java.lang.String"/>
+	<field name="hosp_serv" class="java.lang.String"/>
+	<field name="hab_cama" class="java.lang.String"/>
 	<field name="num_resul_exa" class="java.lang.String"/>
 	<field name="nombre_personal_resultado" class="java.lang.String"/>
 	<field name="nombre_personal_regis_resul" class="java.lang.String"/>
@@ -227,7 +264,7 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 	<title>
 		<band height="43" splitType="Stretch">
 			<staticText>
-				<reportElement x="26" y="0" width="504" height="21" uuid="5c26088e-db19-4a7d-a696-006363b62184"/>
+				<reportElement x="26" y="22" width="504" height="21" uuid="5c26088e-db19-4a7d-a696-006363b62184"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight" size="15" isBold="true"/>
 				</textElement>
@@ -236,144 +273,196 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="10" splitType="Stretch"/>
+		<band height="26" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
 		<band height="158" splitType="Stretch">
 			<rectangle>
-				<reportElement x="26" y="10" width="504" height="122" uuid="4f06df91-184d-4a98-8512-ecbeda7d3901"/>
+				<reportElement x="25" y="18" width="504" height="122" uuid="4f06df91-184d-4a98-8512-ecbeda7d3901"/>
 			</rectangle>
 			<textField>
-				<reportElement x="115" y="50" width="192" height="20" uuid="f65599be-1dcc-4b90-9d97-50085cf0c186"/>
+				<reportElement x="99" y="70" width="192" height="20" uuid="f65599be-1dcc-4b90-9d97-50085cf0c186"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Paciente}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="42" y="50" width="73" height="20" uuid="a510e897-3680-416e-89f0-d5f5061001d7"/>
+				<reportElement x="35" y="70" width="64" height="20" uuid="a510e897-3680-416e-89f0-d5f5061001d7"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Paciente:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="42" y="70" width="73" height="20" uuid="92622de4-67b5-4b55-b804-8927edea0754"/>
+				<reportElement x="35" y="90" width="64" height="20" uuid="92622de4-67b5-4b55-b804-8927edea0754"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Edad:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="115" y="70" width="100" height="20" uuid="8f027733-a87c-4f8b-954e-f2b054bd051a"/>
+				<reportElement x="99" y="90" width="100" height="20" uuid="8f027733-a87c-4f8b-954e-f2b054bd051a"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{AÑOS}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="332" y="90" width="108" height="20" uuid="befbe6d9-e8a6-418e-a9fb-edc7cf519209"/>
+				<reportElement x="302" y="110" width="108" height="20" uuid="befbe6d9-e8a6-418e-a9fb-edc7cf519209"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{mostrar}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="440" y="90" width="89" height="20" uuid="0555a2fb-12d2-4061-8d70-0554dc476ffb"/>
+				<reportElement x="410" y="110" width="103" height="20" uuid="0555a2fb-12d2-4061-8d70-0554dc476ffb"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{resultado_PN}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="440" y="50" width="47" height="20" uuid="e0b3162e-e3e6-4bf4-812e-35eccf6f0a7e"/>
+				<reportElement x="410" y="30" width="57" height="20" uuid="e0b3162e-e3e6-4bf4-812e-35eccf6f0a7e"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_orden}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="332" y="50" width="108" height="20" uuid="5b73f4ca-64de-4a3b-9f6e-29ba31ccb3da"/>
+				<reportElement x="302" y="30" width="108" height="20" uuid="5b73f4ca-64de-4a3b-9f6e-29ba31ccb3da"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha de Orden:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="42" y="90" width="73" height="20" uuid="ebea4fcc-2b9b-4400-9acb-e74423323be6"/>
+				<reportElement x="35" y="110" width="64" height="20" uuid="ebea4fcc-2b9b-4400-9acb-e74423323be6"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Médico:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="115" y="90" width="192" height="20" uuid="9540d085-d9c5-4856-9ac8-ae10e7b0a0b6"/>
+				<reportElement x="99" y="110" width="192" height="20" uuid="9540d085-d9c5-4856-9ac8-ae10e7b0a0b6"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nom_per_solicita}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="42" y="30" width="73" height="20" uuid="2d30e016-eb74-4077-804f-2ac18e745ac1"/>
+				<reportElement x="35" y="30" width="64" height="20" uuid="2d30e016-eb74-4077-804f-2ac18e745ac1"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Segoe UI Semilight" isBold="true"/>
+					<font fontName="Segoe UI Semilight" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[ID de Atención:]]></text>
+				<text><![CDATA[N° de H.C.:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="487" y="50" width="42" height="20" uuid="a498ba33-ac00-4100-934b-3f3051c62e29"/>
+				<reportElement x="467" y="30" width="46" height="20" uuid="a498ba33-ac00-4100-934b-3f3051c62e29"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{hora_orden}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="332" y="70" width="108" height="20" uuid="9c5e866f-6c4d-4bc6-bb9e-cb29cfc293f7"/>
+				<reportElement x="302" y="90" width="108" height="20" uuid="9c5e866f-6c4d-4bc6-bb9e-cb29cfc293f7"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha de Resultado:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="440" y="70" width="47" height="20" uuid="b33fcb1e-a869-440d-bfaa-b9f3d5d98478"/>
+				<reportElement x="410" y="90" width="57" height="20" uuid="b33fcb1e-a869-440d-bfaa-b9f3d5d98478"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_reg_resul}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="487" y="70" width="42" height="20" uuid="e3f9ea9c-fd9c-4094-9400-f7b924df2fd1"/>
+				<reportElement x="467" y="90" width="46" height="20" uuid="e3f9ea9c-fd9c-4094-9400-f7b924df2fd1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{hora_reg_resul}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="99" y="30" width="100" height="20" uuid="71a22a60-2dcd-4088-bf02-e541092358ec"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CODIGO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="302" y="70" width="108" height="20" uuid="6c4d8368-52dd-4914-9965-1cf971069960"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Habitación/Cama:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="302" y="50" width="108" height="20" uuid="7230363f-9d33-498e-8266-749519fac326"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Serv. de Hospitalización:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="410" y="50" width="103" height="20" uuid="f5602c15-97bb-4cfa-8d41-d5ae5cfa3410"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hosp_serv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="70" width="103" height="20" uuid="2f85425f-b569-4f3d-ba05-520f09b21e65"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hab_cama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="35" y="50" width="64" height="20" uuid="3a85614c-1083-4612-963d-792b34f46d4d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Acto Médico:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="99" y="50" width="100" height="20" uuid="b26f92e4-bda5-4d65-9836-9eefbb864d2f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUM_ACTOMEDICO}]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="155" splitType="Stretch">
+		<band height="175" splitType="Stretch">
+			<rectangle>
+				<reportElement x="26" y="15" width="504" height="30" backcolor="#999999" uuid="2143ed25-23de-4bbf-ae0d-ef3a125e2386"/>
+			</rectangle>
 			<componentElement>
-				<reportElement key="table 4" style="table 4" x="26" y="45" width="504" height="71" uuid="be4635ba-d683-4435-b8f6-26b115a4c652"/>
+				<reportElement key="table 5" style="table 5" x="26" y="61" width="504" height="99" uuid="9c2d1fb1-8d23-407b-abcd-f45031f525a5"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="RESULTADOS" uuid="8e1037c8-0f1c-4dd5-968b-25a8e4767c1a">
+					<datasetRun subDataset="RESULTADOS" uuid="690ffbe1-b3a6-439f-b073-14e82305fd08">
 						<datasetParameter name="ID_COD_DET_RESUL">
 							<datasetParameterExpression><![CDATA[$F{id_cod_doc_det}]]></datasetParameterExpression>
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column width="158" uuid="d4412858-ec10-4c68-a397-aca72c9f622e">
-						<jr:tableHeader style="table 4_TH" height="21" rowSpan="1">
+					<jr:column width="121" uuid="dd348be7-6c65-42da-9185-17c4abf8e5f0">
+						<jr:tableHeader style="table 5_TH" height="25" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="158" height="21" forecolor="#FFFFFF" uuid="ad3909b0-d0e4-4e18-bc49-def20e4d4df1"/>
+								<reportElement x="0" y="0" width="121" height="25" forecolor="#FFFFFF" uuid="f55afe75-63b8-47f3-9aae-e1471aa1d7a8"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Segoe UI Semilight" size="10" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ANALISIS]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 5_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="158" height="20" uuid="3da5ef10-f457-4c8f-ae11-e455d4037e36"/>
+								<reportElement x="0" y="0" width="121" height="20" uuid="fcf36750-9349-43e5-88cb-c9df4fec4135"/>
 								<textElement verticalAlignment="Middle">
 									<font fontName="Segoe UI Semilight"/>
 								</textElement>
@@ -381,19 +470,19 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="108" uuid="998eafa7-99fc-42ca-8ab5-a2f7e23c55f9">
-						<jr:tableHeader style="table 4_TH" height="21" rowSpan="1">
+					<jr:column width="92" uuid="7abcf412-2ab0-41fb-85ec-5e0971cca84e">
+						<jr:tableHeader style="table 5_TH" height="25" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="108" height="21" forecolor="#FFFFFF" uuid="7494a040-1da1-41c0-89e1-78074c9ce4a9"/>
+								<reportElement x="0" y="0" width="92" height="25" forecolor="#FFFFFF" uuid="f52cd171-060c-4c69-b19f-40226a13f03f"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Segoe UI Semilight" size="10" isBold="true"/>
 								</textElement>
 								<text><![CDATA[RESULTADO]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 5_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="108" height="20" uuid="1caf4033-4c9e-4cad-b3ad-850928bb22a6"/>
+								<reportElement x="0" y="0" width="92" height="20" uuid="607078ef-109c-433e-b215-700cfa77898e"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Segoe UI Semilight"/>
 								</textElement>
@@ -401,19 +490,39 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="109" uuid="03936981-f17e-4edf-afc7-f721629ea404">
-						<jr:tableHeader style="table 4_TH" height="21" rowSpan="1">
+					<jr:column width="100" uuid="a6f06030-f1db-4476-a83c-50edd240c77e">
+						<jr:tableHeader style="table 5_TH" height="25" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="109" height="21" forecolor="#FFFFFF" uuid="65f92573-8171-41d7-9700-8d6f0c9115f1"/>
+								<reportElement x="0" y="0" width="100" height="25" forecolor="#FFFFFF" uuid="47fc576b-49cb-41eb-a013-501db6563d59"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Segoe UI Semilight" size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[UNID]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 5_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="20" uuid="38f5c710-cadd-400e-86ed-d0eaeb2c4fba"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Segoe UI Semilight"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{descripcion_unidad_medida}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="89" uuid="f17fa17c-4417-4048-9556-a35932b74f12">
+						<jr:tableHeader style="table 5_TH" height="25" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="89" height="25" forecolor="#FFFFFF" uuid="75dd9a9c-7e25-4631-8376-60650be5293a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Segoe UI Semilight" size="9" isBold="true"/>
 								</textElement>
 								<text><![CDATA[RANGO REFERENCIAL]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 5_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="109" height="20" uuid="5b35d780-237f-420f-981d-67c238880fdd"/>
+								<reportElement x="0" y="0" width="89" height="20" uuid="54a70d5b-a03b-4116-8c52-a8cfef882ed4"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Segoe UI Semilight"/>
 								</textElement>
@@ -421,33 +530,37 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="129" uuid="063594a2-9d35-41f5-b1fc-b70507d8831d">
-						<jr:tableHeader style="table 4_TH" height="21" rowSpan="1">
+					<jr:column width="102" uuid="be710005-5ba8-425f-8441-1e794ef50a10">
+						<jr:tableHeader style="table 5_TH" height="25" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="129" height="21" forecolor="#FFFFFF" uuid="6e633eb6-087c-4d87-ae06-f7b039b00eae"/>
+								<reportElement x="0" y="0" width="102" height="25" forecolor="#FFFFFF" uuid="ad7d658a-eb6f-4de4-9518-50675c9f7a49"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Segoe UI Semilight" size="10" isBold="true"/>
 								</textElement>
-								<text><![CDATA[UNID]]></text>
+								<text><![CDATA[OBSERVACIÓN]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 5_TD" height="20" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="129" height="20" uuid="f149cdba-9689-4b7b-8717-3cad86f0d40c"/>
-								<textElement verticalAlignment="Middle">
+								<reportElement x="0" y="0" width="102" height="20" uuid="3dd109e8-0f92-45cd-b84a-1016d4814b2d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Segoe UI Semilight"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$F{descripcion_unidad_medida}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{OBSERV}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 				</jr:table>
 			</componentElement>
-			<rectangle>
-				<reportElement x="26" y="15" width="504" height="20" backcolor="#999999" uuid="2143ed25-23de-4bbf-ae0d-ef3a125e2386"/>
-			</rectangle>
 			<textField>
-				<reportElement x="25" y="15" width="504" height="20" forecolor="#FFFFFF" uuid="d2cca767-a73b-4f16-8a5b-6e764f8e8611"/>
+				<reportElement x="25" y="30" width="504" height="15" forecolor="#FFFFFF" uuid="8cf99ff4-48bd-424e-afcf-8317ade5cdc1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_ana_exa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="26" y="15" width="503" height="15" forecolor="#FFFFFF" uuid="d2cca767-a73b-4f16-8a5b-6e764f8e8611"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight" size="10" isBold="true" isItalic="false" isUnderline="false"/>
 				</textElement>

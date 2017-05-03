@@ -54,6 +54,7 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
         BUSCAR_PRESTACION.setLocationRelativeTo(null);
         BUSCAR_PRESTACION.getContentPane().setBackground(Color.white);
         txtID_HC.setVisible(false);
+        txtID_FUA.setVisible(false);
         
         setResizable(false);//Deshabilitar en boton maximizar
         BUSCAR_PACIENTE_FUA.setResizable(false);
@@ -365,6 +366,7 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
         txtServicio = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtID_HC = new javax.swing.JTextField();
+        txtID_FUA = new javax.swing.JTextField();
 
         BUSCAR_PACIENTE_FUA.setMinimumSize(new java.awt.Dimension(600, 400));
 
@@ -2687,6 +2689,12 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
             }
         });
 
+        txtID_FUA.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtID_FUACaretUpdate(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
@@ -2698,8 +2706,10 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtHC, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtID_HC))
-                .addGap(0, 0, 0)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(txtID_HC, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtID_FUA)))
                 .addComponent(btnActividadVacunaBuscarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jLabel21)
@@ -2709,20 +2719,20 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
                 .addComponent(txtNroFUA_año, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(txtNroFUA_Correlativo, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPrestacion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(btnActividadVacunaBuscarPac1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(180, 180, 180)
+                        .addGap(37, 37, 37)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                        .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2747,7 +2757,8 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
                             .addComponent(txtNroFUA_Correlativo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtID_HC, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtID_HC, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtID_FUA, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2797,15 +2808,11 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
        tabla.addColumn("Sexo");
        tabla.addColumn("Fecha Nac.");
        tabla.addColumn("Edad");
-       tabla.addColumn("Acto Médico");
-       tabla.addColumn("ID Preventa");
        tabla.addColumn("Peso");
        tabla.addColumn("Talla");
        tabla.addColumn("Presión Arterial");
        tabla.addColumn("Fecha Registro");
        tabla.addColumn("Hora Registro");
-       tabla.addColumn("Cod Detalle");
-       tabla.addColumn("Cod Precio");
        tabla.addColumn("Descripción");
        tabla.addColumn("Area");
        tabla.addColumn("Servicio");
@@ -2813,8 +2820,8 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
        cst=con.prepareCall("exec SIS_PACIENTES_LISTAR");
        r=cst.executeQuery();
        while (r.next()){
-       Object dato[]=new  Object[25];
-       for (int i=0; i<25; i++){
+       Object dato[]=new  Object[21];
+       for (int i=0; i<21; i++){
            dato[i]=r.getString(i+1);
        }
        tabla.addRow(dato);
@@ -2838,25 +2845,20 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
        tb_Paciente_Fua.getColumnModel().getColumn(5).setPreferredWidth(100);
        tb_Paciente_Fua.getColumnModel().getColumn(6).setPreferredWidth(100);
        tb_Paciente_Fua.getColumnModel().getColumn(7).setPreferredWidth(100);
-       tb_Paciente_Fua.getColumnModel().getColumn(8).setPreferredWidth(150);
+       tb_Paciente_Fua.getColumnModel().getColumn(8).setPreferredWidth(100);
        tb_Paciente_Fua.getColumnModel().getColumn(9).setPreferredWidth(100);
        tb_Paciente_Fua.getColumnModel().getColumn(10).setPreferredWidth(50);
        tb_Paciente_Fua.getColumnModel().getColumn(11).setPreferredWidth(100);
        tb_Paciente_Fua.getColumnModel().getColumn(12).setPreferredWidth(50);
-       tb_Paciente_Fua.getColumnModel().getColumn(13).setPreferredWidth(100);
-       tb_Paciente_Fua.getColumnModel().getColumn(14).setPreferredWidth(100);
-       tb_Paciente_Fua.getColumnModel().getColumn(15).setPreferredWidth(70);
-       tb_Paciente_Fua.getColumnModel().getColumn(16).setPreferredWidth(70);
+       tb_Paciente_Fua.getColumnModel().getColumn(13).setPreferredWidth(50);
+       tb_Paciente_Fua.getColumnModel().getColumn(14).setPreferredWidth(50);
+       tb_Paciente_Fua.getColumnModel().getColumn(15).setPreferredWidth(100);
+       tb_Paciente_Fua.getColumnModel().getColumn(16).setPreferredWidth(100);
        tb_Paciente_Fua.getColumnModel().getColumn(17).setPreferredWidth(100);
-       tb_Paciente_Fua.getColumnModel().getColumn(18).setPreferredWidth(100);
-       tb_Paciente_Fua.getColumnModel().getColumn(19).setPreferredWidth(100);
-       tb_Paciente_Fua.getColumnModel().getColumn(20).setPreferredWidth(70);
-       tb_Paciente_Fua.getColumnModel().getColumn(21).setPreferredWidth(70);
-       tb_Paciente_Fua.getColumnModel().getColumn(22).setPreferredWidth(100);
-       tb_Paciente_Fua.getColumnModel().getColumn(23).setPreferredWidth(100);
-       tb_Paciente_Fua.getColumnModel().getColumn(24).setPreferredWidth(100);
+       tb_Paciente_Fua.getColumnModel().getColumn(18).setPreferredWidth(200);
+       tb_Paciente_Fua.getColumnModel().getColumn(19).setPreferredWidth(150);
+       tb_Paciente_Fua.getColumnModel().getColumn(20).setPreferredWidth(150);
     }
-    
     
     private void btnActividadVacunaBuscarPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadVacunaBuscarPacActionPerformed
         BUSCAR_PACIENTE_FUA.setVisible(true);
@@ -2886,6 +2888,7 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
              BUSCAR_PACIENTE_FUA.dispose(); 
              txtID_HC.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 2)));
              txtHC.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 4)));
+             txtID_FUA.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 1)));
              
              String codigoFUA = String.valueOf(tb_Paciente_Fua.getValueAt(fila, 1));
              String renaes = codigoFUA.substring(0,3);
@@ -2910,10 +2913,10 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
              txtNombre.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 7)));
              txtOtrosN.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 8)));
              txtSexo.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 10)));
-             txtActividad_Vacuna_Peso.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 15)));
-             txtActividad_Vacuna_Talla.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 16)));
-             txtActividad_Vacuna_PA.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 17)));
-             txtServicio.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 23)));
+             txtActividad_Vacuna_Peso.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 13)));
+             txtActividad_Vacuna_Talla.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 14)));
+             txtActividad_Vacuna_PA.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 15)));
+             txtServicio.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 20)));
                      
        }
     }//GEN-LAST:event_tb_Paciente_FuaKeyPressed
@@ -2937,15 +2940,11 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
             tabla.addColumn("Sexo");
             tabla.addColumn("Fecha Nac.");
             tabla.addColumn("Edad");
-            tabla.addColumn("Acto Médico");
-            tabla.addColumn("ID Preventa");
             tabla.addColumn("Peso");
             tabla.addColumn("Talla");
             tabla.addColumn("Presión Arterial");
             tabla.addColumn("Fecha Registro");
             tabla.addColumn("Hora Registro");
-            tabla.addColumn("Cod Detalle");
-            tabla.addColumn("Cod Precio");
             tabla.addColumn("Descripción");
             tabla.addColumn("Area");
             tabla.addColumn("Servicio");
@@ -2954,8 +2953,8 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
             cst.setString(1, nume);
             r=cst.executeQuery();
             while (r.next()){
-                Object dato[]=new  Object[25];
-                for (int i=0; i<25; i++){
+                Object dato[]=new  Object[21];
+                for (int i=0; i<21; i++){
                     dato[i]=r.getString(i+1);
 
                 }
@@ -3134,8 +3133,12 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
     private void txtID_HCCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtID_HCCaretUpdate
-        mostrarVacuna(txtID_HC.getText());      
+        mostrarVacuna(txtID_HC.getText(), txtID_FUA.getText());      
     }//GEN-LAST:event_txtID_HCCaretUpdate
+
+    private void txtID_FUACaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtID_FUACaretUpdate
+        mostrarVacuna(txtID_HC.getText(), txtID_FUA.getText());  
+    }//GEN-LAST:event_txtID_FUACaretUpdate
 
     public static String fechaActual(){
         Date now = new Date(System.currentTimeMillis());
@@ -3190,63 +3193,13 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
         tb_prestacion.getColumnModel().getColumn(1).setPreferredWidth(300); 
     }
     
-    /*public void cargarVacunas(){     
-        try {
-
-           // DefaultTableModel modelo=(DefaultTableModel) tb_MEDICAMENTOS.getModel(); 
-           // Object [] fila=new Object[7];
-            
-            String filaselec=lblID_HC.getText();
-            //Medicamentos
-            String consulta="";
-            //tb_MEDICAMENTOS.setModel(new DefaultTableModel());
-            String titulos[]={"Cod_tipoSust","Nombre del Producto","Rendimiento","UM","Cantidad UM","Precio Sustento","Total Sustento"};
-            modelo=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(modelo);
-            //String fila[]=new String[7];
-            Usuario obj=new Usuario();
-            consulta="exec SIS_COSTOS_MEDICAMENTOS_BUSCAR ?";
-            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1, filaselec);
-            ResultSet r= cmd.executeQuery();
-            while(r.next()){
-            for (int i=0; i<7; i++){
-                fila[i]=r.getString(i+1);
-                
-                }
-                                
-            } 
-        
- 
-        if(tb_MEDICAMENTOS.getRowCount()==0){
-            modelo.addRow(fila); 
-            tb_MEDICAMENTOS.setModel(modelo);
-            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(modelo);
-            tb_MEDICAMENTOS.setRowSorter(elQueOrdena);
-            tb_MEDICAMENTOS.setModel(modelo);
-            
-        }
-           else{
-                modelo.addRow(fila); 
-                tb_MEDICAMENTOS.setModel(modelo);
-                TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(modelo);
-                tb_MEDICAMENTOS.setRowSorter(elQueOrdena);
-                tb_MEDICAMENTOS.setModel(modelo);
-           }
-          
-        
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,"cargar_vacunas: " + e.getMessage());
-        }
-       
-    }*/
-    
-        public void mostrarVacuna(String nhc){
+    public void mostrarVacuna(String nhc, String nfua){
         String consulta="";
         try {
-            consulta="EXEC SIS_VACUNAS_BUSCAR ?";
+            consulta="EXEC SIS_VACUNAS_BUSCAR ?,?";
             PreparedStatement cmd = sis.getCn().prepareStatement(consulta);
             cmd.setString(1, nhc);
+            cmd.setString(2, nfua);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -3262,12 +3215,49 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
                 txtANTIAMARILICA.setText(r.getString(10)); 
                 txtDPT.setText(r.getString(11));
             }
+            vacunas_formato();
             //
         } catch (Exception e) {
             System.out.println("Error_mostrarVacunas: " + e.getMessage());
         }
+    }       
+    public void vacunas_formato(){
+        if(txtBCG.getText().equalsIgnoreCase("0")){
+                txtBCG.setText(""); 
+        }
+        if(txtHVB.getText().equalsIgnoreCase("0")){
+                txtHVB.setText("");
+        }
+        if(txtIPV.getText().equalsIgnoreCase("0")){
+                 txtIPV.setText(""); 
+        } 
+        if(txtAPO.getText().equalsIgnoreCase("0")){
+                 txtAPO.setText(""); 
+        }
+        if(txtPENTAVAL.getText().equalsIgnoreCase("0")){
+                 txtPENTAVAL.setText(""); 
+        }
+        if(txtANTINEUMOC.getText().equalsIgnoreCase("0")){
+                 txtANTINEUMOC.setText(""); 
+        }
+        if(txtInfluenza.getText().equalsIgnoreCase("0")){
+                 txtInfluenza.setText(""); 
+        }
+        if(txtRotavirus.getText().equalsIgnoreCase("0")){
+                 txtRotavirus.setText(""); 
+        }
+        if(txtSPR.getText().equalsIgnoreCase("0")){
+                 txtSPR.setText(""); 
+        }
+        if(txtANTIAMARILICA.getText().equalsIgnoreCase("0")){
+                 txtANTIAMARILICA.setText(""); 
+        }
+        if(txtDPT.getText().equalsIgnoreCase("0")){
+                 txtDPT.setText(""); 
+        }
     }
-    
+        
+        
     
     /**
      * @param args the command line arguments
@@ -3561,6 +3551,7 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
     private javax.swing.JTextField txtFecha_Parto;
     public static javax.swing.JTextField txtHC;
     private javax.swing.JTextField txtHVB;
+    private javax.swing.JTextField txtID_FUA;
     private javax.swing.JTextField txtID_HC;
     private javax.swing.JTextField txtIPV;
     private javax.swing.JTextField txtInfluenza;

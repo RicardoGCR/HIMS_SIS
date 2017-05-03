@@ -4546,6 +4546,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                 .addGap(0, 31, Short.MAX_VALUE)
                                                                                             );
 
+                                                                                            NCP.setForeground(new java.awt.Color(204, 0, 204));
                                                                                             NCP.setText("nomenclatura pre");
 
                                                                                             IDP.setText("000");
@@ -4563,9 +4564,10 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
 
                                                                                             abonos.setText("jLabel56");
 
+                                                                                            SE.setBackground(new java.awt.Color(255, 102, 102));
                                                                                             SE.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                                                                                            SE.setForeground(new java.awt.Color(255, 255, 255));
-                                                                                            SE.setText("SE");
+                                                                                            SE.setForeground(new java.awt.Color(255, 51, 153));
+                                                                                            SE.setText("8");
 
                                                                                             medic.setText("medico");
 

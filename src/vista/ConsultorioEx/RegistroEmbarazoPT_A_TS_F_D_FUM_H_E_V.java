@@ -685,6 +685,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 lblMant = new javax.swing.JLabel();
                 lblMantFum = new javax.swing.JLabel();
                 lblIdFum = new javax.swing.JLabel();
+                lblActoMedico = new javax.swing.JLabel();
+                lblFP = new javax.swing.JLabel();
+                lblIdActoMedico = new javax.swing.JLabel();
 
                 FrmCie10.setMinimumSize(new java.awt.Dimension(750, 400));
                 FrmCie10.setResizable(false);
@@ -3108,6 +3111,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 lblMadre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 lblMadre.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
+                lblActoMedico.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+                lblActoMedico.setText("Acto Médico");
+
+                lblFP.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+                lblFP.setText("Forma de Pago");
+
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
                 layout.setHorizontalGroup(
@@ -3146,8 +3155,17 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(lblMadre, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(lblMant, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addComponent(lblMant, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lblFP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(lblActoMedico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                                 .addContainerGap())))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(886, 886, 886)
+                            .addComponent(lblIdActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(886, Short.MAX_VALUE)))
                 );
                 layout.setVerticalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3155,9 +3173,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblMadre)
-                                    .addComponent(lblMant, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblMadre)
+                                        .addComponent(lblMant, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblActoMedico)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblFP)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(P1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3188,6 +3211,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(456, 456, 456)
+                            .addComponent(lblIdActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(457, Short.MAX_VALUE)))
                 );
 
                 pack();
@@ -3660,7 +3688,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         }
         
-        if(opcionGuardar.equals("vg")){ // formulario de Emergencia
+        if(opcionGuardar.equals("vg")){ // formulario de violencia
             if(btnSi.getText().equals("Si")){ // Al guardar
                 mantenimientoVG();
             } else
@@ -4188,9 +4216,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    public static javax.swing.JLabel lblActoMedico;
     public static javax.swing.JLabel lblCie10;
     public static javax.swing.JLabel lblCie10E;
     public static javax.swing.JLabel lblCpId;
+    public static javax.swing.JLabel lblFP;
+    public static javax.swing.JLabel lblIdActoMedico;
     public static javax.swing.JLabel lblIdAn;
     public static javax.swing.JLabel lblIdCie10;
     public static javax.swing.JLabel lblIdCie10E;

@@ -9,10 +9,11 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.swing.table.DefaultTableModel;
-import servicios.Conexion;
-import vista.ConsultorioEx.RegistroEmbarazoAO;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import vista.ConsultorioEx.RegistroEmbarazoGA;
+
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 
@@ -52,6 +53,18 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
             int c=1;
             while(r.next()){
                
+                if ((r.getString(3)).equals("Si") ){
+                RegistroEmbarazoGA.chkSi.setText("X");
+                RegistroEmbarazoGA.chkNo.setText("");
+                
+                }
+                if ((r.getString(3)).equals("No") ){
+                RegistroEmbarazoGA.chkNo.setText("X");
+                RegistroEmbarazoGA.chkSi.setText("");
+
+                
+                }
+                
                 if ((r.getString(4)).equals("Parto Vaginal") ){
                 RegistroEmbarazoGA.txtT1.setText("X");
                 RegistroEmbarazoGA.txtT2.setText("");
@@ -61,7 +74,7 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
                 RegistroEmbarazoGA.txtT6.setText(""); 
                 
                 }
-                if ((r.getString(3)).equals("Cesarea") ){
+                if ((r.getString(4)).equals("Cesarea") ){
                 RegistroEmbarazoGA.txtT2.setText("X");
                 RegistroEmbarazoGA.txtT1.setText("");
                 RegistroEmbarazoGA.txtT3.setText("");
@@ -69,7 +82,7 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
                 RegistroEmbarazoGA.txtT5.setText("");
                 RegistroEmbarazoGA.txtT6.setText(""); 
                 }
-                if ((r.getString(3)).equals("Aborto") ){
+                if ((r.getString(4)).equals("Aborto") ){
                 RegistroEmbarazoGA.txtT3.setText("X");
                 RegistroEmbarazoGA.txtT1.setText("");
                 RegistroEmbarazoGA.txtT2.setText("");
@@ -78,7 +91,7 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
                 RegistroEmbarazoGA.txtT6.setText(""); 
                 }
                 
-                if ((r.getString(3)).equals("Ectopico") ){
+                if ((r.getString(4)).equals("Ectopico") ){
                 RegistroEmbarazoGA.txtT4.setText("X");
                 RegistroEmbarazoGA.txtT1.setText("");
                 RegistroEmbarazoGA.txtT2.setText("");
@@ -86,7 +99,7 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
                 RegistroEmbarazoGA.txtT5.setText("");
                 RegistroEmbarazoGA.txtT6.setText(""); 
                 }
-                if ((r.getString(3)).equals("Aborto Molar") ){
+                if ((r.getString(4)).equals("Aborto Molar") ){
                 RegistroEmbarazoGA.txtT5.setText("X");
                 RegistroEmbarazoGA.txtT1.setText("");
                 RegistroEmbarazoGA.txtT2.setText("");
@@ -94,7 +107,7 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
                 RegistroEmbarazoGA.txtT4.setText("");
                 RegistroEmbarazoGA.txtT6.setText(""); 
                 }
-                if ((r.getString(3)).equals("No Aplica") ){
+                if ((r.getString(4)).equals("No Aplica") ){
                 RegistroEmbarazoGA.txtT6.setText("X");
                 RegistroEmbarazoGA.txtT1.setText("");
                 RegistroEmbarazoGA.txtT2.setText("");
@@ -102,6 +115,128 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
                 RegistroEmbarazoGA.txtT5.setText("");
                 RegistroEmbarazoGA.txtT4.setText(""); 
                 }
+                
+                ////////TIPO DE ABORTO
+                if ((r.getString(5)).equals("Incompleto") ){
+                RegistroEmbarazoGA.txtTa1.setText("X");
+                RegistroEmbarazoGA.txtTa2.setText("");
+                RegistroEmbarazoGA.txtTa3.setText("");
+                RegistroEmbarazoGA.txtTa4.setText("");
+                RegistroEmbarazoGA.txtTa5.setText("");
+                }
+                if ((r.getString(5)).equals("Completo") ){
+                RegistroEmbarazoGA.txtTa2.setText("X");
+                RegistroEmbarazoGA.txtTa1.setText("");
+                RegistroEmbarazoGA.txtTa3.setText("");
+                RegistroEmbarazoGA.txtTa4.setText("");
+                RegistroEmbarazoGA.txtTa5.setText("");
+                }
+                if ((r.getString(5)).equals("Frusto/Retenido") ){
+                RegistroEmbarazoGA.txtTa3.setText("X");
+                RegistroEmbarazoGA.txtTa2.setText("");
+                RegistroEmbarazoGA.txtTa1.setText("");
+                RegistroEmbarazoGA.txtTa4.setText("");
+                RegistroEmbarazoGA.txtTa5.setText("");
+                }
+                if ((r.getString(5)).equals("Septico") ){
+                RegistroEmbarazoGA.txtTa4.setText("X");
+                RegistroEmbarazoGA.txtTa2.setText("");
+                RegistroEmbarazoGA.txtTa3.setText("");
+                RegistroEmbarazoGA.txtTa1.setText("");
+                RegistroEmbarazoGA.txtTa5.setText("");
+                }
+                if ((r.getString(5)).equals("No Aplica") ){
+                RegistroEmbarazoGA.txtTa5.setText("X");
+                RegistroEmbarazoGA.txtTa2.setText("");
+                RegistroEmbarazoGA.txtTa3.setText("");
+                RegistroEmbarazoGA.txtTa4.setText("");
+                RegistroEmbarazoGA.txtTa1.setText("");
+                }
+                
+                /////////LACTANCIA
+                if ((r.getString(6)).equals("No Hubo") ){
+                RegistroEmbarazoGA.txtLm1.setText("X");
+                RegistroEmbarazoGA.txtLm2.setText("");
+                RegistroEmbarazoGA.txtLm3.setText("");
+                RegistroEmbarazoGA.txtLm4.setText("");
+                }
+                if ((r.getString(6)).equals("< 6 meses") ){
+                RegistroEmbarazoGA.txtLm2.setText("X");
+                RegistroEmbarazoGA.txtLm1.setText("");
+                RegistroEmbarazoGA.txtLm3.setText("");
+                RegistroEmbarazoGA.txtLm4.setText("");
+                }
+                if ((r.getString(6)).equals("6 meses a mas") ){
+                RegistroEmbarazoGA.txtLm3.setText("X");
+                RegistroEmbarazoGA.txtLm2.setText("");
+                RegistroEmbarazoGA.txtLm1.setText("");
+                RegistroEmbarazoGA.txtLm4.setText("");
+                }
+                if ((r.getString(6)).equals("No Aplica") ){
+                RegistroEmbarazoGA.txtLm4.setText("X");
+                RegistroEmbarazoGA.txtLm2.setText("");
+                RegistroEmbarazoGA.txtLm3.setText("");
+                RegistroEmbarazoGA.txtLm1.setText("");
+                }
+                /////////lugar de parto
+                
+                if ((r.getString(7)).equals("EESS") ){
+                RegistroEmbarazoGA.txtLp1.setText("X");
+                RegistroEmbarazoGA.txtLp2.setText("");
+
+                }
+                if ((r.getString(7)).equals("DOMIC") ){
+                RegistroEmbarazoGA.txtLp2.setText("X");
+                RegistroEmbarazoGA.txtLp1.setText("");
+                }
+                
+                //////FECHA
+                
+                try {
+                    if(r.getString(5).equals("")){
+                        RegistroEmbarazoGA.fechaGA.setDate(null);
+                    } else {
+                        String fechaSeleccionadaD2 = (String)(r.getString(8));
+                        DateFormat dfoD2 = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaD2 = dfoD2.parse(fechaSeleccionadaD2);
+                        RegistroEmbarazoGA.fechaGA.setDate(fechaD2);
+
+                    }
+                } catch (Exception e) {
+                }
+                
+                /////////CAPTADA
+                
+                if ((r.getString(9)).equals("S") ){
+                RegistroEmbarazoGA.chkCsi.setText("X");
+                RegistroEmbarazoGA.chkCno.setText("");
+
+                }
+                if ((r.getString(9)).equals("N") ){
+                RegistroEmbarazoGA.chkCno.setText("X");
+                RegistroEmbarazoGA.chkCsi.setText("");
+                }
+                
+                /////////Referida
+                
+                if ((r.getString(10)).equals("S") ){
+                RegistroEmbarazoGA.chkRsi.setText("X");
+                RegistroEmbarazoGA.chkRno.setText("");
+
+                }
+                if ((r.getString(10)).equals("N") ){
+                RegistroEmbarazoGA.chkRno.setText("X");
+                RegistroEmbarazoGA.chkRsi.setText("");
+                }
+                RegistroEmbarazoGA.lblIdGA.setText(r.getString(1)); 
+                if (!RegistroEmbarazoGA.lblIdGA.getText().equals("") ){
+                    RegistroEmbarazoGA.btnGuardar.setEnabled(false);
+                    RegistroEmbarazoGA.btneditar.setEnabled(true);
+                    RegistroEmbarazoGA.var.setText("2");
+                    RegistroEmbarazoGA.fechaGA.setEnabled(false);
+                }
+                
+                
             }
             //
         } catch (Exception e) {

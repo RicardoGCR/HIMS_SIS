@@ -3432,13 +3432,15 @@
                                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtIFIn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtIFIp" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtIFInh" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtIFIna" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="fechaIFI" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtIFIn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtIFIp" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtIFInh" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtIFIna" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">

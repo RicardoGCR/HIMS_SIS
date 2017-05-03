@@ -9,8 +9,13 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
+import vista.ConsultorioEx.RegistroEmbarazoAtencionesP;
+import vista.ConsultorioEx.RegistroEmbarazoEXF;
 
 /**
  *
@@ -131,6 +136,62 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
         }
         return cod;
     }   
+    
+    public void ConsultoriosExtAtencionPrenatalListar(String cp_id,String atencion){
+        String consulta="";
+        try {
+            consulta="[CONSULTORIO_EXT_LISTAR_CARNET_PERINATAL_ATENCION_PRENATAL] ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, cp_id);
+            cmd.setString(2, atencion);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                RegistroEmbarazoAtencionesP.lblMant.setText("U");
+                RegistroEmbarazoAtencionesP.lblId.setText(r.getString(1)); 
+                RegistroEmbarazoAtencionesP.txtEdad.setText(r.getString(3)); 
+                RegistroEmbarazoAtencionesP.txtPesoMadre.setText(r.getString(4)); 
+                RegistroEmbarazoAtencionesP.txtTemp.setText(r.getString(5)); 
+                RegistroEmbarazoAtencionesP.txtPA.setText(r.getString(6)); 
+                RegistroEmbarazoAtencionesP.txtPm.setText(r.getString(7)); 
+                RegistroEmbarazoAtencionesP.txtAu.setText(r.getString(8)); 
+                RegistroEmbarazoAtencionesP.txtSituacion.setText(r.getString(9)); 
+                RegistroEmbarazoAtencionesP.txtPresentacion.setText(r.getString(10)); 
+                RegistroEmbarazoAtencionesP.txtPosicion.setText(r.getString(11)); 
+                RegistroEmbarazoAtencionesP.txtFcf.setText(r.getString(12)); 
+                RegistroEmbarazoAtencionesP.txtMovFetal.setText(r.getString(13)); 
+                RegistroEmbarazoAtencionesP.txtProteinuria.setText(r.getString(14)); 
+                RegistroEmbarazoAtencionesP.txtEdema.setText(r.getString(15)); 
+                RegistroEmbarazoAtencionesP.txtReflejo.setText(r.getString(16)); 
+                RegistroEmbarazoAtencionesP.txtExamenP.setText(r.getString(17)); 
+                RegistroEmbarazoAtencionesP.txtIndicFierro.setText(r.getString(18)); 
+                RegistroEmbarazoAtencionesP.txtIndicCalcio.setText(r.getString(19)); 
+                RegistroEmbarazoAtencionesP.txtIndicFolico.setText(r.getString(20)); 
+                RegistroEmbarazoAtencionesP.txtOrient.setText(r.getString(21));
+                RegistroEmbarazoAtencionesP.txtEco.setText(r.getString(22)); 
+                RegistroEmbarazoAtencionesP.txtPerfilBiofisico.setText(r.getString(23)); 
+                try {
+                  if(r.getString(24).equals("")){
+                  RegistroEmbarazoAtencionesP.dtCita.setDate(null);
+                } else {
+                    String fechaSeleccionadaejec = (String)(r.getString(24));
+                    DateFormat dfoejec = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fechaejec = dfoejec.parse(fechaSeleccionadaejec);
+                    RegistroEmbarazoAtencionesP.dtCita.setDate(fechaejec);
+                }
+                } catch (Exception e) {
+                }
+                RegistroEmbarazoAtencionesP.txtVisitDomic.setText(r.getString(25));  
+                RegistroEmbarazoAtencionesP.txtPlanParto.setText(r.getString(26)); 
+                RegistroEmbarazoAtencionesP.txtEstabAtencion.setText(r.getString(27)); 
+                RegistroEmbarazoAtencionesP.txtResponAtencion.setText(r.getString(28));  
+                RegistroEmbarazoAtencionesP.txtSis.setText(r.getString(29)); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: ConsultoriosExtAtencionPrenatalListar: " + e.getMessage());
+        }
+    }
     
     public ConsultorioExtCarnetPerinatalAtencionPrenatal() {
         Conexion con = new Conexion();

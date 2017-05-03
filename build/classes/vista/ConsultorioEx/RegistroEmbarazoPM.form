@@ -1787,7 +1787,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Gestaci&#xf3;n &lt;br&gt;Anterior&lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;Patolog&#xed;as&lt;br&gt;Maternas&lt;span style=&quot;font-size:&apos;15px&apos;&quot;&gt;&lt;br&gt;(CIE 10) Diagnosticadas&lt;/br&gt;&lt;/html&gt;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblusu">

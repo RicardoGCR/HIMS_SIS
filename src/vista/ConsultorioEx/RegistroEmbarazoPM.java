@@ -1359,7 +1359,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
         jLabel30.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel30.setText("<html>Gestación <br>Anterior</html>");
+        jLabel30.setText("<html>Patologías<br>Maternas<span style=\"font-size:'15px'\"><br>(CIE 10) Diagnosticadas</br></html>");
 
         lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         lblusu.setForeground(new java.awt.Color(255, 255, 255));

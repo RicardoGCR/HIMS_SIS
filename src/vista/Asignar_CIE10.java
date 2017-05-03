@@ -97,9 +97,7 @@ Statement st;
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
-        forma_pago.setMaximumSize(new java.awt.Dimension(380, 450));
         forma_pago.setMinimumSize(new java.awt.Dimension(380, 450));
-        forma_pago.setPreferredSize(new java.awt.Dimension(380, 450));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 1, 16)); // NOI18N
         jLabel2.setText("Forma de Pago");
@@ -181,7 +179,6 @@ Statement st;
         );
 
         CIE10.setMinimumSize(new java.awt.Dimension(400, 500));
-        CIE10.setPreferredSize(new java.awt.Dimension(400, 500));
 
         tbCIE10 = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
@@ -476,7 +473,7 @@ Statement st;
                         .addComponent(jButton4)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41))))
         );

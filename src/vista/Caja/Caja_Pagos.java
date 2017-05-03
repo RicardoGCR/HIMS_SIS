@@ -6281,8 +6281,8 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
           Caja_Preventa CSE = new Caja_Preventa();
         SE.setText(CSE.CodSE(NCP.getText()));
        
-        Medicos.setVisible(true);
-        listarMedicos1();
+//        Medicos.setVisible(true);
+//        listarMedicos1();
         //////////////////
 
          preventas.dispose();   

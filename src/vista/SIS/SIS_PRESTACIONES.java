@@ -68,6 +68,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
         txtCodigoPrestacion.setText("PR001");
         }
         
+        formatoDetalleDestino();
         cargarPrestacion();
         cargarDestinoAsegurado();
         cargarPrestacionDetalle();
@@ -663,6 +664,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
             }
         ));
         tb_destino.setRowHeight(25);
+        tb_destino.setSelectionBackground(new java.awt.Color(191, 142, 101));
         tb_destino.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tb_destinoKeyPressed(evt);
@@ -1031,110 +1033,116 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-    ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
-        SIS_CLS_PRESTACIONES C=new SIS_CLS_PRESTACIONES();
-        SIS_CLS_PRESTACIONES C1=new SIS_CLS_PRESTACIONES();
-        SIS_CLS_PRESTACIONES C2=new SIS_CLS_PRESTACIONES();
-        SIS_CLS_PRESTACIONES C3=new SIS_CLS_PRESTACIONES();
-        SIS_CLS_PRESTACIONES C4=new SIS_CLS_PRESTACIONES();
-        try{
-            if(txtGM.getText().equalsIgnoreCase("G")){
-                if(txtDescripcion.getText().equalsIgnoreCase("") || txtNum_Prestacion.getText().equalsIgnoreCase("")
-                  || cbxTipo.getSelectedIndex()==0 || txtEtapa_Vida.getText().equalsIgnoreCase("") 
-                  || txtEdad_Minima.getText().equalsIgnoreCase("") || txtEdad_Maxima.getText().equalsIgnoreCase("")
-                  || cbxSexo_Prestacion.getSelectedIndex()==0 || cbxHospitalizacion_Prestacion.getSelectedIndex()==0
-                  || cbxGestante.getSelectedIndex()==0 || cbxPuerpera.getSelectedIndex()==0 
-                  || cbxN_Gestante_N_Puerp.getSelectedIndex()==0 || cbxRegimen.getSelectedIndex()==0
-                  || tbDetalle_Pres_Destino.getRowCount()==0){
-                    JOptionPane.showMessageDialog(rootPane, "Verifique si ha ingresado todos los campos");
-                }
-                else if(C.SIS_PRESTACIONES_Ver(txtDescripcion.getText())>0 || 
-                         C1.SIS_PRESTACIONES_Ver_NUM(txtNum_Prestacion.getText())>0){
-                    JOptionPane.showMessageDialog(rootPane, "El registro ya existe\nIntente nuevamente");
-                    txtNum_Prestacion.setText("");
-                    txtDescripcion.setText("");
-                    cbxTipo.setSelectedIndex(0);
-                    txtNum_Prestacion.requestFocus();
-                }else{
-                    int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
-                        "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
-                    if(guardar == 0 ){
-                        SIS_CLS_PRESTACIONES cg = new SIS_CLS_PRESTACIONES();
-                        cg.setID_PRESTACION(txtCodigoPrestacion.getText());
-                        cg.setNUM_PRESTACION(txtNum_Prestacion.getText());
-                        cg.setDESCRIP_PRESTACION(txtDescripcion.getText());
-                        cg.setTIPO(cbxTipo.getSelectedItem().toString());
-                        cg.setETAPA_VIDA(txtEtapa_Vida.getText());
-                        cg.setEDAD_MINIMA(txtEdad_Minima.getText());
-                        cg.setDMA(cbxDMA.getSelectedItem().toString());
-                        cg.setEDAD_MAXIMA(txtEdad_Maxima.getText());
-                        cg.setDMAM(cbxDMAM.getSelectedItem().toString());
-                        cg.setSEXO(cbxSexo_Prestacion.getSelectedItem().toString());
-                        cg.setHOSPITALIZACION(cbxHospitalizacion_Prestacion.getSelectedItem().toString());
-                        cg.setGESTANTE(cbxGestante.getSelectedItem().toString());
-                        cg.setPUERPERA(cbxPuerpera.getSelectedItem().toString());
-                        cg.setN_GESTANTE_N_PUERPERA(cbxN_Gestante_N_Puerp.getSelectedItem().toString());
-                        cg.setREGIMEN_COMPONENTE(cbxRegimen.getSelectedItem().toString());
-                        cg.setVALOR(txtValor.getText());
-                        cg.setNOM_USU(lblUsu.getText());
+ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png")); 
+    SIS_CLS_PRESTACIONES rc1=new SIS_CLS_PRESTACIONES();
+    SIS_CLS_PRESTACIONES rc2=new SIS_CLS_PRESTACIONES();
+    SIS_CLS_PRESTACIONES rc3=new SIS_CLS_PRESTACIONES();
+    SIS_CLS_PRESTACIONES rc4=new SIS_CLS_PRESTACIONES();
+       
+      try{
+          
+          if(txtGM.getText().equalsIgnoreCase("G")){
+            if(txtNum_Prestacion.getText().equalsIgnoreCase("")){
+              JOptionPane.showMessageDialog(rootPane, "Ingresar los datos completos");
+          }  
+          else if((rc2.SIS_PRESTACIONES_Ver_NUM(txtNum_Prestacion.getText()))>0){
+              JOptionPane.showMessageDialog(rootPane, "El Producto ingresado ya existe\nIntente nuevamente");
+              txtNum_Prestacion.setText("");
+              txtNum_Prestacion.requestFocus();
+          }else{
+              
+              
+              int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+                      "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+              if(guardar == 0 ){
+                   SIS_CLS_PRESTACIONES rcGUARDAR=new SIS_CLS_PRESTACIONES();
+                        rcGUARDAR.setID_PRESTACION(txtCodigoPrestacion.getText());
+                        rcGUARDAR.setNUM_PRESTACION(txtNum_Prestacion.getText());
+                        rcGUARDAR.setDESCRIP_PRESTACION(txtDescripcion.getText());
+                        rcGUARDAR.setTIPO(cbxTipo.getSelectedItem().toString());
+                        rcGUARDAR.setETAPA_VIDA(txtEtapa_Vida.getText());
+                        rcGUARDAR.setEDAD_MINIMA(txtEdad_Minima.getText());
+                        rcGUARDAR.setDMA(cbxDMA.getSelectedItem().toString());
+                        rcGUARDAR.setEDAD_MAXIMA(txtEdad_Maxima.getText());
+                        rcGUARDAR.setDMAM(cbxDMAM.getSelectedItem().toString());
+                        rcGUARDAR.setSEXO(cbxSexo_Prestacion.getSelectedItem().toString());
+                        rcGUARDAR.setHOSPITALIZACION(cbxHospitalizacion_Prestacion.getSelectedItem().toString());
+                        rcGUARDAR.setGESTANTE(cbxGestante.getSelectedItem().toString());
+                        rcGUARDAR.setPUERPERA(cbxPuerpera.getSelectedItem().toString());
+                        rcGUARDAR.setN_GESTANTE_N_PUERPERA(cbxN_Gestante_N_Puerp.getSelectedItem().toString());
+                        rcGUARDAR.setREGIMEN_COMPONENTE(cbxRegimen.getSelectedItem().toString());
+                        rcGUARDAR.setVALOR(txtValor.getText());
+                        rcGUARDAR.setNOM_USU(lblUsu.getText());
+  
+                  if(rcGUARDAR.SIS_PRESTACIONES_Guardar()){
+                      JOptionPane.showMessageDialog(this, "Datos Guardados");
+                      guardarDetalleDestino();
+                      limpiar();
+                      Clear_Tb_Detalle_Destino();
+                      deshabilitar();
+                      txtGM.setText("G");
+                      tb_destino.getSelectionModel().setSelectionInterval(0, 0);
+                  }
+                  else{
+                      JOptionPane.showMessageDialog(this, "El registro ya se encuentra registrado\nIntente nuevamente");   
+                 }
+                       
+                
+          }}}else{
+              if(txtNum_Prestacion.getText().equalsIgnoreCase("")){
+              JOptionPane.showMessageDialog(rootPane, "Verifique si ha ingresado todos los campos");
+          } 
+              else if(rc3.SIS_PRESTACION_Codigo(txtNum_Prestacion.getText()).equalsIgnoreCase(txtCodigoPrestacion.getText())==false && rc4.SIS_PRESTACIONES_Ver(txtNum_Prestacion.getText())>0 ){
+                  JOptionPane.showMessageDialog(rootPane, "El Producto ingresado ya existe\nIntente nuevamente");
+              txtNum_Prestacion.setText("");
+              txtNum_Prestacion.requestFocus();
+              }else{
+              int modificar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",
+                      "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+              if(modificar == 0 ){
+                  SIS_CLS_PRESTACIONES r=new SIS_CLS_PRESTACIONES();
+                  r.setID_PRESTACION(txtCodigoPrestacion.getText());
+                  r.setNUM_PRESTACION(txtNum_Prestacion.getText());
+                  r.setDESCRIP_PRESTACION(txtDescripcion.getText());
+                  r.setTIPO(cbxTipo.getSelectedItem().toString());
+                  r.setETAPA_VIDA(txtEtapa_Vida.getText());
+                  r.setEDAD_MINIMA(txtEdad_Minima.getText());
+                  r.setDMA(cbxDMA.getSelectedItem().toString());
+                  r.setEDAD_MAXIMA(txtEdad_Maxima.getText());
+                  r.setDMAM(cbxDMAM.getSelectedItem().toString());
+                  r.setSEXO(cbxSexo_Prestacion.getSelectedItem().toString());
+                  r.setHOSPITALIZACION(cbxHospitalizacion_Prestacion.getSelectedItem().toString());
+                  r.setGESTANTE(cbxGestante.getSelectedItem().toString());
+                  r.setPUERPERA(cbxPuerpera.getSelectedItem().toString());
+                  r.setN_GESTANTE_N_PUERPERA(cbxN_Gestante_N_Puerp.getSelectedItem().toString());
+                  r.setREGIMEN_COMPONENTE(cbxRegimen.getSelectedItem().toString());
+                  r.setVALOR(txtValor.getText());
+                  r.setNOM_USU(lblUsu.getText());
+                  
+                  SIS_CLS_PRESTACION_DESTINO rdeliminar=new SIS_CLS_PRESTACION_DESTINO();
+                  rdeliminar.setID_PRESTACION(txtCodigoPrestacion.getText());
+                  
+                  if(r.SIS_PRESTACIONES_Modificar()&& rdeliminar.SIS_PRESTACION_DESTINO_Eliminar()){
+                      guardarDetalleDestino();
+                      JOptionPane.showMessageDialog(this, "Datos Modificados");
+                      limpiar();
+                      Clear_Tb_Detalle_Destino();
+                      deshabilitar();
+                      txtGM.setText("G");
+                      btnmodificar.setEnabled(true);
+                  }
+                  else{
+                      JOptionPane.showMessageDialog(this, "El registro ya existe\nIntente nuevamente");
 
-                        if(cg.SIS_PRESTACIONES_Guardar()){
-                            JOptionPane.showMessageDialog(null, "Datos Guardados");
-                            guardarDetalleDestino();
-                            limpiar();
-                            Clear_Tb_Detalle_Destino();
-                            deshabilitar();
-                            txtGM.setText("G");
-                            tb_destino.getSelectionModel().setSelectionInterval(0, 0);
-                        }
-                        else{
-                            JOptionPane.showMessageDialog(this, "El registro ya existe\nIntente nuevamente");
-
-                        }}
-                    }}else{
-                        if(txtDescripcion.getText().equalsIgnoreCase("")){
-                            JOptionPane.showMessageDialog(rootPane, "Verifique si ha ingresado todos los campos");
-                        }
-                        else {
-                            int modificar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",
-                                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
-                            if(modificar == 0 ){
-                                SIS_CLS_PRESTACIONES cm= new SIS_CLS_PRESTACIONES();
-                                cm.setID_PRESTACION(txtCodigoPrestacion.getText());
-                                cm.setNUM_PRESTACION(txtNum_Prestacion.getText());
-                                cm.setDESCRIP_PRESTACION(txtDescripcion.getText());
-                                cm.setTIPO(cbxTipo.getSelectedItem().toString());
-                                cm.setETAPA_VIDA(txtEtapa_Vida.getText());
-                                cm.setEDAD_MINIMA(txtEdad_Minima.getText());
-                                cm.setDMA(cbxDMA.getSelectedItem().toString());
-                                cm.setEDAD_MAXIMA(txtEdad_Maxima.getText());
-                                cm.setDMAM(cbxDMAM.getSelectedItem().toString());
-                                cm.setSEXO(cbxSexo_Prestacion.getSelectedItem().toString());
-                                cm.setHOSPITALIZACION(cbxHospitalizacion_Prestacion.getSelectedItem().toString());
-                                cm.setGESTANTE(cbxGestante.getSelectedItem().toString());
-                                cm.setPUERPERA(cbxPuerpera.getSelectedItem().toString());
-                                cm.setN_GESTANTE_N_PUERPERA(cbxN_Gestante_N_Puerp.getSelectedItem().toString());
-                                cm.setREGIMEN_COMPONENTE(cbxRegimen.getSelectedItem().toString());
-                                cm.setVALOR(txtValor.getText());
-                                cm.setNOM_USU(lblUsu.getText());
-
-                                 SIS_CLS_PRESTACION_DESTINO q = new SIS_CLS_PRESTACION_DESTINO();
-                                 q.setID_PRESTACION(txtCodigoPrestacion.getText());
-                                
-                                if(cm.SIS_PRESTACIONES_Modificar() && q.SIS_PRESTACION_DESTINO_Eliminar()){
-                                    JOptionPane.showMessageDialog(this, "Datos Modificados");
-                                    guardarDetalleDestino();
-                                    limpiar();
-                                    Clear_Tb_Detalle_Destino();
-                                    deshabilitar();
-                                    txtGM.setText("G");
-                                }
-                                }
-                            }}}catch(Exception e) {
-                                JOptionPane.showMessageDialog(this, "Ingrese todos los campos");
-
-                            }
-        
+                      
+                  }}
+                  }}
+          
+            }catch(Exception e) {
+              JOptionPane.showMessageDialog(this, e.getMessage());
+              
+          }
+      
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
@@ -1206,7 +1214,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
     private void btncargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarActionPerformed
 
         int filaselec=tb_destino.getSelectedRow();
-
+                        
         modelo1 = (DefaultTableModel) tb_destino.getModel();
 
         if( filaselec>=0 && txtNumeroPrestacion.getText().equalsIgnoreCase("")){
@@ -1410,7 +1418,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
     public void guardarDetalleDestino(){
          for (int i = 0; i < tbDetalle_Pres_Destino.getRowCount(); i++){      
                SIS_CLS_PRESTACION_DESTINO dd=new SIS_CLS_PRESTACION_DESTINO();
-               dd.setID_PRESTACION(tbDetalle_Pres_Destino.getValueAt(i, 0).toString());
+               dd.setID_PRESTACION(txtCodigoPrestacion.getText());
                dd.setID_DESTINO(tbDetalle_Pres_Destino.getValueAt(i, 2).toString());
                dd.setNOM_USU(lblUsu.getText());
                dd.SIS_PRESTACION_DESTINO_Guardar();
@@ -1573,6 +1581,14 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
        tb_destino.getColumnModel().getColumn(1).setPreferredWidth(200);
     }
     
+    public void formatoDetalleDestino(){
+       tbDetalle_Pres_Destino.getColumnModel().getColumn(0).setPreferredWidth(100);
+       tbDetalle_Pres_Destino.getColumnModel().getColumn(1).setPreferredWidth(100);
+       tbDetalle_Pres_Destino.getColumnModel().getColumn(2).setPreferredWidth(100);
+       tbDetalle_Pres_Destino.getColumnModel().getColumn(3).setPreferredWidth(250);
+    }
+    
+    
     public void formatoPrestacion(){
        tb_Pres.getColumnModel().getColumn(0).setPreferredWidth(110);
        tb_Pres.getColumnModel().getColumn(1).setPreferredWidth(150);       
@@ -1609,7 +1625,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
     }
     
     public void habilitar(){
-        //txtNum_Prestacion.setEnabled(true);
+        txtNum_Prestacion.setEnabled(true);
         txtDescripcion.setEnabled(true);
         cbxTipo.setEnabled(true);
         txtEtapa_Vida.setEnabled(true);

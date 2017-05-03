@@ -4,6 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/vista/Asignar_CIE10.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_PRESTACIONES.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_ACTIVIDADES_PREVENTIVAS_VACUNAS.java</file>
+=======
+<<<<<<< HEAD
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoEXL.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoPrincipal.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoAP.java</file>
@@ -22,6 +27,7 @@
             <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADO_MUESTRA.java</file>
 >>>>>>> c7543d3be4a248ba0f9f411571e5cce6af486963
 >>>>>>> 1aa902fe73a4c6c52763830b6782995d85290c0e
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
         </group>
     </open-files>
 </project-private>

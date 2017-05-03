@@ -355,7 +355,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
         });
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Buscar-32.png"))); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-32.png"))); // NOI18N
         btnBuscar.setMnemonic('B');
         btnBuscar.setToolTipText("Buscar (Alt+B)");
         btnBuscar.setContentAreaFilled(false);
@@ -1031,7 +1031,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
+    ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
         SIS_CLS_PRESTACIONES C=new SIS_CLS_PRESTACIONES();
         SIS_CLS_PRESTACIONES C1=new SIS_CLS_PRESTACIONES();
         SIS_CLS_PRESTACIONES C2=new SIS_CLS_PRESTACIONES();
@@ -1049,14 +1049,13 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
                     JOptionPane.showMessageDialog(rootPane, "Verifique si ha ingresado todos los campos");
                 }
                 else if(C.SIS_PRESTACIONES_Ver(txtDescripcion.getText())>0 || 
-                         C3.SIS_PRESTACIONES_Ver_NUM(txtNum_Prestacion.getText())>0){
+                         C1.SIS_PRESTACIONES_Ver_NUM(txtNum_Prestacion.getText())>0){
                     JOptionPane.showMessageDialog(rootPane, "El registro ya existe\nIntente nuevamente");
                     txtNum_Prestacion.setText("");
                     txtDescripcion.setText("");
                     cbxTipo.setSelectedIndex(0);
                     txtNum_Prestacion.requestFocus();
                 }else{
-
                     int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
                         "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
                     if(guardar == 0 ){
@@ -1130,14 +1129,12 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
                                     deshabilitar();
                                     txtGM.setText("G");
                                 }
-                                else{
-                                    JOptionPane.showMessageDialog(this, "El registro ya existe\nIntente nuevamente");
-
-                                }}
+                                }
                             }}}catch(Exception e) {
                                 JOptionPane.showMessageDialog(this, "Ingrese todos los campos");
 
                             }
+        
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
@@ -1399,6 +1396,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
 
             jTabbedPane1.setSelectedIndex(0);
 
+            btnguardar.setEnabled(false);
             btnmodificar.setEnabled(true);
             btneliminar.setEnabled(true);
 
@@ -1611,7 +1609,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
     }
     
     public void habilitar(){
-        txtNum_Prestacion.setEnabled(true);
+        //txtNum_Prestacion.setEnabled(true);
         txtDescripcion.setEnabled(true);
         cbxTipo.setEnabled(true);
         txtEtapa_Vida.setEnabled(true);

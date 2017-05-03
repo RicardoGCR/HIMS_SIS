@@ -33,7 +33,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         this.getContentPane().setBackground(Color.WHITE);
         mensaje.setVisible(false);
         btneditar.setEnabled(false);
-        verificarModificar();
+
         LimitadorDeDocumento limitGestas = new LimitadorDeDocumento(2);
         txtGestas.setDocument(limitGestas);
         
@@ -75,41 +75,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         repaint(); 
     }
  
-   public void verificarModificar(){
-        
-        
-        if (!txtGestas.getText().equals("") && !txtGestas.getText().equals("") && !txtVaginales.getText().equals("")){
-            txtGestas.setEnabled(false);
-            txtAborto.setEnabled(false);
-            txtPartos.setEnabled(false);
-            txtVaginales.setEditable(false);
-            txtCesareas.setEditable(false);
-            txtRN.setEditable(false);
-            txtNacidos.setEditable(false);
-            txtViven.setEditable(false);
-            txtMuerto1.setEditable(false);
-            txtDespues.setEditable(false);
-           
-            txtRNmayor.setEditable(false);
-            btneditar.setEnabled(true);
-            btnGuardar.setEnabled(false);
-        }else{
-            txtGestas.setEditable(true);
-            txtAborto.setEditable(true);
-            txtPartos.setEditable(true);
-            txtVaginales.setEditable(true);
-            txtCesareas.setEditable(true);
-            txtRN.setEditable(true);
-            txtNacidos.setEditable(true);
-            txtViven.setEditable(true);
-            txtMuerto1.setEditable(true);
-            txtDespues.setEditable(true);
-           
-            txtRNmayor.setEditable(true); 
-            btneditar.setEnabled(true);
-        }
-        
-    }
+
   public void habilitarDatos(boolean opcion){
         txtGestas.setEditable(opcion);
         txtAborto.setEditable(opcion);
@@ -312,6 +278,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         btneditar = new javax.swing.JButton();
         lblMant = new javax.swing.JLabel();
         lbMadreAO = new javax.swing.JLabel();
+        var = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -943,7 +910,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel22.setText("g");
 
         lblIdAO.setBackground(new java.awt.Color(255, 255, 255));
-        lblIdAO.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -979,15 +945,15 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel23)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtRNmayor, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel22))
-                    .addComponent(lblIdAO))
+                .addComponent(jLabel23)
+                .addGap(18, 18, 18)
+                .addComponent(txtRNmayor, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel22)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(lblIdAO, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1025,8 +991,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(txtRNmayor, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel22))))
                 .addGap(18, 18, 18)
-                .addComponent(lblIdAO)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addComponent(lblIdAO, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
@@ -1302,6 +1268,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         lbMadreAO.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbMadreAO.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
+        var.setText("1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1313,11 +1281,13 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lbMadreAO, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lbMadreAO, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(var, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1328,16 +1298,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addComponent(lbMadreAO)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(var, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 656, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtGestasCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtGestasCaretUpdate
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtGestasCaretUpdate
 
     private void txtAbortoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtAbortoCaretUpdate
@@ -1421,6 +1393,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
      btnGuardar.setEnabled(true);
      habilitarDatos(true);
+     btneditar.setEnabled(false);
      tg=2;
     }//GEN-LAST:event_btneditarActionPerformed
 
@@ -1448,12 +1421,15 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_btnCaccnelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-       tg=1;
-       if(tg==1){
+       
+        String variable;
+        variable=var.getText();
+
+       if(variable=="1"){
              Guardar();  
            
         }
-        if(tg==2){
+        if(variable=="2"){
            mensaje.setVisible(true);
            mensaje.setBackground(new Color(255,153,51)); 
            men.setText("Desea Actualizar el Registro ?");
@@ -1481,38 +1457,46 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_ChkEdad1MouseClicked
 
     private void chk1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chk1MouseClicked
+        if (lblIdAO.getText().equals("")){
         if(chk1.getText().equals("") && evt.getClickCount()==1){
            chk1.setText("X");
         }else
         if(chk1.getText().equals("X") && evt.getClickCount()==1){
            chk1.setText(""); 
         }
+        }
     }//GEN-LAST:event_chk1MouseClicked
 
     private void chk2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chk2MouseClicked
+if (lblIdAO.getText().equals("")){
         if(chk2.getText().equals("") && evt.getClickCount()==1){
            chk2.setText("X");
         }else
         if(chk2.getText().equals("X") && evt.getClickCount()==1){
            chk2.setText(""); 
         }
+}
     }//GEN-LAST:event_chk2MouseClicked
 
     private void chk3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chk3MouseClicked
+        if (lblIdAO.getText().equals("")){
         if(chk3.getText().equals("") && evt.getClickCount()==1){
            chk3.setText("X");
         }else
         if(chk3.getText().equals("X") && evt.getClickCount()==1){
            chk3.setText(""); 
         }
+        }
     }//GEN-LAST:event_chk3MouseClicked
 
     private void chk4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chk4MouseClicked
+        if (lblIdAO.getText().equals("")){
         if(chk4.getText().equals("") && evt.getClickCount()==1){
            chk4.setText("X");
         }else
         if(chk4.getText().equals("X") && evt.getClickCount()==1){
            chk4.setText(""); 
+        }
         }
     }//GEN-LAST:event_chk4MouseClicked
 
@@ -1576,8 +1560,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JButton b;
     private javax.swing.JButton b1;
     private javax.swing.JButton btnCaccnelar;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btneditar;
+    public static javax.swing.JButton btnGuardar;
+    public static javax.swing.JButton btneditar;
     public static javax.swing.JTextField chk1;
     public static javax.swing.JTextField chk2;
     public static javax.swing.JTextField chk3;
@@ -1638,5 +1622,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public static javax.swing.JTextField txtRNmayor;
     public static javax.swing.JTextField txtVaginales;
     public static javax.swing.JTextField txtViven;
+    public static javax.swing.JLabel var;
     // End of variables declaration//GEN-END:variables
 }

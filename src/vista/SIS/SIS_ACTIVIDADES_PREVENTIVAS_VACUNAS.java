@@ -40,10 +40,12 @@ CallableStatement cst;
         initComponents();
         con=conectar.conectar();
         setLocationRelativeTo(null);
-        BUSCAR_PACIENTE_FUA.setLocationRelativeTo(null);
-        BUSCAR_PRESTACION.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
+        BUSCAR_PACIENTE_FUA.setLocationRelativeTo(null);
         BUSCAR_PACIENTE_FUA.getContentPane().setBackground(Color.white);
+        BUSCAR_PRESTACION.setLocationRelativeTo(null);
+        BUSCAR_PRESTACION.getContentPane().setBackground(Color.white);
+        
         setResizable(false);//Deshabilitar en boton maximizar
         BUSCAR_PACIENTE_FUA.setResizable(false);
         
@@ -57,6 +59,16 @@ CallableStatement cst;
         
         cargarPacientesCaja();
         cargarPrestacion();
+        
+        //para no intercambiar columnas
+        tb_Paciente_Fua.getTableHeader().setReorderingAllowed(false);
+        tb_prestacion.getTableHeader().setReorderingAllowed(false);
+        
+        txtRENAES.setText("0000003414");
+        txtNombreIPRESS.setText("HOSPITAL SAN JOSE DE CHINCHA");
+        
+        intramural.setSelected(true);
+        
     }
 
     /**
@@ -78,6 +90,9 @@ CallableStatement cst;
         BUSCAR_PRESTACION = new javax.swing.JDialog();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_prestacion = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
         jpanel = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -100,21 +115,21 @@ CallableStatement cst;
         jLabel54 = new javax.swing.JLabel();
         jLabel73 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        txtActividadVacunaDNI = new javax.swing.JTextField();
+        txtDNI = new javax.swing.JTextField();
         jLabel74 = new javax.swing.JLabel();
-        txtActividadVacunaNombre1 = new javax.swing.JTextField();
+        txtApeP = new javax.swing.JTextField();
         txtFechaNac = new javax.swing.JTextField();
         jLabel75 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
-        txtActividadVacunaNombre2 = new javax.swing.JTextField();
+        txtApeM = new javax.swing.JTextField();
         jLabel81 = new javax.swing.JLabel();
-        txtActividadVacunaNombre3 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel82 = new javax.swing.JLabel();
-        txtActividadVacunaNombre4 = new javax.swing.JTextField();
+        txtOtrosN = new javax.swing.JTextField();
         jLabel83 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        cbx_gestP = new javax.swing.JComboBox();
         jLabel84 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtFecha_Parto = new javax.swing.JTextField();
         txtSexo = new javax.swing.JTextField();
         jLabel94 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
@@ -143,7 +158,7 @@ CallableStatement cst;
         jTextField6 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jPanel24 = new javax.swing.JPanel();
-        jCheckBox19 = new javax.swing.JCheckBox();
+        intramural = new javax.swing.JCheckBox();
         jCheckBox12 = new javax.swing.JCheckBox();
         jLabel91 = new javax.swing.JLabel();
         jPanel25 = new javax.swing.JPanel();
@@ -328,14 +343,14 @@ CallableStatement cst;
         jLabel17 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        txtActividadVacunaPaciente = new javax.swing.JTextField();
+        txtHC = new javax.swing.JTextField();
         btnActividadVacunaBuscarPac = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         txtNroFUA_DIRESA = new javax.swing.JTextField();
         txtNroFUA_año = new javax.swing.JTextField();
         txtNroFUA_Correlativo = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        txtActividadVacunaPaciente1 = new javax.swing.JTextField();
+        txtPrestacion = new javax.swing.JTextField();
         btnActividadVacunaBuscarPac1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtServicio = new javax.swing.JTextField();
@@ -393,7 +408,7 @@ CallableStatement cst;
                         .addContainerGap()
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE))
                     .addGroup(BUSCAR_PACIENTE_FUALayout.createSequentialGroup()
-                        .addGap(199, 199, 199)
+                        .addGap(172, 172, 172)
                         .addComponent(jLabel29)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(BUSCAR_PACIENTE_FUALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -433,7 +448,24 @@ CallableStatement cst;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tb_prestacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tb_prestacionKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tb_prestacion);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel5.setText("Prestaciones");
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
+        jButton4.setContentAreaFilled(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout BUSCAR_PRESTACIONLayout = new javax.swing.GroupLayout(BUSCAR_PRESTACION.getContentPane());
         BUSCAR_PRESTACION.getContentPane().setLayout(BUSCAR_PRESTACIONLayout);
@@ -441,20 +473,35 @@ CallableStatement cst;
             BUSCAR_PRESTACIONLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BUSCAR_PRESTACIONLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(BUSCAR_PRESTACIONLayout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addGroup(BUSCAR_PRESTACIONLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BUSCAR_PRESTACIONLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel5))
+                    .addGroup(BUSCAR_PRESTACIONLayout.createSequentialGroup()
+                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         BUSCAR_PRESTACIONLayout.setVerticalGroup(
             BUSCAR_PRESTACIONLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BUSCAR_PRESTACIONLayout.createSequentialGroup()
-                .addGap(0, 53, Short.MAX_VALUE)
+                .addGap(0, 14, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(11, 11, 11)
+                .addGroup(BUSCAR_PRESTACIONLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1008, 705));
         setMinimumSize(new java.awt.Dimension(1008, 705));
-        setPreferredSize(new java.awt.Dimension(1008, 705));
         getContentPane().setLayout(null);
 
         jpanel.setBackground(new java.awt.Color(191, 142, 101));
@@ -617,28 +664,31 @@ CallableStatement cst;
         jLabel73.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel73.setText("IDENTIFICACION");
 
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
 
-        txtActividadVacunaDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtActividadVacunaDNI.addActionListener(new java.awt.event.ActionListener() {
+        txtDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtActividadVacunaDNIActionPerformed(evt);
+                txtDNIActionPerformed(evt);
             }
         });
 
         jLabel74.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel74.setText("APELLIDO PATERNO");
 
-        txtActividadVacunaNombre1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtActividadVacunaNombre1.addActionListener(new java.awt.event.ActionListener() {
+        txtApeP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtApeP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtActividadVacunaNombre1ActionPerformed(evt);
+                txtApePActionPerformed(evt);
             }
         });
+
+        txtFechaNac.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel75.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel75.setText("FEC. NACIMIENTO");
@@ -646,46 +696,49 @@ CallableStatement cst;
         jLabel80.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel80.setText("APELLIDO MATERNO");
 
-        txtActividadVacunaNombre2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtActividadVacunaNombre2.addActionListener(new java.awt.event.ActionListener() {
+        txtApeM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtApeM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtActividadVacunaNombre2ActionPerformed(evt);
+                txtApeMActionPerformed(evt);
             }
         });
 
         jLabel81.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel81.setText("PRIMER NOMBRE");
 
-        txtActividadVacunaNombre3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtActividadVacunaNombre3.addActionListener(new java.awt.event.ActionListener() {
+        txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtActividadVacunaNombre3ActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
 
         jLabel82.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel82.setText("OTROS NOMBRES");
 
-        txtActividadVacunaNombre4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtActividadVacunaNombre4.addActionListener(new java.awt.event.ActionListener() {
+        txtOtrosN.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtOtrosN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtActividadVacunaNombre4ActionPerformed(evt);
+                txtOtrosNActionPerformed(evt);
             }
         });
 
         jLabel83.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel83.setText("GESTANTE");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Gestante", "Puérpera" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        cbx_gestP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Gestante", "Puérpera" }));
+        cbx_gestP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                cbx_gestPActionPerformed(evt);
             }
         });
 
         jLabel84.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel84.setText("F. PARTO/PROBABLE");
 
+        txtFecha_Parto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtSexo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSexoActionPerformed(evt);
@@ -706,10 +759,10 @@ CallableStatement cst;
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                             .addComponent(jLabel54, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtActividadVacunaNombre1, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
+                            .addComponent(txtApeP, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtActividadVacunaDNI, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                            .addComponent(txtActividadVacunaNombre2, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                            .addComponent(txtDNI, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                            .addComponent(txtApeM, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel73)
@@ -728,20 +781,20 @@ CallableStatement cst;
                         .addComponent(jLabel75))
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtActividadVacunaNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtActividadVacunaNombre4, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOtrosN, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel10Layout.createSequentialGroup()
                                     .addGap(31, 31, 31)
                                     .addComponent(jLabel83))
-                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cbx_gestP, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(0, 0, 0)
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel84)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtFecha_Parto, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addComponent(jLabel82)))
@@ -767,7 +820,7 @@ CallableStatement cst;
                         .addGap(1, 1, 1)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtActividadVacunaDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, 0)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -777,21 +830,21 @@ CallableStatement cst;
                         .addGap(0, 0, 0)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtActividadVacunaNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtActividadVacunaNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtActividadVacunaNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtApeP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtApeM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel83)
                             .addComponent(jLabel84))
                         .addGap(0, 0, 0)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbx_gestP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFecha_Parto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, 0)
                         .addComponent(jLabel82)
                         .addGap(0, 0, 0)
-                        .addComponent(txtActividadVacunaNombre4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtOtrosN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel94)
                         .addGap(0, 0, 0)
@@ -820,7 +873,7 @@ CallableStatement cst;
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -829,8 +882,14 @@ CallableStatement cst;
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel20.setText("CODIGO RENAES DE LA IPRESS");
 
+        txtRENAES.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtRENAES.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         jLabel27.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel27.setText("NOMBRE DE LA IPRESS QUE REALIZA LA ATENCION");
+
+        txtNombreIPRESS.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtNombreIPRESS.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -1005,10 +1064,10 @@ CallableStatement cst;
 
         jPanel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        jCheckBox19.setText("Intramural");
-        jCheckBox19.addActionListener(new java.awt.event.ActionListener() {
+        intramural.setText("Intramural");
+        intramural.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox19ActionPerformed(evt);
+                intramuralActionPerformed(evt);
             }
         });
 
@@ -1021,7 +1080,7 @@ CallableStatement cst;
             .addGroup(jPanel24Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox19)
+                    .addComponent(intramural)
                     .addComponent(jCheckBox12))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1029,7 +1088,7 @@ CallableStatement cst;
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel24Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(jCheckBox19)
+                .addComponent(intramural)
                 .addGap(5, 5, 5)
                 .addComponent(jCheckBox12)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1166,7 +1225,7 @@ CallableStatement cst;
                         .addGap(0, 0, 0)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jPanel22, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1396,7 +1455,7 @@ CallableStatement cst;
                     .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel29, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                    .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, 124, Short.MAX_VALUE)
                     .addGroup(jPanel30Layout.createSequentialGroup()
                         .addComponent(jLabel96)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -1463,7 +1522,7 @@ CallableStatement cst;
                 .addGap(5, 5, 5)
                 .addComponent(jLabel95)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, 107, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1489,6 +1548,7 @@ CallableStatement cst;
         jLabel55.setText("Peso (Kg.) :");
 
         txtActividad_Vacuna_Peso.setEditable(false);
+        txtActividad_Vacuna_Peso.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtActividad_Vacuna_Peso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtActividad_Vacuna_Peso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1499,11 +1559,13 @@ CallableStatement cst;
         jLabel56.setText("Talla (cm) :");
 
         txtActividad_Vacuna_Talla.setEditable(false);
+        txtActividad_Vacuna_Talla.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtActividad_Vacuna_Talla.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel57.setText("Presiòn Aterial (mmHg) :");
 
         txtActividad_Vacuna_PA.setEditable(false);
+        txtActividad_Vacuna_PA.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtActividad_Vacuna_PA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
@@ -2238,8 +2300,7 @@ CallableStatement cst;
                         .addGap(0, 0, 0)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)))
+                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel100, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField11))
@@ -2273,7 +2334,7 @@ CallableStatement cst;
                 .addGap(0, 0, 0)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel26Layout.createSequentialGroup()
-                        .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel24)
                             .addComponent(jLabel99)
                             .addComponent(jLabel100))
@@ -2468,7 +2529,7 @@ CallableStatement cst;
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 489, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("         MEDICAMENTOS/INSUMOS/PROCEDIMIENTOS        ", jPanel3);
@@ -2542,10 +2603,10 @@ CallableStatement cst;
 
         jLabel18.setText("H.C. Nº:");
 
-        txtActividadVacunaPaciente.setEditable(false);
-        txtActividadVacunaPaciente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        txtActividadVacunaPaciente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtActividadVacunaPaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtHC.setEditable(false);
+        txtHC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtHC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtHC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         btnActividadVacunaBuscarPac.setBackground(new java.awt.Color(255, 255, 255));
         btnActividadVacunaBuscarPac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
@@ -2581,9 +2642,9 @@ CallableStatement cst;
 
         jLabel19.setText("Cod. Prestación:");
 
-        txtActividadVacunaPaciente1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        txtActividadVacunaPaciente1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtActividadVacunaPaciente1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtPrestacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtPrestacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPrestacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         btnActividadVacunaBuscarPac1.setBackground(new java.awt.Color(255, 255, 255));
         btnActividadVacunaBuscarPac1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
@@ -2602,7 +2663,8 @@ CallableStatement cst;
         txtServicio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtServicio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jLabel4.setText("jLabel4");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText(" ");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -2612,7 +2674,7 @@ CallableStatement cst;
                 .addContainerGap()
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtActividadVacunaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtHC, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnActividadVacunaBuscarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
@@ -2628,7 +2690,7 @@ CallableStatement cst;
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtActividadVacunaPaciente1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPrestacion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(btnActividadVacunaBuscarPac1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(180, 180, 180)
@@ -2645,11 +2707,11 @@ CallableStatement cst;
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtActividadVacunaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtHC, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel18))
                         .addComponent(btnActividadVacunaBuscarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtActividadVacunaPaciente1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPrestacion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnActividadVacunaBuscarPac1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -2704,6 +2766,7 @@ CallableStatement cst;
        tabla.addColumn("Numero HC");
        tabla.addColumn("Ape.Paterno");
        tabla.addColumn("Ape. Materno");
+       tabla.addColumn("Primer Nombre");
        tabla.addColumn("Nombres");
        tabla.addColumn("DNI");
        tabla.addColumn("Sexo");
@@ -2725,8 +2788,8 @@ CallableStatement cst;
        cst=con.prepareCall("exec SIS_PACIENTES_LISTAR");
        r=cst.executeQuery();
        while (r.next()){
-       Object dato[]=new  Object[24];
-       for (int i=0; i<24; i++){
+       Object dato[]=new  Object[25];
+       for (int i=0; i<25; i++){
            dato[i]=r.getString(i+1);
        }
        tabla.addRow(dato);
@@ -2743,29 +2806,30 @@ CallableStatement cst;
        tb_Paciente_Fua.getColumnModel().getColumn(0).setMinWidth(0);
        tb_Paciente_Fua.getColumnModel().getColumn(0).setMaxWidth(0);
        //formato
-       tb_Paciente_Fua.getColumnModel().getColumn(1).setPreferredWidth(130);
+       tb_Paciente_Fua.getColumnModel().getColumn(1).setPreferredWidth(120);
        tb_Paciente_Fua.getColumnModel().getColumn(2).setPreferredWidth(180);       
-       tb_Paciente_Fua.getColumnModel().getColumn(3).setPreferredWidth(110);      
+       tb_Paciente_Fua.getColumnModel().getColumn(3).setPreferredWidth(100);      
        tb_Paciente_Fua.getColumnModel().getColumn(4).setPreferredWidth(110);
        tb_Paciente_Fua.getColumnModel().getColumn(5).setPreferredWidth(100);
        tb_Paciente_Fua.getColumnModel().getColumn(6).setPreferredWidth(100);
-       tb_Paciente_Fua.getColumnModel().getColumn(7).setPreferredWidth(150);
-       tb_Paciente_Fua.getColumnModel().getColumn(8).setPreferredWidth(100);
-       tb_Paciente_Fua.getColumnModel().getColumn(9).setPreferredWidth(50);
-       tb_Paciente_Fua.getColumnModel().getColumn(10).setPreferredWidth(100);
-       tb_Paciente_Fua.getColumnModel().getColumn(11).setPreferredWidth(50);
-       tb_Paciente_Fua.getColumnModel().getColumn(12).setPreferredWidth(100);
+       tb_Paciente_Fua.getColumnModel().getColumn(7).setPreferredWidth(100);
+       tb_Paciente_Fua.getColumnModel().getColumn(8).setPreferredWidth(150);
+       tb_Paciente_Fua.getColumnModel().getColumn(9).setPreferredWidth(100);
+       tb_Paciente_Fua.getColumnModel().getColumn(10).setPreferredWidth(50);
+       tb_Paciente_Fua.getColumnModel().getColumn(11).setPreferredWidth(100);
+       tb_Paciente_Fua.getColumnModel().getColumn(12).setPreferredWidth(50);
        tb_Paciente_Fua.getColumnModel().getColumn(13).setPreferredWidth(100);
-       tb_Paciente_Fua.getColumnModel().getColumn(14).setPreferredWidth(70);
+       tb_Paciente_Fua.getColumnModel().getColumn(14).setPreferredWidth(100);
        tb_Paciente_Fua.getColumnModel().getColumn(15).setPreferredWidth(70);
-       tb_Paciente_Fua.getColumnModel().getColumn(16).setPreferredWidth(100);
+       tb_Paciente_Fua.getColumnModel().getColumn(16).setPreferredWidth(70);
        tb_Paciente_Fua.getColumnModel().getColumn(17).setPreferredWidth(100);
        tb_Paciente_Fua.getColumnModel().getColumn(18).setPreferredWidth(100);
-       tb_Paciente_Fua.getColumnModel().getColumn(19).setPreferredWidth(70);
+       tb_Paciente_Fua.getColumnModel().getColumn(19).setPreferredWidth(100);
        tb_Paciente_Fua.getColumnModel().getColumn(20).setPreferredWidth(70);
-       tb_Paciente_Fua.getColumnModel().getColumn(21).setPreferredWidth(100);
+       tb_Paciente_Fua.getColumnModel().getColumn(21).setPreferredWidth(70);
        tb_Paciente_Fua.getColumnModel().getColumn(22).setPreferredWidth(100);
        tb_Paciente_Fua.getColumnModel().getColumn(23).setPreferredWidth(100);
+       tb_Paciente_Fua.getColumnModel().getColumn(24).setPreferredWidth(100);
     }
     
     
@@ -2780,7 +2844,7 @@ CallableStatement cst;
     }//GEN-LAST:event_btnActividadVacunaNuevoActionPerformed
 
     private void tb_Paciente_FuaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Paciente_FuaKeyPressed
-           char teclaPresionada = evt.getKeyChar();
+                   char teclaPresionada = evt.getKeyChar();
        
        if(teclaPresionada==KeyEvent.VK_ENTER &&
                this.tb_Paciente_Fua.getRowCount() == 0 && 
@@ -2795,7 +2859,7 @@ CallableStatement cst;
               int fila = tb_Paciente_Fua.getSelectedRow();
               
              BUSCAR_PACIENTE_FUA.dispose();
-             txtActividadVacunaPaciente.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 4)));
+             txtHC.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 4)));
              
              String codigoFUA = String.valueOf(tb_Paciente_Fua.getValueAt(fila, 1));
              String renaes = codigoFUA.substring(0,3);
@@ -2806,30 +2870,30 @@ CallableStatement cst;
              txtNroFUA_año.setText(anioF);
              txtNroFUA_Correlativo.setText(numero);
              
-             txtActividadVacunaDNI.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 8)));
+             txtDNI.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 9)));
              
-            String codigo = String.valueOf(tb_Paciente_Fua.getValueAt(fila, 10));
+            String codigo = String.valueOf(tb_Paciente_Fua.getValueAt(fila, 11));
             String anio = codigo.substring(0, 4);
             String mes = codigo.substring(5, 7);
             String dia = codigo.substring(8, 10);
              
-             //txtActividadVacunaFechaNac.setText(dia + "/" + mes + "/" + anio);  
+             txtFechaNac.setText(dia + "/" + mes + "/" + anio);  
              
-             //txtActividadVacunaEdad.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 11)));
-             //txtActividadVacunaNombre.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 7)));
-             //txtActividadVacunaApepa.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 5)));
-             //txtActividadVacunaApema.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 6)));
-             txtActividad_Vacuna_Peso.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 14)));
-             txtActividad_Vacuna_Talla.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 15)));
-             txtActividad_Vacuna_PA.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 16)));
+             txtApeP.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 5)));
+             txtApeM.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 6)));
+             txtNombre.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 7)));
+             txtOtrosN.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 8)));
+             txtSexo.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 10)));
+             txtActividad_Vacuna_Peso.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 15)));
+             txtActividad_Vacuna_Talla.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 16)));
+             txtActividad_Vacuna_PA.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 17)));
              txtServicio.setText(String.valueOf(tb_Paciente_Fua.getValueAt(fila, 23)));
                      
        }
-
     }//GEN-LAST:event_tb_Paciente_FuaKeyPressed
 
     private void btn_buscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarPacienteActionPerformed
-        try{
+         try{
             String nume =txtBuscarPacientes.getText().toString();
 
             DefaultTableModel tabla= new DefaultTableModel();
@@ -2841,6 +2905,7 @@ CallableStatement cst;
             tabla.addColumn("Numero HC");
             tabla.addColumn("Ape.Paterno");
             tabla.addColumn("Ape. Materno");
+            tabla.addColumn("Primer Nombre");
             tabla.addColumn("Nombres");
             tabla.addColumn("DNI");
             tabla.addColumn("Sexo");
@@ -2863,8 +2928,8 @@ CallableStatement cst;
             cst.setString(1, nume);
             r=cst.executeQuery();
             while (r.next()){
-                Object dato[]=new  Object[24];
-                for (int i=0; i<24; i++){
+                Object dato[]=new  Object[25];
+                for (int i=0; i<25; i++){
                     dato[i]=r.getString(i+1);
 
                 }
@@ -2878,7 +2943,6 @@ CallableStatement cst;
             tb_Paciente_Fua.getSelectionModel().setSelectionInterval(0, 0);
             tb_Paciente_Fua.requestFocus();
         }catch (Exception e){}
-
     }//GEN-LAST:event_btn_buscarPacienteActionPerformed
 
     private void txtBuscarPacientesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPacientesKeyPressed
@@ -2903,33 +2967,33 @@ CallableStatement cst;
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void txtActividadVacunaDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActividadVacunaDNIActionPerformed
+    private void txtDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNIActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtActividadVacunaDNIActionPerformed
+    }//GEN-LAST:event_txtDNIActionPerformed
 
-    private void txtActividadVacunaNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActividadVacunaNombre1ActionPerformed
+    private void txtApePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApePActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtActividadVacunaNombre1ActionPerformed
+    }//GEN-LAST:event_txtApePActionPerformed
 
-    private void txtActividadVacunaNombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActividadVacunaNombre2ActionPerformed
+    private void txtApeMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApeMActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtActividadVacunaNombre2ActionPerformed
+    }//GEN-LAST:event_txtApeMActionPerformed
 
-    private void txtActividadVacunaNombre3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActividadVacunaNombre3ActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtActividadVacunaNombre3ActionPerformed
+    }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void txtActividadVacunaNombre4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActividadVacunaNombre4ActionPerformed
+    private void txtOtrosNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtrosNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtActividadVacunaNombre4ActionPerformed
+    }//GEN-LAST:event_txtOtrosNActionPerformed
 
     private void txtSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSexoActionPerformed
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void cbx_gestPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_gestPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_cbx_gestPActionPerformed
 
     private void jCheckBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox13ActionPerformed
         // TODO add your handling code here:
@@ -2943,9 +3007,9 @@ CallableStatement cst;
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
-    private void jCheckBox19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox19ActionPerformed
+    private void intramuralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intramuralActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox19ActionPerformed
+    }//GEN-LAST:event_intramuralActionPerformed
 
     private void jCheckBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox15ActionPerformed
         // TODO add your handling code here:
@@ -3007,6 +3071,38 @@ CallableStatement cst;
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNroFUA_CorrelativoActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void tb_prestacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_prestacionKeyPressed
+      char teclaPresionada = evt.getKeyChar();
+
+        if(teclaPresionada==KeyEvent.VK_ENTER &&
+            this.tb_prestacion.getRowCount() == 0 &&
+            this.tb_prestacion.getSelectedRow() == -1){
+
+            JOptionPane.showMessageDialog(rootPane, "La tabla esta vacia");
+
+        }else
+        if(teclaPresionada==KeyEvent.VK_ENTER &&
+            this.tb_prestacion.getRowCount() != 0 &&
+            this.tb_prestacion.getSelectedRow() != -1){
+            int fila = tb_prestacion.getSelectedRow();
+
+          BUSCAR_PRESTACION.setVisible(false);
+
+            txtPrestacion.setText(String.valueOf(tb_prestacion.getValueAt(fila, 0)));
+            jLabel4.setText(String.valueOf(tb_prestacion.getValueAt(fila, 1)));
+            //btnmodificar.setEnabled(true);
+            //btneliminar.setEnabled(true);
+            String u=lblUsu.getText();
+            lblUsu.setText(u);
+            //txtFP.setEnabled(false);
+           
+        }
+    }//GEN-LAST:event_tb_prestacionKeyPressed
+
     public static String fechaActual(){
         Date now = new Date(System.currentTimeMillis());
         SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy");
@@ -3049,11 +3145,17 @@ CallableStatement cst;
        tabla.addRow(dato);
        }
        this.tb_prestacion.setModel(tabla);
-      // formatoPacientes();
+       formato_prestacion();
        
        }catch (Exception e){
        }
      }
+    
+    public void formato_prestacion(){
+        tb_prestacion.getColumnModel().getColumn(0).setPreferredWidth(130);
+        tb_prestacion.getColumnModel().getColumn(1).setPreferredWidth(300); 
+    }
+    
     
     /**
      * @param args the command line arguments
@@ -3099,9 +3201,12 @@ CallableStatement cst;
     private javax.swing.JButton btnActividadVacunaNuevo;
     private javax.swing.JButton btn_buscarPaciente;
     private javax.swing.JComboBox cbxVacunaGrupoRiesgo;
+    private javax.swing.JComboBox cbx_gestP;
+    private javax.swing.JCheckBox intramural;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox12;
@@ -3109,7 +3214,6 @@ CallableStatement cst;
     private javax.swing.JCheckBox jCheckBox14;
     private javax.swing.JCheckBox jCheckBox15;
     private javax.swing.JCheckBox jCheckBox16;
-    private javax.swing.JCheckBox jCheckBox19;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox25;
     private javax.swing.JCheckBox jCheckBox26;
@@ -3119,7 +3223,6 @@ CallableStatement cst;
     private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JComboBox jComboBox7;
     private javax.swing.JComboBox jComboBox8;
@@ -3188,6 +3291,7 @@ CallableStatement cst;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel54;
@@ -3291,7 +3395,6 @@ CallableStatement cst;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField31;
     private javax.swing.JTextField jTextField32;
     private javax.swing.JTextField jTextField33;
@@ -3324,6 +3427,7 @@ CallableStatement cst;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField70;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jTextField90;
     private javax.swing.JTextField jTextField91;
     private javax.swing.JTextField jTextField92;
@@ -3344,23 +3448,24 @@ CallableStatement cst;
     private javax.swing.JTable tb_Paciente_Fua;
     private javax.swing.JTable tb_prestacion;
     private javax.swing.JLabel titulo5;
-    private javax.swing.JTextField txtActividadVacunaDNI;
-    private javax.swing.JTextField txtActividadVacunaNombre1;
-    private javax.swing.JTextField txtActividadVacunaNombre2;
-    private javax.swing.JTextField txtActividadVacunaNombre3;
-    private javax.swing.JTextField txtActividadVacunaNombre4;
-    public static javax.swing.JTextField txtActividadVacunaPaciente;
-    public static javax.swing.JTextField txtActividadVacunaPaciente1;
     private javax.swing.JTextField txtActividad_Vacuna_PA;
     private javax.swing.JTextField txtActividad_Vacuna_Peso;
     private javax.swing.JTextField txtActividad_Vacuna_Talla;
+    private javax.swing.JTextField txtApeM;
+    private javax.swing.JTextField txtApeP;
     private javax.swing.JTextField txtBuscarPacientes;
+    private javax.swing.JTextField txtDNI;
     private javax.swing.JEditorPane txtDescripcion;
     private javax.swing.JTextField txtFechaNac;
+    private javax.swing.JTextField txtFecha_Parto;
+    public static javax.swing.JTextField txtHC;
+    private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreIPRESS;
     private javax.swing.JTextField txtNroFUA_Correlativo;
     private javax.swing.JTextField txtNroFUA_DIRESA;
     private javax.swing.JTextField txtNroFUA_año;
+    private javax.swing.JTextField txtOtrosN;
+    public static javax.swing.JTextField txtPrestacion;
     private javax.swing.JTextField txtRENAES;
     private javax.swing.JTextField txtServicio;
     private javax.swing.JTextField txtSexo;

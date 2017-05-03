@@ -7,8 +7,11 @@ package modelos.ConsultorioEx;
 
 import java.io.Serializable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
+import vista.ConsultorioEx.RegistroEmbarazoAF;
 public class ConsultorioExtCarnetPerinatalAf implements Serializable {
     private static final long serialVersionUID = 1L;
     
@@ -16,136 +19,214 @@ public class ConsultorioExtCarnetPerinatalAf implements Serializable {
     Conexion con = new Conexion();
     private Connection cn;
     private int cpId;
-    private Long afId;
-    private Character afNinguno;
-    private Character afAlergias;
-    private Character afHipertens;
-    private Character afEpilepsia;
-    private Character afDiabetes;
-    private Character afEnfCongenitas;
-    private Character afEmbMultiple;
-    private Character afMalaria;
-    private Character afHiperArterial;
-    private Character afHipotiroidismo;
-    private Character afNeoplasica;
-    private Character afTbc;
+    private int afId;
+    private String afNinguno;
+    private String afAlergias;
+    private String afHipertens;
+    private String afEpilepsia;
+    private String afDiabetes;
+    private String afEnfCongenitas;
+    private String afEmbMultiple;
+    private String afMalaria;
+    private String afHiperArterial;
+    private String afHipotiroidismo;
+    private String afNeoplasica;
+    private String afTbc;
     private String afOtros;
     private String fechaActu;
     private String horaActu;
     private String nomPc;
     private Character estado;
     private String codUsu;
+    
+    
+    
+    public void ConsultoriosExtAFListar(String ap_id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_LISTAR_CARNET_PERINATAL_AF ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, ap_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                
+                
+                RegistroEmbarazoAF.txtAf1.setText(r.getString(3)); 
+                RegistroEmbarazoAF.txtAf2.setText(r.getString(4));
+                RegistroEmbarazoAF.txtAf3.setText(r.getString(5));
+                RegistroEmbarazoAF.txtAf4.setText(r.getString(6));
+                RegistroEmbarazoAF.txtAf5.setText(r.getString(7));
+                RegistroEmbarazoAF.txtAf6.setText(r.getString(8)); 
+                RegistroEmbarazoAF.txtAf7.setText(r.getString(9));
+                RegistroEmbarazoAF.txtAf8.setText(r.getString(10));
+                RegistroEmbarazoAF.txtAf9.setText(r.getString(11));
+                RegistroEmbarazoAF.txtAf10.setText(r.getString(12));
+                RegistroEmbarazoAF.txtAf11.setText(r.getString(13)); 
+                RegistroEmbarazoAF.txtAf12.setText(r.getString(14));
+                RegistroEmbarazoAF.txtOtros.setText(r.getString(15));
+                if (!RegistroEmbarazoAF.txtOtros.getText().equals("") ){
+                RegistroEmbarazoAF.txtAf13.setText("X");
+                }
+                RegistroEmbarazoAF.lblIdAF.setText(r.getString(1)); 
+                if (!RegistroEmbarazoAF.lblIdAF.getText().equals("") ){
+                    RegistroEmbarazoAF.btnGuardar.setEnabled(false);
+                    RegistroEmbarazoAF.btneditar.setEnabled(true);
+                    RegistroEmbarazoAF.var.setText("2");
+                }
+                
+                
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: LISTAR AP  " + e.getMessage());
+        }
+    }
+    
+    public boolean mantenimientoConsultorioExtAF(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "[CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_AF] ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getAfId());
+            cmd.setInt(2, getCpId());
+            cmd.setString(3, getAfNinguno());
+            cmd.setString(4, getAfAlergias());
+            cmd.setString(5, getAfHipertens());
+            cmd.setString(6, getAfEpilepsia());
+            cmd.setString(7, getAfDiabetes());
+            cmd.setString(8, getAfEnfCongenitas());
+            cmd.setString(9, getAfEmbMultiple());
+            cmd.setString(10, getAfMalaria());
+            cmd.setString(11, getAfHiperArterial());
+            cmd.setString(12, getAfHipotiroidismo());
+            cmd.setString(13, getAfNeoplasica());
+            cmd.setString(14, getAfTbc());
+            cmd.setString(15, getAfOtros());
+            cmd.setString(16, getCodUsu());
+            cmd.setString(17, tipo);
+                if(!cmd.execute()){
+                    resp = true;
+                }
+            cmd.close();
+        }
+            catch(Exception ex){
+                System.out.println("Error: mantenimientoConsultorioExtAO: " + ex.getMessage());
+            }
+        return resp;
+    }
 
     public ConsultorioExtCarnetPerinatalAf() {
         Conexion con = new Conexion();
         cn = con.conectar();
     }
 
-    public ConsultorioExtCarnetPerinatalAf(Long afId) {
+    public ConsultorioExtCarnetPerinatalAf(int afId) {
         this.afId = afId;
     }
 
-    public Long getAfId() {
+    public int getAfId() {
         return afId;
     }
 
-    public void setAfId(Long afId) {
+    public void setAfId(int afId) {
         this.afId = afId;
     }
 
-    public Character getAfNinguno() {
+    public String getAfNinguno() {
         return afNinguno;
     }
 
-    public void setAfNinguno(Character afNinguno) {
+    public void setAfNinguno(String afNinguno) {
         this.afNinguno = afNinguno;
     }
 
-    public Character getAfAlergias() {
+    public String getAfAlergias() {
         return afAlergias;
     }
 
-    public void setAfAlergias(Character afAlergias) {
+    public void setAfAlergias(String afAlergias) {
         this.afAlergias = afAlergias;
     }
 
-    public Character getAfHipertens() {
+    public String getAfHipertens() {
         return afHipertens;
     }
 
-    public void setAfHipertens(Character afHipertens) {
+    public void setAfHipertens(String afHipertens) {
         this.afHipertens = afHipertens;
     }
 
-    public Character getAfEpilepsia() {
+    public String getAfEpilepsia() {
         return afEpilepsia;
     }
 
-    public void setAfEpilepsia(Character afEpilepsia) {
+    public void setAfEpilepsia(String afEpilepsia) {
         this.afEpilepsia = afEpilepsia;
     }
 
-    public Character getAfDiabetes() {
+    public String getAfDiabetes() {
         return afDiabetes;
     }
 
-    public void setAfDiabetes(Character afDiabetes) {
+    public void setAfDiabetes(String afDiabetes) {
         this.afDiabetes = afDiabetes;
     }
 
-    public Character getAfEnfCongenitas() {
+    public String getAfEnfCongenitas() {
         return afEnfCongenitas;
     }
 
-    public void setAfEnfCongenitas(Character afEnfCongenitas) {
+    public void setAfEnfCongenitas(String afEnfCongenitas) {
         this.afEnfCongenitas = afEnfCongenitas;
     }
 
-    public Character getAfEmbMultiple() {
+    public String getAfEmbMultiple() {
         return afEmbMultiple;
     }
 
-    public void setAfEmbMultiple(Character afEmbMultiple) {
+    public void setAfEmbMultiple(String afEmbMultiple) {
         this.afEmbMultiple = afEmbMultiple;
     }
 
-    public Character getAfMalaria() {
+    public String getAfMalaria() {
         return afMalaria;
     }
 
-    public void setAfMalaria(Character afMalaria) {
+    public void setAfMalaria(String afMalaria) {
         this.afMalaria = afMalaria;
     }
 
-    public Character getAfHiperArterial() {
+    public String getAfHiperArterial() {
         return afHiperArterial;
     }
 
-    public void setAfHiperArterial(Character afHiperArterial) {
+    public void setAfHiperArterial(String afHiperArterial) {
         this.afHiperArterial = afHiperArterial;
     }
 
-    public Character getAfHipotiroidismo() {
+    public String getAfHipotiroidismo() {
         return afHipotiroidismo;
     }
 
-    public void setAfHipotiroidismo(Character afHipotiroidismo) {
+    public void setAfHipotiroidismo(String afHipotiroidismo) {
         this.afHipotiroidismo = afHipotiroidismo;
     }
 
-    public Character getAfNeoplasica() {
+    public String getAfNeoplasica() {
         return afNeoplasica;
     }
 
-    public void setAfNeoplasica(Character afNeoplasica) {
+    public void setAfNeoplasica(String afNeoplasica) {
         this.afNeoplasica = afNeoplasica;
     }
 
-    public Character getAfTbc() {
+    public String getAfTbc() {
         return afTbc;
     }
 
-    public void setAfTbc(Character afTbc) {
+    public void setAfTbc(String afTbc) {
         this.afTbc = afTbc;
     }
 
@@ -197,30 +278,8 @@ public class ConsultorioExtCarnetPerinatalAf implements Serializable {
         this.codUsu = codUsu;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (afId != null ? afId.hashCode() : 0);
-        return hash;
-    }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ConsultorioExtCarnetPerinatalAf)) {
-            return false;
-        }
-        ConsultorioExtCarnetPerinatalAf other = (ConsultorioExtCarnetPerinatalAf) object;
-        if ((this.afId == null && other.afId != null) || (this.afId != null && !this.afId.equals(other.afId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAf[ afId=" + afId + " ]";
-    }
+  
 
     /**
      * @return the cn

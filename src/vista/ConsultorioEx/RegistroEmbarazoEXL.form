@@ -1640,7 +1640,11 @@
                                           <Component id="txtVDRL1nr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                           <Component id="txtVDRL2nr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                           <Component id="txtPruebanr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+<<<<<<< HEAD
                                           <Component id="txtVIH2nr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+=======
+                                          <Component id="txtPadre74" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
                                       </Group>
                                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1651,29 +1655,48 @@
                                               <Component id="txtVDRL1a" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="txtFTAr" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="txtTHPAr" alignment="0" max="32767" attributes="0"/>
+<<<<<<< HEAD
                                               <Component id="txtVIHr" alignment="0" max="32767" attributes="0"/>
+=======
+                                              <Component id="txtPadre72" alignment="0" max="32767" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
                                           </Group>
                                           <Component id="txtElisar" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="txtFTAnr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="txtTHPAnr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+<<<<<<< HEAD
                                   <Component id="txtVIH1nr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="txtElisanr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+=======
+                                  <Component id="txtPadre71" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre77" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
                               </Group>
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="txtPruebanh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+<<<<<<< HEAD
                                           <Component id="txtVIHnh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+=======
+                                          <Component id="txtPadre73" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="fechaPrueba" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+<<<<<<< HEAD
                                           <Component id="fechaVIH1" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                           <Component id="fechaVIH2" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                           <Component id="fechaELisa" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+=======
+                                          <Component id="fechaf10" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                          <Component id="fechaf7" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                          <Component id="fechaf8" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
                                           <Component id="fechaTHPA" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                           <Component id="fechaVDRL2" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                           <Component id="fechaFTA" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
@@ -1686,8 +1709,13 @@
                                           <Component id="txtFTAnh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                           <Component id="txtVDRL2nh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                           <Component id="txtTHPAnh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+<<<<<<< HEAD
                                           <Component id="txtElisanh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                           <Component id="txtVIH2nh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+=======
+                                          <Component id="txtPadre79" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                          <Component id="txtPadre76" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
@@ -1696,8 +1724,13 @@
                                                   <Component id="txtFTAna" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                                   <Component id="txtVDRL2na" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                                   <Component id="txtTHPAna" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+<<<<<<< HEAD
                                                   <Component id="txtElisana" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                                   <Component id="txtVIH2na" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+=======
+                                                  <Component id="txtPadre84" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre85" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
                                                   <Component id="jLabel54" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="0" pref="141" max="32767" attributes="0"/>

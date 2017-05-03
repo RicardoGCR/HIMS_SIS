@@ -9,8 +9,15 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
+import vista.ConsultorioEx.RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V;
 
 public class ConsultorioExtCarnetPerinatalEm implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -32,7 +39,7 @@ public class ConsultorioExtCarnetPerinatalEm implements Serializable {
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_EM ?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_EM ?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getEmId());
             cmd.setInt(2, getCpId());
@@ -75,6 +82,79 @@ public class ConsultorioExtCarnetPerinatalEm implements Serializable {
         }
         return cod;
     }   
+    
+    public void cargarDatosCie10(String descripcion,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Nro","Código","Diagnóstico"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[3];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CIE10_LISTAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, descripcion);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // clasificacion
+                fila[1]=r.getString(2); //codigo
+                fila[2]=r.getString(3); //codigo
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaCargarCie10(tabla);
+        } catch (Exception e) {
+            System.out.println("Error_cargarDatosCie10: " + e.getMessage());
+        }
+    }
+     public void formatoTablaCargarCie10(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//CODIGO
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);//CODIGO
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(500);//CODIGO
+        tabla.setRowHeight(30);
+    } 
+     
+     public void ConsultoriosExtEmListar(String cp_id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_LISTAR_CARNET_PERINATAL_EM ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, cp_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdEme.setText(r.getString(1)); 
+                try { // llenar el campo fecha FUM
+                  if(r.getString(3).equals("")){
+                  RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.fechaEmer.setDate(null);
+                } else {
+                    String fechaFUM = (String)(r.getString(3));
+                    DateFormat dfo = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha = dfo.parse(fechaFUM);
+                    RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.fechaEmer.setDate(fecha);
+                }
+                } catch (Exception e) {
+                }
+            
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtCie10E.setText(r.getString(4)); 
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtdesCie10E.setText(r.getString(5));
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCie10E.setText(r.getString(4));
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdCie10E.setText(r.getString(6));
+                
+                
+                    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: ConsultoriosExtFuListar: " + e.getMessage());
+        }
+    }
     
     public ConsultorioExtCarnetPerinatalEm() {
         Conexion con = new Conexion();

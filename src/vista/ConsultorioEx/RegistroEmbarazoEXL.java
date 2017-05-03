@@ -59,102 +59,104 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jPanel38 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         btneditar = new javax.swing.JButton();
+        lblMant = new javax.swing.JLabel();
+        lblIdEx = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        txtPadre15 = new javax.swing.JTextField();
+        txtH1 = new javax.swing.JTextField();
+        chkH1 = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        txtPadre17 = new javax.swing.JTextField();
+        txtH2 = new javax.swing.JTextField();
+        chkH2 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        txtPadre33 = new javax.swing.JTextField();
-        fechaf16 = new com.toedter.calendar.JDateChooser();
-        fechaf17 = new com.toedter.calendar.JDateChooser();
-        fechaf18 = new com.toedter.calendar.JDateChooser();
+        txtH3 = new javax.swing.JTextField();
+        chkH3 = new javax.swing.JTextField();
+        dFechaH1 = new com.toedter.calendar.JDateChooser();
+        dFechaH2 = new com.toedter.calendar.JDateChooser();
+        dFechaH3 = new com.toedter.calendar.JDateChooser();
         jLabel55 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        txtPadre52 = new javax.swing.JTextField();
-        txtPadre14 = new javax.swing.JTextField();
-        txtPadre53 = new javax.swing.JTextField();
-        txtPadre18 = new javax.swing.JTextField();
-        txtPadre54 = new javax.swing.JTextField();
+        txtTGN = new javax.swing.JTextField();
+        txtG1NA = new javax.swing.JTextField();
+        txtG1A = new javax.swing.JTextField();
+        txtG2NA = new javax.swing.JTextField();
+        txtG2A = new javax.swing.JTextField();
         jLabel49 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtPadre55 = new javax.swing.JTextField();
+        txtTGA = new javax.swing.JTextField();
         jLabel47 = new javax.swing.JLabel();
-        txtPadre19 = new javax.swing.JTextField();
+        txtTGNH = new javax.swing.JTextField();
         jLabel48 = new javax.swing.JLabel();
-        txtPadre16 = new javax.swing.JTextField();
-        txtPadre51 = new javax.swing.JTextField();
+        txtG1N = new javax.swing.JTextField();
+        txtG2N = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        fechaf13 = new com.toedter.calendar.JDateChooser();
-        fechaf14 = new com.toedter.calendar.JDateChooser();
-        fechaf15 = new com.toedter.calendar.JDateChooser();
+        fechaTG = new com.toedter.calendar.JDateChooser();
+        fechaG2 = new com.toedter.calendar.JDateChooser();
+        fechaG1 = new com.toedter.calendar.JDateChooser();
         jLabel79 = new javax.swing.JLabel();
-        txtPadre147 = new javax.swing.JTextField();
+        txtTGNA = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
-        txtPadre61 = new javax.swing.JTextField();
+        txtVDRL1a = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        txtPadre56 = new javax.swing.JTextField();
-        txtPadre62 = new javax.swing.JTextField();
+        txtVDRL1nr = new javax.swing.JTextField();
+        txtVDRL1nh = new javax.swing.JTextField();
         jLabel52 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        txtPadre57 = new javax.swing.JTextField();
-        txtPadre60 = new javax.swing.JTextField();
-        txtPadre63 = new javax.swing.JTextField();
+        txtVDRL2nr = new javax.swing.JTextField();
+        txtVDRL2a = new javax.swing.JTextField();
+        txtVDRL2nh = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        txtPadre58 = new javax.swing.JTextField();
-        txtPadre59 = new javax.swing.JTextField();
-        txtPadre64 = new javax.swing.JTextField();
+        txtFTAnr = new javax.swing.JTextField();
+        txtFTAr = new javax.swing.JTextField();
+        txtFTAnh = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
-        txtPadre65 = new javax.swing.JTextField();
-        txtPadre66 = new javax.swing.JTextField();
-        txtPadre67 = new javax.swing.JTextField();
+        txtTHPAnr = new javax.swing.JTextField();
+        txtTHPAr = new javax.swing.JTextField();
+        txtTHPAnh = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
-        txtPadre70 = new javax.swing.JTextField();
-        txtPadre69 = new javax.swing.JTextField();
-        txtPadre68 = new javax.swing.JTextField();
+        txtPruebanr = new javax.swing.JTextField();
+        txtPruebar = new javax.swing.JTextField();
+        txtPruebanh = new javax.swing.JTextField();
         jLabel41 = new javax.swing.JLabel();
-        txtPadre71 = new javax.swing.JTextField();
-        txtPadre72 = new javax.swing.JTextField();
-        txtPadre73 = new javax.swing.JTextField();
+        txtVIH1nr = new javax.swing.JTextField();
+        txtVIHr = new javax.swing.JTextField();
+        txtVIHnh = new javax.swing.JTextField();
         jLabel42 = new javax.swing.JLabel();
-        txtPadre74 = new javax.swing.JTextField();
-        txtPadre75 = new javax.swing.JTextField();
-        txtPadre76 = new javax.swing.JTextField();
+        txtVIH2nr = new javax.swing.JTextField();
+        txtVIH2r = new javax.swing.JTextField();
+        txtVIH2nh = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
-        txtPadre77 = new javax.swing.JTextField();
-        txtPadre78 = new javax.swing.JTextField();
-        txtPadre79 = new javax.swing.JTextField();
+        txtElisanr = new javax.swing.JTextField();
+        txtElisar = new javax.swing.JTextField();
+        txtElisanh = new javax.swing.JTextField();
         jLabel54 = new javax.swing.JLabel();
-        txtPadre81 = new javax.swing.JTextField();
-        txtPadre82 = new javax.swing.JTextField();
-        txtPadre83 = new javax.swing.JTextField();
-        txtPadre84 = new javax.swing.JTextField();
-        txtPadre85 = new javax.swing.JTextField();
-        fechaf12 = new com.toedter.calendar.JDateChooser();
-        fechaf6 = new com.toedter.calendar.JDateChooser();
-        fechaf11 = new com.toedter.calendar.JDateChooser();
-        fechaf5 = new com.toedter.calendar.JDateChooser();
-        fechaf9 = new com.toedter.calendar.JDateChooser();
-        fechaf10 = new com.toedter.calendar.JDateChooser();
-        fechaf7 = new com.toedter.calendar.JDateChooser();
-        fechaf8 = new com.toedter.calendar.JDateChooser();
+        txtVDRL2na = new javax.swing.JTextField();
+        txtFTAna = new javax.swing.JTextField();
+        txtTHPAna = new javax.swing.JTextField();
+        txtElisana = new javax.swing.JTextField();
+        txtVIH2na = new javax.swing.JTextField();
+        fechaVDRL1 = new com.toedter.calendar.JDateChooser();
+        fechaVDRL2 = new com.toedter.calendar.JDateChooser();
+        fechaFTA = new com.toedter.calendar.JDateChooser();
+        fechaTHPA = new com.toedter.calendar.JDateChooser();
+        fechaPrueba = new com.toedter.calendar.JDateChooser();
+        fechaVIH1 = new com.toedter.calendar.JDateChooser();
+        fechaVIH2 = new com.toedter.calendar.JDateChooser();
+        fechaELisa = new com.toedter.calendar.JDateChooser();
         jPanel9 = new javax.swing.JPanel();
         jLabel56 = new javax.swing.JLabel();
-        txtPadre86 = new javax.swing.JTextField();
+        txtIFIp = new javax.swing.JTextField();
         jLabel57 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
-        txtPadre87 = new javax.swing.JTextField();
-        txtPadre88 = new javax.swing.JTextField();
+        txtIFIn = new javax.swing.JTextField();
+        txtIFInh = new javax.swing.JTextField();
         jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
         txtPadre89 = new javax.swing.JTextField();
@@ -223,7 +225,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtPadre130 = new javax.swing.JTextField();
         txtPadre131 = new javax.swing.JTextField();
         txtPadre132 = new javax.swing.JTextField();
-        txtPadre133 = new javax.swing.JTextField();
+        txtIFIna = new javax.swing.JTextField();
         txtPadre134 = new javax.swing.JTextField();
         txtPadre135 = new javax.swing.JTextField();
         txtPadre136 = new javax.swing.JTextField();
@@ -261,6 +263,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        setMinimumSize(new java.awt.Dimension(900, 724));
         setPreferredSize(new java.awt.Dimension(900, 724));
         setVisible(true);
 
@@ -465,6 +468,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         });
 
+        lblMant.setText("I");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -482,6 +487,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addContainerGap()
                             .addComponent(lblusu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(btnCaccnelar1)
+                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -493,8 +499,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(ChkEdad2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel38))))
-                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel38))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(lblMant)
+                                .addGap(26, 26, 26)
+                                .addComponent(lblIdEx, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -503,12 +512,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(100, 100, 100)
+                .addGap(56, 56, 56)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMant)
+                    .addComponent(lblIdEx, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addComponent(btnGuardar1)
                 .addGap(18, 18, 18)
                 .addComponent(btneditar)
                 .addGap(18, 18, 18)
-                .addComponent(btnCaccnelar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCaccnelar1)
                 .addGap(90, 90, 90)
                 .addComponent(lblusu1)
                 .addGap(28, 28, 28)
@@ -540,20 +553,26 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel45.setText("Hg (%)");
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField2.setText(" ");
+        txtH1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtH1.setText(" ");
 
-        txtPadre15.setEditable(false);
-        txtPadre15.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre15.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre15.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre15.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre15.setSelectionColor(new java.awt.Color(255, 204, 51));
-        txtPadre15.addCaretListener(new javax.swing.event.CaretListener() {
+        chkH1.setEditable(false);
+        chkH1.setBackground(new java.awt.Color(255, 204, 51));
+        chkH1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        chkH1.setForeground(new java.awt.Color(102, 102, 102));
+        chkH1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        chkH1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        chkH1.setPreferredSize(new java.awt.Dimension(18, 18));
+        chkH1.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        chkH1.setSelectionColor(new java.awt.Color(255, 204, 51));
+        chkH1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre15CaretUpdate(evt);
+                chkH1CaretUpdate(evt);
+            }
+        });
+        chkH1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chkH1MouseClicked(evt);
             }
         });
 
@@ -566,19 +585,26 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Hemoglobina 2");
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField4.setText(" ");
+        txtH2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtH2.setText(" ");
 
-        txtPadre17.setEditable(false);
-        txtPadre17.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre17.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre17.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre17.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre17.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre17.addCaretListener(new javax.swing.event.CaretListener() {
+        chkH2.setEditable(false);
+        chkH2.setBackground(new java.awt.Color(255, 204, 51));
+        chkH2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        chkH2.setForeground(new java.awt.Color(102, 102, 102));
+        chkH2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        chkH2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        chkH2.setPreferredSize(new java.awt.Dimension(18, 18));
+        chkH2.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        chkH2.setSelectionColor(new java.awt.Color(255, 204, 51));
+        chkH2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre17CaretUpdate(evt);
+                chkH2CaretUpdate(evt);
+            }
+        });
+        chkH2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chkH2MouseClicked(evt);
             }
         });
 
@@ -586,33 +612,40 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("Hemoglobina al Alta");
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField3.setText(" ");
+        txtH3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtH3.setText(" ");
 
-        txtPadre33.setEditable(false);
-        txtPadre33.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre33.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre33.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre33.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre33.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre33.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre33.addCaretListener(new javax.swing.event.CaretListener() {
+        chkH3.setEditable(false);
+        chkH3.setBackground(new java.awt.Color(255, 204, 51));
+        chkH3.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        chkH3.setForeground(new java.awt.Color(102, 102, 102));
+        chkH3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        chkH3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        chkH3.setPreferredSize(new java.awt.Dimension(18, 18));
+        chkH3.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        chkH3.setSelectionColor(new java.awt.Color(255, 204, 51));
+        chkH3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre33CaretUpdate(evt);
+                chkH3CaretUpdate(evt);
+            }
+        });
+        chkH3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chkH3MouseClicked(evt);
             }
         });
 
-        fechaf16.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf16.setDateFormatString("dd-MM-yyyy");
-        fechaf16.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        dFechaH1.setBackground(new java.awt.Color(245, 245, 245));
+        dFechaH1.setDateFormatString("dd-MM-yyyy");
+        dFechaH1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf17.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf17.setDateFormatString("dd-MM-yyyy");
-        fechaf17.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        dFechaH2.setBackground(new java.awt.Color(245, 245, 245));
+        dFechaH2.setDateFormatString("dd-MM-yyyy");
+        dFechaH2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf18.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf18.setDateFormatString("dd-MM-yyyy");
-        fechaf18.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        dFechaH3.setBackground(new java.awt.Color(245, 245, 245));
+        dFechaH3.setDateFormatString("dd-MM-yyyy");
+        dFechaH3.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
         jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel55.setForeground(new java.awt.Color(51, 51, 51));
@@ -630,25 +663,25 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     .addComponent(jLabel9))
                 .addGap(67, 67, 67)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtH1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtH2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtH3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(txtPadre33, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(chkH3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(fechaf18, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(dFechaH3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPadre17, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre15, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkH2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkH1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fechaf16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaf17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dFechaH1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dFechaH2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel55))))
                 .addContainerGap())
         );
@@ -668,93 +701,128 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                 .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtPadre15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(chkH1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtH1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel55)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fechaf16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(dFechaH1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel8)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtPadre17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(fechaf17, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtH2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(chkH2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(dFechaH2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPadre33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(fechaf18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtH3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(chkH3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dFechaH3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel3.setBackground(new java.awt.Color(245, 245, 245));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        txtPadre52.setEditable(false);
-        txtPadre52.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre52.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre52.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre52.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre52.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre52.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre52.addCaretListener(new javax.swing.event.CaretListener() {
+        txtTGN.setEditable(false);
+        txtTGN.setBackground(new java.awt.Color(255, 255, 255));
+        txtTGN.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtTGN.setForeground(new java.awt.Color(102, 102, 102));
+        txtTGN.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTGN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtTGN.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtTGN.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtTGN.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtTGN.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre52CaretUpdate(evt);
+                txtTGNCaretUpdate(evt);
+            }
+        });
+        txtTGN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTGNMouseClicked(evt);
             }
         });
 
-        txtPadre14.setEditable(false);
-        txtPadre14.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre14.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre14.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre14.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre14.addCaretListener(new javax.swing.event.CaretListener() {
+        txtG1NA.setEditable(false);
+        txtG1NA.setBackground(new java.awt.Color(255, 204, 51));
+        txtG1NA.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtG1NA.setForeground(new java.awt.Color(102, 102, 102));
+        txtG1NA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtG1NA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtG1NA.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtG1NA.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtG1NA.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtG1NA.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre14CaretUpdate(evt);
+                txtG1NACaretUpdate(evt);
+            }
+        });
+        txtG1NA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtG1NAMouseClicked(evt);
             }
         });
 
-        txtPadre53.setEditable(false);
-        txtPadre53.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre53.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre53.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre53.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre53.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre53.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre53.addCaretListener(new javax.swing.event.CaretListener() {
+        txtG1A.setEditable(false);
+        txtG1A.setBackground(new java.awt.Color(255, 204, 51));
+        txtG1A.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtG1A.setForeground(new java.awt.Color(102, 102, 102));
+        txtG1A.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtG1A.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtG1A.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtG1A.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtG1A.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtG1A.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre53CaretUpdate(evt);
+                txtG1ACaretUpdate(evt);
+            }
+        });
+        txtG1A.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtG1AMouseClicked(evt);
             }
         });
 
-        txtPadre18.setEditable(false);
-        txtPadre18.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre18.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre18.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre18.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre18.addCaretListener(new javax.swing.event.CaretListener() {
+        txtG2NA.setEditable(false);
+        txtG2NA.setBackground(new java.awt.Color(255, 204, 51));
+        txtG2NA.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtG2NA.setForeground(new java.awt.Color(102, 102, 102));
+        txtG2NA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtG2NA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtG2NA.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtG2NA.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtG2NA.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtG2NA.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre18CaretUpdate(evt);
+                txtG2NACaretUpdate(evt);
+            }
+        });
+        txtG2NA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtG2NAMouseClicked(evt);
             }
         });
 
-        txtPadre54.setEditable(false);
-        txtPadre54.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre54.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre54.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre54.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre54.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre54.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre54.addCaretListener(new javax.swing.event.CaretListener() {
+        txtG2A.setEditable(false);
+        txtG2A.setBackground(new java.awt.Color(255, 204, 51));
+        txtG2A.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtG2A.setForeground(new java.awt.Color(102, 102, 102));
+        txtG2A.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtG2A.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtG2A.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtG2A.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtG2A.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtG2A.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre54CaretUpdate(evt);
+                txtG2ACaretUpdate(evt);
+            }
+        });
+        txtG2A.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtG2AMouseClicked(evt);
             }
         });
 
@@ -766,16 +834,23 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("Glicemia 1");
 
-        txtPadre55.setEditable(false);
-        txtPadre55.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre55.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre55.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre55.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre55.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre55.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre55.addCaretListener(new javax.swing.event.CaretListener() {
+        txtTGA.setEditable(false);
+        txtTGA.setBackground(new java.awt.Color(255, 204, 51));
+        txtTGA.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtTGA.setForeground(new java.awt.Color(102, 102, 102));
+        txtTGA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTGA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtTGA.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtTGA.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtTGA.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtTGA.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre55CaretUpdate(evt);
+                txtTGACaretUpdate(evt);
+            }
+        });
+        txtTGA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTGAMouseClicked(evt);
             }
         });
 
@@ -783,16 +858,23 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel47.setForeground(new java.awt.Color(51, 51, 51));
         jLabel47.setText("<html>No se<br>Hizo</br></html>");
 
-        txtPadre19.setEditable(false);
-        txtPadre19.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre19.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre19.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre19.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre19.addCaretListener(new javax.swing.event.CaretListener() {
+        txtTGNH.setEditable(false);
+        txtTGNH.setBackground(new java.awt.Color(255, 204, 51));
+        txtTGNH.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtTGNH.setForeground(new java.awt.Color(102, 102, 102));
+        txtTGNH.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTGNH.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtTGNH.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtTGNH.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtTGNH.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtTGNH.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre19CaretUpdate(evt);
+                txtTGNHCaretUpdate(evt);
+            }
+        });
+        txtTGNH.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTGNHMouseClicked(evt);
             }
         });
 
@@ -800,29 +882,43 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel48.setForeground(new java.awt.Color(51, 51, 51));
         jLabel48.setText("Normal");
 
-        txtPadre16.setEditable(false);
-        txtPadre16.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre16.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre16.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre16.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre16.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre16.addCaretListener(new javax.swing.event.CaretListener() {
+        txtG1N.setEditable(false);
+        txtG1N.setBackground(new java.awt.Color(255, 255, 255));
+        txtG1N.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtG1N.setForeground(new java.awt.Color(102, 102, 102));
+        txtG1N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtG1N.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtG1N.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtG1N.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtG1N.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtG1N.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre16CaretUpdate(evt);
+                txtG1NCaretUpdate(evt);
+            }
+        });
+        txtG1N.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtG1NMouseClicked(evt);
             }
         });
 
-        txtPadre51.setEditable(false);
-        txtPadre51.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre51.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre51.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre51.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre51.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre51.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre51.addCaretListener(new javax.swing.event.CaretListener() {
+        txtG2N.setEditable(false);
+        txtG2N.setBackground(new java.awt.Color(255, 255, 255));
+        txtG2N.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtG2N.setForeground(new java.awt.Color(102, 102, 102));
+        txtG2N.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtG2N.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtG2N.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtG2N.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtG2N.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtG2N.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre51CaretUpdate(evt);
+                txtG2NCaretUpdate(evt);
+            }
+        });
+        txtG2N.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtG2NMouseClicked(evt);
             }
         });
 
@@ -834,32 +930,39 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("Tolerancia Glucosa");
 
-        fechaf13.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf13.setDateFormatString("dd-MM-yyyy");
-        fechaf13.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        fechaTG.setBackground(new java.awt.Color(245, 245, 245));
+        fechaTG.setDateFormatString("dd-MM-yyyy");
+        fechaTG.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf14.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf14.setDateFormatString("dd-MM-yyyy");
-        fechaf14.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        fechaG2.setBackground(new java.awt.Color(245, 245, 245));
+        fechaG2.setDateFormatString("dd-MM-yyyy");
+        fechaG2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf15.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf15.setDateFormatString("dd-MM-yyyy");
-        fechaf15.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        fechaG1.setBackground(new java.awt.Color(245, 245, 245));
+        fechaG1.setDateFormatString("dd-MM-yyyy");
+        fechaG1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
         jLabel79.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel79.setForeground(new java.awt.Color(51, 51, 51));
         jLabel79.setText("<html>No se<br>Aplica</br></html>");
 
-        txtPadre147.setEditable(false);
-        txtPadre147.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre147.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre147.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre147.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre147.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre147.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre147.addCaretListener(new javax.swing.event.CaretListener() {
+        txtTGNA.setEditable(false);
+        txtTGNA.setBackground(new java.awt.Color(255, 255, 255));
+        txtTGNA.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtTGNA.setForeground(new java.awt.Color(102, 102, 102));
+        txtTGNA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTGNA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtTGNA.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtTGNA.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtTGNA.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtTGNA.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre147CaretUpdate(evt);
+                txtTGNACaretUpdate(evt);
+            }
+        });
+        txtTGNA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTGNAMouseClicked(evt);
             }
         });
 
@@ -877,15 +980,15 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtPadre16, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre52, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre51, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtG1N, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTGN, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtG2N, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(104, 104, 104)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtPadre53, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre55, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre54, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtG1A, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTGA, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtG2A, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jLabel48)
@@ -895,9 +998,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtPadre14, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPadre19, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPadre18, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtG1NA, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTGNH, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtG2NA, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -906,12 +1009,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fechaf14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaf15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(fechaG2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaG1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtPadre147, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTGNA, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(fechaf13, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(fechaTG, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -925,38 +1028,38 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(jLabel48))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPadre53, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtG1A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(fechaf14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fechaG2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(fechaf13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(fechaTG, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(txtPadre16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtG1N, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel10))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(txtPadre54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtPadre51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtG2A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtG2N, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel12)
-                                        .addComponent(txtPadre18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtG2NA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(txtPadre55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtPadre52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtTGA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtTGN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel11)
-                                        .addComponent(txtPadre19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtPadre147, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(txtTGNH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtTGNA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(fechaf15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaG1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtPadre14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtG1NA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -968,50 +1071,71 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel50.setForeground(new java.awt.Color(51, 51, 51));
         jLabel50.setText("<html>No <br>Reactivo</br></html>");
 
-        txtPadre61.setEditable(false);
-        txtPadre61.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre61.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre61.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre61.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre61.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre61.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre61.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVDRL1a.setEditable(false);
+        txtVDRL1a.setBackground(new java.awt.Color(255, 204, 51));
+        txtVDRL1a.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVDRL1a.setForeground(new java.awt.Color(102, 102, 102));
+        txtVDRL1a.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVDRL1a.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVDRL1a.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVDRL1a.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVDRL1a.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtVDRL1a.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre61CaretUpdate(evt);
+                txtVDRL1aCaretUpdate(evt);
+            }
+        });
+        txtVDRL1a.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtVDRL1aMouseClicked(evt);
             }
         });
 
         jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel51.setText("Anormal");
+        jLabel51.setText("Reactivo");
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(51, 51, 51));
         jLabel32.setText("VDRL / RPR 1");
 
-        txtPadre56.setEditable(false);
-        txtPadre56.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre56.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre56.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre56.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre56.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre56.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre56.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVDRL1nr.setEditable(false);
+        txtVDRL1nr.setBackground(new java.awt.Color(255, 255, 255));
+        txtVDRL1nr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVDRL1nr.setForeground(new java.awt.Color(102, 102, 102));
+        txtVDRL1nr.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVDRL1nr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVDRL1nr.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVDRL1nr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVDRL1nr.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtVDRL1nr.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre56CaretUpdate(evt);
+                txtVDRL1nrCaretUpdate(evt);
+            }
+        });
+        txtVDRL1nr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtVDRL1nrMouseClicked(evt);
             }
         });
 
-        txtPadre62.setEditable(false);
-        txtPadre62.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre62.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre62.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre62.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre62.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre62.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre62.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVDRL1nh.setEditable(false);
+        txtVDRL1nh.setBackground(new java.awt.Color(255, 204, 51));
+        txtVDRL1nh.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVDRL1nh.setForeground(new java.awt.Color(102, 102, 102));
+        txtVDRL1nh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVDRL1nh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVDRL1nh.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVDRL1nh.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVDRL1nh.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtVDRL1nh.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre62CaretUpdate(evt);
+                txtVDRL1nhCaretUpdate(evt);
+            }
+        });
+        txtVDRL1nh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtVDRL1nhMouseClicked(evt);
             }
         });
 
@@ -1023,42 +1147,63 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel31.setForeground(new java.awt.Color(51, 51, 51));
         jLabel31.setText("VDRL / RPR 2");
 
-        txtPadre57.setEditable(false);
-        txtPadre57.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre57.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre57.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre57.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre57.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre57.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre57.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVDRL2nr.setEditable(false);
+        txtVDRL2nr.setBackground(new java.awt.Color(255, 255, 255));
+        txtVDRL2nr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVDRL2nr.setForeground(new java.awt.Color(102, 102, 102));
+        txtVDRL2nr.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVDRL2nr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVDRL2nr.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVDRL2nr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVDRL2nr.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtVDRL2nr.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre57CaretUpdate(evt);
+                txtVDRL2nrCaretUpdate(evt);
+            }
+        });
+        txtVDRL2nr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtVDRL2nrMouseClicked(evt);
             }
         });
 
-        txtPadre60.setEditable(false);
-        txtPadre60.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre60.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre60.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre60.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre60.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre60.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre60.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVDRL2a.setEditable(false);
+        txtVDRL2a.setBackground(new java.awt.Color(255, 204, 51));
+        txtVDRL2a.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVDRL2a.setForeground(new java.awt.Color(102, 102, 102));
+        txtVDRL2a.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVDRL2a.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVDRL2a.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVDRL2a.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVDRL2a.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtVDRL2a.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre60CaretUpdate(evt);
+                txtVDRL2aCaretUpdate(evt);
+            }
+        });
+        txtVDRL2a.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtVDRL2aMouseClicked(evt);
             }
         });
 
-        txtPadre63.setEditable(false);
-        txtPadre63.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre63.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre63.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre63.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre63.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre63.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre63.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVDRL2nh.setEditable(false);
+        txtVDRL2nh.setBackground(new java.awt.Color(255, 204, 51));
+        txtVDRL2nh.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVDRL2nh.setForeground(new java.awt.Color(102, 102, 102));
+        txtVDRL2nh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVDRL2nh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVDRL2nh.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVDRL2nh.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVDRL2nh.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtVDRL2nh.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre63CaretUpdate(evt);
+                txtVDRL2nhCaretUpdate(evt);
+            }
+        });
+        txtVDRL2nh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtVDRL2nhMouseClicked(evt);
             }
         });
 
@@ -1066,42 +1211,63 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel29.setForeground(new java.awt.Color(51, 51, 51));
         jLabel29.setText("FTA Abs");
 
-        txtPadre58.setEditable(false);
-        txtPadre58.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre58.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre58.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre58.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre58.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre58.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre58.addCaretListener(new javax.swing.event.CaretListener() {
+        txtFTAnr.setEditable(false);
+        txtFTAnr.setBackground(new java.awt.Color(255, 255, 255));
+        txtFTAnr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtFTAnr.setForeground(new java.awt.Color(102, 102, 102));
+        txtFTAnr.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFTAnr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtFTAnr.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtFTAnr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtFTAnr.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtFTAnr.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre58CaretUpdate(evt);
+                txtFTAnrCaretUpdate(evt);
+            }
+        });
+        txtFTAnr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtFTAnrMouseClicked(evt);
             }
         });
 
-        txtPadre59.setEditable(false);
-        txtPadre59.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre59.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre59.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre59.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre59.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre59.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre59.addCaretListener(new javax.swing.event.CaretListener() {
+        txtFTAr.setEditable(false);
+        txtFTAr.setBackground(new java.awt.Color(255, 204, 51));
+        txtFTAr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtFTAr.setForeground(new java.awt.Color(102, 102, 102));
+        txtFTAr.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFTAr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtFTAr.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtFTAr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtFTAr.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtFTAr.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre59CaretUpdate(evt);
+                txtFTArCaretUpdate(evt);
+            }
+        });
+        txtFTAr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtFTArMouseClicked(evt);
             }
         });
 
-        txtPadre64.setEditable(false);
-        txtPadre64.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre64.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre64.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre64.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre64.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre64.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre64.addCaretListener(new javax.swing.event.CaretListener() {
+        txtFTAnh.setEditable(false);
+        txtFTAnh.setBackground(new java.awt.Color(255, 204, 51));
+        txtFTAnh.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtFTAnh.setForeground(new java.awt.Color(102, 102, 102));
+        txtFTAnh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFTAnh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtFTAnh.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtFTAnh.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtFTAnh.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtFTAnh.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre64CaretUpdate(evt);
+                txtFTAnhCaretUpdate(evt);
+            }
+        });
+        txtFTAnh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtFTAnhMouseClicked(evt);
             }
         });
 
@@ -1109,42 +1275,63 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel39.setForeground(new java.awt.Color(51, 51, 51));
         jLabel39.setText("THPA");
 
-        txtPadre65.setEditable(false);
-        txtPadre65.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre65.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre65.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre65.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre65.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre65.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre65.addCaretListener(new javax.swing.event.CaretListener() {
+        txtTHPAnr.setEditable(false);
+        txtTHPAnr.setBackground(new java.awt.Color(255, 255, 255));
+        txtTHPAnr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtTHPAnr.setForeground(new java.awt.Color(102, 102, 102));
+        txtTHPAnr.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTHPAnr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtTHPAnr.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtTHPAnr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtTHPAnr.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtTHPAnr.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre65CaretUpdate(evt);
+                txtTHPAnrCaretUpdate(evt);
+            }
+        });
+        txtTHPAnr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTHPAnrMouseClicked(evt);
             }
         });
 
-        txtPadre66.setEditable(false);
-        txtPadre66.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre66.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre66.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre66.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre66.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre66.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre66.addCaretListener(new javax.swing.event.CaretListener() {
+        txtTHPAr.setEditable(false);
+        txtTHPAr.setBackground(new java.awt.Color(255, 204, 51));
+        txtTHPAr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtTHPAr.setForeground(new java.awt.Color(102, 102, 102));
+        txtTHPAr.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTHPAr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtTHPAr.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtTHPAr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtTHPAr.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtTHPAr.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre66CaretUpdate(evt);
+                txtTHPArCaretUpdate(evt);
+            }
+        });
+        txtTHPAr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTHPArMouseClicked(evt);
             }
         });
 
-        txtPadre67.setEditable(false);
-        txtPadre67.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre67.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre67.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre67.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre67.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre67.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre67.addCaretListener(new javax.swing.event.CaretListener() {
+        txtTHPAnh.setEditable(false);
+        txtTHPAnh.setBackground(new java.awt.Color(255, 204, 51));
+        txtTHPAnh.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtTHPAnh.setForeground(new java.awt.Color(102, 102, 102));
+        txtTHPAnh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTHPAnh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtTHPAnh.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtTHPAnh.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtTHPAnh.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtTHPAnh.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre67CaretUpdate(evt);
+                txtTHPAnhCaretUpdate(evt);
+            }
+        });
+        txtTHPAnh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTHPAnhMouseClicked(evt);
             }
         });
 
@@ -1152,42 +1339,63 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel40.setForeground(new java.awt.Color(51, 51, 51));
         jLabel40.setText("Prueba Rap. Sifilis");
 
-        txtPadre70.setEditable(false);
-        txtPadre70.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre70.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre70.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre70.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre70.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre70.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre70.addCaretListener(new javax.swing.event.CaretListener() {
+        txtPruebanr.setEditable(false);
+        txtPruebanr.setBackground(new java.awt.Color(255, 255, 255));
+        txtPruebanr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtPruebanr.setForeground(new java.awt.Color(102, 102, 102));
+        txtPruebanr.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPruebanr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtPruebanr.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtPruebanr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtPruebanr.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtPruebanr.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre70CaretUpdate(evt);
+                txtPruebanrCaretUpdate(evt);
+            }
+        });
+        txtPruebanr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtPruebanrMouseClicked(evt);
             }
         });
 
-        txtPadre69.setEditable(false);
-        txtPadre69.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre69.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre69.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre69.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre69.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre69.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre69.addCaretListener(new javax.swing.event.CaretListener() {
+        txtPruebar.setEditable(false);
+        txtPruebar.setBackground(new java.awt.Color(255, 204, 51));
+        txtPruebar.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtPruebar.setForeground(new java.awt.Color(102, 102, 102));
+        txtPruebar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPruebar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtPruebar.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtPruebar.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtPruebar.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtPruebar.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre69CaretUpdate(evt);
+                txtPruebarCaretUpdate(evt);
+            }
+        });
+        txtPruebar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtPruebarMouseClicked(evt);
             }
         });
 
-        txtPadre68.setEditable(false);
-        txtPadre68.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre68.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre68.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre68.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre68.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre68.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre68.addCaretListener(new javax.swing.event.CaretListener() {
+        txtPruebanh.setEditable(false);
+        txtPruebanh.setBackground(new java.awt.Color(255, 204, 51));
+        txtPruebanh.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtPruebanh.setForeground(new java.awt.Color(102, 102, 102));
+        txtPruebanh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPruebanh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtPruebanh.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtPruebanh.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtPruebanh.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtPruebanh.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre68CaretUpdate(evt);
+                txtPruebanhCaretUpdate(evt);
+            }
+        });
+        txtPruebanh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtPruebanhMouseClicked(evt);
             }
         });
 
@@ -1195,85 +1403,97 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel41.setForeground(new java.awt.Color(51, 51, 51));
         jLabel41.setText("VIH Prueba Ráp 1");
 
-        txtPadre71.setEditable(false);
-        txtPadre71.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre71.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre71.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre71.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre71.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre71.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre71.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVIH1nr.setEditable(false);
+        txtVIH1nr.setBackground(new java.awt.Color(255, 255, 255));
+        txtVIH1nr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVIH1nr.setForeground(new java.awt.Color(102, 102, 102));
+        txtVIH1nr.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVIH1nr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVIH1nr.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVIH1nr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVIH1nr.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtVIH1nr.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre71CaretUpdate(evt);
+                txtVIH1nrCaretUpdate(evt);
             }
         });
 
-        txtPadre72.setEditable(false);
-        txtPadre72.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre72.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre72.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre72.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre72.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre72.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre72.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVIHr.setEditable(false);
+        txtVIHr.setBackground(new java.awt.Color(255, 204, 51));
+        txtVIHr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVIHr.setForeground(new java.awt.Color(102, 102, 102));
+        txtVIHr.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVIHr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVIHr.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVIHr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVIHr.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtVIHr.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre72CaretUpdate(evt);
+                txtVIHrCaretUpdate(evt);
             }
         });
 
-        txtPadre73.setEditable(false);
-        txtPadre73.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre73.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre73.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre73.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre73.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre73.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre73.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVIHnh.setEditable(false);
+        txtVIHnh.setBackground(new java.awt.Color(255, 204, 51));
+        txtVIHnh.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVIHnh.setForeground(new java.awt.Color(102, 102, 102));
+        txtVIHnh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVIHnh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVIHnh.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVIHnh.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVIHnh.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtVIHnh.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre73CaretUpdate(evt);
+                txtVIHnhCaretUpdate(evt);
             }
         });
 
         jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel42.setText("VIH Prueba Ráp 1");
+        jLabel42.setText("Prueba Ráp 2");
 
-        txtPadre74.setEditable(false);
-        txtPadre74.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre74.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre74.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre74.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre74.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre74.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre74.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVIH2nr.setEditable(false);
+        txtVIH2nr.setBackground(new java.awt.Color(255, 255, 255));
+        txtVIH2nr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVIH2nr.setForeground(new java.awt.Color(102, 102, 102));
+        txtVIH2nr.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVIH2nr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVIH2nr.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVIH2nr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVIH2nr.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtVIH2nr.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre74CaretUpdate(evt);
+                txtVIH2nrCaretUpdate(evt);
             }
         });
 
-        txtPadre75.setEditable(false);
-        txtPadre75.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre75.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre75.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre75.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre75.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre75.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre75.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVIH2r.setEditable(false);
+        txtVIH2r.setBackground(new java.awt.Color(255, 204, 51));
+        txtVIH2r.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVIH2r.setForeground(new java.awt.Color(102, 102, 102));
+        txtVIH2r.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVIH2r.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVIH2r.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVIH2r.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVIH2r.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtVIH2r.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre75CaretUpdate(evt);
+                txtVIH2rCaretUpdate(evt);
             }
         });
 
-        txtPadre76.setEditable(false);
-        txtPadre76.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre76.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre76.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre76.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre76.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre76.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre76.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVIH2nh.setEditable(false);
+        txtVIH2nh.setBackground(new java.awt.Color(255, 204, 51));
+        txtVIH2nh.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVIH2nh.setForeground(new java.awt.Color(102, 102, 102));
+        txtVIH2nh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVIH2nh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVIH2nh.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVIH2nh.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVIH2nh.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtVIH2nh.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre76CaretUpdate(evt);
+                txtVIH2nhCaretUpdate(evt);
             }
         });
 
@@ -1281,42 +1501,48 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel43.setForeground(new java.awt.Color(51, 51, 51));
         jLabel43.setText("ELISA");
 
-        txtPadre77.setEditable(false);
-        txtPadre77.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre77.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre77.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre77.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre77.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre77.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre77.addCaretListener(new javax.swing.event.CaretListener() {
+        txtElisanr.setEditable(false);
+        txtElisanr.setBackground(new java.awt.Color(255, 255, 255));
+        txtElisanr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtElisanr.setForeground(new java.awt.Color(102, 102, 102));
+        txtElisanr.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtElisanr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtElisanr.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtElisanr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtElisanr.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtElisanr.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre77CaretUpdate(evt);
+                txtElisanrCaretUpdate(evt);
             }
         });
 
-        txtPadre78.setEditable(false);
-        txtPadre78.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre78.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre78.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre78.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre78.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre78.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre78.addCaretListener(new javax.swing.event.CaretListener() {
+        txtElisar.setEditable(false);
+        txtElisar.setBackground(new java.awt.Color(255, 204, 51));
+        txtElisar.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtElisar.setForeground(new java.awt.Color(102, 102, 102));
+        txtElisar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtElisar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtElisar.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtElisar.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtElisar.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtElisar.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre78CaretUpdate(evt);
+                txtElisarCaretUpdate(evt);
             }
         });
 
-        txtPadre79.setEditable(false);
-        txtPadre79.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre79.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre79.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre79.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre79.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre79.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre79.addCaretListener(new javax.swing.event.CaretListener() {
+        txtElisanh.setEditable(false);
+        txtElisanh.setBackground(new java.awt.Color(255, 204, 51));
+        txtElisanh.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtElisanh.setForeground(new java.awt.Color(102, 102, 102));
+        txtElisanh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtElisanh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtElisanh.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtElisanh.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtElisanh.setSelectionColor(new java.awt.Color(255, 204, 51));
+        txtElisanh.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre79CaretUpdate(evt);
+                txtElisanhCaretUpdate(evt);
             }
         });
 
@@ -1324,110 +1550,135 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel54.setForeground(new java.awt.Color(51, 51, 51));
         jLabel54.setText("<html>No se<br>Aplica</br></html>");
 
-        txtPadre81.setEditable(false);
-        txtPadre81.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre81.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre81.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre81.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre81.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre81.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre81.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVDRL2na.setEditable(false);
+        txtVDRL2na.setBackground(new java.awt.Color(255, 255, 255));
+        txtVDRL2na.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVDRL2na.setForeground(new java.awt.Color(102, 102, 102));
+        txtVDRL2na.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVDRL2na.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVDRL2na.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVDRL2na.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVDRL2na.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtVDRL2na.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre81CaretUpdate(evt);
+                txtVDRL2naCaretUpdate(evt);
+            }
+        });
+        txtVDRL2na.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtVDRL2naMouseClicked(evt);
             }
         });
 
-        txtPadre82.setEditable(false);
-        txtPadre82.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre82.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre82.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre82.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre82.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre82.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre82.addCaretListener(new javax.swing.event.CaretListener() {
+        txtFTAna.setEditable(false);
+        txtFTAna.setBackground(new java.awt.Color(255, 255, 255));
+        txtFTAna.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtFTAna.setForeground(new java.awt.Color(102, 102, 102));
+        txtFTAna.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFTAna.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtFTAna.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtFTAna.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtFTAna.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtFTAna.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre82CaretUpdate(evt);
+                txtFTAnaCaretUpdate(evt);
+            }
+        });
+        txtFTAna.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtFTAnaMouseClicked(evt);
             }
         });
 
-        txtPadre83.setEditable(false);
-        txtPadre83.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre83.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre83.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre83.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre83.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre83.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre83.addCaretListener(new javax.swing.event.CaretListener() {
+        txtTHPAna.setEditable(false);
+        txtTHPAna.setBackground(new java.awt.Color(255, 255, 255));
+        txtTHPAna.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtTHPAna.setForeground(new java.awt.Color(102, 102, 102));
+        txtTHPAna.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTHPAna.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtTHPAna.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtTHPAna.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtTHPAna.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtTHPAna.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre83CaretUpdate(evt);
+                txtTHPAnaCaretUpdate(evt);
+            }
+        });
+        txtTHPAna.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTHPAnaMouseClicked(evt);
             }
         });
 
-        txtPadre84.setEditable(false);
-        txtPadre84.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre84.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre84.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre84.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre84.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre84.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre84.addCaretListener(new javax.swing.event.CaretListener() {
+        txtElisana.setEditable(false);
+        txtElisana.setBackground(new java.awt.Color(255, 255, 255));
+        txtElisana.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtElisana.setForeground(new java.awt.Color(102, 102, 102));
+        txtElisana.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtElisana.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtElisana.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtElisana.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtElisana.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtElisana.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre84CaretUpdate(evt);
+                txtElisanaCaretUpdate(evt);
             }
         });
 
-        txtPadre85.setEditable(false);
-        txtPadre85.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre85.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre85.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre85.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre85.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre85.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre85.addCaretListener(new javax.swing.event.CaretListener() {
+        txtVIH2na.setEditable(false);
+        txtVIH2na.setBackground(new java.awt.Color(255, 255, 255));
+        txtVIH2na.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtVIH2na.setForeground(new java.awt.Color(102, 102, 102));
+        txtVIH2na.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtVIH2na.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtVIH2na.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtVIH2na.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtVIH2na.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtVIH2na.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre85CaretUpdate(evt);
+                txtVIH2naCaretUpdate(evt);
             }
         });
 
-        fechaf12.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf12.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        fechaf12.setDateFormatString("dd-MM-yyyy");
-        fechaf12.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        fechaVDRL1.setBackground(new java.awt.Color(245, 245, 245));
+        fechaVDRL1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        fechaVDRL1.setDateFormatString("dd-MM-yyyy");
+        fechaVDRL1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf6.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf6.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        fechaf6.setDateFormatString("dd-MM-yyyy");
-        fechaf6.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        fechaVDRL2.setBackground(new java.awt.Color(245, 245, 245));
+        fechaVDRL2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        fechaVDRL2.setDateFormatString("dd-MM-yyyy");
+        fechaVDRL2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf11.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf11.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        fechaf11.setDateFormatString("dd-MM-yyyy");
-        fechaf11.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        fechaFTA.setBackground(new java.awt.Color(245, 245, 245));
+        fechaFTA.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        fechaFTA.setDateFormatString("dd-MM-yyyy");
+        fechaFTA.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf5.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf5.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        fechaf5.setDateFormatString("dd-MM-yyyy");
-        fechaf5.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        fechaTHPA.setBackground(new java.awt.Color(245, 245, 245));
+        fechaTHPA.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        fechaTHPA.setDateFormatString("dd-MM-yyyy");
+        fechaTHPA.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf9.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf9.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        fechaf9.setDateFormatString("dd-MM-yyyy");
-        fechaf9.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        fechaPrueba.setBackground(new java.awt.Color(245, 245, 245));
+        fechaPrueba.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        fechaPrueba.setDateFormatString("dd-MM-yyyy");
+        fechaPrueba.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf10.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf10.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        fechaf10.setDateFormatString("dd-MM-yyyy");
-        fechaf10.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        fechaVIH1.setBackground(new java.awt.Color(245, 245, 245));
+        fechaVIH1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        fechaVIH1.setDateFormatString("dd-MM-yyyy");
+        fechaVIH1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf7.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf7.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        fechaf7.setDateFormatString("dd-MM-yyyy");
-        fechaf7.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        fechaVIH2.setBackground(new java.awt.Color(245, 245, 245));
+        fechaVIH2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        fechaVIH2.setDateFormatString("dd-MM-yyyy");
+        fechaVIH2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-        fechaf8.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf8.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        fechaf8.setDateFormatString("dd-MM-yyyy");
-        fechaf8.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        fechaELisa.setBackground(new java.awt.Color(245, 245, 245));
+        fechaELisa.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        fechaELisa.setDateFormatString("dd-MM-yyyy");
+        fechaELisa.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1452,63 +1703,63 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addComponent(jLabel51))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPadre56, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre57, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre70, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre74, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtVDRL1nr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVDRL2nr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPruebanr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVIH2nr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(51, 51, 51)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtPadre75, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVIH2r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtPadre69, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPadre60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPadre61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPadre59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPadre66, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtPadre72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtPadre78, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtPadre58, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre65, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre71, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre77, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtPruebar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtVDRL2a, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtVDRL1a, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtFTAr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTHPAr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtVIHr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtElisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtFTAnr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTHPAnr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtVIH1nr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtElisanr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPadre68, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre73, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPruebanh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVIHnh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fechaf9, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaf10, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaf7, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaf8, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaf5, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaf6, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaf11, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(fechaPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaVIH1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaVIH2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaELisa, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaTHPA, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaVDRL2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaFTA, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre62, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre64, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre63, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre67, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre79, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre76, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtVDRL1nh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFTAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVDRL2nh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTHPAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtElisanh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVIH2nh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(34, 34, 34)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPadre82, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre81, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre83, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre84, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre85, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFTAna, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtVDRL2na, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTHPAna, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtElisana, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtVIH2na, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 141, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(fechaf12, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(fechaVDRL1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -1524,74 +1775,74 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                 .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPadre56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVDRL1nr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel32)
-                            .addComponent(txtPadre61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(fechaf12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtVDRL1a, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVDRL1nh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(fechaVDRL1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel31)
-                            .addComponent(txtPadre57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre63, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre81, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtVDRL2nr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVDRL2a, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVDRL2nh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVDRL2na, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel29)
-                            .addComponent(txtPadre58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre82, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtFTAnr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFTAr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFTAnh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFTAna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel39)
-                            .addComponent(txtPadre65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre83, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTHPAnr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTHPAr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTHPAnh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTHPAna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel40)
-                            .addComponent(txtPadre70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre69, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPruebanr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPruebar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPruebanh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel41)
-                            .addComponent(txtPadre71, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre72, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre73, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtVIH1nr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVIHr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVIHnh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel42)
-                            .addComponent(txtPadre74, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre75, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre76, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre85, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtVIH2nr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVIH2r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVIH2nh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVIH2na, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel43)
-                            .addComponent(txtPadre77, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre78, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre79, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre84, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtElisanr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtElisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtElisanh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtElisana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(fechaf6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fechaVDRL2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaf11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fechaFTA, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaf5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fechaTHPA, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaf9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fechaPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaf10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fechaVIH1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaf7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fechaVIH2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fechaf8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(fechaELisa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1602,16 +1853,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel56.setForeground(new java.awt.Color(51, 51, 51));
         jLabel56.setText("Negativo");
 
-        txtPadre86.setEditable(false);
-        txtPadre86.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre86.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre86.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre86.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre86.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre86.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre86.addCaretListener(new javax.swing.event.CaretListener() {
+        txtIFIp.setEditable(false);
+        txtIFIp.setBackground(new java.awt.Color(255, 204, 51));
+        txtIFIp.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtIFIp.setForeground(new java.awt.Color(102, 102, 102));
+        txtIFIp.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtIFIp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtIFIp.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtIFIp.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre86CaretUpdate(evt);
+                txtIFIpCaretUpdate(evt);
             }
         });
 
@@ -1623,29 +1874,29 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel44.setForeground(new java.awt.Color(51, 51, 51));
         jLabel44.setText("IFI / Westerm Blot");
 
-        txtPadre87.setEditable(false);
-        txtPadre87.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre87.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre87.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre87.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre87.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre87.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre87.addCaretListener(new javax.swing.event.CaretListener() {
+        txtIFIn.setEditable(false);
+        txtIFIn.setBackground(new java.awt.Color(255, 255, 255));
+        txtIFIn.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtIFIn.setForeground(new java.awt.Color(102, 102, 102));
+        txtIFIn.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtIFIn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtIFIn.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtIFIn.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre87CaretUpdate(evt);
+                txtIFInCaretUpdate(evt);
             }
         });
 
-        txtPadre88.setEditable(false);
-        txtPadre88.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre88.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre88.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre88.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre88.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre88.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre88.addCaretListener(new javax.swing.event.CaretListener() {
+        txtIFInh.setEditable(false);
+        txtIFInh.setBackground(new java.awt.Color(255, 204, 51));
+        txtIFInh.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtIFInh.setForeground(new java.awt.Color(102, 102, 102));
+        txtIFInh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtIFInh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtIFInh.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtIFInh.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre88CaretUpdate(evt);
+                txtIFInhCaretUpdate(evt);
             }
         });
 
@@ -2325,16 +2576,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         });
 
-        txtPadre133.setEditable(false);
-        txtPadre133.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre133.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre133.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre133.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre133.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre133.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre133.addCaretListener(new javax.swing.event.CaretListener() {
+        txtIFIna.setEditable(false);
+        txtIFIna.setBackground(new java.awt.Color(255, 255, 255));
+        txtIFIna.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtIFIna.setForeground(new java.awt.Color(102, 102, 102));
+        txtIFIna.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtIFIna.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtIFIna.setPreferredSize(new java.awt.Dimension(18, 18));
+        txtIFIna.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtPadre133CaretUpdate(evt);
+                txtIFInaCaretUpdate(evt);
             }
         });
 
@@ -2445,7 +2696,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(txtPadre107, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPadre87, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtIFIn, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPadre89, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPadre98, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPadre104, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2467,16 +2718,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txtPadre99, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtPadre90, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtPadre86, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtIFIp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtPadre93, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtPadre96, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtPadre102, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(txtPadre108, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(jLabel56)
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel57))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2485,11 +2731,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(jLabel70)
                             .addComponent(jLabel71)
                             .addComponent(jLabel72)
-                            .addComponent(jLabel73))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel73)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(jLabel56)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel57)))
+                .addGap(17, 17, 17)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre88, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIFInh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPadre94, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPadre91, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPadre97, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2506,7 +2757,15 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(txtPadre114, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(fechaf30, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(txtPadre136, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(fechaf28, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtPadre135, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2516,7 +2775,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                     .addComponent(txtPadre112, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPadre113, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre133, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtIFIna, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, 0)
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2532,22 +2791,15 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                         .addComponent(jLabel67))
                                     .addComponent(fechaf27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(txtPadre114, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(fechaf30, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(txtPadre136, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(fechaf28, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(txtPadre137, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(fechaf29, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(fechaf29, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fechaf31, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaf32, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(fechaf32, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaf31, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -2582,11 +2834,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                 .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPadre87, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIFIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel44)
-                            .addComponent(txtPadre86, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre88, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre133, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtIFIp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIFInh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIFIna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel59)
@@ -3036,7 +3288,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 167, Short.MAX_VALUE))
+                        .addGap(0, 625, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -3054,14 +3306,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 711, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3176,9 +3430,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPadre134CaretUpdate
 
-    private void txtPadre133CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre133CaretUpdate
+    private void txtIFInaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtIFInaCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre133CaretUpdate
+    }//GEN-LAST:event_txtIFInaCaretUpdate
 
     private void txtPadre132CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre132CaretUpdate
         // TODO add your handling code here:
@@ -3356,185 +3610,781 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPadre89CaretUpdate
 
-    private void txtPadre88CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre88CaretUpdate
+    private void txtIFInhCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtIFInhCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre88CaretUpdate
+    }//GEN-LAST:event_txtIFInhCaretUpdate
 
-    private void txtPadre87CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre87CaretUpdate
+    private void txtIFInCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtIFInCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre87CaretUpdate
+    }//GEN-LAST:event_txtIFInCaretUpdate
 
-    private void txtPadre86CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre86CaretUpdate
+    private void txtIFIpCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtIFIpCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre86CaretUpdate
+    }//GEN-LAST:event_txtIFIpCaretUpdate
 
-    private void txtPadre85CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre85CaretUpdate
+    private void txtVIH2naCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVIH2naCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre85CaretUpdate
+    }//GEN-LAST:event_txtVIH2naCaretUpdate
 
-    private void txtPadre84CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre84CaretUpdate
+    private void txtElisanaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtElisanaCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre84CaretUpdate
+    }//GEN-LAST:event_txtElisanaCaretUpdate
 
-    private void txtPadre83CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre83CaretUpdate
+    private void txtTHPAnaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtTHPAnaCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre83CaretUpdate
+    }//GEN-LAST:event_txtTHPAnaCaretUpdate
 
-    private void txtPadre82CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre82CaretUpdate
+    private void txtFTAnaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtFTAnaCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre82CaretUpdate
+    }//GEN-LAST:event_txtFTAnaCaretUpdate
 
-    private void txtPadre81CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre81CaretUpdate
+    private void txtVDRL2naCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVDRL2naCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre81CaretUpdate
+    }//GEN-LAST:event_txtVDRL2naCaretUpdate
 
-    private void txtPadre79CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre79CaretUpdate
+    private void txtElisanhCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtElisanhCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre79CaretUpdate
+    }//GEN-LAST:event_txtElisanhCaretUpdate
 
-    private void txtPadre78CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre78CaretUpdate
+    private void txtElisarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtElisarCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre78CaretUpdate
+    }//GEN-LAST:event_txtElisarCaretUpdate
 
-    private void txtPadre77CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre77CaretUpdate
+    private void txtElisanrCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtElisanrCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre77CaretUpdate
+    }//GEN-LAST:event_txtElisanrCaretUpdate
 
-    private void txtPadre76CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre76CaretUpdate
+    private void txtVIH2nhCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVIH2nhCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre76CaretUpdate
+    }//GEN-LAST:event_txtVIH2nhCaretUpdate
 
-    private void txtPadre75CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre75CaretUpdate
+    private void txtVIH2rCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVIH2rCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre75CaretUpdate
+    }//GEN-LAST:event_txtVIH2rCaretUpdate
 
-    private void txtPadre74CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre74CaretUpdate
+    private void txtVIH2nrCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVIH2nrCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre74CaretUpdate
+    }//GEN-LAST:event_txtVIH2nrCaretUpdate
 
-    private void txtPadre73CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre73CaretUpdate
+    private void txtVIHnhCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVIHnhCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre73CaretUpdate
+    }//GEN-LAST:event_txtVIHnhCaretUpdate
 
-    private void txtPadre72CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre72CaretUpdate
+    private void txtVIHrCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVIHrCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre72CaretUpdate
+    }//GEN-LAST:event_txtVIHrCaretUpdate
 
-    private void txtPadre71CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre71CaretUpdate
+    private void txtVIH1nrCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVIH1nrCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre71CaretUpdate
+    }//GEN-LAST:event_txtVIH1nrCaretUpdate
 
-    private void txtPadre68CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre68CaretUpdate
+    private void txtPruebanhCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPruebanhCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre68CaretUpdate
+    }//GEN-LAST:event_txtPruebanhCaretUpdate
 
-    private void txtPadre69CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre69CaretUpdate
+    private void txtPruebarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPruebarCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre69CaretUpdate
+    }//GEN-LAST:event_txtPruebarCaretUpdate
 
-    private void txtPadre70CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre70CaretUpdate
+    private void txtPruebanrCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPruebanrCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre70CaretUpdate
+    }//GEN-LAST:event_txtPruebanrCaretUpdate
 
-    private void txtPadre67CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre67CaretUpdate
+    private void txtTHPAnhCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtTHPAnhCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre67CaretUpdate
+    }//GEN-LAST:event_txtTHPAnhCaretUpdate
 
-    private void txtPadre66CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre66CaretUpdate
+    private void txtTHPArCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtTHPArCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre66CaretUpdate
+    }//GEN-LAST:event_txtTHPArCaretUpdate
 
-    private void txtPadre65CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre65CaretUpdate
+    private void txtTHPAnrCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtTHPAnrCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre65CaretUpdate
+    }//GEN-LAST:event_txtTHPAnrCaretUpdate
 
-    private void txtPadre64CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre64CaretUpdate
+    private void txtFTAnhCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtFTAnhCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre64CaretUpdate
+    }//GEN-LAST:event_txtFTAnhCaretUpdate
 
-    private void txtPadre59CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre59CaretUpdate
+    private void txtFTArCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtFTArCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre59CaretUpdate
+    }//GEN-LAST:event_txtFTArCaretUpdate
 
-    private void txtPadre58CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre58CaretUpdate
+    private void txtFTAnrCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtFTAnrCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre58CaretUpdate
+    }//GEN-LAST:event_txtFTAnrCaretUpdate
 
-    private void txtPadre63CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre63CaretUpdate
+    private void txtVDRL2nhCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVDRL2nhCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre63CaretUpdate
+    }//GEN-LAST:event_txtVDRL2nhCaretUpdate
 
-    private void txtPadre60CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre60CaretUpdate
+    private void txtVDRL2aCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVDRL2aCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre60CaretUpdate
+    }//GEN-LAST:event_txtVDRL2aCaretUpdate
 
-    private void txtPadre57CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre57CaretUpdate
+    private void txtVDRL2nrCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVDRL2nrCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre57CaretUpdate
+    }//GEN-LAST:event_txtVDRL2nrCaretUpdate
 
-    private void txtPadre62CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre62CaretUpdate
+    private void txtVDRL1nhCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVDRL1nhCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre62CaretUpdate
+    }//GEN-LAST:event_txtVDRL1nhCaretUpdate
 
-    private void txtPadre56CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre56CaretUpdate
+    private void txtVDRL1nrCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVDRL1nrCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre56CaretUpdate
+    }//GEN-LAST:event_txtVDRL1nrCaretUpdate
 
-    private void txtPadre61CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre61CaretUpdate
+    private void txtVDRL1aCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVDRL1aCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre61CaretUpdate
+    }//GEN-LAST:event_txtVDRL1aCaretUpdate
 
-    private void txtPadre147CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre147CaretUpdate
+    private void txtTGNACaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtTGNACaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre147CaretUpdate
+    }//GEN-LAST:event_txtTGNACaretUpdate
 
-    private void txtPadre51CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre51CaretUpdate
+    private void txtG2NCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtG2NCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre51CaretUpdate
+    }//GEN-LAST:event_txtG2NCaretUpdate
 
-    private void txtPadre16CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre16CaretUpdate
+    private void txtG1NCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtG1NCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre16CaretUpdate
+    }//GEN-LAST:event_txtG1NCaretUpdate
 
-    private void txtPadre19CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre19CaretUpdate
+    private void txtTGNHCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtTGNHCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre19CaretUpdate
+    }//GEN-LAST:event_txtTGNHCaretUpdate
 
-    private void txtPadre55CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre55CaretUpdate
+    private void txtTGACaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtTGACaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre55CaretUpdate
+    }//GEN-LAST:event_txtTGACaretUpdate
 
-    private void txtPadre54CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre54CaretUpdate
+    private void txtG2ACaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtG2ACaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre54CaretUpdate
+    }//GEN-LAST:event_txtG2ACaretUpdate
 
-    private void txtPadre18CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre18CaretUpdate
+    private void txtG2NACaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtG2NACaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre18CaretUpdate
+    }//GEN-LAST:event_txtG2NACaretUpdate
 
-    private void txtPadre53CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre53CaretUpdate
+    private void txtG1ACaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtG1ACaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre53CaretUpdate
+    }//GEN-LAST:event_txtG1ACaretUpdate
 
-    private void txtPadre14CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre14CaretUpdate
+    private void txtG1NACaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtG1NACaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre14CaretUpdate
+    }//GEN-LAST:event_txtG1NACaretUpdate
 
-    private void txtPadre52CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre52CaretUpdate
+    private void txtTGNCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtTGNCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre52CaretUpdate
+    }//GEN-LAST:event_txtTGNCaretUpdate
 
-    private void txtPadre33CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre33CaretUpdate
+    private void chkH3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_chkH3CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre33CaretUpdate
+    }//GEN-LAST:event_chkH3CaretUpdate
 
-    private void txtPadre17CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre17CaretUpdate
+    private void chkH2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_chkH2CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre17CaretUpdate
+    }//GEN-LAST:event_chkH2CaretUpdate
 
-    private void txtPadre15CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre15CaretUpdate
+    private void chkH1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_chkH1CaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPadre15CaretUpdate
+    }//GEN-LAST:event_chkH1CaretUpdate
+
+    private void chkH3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkH3MouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+            
+        if(chkH3.getText().equals("X") && evt.getClickCount()==1){
+           chkH3.setText(""); 
+           txtH3.setEnabled(true);
+           dFechaH3.setEnabled(true);
+        }else
+        if(chkH3.getText().equals("") && evt.getClickCount()==1){
+           chkH3.setText("X");
+           txtH3.setEnabled(false);
+           dFechaH3.setEnabled(false);
+        }
+        }
+    }//GEN-LAST:event_chkH3MouseClicked
+
+    private void chkH1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkH1MouseClicked
+       if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+            
+        if(chkH1.getText().equals("X") && evt.getClickCount()==1){
+           chkH1.setText(""); 
+           txtH1.setEnabled(true);
+           dFechaH1.setEnabled(true);
+        }else
+        if(chkH1.getText().equals("") && evt.getClickCount()==1){
+           chkH1.setText("X");
+           txtH1.setEnabled(false);
+           dFechaH1.setEnabled(false);
+        }
+        }
+    }//GEN-LAST:event_chkH1MouseClicked
+
+    private void chkH2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkH2MouseClicked
+       if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+            
+        if(chkH2.getText().equals("X") && evt.getClickCount()==1){
+           chkH2.setText(""); 
+           txtH2.setEnabled(true);
+           dFechaH2.setEnabled(true);
+        }else
+        if(chkH2.getText().equals("") && evt.getClickCount()==1){
+           chkH2.setText("X");
+           txtH2.setEnabled(false);
+           dFechaH2.setEnabled(false);
+        }
+        }
+    }//GEN-LAST:event_chkH2MouseClicked
+
+    private void txtG1NMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtG1NMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtG1N.getText().equals("") && evt.getClickCount()==1){
+           txtG1N.setText("X");
+           txtG1A.setText("");
+           txtG1NA.setText("");
+           fechaG1.setEnabled(true);
+
+        }else
+        if(txtG1N.getText().equals("X") && evt.getClickCount()==1){
+           txtG1N.setText(""); 
+           txtG1A.setText("");
+           txtG1NA.setText("");
+           fechaG1.setEnabled(false);
+        }
+       }
+    }//GEN-LAST:event_txtG1NMouseClicked
+
+    private void txtG1AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtG1AMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtG1A.getText().equals("") && evt.getClickCount()==1){
+           txtG1A.setText("X");
+           txtG1N.setText("");
+           txtG1NA.setText("");
+           fechaG1.setEnabled(true);
+
+        }else
+        if(txtG1A.getText().equals("X") && evt.getClickCount()==1){
+           txtG1A.setText(""); 
+           txtG1N.setText("");
+           txtG1NA.setText("");
+           fechaG1.setEnabled(false);
+        }
+       }
+    }//GEN-LAST:event_txtG1AMouseClicked
+
+    private void txtG1NAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtG1NAMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtG1NA.getText().equals("") && evt.getClickCount()==1){
+           txtG1NA.setText("X");
+           txtG1N.setText("");
+           txtG1A.setText("");
+           fechaG1.setEnabled(false);
+
+        }else
+        if(txtG1NA.getText().equals("X") && evt.getClickCount()==1){
+           txtG1NA.setText(""); 
+           txtG1N.setText("");
+           txtG1A.setText("");
+           fechaG1.setEnabled(true);
+        }
+       }
+    }//GEN-LAST:event_txtG1NAMouseClicked
+
+    private void txtG2NMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtG2NMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtG2N.getText().equals("") && evt.getClickCount()==1){
+           txtG2N.setText("X");
+           txtG2A.setText("");
+           txtG2NA.setText("");
+           fechaG2.setEnabled(true);
+
+        }else
+        if(txtG2N.getText().equals("X") && evt.getClickCount()==1){
+           txtG2N.setText(""); 
+           txtG2A.setText("");
+           txtG2NA.setText("");
+           fechaG2.setEnabled(false);
+        }
+       }
+    }//GEN-LAST:event_txtG2NMouseClicked
+
+    private void txtG2AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtG2AMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtG2A.getText().equals("") && evt.getClickCount()==1){
+           txtG2A.setText("X");
+           txtG2N.setText("");
+           txtG2NA.setText("");
+           fechaG2.setEnabled(true);
+
+        }else
+        if(txtG2A.getText().equals("X") && evt.getClickCount()==1){
+           txtG2A.setText(""); 
+           txtG2N.setText("");
+           txtG2NA.setText("");
+           fechaG2.setEnabled(false);
+        }
+       }
+    }//GEN-LAST:event_txtG2AMouseClicked
+
+    private void txtG2NAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtG2NAMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtG2NA.getText().equals("") && evt.getClickCount()==1){
+           txtG2NA.setText("X");
+           txtG2N.setText("");
+           txtG2A.setText("");
+           fechaG2.setEnabled(false);
+
+        }else
+        if(txtG2NA.getText().equals("X") && evt.getClickCount()==1){
+           txtG2NA.setText(""); 
+           txtG2N.setText("");
+           txtG2A.setText("");
+           fechaG2.setEnabled(true);
+        }
+       }
+    }//GEN-LAST:event_txtG2NAMouseClicked
+
+    private void txtTGNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTGNMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtTGN.getText().equals("") && evt.getClickCount()==1){
+           txtTGN.setText("X");
+           txtTGA.setText("");
+           txtTGNH.setText("");
+           txtTGNA.setText("");
+           fechaTG.setEnabled(true);
+
+        }else
+        if(txtTGN.getText().equals("X") && evt.getClickCount()==1){
+           txtTGN.setText("");
+           txtTGA.setText("");
+           txtTGNH.setText("");
+           txtTGNA.setText("");
+           fechaTG.setEnabled(false);
+        }
+       }
+    }//GEN-LAST:event_txtTGNMouseClicked
+
+    private void txtTGAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTGAMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtTGA.getText().equals("") && evt.getClickCount()==1){
+           txtTGA.setText("X");
+           txtTGN.setText("");
+           txtTGNH.setText("");
+           txtTGNA.setText("");
+           fechaTG.setEnabled(true);
+
+        }else
+        if(txtTGA.getText().equals("X") && evt.getClickCount()==1){
+           txtTGA.setText("");
+           txtTGN.setText("");
+           txtTGNH.setText("");
+           txtTGNA.setText("");
+           fechaTG.setEnabled(false);
+        }
+       }
+    }//GEN-LAST:event_txtTGAMouseClicked
+
+    private void txtTGNHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTGNHMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtTGNH.getText().equals("") && evt.getClickCount()==1){
+           txtTGNH.setText("X");
+           txtTGN.setText("");
+           txtTGA.setText("");
+           txtTGNA.setText("");
+           fechaTG.setEnabled(false);
+
+        }else
+        if(txtTGNH.getText().equals("X") && evt.getClickCount()==1){
+           txtTGNH.setText("");
+           txtTGN.setText("");
+           txtTGA.setText("");
+           txtTGNA.setText("");
+           fechaTG.setEnabled(true);
+        }
+       }
+    }//GEN-LAST:event_txtTGNHMouseClicked
+
+    private void txtTGNAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTGNAMouseClicked
+          if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtTGNA.getText().equals("") && evt.getClickCount()==1){
+           txtTGNA.setText("X");
+           txtTGN.setText("");
+           txtTGNH.setText("");
+           txtTGA.setText("");
+           fechaTG.setEnabled(false);
+
+        }else
+        if(txtTGNA.getText().equals("X") && evt.getClickCount()==1){
+           txtTGNA.setText("");
+           txtTGN.setText("");
+           txtTGNH.setText("");
+           txtTGA.setText("");
+           fechaTG.setEnabled(true);
+        }
+       }
+    }//GEN-LAST:event_txtTGNAMouseClicked
+
+    private void txtVDRL1nrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtVDRL1nrMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtVDRL1nr.getText().equals("") && evt.getClickCount()==1){
+           txtVDRL1nr.setText("X");
+           txtVDRL1a.setText("");
+           txtVDRL1nh.setText("");
+           fechaVDRL1.setEnabled(true);
+
+        }else
+        if(txtVDRL1nr.getText().equals("X") && evt.getClickCount()==1){
+           txtVDRL1nr.setText("");
+           txtVDRL1a.setText("");
+           txtVDRL1nh.setText("");
+           fechaVDRL1.setEnabled(false);
+           
+        }
+       }
+    }//GEN-LAST:event_txtVDRL1nrMouseClicked
+
+    private void txtVDRL1aMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtVDRL1aMouseClicked
+       if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtVDRL1a.getText().equals("") && evt.getClickCount()==1){
+           txtVDRL1a.setText("X");
+           txtVDRL1nr.setText("");
+           txtVDRL1nh.setText("");
+           fechaVDRL1.setEnabled(true);
+
+        }else
+        if(txtVDRL1a.getText().equals("X") && evt.getClickCount()==1){
+           txtVDRL1a.setText("");
+           txtVDRL1nr.setText("");
+           txtVDRL1nh.setText("");
+           fechaVDRL1.setEnabled(false);
+        }
+       }
+    }//GEN-LAST:event_txtVDRL1aMouseClicked
+
+    private void txtVDRL1nhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtVDRL1nhMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtVDRL1nh.getText().equals("") && evt.getClickCount()==1){
+           txtVDRL1nh.setText("X");
+           txtVDRL1a.setText("");
+           txtVDRL1nr.setText("");
+           fechaVDRL1.setEnabled(false);
+
+        }else
+        if(txtVDRL1nh.getText().equals("X") && evt.getClickCount()==1){
+           txtVDRL1nh.setText("");
+           txtVDRL1a.setText("");
+           txtVDRL1nr.setText("");
+           fechaVDRL1.setEnabled(true);
+           
+        }
+       }
+    }//GEN-LAST:event_txtVDRL1nhMouseClicked
+
+    private void txtVDRL2nrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtVDRL2nrMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtVDRL2nr.getText().equals("") && evt.getClickCount()==1){
+           txtVDRL2nr.setText("X");
+           txtVDRL2a.setText("");
+           txtVDRL2nh.setText("");
+           txtVDRL2na.setText("");
+           fechaVDRL2.setEnabled(true);
+
+        }else
+        if(txtVDRL2nr.getText().equals("X") && evt.getClickCount()==1){
+           txtVDRL2nr.setText("");
+           txtVDRL2a.setText("");
+           txtVDRL2nh.setText("");
+           txtVDRL2na.setText("");
+           fechaVDRL2.setEnabled(false);
+           
+        }
+       }
+    }//GEN-LAST:event_txtVDRL2nrMouseClicked
+
+    private void txtVDRL2aMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtVDRL2aMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtVDRL2a.getText().equals("") && evt.getClickCount()==1){
+           txtVDRL2a.setText("X");
+           txtVDRL2nr.setText("");
+           txtVDRL2nh.setText("");
+           txtVDRL2na.setText("");
+           fechaVDRL2.setEnabled(true);
+
+        }else
+        if(txtVDRL2a.getText().equals("X") && evt.getClickCount()==1){
+           txtVDRL2a.setText("");
+           txtVDRL2nr.setText("");
+           txtVDRL2nh.setText("");
+           txtVDRL2na.setText("");
+           fechaVDRL2.setEnabled(false);
+        }
+       }
+    }//GEN-LAST:event_txtVDRL2aMouseClicked
+
+    private void txtVDRL2nhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtVDRL2nhMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtVDRL2nh.getText().equals("") && evt.getClickCount()==1){
+           txtVDRL2nh.setText("X");
+           txtVDRL2a.setText("");
+           txtVDRL2nr.setText("");
+           txtVDRL2na.setText("");
+           fechaVDRL2.setEnabled(false);
+
+        }else
+        if(txtVDRL2nh.getText().equals("X") && evt.getClickCount()==1){
+           txtVDRL2nh.setText("");
+           txtVDRL2a.setText("");
+           txtVDRL2nr.setText("");
+           txtVDRL2na.setText("");
+           fechaVDRL2.setEnabled(true);
+           
+        }
+       }
+    }//GEN-LAST:event_txtVDRL2nhMouseClicked
+
+    private void txtVDRL2naMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtVDRL2naMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtVDRL2na.getText().equals("") && evt.getClickCount()==1){
+           txtVDRL2na.setText("X");
+           txtVDRL2a.setText("");
+           txtVDRL2nr.setText("");
+           txtVDRL2nh.setText("");
+           fechaVDRL2.setEnabled(false);
+
+        }else
+        if(txtVDRL2na.getText().equals("X") && evt.getClickCount()==1){
+           txtVDRL2na.setText("");
+           txtVDRL2a.setText("");
+           txtVDRL2nr.setText("");
+           txtVDRL2nh.setText("");
+           fechaVDRL2.setEnabled(true);
+           
+        }
+       }
+    }//GEN-LAST:event_txtVDRL2naMouseClicked
+
+    private void txtFTAnrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFTAnrMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtFTAnr.getText().equals("") && evt.getClickCount()==1){
+           txtFTAnr.setText("X");
+           txtFTAr.setText("");
+           txtFTAnh.setText("");
+           txtFTAna.setText("");
+           fechaFTA.setEnabled(true);
+
+        }else
+        if(txtFTAnr.getText().equals("X") && evt.getClickCount()==1){
+           txtFTAnr.setText("");
+           txtFTAr.setText("");
+           txtFTAnh.setText("");
+           txtFTAna.setText("");
+           fechaFTA.setEnabled(false);
+           
+        }
+       }
+    }//GEN-LAST:event_txtFTAnrMouseClicked
+
+    private void txtFTArMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFTArMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtFTAr.getText().equals("") && evt.getClickCount()==1){
+           txtFTAr.setText("X");
+           txtFTAnr.setText("");
+           txtFTAnh.setText("");
+           txtFTAna.setText("");
+           fechaFTA.setEnabled(true);
+
+        }else
+        if(txtFTAr.getText().equals("X") && evt.getClickCount()==1){
+           txtFTAr.setText("");
+           txtFTAnr.setText("");
+           txtFTAnh.setText("");
+           txtFTAna.setText("");
+           fechaFTA.setEnabled(false);
+           
+        }
+       }
+    }//GEN-LAST:event_txtFTArMouseClicked
+
+    private void txtFTAnhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFTAnhMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtFTAnh.getText().equals("") && evt.getClickCount()==1){
+           txtFTAnh.setText("X");
+           txtFTAr.setText("");
+           txtFTAnr.setText("");
+           txtFTAna.setText("");
+           fechaFTA.setEnabled(false);
+
+        }else
+        if(txtFTAnh.getText().equals("X") && evt.getClickCount()==1){
+           txtFTAnh.setText("");
+           txtFTAr.setText("");
+           txtFTAnr.setText("");
+           txtFTAna.setText("");
+           fechaFTA.setEnabled(true);
+           
+        }
+       }
+    }//GEN-LAST:event_txtFTAnhMouseClicked
+
+    private void txtFTAnaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFTAnaMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtFTAna.getText().equals("") && evt.getClickCount()==1){
+           txtFTAna.setText("X");
+           txtFTAr.setText("");
+           txtFTAnh.setText("");
+           txtFTAnr.setText("");
+           fechaFTA.setEnabled(false);
+
+        }else
+        if(txtFTAna.getText().equals("X") && evt.getClickCount()==1){
+           txtFTAna.setText("");
+           txtFTAr.setText("");
+           txtFTAnh.setText("");
+           txtFTAnr.setText("");
+           fechaFTA.setEnabled(true);
+           
+        }
+       }
+    }//GEN-LAST:event_txtFTAnaMouseClicked
+
+    private void txtTHPAnrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTHPAnrMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtTHPAnr.getText().equals("") && evt.getClickCount()==1){
+           txtTHPAnr.setText("X");
+           txtTHPAr.setText("");
+           txtTHPAnh.setText("");
+           txtTHPAna.setText("");
+           fechaTHPA.setEnabled(true);
+
+        }else
+        if(txtTHPAnr.getText().equals("X") && evt.getClickCount()==1){
+           txtTHPAnr.setText("");
+           txtTHPAr.setText("");
+           txtTHPAnh.setText("");
+           txtTHPAna.setText("");
+           fechaTHPA.setEnabled(false);
+           
+        }
+       }
+    }//GEN-LAST:event_txtTHPAnrMouseClicked
+
+    private void txtTHPArMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTHPArMouseClicked
+       if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtTHPAr.getText().equals("") && evt.getClickCount()==1){
+           txtTHPAr.setText("X");
+           txtTHPAnr.setText("");
+           txtTHPAnh.setText("");
+           txtTHPAna.setText("");
+           fechaTHPA.setEnabled(true);
+
+        }else
+        if(txtTHPAr.getText().equals("X") && evt.getClickCount()==1){
+           txtTHPAr.setText("");
+           txtTHPAnr.setText("");
+           txtTHPAnh.setText("");
+           txtTHPAna.setText("");
+           fechaTHPA.setEnabled(false);
+           
+        }
+       }
+    }//GEN-LAST:event_txtTHPArMouseClicked
+
+    private void txtTHPAnhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTHPAnhMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtTHPAnh.getText().equals("") && evt.getClickCount()==1){
+           txtTHPAnh.setText("X");
+           txtTHPAr.setText("");
+           txtTHPAnr.setText("");
+           txtTHPAna.setText("");
+           fechaTHPA.setEnabled(false);
+
+        }else
+        if(txtTHPAnh.getText().equals("X") && evt.getClickCount()==1){
+           txtTHPAnh.setText("");
+           txtTHPAr.setText("");
+           txtTHPAnr.setText("");
+           txtTHPAna.setText("");
+           fechaTHPA.setEnabled(true);
+           
+        }
+       }
+    }//GEN-LAST:event_txtTHPAnhMouseClicked
+
+    private void txtTHPAnaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTHPAnaMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtTHPAna.getText().equals("") && evt.getClickCount()==1){
+           txtTHPAna.setText("X");
+           txtTHPAr.setText("");
+           txtTHPAnh.setText("");
+           txtTHPAnr.setText("");
+           fechaTHPA.setEnabled(false);
+
+        }else
+        if(txtTHPAna.getText().equals("X") && evt.getClickCount()==1){
+           txtTHPAna.setText("");
+           txtTHPAr.setText("");
+           txtTHPAnh.setText("");
+           txtTHPAnr.setText("");
+           fechaTHPA.setEnabled(true);
+        }
+       }
+    }//GEN-LAST:event_txtTHPAnaMouseClicked
+
+    private void txtPruebanrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPruebanrMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtPruebanr.getText().equals("") && evt.getClickCount()==1){
+           txtPruebanr.setText("X");
+           txtPruebar.setText("");
+           txtPruebanh.setText("");
+           fechaPrueba.setEnabled(true);
+
+        }else
+        if(txtPruebanr.getText().equals("X") && evt.getClickCount()==1){
+           txtPruebanr.setText("");
+           txtPruebar.setText("");
+           txtPruebanh.setText("");
+           fechaPrueba.setEnabled(false); 
+        }
+       }
+    }//GEN-LAST:event_txtPruebanrMouseClicked
+
+    private void txtPruebarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPruebarMouseClicked
+        if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtPruebar.getText().equals("") && evt.getClickCount()==1){
+           txtPruebar.setText("X");
+           txtPruebanr.setText("");
+           txtPruebanh.setText("");
+           fechaPrueba.setEnabled(true);
+
+        }else
+        if(txtPruebar.getText().equals("X") && evt.getClickCount()==1){
+           txtPruebar.setText("");
+           txtPruebanr.setText("");
+           txtPruebanh.setText("");
+           fechaPrueba.setEnabled(false); 
+        }
+       }
+    }//GEN-LAST:event_txtPruebarMouseClicked
+
+    private void txtPruebanhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPruebanhMouseClicked
+         if (lblIdEx.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtPruebanh.getText().equals("") && evt.getClickCount()==1){
+           txtPruebanh.setText("X");
+           txtPruebar.setText("");
+           txtPruebanr.setText("");
+           fechaPrueba.setEnabled(false);
+
+        }else
+        if(txtPruebanh.getText().equals("X") && evt.getClickCount()==1){
+           txtPruebanh.setText("");
+           txtPruebar.setText("");
+           txtPruebanr.setText("");
+           fechaPrueba.setEnabled(true); 
+        }
+       }
+    }//GEN-LAST:event_txtPruebanhMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3545,15 +4395,23 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JButton btnCaccnelar1;
     private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btneditar;
-    private com.toedter.calendar.JDateChooser fechaf10;
-    private com.toedter.calendar.JDateChooser fechaf11;
-    private com.toedter.calendar.JDateChooser fechaf12;
-    private com.toedter.calendar.JDateChooser fechaf13;
-    private com.toedter.calendar.JDateChooser fechaf14;
-    private com.toedter.calendar.JDateChooser fechaf15;
-    private com.toedter.calendar.JDateChooser fechaf16;
-    private com.toedter.calendar.JDateChooser fechaf17;
-    private com.toedter.calendar.JDateChooser fechaf18;
+    public static javax.swing.JTextField chkH1;
+    public static javax.swing.JTextField chkH2;
+    public static javax.swing.JTextField chkH3;
+    private com.toedter.calendar.JDateChooser dFechaH1;
+    private com.toedter.calendar.JDateChooser dFechaH2;
+    private com.toedter.calendar.JDateChooser dFechaH3;
+    private com.toedter.calendar.JDateChooser fechaELisa;
+    private com.toedter.calendar.JDateChooser fechaFTA;
+    private com.toedter.calendar.JDateChooser fechaG1;
+    private com.toedter.calendar.JDateChooser fechaG2;
+    private com.toedter.calendar.JDateChooser fechaPrueba;
+    private com.toedter.calendar.JDateChooser fechaTG;
+    private com.toedter.calendar.JDateChooser fechaTHPA;
+    private com.toedter.calendar.JDateChooser fechaVDRL1;
+    private com.toedter.calendar.JDateChooser fechaVDRL2;
+    private com.toedter.calendar.JDateChooser fechaVIH1;
+    private com.toedter.calendar.JDateChooser fechaVIH2;
     private com.toedter.calendar.JDateChooser fechaf19;
     private com.toedter.calendar.JDateChooser fechaf20;
     private com.toedter.calendar.JDateChooser fechaf21;
@@ -3571,11 +4429,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private com.toedter.calendar.JDateChooser fechaf33;
     private com.toedter.calendar.JDateChooser fechaf34;
     private com.toedter.calendar.JDateChooser fechaf35;
-    private com.toedter.calendar.JDateChooser fechaf5;
-    private com.toedter.calendar.JDateChooser fechaf6;
-    private com.toedter.calendar.JDateChooser fechaf7;
-    private com.toedter.calendar.JDateChooser fechaf8;
-    private com.toedter.calendar.JDateChooser fechaf9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -3643,118 +4496,117 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel lblIdEx;
+    private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblNina;
     public static javax.swing.JLabel lblusu1;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
-    private javax.swing.JTextField txtPadre100;
-    private javax.swing.JTextField txtPadre101;
-    private javax.swing.JTextField txtPadre102;
-    private javax.swing.JTextField txtPadre103;
-    private javax.swing.JTextField txtPadre104;
-    private javax.swing.JTextField txtPadre105;
-    private javax.swing.JTextField txtPadre106;
-    private javax.swing.JTextField txtPadre107;
-    private javax.swing.JTextField txtPadre108;
-    private javax.swing.JTextField txtPadre109;
-    private javax.swing.JTextField txtPadre110;
-    private javax.swing.JTextField txtPadre111;
-    private javax.swing.JTextField txtPadre112;
-    private javax.swing.JTextField txtPadre113;
-    private javax.swing.JTextField txtPadre114;
-    private javax.swing.JTextField txtPadre115;
-    private javax.swing.JTextField txtPadre116;
-    private javax.swing.JTextField txtPadre117;
-    private javax.swing.JTextField txtPadre118;
-    private javax.swing.JTextField txtPadre119;
-    private javax.swing.JTextField txtPadre120;
-    private javax.swing.JTextField txtPadre121;
-    private javax.swing.JTextField txtPadre122;
-    private javax.swing.JTextField txtPadre123;
-    private javax.swing.JTextField txtPadre124;
-    private javax.swing.JTextField txtPadre125;
-    private javax.swing.JTextField txtPadre126;
-    private javax.swing.JTextField txtPadre127;
-    private javax.swing.JTextField txtPadre128;
-    private javax.swing.JTextField txtPadre129;
-    private javax.swing.JTextField txtPadre130;
-    private javax.swing.JTextField txtPadre131;
-    private javax.swing.JTextField txtPadre132;
-    private javax.swing.JTextField txtPadre133;
-    private javax.swing.JTextField txtPadre134;
-    private javax.swing.JTextField txtPadre135;
-    private javax.swing.JTextField txtPadre136;
-    private javax.swing.JTextField txtPadre137;
-    private javax.swing.JTextField txtPadre138;
-    private javax.swing.JTextField txtPadre139;
-    private javax.swing.JTextField txtPadre14;
-    private javax.swing.JTextField txtPadre140;
-    private javax.swing.JTextField txtPadre141;
-    private javax.swing.JTextField txtPadre142;
-    private javax.swing.JTextField txtPadre143;
-    private javax.swing.JTextField txtPadre144;
-    private javax.swing.JTextField txtPadre145;
-    private javax.swing.JTextField txtPadre146;
-    private javax.swing.JTextField txtPadre147;
-    private javax.swing.JTextField txtPadre15;
-    private javax.swing.JTextField txtPadre16;
-    private javax.swing.JTextField txtPadre162;
-    private javax.swing.JTextField txtPadre163;
-    private javax.swing.JTextField txtPadre17;
-    private javax.swing.JTextField txtPadre18;
-    private javax.swing.JTextField txtPadre185;
-    private javax.swing.JTextField txtPadre19;
-    private javax.swing.JTextField txtPadre33;
-    private javax.swing.JTextField txtPadre51;
-    private javax.swing.JTextField txtPadre52;
-    private javax.swing.JTextField txtPadre53;
-    private javax.swing.JTextField txtPadre54;
-    private javax.swing.JTextField txtPadre55;
-    private javax.swing.JTextField txtPadre56;
-    private javax.swing.JTextField txtPadre57;
-    private javax.swing.JTextField txtPadre58;
-    private javax.swing.JTextField txtPadre59;
-    private javax.swing.JTextField txtPadre60;
-    private javax.swing.JTextField txtPadre61;
-    private javax.swing.JTextField txtPadre62;
-    private javax.swing.JTextField txtPadre63;
-    private javax.swing.JTextField txtPadre64;
-    private javax.swing.JTextField txtPadre65;
-    private javax.swing.JTextField txtPadre66;
-    private javax.swing.JTextField txtPadre67;
-    private javax.swing.JTextField txtPadre68;
-    private javax.swing.JTextField txtPadre69;
-    private javax.swing.JTextField txtPadre70;
-    private javax.swing.JTextField txtPadre71;
-    private javax.swing.JTextField txtPadre72;
-    private javax.swing.JTextField txtPadre73;
-    private javax.swing.JTextField txtPadre74;
-    private javax.swing.JTextField txtPadre75;
-    private javax.swing.JTextField txtPadre76;
-    private javax.swing.JTextField txtPadre77;
-    private javax.swing.JTextField txtPadre78;
-    private javax.swing.JTextField txtPadre79;
-    private javax.swing.JTextField txtPadre81;
-    private javax.swing.JTextField txtPadre82;
-    private javax.swing.JTextField txtPadre83;
-    private javax.swing.JTextField txtPadre84;
-    private javax.swing.JTextField txtPadre85;
-    private javax.swing.JTextField txtPadre86;
-    private javax.swing.JTextField txtPadre87;
-    private javax.swing.JTextField txtPadre88;
-    private javax.swing.JTextField txtPadre89;
-    private javax.swing.JTextField txtPadre90;
-    private javax.swing.JTextField txtPadre91;
-    private javax.swing.JTextField txtPadre92;
-    private javax.swing.JTextField txtPadre93;
-    private javax.swing.JTextField txtPadre94;
-    private javax.swing.JTextField txtPadre95;
-    private javax.swing.JTextField txtPadre96;
-    private javax.swing.JTextField txtPadre97;
-    private javax.swing.JTextField txtPadre98;
-    private javax.swing.JTextField txtPadre99;
+    public static javax.swing.JTextField txtElisana;
+    public static javax.swing.JTextField txtElisanh;
+    public static javax.swing.JTextField txtElisanr;
+    public static javax.swing.JTextField txtElisar;
+    public static javax.swing.JTextField txtFTAna;
+    public static javax.swing.JTextField txtFTAnh;
+    public static javax.swing.JTextField txtFTAnr;
+    public static javax.swing.JTextField txtFTAr;
+    public static javax.swing.JTextField txtG1A;
+    public static javax.swing.JTextField txtG1N;
+    public static javax.swing.JTextField txtG1NA;
+    public static javax.swing.JTextField txtG2A;
+    public static javax.swing.JTextField txtG2N;
+    public static javax.swing.JTextField txtG2NA;
+    private javax.swing.JTextField txtH1;
+    private javax.swing.JTextField txtH2;
+    private javax.swing.JTextField txtH3;
+    public static javax.swing.JTextField txtIFIn;
+    public static javax.swing.JTextField txtIFIna;
+    public static javax.swing.JTextField txtIFInh;
+    public static javax.swing.JTextField txtIFIp;
+    public static javax.swing.JTextField txtPadre100;
+    public static javax.swing.JTextField txtPadre101;
+    public static javax.swing.JTextField txtPadre102;
+    public static javax.swing.JTextField txtPadre103;
+    public static javax.swing.JTextField txtPadre104;
+    public static javax.swing.JTextField txtPadre105;
+    public static javax.swing.JTextField txtPadre106;
+    public static javax.swing.JTextField txtPadre107;
+    public static javax.swing.JTextField txtPadre108;
+    public static javax.swing.JTextField txtPadre109;
+    public static javax.swing.JTextField txtPadre110;
+    public static javax.swing.JTextField txtPadre111;
+    public static javax.swing.JTextField txtPadre112;
+    public static javax.swing.JTextField txtPadre113;
+    public static javax.swing.JTextField txtPadre114;
+    public static javax.swing.JTextField txtPadre115;
+    public static javax.swing.JTextField txtPadre116;
+    public static javax.swing.JTextField txtPadre117;
+    public static javax.swing.JTextField txtPadre118;
+    public static javax.swing.JTextField txtPadre119;
+    public static javax.swing.JTextField txtPadre120;
+    public static javax.swing.JTextField txtPadre121;
+    public static javax.swing.JTextField txtPadre122;
+    public static javax.swing.JTextField txtPadre123;
+    public static javax.swing.JTextField txtPadre124;
+    public static javax.swing.JTextField txtPadre125;
+    public static javax.swing.JTextField txtPadre126;
+    public static javax.swing.JTextField txtPadre127;
+    public static javax.swing.JTextField txtPadre128;
+    public static javax.swing.JTextField txtPadre129;
+    public static javax.swing.JTextField txtPadre130;
+    public static javax.swing.JTextField txtPadre131;
+    public static javax.swing.JTextField txtPadre132;
+    public static javax.swing.JTextField txtPadre134;
+    public static javax.swing.JTextField txtPadre135;
+    public static javax.swing.JTextField txtPadre136;
+    public static javax.swing.JTextField txtPadre137;
+    public static javax.swing.JTextField txtPadre138;
+    public static javax.swing.JTextField txtPadre139;
+    public static javax.swing.JTextField txtPadre140;
+    public static javax.swing.JTextField txtPadre141;
+    public static javax.swing.JTextField txtPadre142;
+    public static javax.swing.JTextField txtPadre143;
+    public static javax.swing.JTextField txtPadre144;
+    public static javax.swing.JTextField txtPadre145;
+    public static javax.swing.JTextField txtPadre146;
+    public static javax.swing.JTextField txtPadre162;
+    public static javax.swing.JTextField txtPadre163;
+    public static javax.swing.JTextField txtPadre185;
+    public static javax.swing.JTextField txtPadre89;
+    public static javax.swing.JTextField txtPadre90;
+    public static javax.swing.JTextField txtPadre91;
+    public static javax.swing.JTextField txtPadre92;
+    public static javax.swing.JTextField txtPadre93;
+    public static javax.swing.JTextField txtPadre94;
+    public static javax.swing.JTextField txtPadre95;
+    public static javax.swing.JTextField txtPadre96;
+    public static javax.swing.JTextField txtPadre97;
+    public static javax.swing.JTextField txtPadre98;
+    public static javax.swing.JTextField txtPadre99;
+    public static javax.swing.JTextField txtPruebanh;
+    public static javax.swing.JTextField txtPruebanr;
+    public static javax.swing.JTextField txtPruebar;
+    public static javax.swing.JTextField txtTGA;
+    public static javax.swing.JTextField txtTGN;
+    public static javax.swing.JTextField txtTGNA;
+    public static javax.swing.JTextField txtTGNH;
+    public static javax.swing.JTextField txtTHPAna;
+    public static javax.swing.JTextField txtTHPAnh;
+    public static javax.swing.JTextField txtTHPAnr;
+    public static javax.swing.JTextField txtTHPAr;
+    public static javax.swing.JTextField txtVDRL1a;
+    public static javax.swing.JTextField txtVDRL1nh;
+    public static javax.swing.JTextField txtVDRL1nr;
+    public static javax.swing.JTextField txtVDRL2a;
+    public static javax.swing.JTextField txtVDRL2na;
+    public static javax.swing.JTextField txtVDRL2nh;
+    public static javax.swing.JTextField txtVDRL2nr;
+    public static javax.swing.JTextField txtVIH1nr;
+    public static javax.swing.JTextField txtVIH2na;
+    public static javax.swing.JTextField txtVIH2nh;
+    public static javax.swing.JTextField txtVIH2nr;
+    public static javax.swing.JTextField txtVIH2r;
+    public static javax.swing.JTextField txtVIHnh;
+    public static javax.swing.JTextField txtVIHr;
     // End of variables declaration//GEN-END:variables
 }

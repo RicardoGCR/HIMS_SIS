@@ -3688,7 +3688,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         }
         
-        if(opcionGuardar.equals("vg")){ // formulario de Emergencia
+        if(opcionGuardar.equals("vg")){ // formulario de violencia
             if(btnSi.getText().equals("Si")){ // Al guardar
                 mantenimientoVG();
             } else

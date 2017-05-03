@@ -1867,7 +1867,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
-         String variable;
+        String variable;
         variable=var.getText();
 
        if(variable=="1"){

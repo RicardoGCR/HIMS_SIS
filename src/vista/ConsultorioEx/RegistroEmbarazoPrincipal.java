@@ -23,6 +23,7 @@ import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAtencionPrenatal;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalCabecera;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEm;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEf;
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEl;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFd;
 
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFu;
@@ -1910,13 +1911,23 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_lblEFMouseClicked
 
     private void btnELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnELActionPerformed
-        RegistroEmbarazoEXL EXL =new RegistroEmbarazoEXL();
+       RegistroEmbarazoEXL EXL =new RegistroEmbarazoEXL();
         RegistroEmbarazo.ContenedorTablas.add(EXL);
         try {
             EXL.setMaximum(true);
         } catch (PropertyVetoException ex) {
             Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        ConsultorioExtCarnetPerinatalEl EXL1 = new ConsultorioExtCarnetPerinatalEl();
+        EXL1.ConsultoriosExtEXLListar(lblId.getText()); 
+        
+        RegistroEmbarazoEXL.lblMadreEXL.setText(lblMadre.getText());
+        if (RegistroEmbarazoEXL.lblIdEx.getText().equals("") ){
+                    RegistroEmbarazoEXL.btnGuardar1.setEnabled(true);
+                    RegistroEmbarazoEXL.btneditar.setEnabled(false);
+        }
+
+        RegistroEmbarazoEXL.lblMadreEXL.setText(lblMadre.getText());
         RegistroEmbarazo.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_btnELActionPerformed
 

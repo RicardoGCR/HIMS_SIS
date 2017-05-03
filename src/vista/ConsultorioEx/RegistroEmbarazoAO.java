@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 import java.util.Locale;
 import javax.swing.JComponent;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAO;
+import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import static vista.ConsultorioEx.RSAIVacunas.txtFuaAmaDu;
 import static vista.ConsultorioEx.RSAIVacunas.txtFuaApoR1;
 
@@ -150,6 +151,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         
     ConsultorioExtCarnetPerinatalAO CXRsAO= new ConsultorioExtCarnetPerinatalAO();
     ConsultorioExtCarnetPerinatalAO CXRsAO2 = new ConsultorioExtCarnetPerinatalAO();
+    AdmisionEmergenciaCabecera admi = new AdmisionEmergenciaCabecera();
     try {
   
             CXRsAO.setAO_ID(Integer.parseInt(lblIdAO.getText()));
@@ -170,8 +172,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             CXRsAO.setAO_PARTO_MULT(chk3.getText());
             CXRsAO.setAO_PARTO_37_SEM(chk4.getText());
             CXRsAO.setAO_RN_MAYOR_PESO(txtRNmayor.getText());
-            CXRsAO.setCOD_USU(lblusu.getText());//falta 
-
+            CXRsAO.setCOD_USU(admi.codUsuario(lblusu.getText()));//falta 
+            CXRsAO.setIdActoMedico(Integer.parseInt(lblIdActoMedico.getText()));
             
                 if(CXRsAO.mantenimientoConsultorioExtAO("U")==true){
                     mensaje.setVisible(true);

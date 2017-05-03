@@ -87,6 +87,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public void gestacionAnterior(){
         RegistroEmbarazoGA GA =new RegistroEmbarazoGA();
         RegistroEmbarazo.ContenedorTablas.add(GA);
+        RegistroEmbarazoGA.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoGA.lblFP.setText(lblFP.getText());
         try {
             GA.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -110,6 +112,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public void antecedentesFamiliares(){
         RegistroEmbarazoAF AF =new RegistroEmbarazoAF();
         RegistroEmbarazo.ContenedorTablas.add(AF);
+        RegistroEmbarazoAF.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoAF.lblFP.setText(lblFP.getText());
         try {
             AF.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -132,6 +136,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public void antecedentesPersonal(){
         RegistroEmbarazoAP AP =new RegistroEmbarazoAP();
         RegistroEmbarazo.ContenedorTablas.add(AP);
+        RegistroEmbarazoAP.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoAP.lblFP.setText(lblFP.getText());
         try {
             AP.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -154,6 +160,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public void vacunasPrevias(){
         RegistroEmbarazoVP VP =new RegistroEmbarazoVP();
         RegistroEmbarazo.ContenedorTablas.add(VP);
+        RegistroEmbarazoVP.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoVP.lblFP.setText(lblFP.getText());
         try {
             VP.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -185,6 +193,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "peso";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
         ConsultorioExtCarnetPerinatalPt PT = new ConsultorioExtCarnetPerinatalPt();
@@ -224,6 +234,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "antitetanica";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
         ConsultorioExtCarnetPerinatalAn AN = new ConsultorioExtCarnetPerinatalAn();
@@ -265,6 +277,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "tipoSangre";//
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
             RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
@@ -302,6 +316,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(true);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "fumaDroga";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
         ConsultorioExtCarnetPerinatalFd FD = new ConsultorioExtCarnetPerinatalFd();
@@ -339,6 +355,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "fum";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
         ConsultorioExtCarnetPerinatalFu FU = new ConsultorioExtCarnetPerinatalFu();
@@ -381,6 +399,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "hos";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
         ConsultorioExtCarnetPerinatalHo HO = new ConsultorioExtCarnetPerinatalHo();
@@ -421,6 +441,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "eme";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
         ConsultorioExtCarnetPerinatalEm EM = new ConsultorioExtCarnetPerinatalEm();
@@ -460,6 +482,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P8.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.P9.setVisible(false);
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.opcionGuardar = "vg";
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCpId.setText(lblId.getText());
         RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblMadre.setText(lblMadre.getText());
         ConsultorioExtCarnetPerinatalVg VG = new ConsultorioExtCarnetPerinatalVg();
@@ -492,6 +516,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoEXF.lblMadre.setText(lblMadre.getText());
         ConsultorioExtCarnetPerinatalEf EF = new ConsultorioExtCarnetPerinatalEf();
         EF.ConsultoriosExtEfListar(RegistroEmbarazoEXF.lblCpId.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblFP.setText(lblFP.getText());
         if(RegistroEmbarazoEXF.lblId.getText().equals("")){
             RegistroEmbarazoEXF.lblMant.setText("I");
             RegistroEmbarazoEXF.btnGuardar.setEnabled(true);
@@ -1045,7 +1071,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(FALayout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, 0)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12))
         );
@@ -1888,6 +1914,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         RegistroEmbarazoAtencionesP.lblMadre.setText(lblMadre.getText());
         ConsultorioExtCarnetPerinatalAtencionPrenatal consultorio1 = new ConsultorioExtCarnetPerinatalAtencionPrenatal();
         RegistroEmbarazoAtencionesP.validaAtencionPrenatal(RegistroEmbarazoAtencionesP.lblIdCp.getText(), "1");
+        RegistroEmbarazoAtencionesP.lblActoMedico.setText(lblActoMedico.getText());
+        RegistroEmbarazoAtencionesP.lblFP.setText(lblFP.getText());
 
         try {
             AP.setMaximum(true);

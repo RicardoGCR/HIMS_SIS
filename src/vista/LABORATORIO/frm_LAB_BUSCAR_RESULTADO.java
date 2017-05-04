@@ -14,6 +14,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -928,19 +929,19 @@ public void calcula() {
                         titulo5.setToolTipText("");
                         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-                        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+                        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
                         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
                         jLabel14.setText("Fecha:");
 
-                        lblFecha.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+                        lblFecha.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
                         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
                         lblFecha.setText("00/00/00");
 
-                        jLabel15.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+                        jLabel15.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
                         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
                         jLabel15.setText("Hora:");
 
-                        lblHora.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+                        lblHora.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
                         lblHora.setForeground(new java.awt.Color(255, 255, 255));
                         lblHora.setText("00:00:00");
 
@@ -967,7 +968,7 @@ public void calcula() {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblFecha))
                                     .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(33, Short.MAX_VALUE))
+                                .addContainerGap(47, Short.MAX_VALUE))
                         );
                         jpanelLayout.setVerticalGroup(
                             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2404,6 +2405,91 @@ public void buscar_examenes(){
          Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
      }
     }//GEN-LAST:event_EXPORTAR_PDFActionPerformed
+    
+    public void exportar_pdf_automaticamente(){
+         //NUMERO DE DIAS
+            int sDias=0;
+            Calendar fecha = new GregorianCalendar();
+            int dia=fecha.get(Calendar.DAY_OF_MONTH);
+            int mes=fecha.get(Calendar.MONTH)+1;
+            int anio=fecha.get(Calendar.YEAR);
+           
+            if(mes>1){
+            for(int i=1;i<mes;i++)    {
+            switch (i){
+                case 1:case 3:case 5:case 7:case 8:case 10:case 12: 
+                sDias = sDias+ 31;
+                break;
+                case 2:	
+                    if(anio %4==0){
+                        sDias = sDias+ 29;
+                    }else{
+                        sDias = sDias+ 28;
+                    }
+                break;			
+                case 4:case 6:case 9:case 11:			
+                sDias = sDias+ 30;
+                break;
+                default:
+                sDias = 0;
+            }}}
+            int ndias=sDias+dia;
+            DecimalFormat df = new DecimalFormat("000");
+            
+        try {
+               int filaselec=tb_TomasRealizadas.getSelectedRow();
+           if(filaselec<0){
+               JOptionPane.showMessageDialog(rootPane, "Seleccione un Registro");
+           }else{
+               
+        //para crear directorio
+        File directorio =new File("D:\\LABORATORIO-RESULTADOS\\");
+        directorio.mkdir();
+       
+         //para crear archivo
+//         File archivo =new File(directorio,"archivo8.txt");
+//         archivo.createNewFile();
+         
+         
+//        Reportes re = new Reportes();
+        String ruta = "/Reportes/LAB/RESULTADOS.jasper";
+        
+            String cod=tb_TomasRealizadas.getValueAt(filaselec, 26).toString();
+            Map parametros=new HashMap();
+            parametros.put("ID_COD_DET",cod);
+            
+            
+        //ABRIR CUADRO DE DIALOGO PARA GUARDAR EL ARCHIVO         
+        //dni + numero de dias + cod resultado 
+           File JFC =new File("D:\\LABORATORIO-RESULTADOS\\"+tb_TomasRealizadas.getValueAt(filaselec, 11).toString()+
+                   df.format(ndias)+
+                   tb_TomasRealizadas.getValueAt(filaselec, 0).toString());
+                String PATH = JFC.getAbsolutePath();//obtenemos la direccion del archivo + el nombre a guardar
+                try (PrintWriter printwriter = new PrintWriter(JFC)) {
+                    
+                    printwriter.print(ruta);
+                }
+               JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream(ruta), parametros, c.conectar());
+            JasperExportManager.exportReportToPdfFile(informe, PATH);//mandamos como parametros la ruta del archivo a compilar y el nombre y ruta donde se guardaran    
+                //comprobamos si a la hora de guardar obtuvo la extension y si no se la asignamos
+                if (!(PATH.endsWith(".pdf"))) {
+                    File temp = new File(PATH + ".pdf");
+                    JFC.renameTo(temp);//renombramos el archivo
+                }
+               JOptionPane.showMessageDialog(null, "Documento Exportado Exitosamente!", "Guardado exitoso!", JOptionPane.INFORMATION_MESSAGE);
+            
+               //Para que lo abra una vez guardado
+//               Runtime.getRuntime().exec("cmd /c start "+PATH + ".pdf");
+               
+        } }catch (FileNotFoundException | HeadlessException e) {//por alguna excepcion salta un mensaje de error
+            JOptionPane.showMessageDialog(null, "Error al Exportar el archivo!"+e.getMessage(), "Oops! Error", JOptionPane.ERROR_MESSAGE);
+        } catch (JRException ex) {
+         Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
+     } catch (IOException ex) {
+        Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
+    
     public void enableDatos(){
     tb_TomasRealizadas.setEnabled(true);
     tb_TomasRealizadas.setBackground(Color.white);

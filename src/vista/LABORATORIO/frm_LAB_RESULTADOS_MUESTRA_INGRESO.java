@@ -1628,7 +1628,7 @@ public void buscar_examenes(){
                             Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 26).toString()),
                             Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 27).toString()),
                             Integer.parseInt(tb_TomasRealizadas.getValueAt(filaselec, 28).toString()));
-                    String u=lblUsu.getText();
+                            String u=lblUsu.getText();
                              frm_LAB_RESULTADO_MUESTRA.lblUsu.setText(u);
                        }        
         }catch(Exception e){

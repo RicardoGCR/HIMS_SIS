@@ -269,7 +269,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         btnResultadoBusq = new javax.swing.JButton();
         jPanel83 = new javax.swing.JPanel();
         jLabel98 = new javax.swing.JLabel();
-        btnEntregaResultado = new javax.swing.JButton();
+        btnEntregaResul = new javax.swing.JButton();
         jPanel84 = new javax.swing.JPanel();
         jLabel99 = new javax.swing.JLabel();
         btneditar20 = new javax.swing.JButton();
@@ -385,12 +385,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jLabel92 = new javax.swing.JLabel();
         jLabel93 = new javax.swing.JLabel();
         btnMantLlegada2 = new javax.swing.JButton();
-        jPanel85 = new javax.swing.JPanel();
-        lblusu9 = new javax.swing.JLabel();
-        jPanel86 = new javax.swing.JPanel();
-        jPanel87 = new javax.swing.JPanel();
-        jPanel88 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         lblUsu = new javax.swing.JLabel();
         btnNuevo1 = new javax.swing.JButton();
@@ -400,7 +394,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         setTitle("Sistema de Gestion Hospitalaria - Modulo Administracion del Sistema");
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -2625,19 +2619,19 @@ public class PrincipalMDI extends javax.swing.JFrame {
             }
         });
 
-        btnEntregaResultado.setForeground(new java.awt.Color(240, 240, 240));
-        btnEntregaResultado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Vista general 2-50.png"))); // NOI18N
-        btnEntregaResultado.setMnemonic('N');
-        btnEntregaResultado.setToolTipText("");
-        btnEntregaResultado.setContentAreaFilled(false);
-        btnEntregaResultado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEntregaResultado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        btnEntregaResultado.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnEntregaResultado.setIconTextGap(30);
-        btnEntregaResultado.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnEntregaResultado.addActionListener(new java.awt.event.ActionListener() {
+        btnEntregaResul.setForeground(new java.awt.Color(240, 240, 240));
+        btnEntregaResul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Vista general 2-50.png"))); // NOI18N
+        btnEntregaResul.setMnemonic('N');
+        btnEntregaResul.setToolTipText("");
+        btnEntregaResul.setContentAreaFilled(false);
+        btnEntregaResul.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEntregaResul.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        btnEntregaResul.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEntregaResul.setIconTextGap(30);
+        btnEntregaResul.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnEntregaResul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntregaResultadoActionPerformed(evt);
+                btnEntregaResulActionPerformed(evt);
             }
         });
 
@@ -2645,7 +2639,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel83.setLayout(jPanel83Layout);
         jPanel83Layout.setHorizontalGroup(
             jPanel83Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnEntregaResultado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnEntregaResul, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel98, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel83Layout.setVerticalGroup(
@@ -2653,7 +2647,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGroup(jPanel83Layout.createSequentialGroup()
                 .addComponent(jLabel98, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnEntregaResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnEntregaResul, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel80Layout = new javax.swing.GroupLayout(jPanel80);
@@ -4489,95 +4483,13 @@ public class PrincipalMDI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("AdEM", jPanel66);
 
-        jPanel85.setBackground(new java.awt.Color(255, 255, 255));
-
-        lblusu9.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        lblusu9.setForeground(new java.awt.Color(102, 102, 102));
-        lblusu9.setText("Bienvenido al modulo de Consultorios Externos");
-
-        jPanel86.setBackground(new java.awt.Color(51, 51, 51));
-
-        jPanel87.setBackground(new java.awt.Color(255, 71, 163));
-
-        jPanel88.setBackground(new java.awt.Color(13, 183, 225));
-
-        javax.swing.GroupLayout jPanel88Layout = new javax.swing.GroupLayout(jPanel88);
-        jPanel88.setLayout(jPanel88Layout);
-        jPanel88Layout.setHorizontalGroup(
-            jPanel88Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 14, Short.MAX_VALUE)
-        );
-        jPanel88Layout.setVerticalGroup(
-            jPanel88Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 103, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel87Layout = new javax.swing.GroupLayout(jPanel87);
-        jPanel87.setLayout(jPanel87Layout);
-        jPanel87Layout.setHorizontalGroup(
-            jPanel87Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel88, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel87Layout.setVerticalGroup(
-            jPanel87Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel87Layout.createSequentialGroup()
-                .addComponent(jPanel88, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 131, Short.MAX_VALUE))
-        );
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niños-100.png"))); // NOI18N
-        jLabel7.setText("<html>Registro de seguimiento<br>a la Atención integral <br> de los niños <br>menores de 11 años</html>");
-
-        javax.swing.GroupLayout jPanel86Layout = new javax.swing.GroupLayout(jPanel86);
-        jPanel86.setLayout(jPanel86Layout);
-        jPanel86Layout.setHorizontalGroup(
-            jPanel86Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel86Layout.createSequentialGroup()
-                .addComponent(jPanel87, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(367, Short.MAX_VALUE))
-        );
-        jPanel86Layout.setVerticalGroup(
-            jPanel86Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel87, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(jPanel86Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        javax.swing.GroupLayout jPanel85Layout = new javax.swing.GroupLayout(jPanel85);
-        jPanel85.setLayout(jPanel85Layout);
-        jPanel85Layout.setHorizontalGroup(
-            jPanel85Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel85Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel85Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel86, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblusu9))
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
-        jPanel85Layout.setVerticalGroup(
-            jPanel85Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel85Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblusu9)
-                .addGap(29, 29, 29)
-                .addComponent(jPanel86, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(982, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("CEX", jPanel85);
-
         getContentPane().add(jTabbedPane1);
         jTabbedPane1.setBounds(255, 71, 1040, 710);
 
-        jPanel9.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel9.setBackground(new java.awt.Color(204, 204, 204));
 
         lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        lblUsu.setForeground(new java.awt.Color(204, 204, 204));
+        lblUsu.setForeground(new java.awt.Color(102, 102, 102));
         lblUsu.setText("Usuario");
 
         btnNuevo1.setForeground(new java.awt.Color(240, 240, 240));
@@ -4820,7 +4732,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         FrmFormatoEmergencia frmEmer = new FrmFormatoEmergencia();
         frmEmer.setVisible(true);
         String u=PrincipalMDI.lblUsu.getText();
-        frmEmer.lblusu.setText(u);
+        frmEmer.lblUsuario.setText(u);
     }//GEN-LAST:event_btnFormatEmergenciaActionPerformed
 
     private void HospitalicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalicacionActionPerformed
@@ -5013,21 +4925,21 @@ public class PrincipalMDI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFormatEmergencia1ActionPerformed
 
-    private void btnFormatEmergencia3ActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+    private void btnFormatEmergencia3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFormatEmergencia3ActionPerformed
         // TODO add your handling code here:
-    }                                                    
+    }//GEN-LAST:event_btnFormatEmergencia3ActionPerformed
 
-    private void btnMantLlegada2ActionPerformed(java.awt.event.ActionEvent evt) {                                                
+    private void btnMantLlegada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMantLlegada2ActionPerformed
         // TODO add your handling code here:
-    }                                               
+    }//GEN-LAST:event_btnMantLlegada2ActionPerformed
 
-    private void bc3MouseEntered(java.awt.event.MouseEvent evt) {                                 
+    private void bc3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bc3MouseEntered
         // TODO add your handling code here:
-    }                                
+    }//GEN-LAST:event_bc3MouseEntered
 
-    private void bc3ActionPerformed(java.awt.event.ActionEvent evt) {                                    
+    private void bc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bc3ActionPerformed
         jTabbedPane1.setSelectedIndex(6);
-    }                                   
+    }//GEN-LAST:event_bc3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         FrmHospitalizacionExClinico frmExamen =new  FrmHospitalizacionExClinico();
@@ -5140,37 +5052,15 @@ public class PrincipalMDI extends javax.swing.JFrame {
         btnResultado.doClick();
     }//GEN-LAST:event_jLabel96MouseClicked
 
-
-    private void btnFormatEmergencia3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFormatEmergencia3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnFormatEmergencia3ActionPerformed
-
-    private void btnMantLlegada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMantLlegada2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMantLlegada2ActionPerformed
-
-    private void bc3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bc3MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bc3MouseEntered
-
-    private void bc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bc3ActionPerformed
-        jTabbedPane1.setSelectedIndex(6);
-    }//GEN-LAST:event_bc3ActionPerformed
-
-//    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-//        FrmHospitalizacionExClinico frmExamen =new  FrmHospitalizacionExClinico();
-//        frmExamen.setVisible(true);
-//    }
     private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
        frm_LAB_RESULTADOS_MUESTRA_INGRESO lme=new  frm_LAB_RESULTADOS_MUESTRA_INGRESO();
         lme.setVisible(true);
-
         String u=lblUsu.getText();
         frm_LAB_RESULTADOS_MUESTRA_INGRESO.lblUsu.setText(u);
     }//GEN-LAST:event_btnResultadoActionPerformed
 
     private void jLabel97MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel97MouseClicked
-        btnResultadoBusq.doClick();
+       btnResultadoBusq.doClick();
     }//GEN-LAST:event_jLabel97MouseClicked
 
     private void btnResultadoBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoBusqActionPerformed
@@ -5181,15 +5071,15 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResultadoBusqActionPerformed
 
     private void jLabel98MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel98MouseClicked
-       btnEntregaResultado.doClick();
+       btnEntregaResul.doClick();
     }//GEN-LAST:event_jLabel98MouseClicked
 
-    private void btnEntregaResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntregaResultadoActionPerformed
-         frm_LAB_ENTREGA_RESULTADO lme=new  frm_LAB_ENTREGA_RESULTADO();
-        lme.setVisible(true);
+    private void btnEntregaResulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntregaResulActionPerformed
+        frm_LAB_ENTREGA_RESULTADO er=new  frm_LAB_ENTREGA_RESULTADO();
+        er.setVisible(true);
         String u=lblUsu.getText();
         frm_LAB_ENTREGA_RESULTADO.lblUsu.setText(u);
-    }//GEN-LAST:event_btnEntregaResultadoActionPerformed
+    }//GEN-LAST:event_btnEntregaResulActionPerformed
 
     private void btneditar20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar20ActionPerformed
         // TODO add your handling code here:
@@ -5243,7 +5133,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JButton bc5;
     private javax.swing.JButton btnAnalisis;
     private javax.swing.JButton btnClasificacion;
-    private javax.swing.JButton btnEntregaResultado;
+    private javax.swing.JButton btnEntregaResul;
     private javax.swing.JButton btnEsquema;
     private javax.swing.JButton btnFormatEmergencia;
     private javax.swing.JButton btnFormatEmergencia1;
@@ -5367,7 +5257,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
@@ -5479,10 +5368,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel82;
     private javax.swing.JPanel jPanel83;
     private javax.swing.JPanel jPanel84;
-    private javax.swing.JPanel jPanel85;
-    private javax.swing.JPanel jPanel86;
-    private javax.swing.JPanel jPanel87;
-    private javax.swing.JPanel jPanel88;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -5496,7 +5381,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JLabel lblusu5;
     private javax.swing.JLabel lblusu6;
     private javax.swing.JLabel lblusu7;
-    private javax.swing.JLabel lblusu9;
     private javax.swing.JPanel p1;
     private javax.swing.JPanel p10;
     private javax.swing.JPanel p11;

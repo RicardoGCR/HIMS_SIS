@@ -21,15 +21,14 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
 
-    static String servidor="localhost";
+    static String servidor="192.168.1.36";
     static String puerto="1433";
     static String user="sa";
     static String password="sistemas";
     static String baseDatos="SISGESH_NET";
     Connection conexion=null;
-    
+       
      public Connection conectar(){
-        
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String url="jdbc:sqlserver://"+servidor+":"+puerto+";"+"databaseName="+baseDatos

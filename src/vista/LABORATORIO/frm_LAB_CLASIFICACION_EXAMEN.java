@@ -738,7 +738,7 @@ public void calcula() {
         txtGuarModif.setText("M");
         btnguardar.setEnabled(true);
         btneliminar.setEnabled(false);
-        txtClasificacion.setEnabled(false);
+        txtClasificacion.setEnabled(true);
         btnBuscarUnidad.setEnabled(false);
     }//GEN-LAST:event_btnmodificarActionPerformed
 

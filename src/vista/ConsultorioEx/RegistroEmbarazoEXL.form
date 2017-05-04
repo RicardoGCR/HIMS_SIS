@@ -11,6 +11,12 @@
       </Border>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<<<<<<< HEAD
+      <Dimension value="[900, 724]"/>
+    </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+=======
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
       <Dimension value="[900, 724]"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -37,8 +43,13 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+=======
               <Component id="jPanel1" max="32767" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,8 +75,13 @@
                   <Component id="jPanel6" min="-2" pref="284" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+<<<<<<< HEAD
+                          <Component id="lblNina" min="-2" pref="449" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="625" max="32767" attributes="0"/>
+=======
                           <Component id="lblMadreEXL" min="-2" pref="449" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -1698,7 +1714,15 @@
                                           <Component id="txtVDRL1nr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                           <Component id="txtVDRL2nr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                           <Component id="txtPruebanr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
                                           <Component id="txtVIH2nr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+=======
+                                          <Component id="txtPadre74" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
+=======
+                                          <Component id="txtVIH2nr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                                       </Group>
                                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1709,29 +1733,67 @@
                                               <Component id="txtVDRL1a" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="txtFTAr" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="txtTHPAr" alignment="0" max="32767" attributes="0"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
                                               <Component id="txtVIHr" alignment="0" max="32767" attributes="0"/>
+=======
+                                              <Component id="txtPadre72" alignment="0" max="32767" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
+=======
+                                              <Component id="txtVIHr" alignment="0" max="32767" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                                           </Group>
                                           <Component id="txtElisar" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="txtFTAnr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="txtTHPAnr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
                                   <Component id="txtVIH1nr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="txtElisanr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+=======
+                                  <Component id="txtPadre71" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre77" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
+=======
+                                  <Component id="txtVIH1nr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtElisanr" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                               </Group>
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="txtPruebanh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
                                           <Component id="txtVIHnh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+=======
+                                          <Component id="txtPadre73" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
+=======
+                                          <Component id="txtVIHnh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="fechaPrueba" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
                                           <Component id="fechaVIH1" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                           <Component id="fechaVIH2" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                           <Component id="fechaELisa" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+=======
+                                          <Component id="fechaf10" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                          <Component id="fechaf7" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                          <Component id="fechaf8" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
+=======
+                                          <Component id="fechaVIH1" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                          <Component id="fechaVIH2" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                          <Component id="fechaELisa" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                                           <Component id="fechaTHPA" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                           <Component id="fechaVDRL2" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                           <Component id="fechaFTA" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
@@ -1744,8 +1806,18 @@
                                           <Component id="txtFTAnh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                           <Component id="txtVDRL2nh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                           <Component id="txtTHPAnh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
                                           <Component id="txtElisanh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                           <Component id="txtVIH2nh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+=======
+                                          <Component id="txtPadre79" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                          <Component id="txtPadre76" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
+=======
+                                          <Component id="txtElisanh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                          <Component id="txtVIH2nh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
@@ -1754,8 +1826,18 @@
                                                   <Component id="txtFTAna" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                                   <Component id="txtVDRL2na" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                                   <Component id="txtTHPAna" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
                                                   <Component id="txtElisana" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                                   <Component id="txtVIH2na" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+=======
+                                                  <Component id="txtPadre84" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre85" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
+=======
+                                                  <Component id="txtElisana" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtVIH2na" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                                                   <Component id="jLabel54" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="0" pref="141" max="32767" attributes="0"/>
@@ -2574,7 +2656,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtVIH1nrCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtVIH1nrMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2612,7 +2697,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtVIHrCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtVIHrMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2650,7 +2738,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtVIHnhCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtVIHnhMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2699,7 +2790,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtVIH2nrCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtVIH2nrMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2737,7 +2831,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtVIH2rCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtVIH2rMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2775,7 +2872,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtVIH2nhCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtVIH2nhMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2824,7 +2924,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtElisanrCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtElisanrMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2862,8 +2965,11 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtElisarCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtElisarMouseClicked"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtElisarActionPerformed"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -2901,7 +3007,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtElisanhCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtElisanhMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -3064,7 +3173,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtElisanaCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtElisanaMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -3102,7 +3214,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtVIH2naCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtVIH2naMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -3302,6 +3417,17 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="txtIFIn" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                                                  <Component id="txtPadre89" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre98" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre104" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre115" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre116" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre117" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre118" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre119" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre120" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+=======
                                                   <Component id="txtHTLVLn" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                                   <Component id="txtMalarian" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                                   <Component id="txtEXn" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
@@ -3311,6 +3437,7 @@
                                                   <Component id="txtListerian" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                                   <Component id="txtTamizajen" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                                   <Component id="txtHepatitisn" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                                               </Group>
                                               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -3322,12 +3449,21 @@
                                                   <Component id="txtNitritosp" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="txtEXp" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+<<<<<<< HEAD
+                                                      <Component id="txtPadre99" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtPadre90" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtIFIp" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtPadre93" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtPadre96" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="txtPadre102" alignment="0" max="32767" attributes="0"/>
+=======
                                                       <Component id="txtMalariap" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="txtHTLVLp" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="txtIFIp" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="txtTORCHp" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="txtGotap" alignment="0" max="32767" attributes="0"/>
                                                       <Component id="txtFluorp" alignment="0" max="32767" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                                                   </Group>
                                                   <Component id="txtLEUp" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -3356,6 +3492,21 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel58" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtIFInh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                                  <Component id="txtPadre94" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre91" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre97" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre109" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre106" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre100" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre103" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre127" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre128" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre129" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre130" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre131" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="txtPadre132" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+=======
                                   <Component id="txtTORCHnh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="txtHTLVLnh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="txtGotanh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
@@ -3369,9 +3520,67 @@
                                   <Component id="txtListerianh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="txtTamizajenh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="txtHepatitisnh" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                               </Group>
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="txtPadre114" min="-2" pref="18" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="fechaf30" min="-2" pref="147" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="txtPadre136" min="-2" pref="18" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="fechaf28" min="-2" pref="147" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="txtPadre135" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre134" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre111" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre110" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre112" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtPadre113" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="jLabel66" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtIFIna" alignment="0" min="-2" pref="18" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                                      <Component id="fechaf23" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                                      <Component id="fechaf24" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                                          <Component id="fechaf25" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                                          <Component id="fechaf26" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                                          <Component id="fechaf22" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                                          <Component id="fechaf20" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                                          <Component id="fechaf21" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                                          <Component id="fechaf19" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="jLabel67" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="fechaf27" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="txtPadre137" min="-2" pref="18" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="fechaf29" min="-2" pref="147" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="fechaf32" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
+                                          <Component id="fechaf31" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
+=======
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="txtHepatitisna" min="-2" max="-2" attributes="0"/>
@@ -3402,6 +3611,7 @@
                                           <Component id="fechaTORCH" min="-2" pref="147" max="-2" attributes="0"/>
                                           <Component id="fechaHTLVI" min="-2" pref="147" max="-2" attributes="0"/>
                                           <Component id="fechaIFI" min="-2" pref="147" max="-2" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -3431,6 +3641,80 @@
                                       <Component id="jLabel67" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                   </Group>
+<<<<<<< HEAD
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel56" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel58" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel66" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="txtIFIn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtIFIp" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtIFInh" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtIFIna" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre89" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre90" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre91" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre110" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre92" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre93" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre94" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre111" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre95" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre96" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre97" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre112" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre98" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre99" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre100" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre134" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel63" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre101" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre102" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre103" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre135" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel64" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre104" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre105" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre106" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel65" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre107" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre108" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtPadre109" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+=======
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="fechaIFI" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
@@ -3440,6 +3724,7 @@
                                       <Component id="txtIFIp" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtIFInh" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtIFIna" alignment="3" min="-2" max="-2" attributes="0"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -3634,7 +3919,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtIFIpCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtIFIpMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -3694,7 +3982,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtIFInCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtIFInMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -3732,7 +4023,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtIFInhCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtIFInhMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -5766,7 +6060,10 @@
                       </Properties>
                       <Events>
                         <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtIFInaCaretUpdate"/>
+<<<<<<< HEAD
+=======
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtIFInaMouseClicked"/>
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

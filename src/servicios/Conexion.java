@@ -27,9 +27,8 @@ public class Conexion {
     static String password="sistemas";
     static String baseDatos="SISGESH_NET";
     Connection conexion=null;
-    
+       
      public Connection conectar(){
-        
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String url="jdbc:sqlserver://"+servidor+":"+puerto+";"+"databaseName="+baseDatos

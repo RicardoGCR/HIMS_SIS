@@ -2249,9 +2249,9 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagenes/iconos/Tubo de ensayo-30.png"/>
         </Property>
-        <Property name="mnemonic" type="int" value="71"/>
+        <Property name="mnemonic" type="int" value="73"/>
         <Property name="text" type="java.lang.String" value="Insumos"/>
-        <Property name="toolTipText" type="java.lang.String" value="Guardar(Alt + G)"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guardar(Alt + I)"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
             <CompoundBorder/>

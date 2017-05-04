@@ -1470,9 +1470,9 @@ public void calcula() {
             btnInsumos.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
             btnInsumos.setForeground(new java.awt.Color(255, 255, 255));
             btnInsumos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Tubo de ensayo-30.png"))); // NOI18N
-            btnInsumos.setMnemonic('G');
+            btnInsumos.setMnemonic('I');
             btnInsumos.setText("Insumos");
-            btnInsumos.setToolTipText("Guardar(Alt + G)");
+            btnInsumos.setToolTipText("Guardar(Alt + I)");
             btnInsumos.setBorder(javax.swing.BorderFactory.createCompoundBorder());
             btnInsumos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             btnInsumos.addActionListener(new java.awt.event.ActionListener() {

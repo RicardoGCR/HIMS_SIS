@@ -610,7 +610,7 @@ public void calcula() {
                     jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
                     titulo5.setBackground(new java.awt.Color(0, 102, 102));
-                    titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+                    titulo5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
                     titulo5.setForeground(new java.awt.Color(255, 255, 255));
                     titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                     titulo5.setText("Toma de Muestra");
@@ -656,7 +656,7 @@ public void calcula() {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(lblFecha))
                                 .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addContainerGap(23, Short.MAX_VALUE))
+                            .addContainerGap(27, Short.MAX_VALUE))
                     );
                     jpanelLayout.setVerticalGroup(
                         jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

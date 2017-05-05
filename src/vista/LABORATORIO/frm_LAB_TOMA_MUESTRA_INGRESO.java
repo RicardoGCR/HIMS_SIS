@@ -638,7 +638,7 @@ public void calcula() {
                     jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
                     titulo5.setBackground(new java.awt.Color(0, 102, 102));
-                    titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+                    titulo5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
                     titulo5.setForeground(new java.awt.Color(255, 255, 255));
                     titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                     titulo5.setText("Toma de Muestra");
@@ -735,15 +735,20 @@ public void calcula() {
                     );
 
                     dateDesde.setDateFormatString("dd-MM-yyyy");
+                    dateDesde.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
 
                     dateHasta.setDateFormatString("dd-MM-yyyy");
+                    dateHasta.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
 
+                    jLabel19.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                     jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                     jLabel19.setText("Desde");
 
+                    jLabel20.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                     jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                     jLabel20.setText("Hasta");
 
+                    tb_Pacientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                     tb_Pacientes.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
 
@@ -792,7 +797,7 @@ public void calcula() {
                         tb_Pacientes.getColumnModel().getColumn(6).setResizable(false);
                     }
 
-                    btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+                    btnBuscar.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                     btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Buscararchivo16.png"))); // NOI18N
                     btnBuscar.setMnemonic('B');
                     btnBuscar.setText("Buscar");
@@ -802,6 +807,7 @@ public void calcula() {
                         }
                     });
 
+                    chPacientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                     chPacientes.setSelected(true);
                     chPacientes.setText("Todos los Pacientes");
                     chPacientes.addItemListener(new java.awt.event.ItemListener() {
@@ -810,7 +816,7 @@ public void calcula() {
                         }
                     });
 
-                    txtPacientes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                    txtPacientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                     txtPacientes.setForeground(new java.awt.Color(0, 51, 51));
                     txtPacientes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                     txtPacientes.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -831,7 +837,7 @@ public void calcula() {
 
                     lblArea.setText("area");
 
-                    lbldia.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+                    lbldia.setFont(new java.awt.Font("Segoe UI Semilight", 1, 13)); // NOI18N
                     lbldia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                     lbldia.setText("Exámenes del día");
 

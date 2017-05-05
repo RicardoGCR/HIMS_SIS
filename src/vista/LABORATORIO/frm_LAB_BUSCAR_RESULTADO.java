@@ -7,10 +7,15 @@
 package vista.LABORATORIO;
 
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,11 +24,15 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
@@ -37,6 +46,8 @@ import modelos.LABORATORIO.LAB_Muestra_Examen;
 import modelos.LABORATORIO.LAB_PC_AREA;
 import modelos.LABORATORIO.LAB_Resultado_Muestra_Cabecera;
 import modelos.LABORATORIO.Render_Checkbox;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
@@ -56,6 +67,7 @@ String hora, minutos, segundos, ampm;
     Connection conexion=null;
 Conexion c=new Conexion();
 DefaultTableModel m,n,resultado;
+
     /**
      * Creates new form LAB_MUESTRA_EXAMEN
      */
@@ -471,6 +483,11 @@ public void calcula() {
                 cbxBuscarAnalisis = new javax.swing.JComboBox();
                 txtBuscarAnalisis = new javax.swing.JTextField();
                 btnBuscarAnalisis = new javax.swing.JButton();
+                jPopupMenu1 = new javax.swing.JPopupMenu();
+                VER = new javax.swing.JMenuItem();
+                jSeparator1 = new javax.swing.JPopupMenu.Separator();
+                VER_RESULTADO = new javax.swing.JMenuItem();
+                EXPORTAR_PDF = new javax.swing.JMenuItem();
                 jpanel = new javax.swing.JPanel();
                 titulo5 = new javax.swing.JLabel();
                 jLabel14 = new javax.swing.JLabel();
@@ -868,6 +885,36 @@ public void calcula() {
                                 .addGap(46, 46, 46))
                         );
 
+                        jPopupMenu1.setBackground(new java.awt.Color(255, 255, 255));
+                        jPopupMenu1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+
+                        VER.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
+                        VER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/opciones.png"))); // NOI18N
+                        VER.setText("RESULTADO");
+                        jPopupMenu1.add(VER);
+                        jPopupMenu1.add(jSeparator1);
+
+                        VER_RESULTADO.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+                        VER_RESULTADO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Visualizar-16.png"))); // NOI18N
+                        VER_RESULTADO.setText("VISUALIZAR RESULTADO");
+                        VER_RESULTADO.setToolTipText("");
+                        VER_RESULTADO.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                VER_RESULTADOActionPerformed(evt);
+                            }
+                        });
+                        jPopupMenu1.add(VER_RESULTADO);
+
+                        EXPORTAR_PDF.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+                        EXPORTAR_PDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/pdf.png"))); // NOI18N
+                        EXPORTAR_PDF.setText("EXPORTAR A PDF");
+                        EXPORTAR_PDF.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                EXPORTAR_PDFActionPerformed(evt);
+                            }
+                        });
+                        jPopupMenu1.add(EXPORTAR_PDF);
+
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                         setTitle("SISGESH .::. Análisis Examen");
                         setPreferredSize(new java.awt.Dimension(1067, 665));
@@ -875,30 +922,30 @@ public void calcula() {
                         jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
                         titulo5.setBackground(new java.awt.Color(0, 102, 102));
-                        titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+                        titulo5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
                         titulo5.setForeground(new java.awt.Color(255, 255, 255));
                         titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         titulo5.setText("Exámenes Realizados");
                         titulo5.setToolTipText("");
                         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-                        jLabel14.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+                        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
                         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
                         jLabel14.setText("Fecha:");
 
-                        lblFecha.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+                        lblFecha.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
                         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
                         lblFecha.setText("00/00/00");
 
-                        jLabel15.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+                        jLabel15.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
                         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
                         jLabel15.setText("Hora:");
 
-                        lblHora.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+                        lblHora.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
                         lblHora.setForeground(new java.awt.Color(255, 255, 255));
                         lblHora.setText("00:00:00");
 
-                        lblUsu.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+                        lblUsu.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
                         lblUsu.setForeground(new java.awt.Color(255, 255, 255));
                         lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
                         lblUsu.setText("Usuario");
@@ -921,7 +968,7 @@ public void calcula() {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblFecha))
                                     .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(46, Short.MAX_VALUE))
+                                .addContainerGap(47, Short.MAX_VALUE))
                         );
                         jpanelLayout.setVerticalGroup(
                             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -942,6 +989,7 @@ public void calcula() {
                                 .addContainerGap())
                         );
 
+                        tb_TomasRealizadas.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         tb_TomasRealizadas.setModel(new javax.swing.table.DefaultTableModel(
                             new Object [][] {
 
@@ -959,6 +1007,7 @@ public void calcula() {
                             }
                         });
                         tb_TomasRealizadas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+                        tb_TomasRealizadas.setComponentPopupMenu(jPopupMenu1);
                         tb_TomasRealizadas.setRowHeight(24);
                         tb_TomasRealizadas.setSelectionBackground(new java.awt.Color(2, 67, 115));
                         tb_TomasRealizadas.getTableHeader().setReorderingAllowed(false);
@@ -995,6 +1044,7 @@ public void calcula() {
                         lblArea.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         lblArea.setText("area");
 
+                        chPacientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         chPacientes.setText("Todos los Pacientes");
                         chPacientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                         chPacientes.addItemListener(new java.awt.event.ItemListener() {
@@ -1003,7 +1053,7 @@ public void calcula() {
                             }
                         });
 
-                        txtPacientes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                        txtPacientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
                         txtPacientes.setForeground(new java.awt.Color(0, 51, 51));
                         txtPacientes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtPacientes.addActionListener(new java.awt.event.ActionListener() {
@@ -1025,6 +1075,7 @@ public void calcula() {
                             }
                         });
 
+                        chAnalisis.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         chAnalisis.setText("Todos los Análisis");
                         chAnalisis.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                         chAnalisis.addItemListener(new java.awt.event.ItemListener() {
@@ -1033,7 +1084,7 @@ public void calcula() {
                             }
                         });
 
-                        txtAnalisis.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                        txtAnalisis.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         txtAnalisis.setForeground(new java.awt.Color(0, 51, 51));
                         txtAnalisis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtAnalisis.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1050,6 +1101,7 @@ public void calcula() {
                             }
                         });
 
+                        chPersonal.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         chPersonal.setText("Todo el Personal");
                         chPersonal.setHideActionText(true);
                         chPersonal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1059,7 +1111,7 @@ public void calcula() {
                             }
                         });
 
-                        txtPersonal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                        txtPersonal.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
                         txtPersonal.setForeground(new java.awt.Color(0, 51, 51));
                         txtPersonal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtPersonal.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1088,6 +1140,7 @@ public void calcula() {
                             }
                         });
 
+                        chActoMedico.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         chActoMedico.setText("Todos los Actos Médicos");
                         chActoMedico.setHideActionText(true);
                         chActoMedico.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1097,7 +1150,7 @@ public void calcula() {
                             }
                         });
 
-                        txtActoM.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                        txtActoM.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         txtActoM.setForeground(new java.awt.Color(0, 51, 51));
                         txtActoM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtActoM.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1112,10 +1165,10 @@ public void calcula() {
                             panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelPacientesLayout.createSequentialGroup()
                                 .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(chActoMedico, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                    .addComponent(chPersonal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                    .addComponent(chAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                    .addComponent(chPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
+                                    .addComponent(chActoMedico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(chPersonal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(chAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(chPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
@@ -1161,15 +1214,20 @@ public void calcula() {
                         );
 
                         dateDesde.setDateFormatString("dd-MM-yyyy");
+                        dateDesde.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
 
                         dateHasta.setDateFormatString("dd-MM-yyyy");
+                        dateHasta.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
 
+                        jLabel20.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         jLabel20.setText("Hasta");
 
+                        jLabel21.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         jLabel21.setText("Búsqueda por:");
 
+                        cbx.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N° de H.C / DNI", "Análisis ", "Personal - Resultado", "Acto Médico" }));
                         cbx.addItemListener(new java.awt.event.ItemListener() {
                             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1182,10 +1240,11 @@ public void calcula() {
                             }
                         });
 
+                        jLabel19.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         jLabel19.setText("Desde");
 
-                        lbldia.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+                        lbldia.setFont(new java.awt.Font("Segoe UI Semilight", 1, 13)); // NOI18N
                         lbldia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         lbldia.setText("Exámenes con Toma de Muestras del Día");
 
@@ -1263,7 +1322,7 @@ public void calcula() {
                                     .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(11, 11, 11)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(dateDesde, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(dateDesde, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                                     .addComponent(dateHasta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2281,6 +2340,156 @@ public void buscar_examenes(){
     private void txtActoMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActoMKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtActoMKeyPressed
+
+    private void VER_RESULTADOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VER_RESULTADOActionPerformed
+         try {
+           int filaselec=tb_TomasRealizadas.getSelectedRow();
+           if(filaselec<0){
+               JOptionPane.showMessageDialog(rootPane, "Seleccione un Registro");
+           }else{
+             String cod=tb_TomasRealizadas.getValueAt(filaselec, 26).toString();
+         
+            Map parametros=new HashMap();
+            parametros.put("ID_COD_DET",cod);
+            
+                JasperPrint informe=JasperFillManager.fillReport(getClass().
+                    getResourceAsStream("/Reportes/LAB/RESULTADOS.jasper"), parametros,c.conectar());
+
+                JasperViewer ventana= new JasperViewer(informe,false);
+                ventana.setTitle("RESULTADO - "+tb_TomasRealizadas.getValueAt(filaselec, 10).toString());
+                ventana.setVisible(true);
+           }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al Cargar el reporte"+e.getMessage());
+            }
+    }//GEN-LAST:event_VER_RESULTADOActionPerformed
+
+    private void EXPORTAR_PDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EXPORTAR_PDFActionPerformed
+         try {
+               int filaselec=tb_TomasRealizadas.getSelectedRow();
+           if(filaselec<0){
+               JOptionPane.showMessageDialog(rootPane, "Seleccione un Registro");
+           }else{
+//        Reportes re = new Reportes();
+        String ruta = "/Reportes/LAB/RESULTADOS.jasper";
+        
+            String cod=tb_TomasRealizadas.getValueAt(filaselec, 26).toString();
+            Map parametros=new HashMap();
+            parametros.put("ID_COD_DET",cod);
+            
+            
+        //ABRIR CUADRO DE DIALOGO PARA GUARDAR EL ARCHIVO         
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("todos los archivos *.PDF", "pdf", "PDF"));//filtro para ver solo archivos .pdf
+        int seleccion = fileChooser.showSaveDialog(null);
+      
+            if (seleccion == JFileChooser.APPROVE_OPTION) {//comprueba si ha presionado el boton de aceptar
+                File JFC = fileChooser.getSelectedFile();
+                String PATH = JFC.getAbsolutePath();//obtenemos la direccion del archivo + el nombre a guardar
+                try (PrintWriter printwriter = new PrintWriter(JFC)) {
+                    
+                    printwriter.print(ruta);
+                }
+               JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream(ruta), parametros, c.conectar());
+            JasperExportManager.exportReportToPdfFile(informe, PATH);//mandamos como parametros la ruta del archivo a compilar y el nombre y ruta donde se guardaran    
+                //comprobamos si a la hora de guardar obtuvo la extension y si no se la asignamos
+                if (!(PATH.endsWith(".pdf"))) {
+                    File temp = new File(PATH + ".pdf");
+                    JFC.renameTo(temp);//renombramos el archivo
+                }
+               JOptionPane.showMessageDialog(null, "Documento Exportado Exitosamente!", "Guardado exitoso!", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } }catch (FileNotFoundException | HeadlessException e) {//por alguna excepcion salta un mensaje de error
+            JOptionPane.showMessageDialog(null, "Error al Exportar el archivo!"+e.getMessage(), "Oops! Error", JOptionPane.ERROR_MESSAGE);
+        } catch (JRException ex) {
+         Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
+     }
+    }//GEN-LAST:event_EXPORTAR_PDFActionPerformed
+    
+    public void exportar_pdf_automaticamente(){
+         //NUMERO DE DIAS
+            int sDias=0;
+            Calendar fecha = new GregorianCalendar();
+            int dia=fecha.get(Calendar.DAY_OF_MONTH);
+            int mes=fecha.get(Calendar.MONTH)+1;
+            int anio=fecha.get(Calendar.YEAR);
+           
+            if(mes>1){
+            for(int i=1;i<mes;i++)    {
+            switch (i){
+                case 1:case 3:case 5:case 7:case 8:case 10:case 12: 
+                sDias = sDias+ 31;
+                break;
+                case 2:	
+                    if(anio %4==0){
+                        sDias = sDias+ 29;
+                    }else{
+                        sDias = sDias+ 28;
+                    }
+                break;			
+                case 4:case 6:case 9:case 11:			
+                sDias = sDias+ 30;
+                break;
+                default:
+                sDias = 0;
+            }}}
+            int ndias=sDias+dia;
+            DecimalFormat df = new DecimalFormat("000");
+            
+        try {
+               int filaselec=tb_TomasRealizadas.getSelectedRow();
+           if(filaselec<0){
+               JOptionPane.showMessageDialog(rootPane, "Seleccione un Registro");
+           }else{
+               
+        //para crear directorio
+        File directorio =new File("D:\\LABORATORIO-RESULTADOS\\");
+        directorio.mkdir();
+       
+         //para crear archivo
+//         File archivo =new File(directorio,"archivo8.txt");
+//         archivo.createNewFile();
+         
+         
+//        Reportes re = new Reportes();
+        String ruta = "/Reportes/LAB/RESULTADOS.jasper";
+        
+            String cod=tb_TomasRealizadas.getValueAt(filaselec, 26).toString();
+            Map parametros=new HashMap();
+            parametros.put("ID_COD_DET",cod);
+            
+            
+        //ABRIR CUADRO DE DIALOGO PARA GUARDAR EL ARCHIVO         
+        //dni + numero de dias + cod resultado 
+           File JFC =new File("D:\\LABORATORIO-RESULTADOS\\"+tb_TomasRealizadas.getValueAt(filaselec, 11).toString()+
+                   df.format(ndias)+
+                   tb_TomasRealizadas.getValueAt(filaselec, 0).toString());
+                String PATH = JFC.getAbsolutePath();//obtenemos la direccion del archivo + el nombre a guardar
+                try (PrintWriter printwriter = new PrintWriter(JFC)) {
+                    
+                    printwriter.print(ruta);
+                }
+               JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream(ruta), parametros, c.conectar());
+            JasperExportManager.exportReportToPdfFile(informe, PATH);//mandamos como parametros la ruta del archivo a compilar y el nombre y ruta donde se guardaran    
+                //comprobamos si a la hora de guardar obtuvo la extension y si no se la asignamos
+                if (!(PATH.endsWith(".pdf"))) {
+                    File temp = new File(PATH + ".pdf");
+                    JFC.renameTo(temp);//renombramos el archivo
+                }
+               JOptionPane.showMessageDialog(null, "Documento Exportado Exitosamente!", "Guardado exitoso!", JOptionPane.INFORMATION_MESSAGE);
+            
+               //Para que lo abra una vez guardado
+//               Runtime.getRuntime().exec("cmd /c start "+PATH + ".pdf");
+               
+        } }catch (FileNotFoundException | HeadlessException e) {//por alguna excepcion salta un mensaje de error
+            JOptionPane.showMessageDialog(null, "Error al Exportar el archivo!"+e.getMessage(), "Oops! Error", JOptionPane.ERROR_MESSAGE);
+        } catch (JRException ex) {
+         Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
+     } catch (IOException ex) {
+        Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
+    
     public void enableDatos(){
     tb_TomasRealizadas.setEnabled(true);
     tb_TomasRealizadas.setBackground(Color.white);
@@ -2470,6 +2679,9 @@ public void buscar_examenes(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem EXPORTAR_PDF;
+    private javax.swing.JMenuItem VER;
+    private javax.swing.JMenuItem VER_RESULTADO;
     private javax.swing.JDialog analisis;
     public static javax.swing.JButton btnAnalisis;
     private javax.swing.JButton btnBuscar;
@@ -2499,10 +2711,12 @@ public void buscar_examenes(){
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPanel jpanel;
     private javax.swing.JPanel jpanel1;
     private javax.swing.JPanel jpanel2;

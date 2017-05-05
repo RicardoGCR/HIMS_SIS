@@ -106,12 +106,12 @@ public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
             ResultSet rs = cmd.executeQuery();
             if(rs.next())
             {
-               establecimiento = rs.getString(1);
+               RegistroEmbarazo.txtEstablecimiento.setText(rs.getString(1));
             }
         }
         catch(Exception ex)
         {
-            System.out.println("perinatalCabeceraID: " + ex.getMessage());
+            System.out.println("nombreEstablecimiento: " + ex.getMessage());
         }
         return establecimiento;
     }
@@ -159,11 +159,11 @@ public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
                 RegistroEmbarazoPrincipal.lblMadre.setText(r.getString(1)); 
                 RegistroEmbarazoPrincipal.lblActoMedico.setText("Acto Médico " + r.getString(2));
                 RegistroEmbarazoPrincipal.lblFP.setText("Forma de Pago " + r.getString(3));
+                RegistroEmbarazoPrincipal.lblIdActoMedico.setText(r.getString(5));
                 if(r.getString(4).equals("") || r.getString(4).equalsIgnoreCase("null"))
                     RegistroEmbarazoPrincipal.lblFua.setText("");
                 else
-                    RegistroEmbarazoPrincipal.lblFua.setText("Fua " + r.getString(4));
-                RegistroEmbarazoPrincipal.lblIdActoMedico.setText(r.getString(5));
+                    RegistroEmbarazoPrincipal.lblFua.setText(r.getString(4));
             }
             //
         } catch (Exception e) {

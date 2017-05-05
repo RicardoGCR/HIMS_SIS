@@ -34,12 +34,13 @@ public class ConsultorioExtCarnetPerinatalEf implements Serializable {
     private String nomPc;
     private Character estado;
     private String codUsu;
+    private int idActoMedico;
 
     public boolean mantenimientoConsultorioExtCarnetPerinatalEf(String tipo)
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_EF ?,?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_EF ?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getEfId());
             cmd.setInt(2, getCpId());
@@ -50,6 +51,7 @@ public class ConsultorioExtCarnetPerinatalEf implements Serializable {
             cmd.setString(7, getEfOdont());
             cmd.setString(8, getCodUsu());
             cmd.setString(9, tipo);
+            cmd.setInt(10, getIdActoMedico());
             if(!cmd.execute())
             {
                 resp = true;
@@ -135,6 +137,10 @@ public class ConsultorioExtCarnetPerinatalEf implements Serializable {
                     RegistroEmbarazoEXF.txtOdontPatologico.setText("X");
                 if(r.getString(6).equals("Normal"))
                     RegistroEmbarazoEXF.txtOdontNormal.setText("X");
+                
+                
+                RegistroEmbarazoEXF.lblIdActoMedico.setText(r.getString(7)); 
+                RegistroEmbarazoEXF.lblActoMedico.setText("Acto Médico de registro " + r.getString(8)); 
             }
             //
         } catch (Exception e) {
@@ -270,6 +276,20 @@ public class ConsultorioExtCarnetPerinatalEf implements Serializable {
      */
     public void setCpId(int cpId) {
         this.cpId = cpId;
+    }
+
+    /**
+     * @return the idActoMedico
+     */
+    public int getIdActoMedico() {
+        return idActoMedico;
+    }
+
+    /**
+     * @param idActoMedico the idActoMedico to set
+     */
+    public void setIdActoMedico(int idActoMedico) {
+        this.idActoMedico = idActoMedico;
     }
     
 }

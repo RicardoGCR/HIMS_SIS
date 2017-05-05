@@ -34,12 +34,13 @@ public class ConsultorioExtCarnetPerinatalFu implements Serializable {
     private String nomPc;
     private Character estado;
     private String codUsu;
+    private int idActoMedico;
 
     public boolean mantenimientoConsultorioExtCarnetPerinatalFu(String tipo)
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_FU ?,?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_FU ?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getFuId());
             cmd.setInt(2, getCpId());
@@ -50,6 +51,7 @@ public class ConsultorioExtCarnetPerinatalFu implements Serializable {
             cmd.setString(7, getFuFechaPParto());
             cmd.setString(8, getCodUsu());
             cmd.setString(9, tipo);
+            cmd.setInt(10, getIdActoMedico());
             if(!cmd.execute())
             {
                 resp = true;
@@ -140,6 +142,9 @@ public class ConsultorioExtCarnetPerinatalFu implements Serializable {
                       }
                     } catch (Exception e) {
                     }
+                
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdActoMedico.setText(r.getString(7)); 
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText("Acto Médico de registro " + r.getString(8)); 
                     
             }
             //
@@ -276,6 +281,20 @@ public class ConsultorioExtCarnetPerinatalFu implements Serializable {
      */
     public void setCpId(int cpId) {
         this.cpId = cpId;
+    }
+
+    /**
+     * @return the idActoMedico
+     */
+    public int getIdActoMedico() {
+        return idActoMedico;
+    }
+
+    /**
+     * @param idActoMedico the idActoMedico to set
+     */
+    public void setIdActoMedico(int idActoMedico) {
+        this.idActoMedico = idActoMedico;
     }
     
 }

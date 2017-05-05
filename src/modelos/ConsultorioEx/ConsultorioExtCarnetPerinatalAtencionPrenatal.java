@@ -61,13 +61,14 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
     private String nomPc;
     private Character estado;
     private String codUsu;
+    private int idActoMedico;
 
     public boolean mantenimientoConsultorioExtCarnetPerinatalAtencionPrenatal(String tipo)
         {
         boolean resp = false;
         try{
             String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_ATENCION_PRENATAL ?,?,?,?,?,?,?,?,?,?,"
-                    + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+                    + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getApId());
             cmd.setInt(2, getCpId());
@@ -101,6 +102,7 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
             cmd.setString(30, getCodUsu());
             cmd.setString(31, getApAtencion());
             cmd.setString(32, tipo);
+            cmd.setInt(33, getIdActoMedico());
             if(!cmd.execute())
             {
                 resp = true;
@@ -185,7 +187,9 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
                 RegistroEmbarazoAtencionesP.txtPlanParto.setText(r.getString(26)); 
                 RegistroEmbarazoAtencionesP.txtEstabAtencion.setText(r.getString(27)); 
                 RegistroEmbarazoAtencionesP.txtResponAtencion.setText(r.getString(28));  
-                RegistroEmbarazoAtencionesP.txtSis.setText(r.getString(29)); 
+                RegistroEmbarazoAtencionesP.txtFUA.setText(r.getString(29)); 
+                RegistroEmbarazoAtencionesP.lblIdActoMedico.setText(r.getString(36)); 
+                RegistroEmbarazoAtencionesP.lblActoMedico.setText("Acto Médico de registro " + r.getString(37)); 
             }
             //
         } catch (Exception e) {
@@ -505,6 +509,20 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
      */
     public void setCpId(int cpId) {
         this.cpId = cpId;
+    }
+
+    /**
+     * @return the idActoMedico
+     */
+    public int getIdActoMedico() {
+        return idActoMedico;
+    }
+
+    /**
+     * @param idActoMedico the idActoMedico to set
+     */
+    public void setIdActoMedico(int idActoMedico) {
+        this.idActoMedico = idActoMedico;
     }
     
 }

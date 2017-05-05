@@ -68,7 +68,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         Barra.setPreferredSize(new Dimension(0,0)); 
         repaint(); 
     }
-   
  
     public void antecedentesObtetricos(){
         RegistroEmbarazoAO AO =new RegistroEmbarazoAO();

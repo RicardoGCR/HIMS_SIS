@@ -12,7 +12,11 @@ import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 import vista.ConsultorioEx.RegistroEmbarazoAtencionesP;
 import vista.ConsultorioEx.RegistroEmbarazoEXF;
@@ -194,6 +198,101 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
             //
         } catch (Exception e) {
             System.out.println("Error: ConsultoriosExtAtencionPrenatalListar: " + e.getMessage());
+        }
+    }
+    
+    public void formatoTablaConsultorioExAtencionPrenatalAlertas(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);//
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(0);//
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(140);//
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(140);//
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(330);//
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(150);//
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(160);//
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(160);//
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(0);//
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(0);//
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(0);//
+        tabla.getColumnModel().getColumn(11).setPreferredWidth(0);//
+        tabla.getColumnModel().getColumn(12).setPreferredWidth(0);//
+        tabla.getColumnModel().getColumn(13).setPreferredWidth(0);//
+        TableColumn columna = tabla.getColumnModel().getColumn(0);
+            columna.setMaxWidth(0);
+            columna.setMinWidth(0);
+            columna.setPreferredWidth(0);
+            tabla.doLayout();
+        TableColumn columna1 = tabla.getColumnModel().getColumn(1);
+            columna1.setMaxWidth(0);
+            columna1.setMinWidth(0);
+            columna1.setPreferredWidth(0);
+        TableColumn columna8 = tabla.getColumnModel().getColumn(8);
+            columna8.setMaxWidth(0);
+            columna8.setMinWidth(0);
+            columna8.setPreferredWidth(0);
+        TableColumn columna9 = tabla.getColumnModel().getColumn(9);
+            columna9.setMaxWidth(0);
+            columna9.setMinWidth(0);
+            columna9.setPreferredWidth(0);
+        TableColumn columna10 = tabla.getColumnModel().getColumn(10);
+            columna10.setMaxWidth(0);
+            columna10.setMinWidth(0);
+            columna10.setPreferredWidth(0);
+        TableColumn columna11 = tabla.getColumnModel().getColumn(11);
+            columna11.setMaxWidth(0);
+            columna11.setMinWidth(0);
+            columna11.setPreferredWidth(0);
+        TableColumn columna12 = tabla.getColumnModel().getColumn(12);
+            columna12.setMaxWidth(0);
+            columna12.setMinWidth(0);
+            columna12.setPreferredWidth(0);
+        TableColumn columna13 = tabla.getColumnModel().getColumn(13);
+            columna13.setMaxWidth(0);
+            columna13.setMinWidth(0);
+            columna13.setPreferredWidth(0);
+        tabla.doLayout();
+        tabla.setRowHeight(35);
+    }
+    
+    public void consultorioExAtencionPrenatalAlertas(String busqueda,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID","CP","DNI","Nº H.C.","Paciente","Edad","Cita","Mes",
+            "","","","","",""};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[14];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC [CONSULTORIO_EXT_CARNET_PERINATAL_ATENCION_PRENATAL_ALERTAS] ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, busqueda);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); 
+                fila[4]=r.getString(5); 
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8); 
+                fila[8]=r.getString(9); 
+                fila[9]=r.getString(10);
+                fila[10]=r.getString(11);
+                fila[11]=r.getString(12); 
+                fila[12]=r.getString(13);
+                fila[13]=r.getString(14); 
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaConsultorioExAtencionPrenatalAlertas(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: consultorioExAtencionPrenatalAlertas: " + e.getMessage());
         }
     }
     

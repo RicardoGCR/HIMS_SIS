@@ -218,7 +218,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             jPanel1 = new javax.swing.JPanel();
             jLabel1 = new javax.swing.JLabel();
             lblusu = new javax.swing.JLabel();
-            btnBuscar = new javax.swing.JButton();
+            btnAlertas = new javax.swing.JButton();
             btnGuardar = new javax.swing.JButton();
             jLabel2 = new javax.swing.JLabel();
             ChkAnalf1 = new javax.swing.JTextField();
@@ -685,19 +685,21 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     lblusu.setFocusable(false);
                     lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-                    btnBuscar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                    btnBuscar.setForeground(new java.awt.Color(240, 240, 240));
-                    btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                    btnBuscar.setText("Buscar");
-                    btnBuscar.setContentAreaFilled(false);
-                    btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                    btnBuscar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-                    btnBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-                    btnBuscar.setIconTextGap(30);
-                    btnBuscar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-                    btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+                    btnAlertas.setBackground(new java.awt.Color(232, 76, 61));
+                    btnAlertas.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+                    btnAlertas.setForeground(new java.awt.Color(232, 76, 61));
+                    btnAlertas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
+                    btnAlertas.setText("Alertas");
+                    btnAlertas.setBorderPainted(false);
+                    btnAlertas.setContentAreaFilled(false);
+                    btnAlertas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                    btnAlertas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                    btnAlertas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+                    btnAlertas.setIconTextGap(30);
+                    btnAlertas.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+                    btnAlertas.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            btnBuscarActionPerformed(evt);
+                            btnAlertasActionPerformed(evt);
                         }
                     });
 
@@ -804,10 +806,11 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGap(0, 0, Short.MAX_VALUE))
                                 .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addContainerGap()
@@ -825,7 +828,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                                                     .addComponent(ChkEdad1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                     .addComponent(jLabel37)))
-                                            .addGap(0, 0, Short.MAX_VALUE)))))
+                                            .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(btnAlertas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addContainerGap())
                     );
                     jPanel1Layout.setVerticalGroup(
@@ -837,11 +841,11 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGap(12, 12, 12)
                             .addComponent(btnGuardar)
-                            .addGap(12, 12, 12)
-                            .addComponent(btnBuscar)
-                            .addGap(12, 12, 12)
+                            .addGap(18, 18, 18)
                             .addComponent(btnInicio)
-                            .addGap(85, 85, 85)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnAlertas)
+                            .addGap(73, 73, 73)
                             .addComponent(lblusu)
                             .addGap(28, 28, 28)
                             .addComponent(jLabel2)
@@ -2057,9 +2061,16 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_chkRefMouseClicked
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    private void btnAlertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertasActionPerformed
+        RegistroEmabarazoAlertas alertas =new RegistroEmabarazoAlertas();
+        RegistroEmbarazo.Contenedor.add(alertas);
+        try {
+            alertas.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        RegistroEmbarazo.jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_btnAlertasActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if(lblMant.getText().equals("I")){
@@ -2415,11 +2426,11 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     public static javax.swing.JTextField ChkSup;
     public static javax.swing.JTextField ChkSupnU;
     public static javax.swing.JTextField Chkprim;
-    private javax.swing.JDesktopPane Contenedor;
+    public static javax.swing.JDesktopPane Contenedor;
     public static javax.swing.JDesktopPane ContenedorTablas;
     private javax.swing.JLabel T7;
+    private javax.swing.JButton btnAlertas;
     private javax.swing.JButton btnAtras;
-    private javax.swing.JButton btnBuscar;
     public static javax.swing.JButton btnGuardar;
     public static javax.swing.JButton btnInicio;
     private javax.swing.JButton btnNo;

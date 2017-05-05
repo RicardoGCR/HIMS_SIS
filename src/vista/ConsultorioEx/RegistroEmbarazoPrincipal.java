@@ -18,12 +18,27 @@ import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAf;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalGa;
 
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAn;
+
+
+
+=======
+>>>>>>> f7b32d420b4a842135b8d83dd656f299f8ae79ec
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAp;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAtencionPrenatal;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalCabecera;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEm;
+<<<<<<< HEAD
+
+
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEf;
+
+
+import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEf;
+<<<<<<< HEAD
+=======
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEl;
+>>>>>>> f7b32d420b4a842135b8d83dd656f299f8ae79ec
+>>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFd;
 
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFu;

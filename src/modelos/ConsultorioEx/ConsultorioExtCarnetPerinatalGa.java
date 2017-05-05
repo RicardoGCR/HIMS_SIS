@@ -42,6 +42,7 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
     private String nomPc;
     private Character estado;
     private String codUsu;
+    private int idActoMedico;
     
     public void ConsultoriosExtGAListar(String rs_id){
         String consulta="";
@@ -234,9 +235,9 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
                     RegistroEmbarazoGA.btneditar.setEnabled(true);
                     RegistroEmbarazoGA.var.setText("2");
                     RegistroEmbarazoGA.fechaGA.setEnabled(false);
+                    RegistroEmbarazoGA.lblIdActoMedico.setText(r.getString(16)); 
+                    RegistroEmbarazoGA.lblActoMedico.setText("Acto Médico de registro " + r.getString(17));
                 }
-                
-                
             }
             //
         } catch (Exception e) {
@@ -247,7 +248,7 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
     public boolean mantenimientoConsultorioExtGA(String tipo){
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_GA ?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_GA ?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getGaId());
             cmd.setInt(2, getCpId());
@@ -261,6 +262,7 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
             cmd.setString(10, getGA_REFERIDA());
             cmd.setString(11, getCodUsu());
             cmd.setString(12, tipo);
+            cmd.setInt(13, getIdActoMedico());
                     if(!cmd.execute())
                     {
                         resp = true;
@@ -268,7 +270,7 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
                     cmd.close();
         }
             catch(Exception ex){
-                System.out.println("Error: mantenimientoConsultorioExtAG : " + ex.getMessage());
+                System.out.println("Error: mantenimientoConsultorioExtGA : " + ex.getMessage());
             }
         return resp;
     }
@@ -430,6 +432,20 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
      */
     public void setGaId(int gaId) {
         this.gaId = gaId;
+    }
+
+    /**
+     * @return the idActoMedico
+     */
+    public int getIdActoMedico() {
+        return idActoMedico;
+    }
+
+    /**
+     * @param idActoMedico the idActoMedico to set
+     */
+    public void setIdActoMedico(int idActoMedico) {
+        this.idActoMedico = idActoMedico;
     }
     
 }

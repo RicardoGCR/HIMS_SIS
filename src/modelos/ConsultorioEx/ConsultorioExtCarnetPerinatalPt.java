@@ -27,12 +27,13 @@ public class ConsultorioExtCarnetPerinatalPt implements Serializable {
     private String nomPc;
     private Character estado;
     private String codUsu;
+    private int idActoMedico;
 
     public boolean mantenimientoConsultorioExtCarnetPerinatalPt(String tipo)
         {
         boolean resp = false;
         try{
-            String sql = "[CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_PT] ?,?,?,?,?,?";
+            String sql = "[CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_PT] ?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getPtId());
             cmd.setInt(2, getCpId());
@@ -40,6 +41,7 @@ public class ConsultorioExtCarnetPerinatalPt implements Serializable {
             cmd.setString(4, getPtTalla());
             cmd.setString(5, getCodUsu());
             cmd.setString(6, tipo);
+            cmd.setInt(7, getIdActoMedico());
             if(!cmd.execute())
             {
                 resp = true;
@@ -88,6 +90,8 @@ public class ConsultorioExtCarnetPerinatalPt implements Serializable {
                 RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdPeso.setText(r.getString(1)); 
                 RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtPeso.setText(r.getString(3));
                 RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.txtTalla.setText(r.getString(4));
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdActoMedico.setText(r.getString(5)); 
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText("Acto Médico de registro " + r.getString(6)); 
 
                 }
             //
@@ -200,6 +204,20 @@ public class ConsultorioExtCarnetPerinatalPt implements Serializable {
      */
     public void setCpId(int cpId) {
         this.cpId = cpId;
+    }
+
+    /**
+     * @return the idActoMedico
+     */
+    public int getIdActoMedico() {
+        return idActoMedico;
+    }
+
+    /**
+     * @param idActoMedico the idActoMedico to set
+     */
+    public void setIdActoMedico(int idActoMedico) {
+        this.idActoMedico = idActoMedico;
     }
     
 }

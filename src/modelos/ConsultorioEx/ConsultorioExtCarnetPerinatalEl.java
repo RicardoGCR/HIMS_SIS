@@ -87,17 +87,14 @@ public class ConsultorioExtCarnetPerinatalEl implements Serializable {
     private String nomPc;
     private Character estado;
     private String codUsu;
-    
-    
-    
-
+    private int idActoMedico;
     public boolean mantenimientoConsultorioExtCarnetPerinatalEl(String tipo)
         {
         boolean resp = false;
         try{
             String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_EL ?,?,?,?,?,?,?,?,?,?,"
                     + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"
-                    + "?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+                    + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getElId());
             cmd.setInt(2, getCpId());
@@ -163,6 +160,7 @@ public class ConsultorioExtCarnetPerinatalEl implements Serializable {
             cmd.setString(62, getElColposcopiaFecha());
             cmd.setString(63, getCodUsu());
             cmd.setString(64, tipo);
+            cmd.setInt(65, getIdActoMedico());
             if(!cmd.execute())
             {
                 resp = true;
@@ -209,6 +207,8 @@ public class ConsultorioExtCarnetPerinatalEl implements Serializable {
             int c=1;
             while(r.next()){
                  RegistroEmbarazoEXL.lblIdEx.setText(r.getString(1)); 
+                 RegistroEmbarazoEXL.lblIdActoMedico.setText(r.getString(68)); 
+                 RegistroEmbarazoEXL.lblActoMedico.setText("Acto Médico de registro " + r.getString(69));
                  if (!RegistroEmbarazoEXL.lblIdEx.getText().equals("") ){
                     RegistroEmbarazoEXL.btnGuardar1.setEnabled(false);
                     RegistroEmbarazoEXL.btneditar.setEnabled(true);
@@ -1269,12 +1269,7 @@ public class ConsultorioExtCarnetPerinatalEl implements Serializable {
                     }
                 } catch (Exception e) {
                 }
-                
-               
-                
-                
-                
-                
+                 
             }
             //
         } catch (Exception e) {
@@ -1850,6 +1845,20 @@ public class ConsultorioExtCarnetPerinatalEl implements Serializable {
      */
     public void setCpId(int cpId) {
         this.cpId = cpId;
+    }
+
+    /**
+     * @return the idActoMedico
+     */
+    public int getIdActoMedico() {
+        return idActoMedico;
+    }
+
+    /**
+     * @param idActoMedico the idActoMedico to set
+     */
+    public void setIdActoMedico(int idActoMedico) {
+        this.idActoMedico = idActoMedico;
     }
     
 }

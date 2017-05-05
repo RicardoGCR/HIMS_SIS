@@ -38,7 +38,7 @@ public class ConsultorioExtCarnetPerinatalAf implements Serializable {
     private String nomPc;
     private Character estado;
     private String codUsu;
-    
+    private int idActoMedico;
     
     
     public void ConsultoriosExtAFListar(String ap_id){
@@ -65,6 +65,8 @@ public class ConsultorioExtCarnetPerinatalAf implements Serializable {
                 RegistroEmbarazoAF.txtAf11.setText(r.getString(13)); 
                 RegistroEmbarazoAF.txtAf12.setText(r.getString(14));
                 RegistroEmbarazoAF.txtOtros.setText(r.getString(15));
+                RegistroEmbarazoAF.lblIdActoMedico.setText(r.getString(21));
+                RegistroEmbarazoAF.lblActoMedico.setText("Acto Médico de Registro " + r.getString(22));
                 if (!RegistroEmbarazoAF.txtOtros.getText().equals("") ){
                 RegistroEmbarazoAF.txtAf13.setText("X");
                 }
@@ -87,7 +89,7 @@ public class ConsultorioExtCarnetPerinatalAf implements Serializable {
         {
         boolean resp = false;
         try{
-            String sql = "[CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_AF] ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "[CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_AF] ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getAfId());
             cmd.setInt(2, getCpId());
@@ -106,13 +108,14 @@ public class ConsultorioExtCarnetPerinatalAf implements Serializable {
             cmd.setString(15, getAfOtros());
             cmd.setString(16, getCodUsu());
             cmd.setString(17, tipo);
+            cmd.setInt(18, getIdActoMedico());
                 if(!cmd.execute()){
                     resp = true;
                 }
             cmd.close();
         }
             catch(Exception ex){
-                System.out.println("Error: mantenimientoConsultorioExtAO: " + ex.getMessage());
+                System.out.println("Error: mantenimientoConsultorioExtAF: " + ex.getMessage());
             }
         return resp;
     }
@@ -307,6 +310,20 @@ public class ConsultorioExtCarnetPerinatalAf implements Serializable {
      */
     public void setCpId(int cpId) {
         this.cpId = cpId;
+    }
+
+    /**
+     * @return the idActoMedico
+     */
+    public int getIdActoMedico() {
+        return idActoMedico;
+    }
+
+    /**
+     * @param idActoMedico the idActoMedico to set
+     */
+    public void setIdActoMedico(int idActoMedico) {
+        this.idActoMedico = idActoMedico;
     }
     
 }

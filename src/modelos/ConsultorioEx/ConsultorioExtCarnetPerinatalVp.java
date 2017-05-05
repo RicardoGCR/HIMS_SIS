@@ -30,6 +30,7 @@ public class ConsultorioExtCarnetPerinatalVp implements Serializable {
     private String nomPc;
     private Character estado;
     private String codUsu;
+    private int idActoMedico;
 
      public void ConsultoriosExtVPListar(String rs_id){
         String consulta="";
@@ -85,6 +86,8 @@ public class ConsultorioExtCarnetPerinatalVp implements Serializable {
                     RegistroEmbarazoVP.btnGuardar.setEnabled(false);
                     RegistroEmbarazoVP.btneditar.setEnabled(true);
                     RegistroEmbarazoVP.var.setText("2");
+                    RegistroEmbarazoVP.lblIdActoMedico.setText(r.getString(12)); 
+                    RegistroEmbarazoVP.lblActoMedico.setText("Acto Médico de registro " + r.getString(13)); 
                 }  
              }
             //
@@ -97,7 +100,7 @@ public class ConsultorioExtCarnetPerinatalVp implements Serializable {
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_VP ?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_VP ?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getVpId());
             cmd.setInt(2, getCpId());
@@ -107,6 +110,7 @@ public class ConsultorioExtCarnetPerinatalVp implements Serializable {
             cmd.setString(6, getVpFiebre());
             cmd.setString(7, getCodUsu());
             cmd.setString(8, tipo);
+            cmd.setInt(9, getIdActoMedico());
             if(!cmd.execute())
             {
                 resp = true;
@@ -235,6 +239,20 @@ public class ConsultorioExtCarnetPerinatalVp implements Serializable {
      */
     public void setCpId(int cpId) {
         this.cpId = cpId;
+    }
+
+    /**
+     * @return the idActoMedico
+     */
+    public int getIdActoMedico() {
+        return idActoMedico;
+    }
+
+    /**
+     * @param idActoMedico the idActoMedico to set
+     */
+    public void setIdActoMedico(int idActoMedico) {
+        this.idActoMedico = idActoMedico;
     }
     
 }

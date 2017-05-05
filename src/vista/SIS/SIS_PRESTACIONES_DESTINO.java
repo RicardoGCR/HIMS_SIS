@@ -277,7 +277,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
         titulo5.setFont(new java.awt.Font("Palatino Linotype", 0, 26)); // NOI18N
         titulo5.setForeground(new java.awt.Color(255, 255, 255));
         titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo5.setText("Prestaciones");
+        titulo5.setText("Prestaciones - RC1 - RC4");
         titulo5.setToolTipText("");
         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -319,7 +319,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
         jLabel22.setText("Seguro Integral de Salud");
 
         btnmodificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Editar-32.png"))); // NOI18N
+        btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/editar_1_24.png"))); // NOI18N
         btnmodificar.setMnemonic('M');
         btnmodificar.setToolTipText("Modificar (Alt-M)");
         btnmodificar.setContentAreaFilled(false);
@@ -343,7 +343,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
         });
 
         btneliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Basura-32.png"))); // NOI18N
+        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/delete-button_1_24.png"))); // NOI18N
         btneliminar.setMnemonic('E');
         btneliminar.setToolTipText("Eliminar (Alt+E)");
         btneliminar.setContentAreaFilled(false);
@@ -355,7 +355,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
         });
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-32.png"))); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/loupe_1_24.png"))); // NOI18N
         btnBuscar.setMnemonic('B');
         btnBuscar.setToolTipText("Buscar (Alt+B)");
         btnBuscar.setContentAreaFilled(false);
@@ -386,7 +386,7 @@ DefaultTableModel m, modelo1, modelo2, m3, m2;
                         .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(281, 281, 281)
+                .addGap(200, 200, 200)
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpanelLayout.createSequentialGroup()
@@ -1045,7 +1045,7 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
               JOptionPane.showMessageDialog(rootPane, "Ingresar los datos completos");
           }  
           else if((rc2.SIS_PRESTACIONES_Ver_NUM(txtNum_Prestacion.getText()))>0){
-              JOptionPane.showMessageDialog(rootPane, "El Producto ingresado ya existe\nIntente nuevamente");
+              JOptionPane.showMessageDialog(rootPane, "El registro ya existe\nIntente nuevamente");
               txtNum_Prestacion.setText("");
               txtNum_Prestacion.requestFocus();
           }else{
@@ -1092,7 +1092,7 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
               JOptionPane.showMessageDialog(rootPane, "Verifique si ha ingresado todos los campos");
           } 
               else if(rc3.SIS_PRESTACION_Codigo(txtNum_Prestacion.getText()).equalsIgnoreCase(txtCodigoPrestacion.getText())==false && rc4.SIS_PRESTACIONES_Ver(txtNum_Prestacion.getText())>0 ){
-                  JOptionPane.showMessageDialog(rootPane, "El Producto ingresado ya existe\nIntente nuevamente");
+                  JOptionPane.showMessageDialog(rootPane, "El registro ya existe\nIntente nuevamente");
               txtNum_Prestacion.setText("");
               txtNum_Prestacion.requestFocus();
               }else{

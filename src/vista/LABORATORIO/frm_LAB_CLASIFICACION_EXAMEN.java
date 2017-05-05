@@ -317,7 +317,7 @@ public void calcula() {
             jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
             titulo5.setBackground(new java.awt.Color(0, 102, 102));
-            titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+            titulo5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
             titulo5.setForeground(new java.awt.Color(255, 255, 255));
             titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             titulo5.setText("Clasificación Examen");
@@ -465,21 +465,27 @@ public void calcula() {
 
             jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
+            jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
             jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salir16x16.png"))); // NOI18N
             jLabel3.setText("Salir (Esc)");
 
+            jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
             jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Document-16.png"))); // NOI18N
             jLabel4.setText("Nuevo (Alt+N)");
 
+            jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
             jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/guardar16x16.png"))); // NOI18N
             jLabel5.setText("Guardar (Alt+G)");
 
+            jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
             jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/editar.png"))); // NOI18N
             jLabel6.setText("Modificar (Alt+M)");
 
+            jLabel8.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
             jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/eliminar16x16.png"))); // NOI18N
             jLabel8.setText("Eliminar (Alt+E)");
 
+            jLabel10.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
             jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
             jLabel10.setText("Buscar (Alt+B)");
 
@@ -516,16 +522,20 @@ public void calcula() {
                     .addGap(5, 5, 5))
             );
 
+            txtCodigo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtCodigo.setEnabled(false);
 
+            jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel7.setText("Clasificación del Examen:");
 
+            txtClasificacion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtClasificacion.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtClasificacionActionPerformed(evt);
                 }
             });
 
+            jLabel18.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel18.setText("Código:");
 
             txtGuarModif.setText("G");
@@ -535,6 +545,7 @@ public void calcula() {
                 }
             });
 
+            jLabel9.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel9.setText("Observación:");
 
             btnBuscarUnidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
@@ -546,11 +557,14 @@ public void calcula() {
             });
 
             txtObservacion.setColumns(20);
+            txtObservacion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtObservacion.setRows(5);
             jScrollPane2.setViewportView(txtObservacion);
 
+            jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel2.setText("Servicio:");
 
+            txtServicio.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtServicio.setEnabled(false);
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

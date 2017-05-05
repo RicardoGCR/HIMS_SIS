@@ -119,7 +119,7 @@ public void calcula() {
         jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
         titulo5.setBackground(new java.awt.Color(0, 102, 102));
-        titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        titulo5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         titulo5.setForeground(new java.awt.Color(255, 255, 255));
         titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titulo5.setText("Muestra Examen");
@@ -142,7 +142,7 @@ public void calcula() {
         lblHora.setForeground(new java.awt.Color(255, 255, 255));
         lblHora.setText("00:00:00");
 
-        lblUsu.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        lblUsu.setFont(new java.awt.Font("Segoe UI Light", 1, 11)); // NOI18N
         lblUsu.setForeground(new java.awt.Color(255, 255, 255));
         lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
         lblUsu.setText("Usuario");
@@ -231,7 +231,7 @@ public void calcula() {
                         .addComponent(jLabel14)
                         .addGap(18, 18, 18)
                         .addComponent(lblFecha)
-                        .addGap(0, 4, Short.MAX_VALUE))
+                        .addGap(0, 9, Short.MAX_VALUE))
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -268,21 +268,27 @@ public void calcula() {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salir16x16.png"))); // NOI18N
         jLabel3.setText("Salir (Esc)");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Document-16.png"))); // NOI18N
         jLabel4.setText("Nuevo (Alt+N)");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/guardar16x16.png"))); // NOI18N
         jLabel5.setText("Guardar (Alt+G)");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/editar.png"))); // NOI18N
         jLabel6.setText("Modificar (Alt+M)");
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/eliminar16x16.png"))); // NOI18N
         jLabel8.setText("Eliminar (Alt+E)");
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
         jLabel10.setText("Buscar (Alt+B)");
 
@@ -319,10 +325,15 @@ public void calcula() {
                 .addGap(5, 5, 5))
         );
 
+        txtCodigo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         txtCodigo.setEnabled(false);
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         jLabel7.setText("Nombre de Muestra:");
 
+        txtMuestra.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         jLabel18.setText("Código:");
 
         txtGuarModif.setText("G");
@@ -336,7 +347,7 @@ public void calcula() {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(92, 92, 92)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)

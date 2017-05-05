@@ -10,6 +10,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.JComponent;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAtencionPrenatal;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalCabecera;
+import tablas.FormatoTablaConsultorioExtAlertas;
+import tablas.FormatoTablaMovCONEXT;
 
 /**
  *
@@ -25,6 +27,7 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
         pnlDatosPaciente.setVisible(false);
         ConsultorioExtCarnetPerinatalAtencionPrenatal consultorio1 = new ConsultorioExtCarnetPerinatalAtencionPrenatal();
         consultorio1.consultorioExAtencionPrenatalAlertas(txtBuscarAlertas.getText(), tbAlertas);
+        tbAlertas.setDefaultRenderer(Object.class,new FormatoTablaConsultorioExtAlertas());
     }
     
     public void QuitarLaBarraTitulo(){ 

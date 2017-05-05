@@ -27,18 +27,18 @@ public class FormatoTablaConsultorioExtAlertas extends DefaultTableCellRenderer{
             //componente.setBackground(new Color(255,85,64));
         //}
         try {
-         if(table.getValueAt(row, 11).equals(fechaActual())){
-            componente.setBackground(new Color(39,174,97));
+         if(table.getValueAt(row, 6).equals(fechaActual())){/*HOY -COLOR AZUL*/
+            componente.setBackground(new Color(41,127,184));
         
    
         } else
-          if(table.getValueAt(row, 11).equals(fechaAyer())){
+          if(table.getValueAt(row, 6).equals(fechaAyer())){/*PASADO COLOR ROJO*/
             componente.setBackground(new Color(232,76,61));
         
    
         }
           else
-              if(table.getValueAt(row, 11).equals(fechaMañana())){
+              if(table.getValueAt(row, 6).equals(fechaMañana())){/*POSTERIOR VERDE*/
             componente.setBackground(new Color(50,151,219));
         
    
@@ -60,19 +60,6 @@ public class FormatoTablaConsultorioExtAlertas extends DefaultTableCellRenderer{
         SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
         return date.format(now);
     }
-//    public static String fechaAyer(){
-//        Date hoy = new Date();
-//        Date ayer = new Date( hoy.getTime()-86400000);
-//        return ayer;
-//    }
-//    public static String fechaAyer1(){
-//        String a;
-//        Calendar c = Calendar.getInstance();
-//        c.add(Calendar.DATE, -1);
-//        Date date = c.getTime();
-//        
-//        return date;
-//    }
     public static String fechaAyer(){
 Calendar calendar = Calendar.getInstance(); 
 calendar.add(Calendar.DATE, -1); 

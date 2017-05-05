@@ -34,12 +34,13 @@ public class ConsultorioExtCarnetPerinatalEm implements Serializable {
     private String nomPc;
     private Character estado;
     private String codUsu;
+    private int idActoMedico;
 
     public boolean mantenimientoConsultorioExtCarnetPerinatalEm(String tipo)
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_EM ?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_EM ?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getEmId());
             cmd.setInt(2, getCpId());
@@ -47,6 +48,7 @@ public class ConsultorioExtCarnetPerinatalEm implements Serializable {
             cmd.setInt(4, getId_cie10());
             cmd.setString(5, getCodUsu());
             cmd.setString(6, tipo);
+            cmd.setInt(7, getIdActoMedico());
             if(!cmd.execute())
             {
                 resp = true;
@@ -266,6 +268,20 @@ public class ConsultorioExtCarnetPerinatalEm implements Serializable {
      */
     public void setId_cie10(int id_cie10) {
         this.id_cie10 = id_cie10;
+    }
+
+    /**
+     * @return the idActoMedico
+     */
+    public int getIdActoMedico() {
+        return idActoMedico;
+    }
+
+    /**
+     * @param idActoMedico the idActoMedico to set
+     */
+    public void setIdActoMedico(int idActoMedico) {
+        this.idActoMedico = idActoMedico;
     }
     
 }

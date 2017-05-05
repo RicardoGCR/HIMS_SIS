@@ -54,6 +54,7 @@ public class ConsultorioExtCarnetPerinatalAp implements Serializable {
     private String nomPc;
     private String estado;
     private String codUsu;
+    private int idActoMedico;
 
     public void ConsultoriosExtAPListar(String ap_id){
         String consulta="";
@@ -122,7 +123,7 @@ public class ConsultorioExtCarnetPerinatalAp implements Serializable {
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_AP ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_AP ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getApId());
             cmd.setInt(2, getCpId());
@@ -156,6 +157,7 @@ public class ConsultorioExtCarnetPerinatalAp implements Serializable {
             cmd.setString(30, getAp28());
             cmd.setString(31, getCodUsu());
             cmd.setString(32, tipo);
+            cmd.setInt(33, getIdActoMedico());
                 if(!cmd.execute()){
                     resp = true;
                 }
@@ -480,6 +482,20 @@ public class ConsultorioExtCarnetPerinatalAp implements Serializable {
      */
     public void setCpId(int cpId) {
         this.cpId = cpId;
+    }
+
+    /**
+     * @return the idActoMedico
+     */
+    public int getIdActoMedico() {
+        return idActoMedico;
+    }
+
+    /**
+     * @param idActoMedico the idActoMedico to set
+     */
+    public void setIdActoMedico(int idActoMedico) {
+        this.idActoMedico = idActoMedico;
     }
     
 }

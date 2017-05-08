@@ -33,6 +33,7 @@ public class ConsultorioExtCarnetPerinatalPmcie10 implements Serializable {
     private int idPm;
     private int idcp;
     private int id_cie10;
+    private int Id_ActoMedico;
     private String cie10fecha;
     private String descripcion;
     private String fechaActu;
@@ -45,15 +46,16 @@ public class ConsultorioExtCarnetPerinatalPmcie10 implements Serializable {
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_PMCIE10 ?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_PMCIE10 ?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getIdPm());
             cmd.setInt(2, getIdcp());
             cmd.setInt(3, getId_cie10());
             cmd.setString(4, getCie10fecha());
             cmd.setString(5, getDescripcion());
-            cmd.setString(6, getCodUsu());
-            cmd.setString(7, tipo);
+            cmd.setInt(6, getId_ActoMedico());
+            cmd.setString(7, getCodUsu());
+            cmd.setString(8, tipo);
             if(!cmd.execute())
             {
                 resp = true;
@@ -63,6 +65,26 @@ public class ConsultorioExtCarnetPerinatalPmcie10 implements Serializable {
         catch(Exception ex)
         {
             System.out.println("Error: mantenimientoConsultorioExtCarnetPerinatalPM: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean EliminarDetalle()
+        {
+        boolean resp = false;
+        try{
+            String sql = "CONSULTORIO_EXT_ELIMINAR_CIE10 ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getIdPm());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: Eliminar detalle: " + ex.getMessage());
         }
         return resp;
     }
@@ -194,6 +216,14 @@ public class ConsultorioExtCarnetPerinatalPmcie10 implements Serializable {
 
     public String getFechaActu() {
         return fechaActu;
+    }
+
+    public int getId_ActoMedico() {
+        return Id_ActoMedico;
+    }
+
+    public void setId_ActoMedico(int Id_ActoMedico) {
+        this.Id_ActoMedico = Id_ActoMedico;
     }
 
     public void setFechaActu(String fechaActu) {

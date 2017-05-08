@@ -27,6 +27,7 @@ import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 public class RegistroEmbarazo extends javax.swing.JFrame {
 
     String estadoSeleccion = "";
+    ConsultorioExtCarnetPerinatalCabecera cabecera = new ConsultorioExtCarnetPerinatalCabecera();
     public RegistroEmbarazo() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -53,6 +54,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
         btnAtras.setVisible(false);
         btnNuevoEmbarazo.setEnabled(false);
         btnGuardar.setEnabled(false);
+        cabecera.conteoAlertas();
     }
     
     public void limpiar(){
@@ -227,6 +229,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             jLabel37 = new javax.swing.JLabel();
             btnNuevo = new javax.swing.JButton();
             btnInicio = new javax.swing.JButton();
+            lblAlertas = new javax.swing.JLabel();
             pnlControl = new javax.swing.JPanel();
             jLabel20 = new javax.swing.JLabel();
             jPanel8 = new javax.swing.JPanel();
@@ -800,17 +803,16 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                         }
                     });
 
+                    lblAlertas.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+                    lblAlertas.setForeground(new java.awt.Color(232, 76, 61));
+                    lblAlertas.setText("10");
+
                     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                     jPanel1.setLayout(jPanel1Layout);
                     jPanel1Layout.setHorizontalGroup(
                         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGap(0, 0, Short.MAX_VALUE))
                                 .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addContainerGap()
@@ -829,7 +831,16 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                     .addComponent(jLabel37)))
                                             .addGap(0, 0, Short.MAX_VALUE))))
-                                .addComponent(btnAlertas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(btnAlertas, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(lblAlertas)))
+                                    .addGap(0, 0, Short.MAX_VALUE)))
                             .addContainerGap())
                     );
                     jPanel1Layout.setVerticalGroup(
@@ -844,7 +855,9 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addComponent(btnInicio)
                             .addGap(18, 18, 18)
-                            .addComponent(btnAlertas)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnAlertas)
+                                .addComponent(lblAlertas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(73, 73, 73)
                             .addComponent(lblusu)
                             .addGap(28, 28, 28)
@@ -1846,7 +1859,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addContainerGap())
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                     );
 
                     jTabbedPane1.addTab("Datos Generales", jPanel2);
@@ -2509,6 +2522,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     public static javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     public static javax.swing.JLabel lblActoMed;
+    public static javax.swing.JLabel lblAlertas;
     public static javax.swing.JLabel lblCelular;
     public static javax.swing.JLabel lblDepartamento;
     public static javax.swing.JLabel lblDireccion;

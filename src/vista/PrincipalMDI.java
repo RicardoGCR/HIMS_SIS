@@ -4508,7 +4508,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         });
 
         btnguardar3.setForeground(new java.awt.Color(240, 240, 240));
-        btnguardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Apagar-30.png"))); // NOI18N
+        btnguardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Apagar-32.png"))); // NOI18N
         btnguardar3.setMnemonic('N');
         btnguardar3.setToolTipText("");
         btnguardar3.setContentAreaFilled(false);
@@ -4536,10 +4536,10 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addComponent(btnNuevo1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnguardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUsu))
+                    .addComponent(lblUsu)
+                    .addComponent(btnguardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 

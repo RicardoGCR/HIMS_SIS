@@ -191,8 +191,8 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
 }
     public void formatoProducto(){
     tbProductoAlmacen.getColumnModel().getColumn(0).setPreferredWidth(50);
-    tbProductoAlmacen.getColumnModel().getColumn(1).setPreferredWidth(100);
-    tbProductoAlmacen.getColumnModel().getColumn(2).setPreferredWidth(150);
+    tbProductoAlmacen.getColumnModel().getColumn(1).setPreferredWidth(130);
+    tbProductoAlmacen.getColumnModel().getColumn(2).setPreferredWidth(300);
     tbProductoAlmacen.getColumnModel().getColumn(3).setPreferredWidth(120);
     tbProductoAlmacen.getColumnModel().getColumn(4).setPreferredWidth(120);
     tbProductoAlmacen.getColumnModel().getColumn(5).setPreferredWidth(100);

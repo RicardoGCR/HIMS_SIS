@@ -145,6 +145,7 @@ public void LAB_Muestra_Examen_cargar(){
             setTitle("SISGESH .::. Búsqueda de Unidades de Medida");
             setAlwaysOnTop(true);
 
+            tb_Unidad_Medida.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             tb_Unidad_Medida.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
                     {null, null, null, null},
@@ -172,6 +173,7 @@ public void LAB_Muestra_Examen_cargar(){
             jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
             jLabel1.setText("Búsqueda ");
 
+            txtBuscar.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
             txtBuscar.setText("Ingresar Unidad de Medida");
             txtBuscar.addActionListener(new java.awt.event.ActionListener() {

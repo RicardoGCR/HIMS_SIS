@@ -518,6 +518,7 @@ public void calcula() {
                         .addGap(5, 5, 5))
                 );
 
+                tb_Esquema.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                 tb_Esquema.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
 

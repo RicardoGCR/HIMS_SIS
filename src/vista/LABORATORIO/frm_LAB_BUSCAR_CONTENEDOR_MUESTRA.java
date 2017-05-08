@@ -145,6 +145,7 @@ public void LAB_Contenedor_cargar(){
             setTitle("SISGESH .::. Búsqueda del Contenedor");
             setAlwaysOnTop(true);
 
+            tb_Contenedor.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             tb_Contenedor.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
                     {null, null, null, null},

@@ -21,11 +21,13 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
 
     private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
     private Dimension DimensionBarra = null; 
+    ConsultorioExtCarnetPerinatalCabecera cabecera = new ConsultorioExtCarnetPerinatalCabecera();
     public RegistroEmabarazoAlertas() {
         initComponents();
         QuitarLaBarraTitulo();
         pnlDatosPaciente.setVisible(false);
         ConsultorioExtCarnetPerinatalAtencionPrenatal consultorio1 = new ConsultorioExtCarnetPerinatalAtencionPrenatal();
+        consultorio1.calculoAlertas();
         consultorio1.consultorioExAtencionPrenatalAlertas(txtBuscarAlertas.getText(), tbAlertas);
         tbAlertas.setDefaultRenderer(Object.class,new FormatoTablaConsultorioExtAlertas());
     }
@@ -60,6 +62,7 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
         T3 = new javax.swing.JButton();
         jPanel38 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
+        btnImprimir = new javax.swing.JButton();
         pnlDatosPaciente = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
@@ -107,7 +110,6 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
 
             jPanel9.setBackground(new java.awt.Color(232, 76, 61));
 
-            txtBuscarAlertas.setEditable(false);
             txtBuscarAlertas.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
             txtBuscarAlertas.setForeground(new java.awt.Color(51, 51, 51));
             txtBuscarAlertas.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -170,11 +172,24 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
             );
             jPanel38Layout.setVerticalGroup(
                 jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel38Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap())
+                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
+
+            btnImprimir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+            btnImprimir.setForeground(new java.awt.Color(240, 240, 240));
+            btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Print-32 (2).png"))); // NOI18N
+            btnImprimir.setText("Imprimir");
+            btnImprimir.setContentAreaFilled(false);
+            btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            btnImprimir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+            btnImprimir.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+            btnImprimir.setIconTextGap(30);
+            btnImprimir.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+            btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnImprimirActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
             jPanel1.setLayout(jPanel1Layout);
@@ -186,12 +201,13 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
                             .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             jPanel1Layout.setVerticalGroup(
@@ -204,7 +220,9 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
                     .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(46, 46, 46)
                     .addComponent(btnActualizar)
-                    .addGap(78, 78, 78)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(btnImprimir)
+                    .addGap(26, 26, 26)
                     .addComponent(lblusu)
                     .addGap(130, 130, 130))
             );
@@ -275,6 +293,7 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
             jScrollPane3.setBorder(null);
 
             tbAlertas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            tbAlertas.setForeground(new java.awt.Color(255, 255, 255));
             tbAlertas.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
 
@@ -337,8 +356,9 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
         }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-     
-       
+        ConsultorioExtCarnetPerinatalAtencionPrenatal consultorio1 = new ConsultorioExtCarnetPerinatalAtencionPrenatal();
+        consultorio1.consultorioExAtencionPrenatalAlertas("", tbAlertas);
+        txtBuscarAlertas.setText("");
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void txtBuscarAlertasCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarAlertasCaretUpdate
@@ -351,7 +371,9 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_T3ActionPerformed
 
     private void jLabel34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel34MouseClicked
-      
+        RegistroEmbarazo.jTabbedPane1.setSelectedIndex(0);
+        this.dispose();
+        cabecera.conteoAlertas();
     }//GEN-LAST:event_jLabel34MouseClicked
 
     private void tbAlertasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbAlertasMouseClicked
@@ -376,10 +398,17 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_tbAlertasKeyReleased
 
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        //VISUALIZAR EL REPORTE DE ALERTAS
+        String ruta = "/reportes/consultoriosExternos/atencionPrenatalAlertas.jasper";
+        cabecera.reporteAlertas(ruta);
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton T3;
     public static javax.swing.JButton btnActualizar;
+    public static javax.swing.JButton btnImprimir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel34;

@@ -250,6 +250,11 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
             columna13.setMinWidth(0);
             columna13.setPreferredWidth(0);
         tabla.doLayout();
+        TableColumn columna14 = tabla.getColumnModel().getColumn(14);
+            columna14.setMaxWidth(0);
+            columna14.setMinWidth(0);
+            columna14.setPreferredWidth(0);
+        tabla.doLayout();
         tabla.setRowHeight(35);
     }
     
@@ -258,10 +263,10 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
         try {
             tabla.setModel(new DefaultTableModel());
             String titulos[]={"ID","CP","DNI","Nº H.C.","Paciente","Edad","Cita","Mes",
-            "","","","","",""};
+            "","","","","","",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[14];
+            String fila[]=new String[15];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC [CONSULTORIO_EXT_CARNET_PERINATAL_ATENCION_PRENATAL_ALERTAS] ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -283,6 +288,7 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
                 fila[11]=r.getString(12); 
                 fila[12]=r.getString(13);
                 fila[13]=r.getString(14); 
+                fila[14]=r.getString(15); 
                     m.addRow(fila);
                     c++;
             }
@@ -294,6 +300,20 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
         } catch (Exception e) {
             System.out.println("Error: consultorioExAtencionPrenatalAlertas: " + e.getMessage());
         }
+    }
+    
+    public String calculoAlertas(){
+        String cod = "";
+        try {
+            String consulta = "EXEC CONSULTORIO_EXT_CARNET_PERINATAL_ATENCION_PRENATAL_CALCULO_ALERTAS";
+            ResultSet r;
+            r=con.Listar(consulta);
+        if(r.next()){
+               cod = r.getString(1);
+        }
+        }catch(Exception ex){
+        }
+        return cod;
     }
     
     public ConsultorioExtCarnetPerinatalAtencionPrenatal() {

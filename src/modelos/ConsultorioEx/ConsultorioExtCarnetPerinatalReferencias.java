@@ -163,7 +163,11 @@ public class ConsultorioExtCarnetPerinatalReferencias implements Serializable {
                 if (!RegistroEmbarazoPM1.lblIdPM1.getText().equals("") ){
                     RegistroEmbarazoPM1.btnGuardar.setEnabled(false);
                     RegistroEmbarazoPM1.btneditar.setEnabled(true);
+                    
+                    RegistroEmbarazoPM1.lblIdActoMedico.setText(r.getString(12)); 
+                    RegistroEmbarazoPM1.lblActoMedico.setText("Acto Médico de registro " + r.getString(18)); 
                     RegistroEmbarazoPM1.var.setText("2");
+                    
                 }
                 
                 

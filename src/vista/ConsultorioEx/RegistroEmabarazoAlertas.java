@@ -305,53 +305,7 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtMedicoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtMedicoCaretUpdate
-        //        if(lblNewMod.getText().equals("N")){
-            //            if(txtNHCTri.getText().length()==7){
-                //                adEmerCab.mostrarHCTriaje(formatoNHC(txtNHCTri.getText()));
-                //                pnlTriaje.setVisible(false);
-                //                adEmerCab.cargarFormatEmer(lblIDHCTr.getText(),"",tbFormatosEmer);
-                //                AdmisionEmergenciaTriaje ad = new AdmisionEmergenciaTriaje();
-                //                if(tbFormatosEmer.getRowCount()!=0){
-                    //                    if(lblPestana.getText().equals("TR") || tbPaneles.getSelectedIndex()==1)
-                    //                    lblPestanaMod.setText("TR");
-                    //                    dlgModemergencia.setVisible(true);
-                    //                    dlgModemergencia.setLocationRelativeTo(null);//en el centro
-                    //                    dlgModemergencia.setResizable(false);
-                    //                    dlgModemergencia.getContentPane().setBackground(Color.WHITE);
-                    //                } else {
-                    //                    JOptionPane.showMessageDialog(this,"No hay registros");
-                    //                }
-                //            }
-            //            else{
-                //                lblIDHCTr.setText("");
-                //                lblPaciente.setText("");
-                //                txtIDTriaje.setText("");
-                //                pnlTriaje.setVisible(false);
-                //            }
-            //        } else { //MODIFICAR
-            //            if(txtNHCTri.getText().length()==7){
-                //                adEmerCab.mostrarHCTriaje(formatoNHC(txtNHCTri.getText()));
-                //                //pnlTriaje.setVisible(true);
-                //                adEmerCab.cargarFormatEmer(lblIDHCTr.getText(),"",tbFormatosEmer);
-                //                adEmerTr.admisionEmergenciaTriajeListar(lblIDHCTr.getText(),"" , tbModifTriaje,"A");
-                //                if(tbModifTriaje.getRowCount()!=0){
-                    //                    dlgModTriaje.setVisible(true);
-                    //                    dlgModTriaje.setLocationRelativeTo(null);//en el centro
-                    //                    dlgModTriaje.setResizable(false);
-                    //                    dlgModTriaje.getContentPane().setBackground(Color.WHITE);
-                    //                } else {
-                    //                    dlgModTriaje.setVisible(false);
-                    //                    JOptionPane.showMessageDialog(this,"No hay registros");
-                    //                    txtNHCTri.setText("");
-                    //                }
-                //            }
-            //            else{
-                //                lblIDHCTr.setText("");
-                //                lblPaciente.setText("");
-                //                txtIDTriaje.setText("");
-                //                pnlTriaje.setVisible(false);
-                //            }
-            //        }
+      
     }//GEN-LAST:event_txtMedicoCaretUpdate
 
     private void T3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3ActionPerformed
@@ -359,74 +313,11 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_T3ActionPerformed
 
     private void jLabel34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel34MouseClicked
-        RegistroEmbarazo.jTabbedPane1.setSelectedIndex(1);
-        this.dispose();
+      
     }//GEN-LAST:event_jLabel34MouseClicked
 
     private void tb_Grupo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo1MouseClicked
-        int fila=tb_Grupo1.getSelectedRow();
-        if(evt.getClickCount()==1){
 
-            txtcod.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 0)));
-            txtgrupo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 4)));
-            txtct6.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
-            txtuo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 3)));
-            txtdes.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 2)));
-
-            grupo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 9)));
-            ct6.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 11)));
-            unior.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 10)));
-            txtnom2.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 1)));
-
-        }
-        if(evt.getClickCount()==2){
-            jTabbedPane1.setSelectedIndex(0);
-
-        }
-        //      try {
-            //            String cuenta5=cpt.getText();
-            //            String palabra5=String.valueOf(cuenta5.charAt(0)+""+cuenta5.charAt(1));
-            //            txtnomenclatura.setText(palabra5);
-            //            txtnomenclatura.setEnabled(true);
-            //
-            //            String cj=CPTE.getText();
-            //            String cja=String.valueOf(cj.charAt(2)+""+cj.charAt(3)+""+cj.charAt(4)+""+cj.charAt(5)+""+cj.charAt(6)+""+cj.charAt(7)+""+cj.charAt(8)+""+cj.charAt(9));
-            //            txtnom1.setText(cja);
-            //            txtnom1.setEnabled(true);
-            //
-            //        } catch (Exception e) {
-            //        }
-        tg=2;
-        txtnomenclatura.setEnabled(true);
-        txtdes.setEnabled(true);
-
-        visible.setEnabled(true);
-        btnguardar.setEnabled(false);
-        btneditar.setEnabled(true);
-        btneliminar.setEnabled(true);
-        b.setEnabled(true);
-        b1.setEnabled(true);
-        b2.setEnabled(true);
-        b.setVisible(false);
-        b1.setVisible(false);
-        b2.setVisible(false);
-        txtnom1.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
-        txtnomenclatura.setVisible(false);
-        txtnom1.setVisible(false);
-        txtnom2.setVisible(true);
-        txtcod.setEnabled(true);
-        txtnomenclatura.setEnabled(true);
-        txtgrupo.setEnabled(true);
-        txtct6.setEnabled(true);
-        txtuo.setEnabled(true);
-        txtdes.setEnabled(true);
-        txtcod.setEditable(false);
-        txtnomenclatura.setEditable(false);
-        txtgrupo.setEditable(false);
-        txtct6.setEditable(false);
-        txtuo.setEditable(false);
-        txtnom2.setEditable(false);
-        txtdes.setEditable(false);
     }//GEN-LAST:event_tb_Grupo1MouseClicked
 
     private void tb_Grupo1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo1MousePressed
@@ -435,67 +326,6 @@ public class RegistroEmabarazoAlertas extends javax.swing.JInternalFrame {
 
     private void tb_Grupo1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo1KeyPressed
 
-        char teclaPresionada = evt.getKeyChar();
-        if(teclaPresionada==KeyEvent.VK_ENTER){
-            int fila = tb_Grupo1.getSelectedRow();
-
-            txtcod.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 0)));
-            txtgrupo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 4)));
-            txtct6.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
-            txtuo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 3)));
-            txtdes.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 2)));
-
-            grupo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 9)));
-            ct6.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 11)));
-            unior.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 10)));
-            txtnom2.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 1)));
-
-        }
-
-        //      try {
-            //            String cuenta5=cpt.getText();
-            //            String palabra5=String.valueOf(cuenta5.charAt(0)+""+cuenta5.charAt(1));
-            //            txtnomenclatura.setText(palabra5);
-            //            txtnomenclatura.setEnabled(true);
-            //
-            //            String cj=CPTE.getText();
-            //            String cja=String.valueOf(cj.charAt(2)+""+cj.charAt(3)+""+cj.charAt(4)+""+cj.charAt(5)+""+cj.charAt(6)+""+cj.charAt(7)+""+cj.charAt(8)+""+cj.charAt(9));
-            //            txtnom1.setText(cja);
-            //            txtnom1.setEnabled(true);
-            //
-            //        } catch (Exception e) {
-            //        }
-        tg=2;
-        txtnomenclatura.setEnabled(true);
-        txtdes.setEnabled(true);
-
-        visible.setEnabled(true);
-        btnguardar.setEnabled(false);
-        btneditar.setEnabled(true);
-        btneliminar.setEnabled(true);
-        b.setEnabled(true);
-        b1.setEnabled(true);
-        b2.setEnabled(true);
-        b.setVisible(false);
-        b1.setVisible(false);
-        b2.setVisible(false);
-        txtnom1.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
-        txtnomenclatura.setVisible(false);
-        txtnom1.setVisible(false);
-        txtnom2.setVisible(true);
-        txtcod.setEnabled(true);
-        txtnomenclatura.setEnabled(true);
-        txtgrupo.setEnabled(true);
-        txtct6.setEnabled(true);
-        txtuo.setEnabled(true);
-        txtdes.setEnabled(true);
-        txtcod.setEditable(false);
-        txtnomenclatura.setEditable(false);
-        txtgrupo.setEditable(false);
-        txtct6.setEditable(false);
-        txtuo.setEditable(false);
-        txtnom2.setEditable(false);
-        txtdes.setEditable(false);
 
     }//GEN-LAST:event_tb_Grupo1KeyPressed
 

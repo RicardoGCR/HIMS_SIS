@@ -86,6 +86,8 @@ public class ConsultorioExtCarnetPerinatalVp implements Serializable {
                     RegistroEmbarazoVP.btnGuardar.setEnabled(false);
                     RegistroEmbarazoVP.btneditar.setEnabled(true);
                     RegistroEmbarazoVP.var.setText("2");
+                    RegistroEmbarazoVP.lblIdActoMedico.setText(r.getString(12)); 
+                    RegistroEmbarazoVP.lblActoMedico.setText("Acto Médico de registro " + r.getString(13)); 
                 }  
              }
             //

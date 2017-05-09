@@ -17,6 +17,9 @@ import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RegistroEmbarazoAO;
+import vista.ConsultorioEx.RegistroEmbarazoPrincipal;
+import static vista.ConsultorioEx.RegistroEmbarazoPrincipal.lblActoMedico;
+import static vista.ConsultorioEx.RegistroEmbarazoPrincipal.lblIdActoMedico;
 /**
  *
  * @author MYS1
@@ -87,6 +90,8 @@ public class ConsultorioExtCarnetPerinatalAO {
                     RegistroEmbarazoAO.txtMuerto1.setEditable(false);
                     RegistroEmbarazoAO.txtDespues.setEditable(false);
                     RegistroEmbarazoAO.txtRNmayor.setEditable(false);
+                    RegistroEmbarazoAO.lblIdActoMedico.setText(r.getString(23));
+                    RegistroEmbarazoAO.lblActoMedico.setText("Acto Médico de registro " + r.getString(24));
                 }
 
                 }

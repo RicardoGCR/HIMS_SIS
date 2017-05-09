@@ -137,6 +137,10 @@ public class ConsultorioExtCarnetPerinatalEf implements Serializable {
                     RegistroEmbarazoEXF.txtOdontPatologico.setText("X");
                 if(r.getString(6).equals("Normal"))
                     RegistroEmbarazoEXF.txtOdontNormal.setText("X");
+                
+                
+                RegistroEmbarazoEXF.lblIdActoMedico.setText(r.getString(7)); 
+                RegistroEmbarazoEXF.lblActoMedico.setText("Acto Médico de registro " + r.getString(8)); 
             }
             //
         } catch (Exception e) {

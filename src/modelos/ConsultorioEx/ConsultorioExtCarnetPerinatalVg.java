@@ -116,8 +116,8 @@ public class ConsultorioExtCarnetPerinatalVg implements Serializable {
                     RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.chkVno.setText("X");
                 
                 
-                
-                    
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdActoMedico.setText(r.getString(11)); 
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText("Acto Médico de registro " + r.getString(12)); 
             }
             //
         } catch (Exception e) {

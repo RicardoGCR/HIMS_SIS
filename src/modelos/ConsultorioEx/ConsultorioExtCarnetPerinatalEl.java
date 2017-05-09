@@ -207,6 +207,8 @@ public class ConsultorioExtCarnetPerinatalEl implements Serializable {
             int c=1;
             while(r.next()){
                  RegistroEmbarazoEXL.lblIdEx.setText(r.getString(1)); 
+                 RegistroEmbarazoEXL.lblIdActoMedico.setText(r.getString(68)); 
+                 RegistroEmbarazoEXL.lblActoMedico.setText("Acto Médico de registro " + r.getString(69));
                  if (!RegistroEmbarazoEXL.lblIdEx.getText().equals("") ){
                     RegistroEmbarazoEXL.btnGuardar1.setEnabled(false);
                     RegistroEmbarazoEXL.btneditar.setEnabled(true);
@@ -1267,12 +1269,7 @@ public class ConsultorioExtCarnetPerinatalEl implements Serializable {
                     }
                 } catch (Exception e) {
                 }
-                
-               
-                
-                
-                
-                
+                 
             }
             //
         } catch (Exception e) {

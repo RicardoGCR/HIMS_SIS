@@ -684,18 +684,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         fechaTG = new com.toedter.calendar.JDateChooser();
-<<<<<<< HEAD
-<<<<<<< HEAD
         fechaG2 = new com.toedter.calendar.JDateChooser();
         fechaG1 = new com.toedter.calendar.JDateChooser();
-=======
-        fechaf14 = new com.toedter.calendar.JDateChooser();
-        fechaf15 = new com.toedter.calendar.JDateChooser();
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-        fechaG2 = new com.toedter.calendar.JDateChooser();
-        fechaG1 = new com.toedter.calendar.JDateChooser();
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         jLabel79 = new javax.swing.JLabel();
         txtTGNA = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
@@ -738,38 +728,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtVDRL2na = new javax.swing.JTextField();
         txtFTAna = new javax.swing.JTextField();
         txtTHPAna = new javax.swing.JTextField();
-<<<<<<< HEAD
-<<<<<<< HEAD
         txtElisana = new javax.swing.JTextField();
         txtVIH2na = new javax.swing.JTextField();
-=======
-        txtPadre84 = new javax.swing.JTextField();
-        txtPadre85 = new javax.swing.JTextField();
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-        txtElisana = new javax.swing.JTextField();
-        txtVIH2na = new javax.swing.JTextField();
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         fechaVDRL1 = new com.toedter.calendar.JDateChooser();
         fechaVDRL2 = new com.toedter.calendar.JDateChooser();
         fechaFTA = new com.toedter.calendar.JDateChooser();
         fechaTHPA = new com.toedter.calendar.JDateChooser();
         fechaPrueba = new com.toedter.calendar.JDateChooser();
-<<<<<<< HEAD
-<<<<<<< HEAD
         fechaVIH1 = new com.toedter.calendar.JDateChooser();
         fechaVIH2 = new com.toedter.calendar.JDateChooser();
         fechaELisa = new com.toedter.calendar.JDateChooser();
-=======
-        fechaf10 = new com.toedter.calendar.JDateChooser();
-        fechaf7 = new com.toedter.calendar.JDateChooser();
-        fechaf8 = new com.toedter.calendar.JDateChooser();
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-        fechaVIH1 = new com.toedter.calendar.JDateChooser();
-        fechaVIH2 = new com.toedter.calendar.JDateChooser();
-        fechaELisa = new com.toedter.calendar.JDateChooser();
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         jPanel9 = new javax.swing.JPanel();
         jLabel56 = new javax.swing.JLabel();
         txtIFIp = new javax.swing.JTextField();
@@ -826,38 +794,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel70 = new javax.swing.JLabel();
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
-<<<<<<< HEAD
-        jLabel73 = new javax.swing.JLabel();
-        txtPadre115 = new javax.swing.JTextField();
-        txtPadre116 = new javax.swing.JTextField();
-        txtPadre117 = new javax.swing.JTextField();
-        txtPadre118 = new javax.swing.JTextField();
-        txtPadre119 = new javax.swing.JTextField();
-        txtPadre120 = new javax.swing.JTextField();
-        txtPadre121 = new javax.swing.JTextField();
-        txtPadre122 = new javax.swing.JTextField();
-        txtPadre123 = new javax.swing.JTextField();
-        txtPadre124 = new javax.swing.JTextField();
-        txtPadre125 = new javax.swing.JTextField();
-        txtPadre126 = new javax.swing.JTextField();
-        txtPadre127 = new javax.swing.JTextField();
-        txtPadre128 = new javax.swing.JTextField();
-        txtPadre129 = new javax.swing.JTextField();
-        txtPadre130 = new javax.swing.JTextField();
-        txtPadre131 = new javax.swing.JTextField();
-        txtPadre132 = new javax.swing.JTextField();
-        txtIFIna = new javax.swing.JTextField();
-        txtPadre134 = new javax.swing.JTextField();
-        txtPadre135 = new javax.swing.JTextField();
-        txtPadre136 = new javax.swing.JTextField();
-        txtPadre137 = new javax.swing.JTextField();
-        fechaf27 = new com.toedter.calendar.JDateChooser();
-        fechaf28 = new com.toedter.calendar.JDateChooser();
-        fechaf29 = new com.toedter.calendar.JDateChooser();
-        fechaf30 = new com.toedter.calendar.JDateChooser();
-        fechaf31 = new com.toedter.calendar.JDateChooser();
-        fechaf32 = new com.toedter.calendar.JDateChooser();
-=======
         lblHepa = new javax.swing.JLabel();
         txtNitritosn = new javax.swing.JTextField();
         txtUrocultivon = new javax.swing.JTextField();
@@ -889,7 +825,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         fechaUrocultivo = new com.toedter.calendar.JDateChooser();
         fechaNitritos = new com.toedter.calendar.JDateChooser();
         txtUrocultivona = new javax.swing.JTextField();
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         jPanel10 = new javax.swing.JPanel();
         jLabel74 = new javax.swing.JLabel();
         txtPAPa = new javax.swing.JTextField();
@@ -922,11 +857,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setMinimumSize(new java.awt.Dimension(900, 724));
-<<<<<<< HEAD
-        setPreferredSize(new java.awt.Dimension(900, 724));
-=======
         setPreferredSize(new java.awt.Dimension(1355, 744));
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         setVisible(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -2077,10 +2008,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel41.setForeground(new java.awt.Color(51, 51, 51));
         jLabel41.setText("VIH Prueba Ráp 1");
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         txtVIH1nr.setEditable(false);
         txtVIH1nr.setBackground(new java.awt.Color(255, 255, 255));
         txtVIH1nr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -2091,36 +2018,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtVIH1nr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtVIH1nr.setSelectionColor(new java.awt.Color(255, 255, 255));
         txtVIH1nr.addCaretListener(new javax.swing.event.CaretListener() {
-<<<<<<< HEAD
-=======
-        txtPadre71.setEditable(false);
-        txtPadre71.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre71.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre71.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre71.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre71.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre71.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre71.setSelectedTextColor(new java.awt.Color(102, 102, 102));
-        txtPadre71.setSelectionColor(new java.awt.Color(255, 255, 255));
-        txtPadre71.addCaretListener(new javax.swing.event.CaretListener() {
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtVIH1nrCaretUpdate(evt);
             }
         });
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
         txtVIH1nr.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtVIH1nrMouseClicked(evt);
             }
         });
 
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         txtVIHr.setEditable(false);
         txtVIHr.setBackground(new java.awt.Color(255, 204, 51));
         txtVIHr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -2131,36 +2038,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtVIHr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtVIHr.setSelectionColor(new java.awt.Color(255, 204, 51));
         txtVIHr.addCaretListener(new javax.swing.event.CaretListener() {
-<<<<<<< HEAD
-=======
-        txtPadre72.setEditable(false);
-        txtPadre72.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre72.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre72.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre72.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre72.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre72.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre72.setSelectedTextColor(new java.awt.Color(102, 102, 102));
-        txtPadre72.setSelectionColor(new java.awt.Color(255, 204, 51));
-        txtPadre72.addCaretListener(new javax.swing.event.CaretListener() {
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtVIHrCaretUpdate(evt);
             }
         });
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
         txtVIHr.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtVIHrMouseClicked(evt);
             }
         });
 
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         txtVIHnh.setEditable(false);
         txtVIHnh.setBackground(new java.awt.Color(255, 204, 51));
         txtVIHnh.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -2171,22 +2058,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtVIHnh.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtVIHnh.setSelectionColor(new java.awt.Color(255, 204, 51));
         txtVIHnh.addCaretListener(new javax.swing.event.CaretListener() {
-<<<<<<< HEAD
-=======
-        txtPadre73.setEditable(false);
-        txtPadre73.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre73.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre73.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre73.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre73.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre73.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre73.setSelectedTextColor(new java.awt.Color(102, 102, 102));
-        txtPadre73.setSelectionColor(new java.awt.Color(255, 204, 51));
-        txtPadre73.addCaretListener(new javax.swing.event.CaretListener() {
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtVIHnhCaretUpdate(evt);
-=======
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtVIHnhCaretUpdate(evt);
             }
@@ -2194,16 +2065,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtVIHnh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtVIHnhMouseClicked(evt);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             }
         });
 
         jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(51, 51, 51));
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         jLabel42.setText("Prueba Ráp 2");
 
         txtVIH2nr.setEditable(false);
@@ -2216,38 +2082,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtVIH2nr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtVIH2nr.setSelectionColor(new java.awt.Color(255, 255, 255));
         txtVIH2nr.addCaretListener(new javax.swing.event.CaretListener() {
-<<<<<<< HEAD
-=======
-        jLabel42.setText("VIH Prueba Ráp 1");
-
-        txtPadre74.setEditable(false);
-        txtPadre74.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre74.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre74.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre74.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre74.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre74.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre74.setSelectedTextColor(new java.awt.Color(102, 102, 102));
-        txtPadre74.setSelectionColor(new java.awt.Color(255, 255, 255));
-        txtPadre74.addCaretListener(new javax.swing.event.CaretListener() {
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtVIH2nrCaretUpdate(evt);
             }
         });
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
         txtVIH2nr.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtVIH2nrMouseClicked(evt);
             }
         });
 
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         txtVIH2r.setEditable(false);
         txtVIH2r.setBackground(new java.awt.Color(255, 204, 51));
         txtVIH2r.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -2258,36 +2102,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtVIH2r.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtVIH2r.setSelectionColor(new java.awt.Color(255, 204, 51));
         txtVIH2r.addCaretListener(new javax.swing.event.CaretListener() {
-<<<<<<< HEAD
-=======
-        txtPadre75.setEditable(false);
-        txtPadre75.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre75.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre75.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre75.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre75.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre75.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre75.setSelectedTextColor(new java.awt.Color(102, 102, 102));
-        txtPadre75.setSelectionColor(new java.awt.Color(255, 204, 51));
-        txtPadre75.addCaretListener(new javax.swing.event.CaretListener() {
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtVIH2rCaretUpdate(evt);
             }
         });
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
         txtVIH2r.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtVIH2rMouseClicked(evt);
             }
         });
 
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         txtVIH2nh.setEditable(false);
         txtVIH2nh.setBackground(new java.awt.Color(255, 204, 51));
         txtVIH2nh.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -2298,22 +2122,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtVIH2nh.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtVIH2nh.setSelectionColor(new java.awt.Color(255, 204, 51));
         txtVIH2nh.addCaretListener(new javax.swing.event.CaretListener() {
-<<<<<<< HEAD
-=======
-        txtPadre76.setEditable(false);
-        txtPadre76.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre76.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre76.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre76.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre76.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre76.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre76.setSelectedTextColor(new java.awt.Color(102, 102, 102));
-        txtPadre76.setSelectionColor(new java.awt.Color(255, 204, 51));
-        txtPadre76.addCaretListener(new javax.swing.event.CaretListener() {
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtVIH2nhCaretUpdate(evt);
-=======
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtVIH2nhCaretUpdate(evt);
             }
@@ -2321,7 +2129,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtVIH2nh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtVIH2nhMouseClicked(evt);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             }
         });
 
@@ -2329,10 +2136,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel43.setForeground(new java.awt.Color(51, 51, 51));
         jLabel43.setText("ELISA");
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         txtElisanr.setEditable(false);
         txtElisanr.setBackground(new java.awt.Color(255, 255, 255));
         txtElisanr.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -2343,36 +2146,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtElisanr.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtElisanr.setSelectionColor(new java.awt.Color(255, 255, 255));
         txtElisanr.addCaretListener(new javax.swing.event.CaretListener() {
-<<<<<<< HEAD
-=======
-        txtPadre77.setEditable(false);
-        txtPadre77.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre77.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre77.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre77.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre77.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre77.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre77.setSelectedTextColor(new java.awt.Color(102, 102, 102));
-        txtPadre77.setSelectionColor(new java.awt.Color(255, 255, 255));
-        txtPadre77.addCaretListener(new javax.swing.event.CaretListener() {
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtElisanrCaretUpdate(evt);
             }
         });
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
         txtElisanr.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtElisanrMouseClicked(evt);
             }
         });
 
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         txtElisar.setEditable(false);
         txtElisar.setBackground(new java.awt.Color(255, 204, 51));
         txtElisar.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -2383,29 +2166,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtElisar.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtElisar.setSelectionColor(new java.awt.Color(255, 204, 51));
         txtElisar.addCaretListener(new javax.swing.event.CaretListener() {
-<<<<<<< HEAD
-=======
-        txtPadre78.setEditable(false);
-        txtPadre78.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre78.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre78.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre78.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre78.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre78.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre78.setSelectedTextColor(new java.awt.Color(102, 102, 102));
-        txtPadre78.setSelectionColor(new java.awt.Color(255, 204, 51));
-        txtPadre78.addCaretListener(new javax.swing.event.CaretListener() {
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtElisarCaretUpdate(evt);
             }
         });
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
         txtElisar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtElisarMouseClicked(evt);
@@ -2417,7 +2181,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         });
 
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         txtElisanh.setEditable(false);
         txtElisanh.setBackground(new java.awt.Color(255, 204, 51));
         txtElisanh.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -2428,22 +2191,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtElisanh.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtElisanh.setSelectionColor(new java.awt.Color(255, 204, 51));
         txtElisanh.addCaretListener(new javax.swing.event.CaretListener() {
-<<<<<<< HEAD
-=======
-        txtPadre79.setEditable(false);
-        txtPadre79.setBackground(new java.awt.Color(255, 204, 51));
-        txtPadre79.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre79.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre79.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre79.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre79.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre79.setSelectedTextColor(new java.awt.Color(102, 102, 102));
-        txtPadre79.setSelectionColor(new java.awt.Color(255, 204, 51));
-        txtPadre79.addCaretListener(new javax.swing.event.CaretListener() {
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtElisanhCaretUpdate(evt);
-=======
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtElisanhCaretUpdate(evt);
             }
@@ -2451,7 +2198,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtElisanh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtElisanhMouseClicked(evt);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             }
         });
 
@@ -2519,10 +2265,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         txtElisana.setEditable(false);
         txtElisana.setBackground(new java.awt.Color(255, 255, 255));
         txtElisana.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -2533,36 +2275,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtElisana.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtElisana.setSelectionColor(new java.awt.Color(255, 255, 255));
         txtElisana.addCaretListener(new javax.swing.event.CaretListener() {
-<<<<<<< HEAD
-=======
-        txtPadre84.setEditable(false);
-        txtPadre84.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre84.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre84.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre84.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre84.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre84.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre84.setSelectedTextColor(new java.awt.Color(102, 102, 102));
-        txtPadre84.setSelectionColor(new java.awt.Color(255, 255, 255));
-        txtPadre84.addCaretListener(new javax.swing.event.CaretListener() {
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtElisanaCaretUpdate(evt);
             }
         });
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
         txtElisana.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtElisanaMouseClicked(evt);
             }
         });
 
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         txtVIH2na.setEditable(false);
         txtVIH2na.setBackground(new java.awt.Color(255, 255, 255));
         txtVIH2na.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -2573,22 +2295,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtVIH2na.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtVIH2na.setSelectionColor(new java.awt.Color(255, 255, 255));
         txtVIH2na.addCaretListener(new javax.swing.event.CaretListener() {
-<<<<<<< HEAD
-=======
-        txtPadre85.setEditable(false);
-        txtPadre85.setBackground(new java.awt.Color(255, 255, 255));
-        txtPadre85.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtPadre85.setForeground(new java.awt.Color(102, 102, 102));
-        txtPadre85.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPadre85.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPadre85.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtPadre85.setSelectedTextColor(new java.awt.Color(102, 102, 102));
-        txtPadre85.setSelectionColor(new java.awt.Color(255, 255, 255));
-        txtPadre85.addCaretListener(new javax.swing.event.CaretListener() {
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtVIH2naCaretUpdate(evt);
-=======
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtVIH2naCaretUpdate(evt);
             }
@@ -2596,7 +2302,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtVIH2na.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtVIH2naMouseClicked(evt);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             }
         });
 
@@ -2625,15 +2330,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         fechaPrueba.setDateFormatString("dd-MM-yyyy");
         fechaPrueba.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         fechaVIH1.setBackground(new java.awt.Color(245, 245, 245));
         fechaVIH1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaVIH1.setDateFormatString("dd-MM-yyyy");
         fechaVIH1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-<<<<<<< HEAD
 
         fechaVIH2.setBackground(new java.awt.Color(245, 245, 245));
         fechaVIH2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -2644,31 +2344,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         fechaELisa.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         fechaELisa.setDateFormatString("dd-MM-yyyy");
         fechaELisa.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-=======
-        fechaf10.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf10.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        fechaf10.setDateFormatString("dd-MM-yyyy");
-        fechaf10.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
-
-        fechaVIH2.setBackground(new java.awt.Color(245, 245, 245));
-        fechaVIH2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        fechaVIH2.setDateFormatString("dd-MM-yyyy");
-        fechaVIH2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-
-<<<<<<< HEAD
-        fechaf8.setBackground(new java.awt.Color(245, 245, 245));
-        fechaf8.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        fechaf8.setDateFormatString("dd-MM-yyyy");
-        fechaf8.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-        fechaELisa.setBackground(new java.awt.Color(245, 245, 245));
-        fechaELisa.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        fechaELisa.setDateFormatString("dd-MM-yyyy");
-        fechaELisa.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -2696,15 +2371,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(txtVDRL1nr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtVDRL2nr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPruebanr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-<<<<<<< HEAD
                             .addComponent(txtVIH2nr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
-                            .addComponent(txtPadre74, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-                            .addComponent(txtVIH2nr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                         .addGap(51, 51, 51)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtVIH2r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2714,37 +2381,17 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                 .addComponent(txtVDRL1a, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtFTAr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtTHPAr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-<<<<<<< HEAD
-<<<<<<< HEAD
                                 .addComponent(txtVIHr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(txtElisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtFTAnr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTHPAnr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtVIH1nr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtElisanr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
-                                .addComponent(txtPadre72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtPadre78, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtFTAnr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTHPAnr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre71, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre77, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-                                .addComponent(txtVIHr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtElisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtFTAnr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTHPAnr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtVIH1nr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtElisanr, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                 .addGap(19, 19, 19)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPruebanh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-<<<<<<< HEAD
                             .addComponent(txtVIHnh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2752,24 +2399,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(fechaVIH1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fechaVIH2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fechaELisa, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-=======
-                            .addComponent(txtPadre73, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fechaPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaf10, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaf7, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaf8, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-                            .addComponent(txtVIHnh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fechaPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaVIH1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaVIH2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaELisa, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                             .addComponent(fechaTHPA, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fechaVDRL2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fechaFTA, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2780,18 +2409,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(txtFTAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtVDRL2nh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTHPAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-<<<<<<< HEAD
                             .addComponent(txtElisanh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtVIH2nh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
-                            .addComponent(txtPadre79, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre76, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-                            .addComponent(txtElisanh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtVIH2nh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(34, 34, 34)
@@ -2799,18 +2418,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                     .addComponent(txtFTAna, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtVDRL2na, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtTHPAna, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-<<<<<<< HEAD
                                     .addComponent(txtElisana, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtVIH2na, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-=======
-                                    .addComponent(txtPadre84, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre85, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-                                    .addComponent(txtElisana, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtVIH2na, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                                     .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 141, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
@@ -2916,11 +2525,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtIFIp.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtIFIp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtIFIp.setPreferredSize(new java.awt.Dimension(18, 18));
-<<<<<<< HEAD
-        txtIFIp.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtIFIpCaretUpdate(evt);
-=======
         txtIFIp.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtIFIp.setSelectionColor(new java.awt.Color(255, 204, 51));
         txtIFIp.addCaretListener(new javax.swing.event.CaretListener() {
@@ -2931,7 +2535,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtIFIp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtIFIpMouseClicked(evt);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             }
         });
 
@@ -2950,11 +2553,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtIFIn.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtIFIn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtIFIn.setPreferredSize(new java.awt.Dimension(18, 18));
-<<<<<<< HEAD
-        txtIFIn.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtIFInCaretUpdate(evt);
-=======
         txtIFIn.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtIFIn.setSelectionColor(new java.awt.Color(255, 255, 255));
         txtIFIn.addCaretListener(new javax.swing.event.CaretListener() {
@@ -2965,7 +2563,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtIFIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtIFInMouseClicked(evt);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             }
         });
 
@@ -2976,11 +2573,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtIFInh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtIFInh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtIFInh.setPreferredSize(new java.awt.Dimension(18, 18));
-<<<<<<< HEAD
-        txtIFInh.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtIFInhCaretUpdate(evt);
-=======
         txtIFInh.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtIFInh.setSelectionColor(new java.awt.Color(255, 204, 51));
         txtIFInh.addCaretListener(new javax.swing.event.CaretListener() {
@@ -2991,7 +2583,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtIFInh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtIFInhMouseClicked(evt);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             }
         });
 
@@ -3966,11 +3557,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtIFIna.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtIFIna.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtIFIna.setPreferredSize(new java.awt.Dimension(18, 18));
-<<<<<<< HEAD
-        txtIFIna.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtIFInaCaretUpdate(evt);
-=======
         txtIFIna.setSelectedTextColor(new java.awt.Color(102, 102, 102));
         txtIFIna.setSelectionColor(new java.awt.Color(255, 255, 255));
         txtIFIna.addCaretListener(new javax.swing.event.CaretListener() {
@@ -3981,7 +3567,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtIFIna.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtIFInaMouseClicked(evt);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
             }
         });
 
@@ -4141,17 +3726,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtIFIn, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                                    .addComponent(txtPadre89, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre98, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre104, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre115, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre116, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre117, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre118, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre119, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre120, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
                                     .addComponent(txtHTLVLn, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtMalarian, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtEXn, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4161,7 +3735,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                     .addComponent(txtListerian, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtTamizajen, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtHepatitisn, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                                 .addGap(36, 36, 36)
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtHepatitisp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4172,15 +3745,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                     .addComponent(txtNitritosp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtEXp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-<<<<<<< HEAD
-                                        .addComponent(txtPadre99, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtPadre90, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtIFIp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtPadre93, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtPadre96, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtPadre102, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(txtPadre108, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-=======
                                         .addComponent(txtMalariap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtHTLVLp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtIFIp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4188,7 +3752,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                         .addComponent(txtGotap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtFluorp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(txtLEUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4197,11 +3760,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addComponent(jLabel70)
                             .addComponent(jLabel71)
                             .addComponent(jLabel72)
-<<<<<<< HEAD
-                            .addComponent(jLabel73)))
-=======
                             .addComponent(lblHepa)))
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(149, 149, 149)
                         .addComponent(jLabel56)
@@ -4211,68 +3770,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtIFInh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                    .addComponent(txtPadre94, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre91, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre97, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre109, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre106, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre100, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre103, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre127, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre128, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre129, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre130, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre131, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPadre132, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(txtPadre114, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(fechaf30, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(txtPadre136, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(fechaf28, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPadre135, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre134, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre111, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre110, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre112, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPadre113, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIFIna, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, 0)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(fechaf23, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(fechaf24, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(fechaf25, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fechaf26, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fechaf22, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fechaf20, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fechaf21, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fechaf19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel67))
-                                    .addComponent(fechaf27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(txtPadre137, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(fechaf29, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fechaf32, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaf31, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
-=======
                     .addComponent(txtTORCHnh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtHTLVLnh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtGotanh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4322,7 +3819,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addGap(5, 5, 5)
                         .addComponent(jLabel67)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4429,90 +3925,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-<<<<<<< HEAD
-                                .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtIFIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel44)
-                            .addComponent(txtIFIp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIFInh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIFIna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel59)
-                            .addComponent(txtPadre89, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre90, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre91, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre110, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel60)
-                            .addComponent(txtPadre92, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre93, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre94, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre111, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel61)
-                            .addComponent(txtPadre95, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre96, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre97, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre112, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel62)
-                            .addComponent(txtPadre98, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre99, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre100, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre134, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel63)
-                            .addComponent(txtPadre101, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre102, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre103, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre135, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel64)
-                            .addComponent(txtPadre104, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre105, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre106, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel65)
-                            .addComponent(txtPadre107, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre108, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre109, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel68)
-                            .addComponent(txtPadre115, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre121, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre127, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel69)
-                            .addComponent(txtPadre116, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre122, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre128, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel70)
-                            .addComponent(txtPadre117, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre123, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre129, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPadre114, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
                                 .addComponent(jLabel70)
                                 .addComponent(txtBKn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtBKp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtBKnh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtBKna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel71)
@@ -5010,17 +4427,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGap(0, 0, 0)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
                     .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-=======
-<<<<<<< HEAD
-                    .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 625, Short.MAX_VALUE))
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
->>>>>>> e1cd34a4ea717e51a127aac7ae3a32be1f972d0c
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblMadreEXL, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
@@ -5050,13 +4457,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-=======
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5613,28 +5015,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtG1N.setText("X");
            txtG1A.setText("");
            txtG1NA.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaG1.setEnabled(true);
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaG1.setEnabled(true);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         }else
         if(txtG1N.getText().equals("X") && evt.getClickCount()==1){
            txtG1N.setText(""); 
            txtG1A.setText("");
            txtG1NA.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaG1.setEnabled(false);
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaG1.setEnabled(false);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         }
        }
     }//GEN-LAST:event_txtG1NMouseClicked
@@ -5645,28 +5033,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtG1A.setText("X");
            txtG1N.setText("");
            txtG1NA.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaG1.setEnabled(true);
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaG1.setEnabled(true);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         }else
         if(txtG1A.getText().equals("X") && evt.getClickCount()==1){
            txtG1A.setText(""); 
            txtG1N.setText("");
            txtG1NA.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaG1.setEnabled(false);
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaG1.setEnabled(false);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         }
        }
     }//GEN-LAST:event_txtG1AMouseClicked
@@ -5677,28 +5051,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtG1NA.setText("X");
            txtG1N.setText("");
            txtG1A.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaG1.setEnabled(false);
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaG1.setEnabled(false);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         }else
         if(txtG1NA.getText().equals("X") && evt.getClickCount()==1){
            txtG1NA.setText(""); 
            txtG1N.setText("");
            txtG1A.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaG1.setEnabled(true);
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaG1.setEnabled(true);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         }
        }
     }//GEN-LAST:event_txtG1NAMouseClicked
@@ -5709,28 +5069,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtG2N.setText("X");
            txtG2A.setText("");
            txtG2NA.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaG2.setEnabled(true);
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaG2.setEnabled(true);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         }else
         if(txtG2N.getText().equals("X") && evt.getClickCount()==1){
            txtG2N.setText(""); 
            txtG2A.setText("");
            txtG2NA.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaG2.setEnabled(false);
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaG2.setEnabled(false);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         }
        }
     }//GEN-LAST:event_txtG2NMouseClicked
@@ -5741,28 +5087,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtG2A.setText("X");
            txtG2N.setText("");
            txtG2NA.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaG2.setEnabled(true);
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaG2.setEnabled(true);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         }else
         if(txtG2A.getText().equals("X") && evt.getClickCount()==1){
            txtG2A.setText(""); 
            txtG2N.setText("");
            txtG2NA.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaG2.setEnabled(false);
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaG2.setEnabled(false);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         }
        }
     }//GEN-LAST:event_txtG2AMouseClicked
@@ -5773,28 +5105,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtG2NA.setText("X");
            txtG2N.setText("");
            txtG2A.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaG2.setEnabled(false);
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaG2.setEnabled(false);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         }else
         if(txtG2NA.getText().equals("X") && evt.getClickCount()==1){
            txtG2NA.setText(""); 
            txtG2N.setText("");
            txtG2A.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaG2.setEnabled(true);
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaG2.setEnabled(true);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         }
        }
     }//GEN-LAST:event_txtG2NAMouseClicked
@@ -5922,30 +5240,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtVDRL1nh.setText("X");
            txtVDRL1a.setText("");
            txtVDRL1nr.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaVDRL1.setEnabled(false);
-=======
-           fechaVDRL1.setEnabled(true);
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaVDRL1.setEnabled(false);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         }else
         if(txtVDRL1nh.getText().equals("X") && evt.getClickCount()==1){
            txtVDRL1nh.setText("");
            txtVDRL1a.setText("");
            txtVDRL1nr.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaVDRL1.setEnabled(true);
-=======
-           fechaVDRL1.setEnabled(false);
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaVDRL1.setEnabled(true);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
            
         }
        }
@@ -6041,15 +5343,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtFTAr.setText("");
            txtFTAnh.setText("");
            txtFTAna.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaFTA.setEnabled(true);
-=======
-           fechaFTA.setEnabled(false);
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaFTA.setEnabled(true);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         }else
         if(txtFTAnr.getText().equals("X") && evt.getClickCount()==1){
@@ -6070,15 +5364,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtFTAnr.setText("");
            txtFTAnh.setText("");
            txtFTAna.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaFTA.setEnabled(true);
-=======
-           fechaFTA.setEnabled(false);
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaFTA.setEnabled(true);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         }else
         if(txtFTAr.getText().equals("X") && evt.getClickCount()==1){
@@ -6141,15 +5427,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtTHPAr.setText("");
            txtTHPAnh.setText("");
            txtTHPAna.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaTHPA.setEnabled(true);
-=======
-           fechaTHPA.setEnabled(false);
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaTHPA.setEnabled(true);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         }else
         if(txtTHPAnr.getText().equals("X") && evt.getClickCount()==1){
@@ -6170,15 +5448,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtTHPAnr.setText("");
            txtTHPAnh.setText("");
            txtTHPAna.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaTHPA.setEnabled(true);
-=======
-           fechaTHPA.setEnabled(false);
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaTHPA.setEnabled(true);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         }else
         if(txtTHPAr.getText().equals("X") && evt.getClickCount()==1){
@@ -6239,15 +5509,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtPruebanr.setText("X");
            txtPruebar.setText("");
            txtPruebanh.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaPrueba.setEnabled(true);
-=======
-           fechaPrueba.setEnabled(false);
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaPrueba.setEnabled(true);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         }else
         if(txtPruebanr.getText().equals("X") && evt.getClickCount()==1){
@@ -6265,15 +5527,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtPruebar.setText("X");
            txtPruebanr.setText("");
            txtPruebanh.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaPrueba.setEnabled(true);
-=======
-           fechaPrueba.setEnabled(false);
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaPrueba.setEnabled(true);
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
 
         }else
         if(txtPruebar.getText().equals("X") && evt.getClickCount()==1){
@@ -6298,15 +5552,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtPruebanh.setText("");
            txtPruebar.setText("");
            txtPruebanr.setText("");
-<<<<<<< HEAD
-<<<<<<< HEAD
            fechaPrueba.setEnabled(true); 
-=======
-           fechaPrueba.setEnabled(false); 
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
-           fechaPrueba.setEnabled(true); 
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
         }
        }
     }//GEN-LAST:event_txtPruebanhMouseClicked
@@ -7747,54 +6993,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public static javax.swing.JTextField chkH1;
     public static javax.swing.JTextField chkH2;
     public static javax.swing.JTextField chkH3;
-<<<<<<< HEAD
-    private com.toedter.calendar.JDateChooser dFechaH1;
-    private com.toedter.calendar.JDateChooser dFechaH2;
-    private com.toedter.calendar.JDateChooser dFechaH3;
-<<<<<<< HEAD
-    private com.toedter.calendar.JDateChooser fechaELisa;
-    private com.toedter.calendar.JDateChooser fechaFTA;
-    private com.toedter.calendar.JDateChooser fechaG1;
-    private com.toedter.calendar.JDateChooser fechaG2;
-=======
-    private com.toedter.calendar.JDateChooser fechaFTA;
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-    private com.toedter.calendar.JDateChooser fechaPrueba;
-    private com.toedter.calendar.JDateChooser fechaTG;
-    private com.toedter.calendar.JDateChooser fechaTHPA;
-    private com.toedter.calendar.JDateChooser fechaVDRL1;
-    private com.toedter.calendar.JDateChooser fechaVDRL2;
-<<<<<<< HEAD
-    private com.toedter.calendar.JDateChooser fechaVIH1;
-    private com.toedter.calendar.JDateChooser fechaVIH2;
-=======
-    private com.toedter.calendar.JDateChooser fechaf10;
-    private com.toedter.calendar.JDateChooser fechaf14;
-    private com.toedter.calendar.JDateChooser fechaf15;
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-    private com.toedter.calendar.JDateChooser fechaf19;
-    private com.toedter.calendar.JDateChooser fechaf20;
-    private com.toedter.calendar.JDateChooser fechaf21;
-    private com.toedter.calendar.JDateChooser fechaf22;
-    private com.toedter.calendar.JDateChooser fechaf23;
-    private com.toedter.calendar.JDateChooser fechaf24;
-    private com.toedter.calendar.JDateChooser fechaf25;
-    private com.toedter.calendar.JDateChooser fechaf26;
-    private com.toedter.calendar.JDateChooser fechaf27;
-    private com.toedter.calendar.JDateChooser fechaf28;
-    private com.toedter.calendar.JDateChooser fechaf29;
-    private com.toedter.calendar.JDateChooser fechaf30;
-    private com.toedter.calendar.JDateChooser fechaf31;
-    private com.toedter.calendar.JDateChooser fechaf32;
-    private com.toedter.calendar.JDateChooser fechaf33;
-    private com.toedter.calendar.JDateChooser fechaf34;
-    private com.toedter.calendar.JDateChooser fechaf35;
-<<<<<<< HEAD
-=======
-    private com.toedter.calendar.JDateChooser fechaf7;
-    private com.toedter.calendar.JDateChooser fechaf8;
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
     public static com.toedter.calendar.JDateChooser dFechaH1;
     public static com.toedter.calendar.JDateChooser dFechaH2;
     public static com.toedter.calendar.JDateChooser dFechaH3;
@@ -7826,7 +7024,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public static com.toedter.calendar.JDateChooser fechaVDRL2;
     public static com.toedter.calendar.JDateChooser fechaVIH1;
     public static com.toedter.calendar.JDateChooser fechaVIH2;
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -7904,9 +7101,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public static javax.swing.JLabel lblusu;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     public static javax.swing.JTextField txtBKn;
     public static javax.swing.JTextField txtBKna;
     public static javax.swing.JTextField txtBKnh;
@@ -7918,16 +7112,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public static javax.swing.JTextField txtEXn;
     public static javax.swing.JTextField txtEXnh;
     public static javax.swing.JTextField txtEXp;
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
     public static javax.swing.JTextField txtElisana;
     public static javax.swing.JTextField txtElisanh;
     public static javax.swing.JTextField txtElisanr;
     public static javax.swing.JTextField txtElisar;
-<<<<<<< HEAD
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
     public static javax.swing.JTextField txtFTAna;
     public static javax.swing.JTextField txtFTAnh;
     public static javax.swing.JTextField txtFTAnr;
@@ -7942,12 +7130,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public static javax.swing.JTextField txtG2A;
     public static javax.swing.JTextField txtG2N;
     public static javax.swing.JTextField txtG2NA;
-<<<<<<< HEAD
-    private javax.swing.JTextField txtH1;
-    private javax.swing.JTextField txtH2;
-    private javax.swing.JTextField txtH3;
-<<<<<<< HEAD
-=======
     public static javax.swing.JTextField txtGotan;
     public static javax.swing.JTextField txtGotanh;
     public static javax.swing.JTextField txtGotap;
@@ -7963,96 +7145,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public static javax.swing.JTextField txtHepatitisna;
     public static javax.swing.JTextField txtHepatitisnh;
     public static javax.swing.JTextField txtHepatitisp;
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
     public static javax.swing.JTextField txtIFIn;
     public static javax.swing.JTextField txtIFIna;
     public static javax.swing.JTextField txtIFInh;
     public static javax.swing.JTextField txtIFIp;
-<<<<<<< HEAD
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-    public static javax.swing.JTextField txtPadre100;
-    public static javax.swing.JTextField txtPadre101;
-    public static javax.swing.JTextField txtPadre102;
-    public static javax.swing.JTextField txtPadre103;
-    public static javax.swing.JTextField txtPadre104;
-    public static javax.swing.JTextField txtPadre105;
-    public static javax.swing.JTextField txtPadre106;
-    public static javax.swing.JTextField txtPadre107;
-    public static javax.swing.JTextField txtPadre108;
-    public static javax.swing.JTextField txtPadre109;
-    public static javax.swing.JTextField txtPadre110;
-    public static javax.swing.JTextField txtPadre111;
-    public static javax.swing.JTextField txtPadre112;
-    public static javax.swing.JTextField txtPadre113;
-    public static javax.swing.JTextField txtPadre114;
-    public static javax.swing.JTextField txtPadre115;
-    public static javax.swing.JTextField txtPadre116;
-    public static javax.swing.JTextField txtPadre117;
-    public static javax.swing.JTextField txtPadre118;
-    public static javax.swing.JTextField txtPadre119;
-    public static javax.swing.JTextField txtPadre120;
-    public static javax.swing.JTextField txtPadre121;
-    public static javax.swing.JTextField txtPadre122;
-    public static javax.swing.JTextField txtPadre123;
-    public static javax.swing.JTextField txtPadre124;
-    public static javax.swing.JTextField txtPadre125;
-    public static javax.swing.JTextField txtPadre126;
-    public static javax.swing.JTextField txtPadre127;
-    public static javax.swing.JTextField txtPadre128;
-    public static javax.swing.JTextField txtPadre129;
-    public static javax.swing.JTextField txtPadre130;
-    public static javax.swing.JTextField txtPadre131;
-    public static javax.swing.JTextField txtPadre132;
-<<<<<<< HEAD
-=======
-    public static javax.swing.JTextField txtPadre133;
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-    public static javax.swing.JTextField txtPadre134;
-    public static javax.swing.JTextField txtPadre135;
-    public static javax.swing.JTextField txtPadre136;
-    public static javax.swing.JTextField txtPadre137;
-    public static javax.swing.JTextField txtPadre138;
-    public static javax.swing.JTextField txtPadre139;
-    public static javax.swing.JTextField txtPadre140;
-    public static javax.swing.JTextField txtPadre141;
-    public static javax.swing.JTextField txtPadre142;
-    public static javax.swing.JTextField txtPadre143;
-    public static javax.swing.JTextField txtPadre144;
-    public static javax.swing.JTextField txtPadre145;
-    public static javax.swing.JTextField txtPadre146;
-    public static javax.swing.JTextField txtPadre162;
-    public static javax.swing.JTextField txtPadre163;
-    public static javax.swing.JTextField txtPadre185;
-<<<<<<< HEAD
-=======
-    public static javax.swing.JTextField txtPadre71;
-    public static javax.swing.JTextField txtPadre72;
-    public static javax.swing.JTextField txtPadre73;
-    public static javax.swing.JTextField txtPadre74;
-    public static javax.swing.JTextField txtPadre75;
-    public static javax.swing.JTextField txtPadre76;
-    public static javax.swing.JTextField txtPadre77;
-    public static javax.swing.JTextField txtPadre78;
-    public static javax.swing.JTextField txtPadre79;
-    public static javax.swing.JTextField txtPadre84;
-    public static javax.swing.JTextField txtPadre85;
-    public static javax.swing.JTextField txtPadre86;
-    public static javax.swing.JTextField txtPadre87;
-    public static javax.swing.JTextField txtPadre88;
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-    public static javax.swing.JTextField txtPadre89;
-    public static javax.swing.JTextField txtPadre90;
-    public static javax.swing.JTextField txtPadre91;
-    public static javax.swing.JTextField txtPadre92;
-    public static javax.swing.JTextField txtPadre93;
-    public static javax.swing.JTextField txtPadre94;
-    public static javax.swing.JTextField txtPadre95;
-    public static javax.swing.JTextField txtPadre96;
-    public static javax.swing.JTextField txtPadre97;
-    public static javax.swing.JTextField txtPadre98;
-    public static javax.swing.JTextField txtPadre99;
-=======
     public static javax.swing.JTextField txtIVAAa;
     public static javax.swing.JTextField txtIVAAn;
     public static javax.swing.JTextField txtIVAAna;
@@ -8075,7 +7171,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public static javax.swing.JTextField txtPAPn;
     public static javax.swing.JTextField txtPAPna;
     public static javax.swing.JTextField txtPAPnh;
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
     public static javax.swing.JTextField txtPruebanh;
     public static javax.swing.JTextField txtPruebanr;
     public static javax.swing.JTextField txtPruebar;
@@ -8106,10 +7201,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public static javax.swing.JTextField txtVDRL2na;
     public static javax.swing.JTextField txtVDRL2nh;
     public static javax.swing.JTextField txtVDRL2nr;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
     public static javax.swing.JTextField txtVIH1nr;
     public static javax.swing.JTextField txtVIH2na;
     public static javax.swing.JTextField txtVIH2nh;
@@ -8117,11 +7208,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public static javax.swing.JTextField txtVIH2r;
     public static javax.swing.JTextField txtVIHnh;
     public static javax.swing.JTextField txtVIHr;
-<<<<<<< HEAD
-=======
->>>>>>> 4886bba27f56e223f2b76dd5dca755505c11a7de
-=======
     public static javax.swing.JLabel var;
->>>>>>> 3818f51d95a55762cb634fd3ce8346014a076fed
     // End of variables declaration//GEN-END:variables
 }

@@ -184,9 +184,9 @@ DefaultTableModel m,n,muestra;
     }
 }
     public void LAB_Clasificacion_Examen_formato(){
-    tb_Clasificacion.getColumnModel().getColumn(0).setPreferredWidth(50);
-    tb_Clasificacion.getColumnModel().getColumn(1).setPreferredWidth(110);
-    tb_Clasificacion.getColumnModel().getColumn(2).setPreferredWidth(170);
+    tb_Clasificacion.getColumnModel().getColumn(0).setPreferredWidth(35);
+    tb_Clasificacion.getColumnModel().getColumn(1).setPreferredWidth(80);
+    tb_Clasificacion.getColumnModel().getColumn(2).setPreferredWidth(150);
     tb_Clasificacion.getColumnModel().getColumn(3).setPreferredWidth(150);
     tb_Clasificacion.getColumnModel().getColumn(4).setPreferredWidth(150);
     tb_Clasificacion.getColumnModel().getColumn(6).setPreferredWidth(220);

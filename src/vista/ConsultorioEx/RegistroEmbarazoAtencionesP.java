@@ -11,6 +11,7 @@ import java.awt.Dimension;
 import java.beans.PropertyVetoException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,16 +23,10 @@ import static vista.ConsultorioEx.RegistroEmbarazoPrincipal.lblActoMedico;
 import static vista.ConsultorioEx.RegistroEmbarazoPrincipal.lblFua;
 import static vista.ConsultorioEx.RegistroEmbarazoPrincipal.lblIdActoMedico;
 
-/**
- *
- * @author MYS1
- */
 public class RegistroEmbarazoAtencionesP extends javax.swing.JInternalFrame {
 private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
     private Dimension DimensionBarra = null; 
-    /**
-     * Creates new form RegistroEmbarazoAO
-     */
+    
     public RegistroEmbarazoAtencionesP() {
         initComponents();
         QuitarLaBarraTitulo();
@@ -121,6 +116,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         return fecha;
     }
     
+    public static String fechaActual(){
+        java.sql.Date now = new java.sql.Date(System.currentTimeMillis());
+        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+        return date.format(now);
+    }
+    
     public boolean mantenimientoAtencionPrenatal(){
         boolean retorna = false;
         try {
@@ -166,7 +167,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 }
                 pnlMensaje.setVisible(true);
                 lblMensaje.setText("Datos guardados de forma correcta");
-                btnGuardar.setEnabled(false);
+//                btnGuardar.setEnabled(false);
 //                btnModificar.setEnabled(true);
                 pnlMensaje.setBackground(new Color(33,115,70));
                 btnSi.setVisible(true);
@@ -2013,6 +2014,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Izquierda Filled-30.png"))); // NOI18N
+        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel15MouseClicked(evt);
@@ -2606,6 +2608,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             lblIdActoMedico.setText(RegistroEmbarazoPrincipal.lblIdActoMedico.getText());
             RegistroEmbarazoAtencionesP.txtFUA.setText(lblFua.getText());
         }
+        dtCita.setEnabled(true);
     }//GEN-LAST:event_lblAtencion3MouseClicked
 
     private void lblAtencion4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtencion4MouseClicked
@@ -2625,6 +2628,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             lblIdActoMedico.setText(RegistroEmbarazoPrincipal.lblIdActoMedico.getText());
             RegistroEmbarazoAtencionesP.txtFUA.setText(lblFua.getText());
         }
+        dtCita.setEnabled(true);
+        pnlMensaje.setVisible(false);
     }//GEN-LAST:event_lblAtencion4MouseClicked
 
     private void lblAtencion5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtencion5MouseClicked
@@ -2644,6 +2649,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             lblIdActoMedico.setText(RegistroEmbarazoPrincipal.lblIdActoMedico.getText());
             RegistroEmbarazoAtencionesP.txtFUA.setText(lblFua.getText());
         }
+        dtCita.setEnabled(true);
+        pnlMensaje.setVisible(false);
     }//GEN-LAST:event_lblAtencion5MouseClicked
 
     private void lblAtencion6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtencion6MouseClicked
@@ -2663,6 +2670,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             lblIdActoMedico.setText(RegistroEmbarazoPrincipal.lblIdActoMedico.getText());
             RegistroEmbarazoAtencionesP.txtFUA.setText(lblFua.getText());
         }
+        dtCita.setEnabled(true);
+        pnlMensaje.setVisible(false);
     }//GEN-LAST:event_lblAtencion6MouseClicked
 
     private void lblAtencion7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtencion7MouseClicked
@@ -2682,6 +2691,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             lblIdActoMedico.setText(RegistroEmbarazoPrincipal.lblIdActoMedico.getText());
             RegistroEmbarazoAtencionesP.txtFUA.setText(lblFua.getText());
         }
+        dtCita.setEnabled(true);
+        pnlMensaje.setVisible(false);
     }//GEN-LAST:event_lblAtencion7MouseClicked
 
     private void lblAtencion8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtencion8MouseClicked
@@ -2701,6 +2712,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             lblIdActoMedico.setText(RegistroEmbarazoPrincipal.lblIdActoMedico.getText());
             RegistroEmbarazoAtencionesP.txtFUA.setText(lblFua.getText());
         }
+        dtCita.setEnabled(true);
+        pnlMensaje.setVisible(false);
     }//GEN-LAST:event_lblAtencion8MouseClicked
 
     private void lblAtencion9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtencion9MouseClicked
@@ -2720,6 +2733,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             lblIdActoMedico.setText(RegistroEmbarazoPrincipal.lblIdActoMedico.getText());
             RegistroEmbarazoAtencionesP.txtFUA.setText(lblFua.getText());
         }
+        dtCita.setEnabled(false);
+        pnlMensaje.setVisible(false);
     }//GEN-LAST:event_lblAtencion9MouseClicked
 
     private void txtPesoMadreCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPesoMadreCaretUpdate
@@ -2843,49 +2858,129 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_txtFUACaretUpdate
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        if(txtPesoMadre.getText().equals("")){
-            pnlMensaje.setVisible(true);
-            lblMensaje.setText("Ingrese el peso de la madre");
-            btnSi.setVisible(false);
-            btnNo.setVisible(false);
-            pnlMensaje.setBackground(new Color(255,91,70));
-        } else 
-        if(txtPA.getText().equals("")){
-            pnlMensaje.setVisible(true);
-            lblMensaje.setText("Ingrese la presión arterial");
-            btnSi.setVisible(false);
-            btnNo.setVisible(false);
-            pnlMensaje.setBackground(new Color(255,91,70));
-        } else 
-        if(txtAu.getText().equals("")){
-            pnlMensaje.setVisible(true);
-            lblMensaje.setText("Ingrese la altura uterina");
-            btnSi.setVisible(false);
-            btnNo.setVisible(false);
-            pnlMensaje.setBackground(new Color(255,91,70));
-        } else 
-        if(txtMovFetal.getText().equals("")){
-            pnlMensaje.setVisible(true);
-            lblMensaje.setText("Ingrese el movimiento fetal");
-            btnSi.setVisible(false);
-            btnNo.setVisible(false);
-            pnlMensaje.setBackground(new Color(255,91,70));
-        } else 
-        if(lblMant.getText().equals("I")){
-            lblMensaje.setText("¿Guardar los datos?");
-            pnlMensaje.setVisible(true);
-            btnSi.setText("Si");
-            btnSi.setVisible(true);
-            btnNo.setVisible(true);
-            pnlMensaje.setBackground(new Color(255,153,51));
-        } else
-        if(lblMant.getText().equals("U")){
-            lblMensaje.setText("¿Modificar los datos?");
-            pnlMensaje.setVisible(true);
-            btnSi.setText("Si");
-            btnSi.setVisible(true);
-            btnNo.setVisible(true);
-            pnlMensaje.setBackground(new Color(255,153,51));
+        if(lblAtencion.getText().equals("1") || lblAtencion.getText().equals("2") ||
+           lblAtencion.getText().equals("3") || lblAtencion.getText().equals("4") ||
+           lblAtencion.getText().equals("5") || lblAtencion.getText().equals("6") ||
+           lblAtencion.getText().equals("7") || lblAtencion.getText().equals("8")){
+            if(determinarFecha(dtCita).equals(fechaActual())){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Seleccione una fecha correcta");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else
+            if(txtPesoMadre.getText().equals("")){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Ingrese el peso de la madre");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else 
+            if(txtPA.getText().equals("")){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Ingrese la presión arterial");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else 
+            if(txtAu.getText().equals("")){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Ingrese la altura uterina");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else 
+            if(txtMovFetal.getText().equals("")){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Ingrese el movimiento fetal");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else 
+            if(dtCita.getDate()==null){
+                    pnlMensaje.setVisible(true);
+                    lblMensaje.setText("Ingrese la fecha de la siguiente cita");
+                    btnSi.setVisible(false);
+                    btnNo.setVisible(false);
+                    pnlMensaje.setBackground(new Color(255,91,70));
+            } else
+            if(lblMant.getText().equals("I")){
+//                lblMensaje.setText("¿Guardar los datos?");
+//                pnlMensaje.setVisible(true);
+//                btnSi.setText("Si");
+//                btnSi.setVisible(true);
+//                btnNo.setVisible(true);
+//                pnlMensaje.setBackground(new Color(255,153,51));
+                mantenimientoAtencionPrenatal();
+            } else
+            if(lblMant.getText().equals("U")){
+//                lblMensaje.setText("¿Modificar los datos?");
+//                pnlMensaje.setVisible(true);
+//                btnSi.setText("Si");
+//                btnSi.setVisible(true);
+//                btnNo.setVisible(true);
+//                pnlMensaje.setBackground(new Color(255,153,51));
+                mantenimientoAtencionPrenatal();
+            }
+        }else{
+            if(determinarFecha(dtCita).equals(fechaActual())){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Seleccione una fecha correcta");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else
+            if(txtPesoMadre.getText().equals("")){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Ingrese el peso de la madre");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else 
+            if(txtPA.getText().equals("")){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Ingrese la presión arterial");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else 
+            if(txtAu.getText().equals("")){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Ingrese la altura uterina");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else 
+            if(txtMovFetal.getText().equals("")){
+                pnlMensaje.setVisible(true);
+                lblMensaje.setText("Ingrese el movimiento fetal");
+                btnSi.setVisible(false);
+                btnNo.setVisible(false);
+                pnlMensaje.setBackground(new Color(255,91,70));
+            } else 
+            if(dtCita.getDate()==null){
+                    pnlMensaje.setVisible(true);
+                    lblMensaje.setText("Ingrese la fecha de la siguiente cita");
+                    btnSi.setVisible(false);
+                    btnNo.setVisible(false);
+                    pnlMensaje.setBackground(new Color(255,91,70));
+            } else
+            if(lblMant.getText().equals("I")){
+                lblMensaje.setText("¿Guardar los datos?");
+                pnlMensaje.setVisible(true);
+                btnSi.setText("Si");
+                btnSi.setVisible(true);
+                btnNo.setVisible(true);
+                pnlMensaje.setBackground(new Color(255,153,51));
+            } else
+            if(lblMant.getText().equals("U")){
+                lblMensaje.setText("¿Modificar los datos?");
+                pnlMensaje.setVisible(true);
+                btnSi.setText("Si");
+                btnSi.setVisible(true);
+                btnNo.setVisible(true);
+                pnlMensaje.setBackground(new Color(255,153,51));
+            }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -2914,6 +3009,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             lblIdActoMedico.setText(RegistroEmbarazoPrincipal.lblIdActoMedico.getText());
             RegistroEmbarazoAtencionesP.txtFUA.setText(lblFua.getText());
         }
+        dtCita.setEnabled(true);
+        pnlMensaje.setVisible(false);
     }//GEN-LAST:event_lblAtencion1MouseClicked
 
     private void lblAtencion2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtencion2MouseClicked
@@ -2933,6 +3030,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             lblIdActoMedico.setText(RegistroEmbarazoPrincipal.lblIdActoMedico.getText());
             RegistroEmbarazoAtencionesP.txtFUA.setText(lblFua.getText());
         }
+        dtCita.setEnabled(true);
+        pnlMensaje.setVisible(false);
     }//GEN-LAST:event_lblAtencion2MouseClicked
 
     private void txtPadre16CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPadre16CaretUpdate
@@ -2976,9 +3075,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_txtPadre24CaretUpdate
 
     private void btnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiActionPerformed
-        if(btnSi.getText().equals("Si")){ // Al guardar
-            mantenimientoAtencionPrenatal();
-        } else
+//        if(btnSi.getText().equals("Si")){ // Al guardar
+//            mantenimientoAtencionPrenatal();
+//        } else
         if(btnSi.getText().equals("OK")){ // Al hacer OK hacerloinvisible
             pnlMensaje.setVisible(false);
         }

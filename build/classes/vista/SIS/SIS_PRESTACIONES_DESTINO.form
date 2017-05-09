@@ -255,18 +255,14 @@
                   <Component id="lblUsu" min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="titulo5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="btn_Nuevo" min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="btnmodificar" min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="btnguardar" min="-2" max="-2" attributes="0"/>
-                              <Component id="btneliminar" min="-2" pref="45" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Component id="titulo5" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="btn_Nuevo" min="-2" pref="43" max="-2" attributes="0"/>
+                      <Component id="btnmodificar" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="btnguardar" min="-2" max="-2" attributes="0"/>
+                      <Component id="btneliminar" pref="45" max="32767" attributes="0"/>
+                      <Component id="btnBuscar" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -1020,6 +1016,9 @@
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tbDetalle_Pres_Destino = new javax.swing.JTable(){&#xa;    public boolean isCellEditable(int rowIndex, int colIndex) {&#xa;        return false; //Disallow the editing of any cell&#xa;    }&#xa;};"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1064,6 +1063,9 @@
                       <Events>
                         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tb_destinoKeyPressed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tb_destino = new javax.swing.JTable(){&#xa;    public boolean isCellEditable(int rowIndex, int colIndex) {&#xa;        return false; //Disallow the editing of any cell&#xa;    }&#xa;};"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>

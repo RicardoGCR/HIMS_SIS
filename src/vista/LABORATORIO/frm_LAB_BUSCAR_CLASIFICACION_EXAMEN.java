@@ -157,6 +157,7 @@ public void LAB_Clasificacion_Examen_cargar(){
             setTitle("SISGESH .::. Búsqueda de Clasificación Examen");
             setAlwaysOnTop(true);
 
+            tb_Clasificacion_Examen.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             tb_Clasificacion_Examen.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
                     {null, null, null, null},
@@ -184,6 +185,7 @@ public void LAB_Clasificacion_Examen_cargar(){
             jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
             jLabel1.setText("Búsqueda ");
 
+            txtBuscar.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
             txtBuscar.setText("Ingresar Clasificación Examen");
             txtBuscar.addActionListener(new java.awt.event.ActionListener() {

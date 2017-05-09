@@ -272,21 +272,27 @@ public void calcula() {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salir16x16.png"))); // NOI18N
         jLabel3.setText("Salir (Esc)");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Document-16.png"))); // NOI18N
         jLabel4.setText("Nuevo (Alt+N)");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/guardar16x16.png"))); // NOI18N
         jLabel5.setText("Guardar (Alt+G)");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/editar.png"))); // NOI18N
         jLabel6.setText("Modificar (Alt+M)");
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/eliminar16x16.png"))); // NOI18N
         jLabel8.setText("Eliminar (Alt+E)");
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
         jLabel10.setText("Buscar (Alt+B)");
 
@@ -297,13 +303,13 @@ public void calcula() {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
@@ -323,10 +329,15 @@ public void calcula() {
                 .addGap(5, 5, 5))
         );
 
+        txtCodigo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         txtCodigo.setEnabled(false);
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         jLabel7.setText("Nombre:");
 
+        txtNombre.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         jLabel18.setText("Código:");
 
         txtGuarModif.setText("G");
@@ -336,7 +347,10 @@ public void calcula() {
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         jLabel9.setText("Material:");
+
+        txtMaterial.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -4965,8 +4965,15 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addComponent(btnNuevo1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel9Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(25, 25, 25)
                 .addComponent(lblUsu)
+=======
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUsu)
+                    .addComponent(btnguardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> d693bb304402c548cd30d55cb4cddbf8c91b475f
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(19, 19, 19)

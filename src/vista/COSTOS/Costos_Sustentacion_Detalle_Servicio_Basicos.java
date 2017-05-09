@@ -1120,6 +1120,11 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
             }
         });
 
+        tablaServiciosBasicosEA = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
         tablaServiciosBasicosEA.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

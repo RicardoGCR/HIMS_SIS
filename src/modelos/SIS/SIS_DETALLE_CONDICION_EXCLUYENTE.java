@@ -93,9 +93,9 @@ public class SIS_DETALLE_CONDICION_EXCLUYENTE {
         boolean resp = false;
         try
         {
-            String sql = "exec SIS_DETALLE_PRESTACION_ACTIVIDAD_RC5_ELIMINAR ?";
+            String sql = "exec SIS_DETALLE_PRESTACION_ACTIVIDAD_RC5_ELIMINAR_DET ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getID_DETALLE_PRES_ACTIVIDAD());
+            cmd.setString(1, getID_PRESTACION());
             if(!cmd.execute()){
                 resp = true;
             }

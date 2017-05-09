@@ -3,12 +3,53 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoPrincipal.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazo.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/NewJFrame.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoAO.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioExt.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_PREST_COND_EXCLUYENTE.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoAF.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultoExtPrincipal.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultoriosExtAntecedentes.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioExtLista.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioExt.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/E:/pry/SISGESH/src/servicios/Conexion.java</file>
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoAtencionesP.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmabarazoAlertas.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoPrincipal.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazo.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtCarnetPerinatalCabecera.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_ACTIVIDADES_PREVENTIVAS_VACUNAS.java</file>
+>>>>>>> 201d934a46a45431b8138699d74d9904cfc800b2
+            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_PREST_COND_EXCLUYENTE.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/SIS/SIS_PRESTACIONES_DESTINO.java</file>
+<<<<<<< HEAD
+=======
+            <file>file:/D:/pry/SISGESH/src/modelos/SIS/SIS_DETALLE_CONDICION_EXCLUYENTE.java</file>
+=======
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtCarnetPerinatalAlartas.java</file>
+>>>>>>> 2d5b78cdfd50bbd883136b8b0478c10f39ef16b9
+>>>>>>> 3244da2ed085bf0bd69763bc05e485addc2698a6
+>>>>>>> 201d934a46a45431b8138699d74d9904cfc800b2
+>>>>>>> 759669eb4807fee159ca30d51620c05a26e328e7
+>>>>>>> d693bb304402c548cd30d55cb4cddbf8c91b475f
+>>>>>>> a6eb47b62e986f51fe13fe1748fe03762cfae13a
+>>>>>>> 793e7222fd8069ffe14b82c459e57c4c76120b49
         </group>
     </open-files>
 </project-private>

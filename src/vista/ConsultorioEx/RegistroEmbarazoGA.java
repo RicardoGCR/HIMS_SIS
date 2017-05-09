@@ -12,6 +12,7 @@ import java.util.Calendar;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalGa;
+import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import static vista.ConsultorioEx.RegistroEmbarazoAO.chk1;
 
 /**
@@ -23,13 +24,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private Dimension DimensionBarra = null; 
     byte tg;
     byte tge;
-    JTextField Inter;
-    JTextField Terminacion;
-    JTextField TipoAborto;
-    JTextField Lactancia;
-    JTextField LugarParto;
-    JTextField Captada;
-    JTextField Referida;
+    
+
     /**
      * Creates new form RegistroEmbarazoAO
      */
@@ -38,6 +34,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         QuitarLaBarraTitulo();
         this.getContentPane().setBackground(Color.WHITE);
         mensaje.setVisible(false);
+        
     }
  public void QuitarLaBarraTitulo(){ 
         Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
@@ -46,6 +43,40 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         Barra.setPreferredSize(new Dimension(0,0)); 
         repaint(); 
     }
+ 
+ public void HabilitarDatos(){
+     fechaGA.setEnabled(true);
+//     //////////////////////////INTERGENESTICO
+//     chkSi.setEnabled(true);
+//     chkNo.setEnabled(true);
+//     //////////////////////////TERMINACION
+//     txtT1.setEnabled(true);
+//     txtT2.setEnabled(true);
+//     txtT3.setEnabled(true);
+//     txtT4.setEnabled(true);
+//     txtT5.setEnabled(true);
+//     txtT6.setEnabled(true);
+//     //////////////////////////TIpo de aborto
+//     txtTa1.setEnabled(true);
+//     txtTa2.setEnabled(true);
+//     txtTa3.setEnabled(true);
+//     txtTa4.setEnabled(true);
+//     txtTa5.setEnabled(true);
+//     //////////////////////////Lactancia
+//     txtLm1.setEnabled(true);
+//     txtLm2.setEnabled(true);
+//     txtLm3.setEnabled(true);
+//     txtLm4.setEnabled(true);
+//     //////////////////////////LUGAR DE PARTO
+//     txtLp1.setEnabled(true);
+//     txtLp2.setEnabled(true);
+//     /////////////////////////captada
+//     chkCsi.setEnabled(true);
+//     chkCno.setEnabled(true);
+//     ////////////////////////Referida
+//     chkRsi.setEnabled(true);
+//     chkRno.setEditable(true);
+ }
  public String determinarFecha(JDateChooser calendario){
          
         String fecha = "";
@@ -76,6 +107,157 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         
         return fecha;
     }
+
+
+  public void Guardar( ){
+        
+    ConsultorioExtCarnetPerinatalGa CXRsGA= new ConsultorioExtCarnetPerinatalGa();
+    ConsultorioExtCarnetPerinatalGa CXRsGA2 = new ConsultorioExtCarnetPerinatalGa();
+    AdmisionEmergenciaCabecera admi = new AdmisionEmergenciaCabecera();
+           if(lblMant.getText().equals("U"))
+            CXRsGA.setGaId(Integer.parseInt(lblIdGA.getText()));
+            CXRsGA.setCpId(Integer.parseInt(RegistroEmbarazoPrincipal.lblId.getText()));
+            ////////////////INTERGENESTICO
+            if(chkSi.getText().equals("X"))
+                CXRsGA.setGaIntergenesico("Si");
+            else
+            if(chkNo.getText().equals("X"))
+                CXRsGA.setGaIntergenesico("No");
+            else
+                CXRsGA.setGaIntergenesico("");
+                /////////// TERMINACION
+            if(txtT1.getText().equals("X"))
+                CXRsGA.setGaTerminacion("Parto Vaginal");
+            else
+            if(txtT2.getText().equals("X"))
+                CXRsGA.setGaTerminacion("Cesarea");
+            else
+            if(txtT3.getText().equals("X"))
+                CXRsGA.setGaTerminacion("Aborto");
+            else
+            if(txtT4.getText().equals("X"))
+                CXRsGA.setGaTerminacion("Ectopico");
+            else
+            if(txtT5.getText().equals("X"))
+                CXRsGA.setGaTerminacion("Aborto Molar");
+            else
+            if(txtT6.getText().equals("X"))
+                CXRsGA.setGaTerminacion("No Aplica");
+            else
+                CXRsGA.setGaTerminacion("");
+            
+            //////////////////////TIPO DE ABORTO
+            if(txtTa1.getText().equals("X"))
+                CXRsGA.setGaTipoAborto("Incompleto");
+            else
+            if(txtTa2.getText().equals("X"))
+                CXRsGA.setGaTipoAborto("Completo");
+            else
+            if(txtTa3.getText().equals("X"))
+                CXRsGA.setGaTipoAborto("Frusto/Retenido");
+            else
+            if(txtTa4.getText().equals("X"))
+                CXRsGA.setGaTipoAborto("Septico");
+            else
+            if(txtTa5.getText().equals("X"))
+                CXRsGA.setGaTipoAborto("No Aplica");
+           
+            else
+                CXRsGA.setGaTipoAborto("");
+            
+            
+            //////////////////////LACTANCIA
+            if(txtLm1.getText().equals("X"))
+                CXRsGA.setGaLactanciaMat("No Hubo");
+            else
+            if(txtLm2.getText().equals("X"))
+                CXRsGA.setGaLactanciaMat("< 6 meses");
+            else
+            if(txtLm3.getText().equals("X"))
+                CXRsGA.setGaLactanciaMat("6 meses a mas");
+            else
+            if(txtLm4.getText().equals("X"))
+                CXRsGA.setGaLactanciaMat("No Aplica");
+            else
+                CXRsGA.setGaLactanciaMat("");
+            
+            //////////////////////LUGAR DE PARTO
+            if(txtLp1.getText().equals("X"))
+                CXRsGA.setGaLugarParto("EESS");
+            else
+            if(txtLp2.getText().equals("X"))
+                CXRsGA.setGaLugarParto("DOMIC");
+            else
+                CXRsGA.setGaLugarParto("");
+
+            CXRsGA.setGaFechaGestacion(determinarFecha(fechaGA));
+            //////////////////////CAPTADA
+            if(chkCsi.getText().equals("X"))
+                CXRsGA.setGA_CAPTADA("S");
+            else
+            if(chkCno.getText().equals("X"))
+                CXRsGA.setGA_CAPTADA("N");
+            else
+                CXRsGA.setGA_CAPTADA("");
+            //////////////////////REFERIDA
+            if(chkRsi.getText().equals("X"))
+                CXRsGA.setGA_REFERIDA("S");
+            else
+            if(chkRno.getText().equals("X"))
+                CXRsGA.setGA_REFERIDA("N");
+            else
+                CXRsGA.setGA_REFERIDA("");
+
+            CXRsGA.setCodUsu(admi.codUsuario(lblusu.getText()));//falta 
+            CXRsGA.setIdActoMedico(Integer.parseInt(lblIdActoMedico.getText()));
+            
+                if(CXRsGA.mantenimientoConsultorioExtGA(lblMant.getText())==true){
+                    if (lblMant.getText().equals("I")){
+                     mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(33,115,70)); 
+                    men.setText("Datos Guardados de forma correcta");
+                    b.setText("OK");
+                    b.setVisible(true);
+                    b1.setVisible(false);
+
+                    btnGuardar.setEnabled(false);
+                    btneditar.setEnabled(true);
+             
+                    tge=1;
+                    CXRsGA2.ConsultoriosExtGAListar(RegistroEmbarazoPrincipal.lblId.getText());     
+                    }
+                    if (lblMant.getText().equals("U")){
+                     mensaje.setVisible(true);
+                    mensaje.setBackground(new Color(33,115,70)); 
+                    men.setText("Datos Actualizados de forma correcta");
+                    b.setText("OK");
+                    b.setVisible(true);
+                    b1.setVisible(false);
+
+                    btnGuardar.setEnabled(false);
+                    btneditar.setEnabled(true);
+             
+                    tge=9;
+ 
+                    CXRsGA2.ConsultoriosExtGAListar(RegistroEmbarazoPrincipal.lblId.getText());     
+                    }
+                    
+
+//                    habilitarDatos(false);
+                }else {
+
+                        mensaje.setVisible(true);
+                        mensaje.setBackground(new Color(255,91,70)); 
+                        men.setText("Ocurrio un error, Verifique");
+                        b.setVisible(false);
+                        b1.setVisible(false);
+                        tge=7;
+                }  
+             
+  
+    }
+  
+ 
 
 //  public void Guardar(JTextField Inter ,JTextField Terminacion ,JTextField TipoAborto ,JTextField Lactancia,JTextField LugarParto,JTextField Captada,JTextField Referida ){
 //        
@@ -172,6 +354,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 //            }
 //  
 //    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -242,7 +425,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jPanel12 = new javax.swing.JPanel();
         chkCno = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
-        txtGeneral = new javax.swing.JTextField();
+        var = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         lblusu = new javax.swing.JLabel();
@@ -256,11 +439,17 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jPanel37 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         btneditar = new javax.swing.JButton();
+        lblIdGA = new javax.swing.JLabel();
+        lblMant = new javax.swing.JLabel();
         mensaje = new javax.swing.JPanel();
         men = new javax.swing.JLabel();
         b = new javax.swing.JButton();
         b1 = new javax.swing.JButton();
         lblMadreGA = new javax.swing.JLabel();
+        lblIdActoMedico = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        lblActoMedico = new javax.swing.JLabel();
+        lblFP = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -325,6 +514,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtLm3.setForeground(new java.awt.Color(102, 102, 102));
         txtLm3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtLm3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtLm3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtLm3.setPreferredSize(new java.awt.Dimension(18, 18));
         txtLm3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -364,6 +554,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         chkSi.setForeground(new java.awt.Color(102, 102, 102));
         chkSi.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         chkSi.setBorder(null);
+        chkSi.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         chkSi.setPreferredSize(new java.awt.Dimension(28, 28));
         chkSi.setSelectionColor(new java.awt.Color(204, 204, 204));
         chkSi.addCaretListener(new javax.swing.event.CaretListener() {
@@ -391,6 +582,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         chkNo.setForeground(new java.awt.Color(102, 102, 102));
         chkNo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         chkNo.setBorder(null);
+        chkNo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         chkNo.setPreferredSize(new java.awt.Dimension(28, 28));
         chkNo.setSelectionColor(new java.awt.Color(204, 204, 204));
         chkNo.addCaretListener(new javax.swing.event.CaretListener() {
@@ -469,6 +661,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtLm4.setForeground(new java.awt.Color(102, 102, 102));
         txtLm4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtLm4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtLm4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtLm4.setPreferredSize(new java.awt.Dimension(18, 18));
         txtLm4.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -495,6 +688,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtTa4.setForeground(new java.awt.Color(102, 102, 102));
         txtTa4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTa4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtTa4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtTa4.setPreferredSize(new java.awt.Dimension(18, 18));
         txtTa4.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -529,6 +723,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtTa1.setForeground(new java.awt.Color(102, 102, 102));
         txtTa1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTa1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtTa1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtTa1.setPreferredSize(new java.awt.Dimension(18, 18));
         txtTa1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -547,6 +742,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtLm2.setForeground(new java.awt.Color(102, 102, 102));
         txtLm2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtLm2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtLm2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtLm2.setPreferredSize(new java.awt.Dimension(18, 18));
         txtLm2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -577,6 +773,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtLp1.setForeground(new java.awt.Color(102, 102, 102));
         txtLp1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtLp1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtLp1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtLp1.setPreferredSize(new java.awt.Dimension(18, 18));
         txtLp1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -595,6 +792,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtLm1.setForeground(new java.awt.Color(255, 255, 255));
         txtLm1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtLm1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtLm1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtLm1.setPreferredSize(new java.awt.Dimension(18, 18));
         txtLm1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -624,6 +822,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtT1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtT1MouseClicked(evt);
+            }
+        });
+        txtT1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtT1ActionPerformed(evt);
             }
         });
 
@@ -679,6 +882,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtTa3.setForeground(new java.awt.Color(102, 102, 102));
         txtTa3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTa3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtTa3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtTa3.setPreferredSize(new java.awt.Dimension(18, 18));
         txtTa3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -697,6 +901,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtTa5.setForeground(new java.awt.Color(102, 102, 102));
         txtTa5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTa5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtTa5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtTa5.setPreferredSize(new java.awt.Dimension(18, 18));
         txtTa5.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -715,6 +920,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtLp2.setForeground(new java.awt.Color(102, 102, 102));
         txtLp2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtLp2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtLp2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtLp2.setPreferredSize(new java.awt.Dimension(18, 18));
         txtLp2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -737,6 +943,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtTa2.setForeground(new java.awt.Color(102, 102, 102));
         txtTa2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTa2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtTa2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtTa2.setPreferredSize(new java.awt.Dimension(18, 18));
         txtTa2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -765,6 +972,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         chkCsi.setForeground(new java.awt.Color(102, 102, 102));
         chkCsi.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         chkCsi.setBorder(null);
+        chkCsi.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         chkCsi.setPreferredSize(new java.awt.Dimension(28, 28));
         chkCsi.setSelectionColor(new java.awt.Color(204, 204, 204));
         chkCsi.addCaretListener(new javax.swing.event.CaretListener() {
@@ -809,6 +1017,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         chkRsi.setForeground(new java.awt.Color(102, 102, 102));
         chkRsi.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         chkRsi.setBorder(null);
+        chkRsi.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         chkRsi.setPreferredSize(new java.awt.Dimension(28, 28));
         chkRsi.setSelectionColor(new java.awt.Color(204, 204, 204));
         chkRsi.addCaretListener(new javax.swing.event.CaretListener() {
@@ -853,6 +1062,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         chkRno.setForeground(new java.awt.Color(102, 102, 102));
         chkRno.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         chkRno.setBorder(null);
+        chkRno.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         chkRno.setPreferredSize(new java.awt.Dimension(28, 28));
         chkRno.setSelectionColor(new java.awt.Color(204, 204, 204));
         chkRno.addCaretListener(new javax.swing.event.CaretListener() {
@@ -898,6 +1108,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         chkCno.setForeground(new java.awt.Color(102, 102, 102));
         chkCno.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         chkCno.setBorder(null);
+        chkCno.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         chkCno.setPreferredSize(new java.awt.Dimension(28, 28));
         chkCno.setSelectionColor(new java.awt.Color(204, 204, 204));
         chkCno.addCaretListener(new javax.swing.event.CaretListener() {
@@ -935,11 +1146,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        txtGeneral.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtGeneralMouseClicked(evt);
-            }
-        });
+        var.setText("1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -948,6 +1155,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(var, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(58, 58, 58)
@@ -1042,8 +1250,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addGap(18, 18, 18)
                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -1148,9 +1355,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     .addComponent(jLabel28)
                     .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(var, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(17, 17, 17))
         );
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
@@ -1289,6 +1496,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         });
 
+        lblMant.setForeground(new java.awt.Color(255, 255, 255));
+        lblMant.setText("I");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1306,6 +1516,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addContainerGap()
                             .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(btnCaccnelar)
+                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1317,8 +1528,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(ChkEdad1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel43))))
-                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel43))
+                            .addComponent(lblIdGA, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMant))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1327,13 +1539,17 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(100, 100, 100)
+                .addGap(55, 55, 55)
+                .addComponent(lblMant)
+                .addGap(31, 31, 31)
                 .addComponent(btnGuardar)
                 .addGap(18, 18, 18)
                 .addComponent(btneditar)
                 .addGap(18, 18, 18)
                 .addComponent(btnCaccnelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(90, 90, 90)
+                .addGap(47, 47, 47)
+                .addComponent(lblIdGA, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblusu)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel37)
@@ -1411,35 +1627,77 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         lblMadreGA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblMadreGA.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
+        jPanel3.setBackground(new java.awt.Color(65, 65, 65));
+
+        lblActoMedico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblActoMedico.setForeground(new java.awt.Color(204, 204, 204));
+        lblActoMedico.setText("Acto Médico");
+
+        lblFP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblFP.setForeground(new java.awt.Color(204, 204, 204));
+        lblFP.setText("Forma de Pago");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblActoMedico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblFP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblActoMedico, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(lblFP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMadreGA, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 10, Short.MAX_VALUE))
-                    .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblMadreGA, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 10, Short.MAX_VALUE))
+                            .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, 0)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(491, 491, 491)
+                    .addComponent(lblIdActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(491, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
                         .addComponent(lblMadreGA)
                         .addGap(23, 23, 23)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(338, 338, 338)
+                    .addComponent(lblIdActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(371, Short.MAX_VALUE)))
         );
 
         pack();
@@ -1451,17 +1709,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
     private void chkNoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkNoMouseClicked
        
-       
+         if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(chkNo.getText().equals("") && evt.getClickCount()==1){
            chkNo.setText("X");
            chkSi.setText(""); 
-           Inter=chkNo;
         }else
         if(chkNo.getText().equals("X") && evt.getClickCount()==1){
            chkNo.setText("");
            chkSi.setText(""); 
-           Inter=txtGeneral;
         }
+         }
     }//GEN-LAST:event_chkNoMouseClicked
 
     private void chkSiCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_chkSiCaretUpdate
@@ -1469,17 +1726,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_chkSiCaretUpdate
 
     private void chkSiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkSiMouseClicked
-
+          if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
        if(chkSi.getText().equals("") && evt.getClickCount()==1){
            chkSi.setText("X");
            chkNo.setText(""); 
-           Inter=chkSi;
+  
         }else
         if(chkSi.getText().equals("X") && evt.getClickCount()==1){
            chkSi.setText(""); 
            chkNo.setText(""); 
-           Inter=txtGeneral;
+
         }
+          }
     }//GEN-LAST:event_chkSiMouseClicked
 
     private void txtT1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtT1CaretUpdate
@@ -1555,16 +1813,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_chkCsiCaretUpdate
 
     private void chkCsiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkCsiMouseClicked
+  if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(chkCsi.getText().equals("") && evt.getClickCount()==1){
            chkCsi.setText("X");
            chkCno.setText("");
-           Captada=chkCsi;
+
         }else
         if(chkCsi.getText().equals("X") && evt.getClickCount()==1){
            chkCsi.setText(""); 
            chkCno.setText("");
-           Captada=txtGeneral;
+
         }
+  }
     }//GEN-LAST:event_chkCsiMouseClicked
 
     private void chkCnoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_chkCnoCaretUpdate
@@ -1572,16 +1832,17 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_chkCnoCaretUpdate
 
     private void chkCnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkCnoMouseClicked
+         if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(chkCno.getText().equals("") && evt.getClickCount()==1){
            chkCno.setText("X");
            chkCsi.setText("");
-           Captada=chkCno;
         }else
         if(chkCno.getText().equals("X") && evt.getClickCount()==1){
            chkCno.setText(""); 
            chkCsi.setText("");
-           Captada=txtGeneral;
+
         }
+         }
     }//GEN-LAST:event_chkCnoMouseClicked
 
     private void chkRnoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_chkRnoCaretUpdate
@@ -1589,16 +1850,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_chkRnoCaretUpdate
 
     private void chkRnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkRnoMouseClicked
+  if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(chkRno.getText().equals("") && evt.getClickCount()==1){
            chkRno.setText("X");
            chkRsi.setText("");
-           Referida=chkRno;
         }else
         if(chkRno.getText().equals("X") && evt.getClickCount()==1){
            chkRno.setText(""); 
            chkRsi.setText("");
-          Referida=txtGeneral;
         }
+  }
     }//GEN-LAST:event_chkRnoMouseClicked
 
     private void chkRsiCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_chkRsiCaretUpdate
@@ -1606,16 +1867,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_chkRsiCaretUpdate
 
     private void chkRsiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkRsiMouseClicked
+  if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(chkRsi.getText().equals("") && evt.getClickCount()==1){
            chkRsi.setText("X");
            chkRno.setText("");
-           Referida=chkRsi;
         }else
         if(chkRsi.getText().equals("X") && evt.getClickCount()==1){
            chkRsi.setText(""); 
            chkRno.setText("");
-           Referida=txtGeneral;
         }
+  }
     }//GEN-LAST:event_chkRsiMouseClicked
 
     private void btnCaccnelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaccnelarActionPerformed
@@ -1623,7 +1884,24 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_btnCaccnelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-//        Guardar(Inter, Terminacion, TipoAborto, Lactancia, LugarParto, Captada, Referida);
+
+        String variable;
+        variable=var.getText();
+
+       if(variable=="1"){
+             Guardar();  
+           
+        }
+        if(variable=="2"){
+           mensaje.setVisible(true);
+           mensaje.setBackground(new Color(255,153,51)); 
+           men.setText("Desea Actualizar el Registro ?");
+           b.setText("Si");
+           b.setVisible(true);
+           b1.setVisible(true); 
+           tge=2;
+        }       
+
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -1649,11 +1927,33 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_jLabel32MouseClicked
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-
+         btnGuardar.setEnabled(true);
+         btneditar.setEnabled(false);
+         HabilitarDatos();
+         lblMant.setText("U");
+      
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
+ if (tge==3 || tge==1|| tge==9){
+   mensaje.setVisible(false);  
 
+   }
+        
+        if (lblMant.getText().equals("U")){
+        Guardar();
+
+        btneditar.setEnabled(false);
+        tge=9;
+
+   }  
+//        if (tge==9){
+//   mensaje.setVisible(false);  
+//   btnGuardar.setEnabled(false);
+//                    btneditar.setEnabled(true);
+//   
+//
+//   }
     }//GEN-LAST:event_bActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
@@ -1661,6 +1961,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_b1ActionPerformed
 
     private void txtT1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtT1MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtT1.getText().equals("") && evt.getClickCount()==1){
            txtT1.setText("X");
            txtT2.setText("");
@@ -1668,7 +1969,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT4.setText("");
            txtT5.setText("");
            txtT6.setText("");
-           Terminacion=txtT1;
         }else
         if(txtT1.getText().equals("X") && evt.getClickCount()==1){
            txtT1.setText(""); 
@@ -1677,19 +1977,19 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT4.setText("");
            txtT5.setText("");
            txtT6.setText("");
-           Terminacion=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtT1MouseClicked
 
     private void txtT2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtT2MouseClicked
-       if(txtT2.getText().equals("") && evt.getClickCount()==1){
+       if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtT2.getText().equals("") && evt.getClickCount()==1){
            txtT2.setText("X");
            txtT1.setText("");
            txtT3.setText("");
            txtT4.setText("");
            txtT5.setText("");
            txtT6.setText("");
-           Terminacion=txtT2;
         }else
         if(txtT2.getText().equals("X") && evt.getClickCount()==1){
            txtT2.setText(""); 
@@ -1698,11 +1998,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT4.setText("");
            txtT5.setText("");
            txtT6.setText("");
-           Terminacion=txtGeneral;
         }
+       }
     }//GEN-LAST:event_txtT2MouseClicked
 
     private void txtT3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtT3MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtT3.getText().equals("") && evt.getClickCount()==1){
            txtT3.setText("X");
            txtT1.setText("");
@@ -1710,7 +2011,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT4.setText("");
            txtT5.setText("");
            txtT6.setText("");
-           Terminacion=txtT3;
         }else
         if(txtT3.getText().equals("X") && evt.getClickCount()==1){
            txtT3.setText(""); 
@@ -1719,11 +2019,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT4.setText("");
            txtT5.setText("");
            txtT6.setText("");
-           Terminacion=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtT3MouseClicked
 
     private void txtT4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtT4MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtT4.getText().equals("") && evt.getClickCount()==1){
            txtT4.setText("X");
            txtT1.setText("");
@@ -1731,7 +2032,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT3.setText("");
            txtT5.setText("");
            txtT6.setText("");
-           Terminacion=txtT4;
         }else
         if(txtT4.getText().equals("X") && evt.getClickCount()==1){
            txtT4.setText(""); 
@@ -1740,11 +2040,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT3.setText("");
            txtT5.setText("");
            txtT6.setText("");
-           Terminacion=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtT4MouseClicked
 
     private void txtT5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtT5MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtT5.getText().equals("") && evt.getClickCount()==1){
            txtT5.setText("X");
            txtT1.setText("");
@@ -1752,7 +2053,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT3.setText("");
            txtT4.setText("");
            txtT6.setText("");
-           Terminacion=txtT5;
         }else
         if(txtT5.getText().equals("X") && evt.getClickCount()==1){
            txtT5.setText(""); 
@@ -1761,11 +2061,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT3.setText("");
            txtT4.setText("");
            txtT6.setText("");
-           Terminacion=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtT5MouseClicked
 
     private void txtT6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtT6MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtT6.getText().equals("") && evt.getClickCount()==1){
            txtT6.setText("X");
            txtT1.setText("");
@@ -1773,7 +2074,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT3.setText("");
            txtT4.setText("");
            txtT5.setText("");
-           Terminacion=txtT6;
         }else
         if(txtT6.getText().equals("X") && evt.getClickCount()==1){
            txtT6.setText(""); 
@@ -1782,18 +2082,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtT3.setText("");
            txtT4.setText("");
            txtT5.setText("");
-           Terminacion=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtT6MouseClicked
 
     private void txtTa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTa1MouseClicked
-       if(txtTa1.getText().equals("") && evt.getClickCount()==1){
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
+        if(txtTa1.getText().equals("") && evt.getClickCount()==1){
            txtTa1.setText("X");
            txtTa2.setText(""); 
            txtTa3.setText(""); 
            txtTa4.setText(""); 
            txtTa5.setText(""); 
-           TipoAborto=txtTa1;
            
         }else
         if(txtTa1.getText().equals("X") && evt.getClickCount()==1){
@@ -1802,18 +2102,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtTa3.setText(""); 
            txtTa4.setText(""); 
            txtTa5.setText(""); 
-           TipoAborto=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtTa1MouseClicked
 
     private void txtTa2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTa2MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtTa2.getText().equals("") && evt.getClickCount()==1){
            txtTa2.setText("X");
            txtTa1.setText(""); 
            txtTa3.setText(""); 
            txtTa4.setText(""); 
            txtTa5.setText(""); 
-           TipoAborto=txtTa2;
            
         }else
         if(txtTa2.getText().equals("X") && evt.getClickCount()==1){
@@ -1822,18 +2122,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtTa3.setText(""); 
            txtTa4.setText(""); 
            txtTa5.setText("");
-           TipoAborto=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtTa2MouseClicked
 
     private void txtTa3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTa3MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtTa3.getText().equals("") && evt.getClickCount()==1){
            txtTa3.setText("X");
            txtTa2.setText(""); 
            txtTa1.setText(""); 
            txtTa4.setText(""); 
            txtTa5.setText(""); 
-           TipoAborto=txtTa3;
            
         }else
         if(txtTa3.getText().equals("X") && evt.getClickCount()==1){
@@ -1842,18 +2142,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtTa1.setText(""); 
            txtTa4.setText(""); 
            txtTa5.setText(""); 
-           TipoAborto=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtTa3MouseClicked
 
     private void txtTa4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTa4MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtTa4.getText().equals("") && evt.getClickCount()==1){
            txtTa4.setText("X");
            txtTa2.setText(""); 
            txtTa3.setText(""); 
            txtTa1.setText(""); 
            txtTa5.setText("");
-           TipoAborto=txtTa4;
            
         }else
         if(txtTa4.getText().equals("X") && evt.getClickCount()==1){
@@ -1862,18 +2162,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtTa3.setText(""); 
            txtTa1.setText(""); 
            txtTa5.setText(""); 
-           TipoAborto=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtTa4MouseClicked
 
     private void txtTa5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTa5MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtTa5.getText().equals("") && evt.getClickCount()==1){
            txtTa5.setText("X");
            txtTa2.setText(""); 
            txtTa3.setText(""); 
            txtTa4.setText(""); 
            txtTa1.setText(""); 
-           TipoAborto=txtTa5;
            
         }else
         if(txtTa5.getText().equals("X") && evt.getClickCount()==1){
@@ -1882,107 +2182,107 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
            txtTa3.setText(""); 
            txtTa4.setText(""); 
            txtTa1.setText(""); 
-           TipoAborto=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtTa5MouseClicked
 
     private void txtLm1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLm1MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtLm1.getText().equals("") && evt.getClickCount()==1){
            txtLm1.setText("X");
            txtLm2.setText(""); 
            txtLm3.setText(""); 
            txtLm4.setText(""); 
-           Lactancia=txtLm1;
         }else
         if(txtLm1.getText().equals("X") && evt.getClickCount()==1){
            txtLm1.setText(""); 
            txtLm2.setText(""); 
            txtLm3.setText(""); 
            txtLm4.setText("");
-           Lactancia=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtLm1MouseClicked
 
     private void txtLm2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLm2MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtLm2.getText().equals("") && evt.getClickCount()==1){
            txtLm2.setText("X");
            txtLm1.setText(""); 
            txtLm3.setText(""); 
            txtLm4.setText(""); 
-           Lactancia=txtLm2;
         }else
         if(txtLm2.getText().equals("X") && evt.getClickCount()==1){
            txtLm2.setText(""); 
            txtLm1.setText(""); 
            txtLm3.setText(""); 
            txtLm4.setText(""); 
-           Lactancia=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtLm2MouseClicked
 
     private void txtLm3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLm3MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtLm3.getText().equals("") && evt.getClickCount()==1){
            txtLm3.setText("X");
            txtLm2.setText(""); 
            txtLm1.setText(""); 
            txtLm4.setText(""); 
-           Lactancia=txtLm3;
         }else
         if(txtLm3.getText().equals("X") && evt.getClickCount()==1){
            txtLm3.setText(""); 
            txtLm2.setText(""); 
            txtLm1.setText(""); 
            txtLm4.setText(""); 
-           Lactancia=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtLm3MouseClicked
 
     private void txtLm4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLm4MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtLm4.getText().equals("") && evt.getClickCount()==1){
            txtLm4.setText("X");
            txtLm2.setText(""); 
            txtLm3.setText(""); 
            txtLm1.setText(""); 
-           Lactancia=txtLm4;
         }else
         if(txtLm4.getText().equals("X") && evt.getClickCount()==1){
            txtLm4.setText(""); 
            txtLm2.setText(""); 
            txtLm3.setText(""); 
            txtLm1.setText(""); 
-           Lactancia=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtLm4MouseClicked
 
     private void txtLp1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLp1MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtLp1.getText().equals("") && evt.getClickCount()==1){
            txtLp1.setText("X");
            txtLp2.setText(""); 
-           LugarParto=txtLp1;
         }else
         if(txtLp1.getText().equals("X") && evt.getClickCount()==1){
            txtLp1.setText(""); 
            txtLp2.setText(""); 
-           LugarParto=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtLp1MouseClicked
 
     private void txtLp2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLp2MouseClicked
+        if (lblIdGA.getText().equals("")|| lblMant.getText().equals("U")){
         if(txtLp2.getText().equals("") && evt.getClickCount()==1){
            txtLp2.setText("X");
            txtLp1.setText(""); 
-           LugarParto=txtLp2;
         }else
         if(txtLp2.getText().equals("X") && evt.getClickCount()==1){
            txtLp2.setText(""); 
            txtLp1.setText(""); 
-           LugarParto=txtGeneral;
+        }
         }
     }//GEN-LAST:event_txtLp2MouseClicked
 
-    private void txtGeneralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtGeneralMouseClicked
+    private void txtT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtT1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtGeneralMouseClicked
+    }//GEN-LAST:event_txtT1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1991,15 +2291,15 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JButton b;
     private javax.swing.JButton b1;
     private javax.swing.JButton btnCaccnelar;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btneditar;
+    public static javax.swing.JButton btnGuardar;
+    public static javax.swing.JButton btneditar;
     public static javax.swing.JTextField chkCno;
     public static javax.swing.JTextField chkCsi;
     public static javax.swing.JTextField chkNo;
     public static javax.swing.JTextField chkRno;
     public static javax.swing.JTextField chkRsi;
     public static javax.swing.JTextField chkSi;
-    private com.toedter.calendar.JDateChooser fechaGA;
+    public static com.toedter.calendar.JDateChooser fechaGA;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -2042,13 +2342,18 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel9;
+    public static javax.swing.JLabel lblActoMedico;
+    public static javax.swing.JLabel lblFP;
+    public static javax.swing.JLabel lblIdActoMedico;
+    public static javax.swing.JLabel lblIdGA;
     public static javax.swing.JLabel lblMadreGA;
+    private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblusu;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
-    private javax.swing.JTextField txtGeneral;
     public static javax.swing.JTextField txtLm1;
     public static javax.swing.JTextField txtLm2;
     public static javax.swing.JTextField txtLm3;
@@ -2066,5 +2371,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public static javax.swing.JTextField txtTa3;
     public static javax.swing.JTextField txtTa4;
     public static javax.swing.JTextField txtTa5;
+    public static javax.swing.JLabel var;
     // End of variables declaration//GEN-END:variables
 }

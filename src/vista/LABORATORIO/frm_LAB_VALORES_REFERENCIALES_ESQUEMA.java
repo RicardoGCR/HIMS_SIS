@@ -355,30 +355,30 @@ public void calcula() {
                 jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
                 titulo5.setBackground(new java.awt.Color(0, 102, 102));
-                titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+                titulo5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
                 titulo5.setForeground(new java.awt.Color(255, 255, 255));
                 titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 titulo5.setText("Esquema Análisis");
                 titulo5.setToolTipText("");
                 titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-                jLabel14.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+                jLabel14.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                 jLabel14.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel14.setText("Fecha:");
 
-                lblFecha.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+                lblFecha.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                 lblFecha.setForeground(new java.awt.Color(255, 255, 255));
                 lblFecha.setText("00/00/00");
 
-                jLabel15.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+                jLabel15.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                 jLabel15.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel15.setText("Hora:");
 
-                lblHora.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+                lblHora.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                 lblHora.setForeground(new java.awt.Color(255, 255, 255));
                 lblHora.setText("00:00:00");
 
-                lblUsu.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+                lblUsu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                 lblUsu.setForeground(new java.awt.Color(255, 255, 255));
                 lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
                 lblUsu.setText("Usuario");
@@ -458,7 +458,7 @@ public void calcula() {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(8, 8, 8))
                 );
@@ -473,6 +473,7 @@ public void calcula() {
                         .addGap(5, 5, 5))
                 );
 
+                tb_Esquema.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                 tb_Esquema.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
 
@@ -515,31 +516,35 @@ public void calcula() {
 
                 panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder("Análisis"));
 
-                jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                jLabel23.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+                jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel23.setText("Análisis");
 
-                txtAnalisis.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                txtAnalisis.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                 txtAnalisis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtAnalisis.setEnabled(false);
 
-                jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                jLabel19.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+                jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel19.setText("Nombre de la Unidad");
 
-                txtUnidadOrganica.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                txtUnidadOrganica.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                 txtUnidadOrganica.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtUnidadOrganica.setEnabled(false);
 
-                txtClasificacion.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                txtClasificacion.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                 txtClasificacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtClasificacion.setEnabled(false);
 
-                jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+                jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel7.setText("Clasificación");
 
-                jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                jLabel17.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+                jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel17.setText("Abrev. Análisis");
 
-                txtAbreviatura.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                txtAbreviatura.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                 txtAbreviatura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtAbreviatura.setEnabled(false);
 
@@ -548,30 +553,23 @@ public void calcula() {
                 panelAnalisisLayout.setHorizontalGroup(
                     panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAnalisisLayout.createSequentialGroup()
-                        .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelAnalisisLayout.createSequentialGroup()
-                                .addGap(53, 53, 53)
-                                .addComponent(jLabel19))
-                            .addGroup(panelAnalisisLayout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(txtUnidadOrganica, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(22, 22, 22)
+                        .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUnidadOrganica, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(49, 49, 49)
-                        .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelAnalisisLayout.createSequentialGroup()
-                                .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(52, 52, 52)
-                                .addComponent(txtAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(txtAbreviatura, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(panelAnalisisLayout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addComponent(jLabel7)
-                                .addGap(170, 170, 170)
-                                .addComponent(jLabel23)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel17)
-                                .addGap(72, 72, 72))))
+                        .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtClasificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                        .addGap(52, 52, 52)
+                        .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtAnalisis, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                        .addGap(36, 36, 36)
+                        .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtAbreviatura, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(20, Short.MAX_VALUE))
                 );
                 panelAnalisisLayout.setVerticalGroup(
                     panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -606,7 +604,7 @@ public void calcula() {
                     }
                 });
 
-                jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+                jLabel24.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                 jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel24.setText("   Seleccione un Esquema ");
 

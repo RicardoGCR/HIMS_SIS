@@ -17,6 +17,7 @@ import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import servicios.Conexion;
 import vista.ConsultorioEx.RegistroEmbarazo;
+import vista.ConsultorioEx.RegistroEmbarazoPrincipal;
 
 public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -143,6 +144,82 @@ public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
             //
         } catch (Exception e) {
             System.out.println("mostrarDatosHC: " + e.getMessage());
+        }
+    }
+    
+    public void mostrarDatosCabecera(String id_hc){
+        String consulta="";
+        try {
+            consulta="EXEC [CONSULTORIO_EXT_LISTAR_CARNET_PERINATAL_CABECERA_ID] ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, id_hc);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                RegistroEmbarazoPrincipal.lblMadre.setText(r.getString(1)); 
+                RegistroEmbarazoPrincipal.lblActoMedico.setText("Acto Médico " + r.getString(2));
+                RegistroEmbarazoPrincipal.lblFP.setText("Forma de Pago " + r.getString(3));
+                RegistroEmbarazoPrincipal.lblIdActoMedico.setText(r.getString(5));
+                if(r.getString(4).equals("") || r.getString(4).equalsIgnoreCase("null"))
+                    RegistroEmbarazoPrincipal.lblFua.setText("");
+                else
+                    RegistroEmbarazoPrincipal.lblFua.setText("Fua " + r.getString(4));
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("mostrarDatosCabecera Carnet Perinatal: " + e.getMessage());
+        }
+    }
+    
+    public void listarCabecera(String cp_id){
+        String consulta="";
+        try {
+            consulta="EXEC [CONSULTORIO_EXT_LISTAR_CARNET_PERINATAL_CABECERA] ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, cp_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                RegistroEmbarazo.ChkAnAp.setText(r.getString(11));
+                RegistroEmbarazo.txtPadreRN.setText(r.getString(12));
+                RegistroEmbarazo.txtPaciente.setText(r.getString(1)); 
+//                RegistroEmbarazo.lblActoMed.setText(r.getString(2));
+                RegistroEmbarazo.lblDni.setText(r.getString(3));
+                RegistroEmbarazo.lblHc.setText(r.getString(4));
+                if(r.getString(5).equals(""))
+                    RegistroEmbarazo.chkNoAplica.setText("X");
+                if(!r.getString(5).equals(""))
+                    RegistroEmbarazo.txtEstabOrigen.setText(r.getString(5)); 
+                RegistroEmbarazo.txtEstablecimiento.setText(r.getString(6));
+                if((r.getString(7)).equals("PRIVADO"))
+                    RegistroEmbarazo.chkPrivado.setSelected(true);
+                if((r.getString(7)).equals("ESSALUD"))
+                    RegistroEmbarazo.chkEssalud.setSelected(true);
+                if((r.getString(7)).equals("SIS"))
+                    RegistroEmbarazo.chkSis.setSelected(true);
+                
+                if(r.getString(10).equals("Analfabeta"))
+                    RegistroEmbarazo.ChkAnalf.setText("X");
+                
+                if(r.getString(10).equals("Primaria"))
+                    RegistroEmbarazo.Chkprim.setText("X");
+                
+                if(r.getString(10).equals("Secundaria"))
+                    RegistroEmbarazo.ChkSec.setText("X");
+                
+                if(r.getString(10).equals("Superior"))
+                    RegistroEmbarazo.ChkSup.setText("X");
+                
+                if(r.getString(10).equals("Superior No Univ."))
+                    RegistroEmbarazo.ChkSupnU.setText("X");
+                
+                RegistroEmbarazo.txtCodigo.setText(r.getString(8));
+                RegistroEmbarazo.lblEdad.setText(r.getString(9));
+                
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("mostrarDatosCabecera Carnet Perinatal: " + e.getMessage());
         }
     }
     

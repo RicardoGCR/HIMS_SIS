@@ -8,8 +8,11 @@ package modelos.ConsultorioEx;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
+import vista.ConsultorioEx.RegistroEmbarazoAP;
+import vista.ConsultorioEx.RegistroEmbarazoVP;
 
 public class ConsultorioExtCarnetPerinatalVp implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -27,12 +30,75 @@ public class ConsultorioExtCarnetPerinatalVp implements Serializable {
     private String nomPc;
     private Character estado;
     private String codUsu;
+    private int idActoMedico;
 
-    public boolean mantenimientoConsultorioExtCarnetPerinatalVp(String tipo,String triaje)
+     public void ConsultoriosExtVPListar(String rs_id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_LISTAR_CARNET_PERINATAL_VP ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, rs_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                ////////////////////RUBEOLA
+                if ((r.getString(3)).equals("S") ){
+                RegistroEmbarazoVP.txtRS.setText("X");
+                RegistroEmbarazoVP.txtRN.setText("");
+
+                }
+                if ((r.getString(3)).equals("N") ){
+                RegistroEmbarazoVP.txtRN.setText("X");
+                RegistroEmbarazoVP.txtRS.setText("");
+                }
+                //////////////HEPATITIS
+                if ((r.getString(4)).equals("S") ){
+                RegistroEmbarazoVP.txtHS.setText("X");
+                RegistroEmbarazoVP.txtHN.setText("");
+
+                }
+                if ((r.getString(4)).equals("N") ){
+                RegistroEmbarazoVP.txtHN.setText("X");
+                RegistroEmbarazoVP.txtHS.setText("");
+                }
+                //////////////PAPILOMA
+                if ((r.getString(5)).equals("S") ){
+                RegistroEmbarazoVP.txtPS.setText("X");
+                RegistroEmbarazoVP.txtPN.setText("");
+
+                }
+                if ((r.getString(5)).equals("N") ){
+                RegistroEmbarazoVP.txtPN.setText("X");
+                RegistroEmbarazoVP.txtPS.setText("");
+                }
+                //////////////FIEBRE AMARILLA
+                if ((r.getString(6)).equals("S") ){
+                RegistroEmbarazoVP.txtFS.setText("X");
+                RegistroEmbarazoVP.txtFN.setText("");
+
+                }
+                if ((r.getString(6)).equals("N") ){
+                RegistroEmbarazoVP.txtFN.setText("X");
+                RegistroEmbarazoVP.txtFS.setText("");
+                }
+                RegistroEmbarazoVP.lblIdVP.setText(r.getString(1)); 
+                if (!RegistroEmbarazoVP.lblIdVP.getText().equals("") ){
+                    RegistroEmbarazoVP.btnGuardar.setEnabled(false);
+                    RegistroEmbarazoVP.btneditar.setEnabled(true);
+                    RegistroEmbarazoVP.var.setText("2");
+                }  
+             }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: Consultorios AO  " + e.getMessage());
+        }
+    }  
+     
+    public boolean mantenimientoConsultorioExtCarnetPerinatalVp(String tipo)
         {
         boolean resp = false;
         try{
-            String sql = "[CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_VP] ?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_VP ?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getVpId());
             cmd.setInt(2, getCpId());
@@ -42,6 +108,7 @@ public class ConsultorioExtCarnetPerinatalVp implements Serializable {
             cmd.setString(6, getVpFiebre());
             cmd.setString(7, getCodUsu());
             cmd.setString(8, tipo);
+            cmd.setInt(9, getIdActoMedico());
             if(!cmd.execute())
             {
                 resp = true;
@@ -170,6 +237,20 @@ public class ConsultorioExtCarnetPerinatalVp implements Serializable {
      */
     public void setCpId(int cpId) {
         this.cpId = cpId;
+    }
+
+    /**
+     * @return the idActoMedico
+     */
+    public int getIdActoMedico() {
+        return idActoMedico;
+    }
+
+    /**
+     * @param idActoMedico the idActoMedico to set
+     */
+    public void setIdActoMedico(int idActoMedico) {
+        this.idActoMedico = idActoMedico;
     }
     
 }

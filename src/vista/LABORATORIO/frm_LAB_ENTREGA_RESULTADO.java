@@ -1124,7 +1124,7 @@ public void calcula() {
                             jpanel4.setBackground(new java.awt.Color(2, 67, 115));
 
                             titulo9.setBackground(new java.awt.Color(0, 102, 102));
-                            titulo9.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+                            titulo9.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
                             titulo9.setForeground(new java.awt.Color(255, 255, 255));
                             titulo9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             titulo9.setText("Entrega de Resultados");
@@ -1147,47 +1147,54 @@ public void calcula() {
                                     .addGap(0, 0, Short.MAX_VALUE))
                             );
 
-                            panelPaciente.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos del Paciente"));
+                            panelPaciente.setBackground(new java.awt.Color(255, 255, 255));
+                            panelPaciente.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
 
+                            jLabel23.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel23.setText("DNI");
 
-                            txtDni.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+                            txtDni.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtDni.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtDni.setEnabled(false);
 
+                            jLabel22.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel22.setText("Nº de H.C.");
 
-                            txtHc.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+                            txtHc.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtHc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtHc.setEnabled(false);
 
-                            txtPacientes2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+                            txtPacientes2.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtPacientes2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtPacientes2.setEnabled(false);
 
+                            jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel7.setText("Paciente");
 
+                            jLabel17.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel17.setText("Fecha de Nac.");
 
-                            txtFecha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+                            txtFecha.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtFecha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtFecha.setEnabled(false);
 
+                            jLabel18.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel18.setText("Sexo");
 
-                            txtSexo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+                            txtSexo.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtSexo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtSexo.setEnabled(false);
 
+                            jLabel24.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel24.setText("Edad");
 
-                            txtEdad.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+                            txtEdad.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtEdad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtEdad.setEnabled(false);
 
@@ -1252,9 +1259,10 @@ public void calcula() {
                                     .addGap(0, 0, Short.MAX_VALUE))
                             );
 
-                            panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder("Análisis"));
+                            panelAnalisis.setBackground(new java.awt.Color(255, 255, 255));
+                            panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
 
-                            txtNomenclatura.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                            txtNomenclatura.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                             txtNomenclatura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtNomenclatura.setEnabled(false);
                             txtNomenclatura.addActionListener(new java.awt.event.ActionListener() {
@@ -1271,13 +1279,15 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel35.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel35.setText("Ánalisis / Examen");
 
+                            jLabel38.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel38.setText("Código CPT");
 
-                            txtCPT.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                            txtCPT.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                             txtCPT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtCPT.setEnabled(false);
                             txtCPT.addActionListener(new java.awt.event.ActionListener() {
@@ -1294,10 +1304,11 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel39.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel39.setText("Servicio/Área");
 
-                            txtServArea.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+                            txtServArea.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtServArea.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtServArea.setEnabled(false);
                             txtServArea.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1349,8 +1360,10 @@ public void calcula() {
                                             .addGap(21, 21, 21))))
                             );
 
-                            panelResultado.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado"));
+                            panelResultado.setBackground(new java.awt.Color(255, 255, 255));
+                            panelResultado.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
 
+                            jLabel40.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel40.setText("Personal - Responsable Resultado");
 
@@ -1388,20 +1401,23 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel43.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel43.setText("Personal - Registra Resultado");
 
+                            jLabel44.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel44.setText("Fecha Registro Resul.");
 
+                            jLabel45.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel45.setText("Hora Registro Resul.");
 
-                            lblFecha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                            lblFecha1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             lblFecha1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             lblFecha1.setText("00/00/00");
 
-                            lblHora1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                            lblHora1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             lblHora1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             lblHora1.setText("00:00:00");
 
@@ -1445,20 +1461,22 @@ public void calcula() {
                                                 .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(jLabel44)
-                                                .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE))
+                                                .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                             .addGap(17, 17, 17))))
                             );
 
-                            panelTM.setBorder(javax.swing.BorderFactory.createTitledBorder("Toma de Muestra"));
+                            panelTM.setBackground(new java.awt.Color(255, 255, 255));
+                            panelTM.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
 
+                            jLabel31.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel31.setText("Acto Médico");
 
-                            txtActoMedico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+                            txtActoMedico.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtActoMedico.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtActoMedico.setEnabled(false);
 
-                            txtFormaPago.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                            txtFormaPago.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                             txtFormaPago.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtFormaPago.setEnabled(false);
                             txtFormaPago.addActionListener(new java.awt.event.ActionListener() {
@@ -1475,13 +1493,15 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel30.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel30.setText("Forma de Pago");
 
+                            jLabel29.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel29.setText("N° de Toma de Muestra");
 
-                            txtNToma.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                            txtNToma.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                             txtNToma.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtNToma.setEnabled(false);
                             txtNToma.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1493,10 +1513,11 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel26.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel26.setText("Personal - Solicita Muestra");
 
-                            txtPersonalSolicita.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+                            txtPersonalSolicita.setFont(new java.awt.Font("Segoe UI Semilight", 1, 10)); // NOI18N
                             txtPersonalSolicita.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtPersonalSolicita.setEnabled(false);
                             txtPersonalSolicita.addActionListener(new java.awt.event.ActionListener() {
@@ -1513,10 +1534,11 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel32.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel32.setText("Piso");
 
-                            txtPiso.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                            txtPiso.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                             txtPiso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtPiso.setEnabled(false);
                             txtPiso.addActionListener(new java.awt.event.ActionListener() {
@@ -1533,10 +1555,11 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel33.setText("Cama");
 
-                            txtCama.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                            txtCama.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                             txtCama.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtCama.setEnabled(false);
                             txtCama.addActionListener(new java.awt.event.ActionListener() {
@@ -1553,13 +1576,15 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel34.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel34.setText("Fecha Orden");
 
+                            jLabel37.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel37.setText("Hora Orden");
 
-                            txtFechaOrden.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                            txtFechaOrden.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                             txtFechaOrden.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtFechaOrden.setEnabled(false);
                             txtFechaOrden.addActionListener(new java.awt.event.ActionListener() {
@@ -1576,7 +1601,7 @@ public void calcula() {
                                 }
                             });
 
-                            txtHoraOrden.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                            txtHoraOrden.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                             txtHoraOrden.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtHoraOrden.setEnabled(false);
                             txtHoraOrden.addActionListener(new java.awt.event.ActionListener() {
@@ -1593,7 +1618,7 @@ public void calcula() {
                                 }
                             });
 
-                            txthospiServ.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                            txthospiServ.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                             txthospiServ.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txthospiServ.setEnabled(false);
                             txthospiServ.addActionListener(new java.awt.event.ActionListener() {
@@ -1610,6 +1635,7 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel36.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel36.setText("Hospitalización-Servicio");
 
@@ -1688,16 +1714,21 @@ public void calcula() {
                                     .addGap(0, 0, 0))
                             );
 
-                            panelEntrega.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado"));
+                            panelEntrega.setBackground(new java.awt.Color(255, 255, 255));
+                            panelEntrega.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
 
                             date.setDateFormatString("dd-MM-yyyy");
+                            date.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
 
+                            jLabel27.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel27.setText("Fecha de Entrega");
 
+                            jLabel28.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel28.setText("Hora de Entrega");
 
+                            spHora.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
                             spHora.setModel(new javax.swing.SpinnerNumberModel(0, 0, 24, 1));
                             spHora.addChangeListener(new javax.swing.event.ChangeListener() {
                                 public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -1705,6 +1736,7 @@ public void calcula() {
                                 }
                             });
 
+                            spMin.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
                             spMin.setModel(new javax.swing.SpinnerNumberModel(0, 0, 60, 1));
                             spMin.addChangeListener(new javax.swing.event.ChangeListener() {
                                 public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -1723,7 +1755,7 @@ public void calcula() {
                             jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                             jLabel12.setText("min");
 
-                            txtPersonalEntreg.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                            txtPersonalEntreg.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
                             txtPersonalEntreg.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtPersonalEntreg.addKeyListener(new java.awt.event.KeyAdapter() {
                                 public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1731,6 +1763,7 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel41.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel41.setText("Personal - Entrega Resultado");
 
@@ -1792,9 +1825,11 @@ public void calcula() {
                                     .addContainerGap())
                             );
 
-                            panelRecepcion.setBorder(javax.swing.BorderFactory.createTitledBorder("Recepción"));
+                            panelRecepcion.setBackground(new java.awt.Color(255, 255, 255));
+                            panelRecepcion.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
 
                             buttonGroup1.add(rbPersonal);
+                            rbPersonal.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             rbPersonal.setSelected(true);
                             rbPersonal.setText("Usuario Interno");
                             rbPersonal.addItemListener(new java.awt.event.ItemListener() {
@@ -1804,6 +1839,7 @@ public void calcula() {
                             });
 
                             buttonGroup1.add(jRadioButton2);
+                            jRadioButton2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jRadioButton2.setText("Usuario Externo");
                             jRadioButton2.addItemListener(new java.awt.event.ItemListener() {
                                 public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1811,13 +1847,15 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel1.setText("Servicio");
 
+                            jLabel8.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel8.setText("Paciente");
 
-                            txtPacienteRecep.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                            txtPacienteRecep.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
                             txtPacienteRecep.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtPacienteRecep.setEnabled(false);
                             txtPacienteRecep.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1826,21 +1864,23 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel4.setText("Área");
 
-                            txtServRecep.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                            txtServRecep.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
                             txtServRecep.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtServRecep.setEnabled(false);
 
-                            txtAreaRecep.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                            txtAreaRecep.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
                             txtAreaRecep.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtAreaRecep.setEnabled(false);
 
+                            jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel5.setText("Personal");
 
-                            txtPersonalRecep.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                            txtPersonalRecep.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
                             txtPersonalRecep.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtPersonalRecep.addKeyListener(new java.awt.event.KeyAdapter() {
                                 public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1893,8 +1933,8 @@ public void calcula() {
                                                 .addComponent(txtPacienteRecep)
                                                 .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnCerrarDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(btnCerrarDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addContainerGap(20, Short.MAX_VALUE))
                             );
                             panelRecepcionLayout.setVerticalGroup(
                                 panelRecepcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1928,7 +1968,7 @@ public void calcula() {
                                     .addGap(0, 0, 0))
                             );
 
-                            btnGenerar.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                            btnGenerar.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                             btnGenerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/guardar16x16.png"))); // NOI18N
                             btnGenerar.setMnemonic('G');
                             btnGenerar.setText("Guardar");
@@ -1940,7 +1980,7 @@ public void calcula() {
                                 }
                             });
 
-                            jButton1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                            jButton1.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                             jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salir16x16.png"))); // NOI18N
                             jButton1.setText("Regresar");
                             jButton1.setToolTipText("");
@@ -2186,10 +2226,10 @@ public void calcula() {
                             jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
                             titulo5.setBackground(new java.awt.Color(0, 102, 102));
-                            titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+                            titulo5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
                             titulo5.setForeground(new java.awt.Color(255, 255, 255));
                             titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                            titulo5.setText("Exámenes Realizados");
+                            titulo5.setText("Entrega de Resultados");
                             titulo5.setToolTipText("");
                             titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -2220,8 +2260,8 @@ public void calcula() {
                                 jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                                     .addGap(16, 16, 16)
-                                    .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(568, 568, 568)
+                                    .addComponent(titulo5)
+                                    .addGap(561, 561, 561)
                                     .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(jpanelLayout.createSequentialGroup()
                                             .addComponent(jLabel15)
@@ -2232,7 +2272,7 @@ public void calcula() {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(lblFecha))
                                         .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addContainerGap(40, Short.MAX_VALUE))
+                                    .addContainerGap(45, Short.MAX_VALUE))
                             );
                             jpanelLayout.setVerticalGroup(
                                 jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2253,6 +2293,7 @@ public void calcula() {
                                     .addContainerGap())
                             );
 
+                            tb_Resultado.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             tb_Resultado.setModel(new javax.swing.table.DefaultTableModel(
                                 new Object [][] {
 
@@ -2306,6 +2347,7 @@ public void calcula() {
                             lblArea.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             lblArea.setText("area");
 
+                            chPacientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             chPacientes.setText("Todos los Pacientes");
                             chPacientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                             chPacientes.addItemListener(new java.awt.event.ItemListener() {
@@ -2314,7 +2356,7 @@ public void calcula() {
                                 }
                             });
 
-                            txtPacientes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                            txtPacientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             txtPacientes.setForeground(new java.awt.Color(0, 51, 51));
                             txtPacientes.addActionListener(new java.awt.event.ActionListener() {
                                 public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2335,6 +2377,7 @@ public void calcula() {
                                 }
                             });
 
+                            chAnalisis.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             chAnalisis.setText("Todos los Análisis");
                             chAnalisis.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                             chAnalisis.addItemListener(new java.awt.event.ItemListener() {
@@ -2343,7 +2386,7 @@ public void calcula() {
                                 }
                             });
 
-                            txtAnalisis.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                            txtAnalisis.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             txtAnalisis.setForeground(new java.awt.Color(0, 51, 51));
                             txtAnalisis.addKeyListener(new java.awt.event.KeyAdapter() {
                                 public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -2359,6 +2402,7 @@ public void calcula() {
                                 }
                             });
 
+                            chPersonal.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             chPersonal.setText("Todo el Personal");
                             chPersonal.setHideActionText(true);
                             chPersonal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -2368,6 +2412,7 @@ public void calcula() {
                                 }
                             });
 
+                            txtPersonal.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
                             txtPersonal.setForeground(new java.awt.Color(0, 51, 51));
                             txtPersonal.addKeyListener(new java.awt.event.KeyAdapter() {
                                 public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -2395,6 +2440,7 @@ public void calcula() {
                                 }
                             });
 
+                            chActoMedico.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             chActoMedico.setText("Todos los Actos Médicos");
                             chActoMedico.setHideActionText(true);
                             chActoMedico.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -2404,7 +2450,7 @@ public void calcula() {
                                 }
                             });
 
-                            txtActoM.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                            txtActoM.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             txtActoM.setForeground(new java.awt.Color(0, 51, 51));
                             txtActoM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                             txtActoM.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2420,9 +2466,9 @@ public void calcula() {
                                 .addGroup(panelPacientesLayout.createSequentialGroup()
                                     .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(chActoMedico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(chPersonal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                        .addComponent(chAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                        .addComponent(chPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
+                                        .addComponent(chPersonal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(chAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(chPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(txtAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
@@ -2468,15 +2514,20 @@ public void calcula() {
                             );
 
                             dateDesde.setDateFormatString("dd-MM-yyyy");
+                            dateDesde.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
 
                             dateHasta.setDateFormatString("dd-MM-yyyy");
+                            dateHasta.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
 
+                            jLabel20.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel20.setText("Hasta");
 
+                            jLabel21.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel21.setText("Búsqueda por:");
 
+                            cbx.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N° de H.C / DNI", "Análisis ", "Personal - Resultado", "Acto Médico" }));
                             cbx.addItemListener(new java.awt.event.ItemListener() {
                                 public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -2489,10 +2540,11 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel19.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             jLabel19.setText("Desde");
 
-                            lbldia.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+                            lbldia.setFont(new java.awt.Font("Segoe UI Semilight", 1, 13)); // NOI18N
                             lbldia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                             lbldia.setText("Exámenes con Toma de Muestras del Día");
 
@@ -2570,7 +2622,7 @@ public void calcula() {
                                         .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGap(11, 11, 11)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(dateDesde, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(dateDesde, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                                         .addComponent(dateHasta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)

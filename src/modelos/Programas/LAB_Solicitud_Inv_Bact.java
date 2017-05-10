@@ -17,13 +17,15 @@ import servicios.Conexion;
 public class LAB_Solicitud_Inv_Bact {
       private Connection cn;
        private String cod_precio;
+       private String cod_per;
        private String id_hc;
     private String hospServicio;
     private String caDesc;
+    private String dir_referencia;
     private String codMuestraParaExa;
     private String antecTratamiento;
     private String diagnostico;
-    private String controlnTratamiento;
+    private int mes_control_tratamiento;
     private String controlTratamiento;
     private Integer exNsolicBacil;
     private String exSolicBacil;
@@ -50,21 +52,25 @@ public class LAB_Solicitud_Inv_Bact {
         boolean resp = false;
         try
         {
-            String sql = "exec sp_LAB_ANALISIS_EXAMEN_insertar ?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "exec sp_SOLICITUD_INV_BACT_insertar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-//            cmd.setString(1, getCod_exa_ana());
-//            cmd.setString(2, getCod_clasi_exa());
-//            cmd.setString(3, getCod_nomen_caja());
-//            cmd.setString(4, getNombre_ana_exa());
-//            cmd.setString(5, getAbrev_ana_exa());
-//            cmd.setInt(6, getTiempo_hora());
-//            cmd.setInt(7, getTiempo_min());
-//            cmd.setString(8, getTipo_procesamiento());
-//            cmd.setString(9, getRestriccion_analisis());
-//            cmd.setString(10, getExplicacion_met_proce());
-//            cmd.setString(11, getEstado_detalle());
-//            cmd.setString(12, getObservacion_ana_exa());
-//            cmd.setString(13, getNom_usu());
+            cmd.setString(1, getCod_precio());
+            cmd.setString(2, getCod_per());
+            cmd.setString(3, getId_hc());
+            cmd.setString(4, getHospServicio());
+            cmd.setString(5, getCaDesc());
+            cmd.setString(6, getDir_referencia());
+            cmd.setString(7, getCodMuestraParaExa());
+            cmd.setString(8, getAntecTratamiento());
+            cmd.setString(9, getDiagnostico());
+            cmd.setInt(10, getMes_control_tratamiento());
+            cmd.setString(11, getControlTratamiento());
+            cmd.setInt(12, getExNsolicBacil());
+            cmd.setString(13, getExSolicBacil());
+            cmd.setString(14, getTipoPruebaSens());
+            cmd.setString(15, getPruebaSens());
+            cmd.setString(16, getFactoresriesgoTB());
+            cmd.setString(17, getNomUsu());
  
             if(!cmd.execute())
             {
@@ -228,19 +234,6 @@ public class LAB_Solicitud_Inv_Bact {
         this.diagnostico = diagnostico;
     }
 
-    /**
-     * @return the controlnTratamiento
-     */
-    public String getControlnTratamiento() {
-        return controlnTratamiento;
-    }
-
-    /**
-     * @param controlnTratamiento the controlnTratamiento to set
-     */
-    public void setControlnTratamiento(String controlnTratamiento) {
-        this.controlnTratamiento = controlnTratamiento;
-    }
 
     /**
      * @return the controlTratamiento
@@ -506,6 +499,48 @@ public class LAB_Solicitud_Inv_Bact {
      */
     public void setNomUsuRecp(String nomUsuRecp) {
         this.nomUsuRecp = nomUsuRecp;
+    }
+
+    /**
+     * @return the cod_per
+     */
+    public String getCod_per() {
+        return cod_per;
+    }
+
+    /**
+     * @param cod_per the cod_per to set
+     */
+    public void setCod_per(String cod_per) {
+        this.cod_per = cod_per;
+    }
+
+    /**
+     * @return the dir_referencia
+     */
+    public String getDir_referencia() {
+        return dir_referencia;
+    }
+
+    /**
+     * @param dir_referencia the dir_referencia to set
+     */
+    public void setDir_referencia(String dir_referencia) {
+        this.dir_referencia = dir_referencia;
+    }
+
+    /**
+     * @return the mes_control_tratamiento
+     */
+    public int getMes_control_tratamiento() {
+        return mes_control_tratamiento;
+    }
+
+    /**
+     * @param mes_control_tratamiento the mes_control_tratamiento to set
+     */
+    public void setMes_control_tratamiento(int mes_control_tratamiento) {
+        this.mes_control_tratamiento = mes_control_tratamiento;
     }
        
        

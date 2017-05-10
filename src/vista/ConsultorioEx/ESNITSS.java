@@ -573,7 +573,7 @@ public class ESNITSS extends javax.swing.JFrame {
                 });
 
                 btnGuardar.setForeground(new java.awt.Color(240, 240, 240));
-                btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
+                btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
                 btnGuardar.setMnemonic('N');
                 btnGuardar.setContentAreaFilled(false);
                 btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

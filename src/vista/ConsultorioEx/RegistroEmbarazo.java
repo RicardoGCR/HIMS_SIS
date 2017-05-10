@@ -527,8 +527,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             jPanel22Layout.setHorizontalGroup(
                 jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE))
+                    .addGap(0, 0, 0)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE))
             );
             jPanel22Layout.setVerticalGroup(
                 jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -623,14 +623,11 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                         .addGroup(jPanel23Layout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
-                                .addGroup(jPanel23Layout.createSequentialGroup()
-                                    .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel12)
-                                        .addComponent(jLabel13))
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addComponent(jScrollPane1))
-                            .addContainerGap())
+                                .addComponent(jLabel12)
+                                .addComponent(jLabel13))
+                            .addContainerGap(525, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE)
                     );
                     jPanel23Layout.setVerticalGroup(
                         jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -675,7 +672,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
 
                     jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-                    jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+                    jPanel1.setBackground(new java.awt.Color(43, 43, 43));
 
                     jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
                     jLabel1.setForeground(new java.awt.Color(255, 255, 255));

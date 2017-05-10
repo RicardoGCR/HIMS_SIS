@@ -193,7 +193,7 @@ public class ConsultorioExtCarnetPerinatalAtencionPrenatal implements Serializab
                 RegistroEmbarazoAtencionesP.txtResponAtencion.setText(r.getString(28));  
                 RegistroEmbarazoAtencionesP.txtFUA.setText(r.getString(29)); 
                 RegistroEmbarazoAtencionesP.lblIdActoMedico.setText(r.getString(36)); 
-                RegistroEmbarazoAtencionesP.lblActoMedico.setText("Acto Médico de registro " + r.getString(37)); 
+                RegistroEmbarazoAtencionesP.lblActoMedico.setText("Acto Médico de registro " + r.getString(38)); 
             }
             //
         } catch (Exception e) {

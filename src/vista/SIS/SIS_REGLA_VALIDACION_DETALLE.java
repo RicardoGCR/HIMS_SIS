@@ -50,9 +50,13 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
         BUSCAR_REGLA.setLocationRelativeTo(null);
         BUSCAR_REGLA.getContentPane().setBackground(Color.white);
         inicializar_tabla_Detalle();
+        //deshabilitarGuardarRV();
         
         txtIdValidacion.setVisible(false);
         txtGM.setVisible(false);
+        
+        txtNumeroRegla.setEnabled(false);
+        txtNombreCampo.setEnabled(false);
         
         //FECHA Y HORA
         h1 = new Thread(this);
@@ -777,8 +781,7 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
     private void btn_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NuevoActionPerformed
         jTabbedPane1.setSelectedIndex(0);  
         habilitar();
-          limpiarGuardarRV();
-          btnguardar.setEnabled(true);
+          limpiarGuardarRV();  
 //          btnmodificar.setEnabled(false);
 //          btneliminar.setEnabled(false);
           txtNumeroRegla.requestFocus();
@@ -909,6 +912,7 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
         btnAgregar.setEnabled(true);
         btnQuitar.setEnabled(true);
         btnBuscarRegla.setEnabled(true);
+        btnguardar.setEnabled(true);
     }
     
     public void mostrarReglaVal(String num){

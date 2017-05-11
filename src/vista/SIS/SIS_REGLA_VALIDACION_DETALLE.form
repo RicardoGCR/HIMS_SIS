@@ -4,13 +4,7 @@
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="BUSCAR_REGLA">
       <Properties>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[350, 300]"/>
-        </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[350, 300]"/>
-        </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[350, 300]"/>
         </Property>
       </Properties>
@@ -237,10 +231,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnguardar" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="btn_Nuevo" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="btneliminar" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnmodificar" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="btneliminar" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnmodificar" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="btnBuscar" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>

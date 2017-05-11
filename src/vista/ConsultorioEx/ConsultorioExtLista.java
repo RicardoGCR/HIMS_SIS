@@ -155,7 +155,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             });
             jScrollPane3.setViewportView(tbTriaje);
 
-            jPanel3.setBackground(new java.awt.Color(255, 153, 51));
+            jPanel3.setBackground(new java.awt.Color(43, 43, 43));
             jPanel3.setPreferredSize(new java.awt.Dimension(929, 115));
 
             jLabel30.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N

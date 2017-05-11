@@ -6,6 +6,8 @@
 package vista.SIS;
 
 import java.awt.Color;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -38,7 +40,7 @@ Calendar calendario;
 Thread h1;
 ResultSet r;
 CallableStatement cst;
-DefaultTableModel m, msb, m3;
+DefaultTableModel m, msb,m2, m3;
 static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYENTE();
 
     /**
@@ -62,15 +64,38 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
         h1.start();
         Calendar cal=Calendar.getInstance();          
         lblFecha.setText(fechaActual());
-       
-        
-        txtMin.setText("0");
-        txtMax.setText("0");
                
         cargarCondExc();
         formato_prestacion_CondicionExc();
         
-       }
+        //----------------------------------------------
+        //para limpiar el txtMin al darle click
+        txtMin.addFocusListener(new FocusListener() {
+        @Override
+            public void focusGained(FocusEvent e) {
+            txtMin.setText("");
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           }
+       } );  
+            
+       //para limpiar el txtMax al darle click
+            txtMax.addFocusListener(new FocusListener() {
+        @Override
+            public void focusGained(FocusEvent e) {
+            txtMax.setText("");
+            }
+
+        @Override
+            public void focusLost(FocusEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           }
+       } );  
+       //---------------------------------------------------
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -293,14 +318,12 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
             .addGroup(jpanelLayout.createSequentialGroup()
                 .addComponent(titulo5)
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_Nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnguardar)
-                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btneliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btneliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                    .addComponent(btnmodificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -414,6 +437,7 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
 
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
+        txtMin.setText("0");
         txtMin.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtMinCaretUpdate(evt);
@@ -472,6 +496,7 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
         jLabel10.setText("CANTIDAD");
 
+        txtMax.setText("0");
         txtMax.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtMaxCaretUpdate(evt);
@@ -555,7 +580,7 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(txtNumPrest, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(0, 0, 0)
                                 .addComponent(btnBuscarPrestacion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtID_PREST, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -573,7 +598,7 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
                                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
                                             .addComponent(txtNumActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGap(0, 0, 0)
                                             .addComponent(btnBuscarActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 49, Short.MAX_VALUE))))
@@ -741,12 +766,12 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtBuscarPrestacion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarPrestacionRC5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -849,11 +874,17 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
  
     
     private void btn_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NuevoActionPerformed
+       
+          jTabbedPane1.setSelectedIndex(0);
+          
           habilitarP();
-//        limpiar();
+          limpiarNuevo();
           btnguardar.setEnabled(true);
-//        txtNum_Prestacion.requestFocus();
-//        jTabbedPane1.setSelectedIndex(0);
+          btnmodificar.setEnabled(false);
+          btneliminar.setEnabled(false);
+          txtNumPrest.requestFocus();
+          jTabbedPane1.setSelectedIndex(0);
+          Clear_Tb_Detalle_CondicionExc();
     }//GEN-LAST:event_btn_NuevoActionPerformed
 
     private void txtMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMinActionPerformed
@@ -937,61 +968,53 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
     }//GEN-LAST:event_txtMaxCaretUpdate
 
     private void txtBuscarPrestacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPrestacionKeyPressed
-/*        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
-            tb_Pres.getSelectionModel().setSelectionInterval(0, 0);
-            tb_Pres.requestFocus();
-        }*/
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
+            tb_condicionExcluyente_RC5.getSelectionModel().setSelectionInterval(0, 0);
+            tb_condicionExcluyente_RC5.requestFocus();
+        }
     }//GEN-LAST:event_txtBuscarPrestacionKeyPressed
 
     private void txtBuscarPrestacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPrestacionKeyTyped
-        /*char tecla= evt.getKeyChar();
+        char tecla= evt.getKeyChar();
         if(tecla==KeyEvent.VK_ENTER){
-            btnBuscarPrestacion.doClick();
-        }*/
+            btnBuscarPrestacionRC5.doClick();
+        }
     }//GEN-LAST:event_txtBuscarPrestacionKeyTyped
 
     private void btnBuscarPrestacionRC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPrestacionRC5ActionPerformed
-  /*      try{
-            String pres =txtBuscarPrestacion.getText().toString();
+        String consulta="";
+        try {
+            tb_condicionExcluyente_RC5.setModel(new DefaultTableModel());
+            String titulos[]={"Nº","ID Prestación","Numero Prest.","Descripción"};
+            m2=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m2);
+            String fila[]=new String[4];
 
-            DefaultTableModel tabla= new DefaultTableModel();
-
-            tabla.addColumn("ID Prestación");
-            tabla.addColumn("Número de Prestación");
-            tabla.addColumn("Descripción");
-            tabla.addColumn("Valor");
-            tabla.addColumn("Tipo");
-            tabla.addColumn("Etapa de Vida");
-            tabla.addColumn("Edad Mínima");
-            tabla.addColumn("Día/Mes/Año");
-            tabla.addColumn("Edad Máxima");
-            tabla.addColumn("Día/Mes/Año");
-            tabla.addColumn("Sexo");
-            tabla.addColumn("Hospitalización");
-            tabla.addColumn("Gestante");
-            tabla.addColumn("Puérpera");
-            tabla.addColumn("No gestante ni puérpera");
-            tabla.addColumn("Regimen/Componente");
-
-            cst=con.prepareCall("{call SIS_PRESTACIONES_BUSCAR(?)}");
-            cst.setString(1, pres);
-            r=cst.executeQuery();
-            while (r.next()){
-                Object dato[]=new  Object[16];
-                for (int i=0; i<16; i++){
-                    dato[i]=r.getString(i+1);
-
-                }
-                tabla.addRow(dato);
+            SIS_DETALLE_CONDICION_EXCLUYENTE obj=new SIS_DETALLE_CONDICION_EXCLUYENTE();
+                    consulta="exec SIS_DETALLE_PRESTACION_ACTIVIDAD_RC5_BUSCAR ?";
+                    
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1, txtBuscarPrestacion.getText());
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=String.valueOf(c)+"º";
+                fila[1]=r.getString(1);
+                fila[2]=r.getString(2);
+                fila[3]=r.getString(3);
+                m2.addRow(fila);
+                c++;
             }
-
-            this.tb_Pres.setModel(tabla);
-
-            formatoPrestacion();
-            txtBuscarPrestacion.setText("");
-            tb_Pres.getSelectionModel().setSelectionInterval(0, 0);
-            tb_Pres.requestFocus();
-        }catch (Exception e){}*/
+            tb_condicionExcluyente_RC5.setModel(m2);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m2);
+            tb_condicionExcluyente_RC5.setRowSorter(elQueOrdena);
+            this.tb_condicionExcluyente_RC5.setModel(m2);
+            
+            formato_prestacion_CondicionExc();
+            
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }//GEN-LAST:event_btnBuscarPrestacionRC5ActionPerformed
 
     private void tb_condicionExcluyente_RC5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_condicionExcluyente_RC5KeyPressed
@@ -1017,6 +1040,7 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
             btnguardar.setEnabled(false);
             btnmodificar.setEnabled(true);
             btneliminar.setEnabled(true);
+            txtNumActividad.setEnabled(false);
 
         }
     }//GEN-LAST:event_tb_condicionExcluyente_RC5KeyPressed
@@ -1091,7 +1115,7 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
     }//GEN-LAST:event_txtNumPrestCaretUpdate
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-           try {
+    try {
             
         if(txtNumPrest.getText().equalsIgnoreCase("")){
             JOptionPane.showMessageDialog(rootPane, "Ingrese Número de Prestación"); 
@@ -1134,7 +1158,8 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
 
         //habilitar();
         txtGM.setText("M");
-        //txtNum_Prestacion.requestFocus();
+        txtNumActividad.setEnabled(true);
+        txtNumActividad.requestFocus();
         btnguardar.setEnabled(true);
         // btneliminar.setEnabled(false);
     }//GEN-LAST:event_btnmodificarActionPerformed
@@ -1167,6 +1192,7 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
         btneliminar.setEnabled(false);
         btnmodificar.setEnabled(false);
         btnguardar.setEnabled(false);
+        txtBuscarPrestacion.requestFocus();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
@@ -1356,6 +1382,13 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
         txtNumActividad.setText("");
         txtMin.setText("");
         txtMax.setText("");
+        cbxMin.setSelectedIndex(0);
+        cbxMax.setSelectedIndex(0);
+    }
+    
+    public void limpiarNuevo(){
+        txtNumPrest.setText("");
+        txtNumActividad.setText("");
         cbxMin.setSelectedIndex(0);
         cbxMax.setSelectedIndex(0);
     }

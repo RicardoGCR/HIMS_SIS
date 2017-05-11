@@ -363,7 +363,7 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
 
             jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-            jPanel3.setBackground(new java.awt.Color(255, 153, 51));
+            jPanel3.setBackground(new java.awt.Color(43, 43, 43));
             jPanel3.setPreferredSize(new java.awt.Dimension(180, 114));
 
             jLabel4.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
@@ -371,7 +371,7 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
             jLabel4.setText("Historia clínica");
 
             lblHC.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-            lblHC.setForeground(new java.awt.Color(102, 102, 102));
+            lblHC.setForeground(new java.awt.Color(204, 204, 204));
 
             javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
             jPanel3.setLayout(jPanel3Layout);

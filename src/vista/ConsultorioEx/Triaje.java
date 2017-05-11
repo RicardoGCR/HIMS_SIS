@@ -1130,6 +1130,9 @@ byte tge;
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
                         T5MouseClicked(evt);
                     }
+                    public void mouseEntered(java.awt.event.MouseEvent evt) {
+                        T5MouseEntered(evt);
+                    }
                 });
 
                 txtBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -1546,6 +1549,10 @@ tg=2;
     private void txtIDMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDMKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDMKeyPressed
+
+    private void T5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T5MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T5MouseEntered
 
     /**
      * @param args the command line arguments

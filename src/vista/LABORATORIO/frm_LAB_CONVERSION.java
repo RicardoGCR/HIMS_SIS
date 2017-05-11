@@ -30,11 +30,6 @@ public class frm_LAB_CONVERSION extends javax.swing.JFrame {
         jpanel = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         lblUsu = new javax.swing.JLabel();
-        btnNuevo = new javax.swing.JButton();
-        btnguardar = new javax.swing.JButton();
-        btneliminar = new javax.swing.JButton();
-        btnmodificar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -58,85 +53,14 @@ public class frm_LAB_CONVERSION extends javax.swing.JFrame {
             lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
             lblUsu.setText("Usuario");
 
-            btnNuevo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-            btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Documento-32.png"))); // NOI18N
-            btnNuevo.setMnemonic('N');
-            btnNuevo.setToolTipText("Nuevo (Alt+N)");
-            btnNuevo.setContentAreaFilled(false);
-            btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btnNuevo.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btnNuevoActionPerformed(evt);
-                }
-            });
-
-            btnguardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-            btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
-            btnguardar.setMnemonic('G');
-            btnguardar.setToolTipText("Guardar (Alt-G)");
-            btnguardar.setContentAreaFilled(false);
-            btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btnguardar.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btnguardarActionPerformed(evt);
-                }
-            });
-
-            btneliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-            btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Basura-32.png"))); // NOI18N
-            btneliminar.setMnemonic('E');
-            btneliminar.setToolTipText("Eliminar (Alt+E)");
-            btneliminar.setContentAreaFilled(false);
-            btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btneliminar.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btneliminarActionPerformed(evt);
-                }
-            });
-
-            btnmodificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-            btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Editar-32.png"))); // NOI18N
-            btnmodificar.setMnemonic('M');
-            btnmodificar.setToolTipText("Modificar (Alt-M)");
-            btnmodificar.setContentAreaFilled(false);
-            btnmodificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btnmodificar.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btnmodificarActionPerformed(evt);
-                }
-            });
-
-            btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-            btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Buscar-32.png"))); // NOI18N
-            btnBuscar.setMnemonic('B');
-            btnBuscar.setToolTipText("Buscar (Alt+B)");
-            btnBuscar.setContentAreaFilled(false);
-            btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    btnBuscarActionPerformed(evt);
-                }
-            });
-
             javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
             jpanel.setLayout(jpanelLayout);
             jpanelLayout.setHorizontalGroup(
                 jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
-                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jpanelLayout.createSequentialGroup()
-                            .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(titulo5))
-                    .addGap(433, 433, 433)
+                    .addComponent(titulo5)
+                    .addGap(497, 497, 497)
                     .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(42, Short.MAX_VALUE))
             );
@@ -144,14 +68,6 @@ public class frm_LAB_CONVERSION extends javax.swing.JFrame {
                 jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jpanelLayout.createSequentialGroup()
                     .addComponent(titulo5)
-                    .addGap(0, 0, 0)
-                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnmodificar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(btneliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addGap(0, 0, Short.MAX_VALUE))
                 .addGroup(jpanelLayout.createSequentialGroup()
                     .addGap(63, 63, 63)
@@ -194,158 +110,6 @@ public class frm_LAB_CONVERSION extends javax.swing.JFrame {
             pack();
         }// </editor-fold>//GEN-END:initComponents
 
-    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-
-        enableDatos();
-        limpiar();
-
-    }//GEN-LAST:event_btnNuevoActionPerformed
-
-    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
-        LAB_Analisis_Examen me=new  LAB_Analisis_Examen();
-        LAB_Analisis_Examen me1=new LAB_Analisis_Examen();
-        LAB_Analisis_Examen me2=new LAB_Analisis_Examen();
-        try{
-            if(txtGuarModif.getText().equalsIgnoreCase("G")){
-                if(txtClasificacion.getText().equalsIgnoreCase("")||txtCodClasificacion.getText().equalsIgnoreCase("")){
-                    JOptionPane.showMessageDialog(rootPane, "Seleccione una Clasificación del Examen");
-                }  else if(txtCodNomen.getText().equalsIgnoreCase("")||txtCodigoCPT.getText().equalsIgnoreCase("")
-                    ||txtNomen.getText().equalsIgnoreCase("")){
-                    JOptionPane.showMessageDialog(rootPane, "Seleccione un Código CPT");
-                }
-                else if(txtNombreExamen.getText().equalsIgnoreCase("")||txtAbrev.getText().equalsIgnoreCase("")||
-                    cbxTipoProc.getSelectedIndex()==0 || cbxRestric.getSelectedIndex()==0 ){
-                    JOptionPane.showMessageDialog(rootPane, "Ingrese todos los campos");
-                }
-                else if(me1.LAB_Analisis_Examen_ver(txtCodClasificacion.getText(),txtCodNomen.getText())>0){
-                    JOptionPane.showMessageDialog(rootPane, "El Registro ya ha sido ingresado\nIntente nuevamente");
-
-                    txtClasificacion.setText("");
-                    txtClasificacion.requestFocus();
-                }
-                else{
-                    int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
-                        "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
-                    if(guardar == 0 ){
-                        LAB_Analisis_Examen meGuardar = new LAB_Analisis_Examen();
-                        meGuardar.setCod_exa_ana(txtCodigo.getText());
-                        meGuardar.setCod_clasi_exa(txtCodClasificacion.getText());
-                        meGuardar.setCod_nomen_caja(txtCodNomen.getText());
-                        meGuardar.setNombre_ana_exa(txtNombreExamen.getText());
-                        meGuardar.setAbrev_ana_exa(txtAbrev.getText());
-                        meGuardar.setTiempo_hora(Integer.parseInt(txtTiempoHora.getText()));
-                        meGuardar.setTiempo_min(Integer.parseInt(txtTiempoMin.getText()));
-                        meGuardar.setTipo_procesamiento(cbxTipoProc.getSelectedItem().toString());
-                        meGuardar.setRestriccion_analisis(cbxRestric.getSelectedItem().toString());
-                        meGuardar.setExplicacion_met_proce(txtExplicacion.getText());
-                        if(chActivo.isSelected()){
-                            meGuardar.setEstado_detalle("A");
-                        }else{
-                            meGuardar.setEstado_detalle("D");
-                        }
-                        meGuardar.setObservacion_ana_exa(txtObservacion.getText());
-                        meGuardar.setNom_usu(lblUsu.getText());
-
-                        if(meGuardar.LAB_Analisis_Examen_guardar()){
-                            JOptionPane.showMessageDialog(null, "Datos Guardados");
-                            guardarDetalle();
-                            limpiar();
-                            enableDatos();
-                            txtGuarModif.setText("G");
-                        }
-                        else{
-                            JOptionPane.showMessageDialog(this, "El Registro ya ha sido ingresado\nIntente nuevamente");
-                        }}
-                    }}else{
-                        if(txtClasificacion.getText().equalsIgnoreCase("")||txtCodClasificacion.getText().equalsIgnoreCase("")){
-                            JOptionPane.showMessageDialog(rootPane, "Busque una Unidad Orgánica");
-                        }  else if(txtObservacion.getText().equalsIgnoreCase("")){
-                            JOptionPane.showMessageDialog(rootPane, "Ingrese la Observación");
-                        }
-                        else{
-                            int modificar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",
-                                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
-                            if(modificar == 0 ){
-                                LAB_Analisis_Examen meModif = new LAB_Analisis_Examen();
-                                meModif.setCod_exa_ana(txtCodigo.getText());
-                                meModif.setCod_clasi_exa(txtCodClasificacion.getText());
-                                meModif.setCod_nomen_caja(txtCodNomen.getText());
-                                meModif.setNombre_ana_exa(txtNombreExamen.getText());
-                                meModif.setAbrev_ana_exa(txtAbrev.getText());
-                                meModif.setTiempo_hora(Integer.parseInt(txtTiempoHora.getText()));
-                                meModif.setTiempo_min(Integer.parseInt(txtTiempoMin.getText()));
-                                meModif.setTipo_procesamiento(cbxTipoProc.getSelectedItem().toString());
-                                meModif.setRestriccion_analisis(cbxRestric.getSelectedItem().toString());
-                                meModif.setExplicacion_met_proce(txtExplicacion.getText());
-                                if(chActivo.isSelected()){
-                                    meModif.setEstado_detalle("A");
-                                }else{
-                                    meModif.setEstado_detalle("D");
-                                }
-                                meModif.setObservacion_ana_exa(txtObservacion.getText());
-                                meModif.setNom_usu(lblUsu.getText());
-
-                                LAB_Analisis_Detalle rdeliminar=new LAB_Analisis_Detalle();
-                                rdeliminar.setCod_exa_ana(txtCodigo.getText());
-
-                                if(meModif.LAB_Analisis_Examen_modificar()&& rdeliminar.LAB_Analisis_Detalle_eliminar()){
-                                    JOptionPane.showMessageDialog(this, "Datos Modificados");
-                                    guardarDetalle();
-                                    limpiar();
-                                    enableDatos();
-                                    txtGuarModif.setText("G");
-                                }
-                                else{
-                                    JOptionPane.showMessageDialog(this, "El Registro ya ha sido ingresado\nIntente nuevamente");
-
-                                }}
-                            }}}catch(Exception e) {
-                                JOptionPane.showMessageDialog(this, "Ingrese todos los campos");
-
-                            }
-    }//GEN-LAST:event_btnguardarActionPerformed
-
-    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-
-        ImageIcon ieli=new ImageIcon(this.getClass().getResource("/imagenes/iconos/eliminar16x16.png"));
-        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea ELIMINAR?",
-            "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,ieli );
-        try{
-            if(eliminar == 0 )
-            {
-                LAB_Analisis_Examen obj=new LAB_Analisis_Examen();
-                obj.setCod_exa_ana(txtCodigo.getText());
-                LAB_Analisis_Detalle rdeliminar=new LAB_Analisis_Detalle();
-                rdeliminar.setCod_exa_ana(txtCodigo.getText());
-                if(obj.LAB_Analisis_Examen_eliminar()&& rdeliminar.LAB_Analisis_Detalle_eliminar())
-                {
-                    JOptionPane.showMessageDialog(this, "Datos Eliminados");
-                    limpiar();
-                    enableDatos();
-                }
-            }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this, "Selecione el Personal a eliminar");
-        }
-    }//GEN-LAST:event_btneliminarActionPerformed
-
-    private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        enableDatos();
-        btnBuscarClasif.setEnabled(false);
-        btnBuscarCPT.setEnabled(false);
-        txtGuarModif.setText("M");
-        btnguardar.setEnabled(true);
-        btneliminar.setEnabled(false);
-    }//GEN-LAST:event_btnmodificarActionPerformed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        dispose();
-        frm_LAB_BUSCAR_ANALISIS_EXAMEN lu=new frm_LAB_BUSCAR_ANALISIS_EXAMEN();
-        lu.setVisible(true);
-
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -383,11 +147,6 @@ public class frm_LAB_CONVERSION extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnNuevo;
-    public static javax.swing.JButton btneliminar;
-    public static javax.swing.JButton btnguardar;
-    public static javax.swing.JButton btnmodificar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel jpanel;

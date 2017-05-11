@@ -73,6 +73,44 @@ public class LAB_Solicitud_Inv_Bact {
             cmd.setString(15, getPruebaSens());
             cmd.setString(16, getFactoresriesgoTB());
             cmd.setString(17, getNomUsu());
+            
+ 
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
+       
+       public boolean LAB_Solicitud_Inv_Bact_modificar()
+        {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec sp_SOLICITUD_INV_BACT_modificar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCodigo());
+            cmd.setString(2, getCod_precio());
+            cmd.setString(3, getCod_per());
+            cmd.setString(4, getDir_referencia());
+            cmd.setString(5, getCodMuestraParaExa());
+            cmd.setString(6, getAntecTratamiento());
+            cmd.setString(7, getDiagnostico());
+            cmd.setInt(8, getMes_control_tratamiento());
+            cmd.setString(9, getControlTratamiento());
+            cmd.setInt(10, getExNsolicBacil());
+            cmd.setString(11, getExSolicBacil());
+            cmd.setString(12, getTipoPruebaSens());
+            cmd.setString(13, getPruebaSens());
+            cmd.setString(14, getFactoresriesgoTB());
+            cmd.setString(15, getNomUsu());
  
             if(!cmd.execute())
             {
@@ -152,26 +190,26 @@ public class LAB_Solicitud_Inv_Bact {
         return cod;
         }
         
-        public String codUsuario(String nombreUsuario)
-    {
-        String cod="";
-        try
-        {
-            String sql = "SELECT USU_CODIGO FROM USUARIO WHERE Usu_Usuario = ?";
-            PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, nombreUsuario);
-            ResultSet rs = cmd.executeQuery();
-            if(rs.next())
-            {
-               cod = rs.getString(1);
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println("Error_codUsuario: " + ex.getMessage());
-        }
-        return cod;
-    }
+//        public String codUsuario(String nombreUsuario)
+//    {
+//        String cod="";
+//        try
+//        {
+//            String sql = "SELECT USU_CODIGO FROM USUARIO WHERE Usu_Usuario = ?";
+//            PreparedStatement cmd = getCn().prepareStatement(sql);
+//            cmd.setString(1, nombreUsuario);
+//            ResultSet rs = cmd.executeQuery();
+//            if(rs.next())
+//            {
+//               cod = rs.getString(1);
+//            }
+//        }
+//        catch(Exception ex)
+//        {
+//            System.out.println("Error_codUsuario: " + ex.getMessage());
+//        }
+//        return cod;
+//    }
     /**
      * @return the cn
      */

@@ -16,6 +16,7 @@ import servicios.Conexion;
  */
 public class LAB_Solicitud_Inv_Bact {
       private Connection cn;
+      private int codigo;
        private String cod_precio;
        private String cod_per;
        private String id_hc;
@@ -35,6 +36,7 @@ public class LAB_Solicitud_Inv_Bact {
     private String fechaSoli;
     private String horaSoli;
     private String idHcSolicita;
+    private String nombres_pac_solicita;
     private String fechaObtencionMuestra;
     private String horaObtencionMuestra;
     private String calidadMuestra;
@@ -86,6 +88,27 @@ public class LAB_Solicitud_Inv_Bact {
         return resp;
     }
        
+        public boolean LAB_Solicitud_Inv_Bact_eliminar()
+    {
+        boolean resp = false;
+        try{
+            String sql = "exec sp_SOLICITUD_INV_BACT_eliminar ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCodigo());
+            if(!cmd.execute()){
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();  
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
+        
+        
         public String LAB_DISA_SALUD(int cont){
         String cod="";
         try
@@ -541,6 +564,34 @@ public class LAB_Solicitud_Inv_Bact {
      */
     public void setMes_control_tratamiento(int mes_control_tratamiento) {
         this.mes_control_tratamiento = mes_control_tratamiento;
+    }
+
+    /**
+     * @return the nombres_pac_solicita
+     */
+    public String getNombres_pac_solicita() {
+        return nombres_pac_solicita;
+    }
+
+    /**
+     * @param nombres_pac_solicita the nombres_pac_solicita to set
+     */
+    public void setNombres_pac_solicita(String nombres_pac_solicita) {
+        this.nombres_pac_solicita = nombres_pac_solicita;
+    }
+
+    /**
+     * @return the codigo
+     */
+    public int getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
        
        

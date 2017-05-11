@@ -777,6 +777,9 @@ DefaultTableModel m, msb,m2, m3;
     public void deshabilitar(){
         txtNumeroRegla.setEnabled(false);
         txtDescripcionRegla.setEnabled(false);
+        btnguardar.setEnabled(false);
+        btnmodificar.setEnabled(false);
+        btneliminar.setEnabled(false);
     }
     
     public void limpiar(){

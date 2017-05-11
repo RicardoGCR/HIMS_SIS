@@ -50,13 +50,10 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
         BUSCAR_REGLA.setLocationRelativeTo(null);
         BUSCAR_REGLA.getContentPane().setBackground(Color.white);
         inicializar_tabla_Detalle();
-        //deshabilitarGuardarRV();
+        deshabilitarInicio();
         
         txtIdValidacion.setVisible(false);
         txtGM.setVisible(false);
-        
-        txtNumeroRegla.setEnabled(false);
-        txtNombreCampo.setEnabled(false);
         
         //FECHA Y HORA
         h1 = new Thread(this);
@@ -127,9 +124,7 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
         txtBuscarLS = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        BUSCAR_REGLA.setMaximumSize(new java.awt.Dimension(350, 300));
         BUSCAR_REGLA.setMinimumSize(new java.awt.Dimension(350, 300));
-        BUSCAR_REGLA.setPreferredSize(new java.awt.Dimension(350, 300));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-20.png"))); // NOI18N
         jButton4.setContentAreaFilled(false);
@@ -332,9 +327,8 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnguardar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_Nuevo, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btneliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnmodificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btneliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnmodificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -430,6 +424,15 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
 
         txtDescripcion.setEnabled(false);
         jScrollPane1.setViewportView(txtDescripcion);
+
+        txtNombreCampo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreCampoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreCampoKeyTyped(evt);
+            }
+        });
 
         txtGM.setText("G");
 
@@ -677,8 +680,8 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
         }
         else{
                 cargarDetalle_RV();
-                deshabilitarRV();
-                limpiarRV();
+                txtNombreCampo.requestFocus();
+                txtNombreCampo.setText("");
 
         }
            
@@ -734,8 +737,8 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
                           JOptionPane.showMessageDialog(this, "Datos Guardados");
                           guardarDetalleReglaVal();
                           Clear_Tb_Detalle_ReglaVal();
-                          limpiarGuardarRV();
-                          deshabilitarGuardarRV();
+                          limpiarGuardar();
+                          deshabilitarGuardar();
                           txtGM.setText("G");
 
                           }else{
@@ -759,10 +762,10 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
                                     JOptionPane.showMessageDialog(this, "Datos Modificados");
                                     guardarDetalleReglaVal();
                                     Clear_Tb_Detalle_ReglaVal();
-                                    limpiarGuardarRV();
-                                    deshabilitarGuardarRV();
+                                    limpiarGuardar();
+                                    deshabilitarGuardar();
                                     txtGM.setText("G");
-                                    btnguardar.setEnabled(false);                                  
+                                                                 
                                 }else{
                                     JOptionPane.showMessageDialog(this, "El registro ya existe\nIntente nuevamente");
                                 }
@@ -780,11 +783,10 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
 
     private void btn_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NuevoActionPerformed
         jTabbedPane1.setSelectedIndex(0);  
-        habilitar();
-          limpiarGuardarRV();  
-//          btnmodificar.setEnabled(false);
-//          btneliminar.setEnabled(false);
-          txtNumeroRegla.requestFocus();
+        habilitarNuevo();
+        limpiarNuevo();  
+        txtGM.setText("G");
+        txtNumeroRegla.requestFocus();
     }//GEN-LAST:event_btn_NuevoActionPerformed
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
@@ -810,7 +812,6 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
             formatoDetalleRV();           
             jTabbedPane1.setSelectedIndex(0);
 
-            btnguardar.setEnabled(false);
             btnmodificar.setEnabled(true);
             btneliminar.setEnabled(true);
             txtNombreCampo.setEnabled(false);
@@ -823,15 +824,12 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
 
-        //habilitar();
         txtGM.setText("M");
-        txtNumeroRegla.setEnabled(false);
         txtNombreCampo.setEnabled(true);
-        txtNombreCampo.requestFocus();
-        btnguardar.setEnabled(true);
         btnAgregar.setEnabled(true);
         btnQuitar.setEnabled(true);
-        // btneliminar.setEnabled(false);
+        txtNombreCampo.requestFocus();
+               
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
@@ -847,11 +845,9 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
                 if(el.SIS_REGLA_VALIDACION_DET_ELIMINAR())
                 {
                     JOptionPane.showMessageDialog(this, "Datos Eliminados");
-                    btnguardar.setEnabled(false);
-                    btnmodificar.setEnabled(false);
-                    btneliminar.setEnabled(false);
-                    limpiarGuardarRV();
-                    deshabilitarGuardarRV();
+                    
+                    limpiarGuardar();
+                    deshabilitarGuardar();
                     Clear_Tb_Detalle_ReglaVal();
                 }
             }
@@ -861,14 +857,30 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        jTabbedPane1.setSelectedIndex(1);
-        //tb_Pres.getSelectionModel().setSelectionInterval(0, 0);
-        //        tb_Pres.requestFocus();
-        btneliminar.setEnabled(false);
-        btnmodificar.setEnabled(false);
-        btnguardar.setEnabled(false);
+        jTabbedPane1.setSelectedIndex(1);        
         txtBuscarLS.requestFocus();
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void txtNombreCampoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreCampoKeyReleased
+        try {
+        
+            if(txtNumeroRegla.getText().equalsIgnoreCase("")){
+                JOptionPane.showMessageDialog(rootPane,"Debe ingresar la prestación");
+                 txtNumeroRegla.requestFocus();   
+                 txtNombreCampo.setText("");           
+            }
+            
+        } catch (Exception e) {
+            System.out.println("error " + e);
+        }
+    }//GEN-LAST:event_txtNombreCampoKeyReleased
+
+    private void txtNombreCampoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreCampoKeyTyped
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            btnAgregar.doClick();
+        }
+    }//GEN-LAST:event_txtNombreCampoKeyTyped
     
     public void guardarDetalleReglaVal(){
          for (int i = 0; i < tb_RV.getRowCount(); i++){      
@@ -888,32 +900,7 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
         }
     }
     
-    public void limpiarGuardarRV(){
-        txtNumeroRegla.setText("");
-        txtIdValidacion.setText("");
-        txtDescripcion.setText("");
-        txtNombreCampo.setText("");
-    }
-    
-    public void deshabilitarGuardarRV(){
-        txtNumeroRegla.setEnabled(false);
-        txtNombreCampo.setEnabled(false);
-        btnBuscarRegla.setEnabled(false);
-        btnAgregar.setEnabled(false);
-        btnQuitar.setEnabled(false);
-        btnguardar.setEnabled(false);
-        btnmodificar.setEnabled(false);
-        btneliminar.setEnabled(false);
-    }
-    
-    public void habilitar(){
-        txtNumeroRegla.setEnabled(true);
-        txtNombreCampo.setEnabled(true);
-        btnAgregar.setEnabled(true);
-        btnQuitar.setEnabled(true);
-        btnBuscarRegla.setEnabled(true);
-        btnguardar.setEnabled(true);
-    }
+
     
     public void mostrarReglaVal(String num){
         String consulta="";
@@ -1109,18 +1096,9 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
         }
     }
     
-    public void deshabilitarRV(){
-        txtNumeroRegla.setEnabled(false);
-        txtNombreCampo.setEnabled(true);
-//        btnBuscarPrestacion.setEnabled(true);
-//        btnBuscarActividad.setEnabled(false);
-        txtNombreCampo.requestFocus();
-    }
+
     
-    public void limpiarRV(){
-        txtNombreCampo.setText("");
-        
-    }
+
     
     public void CargarReglaValidacion(){
         try {
@@ -1204,6 +1182,48 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
             txtDescripcion.setText("");
             txtNombreCampo.setEnabled(false);
         }
+    }
+    
+    public void deshabilitarInicio(){
+        txtNumeroRegla.setEnabled(false);
+        txtNombreCampo.setEnabled(false);
+        btnAgregar.setEnabled(false);
+        btnQuitar.setEnabled(false);
+    }
+    
+    public void habilitarNuevo(){
+        txtNumeroRegla.setEnabled(true);
+        txtNombreCampo.setEnabled(true);
+        btnAgregar.setEnabled(true);
+        btnQuitar.setEnabled(true);
+        btnBuscarRegla.setEnabled(true);
+        btnguardar.setEnabled(true);
+        txtNumeroRegla.requestFocus();
+    }
+    
+    public void limpiarNuevo(){
+        txtIdValidacion.setText("");
+        txtNumeroRegla.setText("");
+        txtDescripcion.setText("");
+        txtNombreCampo.setText("");
+        Clear_Tb_Detalle_ReglaVal();
+        txtNumeroRegla.requestFocus();
+    }
+    
+    public void deshabilitarGuardar(){
+        txtNumeroRegla.setEnabled(false);
+        txtNombreCampo.setEnabled(false);
+        btnBuscarRegla.setEnabled(false);
+        btnAgregar.setEnabled(false);
+        btnQuitar.setEnabled(false);
+        btnguardar.setEnabled(false);
+    }
+    
+    public void limpiarGuardar(){
+        txtIdValidacion.setText("");
+        txtNumeroRegla.setText("");
+        txtDescripcion.setText("");
+        txtNombreCampo.setText("");
     }
     
     public static String fechaActual(){

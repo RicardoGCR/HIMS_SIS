@@ -180,7 +180,7 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
         titulo5.setFont(new java.awt.Font("Palatino Linotype", 0, 24)); // NOI18N
         titulo5.setForeground(new java.awt.Color(255, 255, 255));
         titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo5.setText("Reglas de Validación Detalle");
+        titulo5.setText("Reglas de Validación ");
         titulo5.setToolTipText("");
         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -366,16 +366,16 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jLabel11)
-                .addGap(4, 4, 4)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel12)
-                .addGap(4, 4, 4)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel13)
-                .addGap(5, 5, 5)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel16)
-                .addGap(4, 4, 4)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel17)
-                .addGap(4, 4, 4)
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -411,6 +411,11 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
         txtNumeroRegla.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtNumeroReglaCaretUpdate(evt);
+            }
+        });
+        txtNumeroRegla.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNumeroReglaKeyReleased(evt);
             }
         });
 
@@ -522,6 +527,8 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
             }
         ));
         tb_RV.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tb_RV.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tb_RV.setSelectionForeground(new java.awt.Color(163, 89, 3));
         jScrollPane2.setViewportView(tb_RV);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -588,6 +595,8 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
             }
         ));
         tb_RV_Detalle.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tb_RV_Detalle.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tb_RV_Detalle.setSelectionForeground(new java.awt.Color(163, 89, 3));
         tb_RV_Detalle.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tb_RV_DetalleKeyPressed(evt);
@@ -873,6 +882,7 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
         } catch (Exception e) {
             System.out.println("error " + e);
         }
+        convertiraMayusculasEnJtextfield(txtNombreCampo);
     }//GEN-LAST:event_txtNombreCampoKeyReleased
 
     private void txtNombreCampoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreCampoKeyTyped
@@ -881,6 +891,15 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
             btnAgregar.doClick();
         }
     }//GEN-LAST:event_txtNombreCampoKeyTyped
+
+    private void txtNumeroReglaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroReglaKeyReleased
+        convertiraMayusculasEnJtextfield(txtNumeroRegla);
+    }//GEN-LAST:event_txtNumeroReglaKeyReleased
+    
+    public void convertiraMayusculasEnJtextfield(javax.swing.JTextField jTextfieldS){
+    String cadena= (jTextfieldS.getText()).toUpperCase();
+    jTextfieldS.setText(cadena);
+    }
     
     public void guardarDetalleReglaVal(){
          for (int i = 0; i < tb_RV.getRowCount(); i++){      

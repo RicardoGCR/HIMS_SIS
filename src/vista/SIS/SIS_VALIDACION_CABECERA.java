@@ -142,6 +142,8 @@ DefaultTableModel m, msb,m2, m3;
             }
         ));
         tb_ReglaVal.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tb_ReglaVal.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tb_ReglaVal.setSelectionForeground(new java.awt.Color(163, 89, 3));
         tb_ReglaVal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tb_ReglaValKeyPressed(evt);

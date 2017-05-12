@@ -301,7 +301,7 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
                                     .addComponent(lblHora)
                                     .addComponent(lblFecha)))))
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addGap(179, 179, 179)
+                        .addGap(254, 254, 254)
                         .addComponent(jLabel22)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(5, 5, 5))
@@ -527,6 +527,7 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
             }
         ));
         tb_RV.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tb_RV.setRowHeight(22);
         tb_RV.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tb_RV.setSelectionForeground(new java.awt.Color(163, 89, 3));
         jScrollPane2.setViewportView(tb_RV);
@@ -606,6 +607,11 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
         jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -895,6 +901,10 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
     private void txtNumeroReglaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroReglaKeyReleased
         convertiraMayusculasEnJtextfield(txtNumeroRegla);
     }//GEN-LAST:event_txtNumeroReglaKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     public void convertiraMayusculasEnJtextfield(javax.swing.JTextField jTextfieldS){
     String cadena= (jTextfieldS.getText()).toUpperCase();

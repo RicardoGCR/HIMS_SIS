@@ -36,7 +36,7 @@ Calendar calendario;
 Thread h1;
 ResultSet r;
 CallableStatement cst;
-DefaultTableModel m, msb,m1,m2, m3, m4, m5;
+DefaultTableModel m, msb, msb1, msb2 ,m1,m2, m3, m4, m5;
 static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
 
     /**
@@ -49,12 +49,16 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
         BUSCAR_REGLA.setLocationRelativeTo(null);
         BUSCAR_REGLA.getContentPane().setBackground(Color.white);
         inicializar_tabla_Detalle_RV();
-                                
+        inicializar_tabla_Detalle_RV_NUMERO();
+        inicializar_tabla_Listado();
+              
         //FECHA Y HORA
         h1 = new Thread(this);
         h1.start();
         Calendar cal=Calendar.getInstance();          
         lblFecha.setText(fechaActual());
+        
+        CargarRV_Listado();
     }
 
     /**
@@ -72,6 +76,15 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
         jButton4 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbReglaV = new javax.swing.JTable();
+        guardar = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        Medicamentos_Diagnosticos = new javax.swing.JDialog();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jpanel = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -109,6 +122,15 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
             jPanel3 = new javax.swing.JPanel();
             jPanel4 = new javax.swing.JPanel();
             jPanel5 = new javax.swing.JPanel();
+            jScrollPane6 = new javax.swing.JScrollPane();
+            tb_RV_Listado = new javax.swing.JTable();
+            txtBuscarListado = new javax.swing.JTextField();
+            btnBuscarListado = new javax.swing.JButton();
+            jPanel7 = new javax.swing.JPanel();
+            jPanel8 = new javax.swing.JPanel();
+            jScrollPane5 = new javax.swing.JScrollPane();
+            tb_RV_TODO = new javax.swing.JTable();
+            txtNumeroM = new javax.swing.JTextField();
             jPanel2 = new javax.swing.JPanel();
             jLabel9 = new javax.swing.JLabel();
             jLabel11 = new javax.swing.JLabel();
@@ -169,7 +191,80 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
                     .addContainerGap(20, Short.MAX_VALUE))
             );
 
+            jMenuItem1.setText("Agregar");
+            jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jMenuItem1ActionPerformed(evt);
+                }
+            });
+            guardar.add(jMenuItem1);
+
+            Medicamentos_Diagnosticos.setLocationByPlatform(true);
+            Medicamentos_Diagnosticos.setMaximumSize(new java.awt.Dimension(400, 300));
+            Medicamentos_Diagnosticos.setMinimumSize(new java.awt.Dimension(300, 400));
+
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null}
+                },
+                new String [] {
+                    "Title 1", "Title 2", "Title 3", "Title 4"
+                }
+            ));
+            jScrollPane7.setViewportView(jTable1);
+
+            jLabel3.setText("Medicina/Diagnóstico:");
+
+            jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/mas.png"))); // NOI18N
+            jButton1.setText("Agregar");
+            jButton1.setContentAreaFilled(false);
+
+            jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/menos16x16.png"))); // NOI18N
+            jButton2.setText("Quitar");
+            jButton2.setContentAreaFilled(false);
+
+            javax.swing.GroupLayout Medicamentos_DiagnosticosLayout = new javax.swing.GroupLayout(Medicamentos_Diagnosticos.getContentPane());
+            Medicamentos_Diagnosticos.getContentPane().setLayout(Medicamentos_DiagnosticosLayout);
+            Medicamentos_DiagnosticosLayout.setHorizontalGroup(
+                Medicamentos_DiagnosticosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Medicamentos_DiagnosticosLayout.createSequentialGroup()
+                    .addGroup(Medicamentos_DiagnosticosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(Medicamentos_DiagnosticosLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(Medicamentos_DiagnosticosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(Medicamentos_DiagnosticosLayout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(Medicamentos_DiagnosticosLayout.createSequentialGroup()
+                            .addGap(72, 72, 72)
+                            .addComponent(jButton1)
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+            Medicamentos_DiagnosticosLayout.setVerticalGroup(
+                Medicamentos_DiagnosticosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Medicamentos_DiagnosticosLayout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addGroup(Medicamentos_DiagnosticosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(Medicamentos_DiagnosticosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(jButton2))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+            setResizable(false);
 
             jpanel.setBackground(new java.awt.Color(191, 142, 101));
 
@@ -278,6 +373,11 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
                     txtNumeroReglaCaretUpdate(evt);
                 }
             });
+            txtNumeroRegla.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    txtNumeroReglaActionPerformed(evt);
+                }
+            });
             txtNumeroRegla.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyReleased(java.awt.event.KeyEvent evt) {
                     txtNumeroReglaKeyReleased(evt);
@@ -334,6 +434,12 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
                 }
             });
 
+            txtID_PREST.addCaretListener(new javax.swing.event.CaretListener() {
+                public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                    txtID_PRESTCaretUpdate(evt);
+                }
+            });
+
             descripcion_prestacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
             descripcion_prestacion.setEnabled(false);
             jScrollPane4.setViewportView(descripcion_prestacion);
@@ -345,7 +451,7 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
             jPanel6Layout.setHorizontalGroup(
                 jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                    .addContainerGap(33, Short.MAX_VALUE)
+                    .addContainerGap(35, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel6Layout.createSequentialGroup()
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -415,6 +521,7 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
                 }
             ));
             tb_Campos_RV.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+            tb_Campos_RV.setComponentPopupMenu(guardar);
             tb_Campos_RV.setRowHeight(22);
             tb_Campos_RV.setSelectionBackground(new java.awt.Color(255, 255, 255));
             tb_Campos_RV.setSelectionForeground(new java.awt.Color(163, 89, 3));
@@ -442,24 +549,83 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
                     .addGap(14, 14, 14)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
                     .addContainerGap())
             );
 
-            jTabbedPane1.addTab("                                        REGISTRO                                         ", jPanel1);
+            jTabbedPane1.addTab("                                       REGISTRO                                       ", jPanel1);
 
             jPanel5.setBackground(new java.awt.Color(255, 255, 255));
             jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+            tb_RV_Listado.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null}
+                },
+                new String [] {
+                    "Title 1", "Title 2", "Title 3", "Title 4"
+                }
+            ));
+            tb_RV_Listado.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+            jScrollPane6.setViewportView(tb_RV_Listado);
+
+            txtBuscarListado.addFocusListener(new java.awt.event.FocusAdapter() {
+                public void focusGained(java.awt.event.FocusEvent evt) {
+                    txtBuscarListadoFocusGained(evt);
+                }
+                public void focusLost(java.awt.event.FocusEvent evt) {
+                    txtBuscarListadoFocusLost(evt);
+                }
+            });
+            txtBuscarListado.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyPressed(java.awt.event.KeyEvent evt) {
+                    txtBuscarListadoKeyPressed(evt);
+                }
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    txtBuscarListadoKeyReleased(evt);
+                }
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    txtBuscarListadoKeyTyped(evt);
+                }
+            });
+
+            btnBuscarListado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
+            btnBuscarListado.setBorder(null);
+            btnBuscarListado.setContentAreaFilled(false);
+            btnBuscarListado.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    btnBuscarListadoActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
             jPanel5.setLayout(jPanel5Layout);
             jPanel5Layout.setHorizontalGroup(
                 jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 638, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addComponent(txtBuscarListado, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnBuscarListado)
+                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap())
             );
             jPanel5Layout.setVerticalGroup(
                 jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 462, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtBuscarListado, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscarListado))
+                    .addGap(18, 18, 18)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                    .addContainerGap())
             );
 
             javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -484,7 +650,66 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
 
-            jTabbedPane1.addTab("                                         LISTADO                                        ", jPanel3);
+            jTabbedPane1.addTab("                                         LISTADO                                      ", jPanel3);
+
+            jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+            jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+            tb_RV_TODO.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null}
+                },
+                new String [] {
+                    "Title 1", "Title 2", "Title 3", "Title 4"
+                }
+            ));
+            jScrollPane5.setViewportView(tb_RV_TODO);
+
+            txtNumeroM.setEnabled(false);
+            txtNumeroM.addCaretListener(new javax.swing.event.CaretListener() {
+                public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                    txtNumeroMCaretUpdate(evt);
+                }
+            });
+
+            javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+            jPanel8.setLayout(jPanel8Layout);
+            jPanel8Layout.setHorizontalGroup(
+                jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel8Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+                    .addContainerGap())
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNumeroM, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(51, 51, 51))
+            );
+            jPanel8Layout.setVerticalGroup(
+                jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                    .addContainerGap(16, Short.MAX_VALUE)
+                    .addComponent(txtNumeroM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap())
+            );
+
+            javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+            jPanel7.setLayout(jPanel7Layout);
+            jPanel7Layout.setHorizontalGroup(
+                jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            );
+            jPanel7Layout.setVerticalGroup(
+                jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            );
+
+            jTabbedPane1.addTab("", jPanel7);
 
             jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -562,7 +787,7 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
                     .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(jTabbedPane1)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
 
@@ -592,6 +817,7 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
         mostrarPrestacionDetRV(txtNumPrest.getText());
         limpiarPrestacionRV();
         cargarPrest();
+        mayorNum();
         //txtNumActividad.setEnabled(true);
     }//GEN-LAST:event_txtNumPrestCaretUpdate
 
@@ -636,6 +862,114 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
         txtGM.setText("G");
         txtNumeroRegla.requestFocus();
     }//GEN-LAST:event_btn_NuevoActionPerformed
+
+    private void txtID_PRESTCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtID_PRESTCaretUpdate
+        mostrarDetalleBuscarRV_DET_NUMERO();
+        
+    }//GEN-LAST:event_txtID_PRESTCaretUpdate
+
+    private void txtNumeroReglaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroReglaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroReglaActionPerformed
+
+    private void txtNumeroMCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtNumeroMCaretUpdate
+        cargarNumMayor();
+    }//GEN-LAST:event_txtNumeroMCaretUpdate
+
+    private void btnBuscarListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarListadoActionPerformed
+    String consulta="";
+        try {
+            tb_RV_Listado.setModel(new DefaultTableModel());
+            String titulos[]={"Nº","ID Regla","Num Regla","Descrip RV","ID Prestación","Num Prestacion",
+                "Descrip Prest","Número"};
+            m2=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m2);
+            String fila[]=new String[8];
+
+            SIS_REGLA_VALIDACION_DET_PRES obj=new SIS_REGLA_VALIDACION_DET_PRES();
+            consulta="exec SIS_REGLA_VALIDACION_DETALLE_CA_BUSCAR ?";
+                    
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1, txtBuscarListado.getText());
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=String.valueOf(c)+"º";
+                fila[1]=r.getString(1);
+                fila[2]=r.getString(2);
+                fila[3]=r.getString(3);
+                fila[4]=r.getString(4);
+                fila[5]=r.getString(5);
+                fila[6]=r.getString(6);
+                fila[7]=r.getString(7);
+                
+                m2.addRow(fila);
+                c++;
+            }
+            tb_RV_Listado.setModel(m2);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m2);
+            tb_RV_Listado.setRowSorter(elQueOrdena);
+            this.tb_RV_Listado.setModel(m2);
+            
+            txtBuscarListado.requestFocus();
+            formato_RV_Listado();
+            
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+        }
+    }//GEN-LAST:event_btnBuscarListadoActionPerformed
+
+    private void txtBuscarListadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarListadoKeyPressed
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
+            tb_RV_Listado.getSelectionModel().setSelectionInterval(0, 0);
+            tb_RV_Listado.requestFocus();
+        }
+    }//GEN-LAST:event_txtBuscarListadoKeyPressed
+
+    private void txtBuscarListadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarListadoKeyTyped
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            btnBuscarListado.doClick();
+        }
+    }//GEN-LAST:event_txtBuscarListadoKeyTyped
+
+    private void txtBuscarListadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarListadoKeyReleased
+        convertiraMayusculasEnBuscar(txtBuscarListado);
+    }//GEN-LAST:event_txtBuscarListadoKeyReleased
+
+    private void txtBuscarListadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuscarListadoFocusLost
+   
+    }//GEN-LAST:event_txtBuscarListadoFocusLost
+
+    private void txtBuscarListadoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuscarListadoFocusGained
+        txtBuscarListado.addFocusListener( new FullSelectorListener() );
+    }//GEN-LAST:event_txtBuscarListadoFocusGained
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    
+    public void convertiraMayusculasEnBuscar(javax.swing.JTextField jTextfieldS){
+        String cadena= (jTextfieldS.getText()).toUpperCase();
+        jTextfieldS.setText(cadena);
+    }
+    /////////////seleccionar automaticamente el texto de un jTextfield
+    public class FullSelectorListener extends java.awt.event.FocusAdapter {
+        @Override
+        public void focusLost(java.awt.event.FocusEvent evt) {
+
+        }
+        @Override
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            Object o = evt.getSource();
+            if(o instanceof javax.swing.JTextField){
+                javax.swing.JTextField txt = (javax.swing.JTextField) o;
+                txt.setSelectionStart(0);
+                txt.setSelectionEnd(txt.getText().length());
+            }
+        }
+    }
+    //////
     
     public void cargarPrest(){
         for (int i = 0; i < tb_Campos_RV.getRowCount(); i++){
@@ -646,6 +980,15 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
         }
     }
         
+    public void cargarNumMayor(){
+        
+        for (int i = 0; i < tb_Campos_RV.getRowCount(); i++){
+            
+            String numM = txtNumeroM.getText();
+            
+            tb_Campos_RV.setValueAt(numM, i, 6);            
+        }
+    }
     
     public void convertiraMayusculasEnJtextfield(javax.swing.JTextField jTextfieldS){
     String cadena= (jTextfieldS.getText()).toUpperCase();
@@ -658,17 +1001,18 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
             //destino
             String consulta="";
             tb_Campos_RV.setModel(new DefaultTableModel());
-            String titulos[]={"ID Regla","Num Regla","Nº Prestación","Nombre del Campo","Cantidad","Campo"};
+            String titulos[]={"ID Regla","Num Regla","Nº Prestación","Nombre del Campo","Cantidad","Campo", 
+            "Número"};
             m4=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m4);
-            String fila[]=new String[6];
+            String fila[]=new String[7];
             Usuario obj=new Usuario();
             consulta="exec SIS_REGLA_VALIDACION_DETALLE_BUSCAR_DETALLE_ASIG ?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, txtNumeroRegla.getText());
             ResultSet r= cmd.executeQuery();
             while(r.next()){
-            for (int i=0; i<6; i++){
+            for (int i=0; i<7; i++){
             fila[i]=r.getString(i+1);
             }
                 m4.addRow(fila);
@@ -694,20 +1038,23 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
             tb_Campos_RV.getColumnModel().getColumn(3).setPreferredWidth(160);
             tb_Campos_RV.getColumnModel().getColumn(4).setPreferredWidth(140);                
             tb_Campos_RV.getColumnModel().getColumn(5).setPreferredWidth(140); 
+            tb_Campos_RV.getColumnModel().getColumn(6).setPreferredWidth(100);
             
             //Ocultar
             tb_Campos_RV.getColumnModel().getColumn(0).setMinWidth(0);
-            tb_Campos_RV.getColumnModel().getColumn(0).setMaxWidth(0);      
+            tb_Campos_RV.getColumnModel().getColumn(0).setMaxWidth(0);    
+//            tb_Campos_RV.getColumnModel().getColumn(6).setMinWidth(0);
+//            tb_Campos_RV.getColumnModel().getColumn(6).setMaxWidth(0);
     }
     
     public void inicializar_tabla_Detalle_RV(){       
         try {
             
-        //Servicios Basicos
-            String titulosb[]={"ID Regla","Num Regla","Nº Prestación","Nombre del Campo","Cantidad","Campo"};
+            String titulosb[]={"ID Regla","Num Regla","Nº Prestación","Nombre del Campo","Cantidad","Campo",
+            "Número"};
             msb=new DefaultTableModel(null,titulosb);
             JTable psb=new JTable(msb);
-            String filasb[]=new String[6];
+            String filasb[]=new String[7];
             tb_Campos_RV.setModel(msb);
             TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(msb);
             tb_Campos_RV.setRowSorter(elQueOrdenasb);
@@ -716,8 +1063,48 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
             formatoDetalleRV();
             
         } catch (Exception e) {
+            System.out.println("error inicializar tabla_RV: " + e);
         }
             
+    }
+    
+    public void inicializar_tabla_Detalle_RV_NUMERO(){       
+        try {
+            
+            String titulosb[]={"ID Regla","Num Regla","Nº Prestación","Nombre del Campo","Cantidad","Campo",
+            "Número"};
+            msb1=new DefaultTableModel(null,titulosb);
+            JTable psb=new JTable(msb1);
+            String filasb[]=new String[7];
+            tb_RV_TODO.setModel(msb1);
+            TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(msb1);
+            tb_RV_TODO.setRowSorter(elQueOrdenasb);
+            this.tb_RV_TODO.setModel(msb1);
+            
+            formatoDetalleRV();
+            
+        } catch (Exception e) {
+            System.out.println("error inicializar tabla_numero: " + e);
+        }           
+    }
+    
+    public void inicializar_tabla_Listado(){       
+        try {           
+            String titulosb[]={"Nº","ID Regla","Num Regla","Descrip RV","ID Prestación","Num Prestacion","Descrip Prest",
+            "Número"};
+            msb2=new DefaultTableModel(null,titulosb);
+            JTable psb=new JTable(msb2);
+            String filasb[]=new String[8];
+            tb_RV_Listado.setModel(msb2);
+            TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(msb2);
+            tb_RV_Listado.setRowSorter(elQueOrdenasb);
+            this.tb_RV_Listado.setModel(msb2);
+            
+            formatoDetalleRV();
+            
+        } catch (Exception e) {
+            System.out.println("error inicializar tabla listado: " + e);
+        }       
     }
     
     public void mostrarPrestacionDetRV(String desc){
@@ -766,6 +1153,101 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
         if(txtNumeroRegla.getText().equalsIgnoreCase("")){
             txtDescripcion.setText("");
         }
+    }
+    
+    public void mostrarDetalleBuscarRV_DET_NUMERO(){
+        try {
+            //String filaselec=txtNumeroRegla.getText();
+            //destino
+            String consulta="";
+            tb_RV_TODO.setModel(new DefaultTableModel());
+            String titulos[]={"ID Regla","Num Regla","ID Prestación","Nombre del Campo","Cantidad1","Cantidad2",
+            "Numero"};
+            m5=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m5);
+            String fila[]=new String[7];
+            Usuario obj=new Usuario();
+            consulta="exec SIS_REGLA_VALIDACION_DETALLE_CA_DETALLE_BUSCAR ?,?";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setInt(1, Integer.parseInt(txtIdValidacion.getText()));
+            cmd.setString(2, txtID_PREST.getText());
+            ResultSet r= cmd.executeQuery();
+            while(r.next()){
+            for (int i=0; i<7; i++){
+            fila[i]=r.getString(i+1);
+            }
+                m5.addRow(fila);
+            }
+            tb_RV_TODO.setModel(m5);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m5);
+            tb_RV_TODO.setRowSorter(elQueOrdena);
+            tb_RV_TODO.setModel(m5);
+                       
+            formatoDetalleRV();
+            
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+    }
+    
+    public void mayorNum(){
+        int max = 0;
+        int i;
+        for( i = 0; i < tb_RV_TODO.getRowCount(); i++){
+            int numero = Integer.parseInt(tb_RV_TODO.getValueAt(i, 6).toString());
+            if ( numero > max) {
+                max = numero;
+            }           
+        }
+            txtNumeroM.setText((max+1)+"");   
+    }
+    
+    public void CargarRV_Listado(){
+        try {
+             String titulos[]={"Nº","ID Regla","Num Regla","Descripción RV","ID Prestación","Num Prestacion","Descrip Prest",
+            "Número"};
+            m3=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m3);
+            String fila[]=new String[8];
+
+        String consulta="exec SIS_REGLA_VALIDACION_DETALLE_CA_LISTAR";
+        ResultSet r;
+        
+        r=conectar.Listar(consulta);
+        int c=1;
+        while(r.next()){
+            fila[0]=String.valueOf(c)+"º";
+            fila[1]=r.getString(1);
+            fila[2]=r.getString(2);
+            fila[3]=r.getString(3);
+            fila[4]=r.getString(4);
+            fila[5]=r.getString(5);
+            fila[6]=r.getString(6);
+            fila[7]=r.getString(7);
+            
+                m3.addRow(fila);
+                c++;
+            }
+            tb_RV_Listado.setModel(m3);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
+            tb_RV_Listado.setRowSorter(elQueOrdena);
+            this.tb_RV_Listado.setModel(m3);
+            formato_RV_Listado();
+        } catch (Exception e) {
+            System.out.println("error tabla listado: " + e);
+        }
+    }
+    
+    public void formato_RV_Listado(){
+        tb_RV_Listado.getColumnModel().getColumn(0).setPreferredWidth(30);
+        tb_RV_Listado.getColumnModel().getColumn(1).setPreferredWidth(70);
+        tb_RV_Listado.getColumnModel().getColumn(2).setPreferredWidth(80);
+        tb_RV_Listado.getColumnModel().getColumn(3).setPreferredWidth(300);
+        tb_RV_Listado.getColumnModel().getColumn(4).setPreferredWidth(100);   
+        tb_RV_Listado.getColumnModel().getColumn(5).setPreferredWidth(100);  
+        tb_RV_Listado.getColumnModel().getColumn(6).setPreferredWidth(300);  
+        tb_RV_Listado.getColumnModel().getColumn(7).setPreferredWidth(70);  
     }
     
     public static String fechaActual(){
@@ -830,10 +1312,15 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog BUSCAR_REGLA;
+    private javax.swing.JDialog Medicamentos_Diagnosticos;
+    private javax.swing.JButton btnBuscarListado;
     private javax.swing.JButton btnBuscarPrestacion;
     private javax.swing.JButton btnBuscarRegla;
     private javax.swing.JButton btn_Nuevo;
     private javax.swing.JEditorPane descripcion_prestacion;
+    private javax.swing.JPopupMenu guardar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -845,32 +1332,45 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private com.toedter.components.JLocaleChooserBeanInfo jLocaleChooserBeanInfo1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel jpanel;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JTable tbReglaV;
     private javax.swing.JTable tb_Campos_RV;
+    private javax.swing.JTable tb_RV_Listado;
+    private javax.swing.JTable tb_RV_TODO;
     private javax.swing.JLabel titulo5;
+    private javax.swing.JTextField txtBuscarListado;
     private javax.swing.JEditorPane txtDescripcion;
     private javax.swing.JTextField txtGM;
     private javax.swing.JTextField txtID_PREST;
     private javax.swing.JTextField txtIdValidacion;
     public static javax.swing.JTextField txtNumPrest;
+    private javax.swing.JTextField txtNumeroM;
     private javax.swing.JTextField txtNumeroRegla;
     // End of variables declaration//GEN-END:variables
 

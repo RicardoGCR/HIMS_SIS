@@ -50,115 +50,170 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             //////////////////////////////////
             if(txtAp1.getText().equals("X"))
                 CXRsAP.setAp1("X");
-
+            else
+                CXRsAP.setAp1("");
             //////////////////////////////////
             if(txtAp2.getText().equals("X"))
                 CXRsAP.setAp2("X");
+            else
+                CXRsAP.setAp2("");
 
             //////////////////////////////////
             if(txtAp3.getText().equals("X"))
                 CXRsAP.setAp3("X");
+            else
+                CXRsAP.setAp3("");
   
              //////////////////////////////////
             if(txtAp4.getText().equals("X"))
                 CXRsAP.setAp4("X");
+            else
+                CXRsAP.setAp4("");
 
             //////////////////////////////////
             if(txtAp5.getText().equals("X"))
                 CXRsAP.setAp5("X");
+            else 
+                CXRsAP.setAp5("");
   
             //////////////////////////////////
             if(txtAp6.getText().equals("X"))
                 CXRsAP.setAp6("X");
+            else
+                CXRsAP.setAp6("");
            
             //////////////////////////////////
             if(txtAp7.getText().equals("X"))
                 CXRsAP.setAp7("X");
+            else
+                CXRsAP.setAp7("");
         
             //////////////////////////////////
             if(txtAp8.getText().equals("X"))
                 CXRsAP.setAp8("X");
+            else
+                CXRsAP.setAp8("");
        
             //////////////////////////////////
             if(txtAp9.getText().equals("X"))
                 CXRsAP.setAp9("X");
+            else
+                CXRsAP.setAp9("");
        
             //////////////////////////////////
             if(txtAp10.getText().equals("X"))
                 CXRsAP.setAp10("X");
+            else
+                CXRsAP.setAp10("");
           
             //////////////////////////////////
             if(txtAp11.getText().equals("X"))
                 CXRsAP.setAp11("X");
+            else
+                CXRsAP.setAp11("");
          
             //////////////////////////////////
             if(txtAp12.getText().equals("X"))
                 CXRsAP.setAp12("X");
+            else
+                CXRsAP.setAp12("");
           
             //////////////////////////////////
             if(txtAp13.getText().equals("X"))
                 CXRsAP.setAp13("X");
+            else
+                CXRsAP.setAp13("");
           
             //////////////////////////////////
             if(txtAp14.getText().equals("X"))
                 CXRsAP.setAp14("X");
+            else
+                CXRsAP.setAp14("");
           
             //////////////////////////////////
             if(txtAp15.getText().equals("X"))
                 CXRsAP.setAp15("X");
+            else
+                CXRsAP.setAp15("");
           
             //////////////////////////////////
             if(txtAp16.getText().equals("X"))
                 CXRsAP.setAp16("X");
+            else
+                CXRsAP.setAp16("");
            
             //////////////////////////////////
             if(txtAp17.getText().equals("X"))
                 CXRsAP.setAp17("X");
+            else
+                CXRsAP.setAp17("");
           
             ////////////////////////////////// 
             if(txtAp18.getText().equals("X"))
                 CXRsAP.setAp18("X");
+            else
+                CXRsAP.setAp18("");
 
             //////////////////////////////////
             if(txtAp19.getText().equals("X"))
                 CXRsAP.setAp19("X");
+            else
+                CXRsAP.setAp19("");
 
             //////////////////////////////////
             if(txtAp20.getText().equals("X"))
                 CXRsAP.setAp20("X");
+            else
+                CXRsAP.setAp20("");
  
             //////////////////////////////////
             if(txtAp21.getText().equals("X"))
                 CXRsAP.setAp21("X");
+            else
+                CXRsAP.setAp21("");
 
             //////////////////////////////////
             if(txtAp22.getText().equals("X"))
+                CXRsAP.setAp22("X");
+            else
                 CXRsAP.setAp22("X");
 
             //////////////////////////////////
             if(txtAp23.getText().equals("X"))
                 CXRsAP.setAp23("X");
+            else
+                CXRsAP.setAp23("");
 
             //////////////////////////////////
             if(txtAp24.getText().equals("X"))
                 CXRsAP.setAp24("X");
+            else
+                CXRsAP.setAp24("");
 
             //////////////////////////////////
             if(txtAp25.getText().equals("X"))
                 CXRsAP.setAp25("X");
+            else
+                CXRsAP.setAp25("");
 
             //////////////////////////////////
             if(txtAp26.getText().equals("X"))
                 CXRsAP.setAp26("X");
+            else
+                CXRsAP.setAp26("");
 
             //////////////////////////////////
             if(txtAp27.getText().equals("X"))
                 CXRsAP.setAp27("X");
+            else
+                CXRsAP.setAp27("");
 
             //////////////////////////////////
             if(txtAp28.getText().equals("X"))
                 
                 CXRsAP.setAp28(txtOtros.getText());
+            else
+                CXRsAP.setAp28("");
 
                 CXRsAP.setCodUsu(admi.codUsuario(lblusu.getText()));//falta 
                 CXRsAP.setIdActoMedico(Integer.parseInt(lblIdActoMedico.getText()));

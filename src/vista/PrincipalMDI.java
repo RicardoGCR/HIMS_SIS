@@ -2362,7 +2362,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         });
 
         btnContenedor.setForeground(new java.awt.Color(240, 240, 240));
-        btnContenedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Tipo de archivo de libro genérico-50.png"))); // NOI18N
+        btnContenedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/frasco-graduado.png"))); // NOI18N
         btnContenedor.setMnemonic('N');
         btnContenedor.setToolTipText("");
         btnContenedor.setContentAreaFilled(false);
@@ -2381,8 +2381,8 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel44.setLayout(jPanel44Layout);
         jPanel44Layout.setHorizontalGroup(
             jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnContenedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel57, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+            .addComponent(btnContenedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+            .addComponent(jLabel57, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel44Layout.setVerticalGroup(
             jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

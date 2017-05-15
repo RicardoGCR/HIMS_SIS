@@ -491,7 +491,7 @@ public void calcula() {
             lblUsu.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
             lblUsu.setForeground(new java.awt.Color(255, 255, 255));
             lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
-            lblUsu.setText("Usuario");
+            lblUsu.setText("Silvana");
 
             javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
             jpanel.setLayout(jpanelLayout);
@@ -1724,6 +1724,7 @@ int filtro=0;
                gDet.setCantidad_reasig(Integer.parseInt(tb_InsumosFinal.getValueAt(i,8).toString()));
                gDet.setCod_produc(tb_InsumosFinal.getValueAt(i, 9).toString());
                gDet.setId_cod_det(Integer.parseInt(lblid_cod_doc_det.getText()));
+               gDet.setNom_usu(lblUsu.getText());
                
                 gDet.LAB_Sustentacion_Insumos_Det_guardar();
      }

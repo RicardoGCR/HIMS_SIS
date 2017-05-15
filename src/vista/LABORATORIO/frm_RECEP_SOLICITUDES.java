@@ -11,15 +11,18 @@ import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import modelos.Programas.FormatoTablasSolic;
 import modelos.Programas.LAB_Solicitud_Inv_Bact;
 import modelos.Usuario;
 import servicios.Conexion;
 import vista.LABORATORIO.frm_RECEPCION_INVESTIGACION_BACT;
+import vista.PrincipalMDI;
 
 /**
  *
@@ -34,11 +37,17 @@ Conexion c=new Conexion();
     public frm_RECEP_SOLICITUDES() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         LAB_Solicitud_cargar();
         LAB_Solicitud_formato();
         setLocationRelativeTo(null);//en el centro
         setResizable(false);//para que no funcione el boton maximizar
         this.getContentPane().setBackground(Color.WHITE);
+        
+        //color a filas
+        tb_Solicitudes.setDefaultRenderer(Object.class,new FormatoTablasSolic());
+        
+        
         
         //para no intercambiar columnas
         tb_Solicitudes.getTableHeader().setReorderingAllowed(false);
@@ -228,6 +237,8 @@ public void LAB_Solicitud_cargar(){
             jLabel2 = new javax.swing.JLabel();
             jpanel = new javax.swing.JPanel();
             titulo5 = new javax.swing.JLabel();
+            jTextField1 = new javax.swing.JTextField();
+            jLabel1 = new javax.swing.JLabel();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -325,25 +336,42 @@ public void LAB_Solicitud_cargar(){
                 .addComponent(titulo5, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
             );
 
+            jTextField1.setEditable(false);
+            jTextField1.setBackground(new java.awt.Color(224, 196, 141));
+            jTextField1.setForeground(new java.awt.Color(224, 196, 136));
+            jTextField1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+            jTextField1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jTextField1ActionPerformed(evt);
+                }
+            });
+
+            jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel1.setText("Pendiente en Laboratorio");
+
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(22, 22, 22)
+                    .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(54, 54, 54)
                             .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(cbxSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(124, 124, 124)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtBuscarSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnBuscarSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(22, Short.MAX_VALUE))
-                .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBuscarSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(105, 105, 105)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel1)
+                            .addGap(0, 4, Short.MAX_VALUE)))
+                    .addContainerGap())
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -355,10 +383,12 @@ public void LAB_Solicitud_cargar(){
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbxSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtBuscarSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(btnBuscarSolicitud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnBuscarSolicitud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField1)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGap(18, 18, 18)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                    .addContainerGap())
             );
 
             pack();
@@ -376,7 +406,7 @@ public void LAB_Solicitud_cargar(){
                 
                 if( tb_Solicitudes.getRowCount()>0){
                     int filaselec=tb_Solicitudes.getSelectedRow();
-                    
+                   
                    
                          frm_RECEPCION_INVESTIGACION_BACT recp= new  frm_RECEPCION_INVESTIGACION_BACT();
                     recp.setVisible(true);
@@ -480,11 +510,12 @@ public void LAB_Solicitud_cargar(){
                 
                 //Paciente Solicita
                 frm_RECEPCION_INVESTIGACION_BACT.lblCodHCSol.setText(tb_Solicitudes.getValueAt(filaselec, 33).toString());
+                frm_RECEPCION_INVESTIGACION_BACT.txtPacienteSol.setText(tb_Solicitudes.getValueAt(filaselec, 34).toString());
                 frm_RECEPCION_INVESTIGACION_BACT.lblTelefonoSol.setText(tb_Solicitudes.getValueAt(filaselec, 35).toString());
                 frm_RECEPCION_INVESTIGACION_BACT.lblCel.setText(tb_Solicitudes.getValueAt(filaselec, 36).toString());
                 if(tb_Solicitudes.getValueAt(filaselec, 37).toString().equalsIgnoreCase("          ")==false){
                 frm_RECEPCION_INVESTIGACION_BACT.lblFechaObtencion.setText(tb_Solicitudes.getValueAt(filaselec, 37).toString());
-                }
+                }         
                 
                 //Calidad de la Muestra
                 if(tb_Solicitudes.getValueAt(filaselec, 39).toString().equalsIgnoreCase("Adecuada")){
@@ -498,8 +529,9 @@ public void LAB_Solicitud_cargar(){
                 
                 frm_RECEPCION_INVESTIGACION_BACT.enableDatos(false);
                 
-                frm_RECEPCION_INVESTIGACION_BACT.btnguardar.setEnabled(false);
                     
+                 String u=PrincipalMDI.lblUsu.getText();
+        frm_RECEPCION_INVESTIGACION_BACT.lblUsu.setText(u);
                 }
             }
             catch(Exception ex){
@@ -632,6 +664,10 @@ public void LAB_Solicitud_cargar(){
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxSolicitudActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -671,8 +707,10 @@ public void LAB_Solicitud_cargar(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarSolicitud;
     private javax.swing.JComboBox cbxSolicitud;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel jpanel;
     public static javax.swing.JTable tb_Solicitudes;
     private javax.swing.JLabel titulo5;

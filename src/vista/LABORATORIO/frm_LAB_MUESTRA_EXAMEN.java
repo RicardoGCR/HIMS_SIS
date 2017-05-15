@@ -31,6 +31,7 @@ Conexion c=new Conexion();
     public frm_LAB_MUESTRA_EXAMEN() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         txtGuarModif.setVisible(false);
         h1 = new Thread(this);
         h1.start();
@@ -114,7 +115,6 @@ public void calcula() {
         txtGuarModif = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("SISGESH .::. Muestra Examen");
 
         jpanel.setBackground(new java.awt.Color(2, 67, 115));
 

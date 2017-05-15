@@ -36,6 +36,7 @@ Conexion c=new Conexion();
     public frm_LAB_CONVERSION() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         this.getContentPane().setBackground(Color.white); 
         //setIconImage(new ImageIcon(getClass().getResource("/imagenes/principal.png")).getImage());
         setLocationRelativeTo(null);//en el centro
@@ -115,7 +116,8 @@ Conexion c=new Conexion();
             tb_Conversion.getColumnModel().getColumn(1).setPreferredWidth(258);
             tb_Conversion.getColumnModel().getColumn(2).setPreferredWidth(180);
             tb_Conversion.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tb_Conversion.getColumnModel().getColumn(4).setPreferredWidth(220);
+            tb_Conversion.getColumnModel().getColumn(4).setPreferredWidth(180);
+            tb_Conversion.getColumnModel().getColumn(5).setPreferredWidth(120);
 
      }
     
@@ -542,7 +544,7 @@ Conexion c=new Conexion();
                         .addContainerGap(47, Short.MAX_VALUE))
                 );
 
-                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
                 jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
@@ -1016,7 +1018,13 @@ Conexion c=new Conexion();
                 }  else if(txtCantidad.getText().equalsIgnoreCase("")){
                     JOptionPane.showMessageDialog(rootPane, "Ingrese la Cantidad");
                     filtro=1;
-                }
+                }else if(lblCodPerVerifica.getText().equalsIgnoreCase("")){
+                JOptionPane.showMessageDialog(rootPane, "Seleccione al Personal que Verificó \nla Conversión de Insumos");
+                filtro=1;
+            }   else if(lblCodPerConfirma.getText().equalsIgnoreCase("")){
+                JOptionPane.showMessageDialog(rootPane, "Seleccione al Personal que Confirmó \nla Conversión de Insumos.");
+                filtro=1;
+            }
                 else if(tb_Conversion.getRowCount()==0 ){
                     JOptionPane.showMessageDialog(rootPane, "Agregue Insumos para realizar la Conversión");
                     filtro=1;
@@ -1426,7 +1434,7 @@ Conexion c=new Conexion();
             m=(DefaultTableModel) tbProductoAlmacen.getModel();
             Codigo=tbProductoAlmacen.getValueAt(filaselec, 1).toString();
             Nombre_del_Producto=tbProductoAlmacen.getValueAt(filaselec, 2).toString();
-            Marca=tbProductoAlmacen.getValueAt(filaselec, 5).toString();
+            Marca=tbProductoAlmacen.getValueAt(filaselec, 4).toString();
             cantidad="";
             Unidad_medida=tbProductoAlmacen.getValueAt(filaselec, 5).toString();
             
@@ -1471,7 +1479,7 @@ Conexion c=new Conexion();
          lblCodigo.setText("");
          txtProductoConversion.setText("");
          txtCantidad.setText("");
-         
+         lblUnidadMedida.setText("__________________");
          lblCodPerVerifica.setText("");
          txtPersonalVerifica.setText("");
          lblCodPerConfirma.setText("");

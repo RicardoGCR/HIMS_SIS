@@ -76,6 +76,7 @@ DefaultTableModel m,n,muestra;
     public frm_LAB_RESULTADO_MUESTRA() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
 //         this.setExtendedState(MAXIMIZED_BOTH);
    
         h1 = new Thread(this);
@@ -475,7 +476,6 @@ public void calcula() {
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setTitle("SISGESH .::. Toma de Muestra - Ingreso\n");
             setMinimumSize(new java.awt.Dimension(1253, 579));
 
             jpanel.setBackground(new java.awt.Color(2, 67, 115));

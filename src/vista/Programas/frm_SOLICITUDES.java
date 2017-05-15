@@ -10,6 +10,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -33,6 +34,7 @@ Conexion c=new Conexion();
     public frm_SOLICITUDES() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         LAB_Solicitud_cargar();
         LAB_Solicitud_formato();
         setLocationRelativeTo(null);//en el centro
@@ -479,6 +481,8 @@ public void LAB_Solicitud_cargar(){
                 
                 //Paciente Solicita
                 frm_SOLICITUD_INVESTIGACION_BACT.lblCodHCSol.setText(tb_Solicitudes.getValueAt(filaselec, 33).toString());
+                frm_SOLICITUD_INVESTIGACION_BACT.txtPacienteSol.setText(tb_Solicitudes.getValueAt(filaselec, 34).toString());
+                
                 frm_SOLICITUD_INVESTIGACION_BACT.lblTelefonoSol.setText(tb_Solicitudes.getValueAt(filaselec, 35).toString());
                 frm_SOLICITUD_INVESTIGACION_BACT.lblCel.setText(tb_Solicitudes.getValueAt(filaselec, 36).toString());
                 if(tb_Solicitudes.getValueAt(filaselec, 37).toString().equalsIgnoreCase("          ")==false){

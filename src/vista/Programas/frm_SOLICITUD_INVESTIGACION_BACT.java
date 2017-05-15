@@ -35,6 +35,7 @@ DefaultTableModel m;
      */
     public frm_SOLICITUD_INVESTIGACION_BACT() {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
          buscar_HC.getContentPane().setBackground(Color.white); 
         buscar_HC.setLocationRelativeTo(null);
         buscar_muestras.getContentPane().setBackground(Color.white); 
@@ -1243,7 +1244,6 @@ DefaultTableModel m;
                         lblCodPrecio.setForeground(new java.awt.Color(2, 67, 115));
 
                         btneliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-                        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Basura-32.png"))); // NOI18N
                         btneliminar.setMnemonic('E');
                         btneliminar.setToolTipText("Eliminar (Alt+E)");
                         btneliminar.setContentAreaFilled(false);
@@ -1274,10 +1274,10 @@ DefaultTableModel m;
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(74, 74, 74)
                                         .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(430, 430, 430)
+                                        .addGap(370, 370, 370)
                                         .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(lblCodPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4142,30 +4142,6 @@ limpiar();
     }       
     }//GEN-LAST:event_btnBuscarNomenActionPerformed
 
-    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-
-        ImageIcon ieli=new ImageIcon(this.getClass().getResource("/imagenes/iconos/eliminar16x16.png"));
-        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea ELIMINAR?",
-            "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,ieli );
-        try{
-            if(eliminar == 0 )
-            {
-                LAB_Solicitud_Inv_Bact obj=new LAB_Solicitud_Inv_Bact();
-                obj.setCodigo(Integer.parseInt(lblCodigo.getText()));
-                
-                //Eliminar Preventa
-                if(obj.LAB_Solicitud_Inv_Bact_eliminar())
-                {
-                    JOptionPane.showMessageDialog(this, "Datos Eliminados");
-                    limpiar();
-                    enableDatos(true);
-                }
-            }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this, "Selecione el Personal a eliminar");
-        }
-    }//GEN-LAST:event_btneliminarActionPerformed
-
     private void txtPersonalCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPersonalCaretUpdate
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPersonalCaretUpdate
@@ -4309,6 +4285,30 @@ limpiar();
         btnPaciente.setEnabled(false);
         btnNomen.setEnabled(false);
     }//GEN-LAST:event_btnmodificarActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+
+        ImageIcon ieli=new ImageIcon(this.getClass().getResource("/imagenes/iconos/eliminar16x16.png"));
+        int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea ELIMINAR?",
+            "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,ieli );
+        try{
+            if(eliminar == 0 )
+            {
+                LAB_Solicitud_Inv_Bact obj=new LAB_Solicitud_Inv_Bact();
+                obj.setCodigo(Integer.parseInt(lblCodigo.getText()));
+
+                //Eliminar Preventa
+                if(obj.LAB_Solicitud_Inv_Bact_eliminar())
+                {
+                    JOptionPane.showMessageDialog(this, "Datos Eliminados");
+                    limpiar();
+                    enableDatos(true);
+                }
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Selecione el Personal a eliminar");
+        }
+    }//GEN-LAST:event_btneliminarActionPerformed
 
     public void limpiar(){
         lblCodPrecio.setText("");

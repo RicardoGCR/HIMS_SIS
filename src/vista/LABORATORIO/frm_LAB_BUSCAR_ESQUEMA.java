@@ -55,6 +55,7 @@ Conexion c=new Conexion();
     public frm_LAB_BUSCAR_ESQUEMA() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         tb_Esquema_Analisis.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         tb_Esquema_Analisis.doLayout();
                 setLocationRelativeTo(null);//en el centro
@@ -192,7 +193,6 @@ public void LAB_Analisis_Examen_cargar(){
             jLabel2 = new javax.swing.JLabel();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setTitle("SISGESH .::. Búsqueda de Análisis");
             setAlwaysOnTop(true);
 
             tb_Esquema_Analisis.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N

@@ -235,9 +235,9 @@ public class ConsultorioExtCarnetPerinatalGa implements Serializable {
                     RegistroEmbarazoGA.btneditar.setEnabled(true);
                     RegistroEmbarazoGA.var.setText("2");
                     RegistroEmbarazoGA.fechaGA.setEnabled(false);
+                    RegistroEmbarazoGA.lblIdActoMedico.setText(r.getString(16)); 
+                    RegistroEmbarazoGA.lblActoMedico.setText("Acto Médico de registro " + r.getString(17));
                 }
-                
-                
             }
             //
         } catch (Exception e) {

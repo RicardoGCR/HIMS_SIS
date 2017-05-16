@@ -3220,7 +3220,8 @@ static SIS_CLS_ACTIVIDADES sis = new SIS_CLS_ACTIVIDADES();
         } catch (Exception e) {
             System.out.println("Error_mostrarVacunas: " + e.getMessage());
         }
-    }       
+    } 
+    
     public void vacunas_formato(){
         if(txtBCG.getText().equalsIgnoreCase("0")){
                 txtBCG.setText(""); 

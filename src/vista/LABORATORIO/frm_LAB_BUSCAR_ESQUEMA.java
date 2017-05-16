@@ -195,6 +195,7 @@ public void LAB_Analisis_Examen_cargar(){
             setTitle("SISGESH .::. Búsqueda de Análisis");
             setAlwaysOnTop(true);
 
+            tb_Esquema_Analisis.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             tb_Esquema_Analisis.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
                     {null, null, null, null},

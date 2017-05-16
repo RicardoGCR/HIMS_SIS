@@ -39,7 +39,10 @@ public class ConsultorioExtCarnetPerinatalAf implements Serializable {
     private Character estado;
     private String codUsu;
     private int idActoMedico;
+<<<<<<< HEAD
     
+=======
+>>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
     
     
     public void ConsultoriosExtAFListar(String ap_id){
@@ -66,6 +69,8 @@ public class ConsultorioExtCarnetPerinatalAf implements Serializable {
                 RegistroEmbarazoAF.txtAf11.setText(r.getString(13)); 
                 RegistroEmbarazoAF.txtAf12.setText(r.getString(14));
                 RegistroEmbarazoAF.txtOtros.setText(r.getString(15));
+                RegistroEmbarazoAF.lblIdActoMedico.setText(r.getString(21));
+                RegistroEmbarazoAF.lblActoMedico.setText("Acto Médico de Registro " + r.getString(22));
                 if (!RegistroEmbarazoAF.txtOtros.getText().equals("") ){
                 RegistroEmbarazoAF.txtAf13.setText("X");
                 }

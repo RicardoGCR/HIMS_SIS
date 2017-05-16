@@ -9,12 +9,18 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 import vista.ConsultorioEx.RegistroEmbarazo;
 import vista.ConsultorioEx.RegistroEmbarazoPrincipal;
@@ -106,12 +112,12 @@ public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
             ResultSet rs = cmd.executeQuery();
             if(rs.next())
             {
-               establecimiento = rs.getString(1);
+               RegistroEmbarazo.txtEstablecimiento.setText(rs.getString(1));
             }
         }
         catch(Exception ex)
         {
-            System.out.println("perinatalCabeceraID: " + ex.getMessage());
+            System.out.println("nombreEstablecimiento: " + ex.getMessage());
         }
         return establecimiento;
     }
@@ -163,7 +169,7 @@ public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
                 if(r.getString(4).equals("") || r.getString(4).equalsIgnoreCase("null"))
                     RegistroEmbarazoPrincipal.lblFua.setText("");
                 else
-                    RegistroEmbarazoPrincipal.lblFua.setText("Fua " + r.getString(4));
+                    RegistroEmbarazoPrincipal.lblFua.setText(r.getString(4));
             }
             //
         } catch (Exception e) {
@@ -265,6 +271,34 @@ public class ConsultorioExtCarnetPerinatalCabecera implements Serializable {
                 tabla.setRowHeight(30);
         } catch (Exception e) {
             System.out.println("Error: consultorioExControlPerinatalCabListar: " + e.getMessage());
+        }
+    }
+    
+    public String conteoAlertas(){
+        String cod = "";
+        try {
+            String consulta = "EXEC CONSULTORIO_EXT_CARNET_PERINATAL_ATENCION_PRENATAL_CONTEO_ALERTAS";
+            ResultSet r;
+            r=con.Listar(consulta);
+        if(r.next()){
+            RegistroEmbarazo.lblAlertas.setText(String.valueOf(r.getString(1)));
+        }
+        }catch(Exception ex){
+        }
+        return cod;
+    }
+    
+    public void reporteAlertas(String ruta) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("id", "");
+            String rutaInforme = ruta;
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream(rutaInforme), parametros, cn);          
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Atención Prenatal - Pendientes");
+           ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "erro: reporteAlertas:"+e.getMessage());
         }
     }
     

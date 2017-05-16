@@ -212,7 +212,7 @@
                           <Component id="btnBuscar" min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="281" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel22" min="-2" pref="199" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
@@ -255,18 +255,14 @@
                   <Component id="lblUsu" min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="titulo5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="btn_Nuevo" min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="btnmodificar" min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="btnguardar" min="-2" max="-2" attributes="0"/>
-                              <Component id="btneliminar" min="-2" pref="45" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Component id="titulo5" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="btn_Nuevo" min="-2" pref="43" max="-2" attributes="0"/>
+                      <Component id="btnmodificar" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="btnguardar" min="-2" max="-2" attributes="0"/>
+                      <Component id="btneliminar" pref="45" max="32767" attributes="0"/>
+                      <Component id="btnBuscar" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -286,7 +282,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Prestaciones"/>
+            <Property name="text" type="java.lang.String" value="Prestaciones - RC1 - RC4"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor Por defecto"/>
@@ -390,7 +386,7 @@
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/iconos/Editar-32.png"/>
+              <Image iconType="3" name="/imagenes/iconos/editar_1_24.png"/>
             </Property>
             <Property name="mnemonic" type="int" value="77"/>
             <Property name="toolTipText" type="java.lang.String" value="Modificar (Alt-M)"/>
@@ -434,7 +430,7 @@
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/iconos/Basura-32.png"/>
+              <Image iconType="3" name="/imagenes/iconos/delete-button_1_24.png"/>
             </Property>
             <Property name="mnemonic" type="int" value="69"/>
             <Property name="toolTipText" type="java.lang.String" value="Eliminar (Alt+E)"/>
@@ -456,7 +452,7 @@
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/iconos/Search-32.png"/>
+              <Image iconType="3" name="/imagenes/iconos/loupe_1_24.png"/>
             </Property>
             <Property name="mnemonic" type="int" value="66"/>
             <Property name="toolTipText" type="java.lang.String" value="Buscar (Alt+B)"/>
@@ -1020,6 +1016,9 @@
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tbDetalle_Pres_Destino = new javax.swing.JTable(){&#xa;    public boolean isCellEditable(int rowIndex, int colIndex) {&#xa;        return false; //Disallow the editing of any cell&#xa;    }&#xa;};"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1064,6 +1063,9 @@
                       <Events>
                         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tb_destinoKeyPressed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="tb_destino = new javax.swing.JTable(){&#xa;    public boolean isCellEditable(int rowIndex, int colIndex) {&#xa;        return false; //Disallow the editing of any cell&#xa;    }&#xa;};"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>

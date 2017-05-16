@@ -202,7 +202,7 @@ case
 when rc.resultado_PN =''
 then ''
 else 'Resultado:'
-end mostrar,rc.resultado_PN
+end mostrar,rc.resultado_PN,(SELECT TOP 1 UE_LOGO FROM SISTEMA_UNIDAD_EJECUTORA) AS IMAGEN
 from ADMISION_HISTORIA_CLINICA HC,CAJA_DOCUMENTO_CABECERA DC,CAJA_DOCUMENTO_DETALLE DD,
 CAJA_PRECIOS CP, CAJA_NOMENCLATURA_CAJA NC ,CAJA_JERARQUIA_FORMA_PAGO fp,CAJA_ACTO_MEDICO am,
 SISTEMA_AREAS SA,SISTEMA_SERVICIO ss,LABORATORIO_ANALISIS_EXAMEN ae,
@@ -258,18 +258,23 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 	<field name="id_cod_doc_det" class="java.lang.Long"/>
 	<field name="mostrar" class="java.lang.String"/>
 	<field name="resultado_PN" class="java.lang.String"/>
+	<field name="IMAGEN" class="java.io.InputStream"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="43" splitType="Stretch">
+		<band height="58" splitType="Stretch">
 			<staticText>
-				<reportElement x="26" y="22" width="504" height="21" uuid="5c26088e-db19-4a7d-a696-006363b62184"/>
+				<reportElement x="26" y="28" width="504" height="28" uuid="5c26088e-db19-4a7d-a696-006363b62184"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight" size="15" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SERVICIO DE LABORATORIO CLÍNICO]]></text>
 			</staticText>
+			<image>
+				<reportElement x="467" y="0" width="62" height="56" uuid="a5a90fd0-29a5-404e-bb96-0a6578db7cf2"/>
+				<imageExpression><![CDATA[$F{IMAGEN}]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

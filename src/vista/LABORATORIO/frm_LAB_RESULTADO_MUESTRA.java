@@ -7,10 +7,15 @@
 package vista.LABORATORIO;
 
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -19,6 +24,10 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
 import javax.swing.ImageIcon;
@@ -41,7 +50,12 @@ import modelos.LABORATORIO.LAB_Toma_Muestra_Detalle;
 import modelos.LABORATORIO.LAB_Toma_Muestra_Subdetalle;
 import modelos.LABORATORIO.LAB_Valores_Referenciales;
 import modelos.Usuario;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
 import servicios.Conexion;
+import static vista.LABORATORIO.frm_LAB_BUSCAR_RESULTADO.tb_TomasRealizadas;
 import static vista.LABORATORIO.frm_LAB_RESULTADO_INSUMOS.tbResultadoInsumos;
 import static vista.LABORATORIO.frm_LAB_TOMA_MUESTRA_DETALLE.tb_Muestras;
 
@@ -80,7 +94,7 @@ DefaultTableModel m,n,muestra;
         //fecha
         Calendar cal=Calendar.getInstance(); 
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
-        lblFecha.setText(fechaActual());
+        
         lblFecha1.setText(fechaActual());
         
         lbltipo.setVisible(false);
@@ -247,10 +261,6 @@ public void calcula() {
             lbltipo = new javax.swing.JLabel();
             jpanel = new javax.swing.JPanel();
             titulo5 = new javax.swing.JLabel();
-            jLabel14 = new javax.swing.JLabel();
-            lblFecha = new javax.swing.JLabel();
-            jLabel15 = new javax.swing.JLabel();
-            lblHora = new javax.swing.JLabel();
             lblUsu = new javax.swing.JLabel();
             jScrollPane5 = new javax.swing.JScrollPane();
             tb_Detalle = new javax.swing.JTable();
@@ -478,23 +488,7 @@ public void calcula() {
             titulo5.setToolTipText("");
             titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-            jLabel14.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-            jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel14.setText("Fecha:");
-
-            lblFecha.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-            lblFecha.setForeground(new java.awt.Color(255, 255, 255));
-            lblFecha.setText("00/00/00");
-
-            jLabel15.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-            jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel15.setText("Hora:");
-
-            lblHora.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-            lblHora.setForeground(new java.awt.Color(255, 255, 255));
-            lblHora.setText("00:00:00");
-
-            lblUsu.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+            lblUsu.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
             lblUsu.setForeground(new java.awt.Color(255, 255, 255));
             lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
             lblUsu.setText("Usuario");
@@ -506,39 +500,20 @@ public void calcula() {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(571, 571, 571)
-                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jpanelLayout.createSequentialGroup()
-                            .addComponent(jLabel15)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(lblHora))
-                        .addGroup(jpanelLayout.createSequentialGroup()
-                            .addComponent(jLabel14)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(lblFecha))
-                        .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(38, Short.MAX_VALUE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(28, 28, 28))
             );
             jpanelLayout.setVerticalGroup(
                 jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jpanelLayout.createSequentialGroup()
-                    .addGap(4, 4, 4)
                     .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel14)
-                        .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGap(2, 2, 2)
-                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel15)
-                        .addComponent(lblHora))
-                    .addGap(2, 2, 2)
-                    .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap())
-                .addGroup(jpanelLayout.createSequentialGroup()
-                    .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 23, Short.MAX_VALUE))
             );
 
-            tb_Detalle.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            tb_Detalle.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             tb_Detalle.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
 
@@ -597,54 +572,61 @@ public void calcula() {
 
             panelPaciente.setBackground(new java.awt.Color(204, 204, 204));
             panelPaciente.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createCompoundBorder(), "Datos del Paciente ________________________________________", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 13), new java.awt.Color(51, 51, 51))); // NOI18N
+            panelPaciente.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
 
-            jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel23.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel23.setText("DNI");
 
             txtDni.setEditable(false);
-            txtDni.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtDni.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtDni.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtDni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-            jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel22.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel22.setText("Nº de H.C.");
 
             txtHc.setEditable(false);
-            txtHc.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtHc.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtHc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtHc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
             txtPacientes.setEditable(false);
-            txtPacientes.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtPacientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtPacientes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtPacientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-            jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel7.setText("Paciente");
 
-            jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel17.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel17.setText("Fecha de Nac.");
 
             txtFecha.setEditable(false);
-            txtFecha.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtFecha.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtFecha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtFecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-            jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel18.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel18.setText("Sexo");
 
             txtSexo.setEditable(false);
-            txtSexo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtSexo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtSexo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtSexo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-            jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel24.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel24.setText("Edad");
 
             txtEdad.setEditable(false);
-            txtEdad.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtEdad.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtEdad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtEdad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
             javax.swing.GroupLayout panelPacienteLayout = new javax.swing.GroupLayout(panelPaciente);
             panelPaciente.setLayout(panelPacienteLayout);
@@ -693,9 +675,9 @@ public void calcula() {
                         .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGap(0, 0, 0)
-                    .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtHc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtHc, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                        .addComponent(txtPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
                     .addGap(0, 0, 0)
                     .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel23)
@@ -703,17 +685,17 @@ public void calcula() {
                             .addComponent(jLabel17)
                             .addGap(0, 0, 0)
                             .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGap(0, 0, 0)
                     .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel18)
                         .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(0, 0, 0)
-                    .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtSexo))
-                    .addGap(0, 0, 0))
+                    .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE))
             );
 
             btnGenerar.setBackground(new java.awt.Color(100, 100, 100));
@@ -748,12 +730,13 @@ public void calcula() {
             panelResultado.setBackground(new java.awt.Color(255, 255, 255));
             panelResultado.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204))));
 
-            jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel40.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel40.setText("Personal - Responsable Resultado");
 
-            txtPersonalResponR.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+            txtPersonalResponR.setFont(new java.awt.Font("Segoe UI Semilight", 0, 10)); // NOI18N
             txtPersonalResponR.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtPersonalResponR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtPersonalResponR.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtPersonalResponRActionPerformed(evt);
@@ -768,8 +751,9 @@ public void calcula() {
                 }
             });
 
-            txtPersonalRegistraR.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+            txtPersonalRegistraR.setFont(new java.awt.Font("Segoe UI Semilight", 0, 10)); // NOI18N
             txtPersonalRegistraR.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtPersonalRegistraR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtPersonalRegistraR.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtPersonalRegistraRActionPerformed(evt);
@@ -784,32 +768,33 @@ public void calcula() {
                 }
             });
 
-            jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel43.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel43.setText("Personal - Registra Resultado");
 
-            jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel44.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel44.setText("Fecha Registro Resul.");
 
-            jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel45.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel45.setText("Hora Registro Resul.");
 
-            lblFecha1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            lblFecha1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             lblFecha1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             lblFecha1.setText("00/00/00");
 
-            lblHora1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            lblHora1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             lblHora1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             lblHora1.setText("00:00:00");
 
-            jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel1.setText("Resultado");
 
-            txtResult_PN.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtResult_PN.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtResult_PN.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtResult_PN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtResult_PN.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtResult_PNActionPerformed(evt);
@@ -868,8 +853,8 @@ public void calcula() {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResultadoLayout.createSequentialGroup()
                             .addGap(14, 14, 14)
                             .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtPersonalResponR)
-                                .addComponent(txtPersonalRegistraR)))
+                                .addComponent(txtPersonalResponR, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPersonalRegistraR, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(panelResultadoLayout.createSequentialGroup()
                             .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panelResultadoLayout.createSequentialGroup()
@@ -884,11 +869,11 @@ public void calcula() {
                         .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel44)
                         .addComponent(jLabel1))
-                    .addGap(2, 2, 2)
+                    .addGap(0, 0, 0)
                     .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblHora1)
-                        .addComponent(lblFecha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtResult_PN)))
+                        .addComponent(lblHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtResult_PN, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
             );
 
             lblServicio.setText("Servicio");
@@ -1031,18 +1016,21 @@ public void calcula() {
 
             panelTM.setBackground(new java.awt.Color(204, 204, 204));
             panelTM.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createCompoundBorder(), "Toma de Muestra_________________________________________________________________________________________________", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
+            panelTM.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
 
-            jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel19.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel19.setText("Acto Médico");
 
             txtActoMedico.setEditable(false);
-            txtActoMedico.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtActoMedico.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtActoMedico.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtActoMedico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
             txtFormaPago.setEditable(false);
-            txtFormaPago.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtFormaPago.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtFormaPago.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtFormaPago.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtFormaPago.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtFormaPagoActionPerformed(evt);
@@ -1057,17 +1045,18 @@ public void calcula() {
                 }
             });
 
-            jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel30.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel30.setText("Forma de Pago");
 
-            jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel29.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel29.setText("N° de Toma de Muestra");
 
             txtNToma.setEditable(false);
-            txtNToma.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtNToma.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtNToma.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtNToma.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtNToma.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     txtNTomaKeyPressed(evt);
@@ -1077,13 +1066,14 @@ public void calcula() {
                 }
             });
 
-            jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel25.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel25.setText("Personal - Toma de Muestra");
 
             txtPersonalTomaMuestra.setEditable(false);
-            txtPersonalTomaMuestra.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+            txtPersonalTomaMuestra.setFont(new java.awt.Font("Segoe UI Semilight", 0, 10)); // NOI18N
             txtPersonalTomaMuestra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtPersonalTomaMuestra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtPersonalTomaMuestra.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtPersonalTomaMuestraActionPerformed(evt);
@@ -1098,13 +1088,14 @@ public void calcula() {
                 }
             });
 
-            jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel27.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel27.setText("Fecha Toma Muestra");
 
             txtFechaTM.setEditable(false);
-            txtFechaTM.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtFechaTM.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtFechaTM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtFechaTM.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtFechaTM.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtFechaTMActionPerformed(evt);
@@ -1119,13 +1110,14 @@ public void calcula() {
                 }
             });
 
-            jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel28.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel28.setText("Hora Toma Muestra");
 
             txtHoraTM.setEditable(false);
-            txtHoraTM.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtHoraTM.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtHoraTM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtHoraTM.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtHoraTM.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtHoraTMActionPerformed(evt);
@@ -1140,13 +1132,14 @@ public void calcula() {
                 }
             });
 
-            jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel26.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel26.setText("Personal - Solicita Muestra");
 
             txtPersonalSolicita.setEditable(false);
-            txtPersonalSolicita.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+            txtPersonalSolicita.setFont(new java.awt.Font("Segoe UI Semilight", 0, 10)); // NOI18N
             txtPersonalSolicita.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtPersonalSolicita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtPersonalSolicita.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtPersonalSolicitaActionPerformed(evt);
@@ -1161,13 +1154,14 @@ public void calcula() {
                 }
             });
 
-            jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel32.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel32.setText("Piso");
 
             txtPiso.setEditable(false);
-            txtPiso.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtPiso.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtPiso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtPiso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtPiso.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtPisoActionPerformed(evt);
@@ -1182,13 +1176,14 @@ public void calcula() {
                 }
             });
 
-            jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel33.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel33.setText("Cama");
 
             txtCama.setEditable(false);
-            txtCama.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtCama.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtCama.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtCama.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtCama.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtCamaActionPerformed(evt);
@@ -1203,17 +1198,18 @@ public void calcula() {
                 }
             });
 
-            jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel31.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel31.setText("Fecha Orden");
 
-            jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel37.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel37.setText("Hora Orden");
 
             txtFechaOrden.setEditable(false);
-            txtFechaOrden.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtFechaOrden.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtFechaOrden.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtFechaOrden.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtFechaOrden.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtFechaOrdenActionPerformed(evt);
@@ -1229,8 +1225,9 @@ public void calcula() {
             });
 
             txtHoraOrden.setEditable(false);
-            txtHoraOrden.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtHoraOrden.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtHoraOrden.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtHoraOrden.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtHoraOrden.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtHoraOrdenActionPerformed(evt);
@@ -1246,8 +1243,9 @@ public void calcula() {
             });
 
             txthospiServ.setEditable(false);
-            txthospiServ.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txthospiServ.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txthospiServ.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txthospiServ.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txthospiServ.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txthospiServActionPerformed(evt);
@@ -1262,7 +1260,7 @@ public void calcula() {
                 }
             });
 
-            jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel36.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel36.setText("Hospitalización-Servicio");
 
@@ -1274,9 +1272,6 @@ public void calcula() {
                     .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelTMLayout.createSequentialGroup()
                             .addGap(20, 20, 20)
-                            .addComponent(txtPersonalTomaMuestra, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTMLayout.createSequentialGroup()
-                            .addContainerGap()
                             .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtPersonalSolicita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1284,7 +1279,10 @@ public void calcula() {
                                 .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(panelTMLayout.createSequentialGroup()
                             .addGap(114, 114, 114)
-                            .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelTMLayout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addComponent(txtPersonalTomaMuestra, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGap(19, 19, 19)
                     .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1325,13 +1323,13 @@ public void calcula() {
                                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(0, 0, 0)
                             .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtNToma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtFormaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtNToma, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtFormaPago, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(panelTMLayout.createSequentialGroup()
                             .addComponent(jLabel36)
                             .addGap(0, 0, 0)
-                            .addComponent(txthospiServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txthospiServ, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelTMLayout.createSequentialGroup()
                             .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1339,12 +1337,12 @@ public void calcula() {
                                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel28)
                                 .addComponent(jLabel32))
-                            .addGap(0, 0, Short.MAX_VALUE)
-                            .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtPersonalTomaMuestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtFechaTM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtHoraTM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                            .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtHoraTM, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                                .addComponent(txtFechaTM, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtPersonalTomaMuestra, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtPiso))
                             .addGap(0, 0, 0)
                             .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1352,21 +1350,23 @@ public void calcula() {
                                 .addComponent(jLabel37)
                                 .addComponent(jLabel33))
                             .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtPersonalSolicita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtFechaOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtHoraOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtPersonalSolicita, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtFechaOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtHoraOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(panelTMLayout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtCama, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGap(3, 3, 3))
             );
 
             panelAnalisis.setBackground(new java.awt.Color(204, 204, 204));
             panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createCompoundBorder(), "Análisis______________________________________________________", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 13), new java.awt.Color(51, 51, 51))); // NOI18N
+            panelAnalisis.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
 
             txtNomenclatura.setEditable(false);
-            txtNomenclatura.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+            txtNomenclatura.setFont(new java.awt.Font("Segoe UI Semilight", 0, 10)); // NOI18N
             txtNomenclatura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtNomenclatura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtNomenclatura.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtNomenclaturaActionPerformed(evt);
@@ -1381,17 +1381,18 @@ public void calcula() {
                 }
             });
 
-            jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel35.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel35.setText("Análisis / Examen");
 
-            jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel34.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel34.setText("Código CPT");
 
             txtCPT.setEditable(false);
-            txtCPT.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            txtCPT.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             txtCPT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtCPT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtCPT.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtCPTActionPerformed(evt);
@@ -1406,13 +1407,14 @@ public void calcula() {
                 }
             });
 
-            jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel39.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             jLabel39.setText("Servicio/Área");
 
             txtServArea.setEditable(false);
-            txtServArea.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+            txtServArea.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
             txtServArea.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtServArea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             txtServArea.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     txtServAreaKeyPressed(evt);
@@ -1447,31 +1449,30 @@ public void calcula() {
                     .addGap(0, 0, 0)
                     .addComponent(jLabel39)
                     .addGap(0, 0, 0)
-                    .addComponent(txtServArea)
+                    .addComponent(txtServArea, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, 0)
                     .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelAnalisisLayout.createSequentialGroup()
                             .addComponent(jLabel34)
                             .addGap(0, 0, 0)
-                            .addComponent(txtCPT))
-                        .addGroup(panelAnalisisLayout.createSequentialGroup()
-                            .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAnalisisLayout.createSequentialGroup()
-                                    .addGap(14, 14, 14)
-                                    .addComponent(txtNomenclatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(panelAnalisisLayout.createSequentialGroup()
-                                    .addComponent(jLabel35)
-                                    .addGap(21, 21, 21)))
-                            .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(txtCPT, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAnalisisLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(txtNomenclatura, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelAnalisisLayout.createSequentialGroup()
+                                .addComponent(jLabel35)
+                                .addGap(21, 21, 21))))
+                    .addGap(0, 0, Short.MAX_VALUE))
             );
 
             btnInsumos.setBackground(new java.awt.Color(100, 100, 100));
             btnInsumos.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
             btnInsumos.setForeground(new java.awt.Color(255, 255, 255));
             btnInsumos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Tubo de ensayo-30.png"))); // NOI18N
-            btnInsumos.setMnemonic('G');
+            btnInsumos.setMnemonic('I');
             btnInsumos.setText("Insumos");
-            btnInsumos.setToolTipText("Guardar(Alt + G)");
+            btnInsumos.setToolTipText("Guardar(Alt + I)");
             btnInsumos.setBorder(javax.swing.BorderFactory.createCompoundBorder());
             btnInsumos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             btnInsumos.addActionListener(new java.awt.event.ActionListener() {
@@ -1484,14 +1485,14 @@ public void calcula() {
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelOcultar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(panelOcultar, javax.swing.GroupLayout.PREFERRED_SIZE, 1265, Short.MAX_VALUE)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(panelAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(panelPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(panelPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panelAnalisis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(panelTM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1509,7 +1510,7 @@ public void calcula() {
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(panelPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1527,7 +1528,7 @@ public void calcula() {
                             .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 88, Short.MAX_VALUE)))
+                            .addGap(0, 96, Short.MAX_VALUE)))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(panelOcultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, 0))
@@ -1615,6 +1616,9 @@ int filtro=0;
                       
                       LAB_Resultado_Muestra_Cabecera mc=new LAB_Resultado_Muestra_Cabecera();
                       mc.LAB_Resultado_Caja_Estado(Integer.parseInt( lblid_cod_doc_det.getText()));
+                      
+                      //guardando automaticamente en la ruta D:\\LABORATORIO-RESULTADOS
+                      exportar_pdf_automaticamente();
                       
                     JOptionPane.showMessageDialog(null, "Datos Guardados");
                     limpiar();
@@ -2142,6 +2146,88 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32
 }
     }//GEN-LAST:event_btnInsumosActionPerformed
     
+    
+    public void exportar_pdf_automaticamente(){
+         //NUMERO DE DIAS
+            int sDias=0;
+            Calendar fecha = new GregorianCalendar();
+            int dia=fecha.get(Calendar.DAY_OF_MONTH);
+            int mes=fecha.get(Calendar.MONTH)+1;
+            int anio=fecha.get(Calendar.YEAR);
+           
+            if(mes>1){
+            for(int i=1;i<mes;i++)    {
+            switch (i){
+                case 1:case 3:case 5:case 7:case 8:case 10:case 12: 
+                sDias = sDias+ 31;
+                break;
+                case 2:	
+                    if(anio %4==0){
+                        sDias = sDias+ 29;
+                    }else{
+                        sDias = sDias+ 28;
+                    }
+                break;			
+                case 4:case 6:case 9:case 11:			
+                sDias = sDias+ 30;
+                break;
+                default:
+                sDias = 0;
+            }}}
+            int ndias=sDias+dia;
+            DecimalFormat df = new DecimalFormat("000");
+            
+        try {
+               
+               
+        //para crear directorio
+        File directorio =new File("D:\\LABORATORIO-RESULTADOS\\");
+        directorio.mkdir();
+       
+         //para crear archivo
+//         File archivo =new File(directorio,"archivo8.txt");
+//         archivo.createNewFile();
+         
+         
+//        Reportes re = new Reportes();
+        String ruta = "/Reportes/LAB/RESULTADOS.jasper";
+        
+            String cod=lblid_cod_doc_det.getText();
+            Map parametros=new HashMap();
+            parametros.put("ID_COD_DET",cod);
+            
+            
+        //ABRIR CUADRO DE DIALOGO PARA GUARDAR EL ARCHIVO         
+        //dni + numero de dias + cod resultado 
+           File JFC =new File("D:\\LABORATORIO-RESULTADOS\\"+
+                   txtDni.getText()+
+                   df.format(ndias)+
+                   txtCodigo.getText());
+                String PATH = JFC.getAbsolutePath();//obtenemos la direccion del archivo + el nombre a guardar
+                try (PrintWriter printwriter = new PrintWriter(JFC)) {
+                    
+                    printwriter.print(ruta);
+                }
+               JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream(ruta), parametros, c.conectar());
+            JasperExportManager.exportReportToPdfFile(informe, PATH);//mandamos como parametros la ruta del archivo a compilar y el nombre y ruta donde se guardaran    
+                //comprobamos si a la hora de guardar obtuvo la extension y si no se la asignamos
+                if (!(PATH.endsWith(".pdf"))) {
+                    File temp = new File(PATH + ".pdf");
+                    JFC.renameTo(temp);//renombramos el archivo
+                }
+               
+               //Para que lo abra una vez guardado
+//               Runtime.getRuntime().exec("cmd /c start "+PATH + ".pdf");
+               
+         }catch (FileNotFoundException | HeadlessException e) {//por alguna excepcion salta un mensaje de error
+            JOptionPane.showMessageDialog(null, "Error al Exportar el archivo!"+e.getMessage(), "Oops! Error", JOptionPane.ERROR_MESSAGE);
+        } catch (JRException ex) {
+         Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
+     } catch (IOException ex) {
+        Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
+    
     public void Insumos_cargar(String cod){
         //Combobox JTable
     String [] datos = {"Todo","Perdida"};
@@ -2247,7 +2333,7 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32
         Thread ct = Thread.currentThread();
         while (ct == h1) {
             calcula();
-            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+            
             lblHora1.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
                 Thread.sleep(1000);
@@ -2552,8 +2638,6 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32
     private javax.swing.JComboBox cbxBuscar2;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -2590,10 +2674,8 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32
     private javax.swing.JLabel lblCantidadInsumos;
     private javax.swing.JLabel lblCodPerRegistraR;
     private javax.swing.JLabel lblCodPerResponsaR;
-    private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFecha1;
     public static javax.swing.JLabel lblHc;
-    private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblHora1;
     public static javax.swing.JLabel lblServicio;
     public static javax.swing.JLabel lblUsu;

@@ -184,9 +184,9 @@ DefaultTableModel m,n,muestra;
     }
 }
     public void LAB_Clasificacion_Examen_formato(){
-    tb_Clasificacion.getColumnModel().getColumn(0).setPreferredWidth(50);
-    tb_Clasificacion.getColumnModel().getColumn(1).setPreferredWidth(110);
-    tb_Clasificacion.getColumnModel().getColumn(2).setPreferredWidth(170);
+    tb_Clasificacion.getColumnModel().getColumn(0).setPreferredWidth(35);
+    tb_Clasificacion.getColumnModel().getColumn(1).setPreferredWidth(80);
+    tb_Clasificacion.getColumnModel().getColumn(2).setPreferredWidth(150);
     tb_Clasificacion.getColumnModel().getColumn(3).setPreferredWidth(150);
     tb_Clasificacion.getColumnModel().getColumn(4).setPreferredWidth(150);
     tb_Clasificacion.getColumnModel().getColumn(6).setPreferredWidth(220);
@@ -442,6 +442,7 @@ public void calcula() {
                             jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
                             jLabel1.setText("Búsqueda ");
 
+                            tb_Clasificacion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             tb_Clasificacion.setModel(new javax.swing.table.DefaultTableModel(
                                 new Object [][] {
                                     {null, null, null, null},
@@ -503,6 +504,7 @@ public void calcula() {
 
                             buscar_nomenclatura.setMinimumSize(new java.awt.Dimension(551, 461));
 
+                            tb_Nomenclatura.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             tb_Nomenclatura.setModel(new javax.swing.table.DefaultTableModel(
                                 new Object [][] {
                                     {null, null, null, null},
@@ -531,6 +533,7 @@ public void calcula() {
                             jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
                             jLabel2.setText("Búsqueda ");
 
+                            txtbuscarNomen.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             txtbuscarNomen.setForeground(new java.awt.Color(0, 51, 51));
                             txtbuscarNomen.setText("Ingresar Nomenclatura");
                             txtbuscarNomen.addActionListener(new java.awt.event.ActionListener() {
@@ -591,6 +594,7 @@ public void calcula() {
 
                             buscar_muestra.setMinimumSize(new java.awt.Dimension(415, 491));
 
+                            tb_Muestra_Examen.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             tb_Muestra_Examen.setModel(new javax.swing.table.DefaultTableModel(
                                 new Object [][] {
                                     {null, null, null, null},
@@ -616,9 +620,10 @@ public void calcula() {
                             });
                             jScrollPane6.setViewportView(tb_Muestra_Examen);
 
-                            jLabel24.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+                            jLabel24.setFont(new java.awt.Font("Segoe UI Semilight", 1, 24)); // NOI18N
                             jLabel24.setText("Búsqueda ");
 
+                            txtBuscarMuestra.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             txtBuscarMuestra.setForeground(new java.awt.Color(0, 51, 51));
                             txtBuscarMuestra.setText("Ingresar Muestra");
                             txtBuscarMuestra.addActionListener(new java.awt.event.ActionListener() {
@@ -673,7 +678,7 @@ public void calcula() {
                                         .addComponent(btnBuscarMuestra, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(18, 18, 18)
                                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addContainerGap(43, Short.MAX_VALUE))
+                                    .addContainerGap(40, Short.MAX_VALUE))
                             );
 
                             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -788,7 +793,7 @@ public void calcula() {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(titulo5))
-                                    .addGap(427, 427, 427)
+                                    .addGap(433, 433, 433)
                                     .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(jpanelLayout.createSequentialGroup()
                                             .addComponent(jLabel15)
@@ -881,12 +886,13 @@ public void calcula() {
                                     .addGap(5, 5, 5))
                             );
 
-                            txtCodigo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+                            txtCodigo.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtCodigo.setEnabled(false);
 
+                            jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel7.setText("Clasificación del Examen:");
 
-                            txtClasificacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+                            txtClasificacion.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtClasificacion.setEnabled(false);
                             txtClasificacion.addKeyListener(new java.awt.event.KeyAdapter() {
                                 public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -894,6 +900,7 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel18.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel18.setText("Código:");
 
                             txtGuarModif.setText("G");
@@ -913,17 +920,22 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel11.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel11.setText("Tipo de Procedimiento:");
 
+                            cbxTipoProc.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             cbxTipoProc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Manual", "Automático" }));
 
+                            jLabel12.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel12.setText("Restricción:");
 
+                            cbxRestric.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             cbxRestric.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Normal", "Restringido" }));
 
+                            jLabel13.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel13.setText("Código CPT:");
 
-                            txtCodigoCPT.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+                            txtCodigoCPT.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtCodigoCPT.setEnabled(false);
 
                             btnBuscarCPT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
@@ -934,16 +946,21 @@ public void calcula() {
                                 }
                             });
 
+                            jLabel16.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel16.setText("Nomenclatura:");
 
-                            txtNomen.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+                            txtNomen.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtNomen.setEnabled(false);
 
+                            jLabel17.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel17.setText("Abreviatura:");
 
+                            txtAbrev.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+
+                            jLabel19.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel19.setText("Tiempo:");
 
-                            txtTiempoHora.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+                            txtTiempoHora.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtTiempoHora.setEnabled(false);
                             txtTiempoHora.addActionListener(new java.awt.event.ActionListener() {
                                 public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -951,19 +968,23 @@ public void calcula() {
                                 }
                             });
 
-                            txtTiempoMin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+                            txtTiempoMin.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                             txtTiempoMin.setEnabled(false);
 
+                            jLabel20.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel20.setText("Explicación:");
 
+                            chActivo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             chActivo.setSelected(true);
                             chActivo.setText("Activo");
 
                             txtExplicacion.setColumns(20);
+                            txtExplicacion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             txtExplicacion.setRows(5);
                             jScrollPane2.setViewportView(txtExplicacion);
 
                             txtObservacion.setColumns(20);
+                            txtObservacion.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             txtObservacion.setRows(5);
                             jScrollPane3.setViewportView(txtObservacion);
 
@@ -971,10 +992,14 @@ public void calcula() {
 
                             jLabel22.setText("min");
 
+                            jLabel23.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel23.setText("Nombre del Examen:");
+
+                            txtNombreExamen.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
 
                             panelMuestras.setBorder(javax.swing.BorderFactory.createTitledBorder("Muestras"));
 
+                            tb_Muestras.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             tb_Muestras.setModel(new javax.swing.table.DefaultTableModel(
                                 new Object [][] {
 
@@ -1048,7 +1073,7 @@ public void calcula() {
                                 panelMuestrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panelMuestrasLayout.createSequentialGroup()
                                     .addContainerGap()
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                                     .addContainerGap())
                                 .addGroup(panelMuestrasLayout.createSequentialGroup()
                                     .addGap(30, 30, 30)
@@ -1197,7 +1222,7 @@ public void calcula() {
                                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))

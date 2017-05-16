@@ -142,6 +142,9 @@ public class ConsultorioExtCarnetPerinatalFu implements Serializable {
                       }
                     } catch (Exception e) {
                     }
+                
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdActoMedico.setText(r.getString(7)); 
+                RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText("Acto Médico de registro " + r.getString(8)); 
                     
             }
             //

@@ -282,6 +282,7 @@ public void LAB_Analisis_Examen_cargar(){
                 setTitle("SISGESH .::. Búsqueda de Análisis");
                 setAlwaysOnTop(true);
 
+                tb_Analisis_Examen.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                 tb_Analisis_Examen.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
                         {null, null, null, null},
@@ -313,6 +314,7 @@ public void LAB_Analisis_Examen_cargar(){
                 });
                 jScrollPane1.setViewportView(tb_Analisis_Examen);
 
+                txtBuscar.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                 txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
                 txtBuscar.setText("Ingrese el Nombre del Análisis");
                 txtBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -337,6 +339,7 @@ public void LAB_Analisis_Examen_cargar(){
                     }
                 });
 
+                tb_Clasificacion_Examen.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                 tb_Clasificacion_Examen.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
                         {null, null, null, null},
@@ -365,10 +368,10 @@ public void LAB_Analisis_Examen_cargar(){
                 });
                 jScrollPane2.setViewportView(tb_Clasificacion_Examen);
 
-                jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+                jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                 jLabel2.setText("Clasificación");
 
-                jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+                jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                 jLabel3.setText("Análisis");
 
                 jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -396,7 +399,7 @@ public void LAB_Analisis_Examen_cargar(){
                 jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
                 titulo5.setBackground(new java.awt.Color(0, 102, 102));
-                titulo5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+                titulo5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
                 titulo5.setForeground(new java.awt.Color(255, 255, 255));
                 titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 titulo5.setText(" Esquema de Resultados");
@@ -444,7 +447,7 @@ public void LAB_Analisis_Examen_cargar(){
                                         .addComponent(jLabel14)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblFecha)))
-                                .addGap(0, 24, Short.MAX_VALUE)))
+                                .addGap(0, 28, Short.MAX_VALUE)))
                         .addContainerGap())
                 );
                 jpanelLayout.setVerticalGroup(

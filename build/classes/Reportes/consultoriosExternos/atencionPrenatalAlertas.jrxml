@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sectorizacion" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="877b8323-8dbf-4a3f-a05d-1980ac0a5101">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="0.9090909090909196"/>
+	<property name="ireport.x" value="6"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="dataset1" uuid="a93bef19-033c-490c-8ba5-5d6115d1f4ac"/>
+	<queryString>
+		<![CDATA[SELECT AP.AP_ID,AP.CP_ID,AHC.dni,
+	CONCAT(SUBSTRING(AHC.COD_HC, 1, 4) , '-', SUBSTRING(AHC.COD_HC, 5,2)) AS 'Nº H.C.',
+	AHC.ape_pat + ' ' + AHC.ape_mat + ' ' + AHC.primer_nombre + ' ' +
+	AHC.segundo_nombre + ' ' + AHC.tercer_nombre AS 'PACIENTE',
+	case cast(datediff(dd,CONVERT(date,FEC_NAC,103),GETDATE()) / 365.25 as int)
+			when 0 then convert(varchar(10),datediff(month, FEC_NAC, getdate())) + ' M'
+			ELSE convert(varchar(10),cast(datediff(dd,CONVERT(date,FEC_NAC,103),GETDATE()) / 365.25 as int))
+			end AÑOS,AP.AP_CITA,
+	'Atención ' + CONVERT(VARCHAR(10),CONVERT(INT,AP.AP_ATENCION) + 1) AS 'ATENCION',AHC.telefono,AHC.celular,
+	AHC.DIS_ACT,AHC.SE_COD,AHC.tipo_dir_nom, AHC.nom_dir +
+	CASE AHC.LOT
+	WHEN '' THEN ' Nº ' + AHC.NUM
+	ELSE ' Mz ' + AHC.NUM + ' Lt ' + AHC.LOT
+	END 'DIRECCION',AP.EST,SUE.UE_LOGO
+	FROM CONSULTORIO_EXT_CARNET_PERINATAL_ATENCION_PRENATAL AP, CONSULTORIO_EXT_CARNET_PERINATAL_CABECERA CP,SISTEMA_UNIDAD_EJECUTORA SUE,
+	ADMISION_HISTORIA_CLINICA AHC
+	WHERE CP.CP_ID = AP.CP_ID
+	AND AHC.id_hc = CP.ID_HC
+	AND datepart(mm, AP_CITA) = datepart(mm, getdate())
+	AND AP.ESTADO = 'A'
+	AND EST IN(' ','V')]]>
+	</queryString>
+	<field name="AP_ID" class="java.lang.Long"/>
+	<field name="CP_ID" class="java.lang.Long"/>
+	<field name="dni" class="java.lang.String"/>
+	<field name="Nº H.C." class="java.lang.String"/>
+	<field name="PACIENTE" class="java.lang.String"/>
+	<field name="AÑOS" class="java.lang.String"/>
+	<field name="AP_CITA" class="java.lang.String"/>
+	<field name="ATENCION" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="celular" class="java.lang.String"/>
+	<field name="DIS_ACT" class="java.lang.String"/>
+	<field name="SE_COD" class="java.lang.String"/>
+	<field name="tipo_dir_nom" class="java.lang.String"/>
+	<field name="DIRECCION" class="java.lang.String"/>
+	<field name="EST" class="java.lang.String"/>
+	<field name="UE_LOGO" class="java.io.InputStream"/>
+	<variable name="AÑOS_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{AÑOS}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="8" y="0" width="258" height="46" forecolor="#E84C3D" uuid="4b1add76-473c-4e97-80cd-8a95a54cbced"/>
+				<textElement>
+					<font fontName="Segoe UI Light" size="30" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Atención Prenatal]]></text>
+			</staticText>
+			<elementGroup/>
+			<staticText>
+				<reportElement x="272" y="5" width="160" height="33" forecolor="#E84C3D" uuid="cec2bad2-6295-4fe5-9843-39e146d9d5a0"/>
+				<textElement>
+					<font fontName="Segoe UI Light" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[- Pendientes]]></text>
+			</staticText>
+			<image>
+				<reportElement x="688" y="6" width="100" height="50" uuid="c0b2f7fb-36a1-47c4-8700-486ca0d5ac4b"/>
+				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="19" width="52" height="20" uuid="3a5d7539-095b-4d63-b3f2-d0cba0950aa6"/>
+				<text><![CDATA[DNI]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="39" width="802" height="1" forecolor="#666666" uuid="00c5ffa7-fb91-4310-9fd0-b7d592d3e201"/>
+			</line>
+			<staticText>
+				<reportElement x="114" y="19" width="100" height="20" uuid="707a6f54-dc41-4e16-92e3-389755e3aa10"/>
+				<text><![CDATA[Apellidos y Nombres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="19" width="55" height="20" uuid="3dc0f134-bf1d-47a8-a886-1ae3107ff65b"/>
+				<text><![CDATA[Nº H.C.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="19" width="30" height="20" uuid="9101b2b2-a0c8-48b0-8c8b-338394823aa3"/>
+				<text><![CDATA[Edad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="246" y="19" width="55" height="20" uuid="7c06e4e6-a874-4230-922f-88f6626938b2"/>
+				<text><![CDATA[Próx. cita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="19" width="72" height="20" uuid="5f2d48c0-6029-4a2e-bebf-110eaae6a515"/>
+				<text><![CDATA[Próx. atención]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="374" y="19" width="63" height="20" uuid="f87f3a38-f2aa-4989-ad6e-773389c99025"/>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="19" width="55" height="20" uuid="c7eab4b0-b86c-473a-9077-a1e8ce5529e7"/>
+				<text><![CDATA[Celular]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="493" y="19" width="100" height="20" uuid="26a41a38-232c-404d-8881-44b92e3de03a"/>
+				<text><![CDATA[Distrito]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="593" y="19" width="56" height="20" uuid="88532812-1029-4947-b738-9bfc6f298aea"/>
+				<text><![CDATA[Sector]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="650" y="19" width="152" height="20" uuid="066ab5d2-c24d-4fb3-9952-3174b158232d"/>
+				<text><![CDATA[Dirección]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="1" y="23" width="801" height="1" forecolor="#666666" uuid="331514ca-70ef-41ac-a831-daf6b067cd24"/>
+			</line>
+			<textField>
+				<reportElement x="4" y="4" width="52" height="20" forecolor="#666666" uuid="35893961-9021-4a5e-952e-d54f199f7256"/>
+				<textFieldExpression><![CDATA[$F{dni}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="58" y="4" width="55" height="20" forecolor="#666666" uuid="e4d75fac-823d-4600-a00f-609d5d7bccf9"/>
+				<textFieldExpression><![CDATA[$F{Nº H.C.}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="4" width="100" height="20" forecolor="#666666" uuid="6cc64431-a35c-449c-b452-6d13800ad6c5"/>
+				<textFieldExpression><![CDATA[$F{PACIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="215" y="4" width="30" height="20" forecolor="#666666" uuid="e40b9928-7f67-43b6-9e4e-698d90b159e2"/>
+				<textFieldExpression><![CDATA[$F{AÑOS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="246" y="4" width="55" height="20" forecolor="#666666" uuid="ef3d00db-8771-452d-98e7-718b88532286"/>
+				<textFieldExpression><![CDATA[$F{AP_CITA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="4" width="72" height="20" forecolor="#666666" uuid="34708600-e46a-49f6-9115-b83c2624afb0"/>
+				<textFieldExpression><![CDATA[$F{ATENCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="4" width="63" height="20" forecolor="#666666" uuid="7821bf03-37a6-43b5-9712-1726a6cadecd"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="438" y="4" width="55" height="20" forecolor="#666666" uuid="7c013d0f-47c5-4931-a8da-83ba24061fd3"/>
+				<textFieldExpression><![CDATA[$F{celular}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="493" y="4" width="100" height="20" forecolor="#666666" uuid="73692729-e392-4353-9e2d-4a7057361b60"/>
+				<textFieldExpression><![CDATA[$F{DIS_ACT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="593" y="4" width="56" height="20" forecolor="#666666" uuid="5bdafe9e-e4d7-4deb-8c59-465838596e6b"/>
+				<textFieldExpression><![CDATA[$F{SE_COD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="650" y="4" width="29" height="20" forecolor="#666666" uuid="b33ee9be-d1db-4bcd-85fd-010d7d1ecc67"/>
+				<textFieldExpression><![CDATA[$F{tipo_dir_nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="679" y="4" width="123" height="20" forecolor="#666666" uuid="e2a93c0c-f415-4929-8dc6-df45d88afcf8"/>
+				<textFieldExpression><![CDATA[$F{DIRECCION}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="10" width="802" height="13" forecolor="#D0B48E" backcolor="#9DB1B8" uuid="f7747ce2-0699-4e15-b03f-fd6202ba3235"/>
+			</frame>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="1" y="9" width="197" height="13" forecolor="#FFFFFF" uuid="130481e2-abe6-4c65-8641-21580495a5ae"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column header" x="662" y="10" width="80" height="13" forecolor="#FFFFFF" uuid="abf1db08-2c25-42f2-8b3d-66f9d2191130"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="762" y="10" width="40" height="13" forecolor="#FFFFFF" uuid="e2eaa92d-0515-4783-a440-4fd08c3ccb75"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

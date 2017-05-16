@@ -110,8 +110,8 @@ public class ConsultorioExtCarnetPerinatalAp implements Serializable {
                     RegistroEmbarazoAP.btneditar.setEnabled(true);
                     RegistroEmbarazoAP.var.setText("2");
                 }
-                
-                
+                RegistroEmbarazoAP.lblIdActoMedico.setText(r.getString(36)); 
+                RegistroEmbarazoAP.lblActoMedico.setText("Acto Médico de registro " + r.getString(37));
             }
             //
         } catch (Exception e) {

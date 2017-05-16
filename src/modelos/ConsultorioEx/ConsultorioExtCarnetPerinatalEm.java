@@ -35,12 +35,13 @@ public class ConsultorioExtCarnetPerinatalEm implements Serializable {
     private Character estado;
     private String codUsu;
     private int idActoMedico;
+    private String EMER;
 
     public boolean mantenimientoConsultorioExtCarnetPerinatalEm(String tipo)
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_EM ?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_MANTENIMIENTO_CARNET_PERINATAL_EM ?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getEmId());
             cmd.setInt(2, getCpId());
@@ -49,6 +50,7 @@ public class ConsultorioExtCarnetPerinatalEm implements Serializable {
             cmd.setString(5, getCodUsu());
             cmd.setString(6, tipo);
             cmd.setInt(7, getIdActoMedico());
+            cmd.setString(8,getEMER());
             if(!cmd.execute())
             {
                 resp = true;
@@ -148,6 +150,10 @@ public class ConsultorioExtCarnetPerinatalEm implements Serializable {
                 RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblCie10E.setText(r.getString(4));
                 RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdCie10E.setText(r.getString(6));
                 RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblIdActoMedico.setText(r.getString(7)); 
+                if(r.getString(8).equals("SI"))
+                    RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.chkESi.setText("X");
+                if(r.getString(8).equals("NO"))
+                    RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.chkENo.setText("X");
                 RegistroEmbarazoPT_A_TS_F_D_FUM_H_E_V.lblActoMedico.setText("Acto Médico de registro " + r.getString(8)); 
             }
             //
@@ -267,6 +273,16 @@ public class ConsultorioExtCarnetPerinatalEm implements Serializable {
     public void setId_cie10(int id_cie10) {
         this.id_cie10 = id_cie10;
     }
+
+    public String getEMER() {
+        return EMER;
+    }
+
+    public void setEMER(String EMER) {
+        this.EMER = EMER;
+    }
+    
+    
 
     /**
      * @return the idActoMedico

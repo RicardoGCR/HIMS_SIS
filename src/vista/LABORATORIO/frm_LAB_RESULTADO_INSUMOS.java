@@ -50,6 +50,7 @@ JComboBox jcbx;
     public frm_LAB_RESULTADO_INSUMOS() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         h1 = new Thread(this);
         h1.start();
         this.getContentPane().setBackground(Color.white); 
@@ -453,7 +454,6 @@ public void calcula() {
                 );
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                setTitle("SISGESH .::. Muestra Examen");
                 setAlwaysOnTop(true);
                 setMinimumSize(new java.awt.Dimension(974, 477));
                 getContentPane().setLayout(null);

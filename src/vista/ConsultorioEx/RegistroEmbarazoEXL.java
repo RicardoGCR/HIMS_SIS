@@ -127,10 +127,13 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 CXRsEXL.setElGli1("A");
                 CXRsEXL.setElGli1Fecha(determinarFecha(fechaG1));
             }else
+         
             if(txtG1NA.getText().equals("X")){
                 CXRsEXL.setElGli1("H");
                 CXRsEXL.setElGli1Fecha("");
-            }
+            }else
+                CXRsEXL.setElGli1("");
+                CXRsEXL.setElGli1Fecha("");
             //////////////////////////////////////////////////////////GLICEMIA 2
             if(txtG2N.getText().equals("X")){
                 CXRsEXL.setElGli2("N");
@@ -143,7 +146,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtG2NA.getText().equals("X")){
                 CXRsEXL.setElGli2("H");
                 CXRsEXL.setElGli2Fecha("");
-            }
+            }else
+                CXRsEXL.setElGli2("");
+                CXRsEXL.setElGli2Fecha("");
             //////////////////////////////////////////////////////////GLICEMIA 2
             if(txtTGN.getText().equals("X")){
                 CXRsEXL.setElGliTg("N");
@@ -161,6 +166,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 CXRsEXL.setElGliTg("S");
                 CXRsEXL.setElGliTgFecha("");
             }
+            else
+                CXRsEXL.setElGliTg("");
+                CXRsEXL.setElGliTgFecha("");  
             ////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////
@@ -176,7 +184,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtVDRL1nh.getText().equals("X")){
                 CXRsEXL.setElVdrl1("H");
                 CXRsEXL.setElVdrl1Fecha("");
-            }
+            }else
+                CXRsEXL.setElVdrl1("");
+                CXRsEXL.setElVdrl1Fecha("");
             //////////////////////////////////////////////////////////////VDRL 2
             if(txtVDRL2nr.getText().equals("X")){
                 CXRsEXL.setElVdrl2("N");
@@ -193,7 +203,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtVDRL2nh.getText().equals("X")){
                 CXRsEXL.setElVdrl2("S");
                 CXRsEXL.setElVdrl2Fecha("");
-            }
+            }else
+                CXRsEXL.setElVdrl2("");
+                CXRsEXL.setElVdrl2Fecha("");
             
             /////////////////////////////////////////////////////////////////FTA
             if(txtFTAnr.getText().equals("X")){
@@ -211,7 +223,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtFTAna.getText().equals("X")){
                 CXRsEXL.setElFta("S");
                 CXRsEXL.setElFtaFecha("");
-            }
+            }else
+                CXRsEXL.setElFta("");
+                CXRsEXL.setElFtaFecha("");
             ////////////////////////////////////////////////////////////////THPA
             if(txtTHPAnr.getText().equals("X")){
                 CXRsEXL.setElThpa("N");
@@ -228,7 +242,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtTHPAna.getText().equals("X")){
                 CXRsEXL.setElThpa("S");
                 CXRsEXL.setElThpaFecha("");
-            }
+            }else
+                CXRsEXL.setElThpa("");
+                CXRsEXL.setElThpaFecha("");
             ////////////////////////////////////////////PRUEBA RAPIDA DE SIFILIS
             if(txtPruebanr.getText().equals("X")){
                 CXRsEXL.setElPrs("N");
@@ -241,7 +257,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtPruebanh.getText().equals("X")){
                 CXRsEXL.setElPrs("H");
                 CXRsEXL.setElPrsFecha("");
-            }
+            }else
+                CXRsEXL.setElPrs("");
+                CXRsEXL.setElPrsFecha("");
             ////////////////////////////////////////////////////////VIH PRUEBA 1
             if(txtVIH1nr.getText().equals("X")){
                 CXRsEXL.setElVpr("N");
@@ -254,7 +272,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtVIHnh.getText().equals("X")){
                 CXRsEXL.setElVpr("H");
                 CXRsEXL.setElVprFecha("");
-            }
+            }else
+                CXRsEXL.setElVpr("");
+                CXRsEXL.setElVprFecha("");
             ////////////////////////////////////////////////////////VIH PRUEBA 2
             if(txtVIH2nr.getText().equals("X")){
                 CXRsEXL.setElPr2("N");
@@ -271,7 +291,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtVIH2na.getText().equals("X")){
                 CXRsEXL.setElPr2("S");
                 CXRsEXL.setElPr2Fecha("");
-            }
+            }else
+                CXRsEXL.setElPr2("");
+                CXRsEXL.setElPr2Fecha("");
             ///////////////////////////////////////////////////////////////ELISA
             if(txtElisanr.getText().equals("X")){
                 CXRsEXL.setElElisa("N");
@@ -288,7 +310,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtElisana.getText().equals("X")){
                 CXRsEXL.setElElisa("S");
                 CXRsEXL.setElElisaFecha("");
-            }
+            }else
+                CXRsEXL.setElElisa("");
+                CXRsEXL.setElElisaFecha("");
             ////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////
@@ -308,7 +332,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtIFIna.getText().equals("X")){
                 CXRsEXL.setElFi("A");
                 CXRsEXL.setElFiFecha("");
-            }
+            }else
+                CXRsEXL.setElFi("");
+                CXRsEXL.setElFiFecha("");
             ///////////////////////////////////////////////////////////////HTLVI
             if(txtHTLVLn.getText().equals("X")){
                 CXRsEXL.setElHtlvi("N");
@@ -325,7 +351,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtHTLVLna.getText().equals("X")){
                 CXRsEXL.setElHtlvi("A");
                 CXRsEXL.setElHtlviFecha("");
-            }
+            }else
+                CXRsEXL.setElHtlvi("");
+                CXRsEXL.setElHtlviFecha("");
             ///////////////////////////////////////////////////////////////TORCH
             if(txtTORCHn.getText().equals("X")){
                 CXRsEXL.setElTorch("N");
@@ -342,7 +370,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtTORCHna.getText().equals("X")){
                 CXRsEXL.setElTorch("A");
                 CXRsEXL.setElTorchFecha("");
-            }
+            }else
+                CXRsEXL.setElTorch("");
+                CXRsEXL.setElTorchFecha("");
             ////////////////////////////////////////////////////////////////GOTA
             if(txtGotan.getText().equals("X")){
                 CXRsEXL.setElGotaG("N");
@@ -359,7 +389,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtGotna.getText().equals("X")){
                 CXRsEXL.setElGotaG("A");
                 CXRsEXL.setElGotaGFecha("");
-            }
+            }else
+                CXRsEXL.setElGotaG("");
+                CXRsEXL.setElGotaGFecha("");
             /////////////////////////////////////////////////////////////MALARIA
             if(txtMalarian.getText().equals("X")){
                 CXRsEXL.setElMpr("N");
@@ -376,7 +408,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtMalariana.getText().equals("X")){
                 CXRsEXL.setElMpr("A");
                 CXRsEXL.setElMprFecha("");
-            }
+            }else
+                CXRsEXL.setElMpr("");
+                CXRsEXL.setElMprFecha("");
             ////////////////////////////////////////////////////Fluorec. Malaria
             if(txtFluorn.getText().equals("X")){
                 CXRsEXL.setElFm("N");
@@ -393,7 +427,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtFluorna.getText().equals("X")){
                 CXRsEXL.setElFm("A");
                 CXRsEXL.setElFmFecha("");
-            }
+            }else
+                CXRsEXL.setElFm("");
+                CXRsEXL.setElFmFecha("");
             ////////////////////////////////////////////////////Ex - Comp. Orina
             if(txtEXn.getText().equals("X")){
                 CXRsEXL.setElEco("N");
@@ -406,7 +442,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtEXnh.getText().equals("X")){
                 CXRsEXL.setElEco("H");
                 CXRsEXL.setElEcoFecha("");
-            }
+            }else
+                CXRsEXL.setElEco("");
+                CXRsEXL.setElEcoFecha(""); 
             ////////////////////////////////////////////////////Ex - Comp. Orina
             if(txtEXn.getText().equals("X")){
                 CXRsEXL.setElEco("N");
@@ -419,7 +457,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtEXnh.getText().equals("X")){
                 CXRsEXL.setElEco("H");
                 CXRsEXL.setElEcoFecha("");
-            }
+            }else
+                CXRsEXL.setElEco("");
+                CXRsEXL.setElEcoFecha("");
             ////////////////////////////////////////////////////////Leucocituria
             if(txtLEUn.getText().equals("X")){
                 CXRsEXL.setElLeuco("N");
@@ -432,7 +472,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtLEUnh.getText().equals("X")){
                 CXRsEXL.setElLeuco("H");
                 CXRsEXL.setElLeucoFechar("");
-            }
+            }else
+                CXRsEXL.setElLeuco("");
+                CXRsEXL.setElLeucoFechar("");
             ////////////////////////////////////////////////////////////Nitritos
             if(txtNitritosn.getText().equals("X")){
                 CXRsEXL.setElNitrit("N");
@@ -445,7 +487,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtNitritosnh.getText().equals("X")){
                 CXRsEXL.setElNitrit("H");
                 CXRsEXL.setElNitritFecha("");
-            }
+            }else
+                CXRsEXL.setElNitrit("");
+                CXRsEXL.setElNitritFecha("");
             //////////////////////////////////////////////////////////Urocultivo
             if(txtUrocultivon.getText().equals("X")){
                 CXRsEXL.setElUrocultiv("N");
@@ -462,7 +506,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtUrocultivona.getText().equals("X")){
                 CXRsEXL.setElUrocultiv("S");
                 CXRsEXL.setElUrocultivFecha("");
-            }
+            }else
+                CXRsEXL.setElUrocultiv("");
+                CXRsEXL.setElUrocultivFecha("");
             ////////////////////////////////////////////////////////BK en Esputo
             if(txtBKn.getText().equals("X")){
                 CXRsEXL.setElBk("N");
@@ -479,7 +525,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtBKna.getText().equals("X")){
                 CXRsEXL.setElBk("S");
                 CXRsEXL.setElBkFecha("");
-            }
+            }else
+                CXRsEXL.setElBk("");
+                CXRsEXL.setElBkFecha("");
             ////////////////////////////////////////////////////////////Listeria
             if(txtListerian.getText().equals("X")){
                 CXRsEXL.setElLt("N");
@@ -496,7 +544,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtListeriana.getText().equals("X")){
                 CXRsEXL.setElLt("S");
                 CXRsEXL.setElLtFecha("");
-            }
+            }else
+                CXRsEXL.setElLt("");
+                CXRsEXL.setElLtFecha("");
             ////////////////////////////////////////////////Tamizaje Hepatitis B
             if(txtTamizajen.getText().equals("X")){
                 CXRsEXL.setElHb("N");
@@ -513,7 +563,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtTamizajena.getText().equals("X")){
                 CXRsEXL.setElHb("S");
                 CXRsEXL.setElHbFecha("");
-            }
+            }else
+                CXRsEXL.setElHb("");
+                CXRsEXL.setElHbFecha("");
             ////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////
@@ -533,7 +585,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtPAPna.getText().equals("X")){
                 CXRsEXL.setElPap("S");
                 CXRsEXL.setElPapFecha("");
-            }
+            }else
+                CXRsEXL.setElPap("");
+                CXRsEXL.setElPapFecha("");
             ////////////////////////////////////////////////////////////////IVAA
             if(txtIVAAn.getText().equals("X")){
                 CXRsEXL.setElIvaa("N");
@@ -550,7 +604,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtIVAAna.getText().equals("X")){
                 CXRsEXL.setElIvaa("S");
                 CXRsEXL.setElIvaaFecha("");
-            }
+            }else
+                CXRsEXL.setElIvaa("");
+                CXRsEXL.setElIvaaFecha("");
             /////////////////////////////////////////////////////////COLPOSCOPIA
             if(txtColn.getText().equals("X")){
                 CXRsEXL.setElColposcopia("N");
@@ -567,7 +623,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             if(txtColna.getText().equals("X")){
                 CXRsEXL.setElColposcopia("S");
                 CXRsEXL.setElColposcopiaFecha("");
-            }
+            }else
+                CXRsEXL.setElColposcopia("");
+                CXRsEXL.setElColposcopiaFecha("");
                 
             AdmisionEmergenciaCabecera adEmerCab = new AdmisionEmergenciaCabecera();
             CXRsEXL.setCodUsu(adEmerCab.codUsuario(lblusu.getText()));

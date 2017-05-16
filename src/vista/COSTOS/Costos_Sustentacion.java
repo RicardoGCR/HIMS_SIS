@@ -890,7 +890,7 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
                                                 );
 
                                                 setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                                                setTitle("SISGESH .::. FACTORES DE PRODUCCIÓN");
+                                                setTitle("FACTORES DE PRODUCCIÓN");
                                                 setResizable(false);
 
                                                 jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -2049,9 +2049,7 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
                                                                                 .addComponent(btnAgregarSBasicos)
                                                                                 .addGap(7, 7, 7)
                                                                                 .addComponent(btnQuitarSBasicos))))))
-                                                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                                                .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(0, 0, 0)))
+                                                            .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2091,7 +2089,7 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
                                                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                                 );
 
-                                                getAccessibleContext().setAccessibleName("SISGESH - MÓDULO DE COSTOS");
+                                                getAccessibleContext().setAccessibleName("MÓDULO DE COSTOS");
 
                                                 pack();
                                             }// </editor-fold>//GEN-END:initComponents

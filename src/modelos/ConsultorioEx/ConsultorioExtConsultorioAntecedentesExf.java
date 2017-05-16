@@ -62,7 +62,7 @@ public class ConsultorioExtConsultorioAntecedentesExf implements Serializable {
         }
         catch(Exception ex)
         {
-            System.out.println("Error: mantenimientoConsultorio CABECERA: " + ex.getMessage());
+            System.out.println("Error: mantenimientoConsultorio ANTECEDENTES : " + ex.getMessage());
         }
         return resp;
     }
@@ -111,7 +111,7 @@ public class ConsultorioExtConsultorioAntecedentesExf implements Serializable {
 
     public ConsultorioExtConsultorioAntecedentesExf() {
         Conexion con = new Conexion();
-          cn = con.conectar();
+        cn = con.conectar();
     }
 
     public ConsultorioExtConsultorioAntecedentesExf(int idAnexf) {

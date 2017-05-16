@@ -111,9 +111,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblPaciente" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblDNI" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblIdCabecera" min="-2" pref="68" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="lblIdCabecera" min="-2" pref="68" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblHC" min="-2" pref="183" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="321" max="32767" attributes="0"/>
+                      <EmptySpace pref="168" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblTerminarConsulta" min="-2" pref="217" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
@@ -134,7 +138,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblDNI" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="lblIdCabecera" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblIdCabecera" max="32767" attributes="0"/>
+                          <Component id="lblHC" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -255,6 +262,11 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lblIdCabecera">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHC">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>

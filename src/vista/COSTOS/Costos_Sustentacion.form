@@ -246,11 +246,11 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="SISGESH .::. FACTORES DE PRODUCCI&#xd3;N"/>
+    <Property name="title" type="java.lang.String" value="FACTORES DE PRODUCCI&#xd3;N"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <AccessibilityProperties>
-    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="SISGESH - M&#xd3;DULO DE COSTOS"/>
+    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="M&#xd3;DULO DE COSTOS"/>
   </AccessibilityProperties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>

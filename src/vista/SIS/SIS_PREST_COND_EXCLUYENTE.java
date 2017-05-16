@@ -1302,7 +1302,7 @@ static SIS_DETALLE_CONDICION_EXCLUYENTE DET = new SIS_DETALLE_CONDICION_EXCLUYEN
             tb_Condicion.getColumnModel().getColumn(6).setPreferredWidth(120);
             tb_Condicion.getColumnModel().getColumn(7).setPreferredWidth(120);
             tb_Condicion.getColumnModel().getColumn(8).setPreferredWidth(120);           
-            //Servicios Basicos- Ocultar
+            //Ocultar
             tb_Condicion.getColumnModel().getColumn(0).setMinWidth(0);
             tb_Condicion.getColumnModel().getColumn(0).setMaxWidth(0);                        
 

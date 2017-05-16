@@ -90,6 +90,8 @@ DefaultTableModel m,n,muestra;
    LAB_Muestra_formato();
    ///tb_Muestras.getColumnModel().getColumn(0).setCellEditor(new Celda_Checkox());
    //tb_Muestras.getColumnModel().getColumn(0).setCellRenderer(new Render_Checkbox());
+   
+   setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
 
    
    
@@ -412,7 +414,6 @@ public void calcula() {
                             lblArea = new javax.swing.JLabel();
 
                             buscar_clasificacion.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                            buscar_clasificacion.setTitle("SISGESH.::.Clasificación Examen");
                             buscar_clasificacion.setMinimumSize(new java.awt.Dimension(548, 444));
 
                             btnBuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/view.gif"))); // NOI18N
@@ -682,7 +683,6 @@ public void calcula() {
                             );
 
                             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                            setTitle("SISGESH .::. Análisis Examen");
 
                             jpanel.setBackground(new java.awt.Color(2, 67, 115));
 

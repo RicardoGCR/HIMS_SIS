@@ -5262,6 +5262,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Pisos"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel83MouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnguardar26">
                       <Properties>

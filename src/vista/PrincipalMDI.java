@@ -3494,6 +3494,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jLabel83.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel83.setForeground(new java.awt.Color(255, 255, 255));
         jLabel83.setText("Pisos");
+        jLabel83.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel83MouseClicked(evt);
+            }
+        });
 
         btnguardar26.setForeground(new java.awt.Color(240, 240, 240));
         btnguardar26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Documentos-50.png"))); // NOI18N
@@ -4862,6 +4867,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
 
     private void bc5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bc5ActionPerformed
         jTabbedPane1.setSelectedIndex(5);
+        lblServicio.setText(mostrarServicioHosp());
     }//GEN-LAST:event_bc5ActionPerformed
 
     private void btneditar14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar14ActionPerformed
@@ -4917,7 +4923,10 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnguardar24ActionPerformed
 
     private void btnguardar26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar26ActionPerformed
-        // TODO add your handling code here:
+        FrmHospitalizacionPisos frmHosp = new FrmHospitalizacionPisos();
+        frmHosp.setVisible(true);
+        String u=PrincipalMDI.lblUsu.getText();
+        frmHosp.lblUsuUsuario.setText(u);
     }//GEN-LAST:event_btnguardar26ActionPerformed
 
     private void btnguardar27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar27ActionPerformed
@@ -5222,6 +5231,15 @@ public class PrincipalMDI extends javax.swing.JFrame {
         String u=lblUsu.getText();
         frm_LAB_CONTENEDOR_MUESTRA.lblUsu.setText(u);
     }//GEN-LAST:event_btnContenedorActionPerformed
+
+    private void jLabel83MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel83MouseClicked
+        if(evt.getClickCount()==1){
+            FrmHospitalizacionPisos frmHosp = new FrmHospitalizacionPisos();
+            frmHosp.setVisible(true);
+            String u=PrincipalMDI.lblUsu.getText();
+            frmHosp.lblUsuUsuario.setText(u);
+        }
+    }//GEN-LAST:event_jLabel83MouseClicked
 
     /**
      * @param args the command line arguments

@@ -2036,10 +2036,10 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel30.setBackground(new java.awt.Color(153, 153, 153));
         jPanel30.setForeground(new java.awt.Color(255, 102, 0));
 
-        btneditar11.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        btneditar11.setFont(new java.awt.Font("Segoe UI Light", 0, 26)); // NOI18N
         btneditar11.setForeground(new java.awt.Color(240, 240, 240));
         btneditar11.setMnemonic('N');
-        btneditar11.setText("Laboratorio");
+        btneditar11.setText("Mantenimientos");
         btneditar11.setToolTipText("");
         btneditar11.setContentAreaFilled(false);
         btneditar11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -2362,7 +2362,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         });
 
         btnContenedor.setForeground(new java.awt.Color(240, 240, 240));
-        btnContenedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/frasco-graduado.png"))); // NOI18N
+        btnContenedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/contenedor.png"))); // NOI18N
         btnContenedor.setMnemonic('N');
         btnContenedor.setToolTipText("");
         btnContenedor.setContentAreaFilled(false);

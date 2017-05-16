@@ -269,7 +269,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 CXRsEXL.setElPr2Fecha("");
             }else
             if(txtVIH2na.getText().equals("X")){
-                CXRsEXL.setElPr2("H");
+                CXRsEXL.setElPr2("S");
                 CXRsEXL.setElPr2Fecha("");
             }
             ///////////////////////////////////////////////////////////////ELISA

@@ -467,7 +467,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
           <Component id="pnlMensaje" alignment="0" max="32767" attributes="0"/>
-          <Component id="jTabbedPane1" alignment="0" pref="1594" max="32767" attributes="0"/>
+          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -775,10 +775,10 @@
                               </Group>
                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jPanel24" alignment="0" pref="103" max="32767" attributes="0"/>
-                                  <Component id="jPanel23" alignment="0" pref="103" max="32767" attributes="0"/>
+                                  <Component id="jPanel24" alignment="0" pref="106" max="32767" attributes="0"/>
+                                  <Component id="jPanel23" alignment="0" pref="106" max="32767" attributes="0"/>
                                   <Component id="jPanel22" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jPanel25" pref="103" max="32767" attributes="0"/>
+                                  <Component id="jPanel25" pref="106" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           </Group>
@@ -1569,7 +1569,7 @@
                                       </Group>
                                       <Component id="jLabel18" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>

@@ -79,7 +79,7 @@ DefaultTableModel m,n,muestra;
         //fecha
        Calendar cal=Calendar.getInstance(); 
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
-        lblFecha.setText(fechaActual());
+//        lblFecha.setText(fechaActual());
           //codigo
         LAB_Valores_Referenciales u=new LAB_Valores_Referenciales();
         txtCodigoValorRef.setText(u.LAB_Valores_Ref_generarid());
@@ -259,10 +259,6 @@ public void calcula() {
             btnBuscarFab = new javax.swing.JButton();
             jpanel = new javax.swing.JPanel();
             titulo5 = new javax.swing.JLabel();
-            jLabel14 = new javax.swing.JLabel();
-            lblFecha = new javax.swing.JLabel();
-            jLabel15 = new javax.swing.JLabel();
-            lblHora = new javax.swing.JLabel();
             lblUsu = new javax.swing.JLabel();
             btnNuevo = new javax.swing.JButton();
             btnGuardar = new javax.swing.JButton();
@@ -335,7 +331,6 @@ public void calcula() {
                 }};
 
                 buscar_fabricante.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                buscar_fabricante.setTitle("SISGESH .::. Búsqueda de Fabricante");
                 buscar_fabricante.setMinimumSize(new java.awt.Dimension(365, 439));
 
                 tb_Fabricante.setModel(new javax.swing.table.DefaultTableModel(
@@ -425,7 +420,7 @@ public void calcula() {
                 );
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                setMinimumSize(new java.awt.Dimension(930, 719));
+                setMinimumSize(new java.awt.Dimension(1188, 670));
 
                 jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
@@ -436,22 +431,6 @@ public void calcula() {
                 titulo5.setText("Valores Referenciales");
                 titulo5.setToolTipText("");
                 titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-                jLabel14.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
-                jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-                jLabel14.setText("Fecha:");
-
-                lblFecha.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
-                lblFecha.setForeground(new java.awt.Color(255, 255, 255));
-                lblFecha.setText("00/00/00");
-
-                jLabel15.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
-                jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-                jLabel15.setText("Hora:");
-
-                lblHora.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
-                lblHora.setForeground(new java.awt.Color(255, 255, 255));
-                lblHora.setText("00:00:00");
 
                 lblUsu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
                 lblUsu.setForeground(new java.awt.Color(255, 255, 255));
@@ -504,24 +483,9 @@ public void calcula() {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(titulo5))
-                        .addGap(13, 13, 13)
-                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpanelLayout.createSequentialGroup()
-                                .addGap(699, 699, 699)
-                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jpanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblHora))
-                                    .addGroup(jpanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblFecha)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 698, Short.MAX_VALUE)
-                                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 711, Short.MAX_VALUE)
+                        .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))
                 );
                 jpanelLayout.setVerticalGroup(
                     jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -534,15 +498,7 @@ public void calcula() {
                             .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(lblHora))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(55, 55, 55)
                         .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                 );
@@ -1867,7 +1823,7 @@ valor_minimo,valor_maximo,valor_texto_referencia};
         Thread ct = Thread.currentThread();
         while (ct == h1) {
             calcula();
-            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+//            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -1985,8 +1941,6 @@ valor_minimo,valor_maximo,valor_texto_referencia};
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -2021,8 +1975,6 @@ valor_minimo,valor_maximo,valor_texto_referencia};
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPanel jpanel;
     private javax.swing.JLabel lblCodFabr;
-    private javax.swing.JLabel lblFecha;
-    private javax.swing.JLabel lblHora;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JPanel panelAnalisis;
     private javax.swing.JPanel panelEsquema;

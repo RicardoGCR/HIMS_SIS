@@ -6,10 +6,13 @@
 package vista.ConsultorioEx;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.beans.PropertyVetoException;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import modelos.ConsultorioEx.ConsultorioExtConsultorioCabecera;
 
 /**
@@ -34,6 +37,7 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
         btnVer.setVisible(false); 
         btnCerrar.setVisible(false); 
         jPanel7.setVisible(false);
+        lbldetalle.setText(" ");
 
     }
     
@@ -73,6 +77,7 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false; //Disallow the editing of any cell
             }};
+            lbldetalle = new javax.swing.JLabel();
             jTabbedPane1 = new javax.swing.JTabbedPane();
             Contenedor = new javax.swing.JDesktopPane();
             PanelDetalle = new javax.swing.JDesktopPane();
@@ -143,7 +148,7 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
                 .addGroup(jPanel9Layout.createSequentialGroup()
                     .addGap(2, 2, 2)
                     .addComponent(txPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(1, 1, 1))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             jPanel9Layout.setVerticalGroup(
                 jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,6 +218,7 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
 
             jPanel7.setBackground(new java.awt.Color(0, 153, 102));
 
+            jScrollPane3.setBackground(new java.awt.Color(0, 153, 102));
             jScrollPane3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
             jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
             jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -259,6 +265,9 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
             );
 
+            lbldetalle.setForeground(new java.awt.Color(255, 255, 255));
+            lbldetalle.setText("Buscador de consultas anteriores");
+
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
             jPanel1.setLayout(jPanel1Layout);
             jPanel1Layout.setHorizontalGroup(
@@ -271,9 +280,6 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(24, 24, 24)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addContainerGap()
                                     .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -284,10 +290,15 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(btnCerrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGap(227, 227, 227)
                                             .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(24, 24, 24)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lbldetalle))))
                             .addGap(0, 0, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addGap(0, 0, Short.MAX_VALUE)
@@ -303,7 +314,9 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(26, 26, 26)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(lbldetalle)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(btnActualizar)
                     .addGap(0, 0, 0)
                     .addComponent(btnLista)
@@ -371,7 +384,7 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
             jLabel4.setText("Historia clínica");
 
             lblHC.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-            lblHC.setForeground(new java.awt.Color(204, 204, 204));
+            lblHC.setForeground(new java.awt.Color(153, 153, 153));
 
             javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
             jPanel3.setLayout(jPanel3Layout);
@@ -592,7 +605,13 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void txPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txPacienteCaretUpdate
-
+        if(!txPaciente.getText().equals("")){
+            lbldetalle.setText("Buscador de consultas anteriores");
+        }else if(txPaciente.getText().equals("")){
+            lbldetalle.setText(" ");
+        }
+            
+            
     }//GEN-LAST:event_txPacienteCaretUpdate
 
     private void T3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3ActionPerformed
@@ -635,8 +654,10 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
 
         jPanel7.setVisible(true);
+        jScrollPane3.setBackground(new Color(0,153,102));
         tbTriajeVer.setBackground(new Color(0,153,102));
         Consulta.TriajeListarVer( tbTriajeVer); 
+        
 
     }//GEN-LAST:event_btnVerActionPerformed
 
@@ -719,6 +740,7 @@ ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabece
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JTabbedPane jTabbedPane1;
     public static javax.swing.JLabel lblHC;
+    private javax.swing.JLabel lbldetalle;
     public static javax.swing.JLabel lblusu;
     public static javax.swing.JDesktopPane panelOpciones;
     private javax.swing.JTable tbTriajeVer;

@@ -10,6 +10,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -18,6 +19,8 @@ import javax.swing.table.TableRowSorter;
 import modelos.Programas.LAB_Solicitud_Inv_Bact;
 import modelos.Usuario;
 import servicios.Conexion;
+import vista.LABORATORIO.frm_RECEPCION_INVESTIGACION_BACT;
+import vista.PrincipalMDI;
 
 /**
  *
@@ -32,6 +35,7 @@ Conexion c=new Conexion();
     public frm_SOLICITUDES() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         LAB_Solicitud_cargar();
         LAB_Solicitud_formato();
         setLocationRelativeTo(null);//en el centro
@@ -134,12 +138,12 @@ public void LAB_Solicitud_cargar(){
     tb_Solicitudes.getColumnModel().getColumn(3).setPreferredWidth(80);
     tb_Solicitudes.getColumnModel().getColumn(4).setPreferredWidth(130);
     tb_Solicitudes.getColumnModel().getColumn(6).setPreferredWidth(140);
-    tb_Solicitudes.getColumnModel().getColumn(8).setPreferredWidth(150);
+    tb_Solicitudes.getColumnModel().getColumn(8).setPreferredWidth(170);
     tb_Solicitudes.getColumnModel().getColumn(9).setPreferredWidth(80);
     tb_Solicitudes.getColumnModel().getColumn(10).setPreferredWidth(80);
     tb_Solicitudes.getColumnModel().getColumn(11).setPreferredWidth(80);
     tb_Solicitudes.getColumnModel().getColumn(21).setPreferredWidth(90);
-    tb_Solicitudes.getColumnModel().getColumn(31).setPreferredWidth(100);
+    tb_Solicitudes.getColumnModel().getColumn(31).setPreferredWidth(120);
             //Ocultar    
     tb_Solicitudes.getColumnModel().getColumn(1).setMinWidth(0);
     tb_Solicitudes.getColumnModel().getColumn(1).setMaxWidth(0);
@@ -226,7 +230,6 @@ public void LAB_Solicitud_cargar(){
             jLabel2 = new javax.swing.JLabel();
             jpanel = new javax.swing.JPanel();
             titulo5 = new javax.swing.JLabel();
-            lblTipo = new javax.swing.JLabel();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -340,9 +343,7 @@ public void LAB_Solicitud_cargar(){
                             .addGap(124, 124, 124)
                             .addComponent(txtBuscarSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnBuscarSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(34, 34, 34)
-                            .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnBuscarSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(22, Short.MAX_VALUE))
                 .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
@@ -356,8 +357,7 @@ public void LAB_Solicitud_cargar(){
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbxSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtBuscarSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(btnBuscarSolicitud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnBuscarSolicitud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGap(18, 18, 18)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -379,7 +379,7 @@ public void LAB_Solicitud_cargar(){
                 if( tb_Solicitudes.getRowCount()>0){
                     int filaselec=tb_Solicitudes.getSelectedRow();
                     
-                    if(lblTipo.getText().equalsIgnoreCase("S")){
+                  
                     
                     frm_SOLICITUD_INVESTIGACION_BACT lme= new  frm_SOLICITUD_INVESTIGACION_BACT();
                     lme.setVisible(true);
@@ -403,25 +403,110 @@ public void LAB_Solicitud_cargar(){
                 frm_SOLICITUD_INVESTIGACION_BACT.txtReferencia.setText(tb_Solicitudes.getValueAt(filaselec,19).toString());
                 
                 frm_SOLICITUD_INVESTIGACION_BACT.lblCodTMEspecificar.setText(tb_Solicitudes.getValueAt(filaselec,20).toString());
-                frm_SOLICITUD_INVESTIGACION_BACT.txtTMEspecificar.setText(tb_Solicitudes.getValueAt(filaselec, 21).toString());
                 
                 if(tb_Solicitudes.getValueAt(filaselec, 21).toString().equalsIgnoreCase("Esputo")){
                 frm_SOLICITUD_INVESTIGACION_BACT.txtTMEsputo.setText("X");
                 }else{
                 frm_SOLICITUD_INVESTIGACION_BACT.txtTMOtro.setText("X");
+                frm_SOLICITUD_INVESTIGACION_BACT.txtTMEspecificar.setText(tb_Solicitudes.getValueAt(filaselec, 21).toString());
+                
                 }
                 
-                frm_SOLICITUD_INVESTIGACION_BACT.lblCama.setText(tb_Solicitudes.getValueAt(filaselec, 18).toString());
-
+                //Antecedentes de Tratamiento
+                if(tb_Solicitudes.getValueAt(filaselec, 22).toString().equalsIgnoreCase("Nunca Tratado")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtATNuncaT.setText("X");
+                }else if(tb_Solicitudes.getValueAt(filaselec, 22).toString().equalsIgnoreCase("Antes Tratado: Recaída")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtATAntesT.setText("X");
+                }else if(tb_Solicitudes.getValueAt(filaselec, 22).toString().equalsIgnoreCase("Abandono Recup.")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtATAbandonoR.setText("X");
+                }else if(tb_Solicitudes.getValueAt(filaselec, 22).toString().equalsIgnoreCase("Fracaso")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtATFracaso.setText("X");
+                }
+                 //Diagnostico
+                if(tb_Solicitudes.getValueAt(filaselec, 23).toString().equalsIgnoreCase("S.R.")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtDSR.setText("X");
+                }else if(tb_Solicitudes.getValueAt(filaselec, 23).toString().equalsIgnoreCase("Seg. Diagnóstico")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtDSegDia.setText("X");
+                }else if(tb_Solicitudes.getValueAt(filaselec, 23).toString().equalsIgnoreCase("RX Anormal")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtDRxAnormal.setText("X");
+                }else {
+                frm_SOLICITUD_INVESTIGACION_BACT.txtDOtro.setText("X");
+                frm_SOLICITUD_INVESTIGACION_BACT.txtDEspecificar.setText(tb_Solicitudes.getValueAt(filaselec, 23).toString());
+                }
+                //mes control de tratamiento
+                if(Integer.parseInt(tb_Solicitudes.getValueAt(filaselec, 24).toString())==0){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtCTMes.setText("");
+                }else{
+                   frm_SOLICITUD_INVESTIGACION_BACT.txtCTMes.setText(tb_Solicitudes.getValueAt(filaselec, 24).toString()); 
+                }
+                if(tb_Solicitudes.getValueAt(filaselec, 25).toString().equalsIgnoreCase("Esq. TB sensible")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtCTEsqTB.setText("X");
+                }else if(tb_Solicitudes.getValueAt(filaselec, 25).toString().equalsIgnoreCase("Esq. DR")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtCTEsqDR.setText("X");
+                }else if(tb_Solicitudes.getValueAt(filaselec, 25).toString().equalsIgnoreCase("Esq. MDR")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtCTEsqMDR.setText("X");
+                }else if(tb_Solicitudes.getValueAt(filaselec, 25).toString().equalsIgnoreCase("Esq. XDR")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtCTEsqXDR.setText("X");
+                }else if(tb_Solicitudes.getValueAt(filaselec, 25).toString().equalsIgnoreCase("Otro")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtCTOtros.setText("X");
+                }
+                
+                 //N Solic Baciloscopia
+                if(tb_Solicitudes.getValueAt(filaselec, 26).toString().equalsIgnoreCase("1")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtSB1.setText("X");
+                }else if(tb_Solicitudes.getValueAt(filaselec, 26).toString().equalsIgnoreCase("2")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtSB2.setText("X");
+                }else if(tb_Solicitudes.getValueAt(filaselec, 26).toString().equalsIgnoreCase("0")){
+                    //
+                }else {
+                  frm_SOLICITUD_INVESTIGACION_BACT.txtSBOtras.setText(tb_Solicitudes.getValueAt(filaselec, 26).toString());  
+                }
+                
+                //Cultivo
+                if(tb_Solicitudes.getValueAt(filaselec, 27).toString().equalsIgnoreCase("Cultivo")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtSBCultivo.setText("X");
+                }
+                
+                //Tipo Prueba de Sensibilidad
+                if(tb_Solicitudes.getValueAt(filaselec, 28).toString().equalsIgnoreCase("Rapida")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtPSRapida.setText("X");
+                frm_SOLICITUD_INVESTIGACION_BACT.txtPSREspecificar.setText(tb_Solicitudes.getValueAt(filaselec, 29).toString());
+                } else if(tb_Solicitudes.getValueAt(filaselec, 28).toString().equalsIgnoreCase("Convencional")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtPSConvencional.setText("X");
+                frm_SOLICITUD_INVESTIGACION_BACT.txtPSCEspecificar.setText(tb_Solicitudes.getValueAt(filaselec, 29).toString());
+                }else if(tb_Solicitudes.getValueAt(filaselec, 28).toString().equalsIgnoreCase("Otro")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtPSOtroEspecificar.setText(tb_Solicitudes.getValueAt(filaselec, 29).toString());
+                }
+                
+                frm_SOLICITUD_INVESTIGACION_BACT.txtFactores.setText(tb_Solicitudes.getValueAt(filaselec, 30).toString());
+                
+                //Paciente Solicita
+                frm_SOLICITUD_INVESTIGACION_BACT.lblCodHCSol.setText(tb_Solicitudes.getValueAt(filaselec, 33).toString());
+                frm_SOLICITUD_INVESTIGACION_BACT.txtPacienteSol.setText(tb_Solicitudes.getValueAt(filaselec, 34).toString());
+                
+                frm_SOLICITUD_INVESTIGACION_BACT.lblTelefonoSol.setText(tb_Solicitudes.getValueAt(filaselec, 35).toString());
+                frm_SOLICITUD_INVESTIGACION_BACT.lblCel.setText(tb_Solicitudes.getValueAt(filaselec, 36).toString());
+                if(tb_Solicitudes.getValueAt(filaselec, 37).toString().equalsIgnoreCase("          ")==false){
+                frm_SOLICITUD_INVESTIGACION_BACT.lblFechaObtencion.setText(tb_Solicitudes.getValueAt(filaselec, 37).toString());
+                }
+                
+                //Calidad de la Muestra
+                if(tb_Solicitudes.getValueAt(filaselec, 39).toString().equalsIgnoreCase("Adecuada")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtMAdecuada.setText("X");
+                }else if(tb_Solicitudes.getValueAt(filaselec, 39).toString().equalsIgnoreCase("Inadecuada")){
+                frm_SOLICITUD_INVESTIGACION_BACT.txtMInadecuada.setText("X");
+                }
+                
+                 frm_SOLICITUD_INVESTIGACION_BACT.txtObservaciones.setText(tb_Solicitudes.getValueAt(filaselec, 40).toString());
+                
                 
                 frm_SOLICITUD_INVESTIGACION_BACT.enableDatos(false);
                 
                 frm_SOLICITUD_INVESTIGACION_BACT.btnguardar.setEnabled(false);
                 frm_SOLICITUD_INVESTIGACION_BACT.btnmodificar.setEnabled(true);
                 frm_SOLICITUD_INVESTIGACION_BACT.btneliminar.setEnabled(true);
-                    }else if(lblTipo.getText().equalsIgnoreCase("R")){
-                        
-                    }
+                
+                frm_SOLICITUD_INVESTIGACION_BACT.lblUsu.setText(PrincipalMDI.lblUsu.getText());
                 }
             }
             catch(Exception ex){
@@ -595,7 +680,6 @@ public void LAB_Solicitud_cargar(){
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpanel;
-    public static javax.swing.JLabel lblTipo;
     public static javax.swing.JTable tb_Solicitudes;
     private javax.swing.JLabel titulo5;
     private javax.swing.JTextField txtBuscarSolicitud;

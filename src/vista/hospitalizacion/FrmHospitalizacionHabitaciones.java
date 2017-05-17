@@ -81,14 +81,14 @@ public class FrmHospitalizacionHabitaciones extends javax.swing.JFrame {
            Statement  st = null;   
             try {
                   st = conexion.createStatement();
-                  r = st.executeQuery ("EXEC HOSPITALIZACION_MOSTRAR_SERVICIOS"); 
+                  r = st.executeQuery ("EXEC HOSPITALIZACION_MOSTRAR_SERVICIO"); 
                   listmodel.addElement("Seleccionar...");
                 while( r.next() ){
                     listmodel.addElement( r.getString( "SE_DESC" ) );                
                  }
                 r.close();
             } catch (SQLException ex) {            
-                System.err.println( "Error: servicios: EXEC HOSPITALIZACION_MOSTRAR_SERVICIOS :" + ex.getMessage() );
+                System.err.println( "Error: servicios: EXEC HOSPITALIZACION_MOSTRAR_SERVICIO :" + ex.getMessage() );
             }        
         return listmodel;
     }

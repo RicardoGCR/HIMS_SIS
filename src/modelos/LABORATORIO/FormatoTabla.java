@@ -1,5 +1,5 @@
 /*
-    YAMILA ROCCA RUIZ
+    
  */
 package modelos.LABORATORIO;
 

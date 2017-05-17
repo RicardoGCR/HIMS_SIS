@@ -55,6 +55,7 @@ public class frm_LAB_BUSCAR_MUESTRA_EXAMEN extends javax.swing.JFrame {
     public frm_LAB_BUSCAR_MUESTRA_EXAMEN() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         tb_Muestra_Examen.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         tb_Muestra_Examen.doLayout();
         setLocationRelativeTo(null);//en el centro
@@ -156,7 +157,6 @@ public class frm_LAB_BUSCAR_MUESTRA_EXAMEN extends javax.swing.JFrame {
             titulo9 = new javax.swing.JLabel();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setTitle("SISGESH .::. Búsqueda de Muestra");
             setAlwaysOnTop(true);
             setMinimumSize(null);
 

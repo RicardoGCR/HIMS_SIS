@@ -347,77 +347,156 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setRn1Fecha(determinarFecha(FCCDRN1)); 
                         CXRsCCD.setRn1Cie10(DXCCDRN1.getText());
                         CXRsCCD.setRn1Fua(FUACCDRN1.getText());
+                    }else 
+                        if(FCCDRN1.getDate()==null){ 
+                        CXRsCCD.setRn1Fecha("");
+                        CXRsCCD.setRn1Cie10("");
+                        CXRsCCD.setRn1Fua("");
+                            
                     }
+                        
                     if(FCCDRN2.getDate()!=null){
                         CXRsCCD.setRn2Fecha(determinarFecha(FCCDRN2)); 
                         CXRsCCD.setRn2Cie10(DXCCDRN2.getText());
                         CXRsCCD.setRn2Fua(FUACCDRN2.getText());
+                    }else 
+                        if(FCCDRN2.getDate()==null){  
+                        CXRsCCD.setRn2Fecha(""); 
+                        CXRsCCD.setRn2Cie10("");
+                        CXRsCCD.setRn2Fua("");
+                            
                     }
                     if(FCCDRN3.getDate()!=null){
                         CXRsCCD.setRn3Fecha(determinarFecha(FCCDRN3)); 
                         CXRsCCD.setRn3Cie10(DXCCDRN3.getText());
                         CXRsCCD.setRn3Fua(FUACCDRN3.getText());
+                    }else
+                        if(FCCDRN3.getDate()==null){
+                        CXRsCCD.setRn3Fecha(""); 
+                        CXRsCCD.setRn3Cie10("");
+                        CXRsCCD.setRn3Fua("");
                     }
                     if(FCCDRN4.getDate()!=null){
                         CXRsCCD.setRn4Fecha(determinarFecha(FCCDRN4)); 
                         CXRsCCD.setRn4Cie10(DXCCDRN4.getText());
                         CXRsCCD.setRn4Fua(FUACCDRN4.getText());
+                    }else
+                        if(FCCDRN4.getDate()==null){ 
+                        CXRsCCD.setRn4Fecha("");
+                        CXRsCCD.setRn4Cie10("");
+                        CXRsCCD.setRn4Fua("");
                     }
                     /// MENORES DE UN AÑO
                     if(FCCDM1.getDate()!=null){
                         CXRsCCD.setM1Fecha(determinarFecha(FCCDM1)); 
                         CXRsCCD.setM1Cie10(DXCCDM1.getText());
                         CXRsCCD.setM1Fua(FUACCDM1.getText());
+                    }else
+                        if(FCCDM1.getDate()==null){
+                        CXRsCCD.setM1Fecha(""); 
+                        CXRsCCD.setM1Cie10("");
+                        CXRsCCD.setM1Fua("");
                     }
                     if(FCCDM2.getDate()!=null){
                         CXRsCCD.setM2Fecha(determinarFecha(FCCDM2)); 
                         CXRsCCD.setM2Cie10(DXCCDM2.getText());
                         CXRsCCD.setM2Fua(FUACCDM2.getText());
+                    }else
+                        if(FCCDM2.getDate()==null){
+                        CXRsCCD.setM2Fecha(""); 
+                        CXRsCCD.setM2Cie10("");
+                        CXRsCCD.setM2Fua("");
                     }
                     if(FCCDM3.getDate()!=null){
                         CXRsCCD.setM3Fecha(determinarFecha(FCCDM3)); 
                         CXRsCCD.setM3Cie10(DXCCDM3.getText());
                         CXRsCCD.setM3Fua(FUACCDM3.getText());
+                    }else
+                        if(FCCDM3.getDate()==null){
+                        CXRsCCD.setM3Fecha(""); 
+                        CXRsCCD.setM3Cie10("");
+                        CXRsCCD.setM3Fua("");
                     }
                     if(FCCDM4.getDate()!=null){
                         CXRsCCD.setM4Fecha(determinarFecha(FCCDM4)); 
                         CXRsCCD.setM4Cie10(DXCCDM4.getText());
                         CXRsCCD.setM4Fua(FUACCDM4.getText());
+                    }else
+                        if(FCCDM4.getDate()==null){
+                        CXRsCCD.setM4Fecha(""); 
+                        CXRsCCD.setM4Cie10("");
+                        CXRsCCD.setM4Fua("");
                     }
                     if(FCCDM5.getDate()!=null){
                         CXRsCCD.setM5Fecha(determinarFecha(FCCDM5)); 
                         CXRsCCD.setM5Cie10(DXCCDM5.getText());
                         CXRsCCD.setM5Fua(FUACCDM5.getText());
+                    }else
+                        if(FCCDM5.getDate()==null){
+                        CXRsCCD.setM5Fecha(""); 
+                        CXRsCCD.setM5Cie10("");
+                        CXRsCCD.setM5Fua("");
                     }
+                        
                     if(FCCDM6.getDate()!=null){
                         CXRsCCD.setM6Fecha(determinarFecha(FCCDM6)); 
                         CXRsCCD.setM6Cie10(DXCCDM6.getText());
                         CXRsCCD.setM6Fua(FUACCDM6.getText());
+                    }else
+                        if(FCCDM6.getDate()==null){
+                        CXRsCCD.setM6Fecha(""); 
+                        CXRsCCD.setM6Cie10("");
+                        CXRsCCD.setM6Fua("");
                     }
                     if(FCCDM7.getDate()!=null){
                         CXRsCCD.setM7Fecha(determinarFecha(FCCDM7)); 
                         CXRsCCD.setM7Cie10(DXCCDM7.getText());
                         CXRsCCD.setM7Fua(FUACCDM7.getText());
+                    }else
+                        if(FCCDM7.getDate()==null){
+                        CXRsCCD.setM7Fecha(""); 
+                        CXRsCCD.setM7Cie10("");
+                        CXRsCCD.setM7Fua("");
                     }
                     if(FCCDM8.getDate()!=null){
                         CXRsCCD.setM8Fecha(determinarFecha(FCCDM8)); 
                         CXRsCCD.setM8Cie10(DXCCDM8.getText());
                         CXRsCCD.setM8Fua(FUACCDM8.getText());
+                    }else
+                        if(FCCDM8.getDate()==null){
+                        CXRsCCD.setM8Fecha(""); 
+                        CXRsCCD.setM8Cie10("");
+                        CXRsCCD.setM8Fua("");
                     }
                     if(FCCDM9.getDate()!=null){
-                        CXRsCCD.setM7Fecha(determinarFecha(FCCDM9)); 
-                        CXRsCCD.setM7Cie10(DXCCDM9.getText());
-                        CXRsCCD.setM7Fua(FUACCDM9.getText());
+                        CXRsCCD.setM9Fecha(determinarFecha(FCCDM9)); 
+                        CXRsCCD.setM9Cie10(DXCCDM9.getText());
+                        CXRsCCD.setM9Fua(FUACCDM9.getText());
+                    }else
+                        if(FCCDM9.getDate()==null){
+                        CXRsCCD.setM9Fecha(""); 
+                        CXRsCCD.setM9Cie10("");
+                        CXRsCCD.setM9Fua("");
                     }
                     if(FCCDM10.getDate()!=null){
                         CXRsCCD.setM10Fecha(determinarFecha(FCCDM10)); 
                         CXRsCCD.setM10Cie10(DXCCDM10.getText());
                         CXRsCCD.setM10Fua(FUACCDM10.getText());
+                    }else
+                        if(FCCDM10.getDate()==null){
+                        CXRsCCD.setM10Fecha(""); 
+                        CXRsCCD.setM10Cie10("");
+                        CXRsCCD.setM10Fua("");
                     }
                     if(FCCDM11.getDate()!=null){
                         CXRsCCD.setM11Fecha(determinarFecha(FCCDM11)); 
                         CXRsCCD.setM11Cie10(DXCCDM11.getText());
                         CXRsCCD.setM11Fua(FUACCDM11.getText());
+                    }else
+                        if(FCCDM11.getDate()==null){
+                        CXRsCCD.setM11Fecha(""); 
+                        CXRsCCD.setM11Cie10("");
+                        CXRsCCD.setM11Fua("");
                     }
                     ////////////////////////////////////////////////////////
                     //1 AÑO
@@ -425,31 +504,61 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM11Fecha1(determinarFecha(FCCD11)); 
                         CXRsCCD.setM11Cie101(DXCCD11.getText());
                         CXRsCCD.setM11Fua1(FUACCD11.getText());
+                    }else
+                        if(FCCD11.getDate()==null){
+                        CXRsCCD.setM11Fecha1(""); 
+                        CXRsCCD.setM11Cie101("");
+                        CXRsCCD.setM11Fua1("");
                     }
                     if(FCCD12.getDate()!=null){
                         CXRsCCD.setM12Fecha(determinarFecha(FCCD12)); 
                         CXRsCCD.setM12Cie10(DXCCD12.getText());
                         CXRsCCD.setM12Fua(FUACCD12.getText());
+                    }else
+                        if(FCCD12.getDate()==null){
+                        CXRsCCD.setM12Fecha(""); 
+                        CXRsCCD.setM12Cie10("");
+                        CXRsCCD.setM12Fua("");
                     }
                     if(FCCD13.getDate()!=null){
                         CXRsCCD.setM13Fecha(determinarFecha(FCCD13)); 
                         CXRsCCD.setM13Cie10(DXCCD13.getText());
                         CXRsCCD.setM13Fua(FUACCD13.getText());
+                    }else
+                        if(FCCD13.getDate()==null){
+                        CXRsCCD.setM13Fecha(""); 
+                        CXRsCCD.setM13Cie10("");
+                        CXRsCCD.setM13Fua("");
                     }
                     if(FCCD14.getDate()!=null){
                         CXRsCCD.setM14Fecha(determinarFecha(FCCD14)); 
                         CXRsCCD.setM14Cie10(DXCCD14.getText());
                         CXRsCCD.setM14Fua(FUACCD14.getText());
+                    }else
+                        if(FCCD14.getDate()==null){
+                        CXRsCCD.setM14Fecha(""); 
+                        CXRsCCD.setM14Cie10("");
+                        CXRsCCD.setM14Fua("");
                     }
                     if(FCCD15.getDate()!=null){
                         CXRsCCD.setM15Fecha(determinarFecha(FCCD15)); 
                         CXRsCCD.setM15Cie10(DXCCD15.getText());
                         CXRsCCD.setM15Fua(FUACCD15.getText());
+                    }else
+                        if(FCCD15.getDate()==null){
+                        CXRsCCD.setM15Fecha(""); 
+                        CXRsCCD.setM15Cie10("");
+                        CXRsCCD.setM15Fua("");
                     }
                     if(FCCD16.getDate()!=null){
                         CXRsCCD.setM16Fecha(determinarFecha(FCCD16)); 
                         CXRsCCD.setM16Cie10(DXCCD16.getText());
                         CXRsCCD.setM16Fua(FUACCD16.getText());
+                    }else
+                        if(FCCD16.getDate()==null){
+                        CXRsCCD.setM16Fecha(""); 
+                        CXRsCCD.setM16Cie10("");
+                        CXRsCCD.setM16Fua("");
                     }
                     
                     //////////////////////////////////////////////////
@@ -458,21 +567,42 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM21Fecha(determinarFecha(FCCD21)); 
                         CXRsCCD.setM21Cie10(DXCCD21.getText());
                         CXRsCCD.setM21Fua(FUACCD21.getText());
+                    }else
+                        if(FCCD21.getDate()==null){
+                        CXRsCCD.setM21Fecha(""); 
+                        CXRsCCD.setM21Cie10("");
+                        CXRsCCD.setM21Fua("");
                     }
+                        
                     if(FCCD22.getDate()!=null){
                         CXRsCCD.setM22Fecha(determinarFecha(FCCD22)); 
                         CXRsCCD.setM22Cie10(DXCCD22.getText());
                         CXRsCCD.setM22Fua(FUACCD22.getText());
+                    }else
+                        if(FCCD22.getDate()==null){
+                        CXRsCCD.setM22Fecha(""); 
+                        CXRsCCD.setM22Cie10("");
+                        CXRsCCD.setM22Fua("");
                     }
                     if(FCCD23.getDate()!=null){
                         CXRsCCD.setM23Fecha(determinarFecha(FCCD23)); 
                         CXRsCCD.setM23Cie10(DXCCD23.getText());
                         CXRsCCD.setM23Fua(FUACCD23.getText());
+                    }else
+                        if(FCCD23.getDate()==null){
+                        CXRsCCD.setM23Fecha(""); 
+                        CXRsCCD.setM23Cie10("");
+                        CXRsCCD.setM23Fua("");
                     }
                     if(FCCD24.getDate()!=null){
                         CXRsCCD.setM24Fecha(determinarFecha(FCCD24)); 
                         CXRsCCD.setM24Cie10(DXCCD24.getText());
                         CXRsCCD.setM24Fua(FUACCD24.getText());
+                    }else
+                        if(FCCD24.getDate()==null){
+                        CXRsCCD.setM24Fecha(""); 
+                        CXRsCCD.setM24Cie10("");
+                        CXRsCCD.setM24Fua("");
                     }
                     //////////////////////////////////////////////////
                     //3 AÑOS
@@ -480,21 +610,41 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM31Fecha(determinarFecha(FCCD3A1)); 
                         CXRsCCD.setM31Cie10(DXCCD3A1.getText());
                         CXRsCCD.setM31Fua(FUACCD3A1.getText());
+                    }else
+                        if(FCCD3A1.getDate()==null){
+                        CXRsCCD.setM31Fecha(""); 
+                        CXRsCCD.setM31Cie10("");
+                        CXRsCCD.setM31Fua("");
                     }
                     if(FCCD3A2.getDate()!=null){
                         CXRsCCD.setM32Fecha(determinarFecha(FCCD3A2)); 
                         CXRsCCD.setM32Cie10(DXCCD3A2.getText());
                         CXRsCCD.setM32Fua(FUACCD3A2.getText());
+                    }else
+                        if(FCCD3A2.getDate()==null){
+                        CXRsCCD.setM32Fecha(""); 
+                        CXRsCCD.setM32Cie10("");
+                        CXRsCCD.setM32Fua("");
                     }
                     if(FCCD3A3.getDate()!=null){
                         CXRsCCD.setM33Fecha(determinarFecha(FCCD3A3)); 
                         CXRsCCD.setM33Cie10(DXCCD3A3.getText());
                         CXRsCCD.setM33Fua(FUACCD3A3.getText());
+                    }else
+                         if(FCCD3A3.getDate()==null){
+                        CXRsCCD.setM33Fecha(""); 
+                        CXRsCCD.setM33Cie10("");
+                        CXRsCCD.setM33Fua("");
                     }
                     if(FCCD3A4.getDate()!=null){
                         CXRsCCD.setM34Fecha(determinarFecha(FCCD3A4)); 
                         CXRsCCD.setM34Cie10(DXCCD3A4.getText());
                         CXRsCCD.setM34Fua(FUACCD3A4.getText());
+                    }else
+                        if(FCCD3A4.getDate()==null){
+                        CXRsCCD.setM34Fecha(""); 
+                        CXRsCCD.setM34Cie10("");
+                        CXRsCCD.setM34Fua("");
                     }
                     ////////////////////////////////////////////////
                     //4 AÑOS
@@ -502,21 +652,41 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM41Fecha(determinarFecha(FCCD4A1)); 
                         CXRsCCD.setM41Cie10(DXCCD4A1.getText());
                         CXRsCCD.setM41Fua(FUACCD4A1.getText());
+                    }else
+                        if(FCCD4A1.getDate()==null){
+                        CXRsCCD.setM41Fecha(""); 
+                        CXRsCCD.setM41Cie10("");
+                        CXRsCCD.setM41Fua("");
                     }
                     if(FCCD4A2.getDate()!=null){
                         CXRsCCD.setM42Fecha(determinarFecha(FCCD4A2)); 
                         CXRsCCD.setM42Cie10(DXCCD4A2.getText());
                         CXRsCCD.setM42Fua(FUACCD4A2.getText());
+                    }else
+                        if(FCCD4A2.getDate()==null){
+                        CXRsCCD.setM42Fecha(""); 
+                        CXRsCCD.setM42Cie10("");
+                        CXRsCCD.setM42Fua("");
                     }
                     if(FCCD4A3.getDate()!=null){
                         CXRsCCD.setM43Fecha(determinarFecha(FCCD4A3)); 
                         CXRsCCD.setM43Cie10(DXCCD4A3.getText());
                         CXRsCCD.setM43Fua(FUACCD4A3.getText());
+                    }else
+                        if(FCCD4A3.getDate()==null){
+                        CXRsCCD.setM43Fecha(""); 
+                        CXRsCCD.setM43Cie10("");
+                        CXRsCCD.setM43Fua("");
                     }
                     if(FCCD4A4.getDate()!=null){
                         CXRsCCD.setM44Fecha(determinarFecha(FCCD4A4)); 
                         CXRsCCD.setM44Cie10(DXCCD4A4.getText());
                         CXRsCCD.setM44Fua(FUACCD4A4.getText());
+                    }else
+                        if(FCCD4A4.getDate()==null){
+                        CXRsCCD.setM44Fecha(""); 
+                        CXRsCCD.setM44Cie10("");
+                        CXRsCCD.setM44Fua("");
                     }
                     ////////////////////////////////////////////////
                     //5 AÑOS
@@ -524,6 +694,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM5Fecha(determinarFecha(FCCD5A)); 
                         CXRsCCD.setM5Cie10(DXCCD5A.getText());
                         CXRsCCD.setM5Fua(FUACCD5A.getText());
+                    }else
+                        if(FCCD5A.getDate()==null){
+                        CXRsCCD.setM5Fecha(""); 
+                        CXRsCCD.setM5Cie10("");
+                        CXRsCCD.setM5Fua("");
                     }
                     ////////////////////////////////////////////////
                     //6 AÑOS
@@ -531,6 +706,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM6Fecha(determinarFecha(FCCD6A)); 
                         CXRsCCD.setM6Cie10(DXCCD6A.getText());
                         CXRsCCD.setM6Fua(FUACCD6A.getText());
+                    }else
+                        if(FCCD6A.getDate()==null){
+                        CXRsCCD.setM6Fecha(""); 
+                        CXRsCCD.setM6Cie10("");
+                        CXRsCCD.setM6Fua("");
                     }
                     ////////////////////////////////////////////////
                     //7 AÑOS
@@ -538,6 +718,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM7Fecha(determinarFecha(FCCD7A)); 
                         CXRsCCD.setM7Cie10(DXCCD7A.getText());
                         CXRsCCD.setM7Fua(FUACCD7A.getText());
+                    }else
+                        if(FCCD7A.getDate()==null){
+                        CXRsCCD.setM7Fecha(""); 
+                        CXRsCCD.setM7Cie10("");
+                        CXRsCCD.setM7Fua("");
                     }
                     ////////////////////////////////////////////////
                     //8 AÑOS
@@ -545,6 +730,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM8Fecha(determinarFecha(FCCD8A)); 
                         CXRsCCD.setM8Cie10(DXCCD8A.getText());
                         CXRsCCD.setM8Fua(FUACCD8A.getText());
+                    }else
+                        if(FCCD8A.getDate()==null){
+                        CXRsCCD.setM8Fecha(""); 
+                        CXRsCCD.setM8Cie10("");
+                        CXRsCCD.setM8Fua("");
                     }
                     ////////////////////////////////////////////////
                     //9 AÑOS
@@ -552,6 +742,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM9Fecha(determinarFecha(FCCD9A)); 
                         CXRsCCD.setM9Cie10(DXCCD9A.getText());
                         CXRsCCD.setM9Fua(FUACCD9A.getText());
+                    }else
+                        if(FCCD9A.getDate()==null){
+                        CXRsCCD.setM9Fecha(""); 
+                        CXRsCCD.setM9Cie10("");
+                        CXRsCCD.setM9Fua("");
                     }
                     ////////////////////////////////////////////////
                     //10 AÑOS
@@ -559,6 +754,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM10Fecha1(determinarFecha(FCCD10A)); 
                         CXRsCCD.setM10Cie101(DXCCD10A.getText());
                         CXRsCCD.setM10Fua1(FUACCD10A.getText());
+                    }else
+                        if(FCCD10A.getDate()==null){
+                        CXRsCCD.setM10Fecha1(""); 
+                        CXRsCCD.setM10Cie101("");
+                        CXRsCCD.setM10Fua1("");
                     }
                     ////////////////////////////////////////////////
                     //10 AÑOS
@@ -566,6 +766,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM11Fecha2(determinarFecha(FCCD11A)); 
                         CXRsCCD.setM11Cie102(DXCCD11A.getText());
                         CXRsCCD.setM11Fua2(FUACCD11A.getText());
+                    }else
+                        if(FCCD11A.getDate()==null){
+                        CXRsCCD.setM11Fecha2(""); 
+                        CXRsCCD.setM11Cie102("");
+                        CXRsCCD.setM11Fua2("");
                     }
                                     if(CXRsCCD.mantenimientoRSAICCD("I")==true){
                                         mensaje1.setVisible(true);
@@ -618,77 +823,156 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setRn1Fecha(determinarFecha(FCCDRN1)); 
                         CXRsCCD.setRn1Cie10(DXCCDRN1.getText());
                         CXRsCCD.setRn1Fua(FUACCDRN1.getText());
+                    }else 
+                        if(FCCDRN1.getDate()==null){ 
+                        CXRsCCD.setRn1Fecha("");
+                        CXRsCCD.setRn1Cie10("");
+                        CXRsCCD.setRn1Fua("");
+                            
                     }
+                        
                     if(FCCDRN2.getDate()!=null){
                         CXRsCCD.setRn2Fecha(determinarFecha(FCCDRN2)); 
                         CXRsCCD.setRn2Cie10(DXCCDRN2.getText());
                         CXRsCCD.setRn2Fua(FUACCDRN2.getText());
+                    }else 
+                        if(FCCDRN2.getDate()==null){  
+                        CXRsCCD.setRn2Fecha(""); 
+                        CXRsCCD.setRn2Cie10("");
+                        CXRsCCD.setRn2Fua("");
+                            
                     }
                     if(FCCDRN3.getDate()!=null){
                         CXRsCCD.setRn3Fecha(determinarFecha(FCCDRN3)); 
                         CXRsCCD.setRn3Cie10(DXCCDRN3.getText());
                         CXRsCCD.setRn3Fua(FUACCDRN3.getText());
+                    }else
+                        if(FCCDRN3.getDate()==null){
+                        CXRsCCD.setRn3Fecha(""); 
+                        CXRsCCD.setRn3Cie10("");
+                        CXRsCCD.setRn3Fua("");
                     }
                     if(FCCDRN4.getDate()!=null){
                         CXRsCCD.setRn4Fecha(determinarFecha(FCCDRN4)); 
                         CXRsCCD.setRn4Cie10(DXCCDRN4.getText());
                         CXRsCCD.setRn4Fua(FUACCDRN4.getText());
+                    }else
+                        if(FCCDRN4.getDate()==null){ 
+                        CXRsCCD.setRn4Fecha("");
+                        CXRsCCD.setRn4Cie10("");
+                        CXRsCCD.setRn4Fua("");
                     }
                     /// MENORES DE UN AÑO
                     if(FCCDM1.getDate()!=null){
                         CXRsCCD.setM1Fecha(determinarFecha(FCCDM1)); 
                         CXRsCCD.setM1Cie10(DXCCDM1.getText());
                         CXRsCCD.setM1Fua(FUACCDM1.getText());
+                    }else
+                        if(FCCDM1.getDate()==null){
+                        CXRsCCD.setM1Fecha(""); 
+                        CXRsCCD.setM1Cie10("");
+                        CXRsCCD.setM1Fua("");
                     }
                     if(FCCDM2.getDate()!=null){
                         CXRsCCD.setM2Fecha(determinarFecha(FCCDM2)); 
                         CXRsCCD.setM2Cie10(DXCCDM2.getText());
                         CXRsCCD.setM2Fua(FUACCDM2.getText());
+                    }else
+                        if(FCCDM2.getDate()==null){
+                        CXRsCCD.setM2Fecha(""); 
+                        CXRsCCD.setM2Cie10("");
+                        CXRsCCD.setM2Fua("");
                     }
                     if(FCCDM3.getDate()!=null){
                         CXRsCCD.setM3Fecha(determinarFecha(FCCDM3)); 
                         CXRsCCD.setM3Cie10(DXCCDM3.getText());
                         CXRsCCD.setM3Fua(FUACCDM3.getText());
+                    }else
+                        if(FCCDM3.getDate()==null){
+                        CXRsCCD.setM3Fecha(""); 
+                        CXRsCCD.setM3Cie10("");
+                        CXRsCCD.setM3Fua("");
                     }
                     if(FCCDM4.getDate()!=null){
                         CXRsCCD.setM4Fecha(determinarFecha(FCCDM4)); 
                         CXRsCCD.setM4Cie10(DXCCDM4.getText());
                         CXRsCCD.setM4Fua(FUACCDM4.getText());
+                    }else
+                        if(FCCDM4.getDate()==null){
+                        CXRsCCD.setM4Fecha(""); 
+                        CXRsCCD.setM4Cie10("");
+                        CXRsCCD.setM4Fua("");
                     }
                     if(FCCDM5.getDate()!=null){
                         CXRsCCD.setM5Fecha(determinarFecha(FCCDM5)); 
                         CXRsCCD.setM5Cie10(DXCCDM5.getText());
                         CXRsCCD.setM5Fua(FUACCDM5.getText());
+                    }else
+                        if(FCCDM5.getDate()==null){
+                        CXRsCCD.setM5Fecha(""); 
+                        CXRsCCD.setM5Cie10("");
+                        CXRsCCD.setM5Fua("");
                     }
+                        
                     if(FCCDM6.getDate()!=null){
                         CXRsCCD.setM6Fecha(determinarFecha(FCCDM6)); 
                         CXRsCCD.setM6Cie10(DXCCDM6.getText());
                         CXRsCCD.setM6Fua(FUACCDM6.getText());
+                    }else
+                        if(FCCDM6.getDate()==null){
+                        CXRsCCD.setM6Fecha(""); 
+                        CXRsCCD.setM6Cie10("");
+                        CXRsCCD.setM6Fua("");
                     }
                     if(FCCDM7.getDate()!=null){
                         CXRsCCD.setM7Fecha(determinarFecha(FCCDM7)); 
                         CXRsCCD.setM7Cie10(DXCCDM7.getText());
                         CXRsCCD.setM7Fua(FUACCDM7.getText());
+                    }else
+                        if(FCCDM7.getDate()==null){
+                        CXRsCCD.setM7Fecha(""); 
+                        CXRsCCD.setM7Cie10("");
+                        CXRsCCD.setM7Fua("");
                     }
                     if(FCCDM8.getDate()!=null){
                         CXRsCCD.setM8Fecha(determinarFecha(FCCDM8)); 
                         CXRsCCD.setM8Cie10(DXCCDM8.getText());
                         CXRsCCD.setM8Fua(FUACCDM8.getText());
+                    }else
+                        if(FCCDM8.getDate()==null){
+                        CXRsCCD.setM8Fecha(""); 
+                        CXRsCCD.setM8Cie10("");
+                        CXRsCCD.setM8Fua("");
                     }
                     if(FCCDM9.getDate()!=null){
-                        CXRsCCD.setM7Fecha(determinarFecha(FCCDM9)); 
-                        CXRsCCD.setM7Cie10(DXCCDM9.getText());
-                        CXRsCCD.setM7Fua(FUACCDM9.getText());
+                        CXRsCCD.setM9Fecha(determinarFecha(FCCDM9)); 
+                        CXRsCCD.setM9Cie10(DXCCDM9.getText());
+                        CXRsCCD.setM9Fua(FUACCDM9.getText());
+                    }else
+                        if(FCCDM9.getDate()==null){
+                        CXRsCCD.setM9Fecha(""); 
+                        CXRsCCD.setM9Cie10("");
+                        CXRsCCD.setM9Fua("");
                     }
                     if(FCCDM10.getDate()!=null){
                         CXRsCCD.setM10Fecha(determinarFecha(FCCDM10)); 
                         CXRsCCD.setM10Cie10(DXCCDM10.getText());
                         CXRsCCD.setM10Fua(FUACCDM10.getText());
+                    }else
+                        if(FCCDM10.getDate()==null){
+                        CXRsCCD.setM10Fecha(""); 
+                        CXRsCCD.setM10Cie10("");
+                        CXRsCCD.setM10Fua("");
                     }
                     if(FCCDM11.getDate()!=null){
                         CXRsCCD.setM11Fecha(determinarFecha(FCCDM11)); 
                         CXRsCCD.setM11Cie10(DXCCDM11.getText());
                         CXRsCCD.setM11Fua(FUACCDM11.getText());
+                    }else
+                        if(FCCDM11.getDate()==null){
+                        CXRsCCD.setM11Fecha(""); 
+                        CXRsCCD.setM11Cie10("");
+                        CXRsCCD.setM11Fua("");
                     }
                     ////////////////////////////////////////////////////////
                     //1 AÑO
@@ -696,31 +980,61 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM11Fecha1(determinarFecha(FCCD11)); 
                         CXRsCCD.setM11Cie101(DXCCD11.getText());
                         CXRsCCD.setM11Fua1(FUACCD11.getText());
+                    }else
+                        if(FCCD11.getDate()==null){
+                        CXRsCCD.setM11Fecha1(""); 
+                        CXRsCCD.setM11Cie101("");
+                        CXRsCCD.setM11Fua1("");
                     }
                     if(FCCD12.getDate()!=null){
                         CXRsCCD.setM12Fecha(determinarFecha(FCCD12)); 
                         CXRsCCD.setM12Cie10(DXCCD12.getText());
                         CXRsCCD.setM12Fua(FUACCD12.getText());
+                    }else
+                        if(FCCD12.getDate()==null){
+                        CXRsCCD.setM12Fecha(""); 
+                        CXRsCCD.setM12Cie10("");
+                        CXRsCCD.setM12Fua("");
                     }
                     if(FCCD13.getDate()!=null){
                         CXRsCCD.setM13Fecha(determinarFecha(FCCD13)); 
                         CXRsCCD.setM13Cie10(DXCCD13.getText());
                         CXRsCCD.setM13Fua(FUACCD13.getText());
+                    }else
+                        if(FCCD13.getDate()==null){
+                        CXRsCCD.setM13Fecha(""); 
+                        CXRsCCD.setM13Cie10("");
+                        CXRsCCD.setM13Fua("");
                     }
                     if(FCCD14.getDate()!=null){
                         CXRsCCD.setM14Fecha(determinarFecha(FCCD14)); 
                         CXRsCCD.setM14Cie10(DXCCD14.getText());
                         CXRsCCD.setM14Fua(FUACCD14.getText());
+                    }else
+                        if(FCCD14.getDate()==null){
+                        CXRsCCD.setM14Fecha(""); 
+                        CXRsCCD.setM14Cie10("");
+                        CXRsCCD.setM14Fua("");
                     }
                     if(FCCD15.getDate()!=null){
                         CXRsCCD.setM15Fecha(determinarFecha(FCCD15)); 
                         CXRsCCD.setM15Cie10(DXCCD15.getText());
                         CXRsCCD.setM15Fua(FUACCD15.getText());
+                    }else
+                        if(FCCD15.getDate()==null){
+                        CXRsCCD.setM15Fecha(""); 
+                        CXRsCCD.setM15Cie10("");
+                        CXRsCCD.setM15Fua("");
                     }
                     if(FCCD16.getDate()!=null){
                         CXRsCCD.setM16Fecha(determinarFecha(FCCD16)); 
                         CXRsCCD.setM16Cie10(DXCCD16.getText());
                         CXRsCCD.setM16Fua(FUACCD16.getText());
+                    }else
+                        if(FCCD16.getDate()==null){
+                        CXRsCCD.setM16Fecha(""); 
+                        CXRsCCD.setM16Cie10("");
+                        CXRsCCD.setM16Fua("");
                     }
                     
                     //////////////////////////////////////////////////
@@ -729,21 +1043,42 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM21Fecha(determinarFecha(FCCD21)); 
                         CXRsCCD.setM21Cie10(DXCCD21.getText());
                         CXRsCCD.setM21Fua(FUACCD21.getText());
+                    }else
+                        if(FCCD21.getDate()==null){
+                        CXRsCCD.setM21Fecha(""); 
+                        CXRsCCD.setM21Cie10("");
+                        CXRsCCD.setM21Fua("");
                     }
+                        
                     if(FCCD22.getDate()!=null){
                         CXRsCCD.setM22Fecha(determinarFecha(FCCD22)); 
                         CXRsCCD.setM22Cie10(DXCCD22.getText());
                         CXRsCCD.setM22Fua(FUACCD22.getText());
+                    }else
+                        if(FCCD22.getDate()==null){
+                        CXRsCCD.setM22Fecha(""); 
+                        CXRsCCD.setM22Cie10("");
+                        CXRsCCD.setM22Fua("");
                     }
                     if(FCCD23.getDate()!=null){
                         CXRsCCD.setM23Fecha(determinarFecha(FCCD23)); 
                         CXRsCCD.setM23Cie10(DXCCD23.getText());
                         CXRsCCD.setM23Fua(FUACCD23.getText());
+                    }else
+                        if(FCCD23.getDate()==null){
+                        CXRsCCD.setM23Fecha(""); 
+                        CXRsCCD.setM23Cie10("");
+                        CXRsCCD.setM23Fua("");
                     }
                     if(FCCD24.getDate()!=null){
                         CXRsCCD.setM24Fecha(determinarFecha(FCCD24)); 
                         CXRsCCD.setM24Cie10(DXCCD24.getText());
                         CXRsCCD.setM24Fua(FUACCD24.getText());
+                    }else
+                        if(FCCD24.getDate()==null){
+                        CXRsCCD.setM24Fecha(""); 
+                        CXRsCCD.setM24Cie10("");
+                        CXRsCCD.setM24Fua("");
                     }
                     //////////////////////////////////////////////////
                     //3 AÑOS
@@ -751,21 +1086,41 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM31Fecha(determinarFecha(FCCD3A1)); 
                         CXRsCCD.setM31Cie10(DXCCD3A1.getText());
                         CXRsCCD.setM31Fua(FUACCD3A1.getText());
+                    }else
+                        if(FCCD3A1.getDate()==null){
+                        CXRsCCD.setM31Fecha(""); 
+                        CXRsCCD.setM31Cie10("");
+                        CXRsCCD.setM31Fua("");
                     }
                     if(FCCD3A2.getDate()!=null){
                         CXRsCCD.setM32Fecha(determinarFecha(FCCD3A2)); 
                         CXRsCCD.setM32Cie10(DXCCD3A2.getText());
                         CXRsCCD.setM32Fua(FUACCD3A2.getText());
+                    }else
+                        if(FCCD3A2.getDate()==null){
+                        CXRsCCD.setM32Fecha(""); 
+                        CXRsCCD.setM32Cie10("");
+                        CXRsCCD.setM32Fua("");
                     }
                     if(FCCD3A3.getDate()!=null){
                         CXRsCCD.setM33Fecha(determinarFecha(FCCD3A3)); 
                         CXRsCCD.setM33Cie10(DXCCD3A3.getText());
                         CXRsCCD.setM33Fua(FUACCD3A3.getText());
+                    }else
+                         if(FCCD3A3.getDate()==null){
+                        CXRsCCD.setM33Fecha(""); 
+                        CXRsCCD.setM33Cie10("");
+                        CXRsCCD.setM33Fua("");
                     }
                     if(FCCD3A4.getDate()!=null){
                         CXRsCCD.setM34Fecha(determinarFecha(FCCD3A4)); 
                         CXRsCCD.setM34Cie10(DXCCD3A4.getText());
                         CXRsCCD.setM34Fua(FUACCD3A4.getText());
+                    }else
+                        if(FCCD3A4.getDate()==null){
+                        CXRsCCD.setM34Fecha(""); 
+                        CXRsCCD.setM34Cie10("");
+                        CXRsCCD.setM34Fua("");
                     }
                     ////////////////////////////////////////////////
                     //4 AÑOS
@@ -773,21 +1128,41 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM41Fecha(determinarFecha(FCCD4A1)); 
                         CXRsCCD.setM41Cie10(DXCCD4A1.getText());
                         CXRsCCD.setM41Fua(FUACCD4A1.getText());
+                    }else
+                        if(FCCD4A1.getDate()==null){
+                        CXRsCCD.setM41Fecha(""); 
+                        CXRsCCD.setM41Cie10("");
+                        CXRsCCD.setM41Fua("");
                     }
                     if(FCCD4A2.getDate()!=null){
                         CXRsCCD.setM42Fecha(determinarFecha(FCCD4A2)); 
                         CXRsCCD.setM42Cie10(DXCCD4A2.getText());
                         CXRsCCD.setM42Fua(FUACCD4A2.getText());
+                    }else
+                        if(FCCD4A2.getDate()==null){
+                        CXRsCCD.setM42Fecha(""); 
+                        CXRsCCD.setM42Cie10("");
+                        CXRsCCD.setM42Fua("");
                     }
                     if(FCCD4A3.getDate()!=null){
                         CXRsCCD.setM43Fecha(determinarFecha(FCCD4A3)); 
                         CXRsCCD.setM43Cie10(DXCCD4A3.getText());
                         CXRsCCD.setM43Fua(FUACCD4A3.getText());
+                    }else
+                        if(FCCD4A3.getDate()==null){
+                        CXRsCCD.setM43Fecha(""); 
+                        CXRsCCD.setM43Cie10("");
+                        CXRsCCD.setM43Fua("");
                     }
                     if(FCCD4A4.getDate()!=null){
                         CXRsCCD.setM44Fecha(determinarFecha(FCCD4A4)); 
                         CXRsCCD.setM44Cie10(DXCCD4A4.getText());
                         CXRsCCD.setM44Fua(FUACCD4A4.getText());
+                    }else
+                        if(FCCD4A4.getDate()==null){
+                        CXRsCCD.setM44Fecha(""); 
+                        CXRsCCD.setM44Cie10("");
+                        CXRsCCD.setM44Fua("");
                     }
                     ////////////////////////////////////////////////
                     //5 AÑOS
@@ -795,6 +1170,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM5Fecha(determinarFecha(FCCD5A)); 
                         CXRsCCD.setM5Cie10(DXCCD5A.getText());
                         CXRsCCD.setM5Fua(FUACCD5A.getText());
+                    }else
+                        if(FCCD5A.getDate()==null){
+                        CXRsCCD.setM5Fecha(""); 
+                        CXRsCCD.setM5Cie10("");
+                        CXRsCCD.setM5Fua("");
                     }
                     ////////////////////////////////////////////////
                     //6 AÑOS
@@ -802,6 +1182,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM6Fecha(determinarFecha(FCCD6A)); 
                         CXRsCCD.setM6Cie10(DXCCD6A.getText());
                         CXRsCCD.setM6Fua(FUACCD6A.getText());
+                    }else
+                        if(FCCD6A.getDate()==null){
+                        CXRsCCD.setM6Fecha(""); 
+                        CXRsCCD.setM6Cie10("");
+                        CXRsCCD.setM6Fua("");
                     }
                     ////////////////////////////////////////////////
                     //7 AÑOS
@@ -809,6 +1194,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM7Fecha(determinarFecha(FCCD7A)); 
                         CXRsCCD.setM7Cie10(DXCCD7A.getText());
                         CXRsCCD.setM7Fua(FUACCD7A.getText());
+                    }else
+                        if(FCCD7A.getDate()==null){
+                        CXRsCCD.setM7Fecha(""); 
+                        CXRsCCD.setM7Cie10("");
+                        CXRsCCD.setM7Fua("");
                     }
                     ////////////////////////////////////////////////
                     //8 AÑOS
@@ -816,6 +1206,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM8Fecha(determinarFecha(FCCD8A)); 
                         CXRsCCD.setM8Cie10(DXCCD8A.getText());
                         CXRsCCD.setM8Fua(FUACCD8A.getText());
+                    }else
+                        if(FCCD8A.getDate()==null){
+                        CXRsCCD.setM8Fecha(""); 
+                        CXRsCCD.setM8Cie10("");
+                        CXRsCCD.setM8Fua("");
                     }
                     ////////////////////////////////////////////////
                     //9 AÑOS
@@ -823,6 +1218,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM9Fecha(determinarFecha(FCCD9A)); 
                         CXRsCCD.setM9Cie10(DXCCD9A.getText());
                         CXRsCCD.setM9Fua(FUACCD9A.getText());
+                    }else
+                        if(FCCD9A.getDate()==null){
+                        CXRsCCD.setM9Fecha(""); 
+                        CXRsCCD.setM9Cie10("");
+                        CXRsCCD.setM9Fua("");
                     }
                     ////////////////////////////////////////////////
                     //10 AÑOS
@@ -830,6 +1230,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM10Fecha1(determinarFecha(FCCD10A)); 
                         CXRsCCD.setM10Cie101(DXCCD10A.getText());
                         CXRsCCD.setM10Fua1(FUACCD10A.getText());
+                    }else
+                        if(FCCD10A.getDate()==null){
+                        CXRsCCD.setM10Fecha1(""); 
+                        CXRsCCD.setM10Cie101("");
+                        CXRsCCD.setM10Fua1("");
                     }
                     ////////////////////////////////////////////////
                     //10 AÑOS
@@ -837,6 +1242,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         CXRsCCD.setM11Fecha2(determinarFecha(FCCD11A)); 
                         CXRsCCD.setM11Cie102(DXCCD11A.getText());
                         CXRsCCD.setM11Fua2(FUACCD11A.getText());
+                    }else
+                        if(FCCD11A.getDate()==null){
+                        CXRsCCD.setM11Fecha2(""); 
+                        CXRsCCD.setM11Cie102("");
+                        CXRsCCD.setM11Fua2("");
                     }
             if(CXRsCCD.mantenimientoRSAICCD("U")==true){
                 mensaje1.setVisible(true);
@@ -2463,7 +2873,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             );
 
             lblPorcentajeV1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            lblPorcentajeV1.setForeground(new java.awt.Color(18, 127, 65));
+            lblPorcentajeV1.setForeground(new java.awt.Color(255, 255, 255));
             lblPorcentajeV1.setText("100 %  Completado");
             lblPorcentajeV1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -2482,41 +2892,18 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             );
 
             lblNina.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
-            lblNina.setForeground(new java.awt.Color(18, 127, 65));
+            lblNina.setForeground(new java.awt.Color(255, 255, 255));
             lblNina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-50.png"))); // NOI18N
             lblNina.setText("NIÑOS");
             lblNina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             lblNina.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
             lblNino.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
-            lblNino.setForeground(new java.awt.Color(18, 127, 65));
+            lblNino.setForeground(new java.awt.Color(255, 255, 255));
             lblNino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-50.png"))); // NOI18N
             lblNino.setText("NIÑOS");
             lblNino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             lblNino.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-            jPanel38.setBackground(new java.awt.Color(39, 174, 97));
-
-            jLabel107.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel107.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel107.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel107.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Derecha Filled-50.png"))); // NOI18N
-            jLabel107.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    jLabel107MouseClicked(evt);
-                }
-            });
-
-            javax.swing.GroupLayout jPanel38Layout = new javax.swing.GroupLayout(jPanel38);
-            jPanel38.setLayout(jPanel38Layout);
-            jPanel38Layout.setHorizontalGroup(
-                jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel107, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-            );
-            jPanel38Layout.setVerticalGroup(
-                jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel107, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            );
 
             javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
             jPanel36.setLayout(jPanel36Layout);
@@ -2534,9 +2921,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(lblNina, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(lblNino, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(50, 50, 50)
-                    .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap(246, Short.MAX_VALUE))
             );
             jPanel36Layout.setVerticalGroup(
                 jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2554,11 +2939,31 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel36Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel36Layout.createSequentialGroup()
-                            .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addContainerGap())))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            );
+
+            jPanel38.setBackground(new java.awt.Color(39, 174, 97));
+
+            jLabel107.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+            jLabel107.setForeground(new java.awt.Color(255, 255, 255));
+            jLabel107.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            jLabel107.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Derecha Filled-50.png"))); // NOI18N
+            jLabel107.setText("1 - 4 AÑOS");
+            jLabel107.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    jLabel107MouseClicked(evt);
+                }
+            });
+
+            javax.swing.GroupLayout jPanel38Layout = new javax.swing.GroupLayout(jPanel38);
+            jPanel38.setLayout(jPanel38Layout);
+            jPanel38Layout.setHorizontalGroup(
+                jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel107, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            );
+            jPanel38Layout.setVerticalGroup(
+                jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel107, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
             );
 
             javax.swing.GroupLayout CCDLayout = new javax.swing.GroupLayout(CCD);
@@ -2567,8 +2972,11 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                 CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(CCDLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(CCDM12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(CCDLayout.createSequentialGroup()
+                            .addComponent(CCDM12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(CCDLayout.createSequentialGroup()
                             .addComponent(LEYENDA, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
@@ -2576,8 +2984,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                             .addGap(1, 1, 1)
                             .addComponent(CCDM11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(lblId))
-                    .addContainerGap(349, Short.MAX_VALUE))
-                .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, 1446, Short.MAX_VALUE)
+                    .addContainerGap(312, Short.MAX_VALUE))
+                .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, 1409, Short.MAX_VALUE)
             );
             CCDLayout.setVerticalGroup(
                 CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2589,10 +2997,12 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         .addComponent(CCDRN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LEYENDA, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGap(27, 27, 27)
-                    .addComponent(CCDM12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
+                    .addGroup(CCDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(CCDM12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(lblId)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap(26, Short.MAX_VALUE))
             );
 
             jTabbedPane1.addTab("Menores de 1 año", CCD);
@@ -3772,7 +4182,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             );
 
             lblPorcentajeV.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            lblPorcentajeV.setForeground(new java.awt.Color(18, 127, 65));
+            lblPorcentajeV.setForeground(new java.awt.Color(255, 255, 255));
             lblPorcentajeV.setText("100 %  Completado");
             lblPorcentajeV.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -3791,41 +4201,18 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
             );
 
             lblNina2.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
-            lblNina2.setForeground(new java.awt.Color(18, 127, 65));
+            lblNina2.setForeground(new java.awt.Color(255, 255, 255));
             lblNina2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niña-50.png"))); // NOI18N
             lblNina2.setText("NIÑOS");
             lblNina2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             lblNina2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
             lblNino2.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
-            lblNino2.setForeground(new java.awt.Color(18, 127, 65));
+            lblNino2.setForeground(new java.awt.Color(255, 255, 255));
             lblNino2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Niño-50.png"))); // NOI18N
             lblNino2.setText("NIÑOS");
             lblNino2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
             lblNino2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-            jPanel35.setBackground(new java.awt.Color(39, 174, 97));
-
-            jLabel108.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-            jLabel108.setForeground(new java.awt.Color(255, 255, 255));
-            jLabel108.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel108.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Derecha Filled-50.png"))); // NOI18N
-            jLabel108.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    jLabel108MouseClicked(evt);
-                }
-            });
-
-            javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
-            jPanel35.setLayout(jPanel35Layout);
-            jPanel35Layout.setHorizontalGroup(
-                jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel108, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-            );
-            jPanel35Layout.setVerticalGroup(
-                jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel108, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            );
 
             javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
             jPanel28.setLayout(jPanel28Layout);
@@ -3843,8 +4230,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(lblNina2, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(lblNino2, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                    .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(85, Short.MAX_VALUE))
             );
             jPanel28Layout.setVerticalGroup(
                 jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3862,21 +4248,40 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel28Layout.createSequentialGroup()
-                            .addComponent(jPanel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addContainerGap())))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            );
+
+            jPanel35.setBackground(new java.awt.Color(39, 174, 97));
+
+            jLabel108.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            jLabel108.setForeground(new java.awt.Color(255, 255, 255));
+            jLabel108.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            jLabel108.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Derecha Filled-50.png"))); // NOI18N
+            jLabel108.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    jLabel108MouseClicked(evt);
+                }
+            });
+
+            javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
+            jPanel35.setLayout(jPanel35Layout);
+            jPanel35Layout.setHorizontalGroup(
+                jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel108, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            );
+            jPanel35Layout.setVerticalGroup(
+                jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel108, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             );
 
             javax.swing.GroupLayout CCD1Layout = new javax.swing.GroupLayout(CCD1);
             CCD1.setLayout(CCD1Layout);
             CCD1Layout.setHorizontalGroup(
                 CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 1446, Short.MAX_VALUE)
+                .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, 1409, Short.MAX_VALUE)
                 .addGroup(CCD1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(CCD1Layout.createSequentialGroup()
                             .addComponent(CCD1A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(1, 1, 1)
@@ -3884,7 +4289,9 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                         .addGroup(CCD1Layout.createSequentialGroup()
                             .addComponent(CCDR3A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(1, 1, 1)
-                            .addComponent(CCDR3A1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(CCDR3A1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jPanel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             CCD1Layout.setVerticalGroup(
@@ -3895,11 +4302,12 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCD1A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CCDR2A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                     .addGroup(CCD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(CCDR3A, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CCDR3A1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(38, Short.MAX_VALUE))
+                        .addComponent(CCDR3A1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap(61, Short.MAX_VALUE))
             );
 
             jTabbedPane1.addTab("1 a 4 años", CCD1);
@@ -4610,7 +5018,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addComponent(lblNina3, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(lblNino3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(122, Short.MAX_VALUE))
+                    .addContainerGap(85, Short.MAX_VALUE))
             );
             jPanel39Layout.setVerticalGroup(
                 jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4652,8 +5060,8 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                             .addComponent(CCDR10A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(CCDR11A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(812, Short.MAX_VALUE))
-                .addComponent(jPanel39, javax.swing.GroupLayout.DEFAULT_SIZE, 1446, Short.MAX_VALUE)
+                    .addContainerGap(775, Short.MAX_VALUE))
+                .addComponent(jPanel39, javax.swing.GroupLayout.DEFAULT_SIZE, 1409, Short.MAX_VALUE)
             );
             CCD2Layout.setVerticalGroup(
                 CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4670,7 +5078,7 @@ ConsultorioExtRsCcd CCD01 = new ConsultorioExtRsCcd();
                     .addGroup(CCD2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(CCDR10A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(CCDR11A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(43, Short.MAX_VALUE))
+                    .addContainerGap(61, Short.MAX_VALUE))
             );
 
             jTabbedPane1.addTab("5 a 11 años", CCD2);

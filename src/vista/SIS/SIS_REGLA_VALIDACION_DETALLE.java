@@ -888,7 +888,7 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
         } catch (Exception e) {
             System.out.println("error " + e);
         }
-        convertiraMayusculasEnJtextfield(txtNombreCampo);
+        txtNombreCampo.setText(txtNombreCampo.getText().toUpperCase());
     }//GEN-LAST:event_txtNombreCampoKeyReleased
 
     private void txtNombreCampoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreCampoKeyTyped
@@ -899,17 +899,13 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
     }//GEN-LAST:event_txtNombreCampoKeyTyped
 
     private void txtNumeroReglaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroReglaKeyReleased
-        convertiraMayusculasEnJtextfield(txtNumeroRegla);
+        txtNumeroRegla.setText(txtNumeroRegla.getText().toUpperCase());
     }//GEN-LAST:event_txtNumeroReglaKeyReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-    
-    public void convertiraMayusculasEnJtextfield(javax.swing.JTextField jTextfieldS){
-    String cadena= (jTextfieldS.getText()).toUpperCase();
-    jTextfieldS.setText(cadena);
-    }
+
     
     public void guardarDetalleReglaVal(){
          for (int i = 0; i < tb_RV.getRowCount(); i++){      

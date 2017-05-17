@@ -2936,7 +2936,7 @@
           <Font name="Segoe UI Semilight" size="13" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Ex&#xe1;menes con Toma de Muestras del D&#xed;a"/>
+        <Property name="text" type="java.lang.String" value="Resultados del D&#xed;a"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">

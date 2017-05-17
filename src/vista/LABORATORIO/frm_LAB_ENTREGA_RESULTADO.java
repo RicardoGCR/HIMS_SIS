@@ -2370,7 +2370,7 @@ public void calcula() {
 
                         lbldia.setFont(new java.awt.Font("Segoe UI Semilight", 1, 13)); // NOI18N
                         lbldia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        lbldia.setText("Exámenes con Toma de Muestras del Día");
+                        lbldia.setText("Resultados del Día");
 
                         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
                         jPanel1.setPreferredSize(new java.awt.Dimension(721, 25));
@@ -3392,9 +3392,8 @@ public void buscar_examenes(){
                 if(tecla==KeyEvent.VK_ENTER){
                      Personal p =new Personal();
                     contenedorPersonal.add(p);
-                    
-                     
                       personal_rol.setVisible(true);
+                       Personal.lbltipo.setText("1");
 //                    lbltipo.setText("1");
                    
             try {
@@ -3452,7 +3451,7 @@ char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
                      Personal p =new Personal();
                     contenedorPersonal.add(p);
-                    
+                    Personal.lbltipo.setText("2");
                      
                       personal_rol.setVisible(true);
 //                    lbltipo.setText("2");

@@ -34,14 +34,16 @@ DefaultTableModel m;
     public Personal() {
         initComponents();
         txtBuscarRol.setText("");
-        PersonalRol_cargar();
-        PersonalRol_formato();
-        QuitarLaBarraTitulo();
+        
         getContentPane().setBackground(Color.white); 
         //Servicio-Area
         LAB_PC_AREA pa=new LAB_PC_AREA();
         lblServicio.setText(pa.LAB_PC_AREA_SERVICIO());
         lblArea.setText(pa.LAB_PC_AREA_AREA());
+        
+        PersonalRol_cargar();
+        PersonalRol_formato();
+        QuitarLaBarraTitulo();
     }
 
      public void QuitarLaBarraTitulo()
@@ -93,7 +95,7 @@ DefaultTableModel m;
             tbPersonalRol.setRowSorter(elQueOrdena);
             this.tbPersonalRol.setModel(m);
     } catch (Exception e) {
-        JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        JOptionPane.showMessageDialog(rootPane,"error..."+ e.getMessage());
     }
 }
     public void PersonalRol_formato(){
@@ -135,6 +137,7 @@ DefaultTableModel m;
             setBackground(new java.awt.Color(255, 255, 255));
             setBorder(javax.swing.BorderFactory.createCompoundBorder());
             setPreferredSize(new java.awt.Dimension(852, 504));
+            setVisible(true);
 
             jpanel5.setBackground(new java.awt.Color(2, 67, 115));
 
@@ -224,9 +227,11 @@ DefaultTableModel m;
             });
             jScrollPane4.setViewportView(tbPersonalRol);
 
+            lblArea.setForeground(new java.awt.Color(255, 255, 255));
             lblArea.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             lblArea.setText("area");
 
+            lblServicio.setForeground(new java.awt.Color(255, 255, 255));
             lblServicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             lblServicio.setText("servicio");
 
@@ -428,7 +433,7 @@ DefaultTableModel m;
     private javax.swing.JPanel jpanel5;
     private javax.swing.JLabel lblArea;
     private javax.swing.JLabel lblServicio;
-    private javax.swing.JLabel lbltipo;
+    public static javax.swing.JLabel lbltipo;
     public static javax.swing.JTable tbPersonalRol;
     private javax.swing.JLabel titulo10;
     private javax.swing.JTextField txtBuscarRol;

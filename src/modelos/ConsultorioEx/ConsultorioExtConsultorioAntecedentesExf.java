@@ -9,13 +9,6 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 import vista.ConsultorioEx.ConsultoriosExtAntecedentes;
@@ -69,7 +62,7 @@ public class ConsultorioExtConsultorioAntecedentesExf implements Serializable {
         }
         catch(Exception ex)
         {
-            System.out.println("Error: mantenimientoConsultorio CABECERA: " + ex.getMessage());
+            System.out.println("Error: mantenimientoConsultorio ANTECEDENTES : " + ex.getMessage());
         }
         return resp;
     }
@@ -118,7 +111,7 @@ public class ConsultorioExtConsultorioAntecedentesExf implements Serializable {
 
     public ConsultorioExtConsultorioAntecedentesExf() {
         Conexion con = new Conexion();
-          cn = con.conectar();
+        cn = con.conectar();
     }
 
     public ConsultorioExtConsultorioAntecedentesExf(int idAnexf) {

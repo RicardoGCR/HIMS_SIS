@@ -3,10 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_RECEPCION_INVESTIGACION_BACT.java</file>
+=======
+            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionExamenClinico.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionExClinico.java</file>
+>>>>>>> fcdfda253b45208311bca06e1e00e33858f9f5c3
             <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionNotaEnfermeria.java</file>
             <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionNotaEnfermeriaProcedimiento.java</file>
             <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionNotaEnfermeria.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionEpicrisis.java</file>
+>>>>>>> c5121d1b7eec8dabe3d0ae1817010764010a0803
         </group>
     </open-files>
 </project-private>

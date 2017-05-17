@@ -1136,7 +1136,7 @@ DefaultTableModel m;
                         lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
                         lblUsu.setForeground(new java.awt.Color(255, 255, 255));
                         lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
-                        lblUsu.setText("Silvana");
+                        lblUsu.setText("SILVANA");
 
                         btnguardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
                         btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
@@ -3982,236 +3982,55 @@ DefaultTableModel m;
 
         try{
 
-            if(lblCodHC.getText().equalsIgnoreCase("")){
-                JOptionPane.showMessageDialog(rootPane, "Seleccione un Paciente");
-            }  else if(lblCodPrecio.getText().equalsIgnoreCase("")){
-                JOptionPane.showMessageDialog(rootPane, "Seleccione una Nomenclatura");
-            }
-            else if(lblCodPer.getText().equalsIgnoreCase("")){
-                JOptionPane.showMessageDialog(rootPane, "Seleccione un Personal");
-            }
-            else if(lblCodTMEspecificar.getText().equalsIgnoreCase("")){
-                JOptionPane.showMessageDialog(rootPane, "Seleccione un Tipo de Muestra");
-            }
-            else{
+            if(lblCodHCSol.getText().equalsIgnoreCase("")){
+                JOptionPane.showMessageDialog(rootPane, "Seleccione al Solicitante");
+            }  else if(txtMAdecuada.getText().equalsIgnoreCase("")&&txtMInadecuada.getText().equalsIgnoreCase("")){
+                JOptionPane.showMessageDialog(rootPane, "Seleccione la Calidad de la Muestra");
+            }  else{
                 if(txtGuarModif.getText().equalsIgnoreCase("G")){
                     int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
                         "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
                     if(guardar == 0 ){
                         LAB_Solicitud_Inv_Bact Guardar = new LAB_Solicitud_Inv_Bact();
-                        Guardar.setCod_precio(lblCodPrecio.getText());
-                        Guardar.setCod_per(lblCodPer.getText());
-                        Guardar.setId_hc(lblCodHC.getText());
-
-                        if(lblServicio.getText().equalsIgnoreCase("-") && lblCama.getText().equalsIgnoreCase("-") ){
-                            Guardar.setHospServicio("");
-                            Guardar.setCaDesc("");
-                        }  else{
-                            Guardar.setHospServicio(lblServicio.getText());
-                            Guardar.setCaDesc(lblCama.getText());
+                        Guardar.setCodigo(Integer.parseInt(lblCodigo.getText()));
+                        Guardar.setIdHcSolicita(lblCodHCSol.getText());
+                        Guardar.setNombres_pac_solicita(txtPacienteSol.getText());
+                        if(lblTelefonoSol.getText().equalsIgnoreCase("-")){
+                        Guardar.setTelf_solicita("");
                         }
-                        Guardar.setDir_referencia(txtReferencia.getText());
-                        Guardar.setCodMuestraParaExa(lblCodTMEspecificar.getText());
-                        if(txtATNuncaT.getText().equalsIgnoreCase("X")){
-                            Guardar.setAntecTratamiento("Nunca Tratado");
-                        }else  if(txtATAntesT.getText().equalsIgnoreCase("X")){
-                            Guardar.setAntecTratamiento("Antes Tratado: Recaída");
-                        }else  if(txtATAbandonoR.getText().equalsIgnoreCase("X")){
-                            Guardar.setAntecTratamiento("Abandono Recup.");
-                        }else  if(txtATFracaso.getText().equalsIgnoreCase("X")){
-                            Guardar.setAntecTratamiento("Fracaso");
-                        }else{
-                            Guardar.setAntecTratamiento("");
+                        else{
+                            Guardar.setTelf_solicita(lblTelefonoSol.getText());
                         }
-                        //Diagnostico
-                        if(txtDSR.getText().equalsIgnoreCase("X")){
-                            Guardar.setDiagnostico("S.R.");
-                        }else  if(txtDSegDia.getText().equalsIgnoreCase("X")){
-                            Guardar.setDiagnostico("Seg. Diagnóstico");
-                        }else  if(txtDRxAnormal.getText().equalsIgnoreCase("X")){
-                            Guardar.setDiagnostico("RX Anormal");
-                        }else  if(txtDOtro.getText().equalsIgnoreCase("X")){
-                            Guardar.setDiagnostico(txtDEspecificar.getText());
-                        } else{
-                            Guardar.setDiagnostico("");
+                        if(lblCel.getText().equalsIgnoreCase("-")){
+                        Guardar.setCel_solicita("");
+                        }
+                        else{
+                            Guardar.setCel_solicita(lblCel.getText());
                         }
 
-                        //mes
-                        if(txtCTMes.getText().equalsIgnoreCase("")){
-                            Guardar.setMes_control_tratamiento(0);
-                        }else{
-                            Guardar.setMes_control_tratamiento(Integer.parseInt(txtCTMes.getText()));
+                        if(txtMAdecuada.getText().equalsIgnoreCase("X") ){
+                            Guardar.setCalidadMuestra("Adecuada");
+                        }  else if(txtMInadecuada.getText().equalsIgnoreCase("X")){
+                            Guardar.setCalidadMuestra("Inadecuada");
                         }
-                        if(txtCTEsqTB.getText().equalsIgnoreCase("X")){
-                            Guardar.setControlTratamiento("Esq. TB sensible");
-                        }else  if(txtCTEsqDR.getText().equalsIgnoreCase("X")){
-                            Guardar.setControlTratamiento("Esq. DR");
-                        }else  if(txtCTEsqMDR.getText().equalsIgnoreCase("X")){
-                            Guardar.setControlTratamiento("Esq. MDR");
-                        }else  if(txtCTEsqXDR.getText().equalsIgnoreCase("X")){
-                            Guardar.setControlTratamiento("Esq. XDR");
-                        }else  if(txtCTOtros.getText().equalsIgnoreCase("X")){
-                            Guardar.setControlTratamiento("Otro");
-                        }else{
-                            Guardar.setControlTratamiento("");
-                        }
+                        Guardar.setObservaciones(txtObservaciones.getText());
+                        
+                        Guardar.setNomUsuRecp(lblUsu.getText());
 
-                        //N Solic Baciloscopia
-                        if(txtSB1.getText().equalsIgnoreCase("X")){
-                            Guardar.setExNsolicBacil(1);
-                        }else  if(txtSB2.getText().equalsIgnoreCase("X")){
-                            Guardar.setExNsolicBacil(2);
-                        }else if(txtSBOtras.getText().equalsIgnoreCase("")==false){
-                            Guardar.setExNsolicBacil(Integer.parseInt(txtSBOtras.getText()));
-                        }else{
-                            Guardar.setExNsolicBacil(0);
-                        }
-
-                        //Cultivo
-                        if(txtSBCultivo.getText().equalsIgnoreCase("X")){
-                            Guardar.setExSolicBacil("Cultivo");
-                        }else {
-                            Guardar.setExSolicBacil("");
-                        }
-                        //Tipo Prueba de Sensibilidad
-                        if(txtPSRapida.getText().equalsIgnoreCase("X")){
-                            Guardar.setTipoPruebaSens("Rapida");
-                        }else  if(txtPSConvencional.getText().equalsIgnoreCase("X")){
-                            Guardar.setTipoPruebaSens("Convencional");
-                        }else  {
-                            Guardar.setTipoPruebaSens("Otro");
-                        }
-
-                        //Prueba de Sensibilidad
-                        if(txtPSRapida.getText().equalsIgnoreCase("X")){
-                            Guardar.setPruebaSens(txtPSREspecificar.getText());
-                        }else  if(txtPSConvencional.getText().equalsIgnoreCase("X")){
-                            Guardar.setPruebaSens(txtPSCEspecificar.getText());
-                        }else {
-                            Guardar.setPruebaSens(txtPSOtroEspecificar.getText());
-                        }
-
-                        Guardar.setFactoresriesgoTB(txtFactores.getText());
-                        Guardar.setNomUsu(lblUsu.getText());
-
-                        if(Guardar.LAB_Solicitud_Inv_Bact_guardar()){
+                        if(Guardar.LAB_Recep_Inv_Bact()){
                             JOptionPane.showMessageDialog(null, "Datos Guardados");
-                            //                            guardarDetalle();
-                            limpiar();
-                            enableDatos(true);
+                            
+//                            limpiar();
+//                            enableDatos(true);
+                            dispose();
+                            frm_RECEP_SOLICITUDES recep=new frm_RECEP_SOLICITUDES();
+                            recep.setVisible(true);
                         }
                         else{
                             JOptionPane.showMessageDialog(this, "El Registro ya ha sido ingresado\nIntente nuevamente");
                         }}
-                    }else if(txtGuarModif.getText().equalsIgnoreCase("M")){
-                        int modificar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",
-                            "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
-                        if(modificar == 0 ){
-                            LAB_Solicitud_Inv_Bact modif = new LAB_Solicitud_Inv_Bact();
-                            modif.setCodigo(Integer.parseInt(lblCodigo.getText()));
-
-                            modif.setCod_precio(lblCodPrecio.getText());
-                            modif.setCod_per(lblCodPer.getText());
-
-                            modif.setDir_referencia(txtReferencia.getText());
-                            modif.setCodMuestraParaExa(lblCodTMEspecificar.getText());
-                            if(txtATNuncaT.getText().equalsIgnoreCase("X")){
-                                modif.setAntecTratamiento("Nunca Tratado");
-                            }else  if(txtATAntesT.getText().equalsIgnoreCase("X")){
-                                modif.setAntecTratamiento("Antes Tratado:Recaída");
-                            }else  if(txtATAbandonoR.getText().equalsIgnoreCase("X")){
-                                modif.setAntecTratamiento("Abandono Recup.");
-                            }else  if(txtATFracaso.getText().equalsIgnoreCase("X")){
-                                modif.setAntecTratamiento("Fracaso");
-                            }else{
-                                modif.setAntecTratamiento("");
-                            }
-                            //Diagnostico
-                            if(txtDSR.getText().equalsIgnoreCase("X")){
-                                modif.setDiagnostico("S.R.");
-                            }else  if(txtDSegDia.getText().equalsIgnoreCase("X")){
-                                modif.setDiagnostico("Seg. Diagnóstico");
-                            }else  if(txtDRxAnormal.getText().equalsIgnoreCase("X")){
-                                modif.setDiagnostico("RX Anormal");
-                            }else  if(txtDOtro.getText().equalsIgnoreCase("X")){
-                                modif.setDiagnostico(txtDEspecificar.getText());
-                            } else{
-                                modif.setDiagnostico("");
-                            }
-
-                            //mes
-                            if(txtCTMes.getText().equalsIgnoreCase("")){
-                                modif.setMes_control_tratamiento(0);
-                            }else{
-                                modif.setMes_control_tratamiento(Integer.parseInt(txtCTMes.getText()));
-                            }
-                            if(txtCTEsqTB.getText().equalsIgnoreCase("X")){
-                                modif.setControlTratamiento("Esq. TB sensible");
-                            }else  if(txtCTEsqDR.getText().equalsIgnoreCase("X")){
-                                modif.setControlTratamiento("Esq. DR");
-                            }else  if(txtCTEsqMDR.getText().equalsIgnoreCase("X")){
-                                modif.setControlTratamiento("Esq. MDR");
-                            }else  if(txtCTEsqXDR.getText().equalsIgnoreCase("X")){
-                                modif.setControlTratamiento("Esq. XDR");
-                            }else  if(txtCTOtros.getText().equalsIgnoreCase("X")){
-                                modif.setControlTratamiento("Otro");
-                            }else{
-                                modif.setControlTratamiento("");
-                            }
-
-                            //N Solic Baciloscopia
-                            if(txtSB1.getText().equalsIgnoreCase("X")){
-                                modif.setExNsolicBacil(1);
-                            }else  if(txtSB2.getText().equalsIgnoreCase("X")){
-                                modif.setExNsolicBacil(2);
-                            }else if(txtSBOtras.getText().equalsIgnoreCase("")==false){
-                                modif.setExNsolicBacil(Integer.parseInt(txtSBOtras.getText()));
-                            }else{
-                                modif.setExNsolicBacil(0);
-                            }
-
-                            //Cultivo
-                            if(txtSBCultivo.getText().equalsIgnoreCase("X")){
-                                modif.setExSolicBacil("Cultivo");
-                            }else {
-                                modif.setExSolicBacil("");
-                            }
-                            //Tipo Prueba de Sensibilidad
-                            if(txtPSRapida.getText().equalsIgnoreCase("X")){
-                                modif.setTipoPruebaSens("Rapida");
-                            }else  if(txtPSConvencional.getText().equalsIgnoreCase("X")){
-                                modif.setTipoPruebaSens("Convencional");
-                            }else  {
-                                modif.setTipoPruebaSens("Otro");
-                            }
-
-                            //Prueba de Sensibilidad
-                            if(txtPSRapida.getText().equalsIgnoreCase("X")){
-                                modif.setPruebaSens(txtPSREspecificar.getText());
-                            }else  if(txtPSConvencional.getText().equalsIgnoreCase("X")){
-                                modif.setPruebaSens(txtPSCEspecificar.getText());
-                            }else  if(txtPSOtroEspecificar.getText().equalsIgnoreCase("")){
-                                modif.setPruebaSens("");
-                            }  else{
-                                modif.setPruebaSens(txtPSOtroEspecificar.getText());
-                            }
-
-                            modif.setFactoresriesgoTB(txtFactores.getText());
-                            modif.setNomUsu(lblUsu.getText());
-
-                            if(modif.LAB_Solicitud_Inv_Bact_modificar()){
-                                JOptionPane.showMessageDialog(null, "Datos Guardados");
-                                //                            guardarDetalle();
-                                limpiar();
-                                enableDatos(true);
-                            }
-                            else{
-                                JOptionPane.showMessageDialog(this, "El Registro ya ha sido ingresado\nIntente nuevamente");
-                            }}
-                        }
-
                     }
-
+                        }
                 }catch(Exception e) {
                     JOptionPane.showMessageDialog(this,e.getStackTrace()+ " Ingrese todos los campos");
 
@@ -4220,6 +4039,7 @@ DefaultTableModel m;
 
     public void limpiar(){
         lblCodHCSol.setText("");
+        txtPacienteSol.setText("");
         lblCel.setText("");
         lblTelefonoSol.setText("");
         txtMAdecuada.setText("");

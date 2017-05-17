@@ -20,6 +20,7 @@ import modelos.Programas.LAB_Solicitud_Inv_Bact;
 import modelos.Usuario;
 import servicios.Conexion;
 import vista.LABORATORIO.frm_RECEPCION_INVESTIGACION_BACT;
+import vista.PrincipalMDI;
 
 /**
  *
@@ -505,6 +506,7 @@ public void LAB_Solicitud_cargar(){
                 frm_SOLICITUD_INVESTIGACION_BACT.btnmodificar.setEnabled(true);
                 frm_SOLICITUD_INVESTIGACION_BACT.btneliminar.setEnabled(true);
                 
+                frm_SOLICITUD_INVESTIGACION_BACT.lblUsu.setText(PrincipalMDI.lblUsu.getText());
                 }
             }
             catch(Exception ex){

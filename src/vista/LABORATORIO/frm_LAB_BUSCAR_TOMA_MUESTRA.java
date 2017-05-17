@@ -105,7 +105,7 @@ DefaultTableModel m,n,resultado;
         //fecha
        Calendar cal=Calendar.getInstance(); 
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
-        lblFecha.setText(fechaActual());
+//        lblFecha.setText(fechaActual());
        
     dateDesde.requestFocus();
   
@@ -522,10 +522,6 @@ public void calcula() {
                 jLabel1 = new javax.swing.JLabel();
                 jpanel = new javax.swing.JPanel();
                 titulo5 = new javax.swing.JLabel();
-                jLabel14 = new javax.swing.JLabel();
-                lblFecha = new javax.swing.JLabel();
-                jLabel15 = new javax.swing.JLabel();
-                lblHora = new javax.swing.JLabel();
                 lblUsu = new javax.swing.JLabel();
                 jScrollPane5 = new javax.swing.JScrollPane();
                 tb_TomasRealizadas = new javax.swing.JTable(){
@@ -562,7 +558,6 @@ public void calcula() {
                         jLabel10 = new javax.swing.JLabel();
 
                         buscar_HC.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                        buscar_HC.setTitle("SISGESH.::.Clasificación Examen");
                         buscar_HC.setAlwaysOnTop(true);
                         buscar_HC.setMinimumSize(new java.awt.Dimension(876, 692));
 
@@ -1550,22 +1545,6 @@ public void calcula() {
                         titulo5.setToolTipText("");
                         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-                        jLabel14.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-                        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-                        jLabel14.setText("Fecha:");
-
-                        lblFecha.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-                        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
-                        lblFecha.setText("00/00/00");
-
-                        jLabel15.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-                        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-                        jLabel15.setText("Hora:");
-
-                        lblHora.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-                        lblHora.setForeground(new java.awt.Color(255, 255, 255));
-                        lblHora.setText("00:00:00");
-
                         lblUsu.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
                         lblUsu.setForeground(new java.awt.Color(255, 255, 255));
                         lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
@@ -1578,36 +1557,17 @@ public void calcula() {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
                                 .addComponent(titulo5)
-                                .addGap(423, 423, 423)
-                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jpanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblHora))
-                                    .addGroup(jpanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblFecha))
-                                    .addComponent(lblUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27))
                         );
                         jpanelLayout.setVerticalGroup(
                             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpanelLayout.createSequentialGroup()
-                                .addComponent(titulo5)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jpanelLayout.createSequentialGroup()
-                                .addGap(4, 4, 4)
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel14)
-                                    .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel15)
-                                    .addComponent(lblHora))
-                                .addGap(3, 3, 3)
-                                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
+                                    .addComponent(titulo5)
+                                    .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 29, Short.MAX_VALUE))
                         );
 
                         tb_TomasRealizadas.setModel(new javax.swing.table.DefaultTableModel(
@@ -1925,7 +1885,7 @@ public void calcula() {
                         layout.setVerticalGroup(
                             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2906,7 +2866,7 @@ public void buscar_examenes(){
         Thread ct = Thread.currentThread();
         while (ct == h1) {
             calcula();
-            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+//            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -3097,8 +3057,6 @@ public void buscar_examenes(){
     private com.toedter.calendar.JDateChooser dateHasta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -3140,8 +3098,6 @@ public void buscar_examenes(){
     private javax.swing.JPanel jpanel3;
     private javax.swing.JPanel jpanel4;
     private javax.swing.JLabel lblArea;
-    private javax.swing.JLabel lblFecha;
-    private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblServicio;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JLabel lbldia;

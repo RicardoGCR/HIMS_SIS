@@ -229,24 +229,24 @@ public class HospitalizacionNotaEnfermeria implements Serializable {
         }
     }
     
-    public void epi(JTextArea tabla){
-    String consulta="";
-        try {
-            String fila[]=new String[1];
-            //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC YAMILA ";
-            PreparedStatement cmd = getCn().prepareStatement(consulta);
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-                tabla.setText(r.getString(1)+"\n-----"); // id
-                    m.addRow(fila);
-                    c++;
-            }
-        } catch (Exception e) {
-            System.out.println("Error: listarDiagPresun: " + e.getMessage());
-        }
-    }
+//    public void epi(){
+//    String consulta="";
+//        try {
+//            String fila[]=new String[1];
+//            //int index = cbxTipoBusqueda.getSelectedIndex();
+//            consulta="EXEC YAMILA ";
+//            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            ResultSet r= cmd.executeQuery();
+//            int c=1;
+//            while(r.next()){
+//              fila[0]=r.getString(1); 
+//                    m.addRow(fila);
+//                    c++;
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Error: notas de enfermeria para epicris : " + e.getMessage());
+//        }
+//    }
     
     public String notaEnfermeriaID()
     {
@@ -271,29 +271,30 @@ public class HospitalizacionNotaEnfermeria implements Serializable {
         return cod;
     }   
     
-//    public String epi()
-//    {
-//        String cod="";
-//        try
-//        {
-//            String sql = "SELECT NE_ANOTACIONES \n" +
-//"FROM HOSPITALIZACION_NOTA_ENFERMERIA\n" +
-//"WHERE ID_PREVENTA = 10262\n" +
-//"AND ESTADO = 'A'";
-//            PreparedStatement cmd = getCn().prepareStatement(sql);
-//            ResultSet rs = cmd.executeQuery();
-//            while(rs.next())
-//            {
-//               FrmHospitalizacionEpicrisis.txtProcedTerapeuticos.setText(rs.getString(1) + "\n" + rs.next());
-//               
-//            }
-//        }
-//        catch(Exception ex)
-//        {
-//            System.out.println("epi: " + ex.getMessage());
-//        }
-//        return cod;
-//    }   
+    public String notaEnfermeriaEpicrisis(String id_preventa)
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT FECHA_ACTU + ' - ' + HORA_ACTU  + CHAR(10) +  NE_ANOTACIONES + CHAR(10) + CHAR(10)  AS [text()]\n" +
+"                FROM HOSPITALIZACION_NOTA_ENFERMERIA AS tt\n" +
+"                WHERE ID_PREVENTA = 10262\n" +
+"                ORDER BY FECHA_ACTU DESC ,HORA_ACTU DESC\n" +
+"            FOR XML PATH('')";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            while(rs.next())
+            {
+               FrmHospitalizacionEpicrisis.txtProcedTerapeuticos.setText(rs.getString(1));
+               
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("notaEnfermeriaEpicrisis: " + ex.getMessage());
+        }
+        return cod;
+    }   
     
     public HospitalizacionNotaEnfermeria() {
         Conexion con = new Conexion();

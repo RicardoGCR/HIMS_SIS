@@ -806,7 +806,7 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
     }//GEN-LAST:event_btnBuscarReglaActionPerformed
 
     private void txtNumeroReglaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroReglaKeyReleased
-        convertiraMayusculasEnJtextfield(txtNumeroRegla);
+        txtNumeroRegla.setText(txtNumeroRegla.getText().toUpperCase());
     }//GEN-LAST:event_txtNumeroReglaKeyReleased
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -990,10 +990,10 @@ static SIS_REGLA_VALIDACION_DET_PRES DET = new SIS_REGLA_VALIDACION_DET_PRES();
         }
     }
     
-    public void convertiraMayusculasEnJtextfield(javax.swing.JTextField jTextfieldS){
-    String cadena= (jTextfieldS.getText()).toUpperCase();
-    jTextfieldS.setText(cadena);
-    }
+//    public void convertiraMayusculasEnJtextfield(javax.swing.JTextField jTextfieldS){
+//    String cadena= (jTextfieldS.getText()).toUpperCase();
+//    jTextfieldS.setText(cadena);
+//    }
     
     public void mostrarDetalleBuscarRV_DET(){
         try {

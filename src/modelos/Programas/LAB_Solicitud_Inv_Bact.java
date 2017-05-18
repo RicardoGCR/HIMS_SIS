@@ -16,14 +16,17 @@ import servicios.Conexion;
  */
 public class LAB_Solicitud_Inv_Bact {
       private Connection cn;
+      private int codigo;
        private String cod_precio;
+       private String cod_per;
        private String id_hc;
     private String hospServicio;
     private String caDesc;
+    private String dir_referencia;
     private String codMuestraParaExa;
     private String antecTratamiento;
     private String diagnostico;
-    private String controlnTratamiento;
+    private int mes_control_tratamiento;
     private String controlTratamiento;
     private Integer exNsolicBacil;
     private String exSolicBacil;
@@ -33,6 +36,7 @@ public class LAB_Solicitud_Inv_Bact {
     private String fechaSoli;
     private String horaSoli;
     private String idHcSolicita;
+    private String nombres_pac_solicita;
     private String fechaObtencionMuestra;
     private String horaObtencionMuestra;
     private String calidadMuestra;
@@ -50,21 +54,26 @@ public class LAB_Solicitud_Inv_Bact {
         boolean resp = false;
         try
         {
-            String sql = "exec sp_LAB_ANALISIS_EXAMEN_insertar ?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "exec sp_SOLICITUD_INV_BACT_insertar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-//            cmd.setString(1, getCod_exa_ana());
-//            cmd.setString(2, getCod_clasi_exa());
-//            cmd.setString(3, getCod_nomen_caja());
-//            cmd.setString(4, getNombre_ana_exa());
-//            cmd.setString(5, getAbrev_ana_exa());
-//            cmd.setInt(6, getTiempo_hora());
-//            cmd.setInt(7, getTiempo_min());
-//            cmd.setString(8, getTipo_procesamiento());
-//            cmd.setString(9, getRestriccion_analisis());
-//            cmd.setString(10, getExplicacion_met_proce());
-//            cmd.setString(11, getEstado_detalle());
-//            cmd.setString(12, getObservacion_ana_exa());
-//            cmd.setString(13, getNom_usu());
+            cmd.setString(1, getCod_precio());
+            cmd.setString(2, getCod_per());
+            cmd.setString(3, getId_hc());
+            cmd.setString(4, getHospServicio());
+            cmd.setString(5, getCaDesc());
+            cmd.setString(6, getDir_referencia());
+            cmd.setString(7, getCodMuestraParaExa());
+            cmd.setString(8, getAntecTratamiento());
+            cmd.setString(9, getDiagnostico());
+            cmd.setInt(10, getMes_control_tratamiento());
+            cmd.setString(11, getControlTratamiento());
+            cmd.setInt(12, getExNsolicBacil());
+            cmd.setString(13, getExSolicBacil());
+            cmd.setString(14, getTipoPruebaSens());
+            cmd.setString(15, getPruebaSens());
+            cmd.setString(16, getFactoresriesgoTB());
+            cmd.setString(17, getNomUsu());
+            
  
             if(!cmd.execute())
             {
@@ -80,6 +89,64 @@ public class LAB_Solicitud_Inv_Bact {
         return resp;
     }
        
+       public boolean LAB_Solicitud_Inv_Bact_modificar()
+        {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec sp_SOLICITUD_INV_BACT_modificar ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCodigo());
+            cmd.setString(2, getCod_precio());
+            cmd.setString(3, getCod_per());
+            cmd.setString(4, getDir_referencia());
+            cmd.setString(5, getCodMuestraParaExa());
+            cmd.setString(6, getAntecTratamiento());
+            cmd.setString(7, getDiagnostico());
+            cmd.setInt(8, getMes_control_tratamiento());
+            cmd.setString(9, getControlTratamiento());
+            cmd.setInt(10, getExNsolicBacil());
+            cmd.setString(11, getExSolicBacil());
+            cmd.setString(12, getTipoPruebaSens());
+            cmd.setString(13, getPruebaSens());
+            cmd.setString(14, getFactoresriesgoTB());
+            cmd.setString(15, getNomUsu());
+ 
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
+       
+        public boolean LAB_Solicitud_Inv_Bact_eliminar()
+    {
+        boolean resp = false;
+        try{
+            String sql = "exec sp_SOLICITUD_INV_BACT_eliminar ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCodigo());
+            if(!cmd.execute()){
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();  
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
+        
+        
         public String LAB_DISA_SALUD(int cont){
         String cod="";
         try
@@ -123,26 +190,26 @@ public class LAB_Solicitud_Inv_Bact {
         return cod;
         }
         
-        public String codUsuario(String nombreUsuario)
-    {
-        String cod="";
-        try
-        {
-            String sql = "SELECT USU_CODIGO FROM USUARIO WHERE Usu_Usuario = ?";
-            PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, nombreUsuario);
-            ResultSet rs = cmd.executeQuery();
-            if(rs.next())
-            {
-               cod = rs.getString(1);
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println("Error_codUsuario: " + ex.getMessage());
-        }
-        return cod;
-    }
+//        public String codUsuario(String nombreUsuario)
+//    {
+//        String cod="";
+//        try
+//        {
+//            String sql = "SELECT USU_CODIGO FROM USUARIO WHERE Usu_Usuario = ?";
+//            PreparedStatement cmd = getCn().prepareStatement(sql);
+//            cmd.setString(1, nombreUsuario);
+//            ResultSet rs = cmd.executeQuery();
+//            if(rs.next())
+//            {
+//               cod = rs.getString(1);
+//            }
+//        }
+//        catch(Exception ex)
+//        {
+//            System.out.println("Error_codUsuario: " + ex.getMessage());
+//        }
+//        return cod;
+//    }
     /**
      * @return the cn
      */
@@ -228,19 +295,6 @@ public class LAB_Solicitud_Inv_Bact {
         this.diagnostico = diagnostico;
     }
 
-    /**
-     * @return the controlnTratamiento
-     */
-    public String getControlnTratamiento() {
-        return controlnTratamiento;
-    }
-
-    /**
-     * @param controlnTratamiento the controlnTratamiento to set
-     */
-    public void setControlnTratamiento(String controlnTratamiento) {
-        this.controlnTratamiento = controlnTratamiento;
-    }
 
     /**
      * @return the controlTratamiento
@@ -506,6 +560,76 @@ public class LAB_Solicitud_Inv_Bact {
      */
     public void setNomUsuRecp(String nomUsuRecp) {
         this.nomUsuRecp = nomUsuRecp;
+    }
+
+    /**
+     * @return the cod_per
+     */
+    public String getCod_per() {
+        return cod_per;
+    }
+
+    /**
+     * @param cod_per the cod_per to set
+     */
+    public void setCod_per(String cod_per) {
+        this.cod_per = cod_per;
+    }
+
+    /**
+     * @return the dir_referencia
+     */
+    public String getDir_referencia() {
+        return dir_referencia;
+    }
+
+    /**
+     * @param dir_referencia the dir_referencia to set
+     */
+    public void setDir_referencia(String dir_referencia) {
+        this.dir_referencia = dir_referencia;
+    }
+
+    /**
+     * @return the mes_control_tratamiento
+     */
+    public int getMes_control_tratamiento() {
+        return mes_control_tratamiento;
+    }
+
+    /**
+     * @param mes_control_tratamiento the mes_control_tratamiento to set
+     */
+    public void setMes_control_tratamiento(int mes_control_tratamiento) {
+        this.mes_control_tratamiento = mes_control_tratamiento;
+    }
+
+    /**
+     * @return the nombres_pac_solicita
+     */
+    public String getNombres_pac_solicita() {
+        return nombres_pac_solicita;
+    }
+
+    /**
+     * @param nombres_pac_solicita the nombres_pac_solicita to set
+     */
+    public void setNombres_pac_solicita(String nombres_pac_solicita) {
+        this.nombres_pac_solicita = nombres_pac_solicita;
+    }
+
+    /**
+     * @return the codigo
+     */
+    public int getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
        
        

@@ -53,52 +53,81 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             //////////////////////////////////
             if(txtAf1.getText().equals("X"))
                 CXRsAf.setAfNinguno("X");
+            else
+                CXRsAf.setAfNinguno("");
             //////////////////////////////////
             if(txtAf2.getText().equals("X"))
                 CXRsAf.setAfAlergias("X");
+            else
+                CXRsAf.setAfAlergias("");
             //////////////////////////////////
             if(txtAf3.getText().equals("X"))
                 CXRsAf.setAfHipertens("X");
+            else
+                CXRsAf.setAfHipertens("");
             //////////////////////////////////
             if(txtAf4.getText().equals("X"))
                 CXRsAf.setAfEpilepsia("X");
+            else
+                CXRsAf.setAfEpilepsia("");
             //////////////////////////////////
             if(txtAf5.getText().equals("X"))
                 CXRsAf.setAfDiabetes("X");
+            else
+                CXRsAf.setAfDiabetes("");
             //////////////////////////////////
             if(txtAf6.getText().equals("X"))
                 CXRsAf.setAfEnfCongenitas("X");
-            //////////////////////////////////
+            else
+                CXRsAf.setAfEnfCongenitas("");            //////////////////////////////////
             if(txtAf7.getText().equals("X"))
                 CXRsAf.setAfEmbMultiple("X");
+            else
+                CXRsAf.setAfEmbMultiple("");
             //////////////////////////////////
             if(txtAf8.getText().equals("X"))
                 CXRsAf.setAfMalaria("X");
+            else
+                CXRsAf.setAfMalaria("");
             //////////////////////////////////
             if(txtAf9.getText().equals("X"))
                 CXRsAf.setAfHiperArterial("X");
+            else
+                CXRsAf.setAfHiperArterial("");
             //////////////////////////////////
             if(txtAf10.getText().equals("X"))
                 CXRsAf.setAfHipotiroidismo("X");
+            else
+                CXRsAf.setAfHipotiroidismo("");
             //////////////////////////////////
             if(txtAf11.getText().equals("X"))
                 CXRsAf.setAfNeoplasica("X");
+            else
+                CXRsAf.setAfNeoplasica("");
             //////////////////////////////////
             if(txtAf12.getText().equals("X"))
                 CXRsAf.setAfTbc("X");
+            else
+                CXRsAf.setAfTbc("");
             //////////////////////////////////
             
             
             if(txtAf13.getText().equals("X"))
+           
+                
                 
                 CXRsAf.setAfOtros(txtOtros.getText());
+            else
+                CXRsAf.setAfOtros("");
 
                 CXRsAf.setCodUsu(admi.codUsuario(lblusu.getText()));//falta 
                 CXRsAf.setIdActoMedico(Integer.parseInt(lblIdActoMedico.getText()));
             
+                
+            
                 if(CXRsAf.mantenimientoConsultorioExtAF(lblMant.getText())==true){
                     if (lblMant.getText().equals("I")){
-                     mensaje.setVisible(true);
+                    mensaje.setVisible(true);
                     mensaje.setBackground(new Color(33,115,70)); 
                     men.setText("Datos Guardados de forma correcta");
                     b.setText("OK");
@@ -112,7 +141,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     CXRsAf2.ConsultoriosExtAFListar(RegistroEmbarazoPrincipal.lblId.getText());     
                     }
                     if (lblMant.getText().equals("U")){
-                     mensaje.setVisible(true);
+                    mensaje.setVisible(true);
                     mensaje.setBackground(new Color(33,115,70)); 
                     men.setText("Datos Actualizados de forma correcta");
                     b1.setText("OK");
@@ -300,6 +329,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         txtAf2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtAf2MouseClicked(evt);
+            }
+        });
+        txtAf2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAf2ActionPerformed(evt);
             }
         });
 
@@ -1160,7 +1194,7 @@ String variable;
     }//GEN-LAST:event_jLabel33MouseClicked
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-btnGuardar.setEnabled(true);
+         btnGuardar.setEnabled(true);
          btneditar.setEnabled(false);
 
          lblMant.setText("U");
@@ -1417,6 +1451,10 @@ if (tge==3 || tge==1|| tge==9){
         }
         }
     }//GEN-LAST:event_txtAf12MouseClicked
+
+    private void txtAf2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAf2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAf2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

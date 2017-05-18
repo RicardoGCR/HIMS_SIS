@@ -69,7 +69,7 @@ public class LAB_Resultado_Insumos {
      public boolean LAB_Sustentacion_Insumos_Det_guardar(){
         boolean resp = false;
         try{
-            String sql = "exec sp_LAB_SUSTENTACION_INSUMOS_DET ?,?,?,?,?,?,?";
+            String sql = "exec sp_LAB_SUSTENTACION_INSUMOS_DET ?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
 //            cmd.setString(1, getCod_cab_resultado_mu_ana());
             cmd.setInt(1, getCod_KardexLAB());
@@ -79,6 +79,7 @@ public class LAB_Resultado_Insumos {
             cmd.setInt(5, getCantidad_reasig());
             cmd.setString(6, getCod_produc());
             cmd.setInt(7, getId_cod_det());
+            cmd.setString(8, getNom_usu());
  
             if(!cmd.execute())
             {

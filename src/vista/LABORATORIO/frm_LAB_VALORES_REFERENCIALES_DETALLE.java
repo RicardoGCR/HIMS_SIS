@@ -53,6 +53,8 @@ DefaultTableModel m,n,muestra;
     public frm_LAB_VALORES_REFERENCIALES_DETALLE() {
         initComponents();
         c.conectar();
+        
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         txtGuarModif.setVisible(false);
         h1 = new Thread(this);
         h1.start();
@@ -423,7 +425,6 @@ public void calcula() {
                 );
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                setTitle("SISGESH .::. Análisis Examen");
                 setMinimumSize(new java.awt.Dimension(930, 719));
 
                 jpanel.setBackground(new java.awt.Color(2, 67, 115));

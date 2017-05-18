@@ -435,6 +435,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             consultorio1.setId_cie10(Integer.parseInt(lblIdCie10E.getText()));
             consultorio1.setCodUsu(adEmerCab.codUsuario(lblusu.getText()));
             consultorio1.setIdActoMedico(Integer.parseInt(lblIdActoMedico.getText()));
+             if(chkESi.getText().equals("X"))
+                consultorio1.setEMER("SI");
+            if(chkENo.getText().equals("X"))
+                consultorio1.setEMER("NO");
             if(consultorio1.mantenimientoConsultorioExtCarnetPerinatalEm(lblMantEme.getText())==true){
                 if(lblMantEme.getText().equals("I")){
                     lblIdEme.setText(consultorio1.perinatalEmID());
@@ -678,6 +682,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 lblMantEme = new javax.swing.JLabel();
                 lblIdEme = new javax.swing.JLabel();
                 lblIdCie10E = new javax.swing.JLabel();
+                jLabel68 = new javax.swing.JLabel();
+                jLabel72 = new javax.swing.JLabel();
+                chkESi = new javax.swing.JTextField();
+                jLabel85 = new javax.swing.JLabel();
+                chkENo = new javax.swing.JTextField();
                 P8 = new javax.swing.JPanel();
                 jPanel29 = new javax.swing.JPanel();
                 jPanel31 = new javax.swing.JPanel();
@@ -2644,6 +2653,60 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
                 lblIdCie10E.setText("jLabel1");
 
+                jLabel68.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                jLabel68.setForeground(new java.awt.Color(51, 51, 51));
+                jLabel68.setText("Emergencia");
+
+                jLabel72.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                jLabel72.setForeground(new java.awt.Color(51, 51, 51));
+                jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                jLabel72.setText("Si");
+
+                chkESi.setEditable(false);
+                chkESi.setBackground(new java.awt.Color(255, 204, 51));
+                chkESi.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+                chkESi.setForeground(new java.awt.Color(102, 102, 102));
+                chkESi.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                chkESi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                chkESi.setPreferredSize(new java.awt.Dimension(18, 18));
+                chkESi.setSelectedTextColor(new java.awt.Color(109, 109, 109));
+                chkESi.setSelectionColor(new java.awt.Color(255, 204, 51));
+                chkESi.addCaretListener(new javax.swing.event.CaretListener() {
+                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                        chkESiCaretUpdate(evt);
+                    }
+                });
+                chkESi.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        chkESiMouseClicked(evt);
+                    }
+                });
+
+                jLabel85.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                jLabel85.setForeground(new java.awt.Color(51, 51, 51));
+                jLabel85.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                jLabel85.setText("No");
+
+                chkENo.setEditable(false);
+                chkENo.setBackground(new java.awt.Color(255, 255, 255));
+                chkENo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+                chkENo.setForeground(new java.awt.Color(102, 102, 102));
+                chkENo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                chkENo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                chkENo.setPreferredSize(new java.awt.Dimension(18, 18));
+                chkENo.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+                chkENo.setSelectionColor(new java.awt.Color(255, 255, 255));
+                chkENo.addCaretListener(new javax.swing.event.CaretListener() {
+                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                        chkENoCaretUpdate(evt);
+                    }
+                });
+                chkENo.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseClicked(java.awt.event.MouseEvent evt) {
+                        chkENoMouseClicked(evt);
+                    }
+                });
+
                 javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
                 jPanel22.setLayout(jPanel22Layout);
                 jPanel22Layout.setHorizontalGroup(
@@ -2651,6 +2714,16 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     .addGroup(jPanel22Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel22Layout.createSequentialGroup()
+                                .addComponent(jLabel68)
+                                .addGap(15, 15, 15)
+                                .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(3, 3, 3)
+                                .addComponent(chkESi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)
+                                .addComponent(jLabel85, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(chkENo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel22Layout.createSequentialGroup()
                                 .addComponent(jLabel71)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2675,7 +2748,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 jPanel22Layout.setVerticalGroup(
                     jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel22Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(chkENo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkESi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel68)
+                            .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel85))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fechaEmer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel69))
@@ -3178,32 +3258,29 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(P6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(P3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(PEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(P4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(466, 466, 466)
-                                                .addComponent(lblMantFum, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(lblIdFum, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(P6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(P3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(P8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(P9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(P5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(P1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(P2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(PEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(P4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblMadre, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(466, 466, 466)
+                                        .addComponent(lblMantFum, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblMant, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, 0))))
+                                        .addComponent(lblIdFum, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(P8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(P9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(P5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(P1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(P2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblMadre, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblMant, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(886, 886, 886)
@@ -3254,7 +3331,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addGroup(layout.createSequentialGroup()
                             .addGap(456, 456, 456)
                             .addComponent(lblIdActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(474, Short.MAX_VALUE)))
+                            .addContainerGap(519, Short.MAX_VALUE)))
                 );
 
                 pack();
@@ -4121,6 +4198,32 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         }
     }//GEN-LAST:event_chkVnoMouseClicked
 
+    private void chkESiCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_chkESiCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkESiCaretUpdate
+
+    private void chkESiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkESiMouseClicked
+        if(lblIdHos.getText().equals("") || lblMantHo.getText().equals("U")){
+            if(evt.getClickCount()==1){
+                chkESi.setText("X");
+                chkENo.setText("");
+            }
+        }
+    }//GEN-LAST:event_chkESiMouseClicked
+
+    private void chkENoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_chkENoCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkENoCaretUpdate
+
+    private void chkENoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkENoMouseClicked
+        if(lblIdHos.getText().equals("") || lblMantHo.getText().equals("U")){
+            if(evt.getClickCount()==1){
+                chkENo.setText("X");
+                chkESi.setText("");
+            }
+        }
+    }//GEN-LAST:event_chkENoMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField ChkAnalf1;
@@ -4149,6 +4252,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JButton btnSi;
     public static javax.swing.JTextField chkDudaNo;
     public static javax.swing.JTextField chkDudaSi;
+    public static javax.swing.JTextField chkENo;
+    public static javax.swing.JTextField chkESi;
     public static javax.swing.JTextField chkFdNo;
     public static javax.swing.JTextField chkFdSi;
     public static javax.swing.JTextField chkHno;
@@ -4203,9 +4308,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
@@ -4219,6 +4326,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;

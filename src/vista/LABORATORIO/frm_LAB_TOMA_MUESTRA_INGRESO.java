@@ -60,6 +60,8 @@ DefaultTableModel m,n,muestra;
     public frm_LAB_TOMA_MUESTRA_INGRESO() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
+        
      
         h1 = new Thread(this);
         h1.start();
@@ -633,7 +635,6 @@ public void calcula() {
                     );
 
                     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                    setTitle("SISGESH .::. Análisis Examen");
 
                     jpanel.setBackground(new java.awt.Color(2, 67, 115));
 

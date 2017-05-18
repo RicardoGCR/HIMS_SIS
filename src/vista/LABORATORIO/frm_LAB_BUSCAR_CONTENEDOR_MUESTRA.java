@@ -53,6 +53,7 @@ Conexion c=new Conexion();
     public frm_LAB_BUSCAR_CONTENEDOR_MUESTRA() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         tb_Contenedor.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         tb_Contenedor.doLayout();
                 setLocationRelativeTo(null);//en el centro
@@ -142,7 +143,6 @@ public void LAB_Contenedor_cargar(){
             btnBuscar = new javax.swing.JButton();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setTitle("SISGESH .::. Búsqueda del Contenedor");
             setAlwaysOnTop(true);
 
             tb_Contenedor.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N

@@ -773,7 +773,7 @@ Connection conexion=c.conectar();
                     });
 
                     btnguardar.setForeground(new java.awt.Color(240, 240, 240));
-                    btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Guardar-32.png"))); // NOI18N
+                    btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
                     btnguardar.setMnemonic('N');
                     btnguardar.setContentAreaFilled(false);
                     btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

@@ -213,45 +213,55 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
     
     public boolean guardarDatosHospitalizacion(){
         boolean retorna = false;
-        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png"));
-        if(txtBuscarNHC.getText().equals("") || cbxAreas.getSelectedIndex()== 0 || 
-           cbxCama.getSelectedIndex()==0 || cbxServicio.getSelectedIndex()==0 ||
-                cbxProcedencia.getSelectedIndex()==0){ // validar datos vacios
-            JOptionPane.showMessageDialog(this, "Debe completar los datos", "Alerta", WIDTH, i);
-        }else{
-            Caja_Preventa cp = new Caja_Preventa();
-            Caja_Preventa cp2 = new Caja_Preventa();
-            HospitalizacionAsignacionCamas hc = new HospitalizacionAsignacionCamas();
-            AdmisionEmergenciaCabecera ademer = new AdmisionEmergenciaCabecera();
-            int id_preventa = Integer.parseInt(lblID.getText());
-            String id_hc = lblIDHC.getText();
-            int area = Integer.parseInt(cp.codArea(cbxAreas.getSelectedItem().toString()));
-            int cama = Integer.parseInt(cp.codCama(cbxCama.getSelectedItem().toString()));
-            String indicaciones = txtIndicaciones.getText();
-            String usuario = ademer.codUsuario(lblUsuUsuario.getText());
-            String procedencia = "";
-            if(cbxProcedencia.getSelectedIndex()==1)
-                procedencia = "CEX";
-            else
-                procedencia = "EME";
-            int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
-                                        "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
-            if(guardar == 0){
-                cp.setId_preventa(id_preventa);
-                cp.setId_hc(id_hc);
-                cp.setCA_ID(cama);
-                cp.sethOS_Indicaciones(indicaciones);
-                cp.setCod_usu(usuario);
-                cp.setAR_ID(area);
-                cp.setProcedencia(procedencia);
-                hc.setID_PREVENTA(id_preventa);
-                hc.setCA_ID(cama);
-                hc.setCOD_USU(usuario);
-                if(cp.mantenimientoCajaPreventaHospitalizacion(lblMant.getText())==true 
-                   && hc.mantenimientoAsignacionCama()==true){
-                    retorna = true;
+        try {
+            int id_preventa = 0;
+            ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png"));
+            if(txtBuscarNHC.getText().equals("") || cbxAreas.getSelectedIndex()== 0 || 
+               cbxCama.getSelectedIndex()==0 || cbxServicio.getSelectedIndex()==0 ||
+                    cbxProcedencia.getSelectedIndex()==0){ // validar datos vacios
+                JOptionPane.showMessageDialog(this, "Debe completar los datos", "Alerta", WIDTH, i);
+            }else{
+                if(lblMant.getText().equals("U"))
+                    id_preventa = Integer.parseInt(lblID.getText());
+                Caja_Preventa cp = new Caja_Preventa();
+                Caja_Preventa cp2 = new Caja_Preventa();
+                HospitalizacionAsignacionCamas hc = new HospitalizacionAsignacionCamas();
+                AdmisionEmergenciaCabecera ademer = new AdmisionEmergenciaCabecera();
+                String id_hc = lblIDHC.getText();
+                int area = Integer.parseInt(cp.codArea(cbxAreas.getSelectedItem().toString()));
+                int cama = Integer.parseInt(cp.codCama(cbxCama.getSelectedItem().toString()));
+                String indicaciones = txtIndicaciones.getText();
+                String usuario = ademer.codUsuario(lblUsuUsuario.getText());
+                String procedencia = "";
+                if(cbxProcedencia.getSelectedIndex()==1)
+                    procedencia = "CEX";
+                else
+                    procedencia = "EME";
+                int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+                                            "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                if(guardar == 0){
+                    cp.setId_preventa(id_preventa);
+                    cp.setId_hc(id_hc);
+                    cp.setCA_ID(cama);
+                    cp.sethOS_Indicaciones(indicaciones);
+                    cp.setCod_usu(usuario);
+                    cp.setAR_ID(area);
+                    cp.setProcedencia(procedencia);
+                    if(cp.mantenimientoCajaPreventaHospitalizacion(lblMant.getText())==true){ 
+                        
+                        hc.setCA_ID(cama);
+                        hc.setCOD_USU(usuario);
+                        JOptionPane.showMessageDialog(this, cp.CajaPreventaID());
+                        hc.setID_PREVENTA(cp.CajaPreventaID());
+                       if(hc.mantenimientoAsignacionCama()==true){
+                        retorna = true;
+                        }
+                    }
                 }
             }
+
+        } catch (Exception e) {
+            System.out.println("Error: guardarDatosHospitalizacion " + e.toString());
         }
         return retorna;
     }
@@ -262,7 +272,7 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
             Caja_Preventa cp = new Caja_Preventa();
             for (int i = 0; i < tbSelecArticulos.getRowCount(); i++){      
                 HospitalizacionArticuloDetalle hopsArt=new HospitalizacionArticuloDetalle();
-                hopsArt.setId_preventa(Integer.parseInt(lblID.getText()));
+                hopsArt.setId_preventa(cp.CajaPreventaID());
                 hopsArt.setDescripcion(tbSelecArticulos.getValueAt(i, 1).toString());
                 hopsArt.setCod_usu(cp.codUsuario(lblUsuUsuario.getText()));
                 if(hopsArt.insertarArticuloDetalle()==true)
@@ -660,12 +670,10 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
         jPanel8.add(lblGenero);
         lblGenero.setBounds(260, 100, 40, 14);
 
-        lblID.setForeground(new java.awt.Color(217, 176, 86));
         lblID.setText("jLabel14");
         jPanel8.add(lblID);
         lblID.setBounds(390, 100, 40, 14);
 
-        lblMant.setForeground(new java.awt.Color(217, 176, 86));
         lblMant.setText("jLabel14");
         jPanel8.add(lblMant);
         lblMant.setBounds(330, 100, 40, 14);
@@ -1026,10 +1034,6 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         Caja_Preventa cp = new Caja_Preventa();
-        if(cp.idCajaPreventa()!=0)
-            lblID.setText(String.valueOf(cp.idCajaPreventa()));
-        else
-            lblID.setText("1");
         btnGuardar.setEnabled(true);
         lblMant.setText("I");
         habilitarCampos(true);
@@ -1364,7 +1368,7 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     public static javax.swing.JLabel lblEstado;
     public static javax.swing.JLabel lblGenero;
-    private javax.swing.JLabel lblID;
+    public static javax.swing.JLabel lblID;
     public static javax.swing.JLabel lblIDHC;
     private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblServicio;

@@ -211,7 +211,7 @@ public class ConsultorioExConsultorioAsignacion {
         tabla.setRowHeight(30);
     }
        public void listarDetalle(JTable tabla){
-    String consulta="";
+        String consulta="";
         try {
                 tabla.setModel(new DefaultTableModel());
                 String titulos[]={"ID","Dia","Hora Inicio","Hora Termino","Consultorio","Nº de Citas","Turno","Médico","","","",""};

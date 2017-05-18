@@ -43,6 +43,7 @@ DefaultTableModel m;
     public frm_LAB_CLASIFICACION_EXAMEN() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         txtGuarModif.setVisible(false);
         h1 = new Thread(this);
         h1.start();
@@ -312,7 +313,6 @@ public void calcula() {
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setTitle("SISGESH .::. Clasificación Examen");
 
             jpanel.setBackground(new java.awt.Color(2, 67, 115));
 

@@ -58,6 +58,7 @@ String hora, minutos, segundos, ampm;
     public frm_LAB_ESQUEMA_RESULTADO_INGRESO() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         h1 = new Thread(this);
         h1.start();
         tb_Analisis_Examen.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -279,7 +280,6 @@ public void LAB_Analisis_Examen_cargar(){
                 lblUsu = new javax.swing.JLabel();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                setTitle("SISGESH .::. Búsqueda de Análisis");
                 setAlwaysOnTop(true);
 
                 tb_Analisis_Examen.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N

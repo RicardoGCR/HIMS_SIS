@@ -570,7 +570,8 @@ DefaultTableModel m, msb,m2, m3;
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void txtNumeroReglaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroReglaKeyReleased
-        convertiraMayusculasEnJtextfield(txtNumeroRegla);
+        txtNumeroRegla.setText(txtNumeroRegla.getText().toUpperCase());
+        //convertiraMayusculasEnJtextfield(txtNumeroRegla);
     
     }//GEN-LAST:event_txtNumeroReglaKeyReleased
 

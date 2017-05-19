@@ -5,6 +5,7 @@
         <group>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoEXL.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazoPrincipal.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazo.java</file>
@@ -61,9 +62,22 @@
 =======
             <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionExamenClinico.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionExClinico.java</file>
+=======
+            <file>file:/D:/pry/SISGESH/src/modelos/ConsultorioEx/ConsultorioExtConsultorioDiagnostico.java</file>
+>>>>>>> b39b2ef57a8b32c4bcca7984fe4b7f016dace573
             <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionNotaEnfermeria.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionEpicrisis.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/hospitalizacion/HospitalizacionNotaEnfermeria.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionEpicrisis.java</file>
+<<<<<<< HEAD
 >>>>>>> c5121d1b7eec8dabe3d0ae1817010764010a0803
+=======
+=======
+            <file>file:/E:/pry/SISGESH/src/vista/RX_EC/RX_EC_EXAMEN_CAB.java</file>
+            <file>file:/E:/pry/SISGESH/src/vista/SIS/SIS_VALIDACION_CABECERA.java</file>
+            <file>file:/E:/pry/SISGESH/src/vista/RX_EC/RX_EC_BUSCAR_EXAMEN_C.java</file>
+>>>>>>> 99a750ec1f61a677a75f1b4f31bfaafc9eafa535
+>>>>>>> b39b2ef57a8b32c4bcca7984fe4b7f016dace573
         </group>
     </open-files>
 </project-private>

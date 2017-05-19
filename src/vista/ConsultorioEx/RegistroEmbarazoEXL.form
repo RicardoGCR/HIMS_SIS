@@ -64,16 +64,6 @@
                   <Component id="jPanel6" min="-2" pref="284" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="mensaje" alignment="0" max="32767" attributes="0"/>
-<<<<<<< HEAD
-                      <Component id="jScrollPane1" alignment="1" pref="1071" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="lblMadreEXL" min="-2" pref="449" max="-2" attributes="0"/>
-                          <EmptySpace pref="622" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="jPanel11" max="32767" attributes="0"/>
-=======
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblMadreEXL" min="-2" pref="449" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -82,7 +72,6 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
                       </Group>
                   </Group>
               </Group>
@@ -94,19 +83,11 @@
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-<<<<<<< HEAD
-                          <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          <Component id="lblMadreEXL" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="539" max="32767" attributes="0"/>
-=======
                           <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Component id="lblMadreEXL" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" pref="530" max="32767" attributes="0"/>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="mensaje" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -644,11 +625,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="505" max="-2" attributes="0"/>
                               <Component id="lblIdActoMedico" min="-2" pref="62" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                              <EmptySpace pref="552" max="32767" attributes="0"/>
-=======
                               <EmptySpace pref="910" max="32767" attributes="0"/>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
                           </Group>
                       </Group>
                   </Group>
@@ -676,11 +653,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
                               <Component id="lblIdActoMedico" min="-2" pref="21" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                              <EmptySpace pref="287" max="32767" attributes="0"/>
-=======
                               <EmptySpace pref="267" max="32767" attributes="0"/>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
                           </Group>
                       </Group>
                   </Group>
@@ -6865,11 +6838,7 @@
             </Container>
           </SubComponents>
         </Container>
-<<<<<<< HEAD
-        <Container class="javax.swing.JPanel" name="jPanel11">
-=======
         <Container class="javax.swing.JPanel" name="jPanel8">
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="41" green="41" red="41" type="rgb"/>
@@ -6880,28 +6849,16 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblActoMedico" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblFP" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-=======
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="lblActoMedico" min="-2" pref="300" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblFP" min="-2" pref="410" max="-2" attributes="0"/>
                       <EmptySpace pref="738" max="32767" attributes="0"/>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                  <Component id="lblActoMedico" alignment="0" pref="40" max="32767" attributes="0"/>
-                  <Component id="lblFP" alignment="0" max="32767" attributes="0"/>
-=======
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -6910,7 +6867,6 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
               </Group>
             </DimensionLayout>
           </Layout>
@@ -6921,14 +6877,8 @@
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-<<<<<<< HEAD
-                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Acto M&#xe9;dico"/>
-=======
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -6940,14 +6890,8 @@
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-<<<<<<< HEAD
-                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Forma de Pago"/>
-=======
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

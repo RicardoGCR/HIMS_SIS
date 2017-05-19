@@ -44,16 +44,10 @@
                                   <Component id="FA" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="DBEA1" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="DBEA2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-=======
                                       <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                                       <Component id="DBEA2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="otros" min="-2" max="-2" attributes="0"/>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -132,20 +126,6 @@
                       <Component id="OP2" max="32767" attributes="0"/>
                   </Group>
               </Group>
-<<<<<<< HEAD
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="btnTerminaConsulta" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblId" min="-2" pref="257" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="btnbuscar3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-=======
               <Group type="102" alignment="0" attributes="0">
                   <Component id="btnbuscar3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -161,7 +141,6 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
               </Group>
               <Component id="pnlConfirma" alignment="0" max="32767" attributes="0"/>
           </Group>
@@ -198,31 +177,12 @@
                       <Component id="OP4" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btnbuscar1" min="-2" max="-2" attributes="0"/>
-                      <Component id="OP2" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btnbuscar2" min="-2" max="-2" attributes="0"/>
-                      <Component id="OP3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="btnbuscar3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-=======
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
                   <Component id="btnTerminaConsulta" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="pnlConfirma" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                   <Component id="lblId" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  <EmptySpace pref="485" max="32767" attributes="0"/>
-=======
                   <EmptySpace pref="1004" max="32767" attributes="0"/>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
               </Group>
           </Group>
         </DimensionLayout>
@@ -457,8 +417,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnbuscar3ActionPerformed"/>
           </Events>
         </Component>
-<<<<<<< HEAD
-=======
         <Container class="javax.swing.JPanel" name="pnlConfirma">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -579,7 +537,6 @@
             </DimensionLayout>
           </Layout>
         </Container>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="LblTitulo">
@@ -596,11 +553,7 @@
     <Container class="javax.swing.JPanel" name="FA">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-<<<<<<< HEAD
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-=======
           <Color blue="f5" green="f5" red="f8" type="rgb"/>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
         </Property>
       </Properties>
 
@@ -680,7 +633,7 @@
         <Container class="javax.swing.JPanel" name="jPanel13">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="46" green="1a" red="f8" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
 
@@ -709,7 +662,7 @@
                   <Font name="Segoe UI Light" size="22" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Antecedentes Familiares&lt;/html&gt;"/>
               </Properties>
@@ -722,7 +675,7 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b5" green="59" red="9a" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
 
@@ -751,7 +704,7 @@
                   <Font name="Segoe UI Light" size="22" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Antecedentes Obst&#xe9;tricos&lt;/html&gt;"/>
               </Properties>
@@ -764,7 +717,7 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ad" green="44" red="8d" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
 
@@ -793,7 +746,7 @@
                   <Font name="Segoe UI Light" size="22" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Gestaci&#xf3;n anterior&lt;/html&gt;"/>
               </Properties>
@@ -973,10 +926,7 @@
         <Container class="javax.swing.JPanel" name="jPanel22">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="54" green="54" red="de" type="rgb"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[597, 85]"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[597, 85]"/>
@@ -987,13 +937,8 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                      <Component id="lblAP" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-=======
                       <Component id="lblAF1" min="-2" pref="572" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1013,7 +958,7 @@
                   <Font name="Segoe UI Light" size="22" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Antecedentes Personales&lt;/html&gt;"/>
               </Properties>
@@ -1067,10 +1012,7 @@
         <Container class="javax.swing.JPanel" name="jPanel32">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="4f" green="88" red="fa" type="rgb"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[597, 85]"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[597, 85]"/>
@@ -1102,7 +1044,7 @@
                   <Font name="Segoe UI Light" size="22" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Vacunas Previas&lt;/html&gt;"/>
               </Properties>
@@ -2181,8 +2123,6 @@
         </Component>
       </SubComponents>
     </Container>
-<<<<<<< HEAD
-=======
     <Container class="javax.swing.JPanel" name="otros">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -2490,6 +2430,5 @@
         </Container>
       </SubComponents>
     </Container>
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
   </SubComponents>
 </Form>

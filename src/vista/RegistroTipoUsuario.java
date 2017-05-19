@@ -131,7 +131,6 @@ Conexion c=new Conexion();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("SISGESH .::. Tipo de Usuario");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -186,6 +185,7 @@ Conexion c=new Conexion();
         btnguardar.setMnemonic('G');
         btnguardar.setToolTipText("Guardar(Alt+G)");
         btnguardar.setContentAreaFilled(false);
+        btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnguardarActionPerformed(evt);
@@ -197,6 +197,7 @@ Conexion c=new Conexion();
         btnmodificar.setMnemonic('M');
         btnmodificar.setToolTipText("Modificar(Alt+M)");
         btnmodificar.setContentAreaFilled(false);
+        btnmodificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnmodificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmodificarActionPerformed(evt);
@@ -208,6 +209,7 @@ Conexion c=new Conexion();
         btneliminar.setMnemonic('E');
         btneliminar.setToolTipText("Eliminar(Alt+E)");
         btneliminar.setContentAreaFilled(false);
+        btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btneliminarActionPerformed(evt);
@@ -219,6 +221,7 @@ Conexion c=new Conexion();
         btnBuscar.setMnemonic('B');
         btnBuscar.setToolTipText("Buscar(Alt+B)");
         btnBuscar.setContentAreaFilled(false);
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);

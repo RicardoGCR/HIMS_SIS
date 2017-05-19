@@ -24,10 +24,7 @@ import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalCabecera;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEm;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEf;
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEl;
-<<<<<<< HEAD
-=======
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalExamenes;
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFd;
 
 import modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFu;
@@ -55,11 +52,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     public RegistroEmbarazoPrincipal() {
         initComponents();
         QuitarLaBarraTitulo();
-<<<<<<< HEAD
-        this.getContentPane().setBackground(Color.WHITE);
-=======
         this.getContentPane().setBackground(new Color(248,245,245));
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
         OP1.setVisible(true);  
         OP2.setVisible(false);
         OP3.setVisible(false);
@@ -70,12 +63,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         FA.setVisible(true);
         lblId.setVisible(false);
         lblIdActoMedico.setVisible(false);
-<<<<<<< HEAD
-        
-=======
         pnlConfirma.setVisible(false);
         lblFua.setVisible(false);
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
     }
  public void QuitarLaBarraTitulo(){ 
         Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
@@ -674,14 +663,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         lblId = new javax.swing.JTextField();
         btnTerminaConsulta = new javax.swing.JButton();
         btnbuscar3 = new javax.swing.JButton();
-<<<<<<< HEAD
-=======
         pnlConfirma = new javax.swing.JPanel();
         lblConfirma = new javax.swing.JLabel();
         btnSi1 = new javax.swing.JButton();
         btnNo1 = new javax.swing.JButton();
         OP4 = new javax.swing.JPanel();
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
         LblTitulo = new javax.swing.JLabel();
         FA = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -906,8 +892,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             }
         });
 
-<<<<<<< HEAD
-=======
         pnlConfirma.setBackground(new java.awt.Color(232, 76, 61));
 
         lblConfirma.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -977,7 +961,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1002,17 +985,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addComponent(OP3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(OP2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(jPanel1Layout.createSequentialGroup()
-<<<<<<< HEAD
-                .addComponent(btnTerminaConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btnbuscar3)
-                .addGap(0, 0, Short.MAX_VALUE))
-=======
                 .addComponent(btnbuscar3)
                 .addGap(26, 26, 26)
                 .addComponent(OP4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1025,7 +997,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addComponent(pnlConfirma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1052,50 +1023,25 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                         .addComponent(btnbuscar3))
                     .addComponent(OP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-<<<<<<< HEAD
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnbuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnbuscar2)
-                    .addComponent(OP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(btnbuscar3)
-                .addGap(33, 33, 33)
-=======
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
                 .addComponent(btnTerminaConsulta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlConfirma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
                 .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                .addContainerGap(485, Short.MAX_VALUE))
-=======
                 .addContainerGap(1004, Short.MAX_VALUE))
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
         );
 
         LblTitulo.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         LblTitulo.setForeground(new java.awt.Color(51, 51, 51));
         LblTitulo.setText("Filiación y antecedentes");
 
-<<<<<<< HEAD
-        FA.setBackground(new java.awt.Color(255, 255, 255));
-=======
         FA.setBackground(new java.awt.Color(248, 245, 245));
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
 
-        jPanel13.setBackground(new java.awt.Color(248, 26, 70));
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
 
         lblAF.setBackground(new java.awt.Color(255, 255, 255));
         lblAF.setFont(new java.awt.Font("Segoe UI Light", 0, 22)); // NOI18N
-<<<<<<< HEAD
-        lblAF.setForeground(new java.awt.Color(255, 255, 255));
-=======
         lblAF.setForeground(new java.awt.Color(102, 102, 102));
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
         lblAF.setText("<html>&nbsp;&nbsp;&nbsp;&nbsp;Antecedentes Familiares</html>");
         lblAF.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1116,15 +1062,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addComponent(lblAF, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(154, 89, 181));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         lblAO.setBackground(new java.awt.Color(255, 255, 255));
         lblAO.setFont(new java.awt.Font("Segoe UI Light", 0, 22)); // NOI18N
-<<<<<<< HEAD
-        lblAO.setForeground(new java.awt.Color(255, 255, 255));
-=======
         lblAO.setForeground(new java.awt.Color(102, 102, 102));
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
         lblAO.setText("<html>&nbsp;&nbsp;&nbsp;&nbsp;Antecedentes Obstétricos</html>");
         lblAO.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1145,15 +1087,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addComponent(lblAO, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(141, 68, 173));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         lblGA.setBackground(new java.awt.Color(255, 255, 255));
         lblGA.setFont(new java.awt.Font("Segoe UI Light", 0, 22)); // NOI18N
-<<<<<<< HEAD
-        lblGA.setForeground(new java.awt.Color(255, 255, 255));
-=======
         lblGA.setForeground(new java.awt.Color(102, 102, 102));
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
         lblGA.setText("<html>&nbsp;&nbsp;&nbsp;&nbsp;Gestación anterior</html>");
         lblGA.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1275,16 +1213,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addComponent(btnNuevo3, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
         );
 
-<<<<<<< HEAD
-        jPanel22.setBackground(new java.awt.Color(222, 84, 84));
-        jPanel22.setPreferredSize(new java.awt.Dimension(597, 85));
-
-        lblAP.setBackground(new java.awt.Color(255, 255, 255));
-        lblAP.setFont(new java.awt.Font("Segoe UI Light", 0, 22)); // NOI18N
-        lblAP.setForeground(new java.awt.Color(255, 255, 255));
-        lblAP.setText("<html>&nbsp;&nbsp;&nbsp;&nbsp;Antecedentes Personales</html>");
-        lblAP.addMouseListener(new java.awt.event.MouseAdapter() {
-=======
         jPanel22.setBackground(new java.awt.Color(255, 255, 255));
         jPanel22.setPreferredSize(new java.awt.Dimension(597, 85));
 
@@ -1293,7 +1221,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         lblAF1.setForeground(new java.awt.Color(102, 102, 102));
         lblAF1.setText("<html>&nbsp;&nbsp;&nbsp;&nbsp;Antecedentes Personales</html>");
         lblAF1.addMouseListener(new java.awt.event.MouseAdapter() {
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAF1MouseClicked(evt);
             }
@@ -1304,13 +1231,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jPanel22Layout.setHorizontalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel22Layout.createSequentialGroup()
-<<<<<<< HEAD
-                .addComponent(lblAP)
-                .addContainerGap())
-=======
                 .addComponent(lblAF1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1342,20 +1264,12 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             .addComponent(btnNuevo8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-<<<<<<< HEAD
-        jPanel32.setBackground(new java.awt.Color(250, 136, 79));
-=======
         jPanel32.setBackground(new java.awt.Color(255, 255, 255));
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
         jPanel32.setPreferredSize(new java.awt.Dimension(597, 85));
 
         lblVP.setBackground(new java.awt.Color(255, 255, 255));
         lblVP.setFont(new java.awt.Font("Segoe UI Light", 0, 22)); // NOI18N
-<<<<<<< HEAD
-        lblVP.setForeground(new java.awt.Color(255, 255, 255));
-=======
         lblVP.setForeground(new java.awt.Color(102, 102, 102));
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
         lblVP.setText("<html>&nbsp;&nbsp;&nbsp;&nbsp;Vacunas Previas</html>");
         lblVP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2074,8 +1988,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-<<<<<<< HEAD
-=======
         otros.setBackground(new java.awt.Color(248, 245, 245));
 
         jPanel27.setBackground(new java.awt.Color(255, 255, 255));
@@ -2269,7 +2181,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addContainerGap(110, Short.MAX_VALUE))
         );
 
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2290,14 +2201,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                                     .addComponent(FA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(DBEA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                                        .addGap(18, 18, 18)
-                                        .addComponent(DBEA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-=======
                                         .addGap(120, 120, 120)
                                         .addComponent(DBEA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(otros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -2306,10 +2212,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
-                .addGap(0, 0, 0)
-=======
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2455,29 +2357,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_lblEFMouseClicked
 
     private void btnELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnELActionPerformed
-<<<<<<< HEAD
-       RegistroEmbarazoEXL EXL =new RegistroEmbarazoEXL();
-        RegistroEmbarazo.ContenedorTablas.add(EXL);
-        RegistroEmbarazoEXL.lblIdActoMedico.setText(lblIdActoMedico.getText());
-        try {
-            EXL.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ConsultorioExtCarnetPerinatalEl EXL1 = new ConsultorioExtCarnetPerinatalEl();
-        EXL1.ConsultoriosExtEXLListar(lblId.getText()); 
-        
-        RegistroEmbarazoEXL.lblMadreEXL.setText(lblMadre.getText());
-        if (RegistroEmbarazoEXL.lblIdEx.getText().equals("") ){
-                    RegistroEmbarazoEXL.btnGuardar1.setEnabled(true);
-                    RegistroEmbarazoEXL.btneditar.setEnabled(false);
-        }
-
-        RegistroEmbarazoEXL.lblMadreEXL.setText(lblMadre.getText());
-        RegistroEmbarazo.jTabbedPane1.setSelectedIndex(2);
-=======
        examenLaboratorio();
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
     }//GEN-LAST:event_btnELActionPerformed
 
     private void lblELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblELMouseClicked
@@ -2527,11 +2407,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_btnTerminaConsultaActionPerformed
 
     private void btnbuscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar3ActionPerformed
-<<<<<<< HEAD
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbuscar3ActionPerformed
-
-=======
         OP1.setVisible(false);
         OP2.setVisible(false);
         OP3.setVisible(false);
@@ -2590,7 +2465,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         PatologiasMaternas();
     }//GEN-LAST:event_btnPT1MouseClicked
 
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DBEA1;
@@ -2642,14 +2516,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;
-<<<<<<< HEAD
-=======
     private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel34;
     private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel37;
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel42;
     private javax.swing.JPanel jPanel43;

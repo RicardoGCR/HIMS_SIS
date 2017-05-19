@@ -209,7 +209,7 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
         tabla.setRowHeight(30);
     }
     
-    public void hospitalizacionDiagnosticoIngreso(JTable tabla,int preventa){
+    public void hospitalizacionDiagnosticoIngreso(JTable tabla,String preventa){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -220,7 +220,7 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC HOSPITALIZACION_DATOS_CONSULTORIO_EXT ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setInt(1, preventa);
+            cmd.setString(1, preventa);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){

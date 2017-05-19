@@ -39,10 +39,6 @@ public class ConsultorioExtCarnetPerinatalAf implements Serializable {
     private Character estado;
     private String codUsu;
     private int idActoMedico;
-<<<<<<< HEAD
-    
-=======
->>>>>>> 0fe3f63251de54eaaffe28f48ce8fa1bb9ba14e4
     
     
     public void ConsultoriosExtAFListar(String ap_id){

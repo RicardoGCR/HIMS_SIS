@@ -15,6 +15,7 @@ import javax.swing.table.TableRowSorter;
 import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
 import servicios.Conexion;
 import vista.admisionEmergencia.FrmFormatoEmergencia;
+import vista.hospitalizacion.FrmHospitalizacionCajaPreventa;
 
 /**
  *
@@ -474,6 +475,21 @@ public class Caja_Preventa {
         }
         }catch(Exception ex){
             System.out.println("Error: idCajaPreventa: " + ex.getMessage());
+        }
+        return id;
+    }
+    
+    public int CajaPreventaID(){
+        int id = 0;
+        try {
+            String consulta = "EXEC [CAJA_PREVENTA_HOSPITALIZACION_ID]";
+            ResultSet r;
+            r=con.Listar(consulta);
+        if(r.next()){
+               id = r.getInt(1);
+        }
+        }catch(Exception ex){
+            System.out.println("Error: CajaPreventaID: " + ex.getMessage());
         }
         return id;
     }

@@ -53,6 +53,7 @@ Conexion c=new Conexion();
     public frm_LAB_BUSCAR_UNIDAD_MEDIDA_RESULTADO() {
         initComponents();
         c.conectar();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         tb_Unidad_Medida.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         tb_Unidad_Medida.doLayout();
                 setLocationRelativeTo(null);//en el centro
@@ -142,7 +143,6 @@ public void LAB_Muestra_Examen_cargar(){
             btnBuscar = new javax.swing.JButton();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setTitle("SISGESH .::. Búsqueda de Unidades de Medida");
             setAlwaysOnTop(true);
 
             tb_Unidad_Medida.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N

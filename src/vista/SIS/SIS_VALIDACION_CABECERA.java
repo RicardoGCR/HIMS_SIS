@@ -142,6 +142,8 @@ DefaultTableModel m, msb,m2, m3;
             }
         ));
         tb_ReglaVal.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tb_ReglaVal.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tb_ReglaVal.setSelectionForeground(new java.awt.Color(163, 89, 3));
         tb_ReglaVal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tb_ReglaValKeyPressed(evt);
@@ -568,7 +570,8 @@ DefaultTableModel m, msb,m2, m3;
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void txtNumeroReglaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroReglaKeyReleased
-        convertiraMayusculasEnJtextfield(txtNumeroRegla);
+        txtNumeroRegla.setText(txtNumeroRegla.getText().toUpperCase());
+        //convertiraMayusculasEnJtextfield(txtNumeroRegla);
     
     }//GEN-LAST:event_txtNumeroReglaKeyReleased
 
@@ -777,6 +780,9 @@ DefaultTableModel m, msb,m2, m3;
     public void deshabilitar(){
         txtNumeroRegla.setEnabled(false);
         txtDescripcionRegla.setEnabled(false);
+        btnguardar.setEnabled(false);
+        btnmodificar.setEnabled(false);
+        btneliminar.setEnabled(false);
     }
     
     public void limpiar(){

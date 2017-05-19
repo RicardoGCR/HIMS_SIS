@@ -1,5 +1,4 @@
 /*
-    YAMILA ROCCA RUIZ
  */
 package modelos;
 

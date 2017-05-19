@@ -1119,6 +1119,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                 
                     if(cnvd.DetalleVenta()==true){
                          Detalle();
+                         PreventaHOSDET();
                            cargareliminar3.setVisible(true);   
                            cargareliminar3.setBackground(new Color(0,153,102)); 
                            Mensaje4.setText("Datos Guardados de forma correcta");
@@ -6265,7 +6266,7 @@ if(tgp==1){
     }
     if(tgH==1){
         GuardarDetalle();
-        PreventaHOSDET();
+        
         
      
     }

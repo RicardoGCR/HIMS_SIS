@@ -37,6 +37,8 @@ public class LAB_Solicitud_Inv_Bact {
     private String horaSoli;
     private String idHcSolicita;
     private String nombres_pac_solicita;
+    private String telf_solicita;
+    private String cel_solicita;
     private String fechaObtencionMuestra;
     private String horaObtencionMuestra;
     private String calidadMuestra;
@@ -111,6 +113,34 @@ public class LAB_Solicitud_Inv_Bact {
             cmd.setString(13, getPruebaSens());
             cmd.setString(14, getFactoresriesgoTB());
             cmd.setString(15, getNomUsu());
+ 
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
+       
+       public boolean LAB_Recep_Inv_Bact(){
+        boolean resp = false;
+        try{
+            String sql = "exec sp_RECEPCION_INV_BACT ?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCodigo());
+            cmd.setString(2, getIdHcSolicita());
+            cmd.setString(3, getNombres_pac_solicita());
+            cmd.setString(4, getTelf_solicita());
+            cmd.setString(5, getCel_solicita());
+            cmd.setString(6, getCalidadMuestra());
+            cmd.setString(7, getObservaciones());
+            cmd.setString(8, getNomUsuRecp());
  
             if(!cmd.execute())
             {
@@ -630,6 +660,34 @@ public class LAB_Solicitud_Inv_Bact {
      */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
+    }
+
+    /**
+     * @return the telf_solicita
+     */
+    public String getTelf_solicita() {
+        return telf_solicita;
+    }
+
+    /**
+     * @param telf_solicita the telf_solicita to set
+     */
+    public void setTelf_solicita(String telf_solicita) {
+        this.telf_solicita = telf_solicita;
+    }
+
+    /**
+     * @return the cel_solicita
+     */
+    public String getCel_solicita() {
+        return cel_solicita;
+    }
+
+    /**
+     * @param cel_solicita the cel_solicita to set
+     */
+    public void setCel_solicita(String cel_solicita) {
+        this.cel_solicita = cel_solicita;
     }
        
        

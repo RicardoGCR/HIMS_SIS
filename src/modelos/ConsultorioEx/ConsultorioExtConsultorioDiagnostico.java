@@ -14,9 +14,14 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+
 import servicios.Conexion;
 import vista.ConsultorioEx.ConsultorioExtDiagnostico;
 
+import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
+import servicios.Conexion;
+import vista.ConsultorioEx.ConsultorioExtDiagnostico;
+import vista.hospitalizacion.FrmHospitalizacionEpicrisis;
 
 /**
  *
@@ -27,7 +32,7 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
-    
+
     private int idDx;
     private int idConsultorioEx;
     private int ID_CIE10;
@@ -196,7 +201,50 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
         tabla.setRowHeight(35);
     }
     
+
+    public void formatoTablaHospitalizacionDiagnosticoIngreso(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(10);//id 
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(100);//codigo cie10
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(660);//descripcion cie10
+        TableColumn columna = tabla.getColumnModel().getColumn(0);//
+            columna.setMaxWidth(0);
+            columna.setMinWidth(0);
+            columna.setPreferredWidth(0);
+            tabla.doLayout();
+        tabla.setRowHeight(30);
+    }
     
+    public void hospitalizacionDiagnosticoIngreso(JTable tabla,String preventa){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID","Código","Descripción","Info"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[4];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC HOSPITALIZACION_DATOS_CONSULTORIO_EXT ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, preventa);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                FrmHospitalizacionEpicrisis.txtEnfActual.setText(r.getString(4));
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaHospitalizacionDiagnosticoIngreso(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: hospitalizacionDiagnosticoIngreso: " + e.getMessage());
+        }
+    }
 
     public ConsultorioExtConsultorioDiagnostico() {
         Conexion con = new Conexion();

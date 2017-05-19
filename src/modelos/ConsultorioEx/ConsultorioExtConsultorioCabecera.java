@@ -39,6 +39,7 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
     private String estado;
     private String nomPc;
     private String codUsu;
+    private String Triaje_id;
     
     
     
@@ -66,15 +67,39 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
         return resp;
     }
     
+    
+        public boolean mantenimientoCXTriaje(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CONSULTORIO_EXT_MANTENIMIENTO_TRIAJE_ACTUALIZAR ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getTriaje_id());
+            cmd.setString(2, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoAdmisionemergenciaTriaje: " + ex.getMessage());
+        }
+        return resp;
+    }
+        
+    
     public void TriajeListarReporte(String nhc,JTable tabla,String tipo){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
             String titulos[]={"ID","Acto Médico","DNI","N° H.C.","Paciente",
-                "Fecha","Edad","FC","FR","PA","Peso","Tº","Talla","IDM","idhc"};
+                "Fecha","Edad","FC","FR","PA","Peso","Tº","Talla","IDM","idhc","Cod_det","Nº Atención","Mèdico","Turno","AM"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[15];
+            String fila[]=new String[20];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="exec CONSULTORIO_EXT_TRIAJE_LISTAR_CONSULTORIO ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -97,7 +122,12 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
                 fila[11]=r.getString(12); // 
                 fila[12]=r.getString(13); // 
                 fila[13]=r.getString(14); // 
-                fila[14]=r.getString(15); // 
+                fila[14]=r.getString(15); //
+                fila[15]=r.getString(16); // 
+                fila[16]=r.getString(17); // 
+                fila[17]=r.getString(18); // 
+                fila[18]=r.getString(19); //
+                fila[19]=r.getString(20); //
 
                     m.addRow(fila);
                     c++;
@@ -115,13 +145,14 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
     public void formatoTablaTriajeReporte(JTable tabla){
         tabla.getColumnModel().getColumn(0).setMinWidth(0);
         tabla.getColumnModel().getColumn(0).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//nhc
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);//nhc
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(100);//nhc
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(100);//nhc
         tabla.getColumnModel().getColumn(3).setMinWidth(0);
         tabla.getColumnModel().getColumn(3).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(4).setPreferredWidth(240);//paciente
         tabla.getColumnModel().getColumn(5).setPreferredWidth(100);//fecha de ingreso
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);//fecha de ingreso 
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0);
         tabla.getColumnModel().getColumn(7).setMinWidth(0);
         tabla.getColumnModel().getColumn(7).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(8).setMinWidth(0);
@@ -138,13 +169,22 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
         tabla.getColumnModel().getColumn(13).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(14).setMinWidth(0);
         tabla.getColumnModel().getColumn(14).setMaxWidth(0); 
+        
+        tabla.getColumnModel().getColumn(15).setMinWidth(0);
+        tabla.getColumnModel().getColumn(15).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(16).setPreferredWidth(100);//fecha de ingreso
+        tabla.getColumnModel().getColumn(17).setMinWidth(0);
+        tabla.getColumnModel().getColumn(17).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(19).setMinWidth(0);
+        tabla.getColumnModel().getColumn(19).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(18).setPreferredWidth(150);//fecha de ingreso
 
         TableColumn columna = tabla.getColumnModel().getColumn(0);//
             columna.setMaxWidth(1);
             columna.setMinWidth(1);
             columna.setPreferredWidth(1);
             tabla.doLayout();
-        tabla.setRowHeight(30);
+        tabla.setRowHeight(40);
     }
     
     
@@ -153,10 +193,10 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Paciente"};
+            String titulos[]={"Nº","Paciente"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[1];
+            String fila[]=new String[2];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="exec CONSULTORIO_EXT_TRIAJE_LISTAR_SOLO_NOMBRES_CONSULTORIO ";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -164,6 +204,7 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
             int c=1;
             while(r.next()){
                 fila[0]=r.getString(1); // 
+                fila[1]=r.getString(2); // 
 
                     m.addRow(fila);
                     c++;
@@ -196,7 +237,8 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
     }  
     
     public void formatoTablaTriajeVer(JTable tabla){;
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(100);//nhc
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(10);//nhc
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(170);//nhc
         tabla.setRowHeight(30);
     }
     
@@ -298,7 +340,13 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
     public void setId_ActoMedico(int id_ActoMedico) {
         this.id_ActoMedico = id_ActoMedico;
     }
-    
 
+    public String getTriaje_id() {
+        return Triaje_id;
+    }
+
+    public void setTriaje_id(String Triaje_id) {
+        this.Triaje_id = Triaje_id;
+    }
     
 }

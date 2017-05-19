@@ -15,7 +15,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import modelos.ConsultorioEx.CONSULTORIOEXTCONSULTORIOOrden;
 import modelos.ConsultorioEx.ConsultorioExtConsultorioAntecedentesExf;
+import modelos.ConsultorioEx.ConsultorioExtConsultorioDiagnostico;
+import modelos.ConsultorioEx.ConsultorioExtConsultorioMotivo;
+import modelos.ConsultorioEx.ConsultorioExtConsultorioTratamiento;
 
 /**
  *
@@ -98,6 +102,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         btnSi1 = new javax.swing.JButton();
         btnNo1 = new javax.swing.JButton();
         lblIdCabecera = new javax.swing.JLabel();
+        lblHC = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -176,8 +181,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPaciente)
                     .addComponent(lblDNI)
-                    .addComponent(lblIdCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 321, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(lblIdCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblHC, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTerminarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -194,7 +202,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblDNI)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblIdCabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIdCabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblHC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(lblTerminarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -329,21 +339,54 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         ConsultorioExtMotivo motivo =new ConsultorioExtMotivo();
         ConsultorioExt.panelOpciones.add(motivo);
+        ConsultorioExtMotivo.lblID.setText(lblIdCabecera.getText());
         try {
             motivo.setMaximum(true);
         } catch (PropertyVetoException ex) {
             Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        ConsultorioExtConsultorioMotivo Mot = new ConsultorioExtConsultorioMotivo();
+        Mot.ConsultoriosExtMotivoListar(lblIdCabecera.getText()); 
+
+        if (ConsultorioExtMotivo.lblIDM.getText().equals("") ){
+            ConsultorioExtMotivo.btnGuardar.setEnabled(true);
+            ConsultorioExtMotivo.btneditar.setEnabled(false);
+            
+        }
+        if (!ConsultorioExtMotivo.lblIDM.getText().equals("") ){
+            
+            ConsultorioExtMotivo.txtMotivo.setEditable(false);
+            ConsultorioExtMotivo.txtResultado.setEditable(false);
+            ConsultorioExtMotivo.txtAntecedentes.setEditable(false);
+        }
+        
         ConsultorioExt.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         ConsultorioExtDiagnostico diag =new ConsultorioExtDiagnostico();
         ConsultorioExt.panelOpciones.add(diag);
+        ConsultorioExtDiagnostico.lblID.setText(lblIdCabecera.getText());
         try {
             diag.setMaximum(true);
         } catch (PropertyVetoException ex) {
             Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        ConsultorioExtConsultorioDiagnostico Diag = new ConsultorioExtConsultorioDiagnostico();
+        Diag.ConsultoriosExtDiagnosticoListar(lblIdCabecera.getText()); 
+
+        if (ConsultorioExtDiagnostico.lblIDDX.getText().equals("") ){
+            ConsultorioExtDiagnostico.btnGuardar.setEnabled(true);
+            ConsultorioExtDiagnostico.btneditar.setEnabled(false);
+            
+        }
+        if (!ConsultorioExtDiagnostico.lblIDDX.getText().equals("") ){
+            
+            ConsultorioExtDiagnostico.btnBuscarCIE10.setEnabled(false);
+            ConsultorioExtDiagnostico.cbxTipod.setEnabled(false);
+            ConsultorioExtDiagnostico.txtInfo.setEditable(false);
         }
         ConsultorioExt.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jLabel10MouseClicked
@@ -351,21 +394,49 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         ConsultorioExtOrdenes orden =new ConsultorioExtOrdenes();
         ConsultorioExt.panelOpciones.add(orden);
+        ConsultorioExtOrdenes.lblID.setText(lblIdCabecera.getText());
+        ConsultorioExtOrdenes.lblid_hc.setText(lblHC.getText());
         try {
             orden.setMaximum(true);
         } catch (PropertyVetoException ex) {
             Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        CONSULTORIOEXTCONSULTORIOOrden OR = new CONSULTORIOEXTCONSULTORIOOrden();
+        OR.CONSULTORIO_EXT_LISTAR_CONSULTORIO_ORDEN_RECETADEAS(lblIdCabecera.getText(),ConsultorioExtOrdenes.tbPatologias1); 
+
+        if (ConsultorioExtOrdenes.lblIDO.getText().equals("") ){
+            ConsultorioExtOrdenes.btnGuardar.setEnabled(true);
+            ConsultorioExtOrdenes.btneditar.setEnabled(false);
+            
+        }
+       
+        
+        
         ConsultorioExt.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-       ConsultorioExtTratamiento trata =new ConsultorioExtTratamiento();
+        ConsultorioExtTratamiento trata =new ConsultorioExtTratamiento();
         ConsultorioExt.panelOpciones.add(trata);
+        ConsultorioExtTratamiento.lblID.setText(lblIdCabecera.getText());
         try {
             trata.setMaximum(true);
         } catch (PropertyVetoException ex) {
             Logger.getLogger(RegistroSeguimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ConsultorioExtConsultorioTratamiento trat = new ConsultorioExtConsultorioTratamiento();
+        trat.ConsultoriosExtTratamientoListar(lblIdCabecera.getText()); 
+
+        if (ConsultorioExtTratamiento.lblIDT.getText().equals("") ){
+            ConsultorioExtTratamiento.btnGuardar.setEnabled(true);
+            ConsultorioExtTratamiento.btneditar.setEnabled(false);
+            
+        }
+        if (!ConsultorioExtTratamiento.lblIDT.getText().equals("") ){
+            
+            ConsultorioExtTratamiento.txtIndicaciones.setEditable(false);
+            ConsultorioExtTratamiento.txtOtras.setEditable(false);
         }
         ConsultorioExt.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jLabel13MouseClicked
@@ -373,6 +444,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         ConsultorioExtProxima prox =new ConsultorioExtProxima();
         ConsultorioExt.panelOpciones.add(prox);
+        ConsultorioExtProxima.lblID.setText(lblIdCabecera.getText());
+        ConsultorioExtProxima.lblid_hc.setText(lblHC.getText());
         try {
             prox.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -387,13 +460,15 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
     private void btnSi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSi1ActionPerformed
        this.dispose();
-        ConsultorioExtLista.jPanel3.setBackground(new Color(255,153,51));
+        ConsultorioExtLista.jPanel3.setBackground(new Color(43,43,43));  
+        ConsultorioExtLista.panelTriaje.setVisible(false);
         ConsultorioExt.lblHC.setText("");
         ConsultorioExt.btnActualizar.setVisible(true); 
         ConsultorioExt.btnLista.setVisible(false);
         ConsultorioExt.btnVer.setVisible(false);
         ConsultorioExt.btnCerrar.setVisible(false);
         ConsultorioExt.jPanel7.setVisible(false);
+        
         ConsultorioExt.jTabbedPane1.setSelectedIndex(0);
         ConsultorioExt.jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_btnSi1ActionPerformed
@@ -427,6 +502,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JPanel jPanel4;
     public static javax.swing.JLabel lblDNI;
+    public static javax.swing.JLabel lblHC;
     public static javax.swing.JLabel lblIdCabecera;
     public static javax.swing.JLabel lblPaciente;
     public static javax.swing.JLabel lblTerminarConsulta;

@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import servicios.Conexion;
+import vista.Caja.Caja_Pagos;
 /**
  *
  * @author MYS1
@@ -41,6 +42,61 @@ private String DURACION ;
 
 ////////////////////////////////////////////////////
 Conexion con = new Conexion();
+
+public void ConsultoriosExtPREVENTAListar(String ap_id){
+        String consulta="";
+        try {
+            consulta="CAJA_ACTOMEDICO_EXISTENTE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, ap_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    
+                Caja_Pagos.AM.setText(r.getString(1));    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: LISTAR ActoMedico Existente  " + e.getMessage());
+        }
+    }
+
+public void ConsultoriosExtPREVENTAListarCEX(String ap_id){
+        String consulta="";
+        try {
+            consulta="CAJA_ACTOMEDICO_EXISTENTE_CEX ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, ap_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    
+                Caja_Pagos.AM.setText(r.getString(1));    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: LISTAR ActoMedico Existente  " + e.getMessage());
+        }
+    }
+
+
+        public void Caja_Id_Preventa(String ap_id){
+        String consulta="";
+        try {
+            consulta="Caja_Verificar_PreVenta ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, ap_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    
+                Caja_Pagos.lblIdPreventa.setText(r.getString(1));    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: LISTAR AP  " + e.getMessage());
+        }
+    }
 
 public boolean NuevoActoMedico()
         {
@@ -263,6 +319,8 @@ public boolean modificarAnulacion(){
         }
         return resp;
     }
+
+
 
  public Caja_NuevaVenta(){
         Conexion con = new Conexion();

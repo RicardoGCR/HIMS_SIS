@@ -33,11 +33,11 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         DimensionBarra = Barra.getPreferredSize(); 
         Barra.setSize(0,0); 
         Barra.setPreferredSize(new Dimension(0,0)); 
-        this.getContentPane().setBackground(new Color(242,242,242)); 
+        this.getContentPane().setBackground(new Color(255,255,255)); 
         repaint();   
     }
         
-        public void Guardar( ){
+    public void Guardar( ){
         
     ConsultorioExtConsultorioAntecedentesExf CXRsR= new ConsultorioExtConsultorioAntecedentesExf();
     ConsultorioExtConsultorioAntecedentesExf CXRsR2= new ConsultorioExtConsultorioAntecedentesExf();
@@ -58,7 +58,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 if(CXRsR.mantenimientoConsultorioExtAntecedentes(lblMant.getText())==true){
                     if (lblMant.getText().equals("I")){
                     mensaje.setVisible(true);
-                    mensaje.setBackground(new Color(33,115,70)); 
+                    mensaje.setBackground(new Color(39,174,97)); 
                     men.setText("Datos Guardados de forma correcta");
                     b.setText("OK");
                     b.setVisible(true);
@@ -74,7 +74,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     if (lblMant.getText().equals("U")){
                    
                     mensaje.setVisible(true);
-                    mensaje.setBackground(new Color(33,115,70)); 
+                    mensaje.setBackground(new Color(39,174,97)); 
                     men.setText("Datos Actualizados de forma correcta");
                     b1.setText("OK");
                     b1.setVisible(true);
@@ -152,12 +152,13 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         setBorder(javax.swing.BorderFactory.createCompoundBorder());
         setVisible(true);
 
-        jPanel2.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Quirurgico");
 
+        txtQuirurgico.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtQuirurgico.setForeground(new java.awt.Color(102, 102, 102));
         txtQuirurgico.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -173,6 +174,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Patologicos");
 
+        txtPatologico.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtPatologico.setForeground(new java.awt.Color(102, 102, 102));
         txtPatologico.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -188,7 +190,13 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Obstetricos");
 
+        txtObstetrico.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtObstetrico.setForeground(new java.awt.Color(102, 102, 102));
+        txtObstetrico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtObstetricoMouseClicked(evt);
+            }
+        });
         txtObstetrico.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtObstetricoKeyReleased(evt);
@@ -200,14 +208,13 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jScrollPane3.setViewportView(txtObstetrico);
 
         txtAf1.setEditable(false);
-        txtAf1.setBackground(new java.awt.Color(255, 255, 255));
+        txtAf1.setBackground(new java.awt.Color(255, 51, 51));
         txtAf1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtAf1.setForeground(new java.awt.Color(102, 102, 102));
+        txtAf1.setForeground(new java.awt.Color(255, 255, 255));
         txtAf1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtAf1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtAf1.setBorder(null);
         txtAf1.setPreferredSize(new java.awt.Dimension(18, 18));
-        txtAf1.setSelectedTextColor(new java.awt.Color(102, 102, 102));
-        txtAf1.setSelectionColor(new java.awt.Color(255, 255, 255));
+        txtAf1.setSelectionColor(new java.awt.Color(255, 51, 51));
         txtAf1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtAf1CaretUpdate(evt);
@@ -227,6 +234,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Alergicos");
 
+        txtAlergico.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtAlergico.setForeground(new java.awt.Color(102, 102, 102));
         txtAlergico.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -242,6 +250,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Familiares");
 
+        txtFamiliares.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtFamiliares.setForeground(new java.awt.Color(102, 102, 102));
         txtFamiliares.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -257,6 +266,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Otros");
 
+        txtOtros.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtOtros.setForeground(new java.awt.Color(102, 102, 102));
         txtOtros.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -337,7 +347,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 .addGap(0, 0, 0))
         );
 
-        mensaje.setBackground(new java.awt.Color(33, 115, 70));
+        mensaje.setBackground(new java.awt.Color(39, 174, 97));
 
         men.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         men.setForeground(new java.awt.Color(255, 255, 255));
@@ -545,7 +555,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_txtQuirurgicoKeyTyped
 
     private void txtPatologicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatologicoKeyReleased
-        // TODO add your handling code here:
+        txtPatologico.setText(txtPatologico.getText().toUpperCase());
     }//GEN-LAST:event_txtPatologicoKeyReleased
 
     private void txtPatologicoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatologicoKeyTyped
@@ -553,7 +563,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_txtPatologicoKeyTyped
 
     private void txtObstetricoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtObstetricoKeyReleased
-        // TODO add your handling code here:
+        txtObstetrico.setText(txtObstetrico.getText().toUpperCase());
     }//GEN-LAST:event_txtObstetricoKeyReleased
 
     private void txtObstetricoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtObstetricoKeyTyped
@@ -581,7 +591,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_txtAf1MouseClicked
 
     private void txtAlergicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAlergicoKeyReleased
-        // TODO add your handling code here:
+        txtAlergico.setText(txtAlergico.getText().toUpperCase());
     }//GEN-LAST:event_txtAlergicoKeyReleased
 
     private void txtAlergicoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAlergicoKeyTyped
@@ -589,7 +599,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_txtAlergicoKeyTyped
 
     private void txtFamiliaresKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFamiliaresKeyReleased
-        // TODO add your handling code here:
+        txtFamiliares.setText(txtFamiliares.getText().toUpperCase());
     }//GEN-LAST:event_txtFamiliaresKeyReleased
 
     private void txtFamiliaresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFamiliaresKeyTyped
@@ -597,7 +607,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_txtFamiliaresKeyTyped
 
     private void txtOtrosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOtrosKeyReleased
-        // TODO add your handling code here:
+        txtOtros.setText(txtOtros.getText().toUpperCase());
     }//GEN-LAST:event_txtOtrosKeyReleased
 
     private void txtOtrosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOtrosKeyTyped
@@ -637,6 +647,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
          
          
     }//GEN-LAST:event_btneditarActionPerformed
+
+    private void txtObstetricoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtObstetricoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtObstetricoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

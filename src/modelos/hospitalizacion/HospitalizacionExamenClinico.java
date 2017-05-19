@@ -439,7 +439,7 @@ public class HospitalizacionExamenClinico {
         tabla.setRowHeight(30);
     }
     
-    public void listarDiagnosticosEpicrisis(int id,JTable tabla){
+    public void listarDiagnosticosEpicrisis(String id,JTable tabla){
     String consulta="";
         try {
                 tabla.setModel(new DefaultTableModel());
@@ -450,7 +450,7 @@ public class HospitalizacionExamenClinico {
                 //int index = cbxTipoBusqueda.getSelectedIndex();
                 consulta="EXEC HOSPITALIZACION_DATOS_EXAMEN_CLINICO ?";
                 PreparedStatement cmd = getCn().prepareStatement(consulta);
-                cmd.setInt(1, id);
+                cmd.setString(1, id);
                 ResultSet r= cmd.executeQuery();
                 int c=1;
                 while(r.next()){

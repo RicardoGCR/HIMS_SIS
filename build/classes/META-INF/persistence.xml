@@ -44,8 +44,19 @@
     <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalExamenes</class>
     <class>modelos.ConsultorioEx.ConsultorioExtConsultorioCabecera</class>
     <class>modelos.ConsultorioEx.ConsultorioExtConsultorioAntecedentesExf</class>
+<<<<<<< HEAD
+    <class>modelos.ConsultorioEx.ConsultorioExtConsultorioMotivo</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtConsultorioDiagnostico</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtConsultorioTratamiento</class>
+    <class>modelos.ConsultorioEx.CONSULTORIOEXTCONSULTORIOOrden</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtConsultorioCita</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtConsultorioCita_1</class>
+=======
     <class>modelos.hospitalizacion.HospitalizacionNotaEnfermeriaProcedimiento</class>
     <class>modelos.hospitalizacion.HospitalizacionNotaEnfermeria</class>
+    <class>modelos.hospitalizacion.HospitalizacionEpicrisis</class>
+    <class>modelos.hospitalizacion.HospitalizacionEpicrisisDiagnosticosEgreso</class>
+>>>>>>> cf3f2b42ebe07b1ad21b9fdcb7d535255fb8ae32
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://192.168.1.36:1433;databaseName=SISGESH_NET"/>
       <property name="javax.persistence.jdbc.password" value="sistemas"/>

@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+<<<<<<< HEAD
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/D:/pry/SISGESH/src/vista/RX_EC/RX_EC_EXAMEN_CAB.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/RX_EC/RX_EC_BUSCAR_EXAMEN_C.java</file>
+        </group>
+>>>>>>> c9281d3b18d08b12eb688913c05614f4ea9311b9
     </open-files>
+=======
+>>>>>>> 813da595ed573e32178e32a1eeb2e0dc96ad104c
 </project-private>

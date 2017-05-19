@@ -415,9 +415,8 @@
               <Component id="pnlCabecera" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
               <Component id="pnlMensaje" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
           </Group>
           <Component id="jPanel8" pref="740" max="32767" attributes="0"/>
       </Group>
@@ -522,8 +521,9 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/iconos/B&#xfa;squeda-32.png"/>
             </Property>
+            <Property name="mnemonic" type="int" value="66"/>
             <Property name="text" type="java.lang.String" value="Buscar"/>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="toolTipText" type="java.lang.String" value="Buscar Paciente (Alt + B)"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -547,7 +547,9 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/iconos/Documento-32.png"/>
             </Property>
+            <Property name="mnemonic" type="int" value="78"/>
             <Property name="text" type="java.lang.String" value="Nuevo"/>
+            <Property name="toolTipText" type="java.lang.String" value="Nuevo Registro (Alt + N)"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -576,7 +578,9 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/iconos/Guardar-32.png"/>
             </Property>
+            <Property name="mnemonic" type="int" value="71"/>
             <Property name="text" type="java.lang.String" value="Guardar"/>
+            <Property name="toolTipText" type="java.lang.String" value="Guardar Registro (Alt + G)"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -605,7 +609,9 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/iconos/Basura-32.png"/>
             </Property>
+            <Property name="mnemonic" type="int" value="69"/>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
+            <Property name="toolTipText" type="java.lang.String" value="Eliminar Registro (Alt + E)"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -718,9 +724,8 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Component id="btnAgregarProcedimiento" min="-2" pref="722" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnAgregarProcedimiento" min="-2" pref="741" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -742,9 +747,9 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/iconos/Document-32.png"/>
                 </Property>
-                <Property name="mnemonic" type="int" value="66"/>
+                <Property name="mnemonic" type="int" value="80"/>
                 <Property name="text" type="java.lang.String" value="Agregar Procedimiento"/>
-                <Property name="toolTipText" type="java.lang.String" value="Buscar Paciente (Alt + B)"/>
+                <Property name="toolTipText" type="java.lang.String" value="Agregar Procedimiento(Alt + P)"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -769,6 +774,9 @@
             <Component class="javax.swing.JEditorPane" name="txtAnotacionesMedicas">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="0"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtAnotacionesMedicasKeyReleased"/>

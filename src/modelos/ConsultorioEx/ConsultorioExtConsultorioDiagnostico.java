@@ -14,11 +14,14 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+
+import servicios.Conexion;
+import vista.ConsultorioEx.ConsultorioExtDiagnostico;
+
 import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
 import servicios.Conexion;
 import vista.ConsultorioEx.ConsultorioExtDiagnostico;
 import vista.hospitalizacion.FrmHospitalizacionEpicrisis;
-
 
 /**
  *
@@ -29,6 +32,7 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
+
     private int idDx;
     private int idConsultorioEx;
     private int ID_CIE10;
@@ -197,6 +201,7 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
         tabla.setRowHeight(35);
     }
     
+
     public void formatoTablaHospitalizacionDiagnosticoIngreso(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(10);//id 
         tabla.getColumnModel().getColumn(1).setPreferredWidth(100);//codigo cie10
@@ -209,7 +214,7 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
         tabla.setRowHeight(30);
     }
     
-    public void hospitalizacionDiagnosticoIngreso(JTable tabla,int preventa){
+    public void hospitalizacionDiagnosticoIngreso(JTable tabla,String preventa){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -220,7 +225,7 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC HOSPITALIZACION_DATOS_CONSULTORIO_EXT ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
-            cmd.setInt(1, preventa);
+            cmd.setString(1, preventa);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -240,7 +245,7 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
             System.out.println("Error: hospitalizacionDiagnosticoIngreso: " + e.getMessage());
         }
     }
-    
+
     public ConsultorioExtConsultorioDiagnostico() {
         Conexion con = new Conexion();
         cn = con.conectar();

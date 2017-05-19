@@ -10,14 +10,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -27,44 +19,24 @@ import servicios.Conexion;
 import vista.hospitalizacion.FrmHospitalizacionEpicrisis;
 import vista.hospitalizacion.FrmHospitalizacionNotaEnfermeria;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "HOSPITALIZACION_EPICRISIS")
-@NamedQueries({
-    @NamedQuery(name = "HospitalizacionEpicrisis.findAll", query = "SELECT h FROM HospitalizacionEpicrisis h")})
 public class HospitalizacionEpicrisis implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "HH_ID")
+    
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private int idPreventa;
     private String codUsu;
     private int hhId;
-    @Column(name = "HH_COMPLICACIONES")
     private String hhComplicaciones;
-    @Column(name = "HH_TIPO_ALTA")
     private String hhTipoAlta;
-    @Column(name = "HH_CONDICION_EGRESO")
     private String hhCondicionEgreso;
-    @Column(name = "HH_PRONOSTICO_ALTA")
     private String hhPronosticoAlta;
-    @Column(name = "HH_INF_MORTALIDAD")
     private String hhInfMortalidad;
-    @Column(name = "FECHA_ACTU")
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "HC_ESTADO")
     private Character hcEstado;
-    @OneToMany(mappedBy = "hospitalizacionEpicrisis")
     private Collection<HospitalizacionEpicrisisDiagnosticosEgreso> hospitalizacionEpicrisisDiagnosticosEgresoCollection;
 
     public boolean mantenimientoHospitalizacionEpicrisis(String tipo)
@@ -191,7 +163,7 @@ public class HospitalizacionEpicrisis implements Serializable {
         formatoTablaEpicrisis(tabla);
     }
     
-    public void listarEpicrisis(String busqueda, JTable tabla){
+    public void listarEpicrisis(String busqueda, JTable tabla,String fechaI,String fechaF){
     String consulta="";
         try {
                 tabla.setModel(new DefaultTableModel());
@@ -202,9 +174,11 @@ public class HospitalizacionEpicrisis implements Serializable {
                 JTable p=new JTable(m);
                 String fila[]=new String[15];
                 //int index = cbxTipoBusqueda.getSelectedIndex();
-                consulta="EXEC HOSPITALIZACION_LISTAR_EPICRISIS_DEL_DIA ?";
+                consulta="EXEC HOSPITALIZACION_LISTAR_EPICRISIS_DEL_DIA ?,?,?";
                 PreparedStatement cmd = getCn().prepareStatement(consulta);
                 cmd.setString(1, busqueda);
+                cmd.setString(2, fechaI);
+                cmd.setString(3, fechaF);
                 ResultSet r= cmd.executeQuery();
                 int c=1;
                 while(r.next()){

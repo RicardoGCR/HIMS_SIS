@@ -8,31 +8,21 @@ package modelos.hospitalizacion;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import java.sql.ResultSet;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 
 /**
  *
  * @author PC02
  */
-@Entity
-@Table(name = "HOSPITALIZACION_EPICRISIS_DIAGNOSTICOS_EGRESO")
-@NamedQueries({
-    @NamedQuery(name = "HospitalizacionEpicrisisDiagnosticosEgreso.findAll", query = "SELECT h FROM HospitalizacionEpicrisisDiagnosticosEgreso h")})
 public class HospitalizacionEpicrisisDiagnosticosEgreso implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "HHD_ID")
+
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
@@ -40,16 +30,10 @@ public class HospitalizacionEpicrisisDiagnosticosEgreso implements Serializable 
     private int idCie10;
     private String codUsu;
     private int hhdId;
-    @Column(name = "FECHA_ACTU")
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "HC_ESTADO")
     private Character hcEstado;
-    @JoinColumn(name = "HH_ID", referencedColumnName = "HH_ID")
-    @ManyToOne
     private HospitalizacionEpicrisis hospitalizacionEpicrisis;
 
     public boolean mantenimientoHospitalizacionEpicrisisDiagnosticosEgreso(String tipo)
@@ -73,6 +57,50 @@ public class HospitalizacionEpicrisisDiagnosticosEgreso implements Serializable 
             System.out.println("Error: mantenimientoHospitalizacionEpicrisisDiagnosticosEgreso: " + ex.getMessage());
         }
         return resp;
+    }
+    
+    public void formatoDiagnosticosEgreso(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(40);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(500);
+//        COLUMNAS OCULTAS
+//        TableColumn columna = tabla.getColumnModel().getColumn(0);
+//            columna.setMaxWidth(0);
+//            columna.setMinWidth(0);
+//            columna.setPreferredWidth(0);
+//            tabla.doLayout();
+        tabla.setRowHeight(30);
+    }
+    
+    public void listarDiagnosticosEgreso(String id, JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"ID","Código CIE 10","Diagnóstico"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[3];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC HOSPITALIZACION_LISTAR_EPICRISIS_DIAGNOSTICOS_EGRESO ?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, id);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoDiagnosticosEgreso(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarDiagnosticosEgreso: " + e.getMessage());
+        }
     }
     
     public HospitalizacionEpicrisisDiagnosticosEgreso() {

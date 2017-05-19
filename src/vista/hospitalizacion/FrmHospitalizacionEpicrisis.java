@@ -43,13 +43,15 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
     Connection conexion=null;
     Conexion c = new Conexion();
     Thread h1;
+    AdmisionEmergenciaCabecera admi = new AdmisionEmergenciaCabecera();
     public FrmHospitalizacionEpicrisis() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
         pnlMensaje.setVisible(false);
         h1 = new Thread(this);
-        h1.start();Calendar cal=Calendar.getInstance(); 
+        h1.start();
+        Calendar cal=Calendar.getInstance(); 
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
         lblFechaE.setText(fechaActual());
         lblMant.setVisible(false);
@@ -274,9 +276,6 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
                 jLabel6 = new javax.swing.JLabel();
                 lblusu1 = new javax.swing.JLabel();
                 btnActualizar = new javax.swing.JButton();
-                jPanel9 = new javax.swing.JPanel();
-                txtBuscarEpicrisis = new javax.swing.JTextField();
-                T3 = new javax.swing.JButton();
                 jPanel38 = new javax.swing.JPanel();
                 jLabel34 = new javax.swing.JLabel();
                 btnImprimir = new javax.swing.JButton();
@@ -286,6 +285,12 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
                         return false; //Disallow the editing of any cell
                     }};
                     jPanel11 = new javax.swing.JPanel();
+                    dtFechaI = new com.toedter.calendar.JDateChooser();
+                    dtFechaF = new com.toedter.calendar.JDateChooser();
+                    chkHoy = new javax.swing.JCheckBox();
+                    btnBuscarEpicrisis = new javax.swing.JButton();
+                    jPanel6 = new javax.swing.JPanel();
+                    txtBuscarEpicrisis = new javax.swing.JTextField();
                     jPanel1 = new javax.swing.JPanel();
                     jLabel1 = new javax.swing.JLabel();
                     lblusu = new javax.swing.JLabel();
@@ -668,7 +673,6 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
                                 );
 
                                 FrmReporteEpicrisis.setMinimumSize(new java.awt.Dimension(1300, 650));
-                                FrmReporteEpicrisis.setPreferredSize(new java.awt.Dimension(1300, 650));
                                 FrmReporteEpicrisis.setResizable(false);
 
                                 jPanel5.setBackground(new java.awt.Color(255, 73, 7));
@@ -699,49 +703,6 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
                                         btnActualizarActionPerformed(evt);
                                     }
                                 });
-
-                                jPanel9.setBackground(new java.awt.Color(255, 73, 7));
-
-                                txtBuscarEpicrisis.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-                                txtBuscarEpicrisis.setForeground(new java.awt.Color(51, 51, 51));
-                                txtBuscarEpicrisis.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-                                txtBuscarEpicrisis.setToolTipText("");
-                                txtBuscarEpicrisis.setBorder(null);
-                                txtBuscarEpicrisis.addCaretListener(new javax.swing.event.CaretListener() {
-                                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                                        txtBuscarEpicrisisCaretUpdate(evt);
-                                    }
-                                });
-
-                                T3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
-                                T3.setToolTipText("");
-                                T3.setContentAreaFilled(false);
-                                T3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                                T3.addActionListener(new java.awt.event.ActionListener() {
-                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                        T3ActionPerformed(evt);
-                                    }
-                                });
-
-                                javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-                                jPanel9.setLayout(jPanel9Layout);
-                                jPanel9Layout.setHorizontalGroup(
-                                    jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel9Layout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addComponent(txtBuscarEpicrisis, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                );
-                                jPanel9Layout.setVerticalGroup(
-                                    jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel9Layout.createSequentialGroup()
-                                        .addGap(0, 0, 0)
-                                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtBuscarEpicrisis, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                                            .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                );
 
                                 jPanel38.setBackground(new java.awt.Color(228, 94, 37));
 
@@ -799,8 +760,7 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
                                             .addGroup(jPanel5Layout.createSequentialGroup()
                                                 .addContainerGap()
                                                 .addComponent(lblusu1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 );
                                 jPanel5Layout.setVerticalGroup(
@@ -809,13 +769,11 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                                             .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
-                                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(46, 46, 46)
+                                        .addGap(61, 61, 61)
                                         .addComponent(btnActualizar)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnImprimir)
-                                        .addGap(26, 26, 26)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lblusu1)
                                         .addGap(130, 130, 130))
                                 );
@@ -864,15 +822,101 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
 
                                 jPanel11.setBackground(new java.awt.Color(43, 43, 43));
 
+                                dtFechaI.setBackground(new java.awt.Color(255, 255, 255));
+                                dtFechaI.setForeground(new java.awt.Color(204, 204, 204));
+                                dtFechaI.setDateFormatString("dd/MM/yyyy");
+                                dtFechaI.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+                                dtFechaF.setBackground(new java.awt.Color(255, 255, 255));
+                                dtFechaF.setForeground(new java.awt.Color(204, 204, 204));
+                                dtFechaF.setDateFormatString("dd/MM/yyyy");
+                                dtFechaF.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                                dtFechaF.addKeyListener(new java.awt.event.KeyAdapter() {
+                                    public void keyPressed(java.awt.event.KeyEvent evt) {
+                                        dtFechaFKeyPressed(evt);
+                                    }
+                                });
+
+                                chkHoy.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                                chkHoy.setForeground(new java.awt.Color(204, 204, 204));
+                                chkHoy.setText("Hoy");
+                                chkHoy.setContentAreaFilled(false);
+                                chkHoy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                                chkHoy.addActionListener(new java.awt.event.ActionListener() {
+                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                        chkHoyActionPerformed(evt);
+                                    }
+                                });
+
+                                btnBuscarEpicrisis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                                btnBuscarEpicrisis.setToolTipText("");
+                                btnBuscarEpicrisis.setContentAreaFilled(false);
+                                btnBuscarEpicrisis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                                btnBuscarEpicrisis.addActionListener(new java.awt.event.ActionListener() {
+                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                        btnBuscarEpicrisisActionPerformed(evt);
+                                    }
+                                });
+
+                                jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+                                jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+
+                                txtBuscarEpicrisis.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+                                txtBuscarEpicrisis.setForeground(new java.awt.Color(51, 51, 51));
+                                txtBuscarEpicrisis.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+                                txtBuscarEpicrisis.setToolTipText("");
+                                txtBuscarEpicrisis.setBorder(null);
+                                txtBuscarEpicrisis.addCaretListener(new javax.swing.event.CaretListener() {
+                                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                                        txtBuscarEpicrisisCaretUpdate(evt);
+                                    }
+                                });
+
+                                javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+                                jPanel6.setLayout(jPanel6Layout);
+                                jPanel6Layout.setHorizontalGroup(
+                                    jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addGap(2, 2, 2)
+                                        .addComponent(txtBuscarEpicrisis, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(1, 1, 1))
+                                );
+                                jPanel6Layout.setVerticalGroup(
+                                    jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtBuscarEpicrisis, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                                );
+
                                 javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
                                 jPanel11.setLayout(jPanel11Layout);
                                 jPanel11Layout.setHorizontalGroup(
                                     jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)
+                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(chkHoy)
+                                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                                .addComponent(dtFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(dtFechaF, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnBuscarEpicrisis, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 );
                                 jPanel11Layout.setVerticalGroup(
                                     jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGap(0, 107, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                                        .addContainerGap(17, Short.MAX_VALUE)
+                                        .addComponent(chkHoy)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(btnBuscarEpicrisis, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                                .addComponent(dtFechaF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                                                .addComponent(dtFechaI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 );
 
                                 javax.swing.GroupLayout FrmReporteEpicrisisLayout = new javax.swing.GroupLayout(FrmReporteEpicrisis.getContentPane());
@@ -893,7 +937,7 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
                                     .addGroup(FrmReporteEpicrisisLayout.createSequentialGroup()
                                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane12)
+                                        .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
                                         .addContainerGap())
                                 );
 
@@ -1760,7 +1804,11 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
         FrmReporteEpicrisis.setResizable(false);
         FrmReporteEpicrisis.getContentPane().setBackground(Color.WHITE);
         HospitalizacionEpicrisis epicrisis = new HospitalizacionEpicrisis();
-        epicrisis.listarEpicrisis(txtBuscarEpicrisis.getText(), tbEpicrisis);
+        epicrisis.listarEpicrisis(txtBuscarEpicrisis.getText(), tbEpicrisis,"","");
+        chkHoy.setSelected(true);
+        dtFechaI.setEnabled(false);
+        dtFechaF.setEnabled(false);
+        btnBuscarEpicrisis.setEnabled(false);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -2048,17 +2096,30 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         HospitalizacionEpicrisis epicrisis = new HospitalizacionEpicrisis();
-        epicrisis.listarEpicrisis(txtBuscarEpicrisis.getText(), tbEpicrisis);
+        epicrisis.listarEpicrisis(txtBuscarEpicrisis.getText(), tbEpicrisis,"","");
+        chkHoy.setSelected(true);
+        btnBuscarEpicrisis.setEnabled(false);
+        dtFechaF.setEnabled(false);
+        dtFechaI.setEnabled(false);
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void txtBuscarEpicrisisCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarEpicrisisCaretUpdate
         HospitalizacionEpicrisis epicrisis = new HospitalizacionEpicrisis();
-        epicrisis.listarEpicrisis(txtBuscarEpicrisis.getText(), tbEpicrisis);
+        if(chkHoy.isSelected())
+            epicrisis.listarEpicrisis(txtBuscarEpicrisis.getText(), tbEpicrisis,"","");
+        else
+            epicrisis.listarEpicrisis(txtBuscarEpicrisis.getText(), tbEpicrisis,admi.determinarFecha(dtFechaI),admi.determinarFecha(dtFechaF));
     }//GEN-LAST:event_txtBuscarEpicrisisCaretUpdate
 
-    private void T3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3ActionPerformed
-
-    }//GEN-LAST:event_T3ActionPerformed
+    private void btnBuscarEpicrisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEpicrisisActionPerformed
+        HospitalizacionEpicrisis epicrisis = new HospitalizacionEpicrisis();
+        if(dtFechaI.getDate()==null || dtFechaF.getDate()==null)
+            JOptionPane.showMessageDialog(FrmReporteEpicrisis, "Ingrese rango de fechas");
+        else {
+            epicrisis.listarEpicrisis(txtBuscarEpicrisis.getText(), tbEpicrisis,admi.determinarFecha(dtFechaI),admi.determinarFecha(dtFechaF));
+            txtBuscarEpicrisis.setEnabled(true);
+        }
+    }//GEN-LAST:event_btnBuscarEpicrisisActionPerformed
 
     private void jLabel34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel34MouseClicked
 
@@ -2098,6 +2159,29 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
         diagEgreso.listarDiagnosticosEgreso(txtId.getText(), tbDiagnosticoEgreso);
         tbDiagnosticoEgreso.setAutoResizeMode(0);
     }//GEN-LAST:event_txtIdCaretUpdate
+
+    private void chkHoyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkHoyActionPerformed
+        HospitalizacionEpicrisis epicrisis = new HospitalizacionEpicrisis();
+        if(chkHoy.isSelected()){
+            epicrisis.listarEpicrisis(txtBuscarEpicrisis.getText(), tbEpicrisis,"","");
+            chkHoy.setSelected(true);
+            dtFechaI.setEnabled(false);
+            dtFechaF.setEnabled(false);
+            dtFechaI.setDate(null);
+            dtFechaF.setDate(null);
+            txtBuscarEpicrisis.setEnabled(true);
+        }else{
+            chkHoy.setSelected(false);
+            dtFechaI.setEnabled(true);
+            dtFechaF.setEnabled(true);
+            txtBuscarEpicrisis.setEnabled(false);
+            btnBuscarEpicrisis.setEnabled(true);
+        }
+    }//GEN-LAST:event_chkHoyActionPerformed
+
+    private void dtFechaFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtFechaFKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dtFechaFKeyPressed
     
     public void calcula() {
         Calendar calendario = new GregorianCalendar();
@@ -2166,10 +2250,10 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
     private javax.swing.JDialog BuscarHospitalizacion;
     private javax.swing.JDialog FrmCie10;
     private javax.swing.JDialog FrmReporteEpicrisis;
-    private javax.swing.JButton T3;
     private javax.swing.JLabel T7;
     public static javax.swing.JButton btnActualizar;
     private javax.swing.JLabel btnBuscar;
+    private javax.swing.JButton btnBuscarEpicrisis;
     private javax.swing.JButton btnBuscarPaciente;
     private javax.swing.JButton btnDiagEgreso;
     public static javax.swing.JButton btnEditar;
@@ -2180,9 +2264,11 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
     public static javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnSi;
     public static javax.swing.JComboBox cbxTipoAlta;
+    private javax.swing.JCheckBox chkHoy;
+    private com.toedter.calendar.JDateChooser dtFechaF;
+    private com.toedter.calendar.JDateChooser dtFechaI;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -2192,10 +2278,7 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel34;
@@ -2223,7 +2306,6 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -2237,22 +2319,16 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel lblActoMedico;
-    private javax.swing.JLabel lblActoMedico1;
     private javax.swing.JLabel lblDNI;
-    private javax.swing.JLabel lblDNI1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFechaE;
     private javax.swing.JLabel lblHC;
-    private javax.swing.JLabel lblHC1;
     private javax.swing.JLabel lblHoraE;
     public static javax.swing.JLabel lblId;
-    public static javax.swing.JLabel lblId1;
     private javax.swing.JLabel lblMant;
     private javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblPaciente;
-    private javax.swing.JLabel lblPaciente1;
     private javax.swing.JLabel lblServicio;
-    private javax.swing.JLabel lblServicio1;
     public static javax.swing.JLabel lblusu;
     public static javax.swing.JLabel lblusu1;
     private javax.swing.JPanel pnlMensaje;
@@ -2270,9 +2346,7 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
     public static javax.swing.JEditorPane txtEnfActual;
     public static javax.swing.JTextField txtEstadia;
     private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtId1;
     private javax.swing.JTextField txtIdPreventa;
-    private javax.swing.JTextField txtIdPreventa1;
     public static javax.swing.JEditorPane txtInfo;
     private javax.swing.JTextField txtPaciente;
     public static javax.swing.JEditorPane txtProcedTerapeuticos;

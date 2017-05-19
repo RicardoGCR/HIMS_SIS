@@ -9,15 +9,6 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -29,15 +20,9 @@ import servicios.Conexion;
  *
  * @author PC02
  */
-@Entity
-@Table(name = "HOSPITALIZACION_EPICRISIS_DIAGNOSTICOS_EGRESO")
-@NamedQueries({
-    @NamedQuery(name = "HospitalizacionEpicrisisDiagnosticosEgreso.findAll", query = "SELECT h FROM HospitalizacionEpicrisisDiagnosticosEgreso h")})
 public class HospitalizacionEpicrisisDiagnosticosEgreso implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "HHD_ID")
+
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
@@ -45,16 +30,10 @@ public class HospitalizacionEpicrisisDiagnosticosEgreso implements Serializable 
     private int idCie10;
     private String codUsu;
     private int hhdId;
-    @Column(name = "FECHA_ACTU")
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "HC_ESTADO")
     private Character hcEstado;
-    @JoinColumn(name = "HH_ID", referencedColumnName = "HH_ID")
-    @ManyToOne
     private HospitalizacionEpicrisis hospitalizacionEpicrisis;
 
     public boolean mantenimientoHospitalizacionEpicrisisDiagnosticosEgreso(String tipo)

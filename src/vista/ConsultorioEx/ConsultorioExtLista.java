@@ -8,31 +8,43 @@ package vista.ConsultorioEx;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.beans.PropertyVetoException;
+import java.sql.Connection;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
+import javax.swing.table.DefaultTableModel;
 import modelos.ConsultorioEx.ConsultorioEXTriaje;
+import modelos.ConsultorioEx.ConsultorioExConsultorio;
 import modelos.ConsultorioEx.ConsultorioExtConsultorioCabecera;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
+import servicios.Conexion;
 
 
 /**
  *
  * @author MYS1
  */
-public class ConsultorioExtLista extends javax.swing.JInternalFrame {
+public class ConsultorioExtLista extends javax.swing.JInternalFrame implements Runnable{
     ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabecera();
 private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
     private Dimension DimensionBarra = null; 
-    /**
-     * Creates new form ConsultorioExtLista
-     */
+    String hora, minutos, segundos, ampm;
+    Calendar calendario;
+    DefaultTableModel m;
+    Connection conexion=null;
+    Conexion c = new Conexion();
+    Thread h1;
     public ConsultorioExtLista() {
         initComponents();
         QuitarLaBarraTitulo();
         listar();
         panelTriaje.setVisible(false);
 //        tbTriaje.setDefaultRenderer(Object.class,new FormatoTablaCEXLISTA());
+        h1 = new Thread(this);
+        h1.start();
+        Calendar cal=Calendar.getInstance(); 
     }
    public void QuitarLaBarraTitulo(){ 
         Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
@@ -43,6 +55,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         
     }
     public void listar(){
+        
              Consulta.TriajeListarReporte(ConsultorioExt.txPaciente.getText(), tbTriaje,"T");
     }
     
@@ -427,6 +440,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             lblNombres.setText(String.valueOf(tbTriaje.getValueAt(fila, 4)));
             lblDNI.setText("DNI   "+String.valueOf(tbTriaje.getValueAt(fila, 2)));
             panelTriaje.setVisible(true);
+            ConsultorioExConsultorio cabecera = new ConsultorioExConsultorio();
+            cabecera.listarConsultorioCabecera(lblIdHC.getText(), ConsultorioExt.tbIngresosConsultorio);
 
         }
         if(evt.getClickCount()==2){
@@ -471,6 +486,36 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     }//GEN-LAST:event_tbTriajeKeyPressed
 
 
+    public void calcula() {
+        Calendar calendario = new GregorianCalendar();
+        java.util.Date fechaHoraActual = new java.util.Date();
+
+        calendario.setTime(fechaHoraActual);
+        ampm = calendario.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
+
+        if (ampm.equals("PM")) {
+            int h = calendario.get(Calendar.HOUR_OF_DAY) - 12;
+            hora = h > 9 ? "" + h : "0" + h;
+        } else {
+            hora = calendario.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendario.get(Calendar.HOUR_OF_DAY) : "0" + calendario.get(Calendar.HOUR_OF_DAY);
+        }
+        minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
+    }
+    
+    public void run() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.       
+        Thread ct = Thread.currentThread();
+        while (ct == h1) {
+//            calcula();
+            try {
+                Thread.sleep(1000);
+                Consulta.TriajeListarReporte(ConsultorioExt.txPaciente.getText(), tbTriaje,"T");
+            } catch (InterruptedException e) {
+            }
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel28;

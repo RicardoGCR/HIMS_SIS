@@ -19,6 +19,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
+import vista.ConsultorioEx.ConsultorioExt;
 import vista.ConsultorioEx.ConsultorioExtPerfilUsuario;
 
 
@@ -241,7 +242,7 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
         } catch (Exception e) {
             System.out.println("Error: Consultorios CABECERA LISTAR  " + e.getMessage());
         }
-    }  
+    }   
     
     public void formatoTablaTriajeVer(JTable tabla){;
         tabla.getColumnModel().getColumn(0).setPreferredWidth(10);//nhc

@@ -130,6 +130,61 @@ public class ConsultorioExConsultorio {
         }
     }
     
+    public void formatoTablaListarConsultorioCabecera(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(20);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(30);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(200);
+//        COLUMNAS OCULTAS
+//        TableColumn columna = tabla.getColumnModel().getColumn(0);
+//            columna.setMaxWidth(0);
+//            columna.setMinWidth(0);
+//            columna.setPreferredWidth(0);
+//            tabla.doLayout();
+        tabla.setRowHeight(30);
+    }
+    
+    public void inicializarTablaListarConsultorioCabecera(JTable tabla){
+        tabla.setModel(new DefaultTableModel());
+        String titulos[]={"Fecha","Acto Médico","Área"};
+        m=new DefaultTableModel(null,titulos);
+        tabla.setModel(m);
+        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+        tabla.setRowSorter(elQueOrdena);
+        tabla.setModel(m);
+        formatoTablaListarConsultorioCabecera(tabla);
+    }
+    
+    public void listarConsultorioCabecera(String idHc, JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"Fecha","Acto Médico","Área"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[3];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC [CONSULTORIO_EXT_LISTAR_CONSULTORIO_CABECERA] ?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, idHc);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaListarConsultorioCabecera(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarConsultorioCabecera: " + e.getMessage());
+        }
+    }
+    
     public ConsultorioExConsultorio()
     {
         Conexion con = new Conexion();

@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import modelos.ConsultorioEx.ConsultorioExtConsultorioAntecedentesExf;
 import modelos.ConsultorioEx.ConsultorioExtConsultorioCabecera;
+import modelos.ConsultorioEx.ConsultorioExtConsultorioMotivo;
 import servicios.Conexion;
 
 /**
@@ -80,6 +81,9 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        txtMotivoConsulta1 = new javax.swing.JEditorPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblusu = new javax.swing.JLabel();
@@ -128,9 +132,30 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
                 jScrollPane2 = new javax.swing.JScrollPane();
                 txtAntecedentes = new javax.swing.JEditorPane();
                 jLabel3 = new javax.swing.JLabel();
+                jLabel7 = new javax.swing.JLabel();
+                jScrollPane4 = new javax.swing.JScrollPane();
+                txtMotivoConsulta = new javax.swing.JEditorPane();
+                jLabel9 = new javax.swing.JLabel();
+                jScrollPane7 = new javax.swing.JScrollPane();
+                txtMotivoConsulta2 = new javax.swing.JEditorPane();
+                jLabel10 = new javax.swing.JLabel();
+                jScrollPane8 = new javax.swing.JScrollPane();
+                txtMotivoConsulta3 = new javax.swing.JEditorPane();
+                jLabel11 = new javax.swing.JLabel();
+                jScrollPane9 = new javax.swing.JScrollPane();
+                txtMotivoConsulta4 = new javax.swing.JEditorPane();
                 pnlEmergencia = new javax.swing.JPanel();
                 pnlLaboratorio = new javax.swing.JPanel();
                 pnlHospitalizacion = new javax.swing.JPanel();
+
+                jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+                jLabel8.setText("Motivo de la Consulta");
+
+                txtMotivoConsulta1.setEditable(false);
+                txtMotivoConsulta1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                txtMotivoConsulta1.setForeground(new java.awt.Color(102, 102, 102));
+                jScrollPane6.setViewportView(txtMotivoConsulta1);
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -672,6 +697,42 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
                 jLabel3.setForeground(new java.awt.Color(102, 102, 102));
                 jLabel3.setText("Antecedentes");
 
+                jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+                jLabel7.setText("Motivo de la Consulta");
+
+                txtMotivoConsulta.setEditable(false);
+                txtMotivoConsulta.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                txtMotivoConsulta.setForeground(new java.awt.Color(102, 102, 102));
+                jScrollPane4.setViewportView(txtMotivoConsulta);
+
+                jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                jLabel9.setForeground(new java.awt.Color(102, 102, 102));
+                jLabel9.setText("Diagnóstico ");
+
+                txtMotivoConsulta2.setEditable(false);
+                txtMotivoConsulta2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                txtMotivoConsulta2.setForeground(new java.awt.Color(102, 102, 102));
+                jScrollPane7.setViewportView(txtMotivoConsulta2);
+
+                jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                jLabel10.setForeground(new java.awt.Color(102, 102, 102));
+                jLabel10.setText("Órdenes Médicas");
+
+                txtMotivoConsulta3.setEditable(false);
+                txtMotivoConsulta3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                txtMotivoConsulta3.setForeground(new java.awt.Color(102, 102, 102));
+                jScrollPane8.setViewportView(txtMotivoConsulta3);
+
+                jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                jLabel11.setForeground(new java.awt.Color(102, 102, 102));
+                jLabel11.setText("Tratamiento");
+
+                txtMotivoConsulta4.setEditable(false);
+                txtMotivoConsulta4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                txtMotivoConsulta4.setForeground(new java.awt.Color(102, 102, 102));
+                jScrollPane9.setViewportView(txtMotivoConsulta4);
+
                 javax.swing.GroupLayout pnlConsultorioLayout = new javax.swing.GroupLayout(pnlConsultorio);
                 pnlConsultorio.setLayout(pnlConsultorioLayout);
                 pnlConsultorioLayout.setHorizontalGroup(
@@ -686,8 +747,16 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel3)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addContainerGap(268, Short.MAX_VALUE))
                 );
                 pnlConsultorioLayout.setVerticalGroup(
                     pnlConsultorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -702,7 +771,23 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(605, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(96, Short.MAX_VALUE))
                 );
 
                 tpHistoriaClinica.addTab("", pnlConsultorio);
@@ -901,7 +986,9 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
 
     private void txtIdCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtIdCaretUpdate
         ConsultorioExtConsultorioAntecedentesExf antecedentes = new ConsultorioExtConsultorioAntecedentesExf();
-        antecedentes.historiaClinicaAntecedentes(txtId.getText());
+        ConsultorioExtConsultorioMotivo motivo = new ConsultorioExtConsultorioMotivo();
+        antecedentes.historiaClinicaAntecedentes(txtId.getText());//LISTAR HISTORIAL DE ANTECEDENTES
+        motivo.historiaClinicaMotivo(txtId.getText()); //LISTAR HISTORIAL DE MOTIVO DE LA CONSULTA
     }//GEN-LAST:event_txtIdCaretUpdate
 
     private void tbIngresosConsultorioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbIngresosConsultorioKeyReleased
@@ -986,12 +1073,17 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
     public static javax.swing.JButton btnLista;
     public static javax.swing.JButton btnVer;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
@@ -1004,7 +1096,12 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     public static javax.swing.JTabbedPane jTabbedPane1;
     public static javax.swing.JLabel lblHC;
     private javax.swing.JLabel lbldetalle;
@@ -1020,5 +1117,10 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
     public static javax.swing.JTextField txPaciente;
     public static javax.swing.JEditorPane txtAntecedentes;
     private javax.swing.JTextField txtId;
+    public static javax.swing.JEditorPane txtMotivoConsulta;
+    public static javax.swing.JEditorPane txtMotivoConsulta1;
+    public static javax.swing.JEditorPane txtMotivoConsulta2;
+    public static javax.swing.JEditorPane txtMotivoConsulta3;
+    public static javax.swing.JEditorPane txtMotivoConsulta4;
     // End of variables declaration//GEN-END:variables
 }

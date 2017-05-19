@@ -46,6 +46,8 @@
     <class>modelos.ConsultorioEx.ConsultorioExtConsultorioAntecedentesExf</class>
     <class>modelos.hospitalizacion.HospitalizacionNotaEnfermeriaProcedimiento</class>
     <class>modelos.hospitalizacion.HospitalizacionNotaEnfermeria</class>
+    <class>modelos.hospitalizacion.HospitalizacionEpicrisis</class>
+    <class>modelos.hospitalizacion.HospitalizacionEpicrisisDiagnosticosEgreso</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://192.168.1.36:1433;databaseName=SISGESH_NET"/>
       <property name="javax.persistence.jdbc.password" value="sistemas"/>

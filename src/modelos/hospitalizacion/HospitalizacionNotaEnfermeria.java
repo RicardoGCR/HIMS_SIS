@@ -10,14 +10,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.swing.JEditorPane;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -30,52 +22,28 @@ import servicios.Conexion;
 import vista.hospitalizacion.FrmHospitalizacionEpicrisis;
 import vista.hospitalizacion.FrmHospitalizacionNotaEnfermeria;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "HOSPITALIZACION_NOTA_ENFERMERIA")
-@NamedQueries({
-    @NamedQuery(name = "HospitalizacionNotaEnfermeria.findAll", query = "SELECT h FROM HospitalizacionNotaEnfermeria h")})
 public class HospitalizacionNotaEnfermeria implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "NE_ID")
+
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private int idPreventa;
     private int actoMedico;
     private int neId;
-    @Column(name = "NE_PA")
     private String nePa;
-    @Column(name = "NE_FR")
     private String neFr;
-    @Column(name = "NE_FC")
     private String neFc;
-    @Column(name = "NE_T")
     private String neT;
-    @Column(name = "NE_PESO")
     private String nePeso;
-    @Column(name = "NE_TALLA")
     private String neTalla;
-    @Column(name = "NE_IDM")
     private String neIdm;
-    @Column(name = "NE_ANOTACIONES")
     private String neAnotaciones;
-    @Column(name = "FECHA_ACTU")
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "ESTADO")
     private Character estado;
-    @Column(name = "COD_USU")
     private String codUsu;
-    @OneToMany(mappedBy = "hospitalizacionNotaEnfermeria")
     private Collection<HospitalizacionNotaEnfermeriaProcedimiento> hospitalizacionNotaEnfermeriaProcedimientoCollection;
 
     public boolean mantenimientoHospitalizacionNotaEnfermeria(String tipo)
@@ -278,7 +246,7 @@ public class HospitalizacionNotaEnfermeria implements Serializable {
         {
             String sql = "SELECT FECHA_ACTU + ' - ' + HORA_ACTU  + CHAR(10) +  NE_ANOTACIONES + CHAR(10) + CHAR(10)  AS [text()]\n" +
 "                FROM HOSPITALIZACION_NOTA_ENFERMERIA AS tt\n" +
-"                WHERE ID_PREVENTA = 10262\n" +
+"                WHERE ID_PREVENTA = "+id_preventa+"\n" +
 "                ORDER BY FECHA_ACTU DESC ,HORA_ACTU DESC\n" +
 "            FOR XML PATH('')";
             PreparedStatement cmd = getCn().prepareStatement(sql);

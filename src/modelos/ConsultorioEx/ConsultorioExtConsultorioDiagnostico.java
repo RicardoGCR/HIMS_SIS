@@ -14,11 +14,15 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
+
 import servicios.Conexion;
 import vista.ConsultorioEx.ConsultorioExtDiagnostico;
-import vista.hospitalizacion.FrmHospitalizacionEpicrisis;
 
+import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
+import servicios.Conexion;
+import vista.ConsultorioEx.ConsultorioExt;
+import vista.ConsultorioEx.ConsultorioExtDiagnostico;
+import vista.hospitalizacion.FrmHospitalizacionEpicrisis;
 
 /**
  *
@@ -29,6 +33,7 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
+
     private int idDx;
     private int idConsultorioEx;
     private int ID_CIE10;
@@ -197,6 +202,7 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
         tabla.setRowHeight(35);
     }
     
+
     public void formatoTablaHospitalizacionDiagnosticoIngreso(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(10);//id 
         tabla.getColumnModel().getColumn(1).setPreferredWidth(100);//codigo cie10
@@ -241,6 +247,23 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
         }
     }
     
+    public void historiaClinicaDiagnostico(String id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_LISTAR_HISTORIAL_CONSULTORIO_DIAGNOSTICO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                ConsultorioExt.txtDiagnostico.setText(r.getString(1)); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: historiaClinicaDiagnostico  " + e.getMessage());
+        }
+    } 
+
     public ConsultorioExtConsultorioDiagnostico() {
         Conexion con = new Conexion();
         cn = con.conectar();

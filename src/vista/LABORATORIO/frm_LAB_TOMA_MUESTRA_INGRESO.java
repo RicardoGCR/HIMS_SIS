@@ -1195,13 +1195,21 @@ public void buscar_examenes(){
         Thread ct = Thread.currentThread();
         while (ct == h1) {
             calcula();
+            if(lbldia.getText().equalsIgnoreCase("Exámenes del día")){
+                formato();
+            LISTAR_examenes();
+            
+            }
 //            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                Thread.sleep(1000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
             }
         }
     }
+    
+    
+    
     /**
      * @param args the command line arguments
      */

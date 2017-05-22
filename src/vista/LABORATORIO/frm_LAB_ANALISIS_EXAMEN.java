@@ -1221,7 +1221,9 @@ public void calcula() {
           else if(txtNombreExamen.getText().equalsIgnoreCase("")||txtAbrev.getText().equalsIgnoreCase("")||
                   cbxTipoProc.getSelectedIndex()==0 || cbxRestric.getSelectedIndex()==0 ){
               JOptionPane.showMessageDialog(rootPane, "Ingrese todos los campos");
-          }  
+          }  else if(tb_Muestras.getRowCount()==0){
+              JOptionPane.showMessageDialog(rootPane, "Seleccione una Muestra");
+          } 
           else if(me1.LAB_Analisis_Examen_ver(txtCodClasificacion.getText(),txtCodNomen.getText())>0){
               JOptionPane.showMessageDialog(rootPane, "El Registro ya ha sido ingresado\nIntente nuevamente");
               
@@ -1264,8 +1266,8 @@ public void calcula() {
           }}else{
              if(txtClasificacion.getText().equalsIgnoreCase("")||txtCodClasificacion.getText().equalsIgnoreCase("")){
               JOptionPane.showMessageDialog(rootPane, "Busque una Unidad Orgánica");
-          }  else if(txtObservacion.getText().equalsIgnoreCase("")){
-              JOptionPane.showMessageDialog(rootPane, "Ingrese la Observación");
+          }  else if(tb_Muestras.getRowCount()==0){
+              JOptionPane.showMessageDialog(rootPane, "Seleccione una Muestra");
           } 
              else{
               int modificar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",

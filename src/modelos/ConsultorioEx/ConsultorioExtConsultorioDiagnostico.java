@@ -22,6 +22,7 @@ import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
 import servicios.Conexion;
 import vista.ConsultorioEx.ConsultorioExt;
 import vista.ConsultorioEx.ConsultorioExtDiagnostico;
+import vista.ConsultorioEx.HistoriaClinica;
 import vista.hospitalizacion.FrmHospitalizacionEpicrisis;
 
 /**
@@ -256,7 +257,7 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                ConsultorioExt.txtDiagnostico.setText(r.getString(1)); 
+                HistoriaClinica.txtDiagnostico.setText(r.getString(1)); 
             }
             //
         } catch (Exception e) {

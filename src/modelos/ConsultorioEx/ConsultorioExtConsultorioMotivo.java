@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 import vista.ConsultorioEx.ConsultorioExt;
 import vista.ConsultorioEx.ConsultorioExtMotivo;
+import vista.ConsultorioEx.HistoriaClinica;
 
 
 /**
@@ -108,7 +109,7 @@ public class ConsultorioExtConsultorioMotivo implements Serializable {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                ConsultorioExt.txtMotivoConsulta.setText(r.getString(1)); 
+                HistoriaClinica.txtMotivoConsulta.setText(r.getString(1)); 
             }
             //
         } catch (Exception e) {

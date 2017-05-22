@@ -20,7 +20,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import modelos.ConsultorioEx.ConsultorioExtConsultorioAntecedentesExf;
 import modelos.ConsultorioEx.ConsultorioExtConsultorioCabecera;
+import modelos.ConsultorioEx.ConsultorioExtConsultorioDiagnostico;
 import modelos.ConsultorioEx.ConsultorioExtConsultorioMotivo;
+import modelos.ConsultorioEx.ConsultorioExtConsultorioTratamiento;
 import servicios.Conexion;
 
 /**
@@ -137,13 +139,13 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
                 txtMotivoConsulta = new javax.swing.JEditorPane();
                 jLabel9 = new javax.swing.JLabel();
                 jScrollPane7 = new javax.swing.JScrollPane();
-                txtMotivoConsulta2 = new javax.swing.JEditorPane();
+                txtDiagnostico = new javax.swing.JEditorPane();
                 jLabel10 = new javax.swing.JLabel();
                 jScrollPane8 = new javax.swing.JScrollPane();
                 txtMotivoConsulta3 = new javax.swing.JEditorPane();
                 jLabel11 = new javax.swing.JLabel();
                 jScrollPane9 = new javax.swing.JScrollPane();
-                txtMotivoConsulta4 = new javax.swing.JEditorPane();
+                txtTratamiento = new javax.swing.JEditorPane();
                 pnlEmergencia = new javax.swing.JPanel();
                 pnlLaboratorio = new javax.swing.JPanel();
                 pnlHospitalizacion = new javax.swing.JPanel();
@@ -710,10 +712,10 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
                 jLabel9.setForeground(new java.awt.Color(102, 102, 102));
                 jLabel9.setText("Diagnóstico ");
 
-                txtMotivoConsulta2.setEditable(false);
-                txtMotivoConsulta2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-                txtMotivoConsulta2.setForeground(new java.awt.Color(102, 102, 102));
-                jScrollPane7.setViewportView(txtMotivoConsulta2);
+                txtDiagnostico.setEditable(false);
+                txtDiagnostico.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                txtDiagnostico.setForeground(new java.awt.Color(102, 102, 102));
+                jScrollPane7.setViewportView(txtDiagnostico);
 
                 jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                 jLabel10.setForeground(new java.awt.Color(102, 102, 102));
@@ -728,10 +730,10 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
                 jLabel11.setForeground(new java.awt.Color(102, 102, 102));
                 jLabel11.setText("Tratamiento");
 
-                txtMotivoConsulta4.setEditable(false);
-                txtMotivoConsulta4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-                txtMotivoConsulta4.setForeground(new java.awt.Color(102, 102, 102));
-                jScrollPane9.setViewportView(txtMotivoConsulta4);
+                txtTratamiento.setEditable(false);
+                txtTratamiento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                txtTratamiento.setForeground(new java.awt.Color(102, 102, 102));
+                jScrollPane9.setViewportView(txtTratamiento);
 
                 javax.swing.GroupLayout pnlConsultorioLayout = new javax.swing.GroupLayout(pnlConsultorio);
                 pnlConsultorio.setLayout(pnlConsultorioLayout);
@@ -787,7 +789,7 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(96, Short.MAX_VALUE))
+                        .addContainerGap(58, Short.MAX_VALUE))
                 );
 
                 tpHistoriaClinica.addTab("", pnlConsultorio);
@@ -987,8 +989,12 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
     private void txtIdCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtIdCaretUpdate
         ConsultorioExtConsultorioAntecedentesExf antecedentes = new ConsultorioExtConsultorioAntecedentesExf();
         ConsultorioExtConsultorioMotivo motivo = new ConsultorioExtConsultorioMotivo();
+        ConsultorioExtConsultorioDiagnostico diagnostico = new ConsultorioExtConsultorioDiagnostico();
+        ConsultorioExtConsultorioTratamiento tratamiento = new ConsultorioExtConsultorioTratamiento();
         antecedentes.historiaClinicaAntecedentes(txtId.getText());//LISTAR HISTORIAL DE ANTECEDENTES
         motivo.historiaClinicaMotivo(txtId.getText()); //LISTAR HISTORIAL DE MOTIVO DE LA CONSULTA
+        diagnostico.historiaClinicaDiagnostico(txtId.getText());//LISTAR HISTORIAL DEL DIAGNOSTICO
+        tratamiento.historiaClinicaTratamiento(txtId.getText());//LISTAR HISTORIAL DEL TRATAMIENTO
     }//GEN-LAST:event_txtIdCaretUpdate
 
     private void tbIngresosConsultorioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbIngresosConsultorioKeyReleased
@@ -1116,11 +1122,11 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
     private javax.swing.JTabbedPane tpHistoriaClinica;
     public static javax.swing.JTextField txPaciente;
     public static javax.swing.JEditorPane txtAntecedentes;
+    public static javax.swing.JEditorPane txtDiagnostico;
     private javax.swing.JTextField txtId;
     public static javax.swing.JEditorPane txtMotivoConsulta;
     public static javax.swing.JEditorPane txtMotivoConsulta1;
-    public static javax.swing.JEditorPane txtMotivoConsulta2;
     public static javax.swing.JEditorPane txtMotivoConsulta3;
-    public static javax.swing.JEditorPane txtMotivoConsulta4;
+    public static javax.swing.JEditorPane txtTratamiento;
     // End of variables declaration//GEN-END:variables
 }

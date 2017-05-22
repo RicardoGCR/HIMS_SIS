@@ -420,7 +420,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         btnValores3 = new javax.swing.JButton();
         jPanel93 = new javax.swing.JPanel();
         jLabel107 = new javax.swing.JLabel();
-        btnValores4 = new javax.swing.JButton();
+        btnCarnetPerinatal = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         lblUsu = new javax.swing.JLabel();
         btnNuevo1 = new javax.swing.JButton();
@@ -4948,19 +4948,19 @@ public class PrincipalMDI extends javax.swing.JFrame {
             }
         });
 
-        btnValores4.setForeground(new java.awt.Color(240, 240, 240));
-        btnValores4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Alinear a la derecha-50.png"))); // NOI18N
-        btnValores4.setMnemonic('N');
-        btnValores4.setToolTipText("");
-        btnValores4.setContentAreaFilled(false);
-        btnValores4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnValores4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        btnValores4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnValores4.setIconTextGap(30);
-        btnValores4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnValores4.addActionListener(new java.awt.event.ActionListener() {
+        btnCarnetPerinatal.setForeground(new java.awt.Color(240, 240, 240));
+        btnCarnetPerinatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Alinear a la derecha-50.png"))); // NOI18N
+        btnCarnetPerinatal.setMnemonic('N');
+        btnCarnetPerinatal.setToolTipText("");
+        btnCarnetPerinatal.setContentAreaFilled(false);
+        btnCarnetPerinatal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCarnetPerinatal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        btnCarnetPerinatal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCarnetPerinatal.setIconTextGap(30);
+        btnCarnetPerinatal.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnCarnetPerinatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnValores4ActionPerformed(evt);
+                btnCarnetPerinatalActionPerformed(evt);
             }
         });
 
@@ -4968,7 +4968,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel93.setLayout(jPanel93Layout);
         jPanel93Layout.setHorizontalGroup(
             jPanel93Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnValores4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnCarnetPerinatal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel107, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
         );
         jPanel93Layout.setVerticalGroup(
@@ -4976,7 +4976,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGroup(jPanel93Layout.createSequentialGroup()
                 .addComponent(jLabel107, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnValores4, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
+                .addComponent(btnCarnetPerinatal, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel86Layout = new javax.swing.GroupLayout(jPanel86);
@@ -5744,13 +5744,13 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnValores3ActionPerformed
 
     private void jLabel107MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel107MouseClicked
-        // TODO add your handling code here:
+        btnCarnetPerinatal.doClick();
     }//GEN-LAST:event_jLabel107MouseClicked
 
-    private void btnValores4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValores4ActionPerformed
+    private void btnCarnetPerinatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarnetPerinatalActionPerformed
         RegistroEmbarazo embarazo = new RegistroEmbarazo();
         embarazo.setVisible(true);
-    }//GEN-LAST:event_btnValores4ActionPerformed
+    }//GEN-LAST:event_btnCarnetPerinatalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -5799,6 +5799,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JButton bc4;
     private javax.swing.JButton bc5;
     private javax.swing.JButton btnAnalisis;
+    private javax.swing.JButton btnCarnetPerinatal;
     private javax.swing.JButton btnClasificacion;
     private javax.swing.JButton btnConsultorio;
     private javax.swing.JButton btnContenedor;
@@ -5841,7 +5842,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JButton btnUnidadMedi;
     private javax.swing.JButton btnValores;
     private javax.swing.JButton btnValores3;
-    private javax.swing.JButton btnValores4;
     private javax.swing.JButton btneditar1;
     private javax.swing.JButton btneditar11;
     private javax.swing.JButton btneditar14;

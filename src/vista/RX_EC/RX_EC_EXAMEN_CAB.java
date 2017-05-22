@@ -36,7 +36,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         initComponents();
         setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
+        PERSONAL_ROL.setLocationRelativeTo(null);
+        PERSONAL_ROL.getContentPane().setBackground(Color.white);
         mostrarArea();
+        
         
         //FECHA Y HORA
         h1 = new Thread(this);
@@ -54,12 +57,14 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PERSONAL_ROL = new javax.swing.JDialog();
         jpanel = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         lblUsu = new javax.swing.JLabel();
         lblIDArea = new javax.swing.JLabel();
         lblNomA = new javax.swing.JLabel();
         txtCodigoDoc = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtHC = new javax.swing.JTextField();
@@ -94,7 +99,22 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         jTable1 = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        PERSONAL_ROL.setMaximumSize(new java.awt.Dimension(692, 360));
+        PERSONAL_ROL.setMinimumSize(new java.awt.Dimension(692, 360));
+        PERSONAL_ROL.setPreferredSize(new java.awt.Dimension(692, 360));
+
+        javax.swing.GroupLayout PERSONAL_ROLLayout = new javax.swing.GroupLayout(PERSONAL_ROL.getContentPane());
+        PERSONAL_ROL.getContentPane().setLayout(PERSONAL_ROLLayout);
+        PERSONAL_ROLLayout.setHorizontalGroup(
+            PERSONAL_ROLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 692, Short.MAX_VALUE)
+        );
+        PERSONAL_ROLLayout.setVerticalGroup(
+            PERSONAL_ROLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 360, Short.MAX_VALUE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jpanel.setBackground(new java.awt.Color(40, 112, 99));
 
@@ -121,21 +141,32 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         txtCodigoDoc.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtCodigoDoc.setText("jTextField1");
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/flecha-a-la-izquierda-volver.png"))); // NOI18N
+        jButton2.setToolTipText("Regresar");
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
         jpanel.setLayout(jpanelLayout);
         jpanelLayout.setHorizontalGroup(
             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanelLayout.createSequentialGroup()
-                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jpanelLayout.createSequentialGroup()
-                        .addContainerGap()
+                .addContainerGap()
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                         .addComponent(titulo5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 412, Short.MAX_VALUE)
                         .addComponent(lblIDArea)
                         .addGap(69, 69, 69)
                         .addComponent(lblNomA, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addGap(291, 291, 291)
+                        .addComponent(jButton2)
+                        .addGap(261, 261, 261)
                         .addComponent(txtCodigoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -152,11 +183,12 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                     .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(titulo5)
                         .addComponent(lblIDArea)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCodigoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton2)
+                        .addComponent(txtCodigoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -442,7 +474,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 30, Short.MAX_VALUE))
+                .addGap(0, 31, Short.MAX_VALUE))
         );
 
         pack();
@@ -485,6 +517,15 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 //            txtBuscar.setText("");
 //        }
     }//GEN-LAST:event_txtPersonalRegistraTomaKeyPressed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         try {
+            dispose();
+            RX_EC_BUSCAR_EXAMEN_C RX = new RX_EC_BUSCAR_EXAMEN_C();
+            RX.setVisible(true);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public void mostrarArea(){
         String consulta="";
@@ -563,6 +604,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog PERSONAL_ROL;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

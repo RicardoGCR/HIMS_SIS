@@ -97,7 +97,6 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         jLabel6 = new javax.swing.JLabel();
         txtDNI = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtHC = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtNombres = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -114,6 +113,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         lblIDArea = new javax.swing.JLabel();
         lblNomAD = new javax.swing.JLabel();
         lblUsuD = new javax.swing.JLabel();
+        txtHC = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jpanel = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
@@ -155,9 +155,10 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         });
         jPopupMenu1.add(ver_detalle);
 
-        DETALLE.setMaximumSize(new java.awt.Dimension(700, 360));
-        DETALLE.setMinimumSize(new java.awt.Dimension(700, 360));
-        DETALLE.setPreferredSize(new java.awt.Dimension(700, 360));
+        DETALLE.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        DETALLE.setMaximumSize(new java.awt.Dimension(692, 360));
+        DETALLE.setMinimumSize(new java.awt.Dimension(692, 360));
+        DETALLE.setPreferredSize(new java.awt.Dimension(692, 360));
 
         tb_Detalle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -190,9 +191,6 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         txtDNI.setEnabled(false);
 
         jLabel7.setText("HC:");
-
-        txtHC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtHC.setEnabled(false);
 
         jLabel8.setText("Paciente:");
 
@@ -273,6 +271,8 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
 
         lblUsuD.setText("jLabel14");
 
+        txtHC.setEnabled(false);
+
         javax.swing.GroupLayout DETALLELayout = new javax.swing.GroupLayout(DETALLE.getContentPane());
         DETALLE.getContentPane().setLayout(DETALLELayout);
         DETALLELayout.setHorizontalGroup(
@@ -281,7 +281,6 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             .addGroup(DETALLELayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
                     .addGroup(DETALLELayout.createSequentialGroup()
                         .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblFechaNaci)
@@ -301,21 +300,6 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                                 .addComponent(lblEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)))
                         .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(DETALLELayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(DETALLELayout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(txtNombres))
-                                    .addGroup(DETALLELayout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtAM, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(32, 32, 32)
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtHC))))
-                            .addGroup(DETALLELayout.createSequentialGroup()
                                 .addGap(58, 58, 58)
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(65, 65, 65)
@@ -324,8 +308,24 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                                 .addComponent(lblNomAD)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblUsuD)
-                                .addGap(28, 28, 28)))))
-                .addContainerGap())
+                                .addGap(8, 8, 8))
+                            .addGroup(DETALLELayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addGroup(DETALLELayout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtAM, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtHC, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 21, Short.MAX_VALUE))
         );
         DETALLELayout.setVerticalGroup(
             DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,9 +346,9 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                     .addComponent(jLabel5)
                     .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(txtHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(txtAM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -446,6 +446,11 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         cbFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbFechaActionPerformed(evt);
+            }
+        });
+        cbFecha.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                cbFechaPropertyChange(evt);
             }
         });
 
@@ -695,46 +700,57 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
     }//GEN-LAST:event_txtDocumentoCaretUpdate
 
     private void tb_ExamenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_ExamenesMouseClicked
-//      if(evt.getClickCount()==2){
-//         try{
-//                        if( tb_Examenes.getRowCount()>0){
-//                        int filaselec=tb_Examenes.getSelectedRow();
-//                        
-//                           dispose();
-//                            RX_EC_EXAMEN_CAB rx=new RX_EC_EXAMEN_CAB();
-//                            rx.setVisible(true);
-//                            RX_EC_EXAMEN_CAB.txtHC.setText(tb_Examenes.getValueAt(filaselec, 1).toString());
-//                            RX_EC_EXAMEN_CAB.txtNombreP.setText(tb_Examenes.getValueAt(filaselec, 2).toString());
-//                            RX_EC_EXAMEN_CAB.txtDNI.setText(tb_Examenes.getValueAt(filaselec, 3).toString());
-//                            RX_EC_EXAMEN_CAB.txtFechaNac.setText(tb_Examenes.getValueAt(filaselec, 4).toString());
-//                            RX_EC_EXAMEN_CAB.txtEdad.setText(tb_Examenes.getValueAt(filaselec, 5).toString());
-//                            RX_EC_EXAMEN_CAB.txtGenero.setText(tb_Examenes.getValueAt(filaselec, 6).toString());
-//                            RX_EC_EXAMEN_CAB.txtAM.setText(tb_Examenes.getValueAt(filaselec, 7).toString());
-//                            RX_EC_EXAMEN_CAB.txtCodigoDoc.setText(tb_Examenes.getValueAt(filaselec, 10).toString());
-//                            
-//                            RX_EC_EXAMEN_CAB.lblIDArea.setText(lblNumeArea.getText());
-//                            RX_EC_EXAMEN_CAB.lblNomA.setText(lblNomArea.getText());
-//
-//
-//                                  String u=lblUsu.getText();
-//                                  RX_EC_EXAMEN_CAB.lblUsu.setText(u);
-//                        }
-//        }catch(Exception e){
-//            JOptionPane.showMessageDialog(this, "cargar"+e.getMessage());
-//        }
-//       }
+      if(evt.getClickCount()==2){
+         try{
+                        if( tb_Examenes.getRowCount()>0){
+                        int filaselec=tb_Examenes.getSelectedRow();
+                        
+                           dispose();
+                            RX_EC_EXAMEN_CAB rx=new RX_EC_EXAMEN_CAB();
+                            rx.setVisible(true);
+                            RX_EC_EXAMEN_CAB.txtHC.setText(tb_Examenes.getValueAt(filaselec, 1).toString());
+                            RX_EC_EXAMEN_CAB.txtNombreP.setText(tb_Examenes.getValueAt(filaselec, 2).toString());
+                            RX_EC_EXAMEN_CAB.txtDNI.setText(tb_Examenes.getValueAt(filaselec, 3).toString());
+                            RX_EC_EXAMEN_CAB.txtFechaNac.setText(tb_Examenes.getValueAt(filaselec, 4).toString());
+                            RX_EC_EXAMEN_CAB.txtEdad.setText(tb_Examenes.getValueAt(filaselec, 5).toString());
+                            RX_EC_EXAMEN_CAB.txtGenero.setText(tb_Examenes.getValueAt(filaselec, 6).toString());
+                            RX_EC_EXAMEN_CAB.txtAM.setText(tb_Examenes.getValueAt(filaselec, 7).toString());
+                            RX_EC_EXAMEN_CAB.txtCodigoDoc.setText(tb_Examenes.getValueAt(filaselec, 10).toString());
+                            RX_EC_EXAMEN_CAB.lblCantidad.setText(tb_Examenes.getValueAt(filaselec, 8).toString());
+                            
+                            RX_EC_EXAMEN_CAB.lblIDArea.setText(lblNumeArea.getText());
+                            RX_EC_EXAMEN_CAB.lblNomA.setText(lblNomArea.getText());
+
+
+                                  String u=lblUsu.getText();
+                                  RX_EC_EXAMEN_CAB.lblUsu.setText(u);
+                        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "cargar"+e.getMessage());
+        }
+       }
     }//GEN-LAST:event_tb_ExamenesMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       cargar_tabla_cabecera_OK();
+        try {   
+            RX_EC_BUSCAR_EXAMEN_C R = new RX_EC_BUSCAR_EXAMEN_C();
+            R.setVisible(false);
+            DETALLE.dispose();
+            cargar_tabla_cabecera_OK();       
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cbFechaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cbFechaPropertyChange
+        
+    }//GEN-LAST:event_cbFechaPropertyChange
 
     public void cargar_tabla_cabecera_OK(){
     try{
                         if( tb_Examenes.getRowCount()>0){
                         int filaselec=tb_Examenes.getSelectedRow();
-                        
-                           dispose();
+                            
+                            dispose();
                             RX_EC_EXAMEN_CAB rx=new RX_EC_EXAMEN_CAB();
                             rx.setVisible(true);
                             RX_EC_EXAMEN_CAB.txtHC.setText(txtHC.getText());
@@ -745,6 +761,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                             RX_EC_EXAMEN_CAB.txtGenero.setText(lblGenero.getText());
                             RX_EC_EXAMEN_CAB.txtAM.setText(txtAM.getText());
                             RX_EC_EXAMEN_CAB.txtCodigoDoc.setText(txtDocumento.getText());
+                            RX_EC_EXAMEN_CAB.lblCantidad.setText(lblNumero.getText());
                             
                             RX_EC_EXAMEN_CAB.lblIDArea.setText(lblIDArea.getText());
                             RX_EC_EXAMEN_CAB.lblNomA.setText(lblNomAD.getText());
@@ -776,6 +793,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                             RX_EC_EXAMEN_CAB.txtEdad.setText(tb_Examenes.getValueAt(filaselec, 5).toString());
                             RX_EC_EXAMEN_CAB.txtFechaNac.setText(tb_Examenes.getValueAt(filaselec, 4).toString());
                             RX_EC_EXAMEN_CAB.txtGenero.setText(tb_Examenes.getValueAt(filaselec, 6).toString());
+                            RX_EC_EXAMEN_CAB.lblCantidad.setText(tb_Examenes.getValueAt(filaselec, 8).toString());
 //                            lblIDArea.setText(lblNumeArea.getText());
 //                            lblNomAD.setText(lblNomArea.getText());
                                                     
@@ -848,6 +866,8 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         }else{
             fecha_inicio.setEnabled(false);
             fecha_fin.setEnabled(false);
+            fecha_inicio.setDate(null);
+            fecha_fin.setDate(null);
         }
     }
     
@@ -1163,6 +1183,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
         segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
     }
+
     
     /**
      * @param args the command line arguments
@@ -1260,7 +1281,10 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
     Thread ct = Thread.currentThread();
         while (ct == h1) {
             calcula();
-            mostrarPacientes();
+            if(cbFecha.isSelected()==false){
+                mostrarPacientes();
+            }
+            
             lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
                 Thread.sleep(4000);

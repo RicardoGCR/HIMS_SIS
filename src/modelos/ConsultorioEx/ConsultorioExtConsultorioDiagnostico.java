@@ -20,6 +20,7 @@ import vista.ConsultorioEx.ConsultorioExtDiagnostico;
 
 import static modelos.hospitalizacion.HospitalizacionPapeletas.getCn;
 import servicios.Conexion;
+import vista.ConsultorioEx.ConsultorioExt;
 import vista.ConsultorioEx.ConsultorioExtDiagnostico;
 import vista.hospitalizacion.FrmHospitalizacionEpicrisis;
 
@@ -245,6 +246,23 @@ public class ConsultorioExtConsultorioDiagnostico implements Serializable {
             System.out.println("Error: hospitalizacionDiagnosticoIngreso: " + e.getMessage());
         }
     }
+    
+    public void historiaClinicaDiagnostico(String id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_LISTAR_HISTORIAL_CONSULTORIO_DIAGNOSTICO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                ConsultorioExt.txtDiagnostico.setText(r.getString(1)); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: historiaClinicaDiagnostico  " + e.getMessage());
+        }
+    } 
 
     public ConsultorioExtConsultorioDiagnostico() {
         Conexion con = new Conexion();

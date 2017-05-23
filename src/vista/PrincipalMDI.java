@@ -430,7 +430,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         setTitle("Sistema de Gestion Hospitalaria - Modulo Administracion del Sistema");
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(43, 43, 43));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -733,7 +733,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         btnSistema2.setBackground(new java.awt.Color(102, 102, 102));
         btnSistema2.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         btnSistema2.setForeground(new java.awt.Color(255, 255, 255));
-        btnSistema2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Péptido-30.png"))); // NOI18N
+        btnSistema2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Termómetro médico-30.png"))); // NOI18N
         btnSistema2.setText("Consultorios Externos");
         btnSistema2.setContentAreaFilled(false);
         btnSistema2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -790,11 +790,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(btnSistema)
+                .addComponent(btnSistema, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(btnSistema1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSistema1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -5010,7 +5010,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         getContentPane().add(jTabbedPane1);
         jTabbedPane1.setBounds(255, 71, 1040, 710);
 
-        jPanel9.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel9.setBackground(new java.awt.Color(61, 57, 57));
 
         lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         lblUsu.setForeground(new java.awt.Color(102, 102, 102));
@@ -5103,6 +5103,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(false);  
          p13.setVisible(false);  
+         p14.setVisible(false);  
          jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_bcActionPerformed
 
@@ -5116,6 +5117,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(false);   
          p13.setVisible(false);
+         p14.setVisible(false);  
          jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_bc1ActionPerformed
 
@@ -5129,6 +5131,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(false);  
          p13.setVisible(false);
+         p14.setVisible(false);  
          jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_bc2ActionPerformed
 
@@ -5271,6 +5274,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(false);    
          p13.setVisible(false); 
+         p14.setVisible(false);  
          jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_HospitalicacionActionPerformed
 
@@ -5283,6 +5287,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(true);
          p12.setVisible(false);    
          p13.setVisible(false); 
+         p14.setVisible(false);  
     }//GEN-LAST:event_bc4ActionPerformed
 
     private void bc5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bc5ActionPerformed
@@ -5294,6 +5299,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(false);    
          p13.setVisible(false); 
+         p14.setVisible(false);  
         
         jTabbedPane1.setSelectedIndex(5);
         lblServicio.setText(mostrarServicioHosp());
@@ -5348,7 +5354,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(true);    
          p13.setVisible(false); 
-        
+         p14.setVisible(false);  
         jTabbedPane1.setSelectedIndex(7);
     }//GEN-LAST:event_btnSistemaActionPerformed
 
@@ -5504,6 +5510,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(false);  
          p13.setVisible(false);  
+         p14.setVisible(false);  
         jTabbedPane1.setSelectedIndex(6);
     }//GEN-LAST:event_bc3ActionPerformed
 

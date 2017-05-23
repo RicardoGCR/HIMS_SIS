@@ -1158,6 +1158,7 @@ DefaultTableModel m;
                         btnmodificar.setToolTipText("Modificar (Alt-M)");
                         btnmodificar.setContentAreaFilled(false);
                         btnmodificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                        btnmodificar.setEnabled(false);
                         btnmodificar.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 btnmodificarActionPerformed(evt);

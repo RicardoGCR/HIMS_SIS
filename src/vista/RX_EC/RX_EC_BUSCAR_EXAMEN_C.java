@@ -197,7 +197,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         txtNombres.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNombres.setEnabled(false);
 
-        jLabel9.setText("Acto Médico:");
+        jLabel9.setText("AM:");
 
         txtAM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtAM.setEnabled(false);
@@ -271,6 +271,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
 
         lblUsuD.setText("jLabel14");
 
+        txtHC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtHC.setEnabled(false);
 
         javax.swing.GroupLayout DETALLELayout = new javax.swing.GroupLayout(DETALLE.getContentPane());
@@ -310,14 +311,16 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                                 .addComponent(lblUsuD)
                                 .addGap(8, 8, 8))
                             .addGroup(DETALLELayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
                                 .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
                                     .addGroup(DETALLELayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel8))
+                                    .addGroup(DETALLELayout.createSequentialGroup()
+                                        .addGap(44, 44, 44)
                                         .addComponent(jLabel9)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtAM, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(32, 32, 32)
+                                        .addGap(53, 53, 53)
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtHC, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))

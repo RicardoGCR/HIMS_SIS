@@ -3,5 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group/>
+<<<<<<< HEAD
+=======
+=======
+        <group>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmabarazoAlertas.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroEmbarazo.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/HistoriaClinica.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioExtLista.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/PrincipalMDI.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioExt.java</file>
+>>>>>>> 74957007f7c0fa98e5bdcaf998d0765d50a95deb
+            <file>file:/D:/pry/SISGESH/src/vista/Caja/Caja_Pagos.java</file>
+        </group>
+>>>>>>> 08ca6a52266243ac5963fe1a9aacc3cd7609fe83
+>>>>>>> 3c8c005c1451d78f482e1c39251b476c7ce0e763
     </open-files>
 </project-private>

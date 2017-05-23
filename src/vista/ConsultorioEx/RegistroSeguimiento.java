@@ -73,6 +73,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 dispose();
             }
         });
+        cerrar();
         conexion = c.conectar();
         lblTriaje.setVisible(false);
         txtPaciente.requestFocus();

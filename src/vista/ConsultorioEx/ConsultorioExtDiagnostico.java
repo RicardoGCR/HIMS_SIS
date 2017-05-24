@@ -66,7 +66,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             CXRsR.setInfo(txtInfo.getText());
 
    
-            CXRsR.setCodUsu(adEmerCab.codUsuario(ConsultorioExt.lblusu.getText()));
+            CXRsR.setCodUsu(adEmerCab.codUsuario(ConsultorioExt.lblUsu.getText()));
 
             
                 if(CXRsR.mantenimientoConsultorioExtDiagnostico(lblMant.getText())==true){

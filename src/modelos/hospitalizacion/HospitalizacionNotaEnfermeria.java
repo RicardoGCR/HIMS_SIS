@@ -19,6 +19,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
+import vista.ConsultorioEx.HistoriaClinica;
 import vista.hospitalizacion.FrmHospitalizacionEpicrisis;
 import vista.hospitalizacion.FrmHospitalizacionNotaEnfermeria;
 
@@ -197,25 +198,6 @@ public class HospitalizacionNotaEnfermeria implements Serializable {
         }
     }
     
-//    public void epi(){
-//    String consulta="";
-//        try {
-//            String fila[]=new String[1];
-//            //int index = cbxTipoBusqueda.getSelectedIndex();
-//            consulta="EXEC YAMILA ";
-//            PreparedStatement cmd = getCn().prepareStatement(consulta);
-//            ResultSet r= cmd.executeQuery();
-//            int c=1;
-//            while(r.next()){
-//              fila[0]=r.getString(1); 
-//                    m.addRow(fila);
-//                    c++;
-//            }
-//        } catch (Exception e) {
-//            System.out.println("Error: notas de enfermeria para epicris : " + e.getMessage());
-//        }
-//    }
-    
     public String notaEnfermeriaID()
     {
         String cod="";
@@ -263,6 +245,61 @@ public class HospitalizacionNotaEnfermeria implements Serializable {
         }
         return cod;
     }   
+    
+    public void historiaClinicaNotaEnfermeria(String id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_LISTAR_HISTORIAL_NOTA_ENFERMERIA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                HistoriaClinica.txtNotaEnfermeria.setText(r.getString(1)); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: historiaClinicaNotaEnfermeria  " + e.getMessage());
+        }
+    } 
+    
+    public void formatoTablaHistorialProcedimientos(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(100);//
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(250);//
+        tabla.setRowHeight(30);
+    }
+    
+    public void historiaClinicaNotaEnfermeriaProcedimientos(String preventa,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Fecha","CPT","Nomenclatura"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[3];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CONSULTORIO_EXT_LISTAR_HISTORIAL_NOTA_ENFERMERIA_PROCEDIMIENTOS ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, preventa);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaHistorialProcedimientos(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: historiaClinicaNotaEnfermeriaProcedimientos: " + e.getMessage());
+        }
+    }
     
     public HospitalizacionNotaEnfermeria() {
         Conexion con = new Conexion();

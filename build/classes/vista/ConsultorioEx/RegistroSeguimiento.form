@@ -497,7 +497,7 @@
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lblusu" min="-2" pref="177" max="-2" attributes="0"/>
+                  <Component id="lblUsu" min="-2" pref="177" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -508,7 +508,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblusu" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblUsu" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="587" max="-2" attributes="0"/>
               </Group>
@@ -527,7 +527,7 @@
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Registro de seguimiento a la atenci&#xf3;n integral &lt;span style=&quot;font-size:&apos;15px&apos;&quot;&gt;&lt;br&gt;Ni&#xf1;os menores de 11 a&#xf1;os&lt;/br&gt;&lt;/span&gt;&lt;/html&gt;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblusu">
+        <Component class="javax.swing.JLabel" name="lblUsu">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Light" size="14" style="0"/>

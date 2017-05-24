@@ -50,7 +50,8 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
         this.getContentPane().setBackground(Color.WHITE);
         pnlMensaje.setVisible(false);
         h1 = new Thread(this);
-        h1.start();Calendar cal=Calendar.getInstance(); 
+        h1.start();
+        Calendar cal=Calendar.getInstance(); 
         String hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); 
         lblFechaE.setText(fechaActual());
         lblMant.setVisible(false);

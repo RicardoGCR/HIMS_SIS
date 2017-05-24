@@ -64,7 +64,7 @@ public class HospitalizacionNotaEnfermeriaProcedimiento implements Serializable 
         tabla.getColumnModel().getColumn(0).setPreferredWidth(30);
         tabla.getColumnModel().getColumn(1).setPreferredWidth(550);
         tabla.getColumnModel().getColumn(2).setPreferredWidth(60);
-        tabla.setRowHeight(40);
+        tabla.setRowHeight(30);
     }
     
     public void inicializarTabla(JTable tabla){

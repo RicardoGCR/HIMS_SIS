@@ -4255,6 +4255,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                         panelNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addGroup(panelNumerosLayout.createSequentialGroup()
                                                                             .addContainerGap(12, Short.MAX_VALUE)
+<<<<<<< HEAD
                                                                             .addGroup(panelNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                 .addComponent(jLabel26)
                                                                                 .addGroup(panelNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -4267,6 +4268,20 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                 .addGroup(panelNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                     .addComponent(jLabel39)
                                                                                     .addComponent(total3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+=======
+                                                                            .addGroup(panelNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addGroup(panelNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                    .addComponent(jLabel28)
+                                                                                    .addComponent(total2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addGroup(panelNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                    .addComponent(jLabel27)
+                                                                                    .addComponent(total1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addGroup(panelNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                    .addComponent(jLabel39)
+                                                                                    .addComponent(total3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addComponent(jLabel26))
+>>>>>>> 0206932dcad20ee9ae0c89b50979c77412ae0065
                                                                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                     );
 
@@ -4851,7 +4866,11 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                         .addGroup(panelAnularLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                             .addComponent(jLabel38)
                                                                                             .addComponent(eli6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+<<<<<<< HEAD
                                                                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                                                                            .addContainerGap(15, Short.MAX_VALUE))
+>>>>>>> 0206932dcad20ee9ae0c89b50979c77412ae0065
                                                                     );
 
                                                                     javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -4945,7 +4964,11 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                             .addGap(0, 0, 0)
                                                                             .addComponent(panelPreventa, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                             .addGap(0, 0, 0)
+<<<<<<< HEAD
                                                                             .addComponent(panelAnular, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                                                                            .addComponent(panelAnular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> 0206932dcad20ee9ae0c89b50979c77412ae0065
                                                                             .addGap(18, 18, 18)
                                                                             .addComponent(lblDescripcion)
                                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

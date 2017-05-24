@@ -4185,7 +4185,11 @@
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="panelPreventa" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="panelAnular" min="-2" pref="56" max="-2" attributes="0"/>
+=======
+                      <Component id="panelAnular" min="-2" max="-2" attributes="0"/>
+>>>>>>> 0206932dcad20ee9ae0c89b50979c77412ae0065
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Component id="lblDescripcion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -4430,6 +4434,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace pref="12" max="32767" attributes="0"/>
+<<<<<<< HEAD
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="3" groupAlignment="3" attributes="0">
@@ -4444,7 +4449,23 @@
                               <Group type="103" alignment="3" groupAlignment="3" attributes="0">
                                   <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="total3" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="total2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="total" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="total1" alignment="3" min="-2" max="-2" attributes="0"/>
+>>>>>>> 0206932dcad20ee9ae0c89b50979c77412ae0065
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="total3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -4626,12 +4647,21 @@
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/imagenes/iconos/Recordatorios de citas-32.png"/>
+<<<<<<< HEAD
                     </Property>
                     <Property name="mnemonic" type="int" value="78"/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Cursor de Mano"/>
                     </Property>
+=======
+                    </Property>
+                    <Property name="mnemonic" type="int" value="78"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Cursor de Mano"/>
+                    </Property>
+>>>>>>> 0206932dcad20ee9ae0c89b50979c77412ae0065
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                     <Property name="iconTextGap" type="int" value="30"/>
                     <Property name="verticalAlignment" type="int" value="3"/>
@@ -4888,6 +4918,7 @@
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f0" green="f0" red="f0" type="rgb"/>
+<<<<<<< HEAD
                     </Property>
                     <Property name="text" type="java.lang.String" value="No"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -4901,6 +4932,21 @@
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Cursor de Mano"/>
                     </Property>
+=======
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="No"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder>
+                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Cursor de Mano"/>
+                    </Property>
+>>>>>>> 0206932dcad20ee9ae0c89b50979c77412ae0065
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                     <Property name="iconTextGap" type="int" value="30"/>
                   </Properties>
@@ -5126,6 +5172,7 @@
             <Component class="javax.swing.JLabel" name="MHOS">
               <Properties>
                 <Property name="text" type="java.lang.String" value="MHOS"/>
+<<<<<<< HEAD
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="MODULO">
@@ -5133,6 +5180,15 @@
                 <Property name="text" type="java.lang.String" value="modulo"/>
               </Properties>
             </Component>
+=======
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="MODULO">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="modulo"/>
+              </Properties>
+            </Component>
+>>>>>>> 0206932dcad20ee9ae0c89b50979c77412ae0065
             <Component class="javax.swing.JLabel" name="AMA">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -5496,7 +5552,11 @@
                                   </Group>
                               </Group>
                           </Group>
+<<<<<<< HEAD
                           <EmptySpace max="32767" attributes="0"/>
+=======
+                          <EmptySpace pref="15" max="32767" attributes="0"/>
+>>>>>>> 0206932dcad20ee9ae0c89b50979c77412ae0065
                       </Group>
                   </Group>
                 </DimensionLayout>

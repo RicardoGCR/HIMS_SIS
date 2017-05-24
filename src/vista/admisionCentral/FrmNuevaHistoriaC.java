@@ -414,7 +414,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Guardar-32.png")); 
         String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) 
                 + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(5)) + String.valueOf(txtCodigo.getText().charAt(6)) ;
-        if(txtID.getText().equalsIgnoreCase(hC.idHistoriaClinica())){
+//        if(txtID.getText().equalsIgnoreCase(hC.idHistoriaClinica())){
             if(txtDni.getText().equals("") || txtNombre1.getText().equals("") || txtApellidoPat.getText().equals("") ||
                    txtApellidoPat.getText().equals("") || txtFechaNac.getText().equals("") ||
                          cbxDepartamento.getSelectedIndex()==0 || cbxDepartamentoNac.getSelectedIndex() == 0 
@@ -525,7 +525,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     txtLote.setVisible(false);
                     }
                 }
-            }   
+//            }   
     }catch (Exception e) {
             System.out.println("Error_btnGuardar " + e.getMessage());
         }  
@@ -1386,7 +1386,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 487, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()

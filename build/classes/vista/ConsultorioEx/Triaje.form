@@ -449,7 +449,7 @@
                           <EmptySpace pref="496" max="32767" attributes="0"/>
                           <Component id="btneliminar1" min="-2" pref="37" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblUsuUsuario" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUsu" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -484,7 +484,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="lblUsuUsuario" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUsu" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -601,7 +601,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblUsuUsuario">
+        <Component class="javax.swing.JLabel" name="lblUsu">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Light" size="14" style="0"/>
@@ -611,6 +611,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Usuario"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btneliminar1">
           <Properties>

@@ -476,10 +476,10 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         FrmFormatoEmergencia.lblIDPreventa.setText(String.valueOf(tbFormatosEmer.getValueAt(fila, 0)));
         btnGuardar.setEnabled(true);
         habilitarPestanas(2, false);
-        txtIDTriaje.setText(adEmerTr.idAdmisionEmergenciaTriaje());
-        if(txtIDTriaje.getText().equalsIgnoreCase("")){
-            txtIDTriaje.setText("TR000000000000000001");
-        }
+//        txtIDTriaje.setText(adEmerTr.idAdmisionEmergenciaTriaje());
+//        if(txtIDTriaje.getText().equalsIgnoreCase("")){
+//            txtIDTriaje.setText("TR000000000000000001");
+//        }
     }   
     
     public void enviarNomenclatura(){
@@ -2922,11 +2922,9 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                 }
             });
 
-            lblNewMod.setForeground(new java.awt.Color(0, 118, 168));
             lblNewMod.setText("jLabel39");
 
             lblCabpT.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-            lblCabpT.setForeground(new java.awt.Color(0, 118, 168));
             lblCabpT.setText("jLabel71");
 
             javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -4579,8 +4577,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                 }
             } else
             if(tbPaneles.getSelectedIndex()==1){ //TRIAJE
-                if(txtIDTriaje.getText().equals(adEmerTr.idAdmisionEmergenciaTriaje()) ||
-                    txtIDTriaje.getText().equals("TR000000000000000001")){ // NUEVO REGISTRO DE TRIAJE
+                if(lblNewMod.getText().equals("N")/*txtIDTriaje.getText().equals(adEmerTr.idAdmisionEmergenciaTriaje()) ||
+                    txtIDTriaje.getText().equals("TR000000000000000001")*/){ // NUEVO REGISTRO DE TRIAJE
                     /*if(txtFC.getText().equals("") || txtPA.getText().equals("") 
                             || txtPeso.getText().equals("") || txtFR.getText().equals("") 
                             || txtT.getText().equals("")){ // VALIDAR CAMPOS VACIOS
@@ -4598,7 +4596,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                             AdmisionEmergenciaTriaje adEmerTr1 = new AdmisionEmergenciaTriaje();
                             AdmisionEmergenciaCabecera adEmerCab3 = new AdmisionEmergenciaCabecera();
                             adEmerTr1.setPreventa_id(Integer.parseInt(lblIDPreventa.getText()));
-                            adEmerTr1.setTriaje_id(txtIDTriaje.getText());
+                            adEmerTr1.setTriaje_id("");
                             adEmerTr1.setTriaje_fv_pa(txtPA.getText());
                             adEmerTr1.setTriaje_fv_fc(txtFC.getText());
                             adEmerTr1.setTriaje_fv_t(txtT.getText());
@@ -4608,6 +4606,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                             adEmerTr1.setCod_usu(adEmerCab3.codUsuario(lblusu.getText()));
                             adEmerTr1.setModulo("EME");
                             if(adEmerTr1.mantenimientoAdmisionemergenciaTriaje("I")==true){
+                                AdmisionEmergenciaTriaje adEmer = new AdmisionEmergenciaTriaje();
+                                adEmer.triajeID();
                                 JOptionPane.showMessageDialog(this, "Datos guardados");
                                 //VISUALIZAR REPORTE !!!!!
                                 String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Triaje.jasper";

@@ -115,7 +115,7 @@ public boolean DetalleVenta(){
         boolean resp = false;
         try{
             String sql = "exec CAJA_INSERTAR_DETALLE_VENTA "
-                        + "?,?,?,?,?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
   
             cmd.setString(1, getId_documento());
@@ -124,12 +124,11 @@ public boolean DetalleVenta(){
             cmd.setDouble(4, getCantidad_detalle());
             cmd.setDouble(5, getPrecio_detalle());
             cmd.setDouble(6, getTotal_detalle());
-            cmd.setString(7, getFecha_aten());
-            cmd.setDouble(8, getDescu_exo_detalle());
-            cmd.setString(9, getPersonal_aten());
-            cmd.setString(10, getNum_aten());
-            cmd.setString(11, getTurno_cita());
-            cmd.setString(12, getCod_usu());
+            cmd.setDouble(7, getDescu_exo_detalle());
+            cmd.setString(8, getPersonal_aten());
+            cmd.setString(9, getNum_aten());
+            cmd.setString(10, getTurno_cita());
+            cmd.setString(11, getCod_usu());
 
 
             if(!cmd.execute())

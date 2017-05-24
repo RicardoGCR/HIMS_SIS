@@ -35,7 +35,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
+          <Color blue="2b" green="2b" red="2b" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
@@ -77,12 +77,12 @@
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <Component id="btnSistema" max="32767" attributes="0"/>
+                  <Component id="btnSistema" pref="300" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="p12" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <Component id="btnSistema1" min="-2" pref="300" max="-2" attributes="0"/>
+                  <Component id="btnSistema1" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="p13" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -635,7 +635,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/iconos/P&#xe9;ptido-30.png"/>
+              <Image iconType="3" name="/imagenes/iconos/Term&#xf3;metro m&#xe9;dico-30.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Consultorios Externos"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -7474,7 +7474,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnValores4" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnCarnetPerinatal" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel107" alignment="0" pref="209" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
@@ -7483,7 +7483,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel107" min="-2" pref="63" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="btnValores4" pref="101" max="32767" attributes="0"/>
+                          <Component id="btnCarnetPerinatal" pref="101" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -7509,7 +7509,7 @@
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel107MouseClicked"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnValores4">
+                <Component class="javax.swing.JButton" name="btnCarnetPerinatal">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -7529,7 +7529,7 @@
                     <Property name="verticalAlignment" type="int" value="3"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValores4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCarnetPerinatalActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -7541,7 +7541,7 @@
     <Container class="javax.swing.JPanel" name="jPanel9">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="39" green="39" red="3d" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>

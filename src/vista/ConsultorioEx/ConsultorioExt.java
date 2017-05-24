@@ -122,7 +122,7 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
         txtMotivoConsulta1 = new javax.swing.JEditorPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        lblusu = new javax.swing.JLabel();
+        lblUsu = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         txPaciente = new javax.swing.JTextField();
@@ -208,12 +208,12 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
                     jLabel1.setForeground(new java.awt.Color(255, 255, 255));
                     jLabel1.setText("<html>Consultorios<br>Externos</span></html>");
 
-                    lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-                    lblusu.setForeground(new java.awt.Color(255, 255, 255));
-                    lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
-                    lblusu.setText("Silvana");
-                    lblusu.setFocusable(false);
-                    lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+                    lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+                    lblUsu.setForeground(new java.awt.Color(255, 255, 255));
+                    lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+                    lblUsu.setText("Silvana");
+                    lblUsu.setFocusable(false);
+                    lblUsu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
                     btnActualizar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                     btnActualizar.setForeground(new java.awt.Color(240, 240, 240));
@@ -405,7 +405,7 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
                                     .addGap(0, 0, Short.MAX_VALUE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addGap(0, 0, Short.MAX_VALUE)
-                                    .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addContainerGap())
                     );
                     jPanel1Layout.setVerticalGroup(
@@ -430,7 +430,7 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblusu))
+                            .addComponent(lblUsu))
                     );
 
                     jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
@@ -1234,8 +1234,8 @@ public class ConsultorioExt extends javax.swing.JFrame implements Runnable{
     private javax.swing.JScrollPane jScrollPane9;
     public static javax.swing.JTabbedPane jTabbedPane1;
     public static javax.swing.JLabel lblHC;
+    public static javax.swing.JLabel lblUsu;
     private javax.swing.JLabel lbldetalle;
-    public static javax.swing.JLabel lblusu;
     public static javax.swing.JDesktopPane panelOpciones;
     private javax.swing.JPanel pnlConsultorio;
     private javax.swing.JPanel pnlEmergencia;

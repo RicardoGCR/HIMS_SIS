@@ -220,6 +220,38 @@ public class ConsultorioExConsultorio {
         }
     }
     
+    public void listarHospitalizacion(String idHc, JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"","Fecha","Acto Médico","Área"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[4];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC [CONSULTORIO_EXT_LISTAR_HISTORIAL_CAJA_PREVENTA_HOSPITALIZACION] ?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, idHc);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaListarConsultorioCabecera(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarHospitalizacion: " + e.getMessage());
+        }
+    }
+    
     public ConsultorioExConsultorio()
     {
         Conexion con = new Conexion();

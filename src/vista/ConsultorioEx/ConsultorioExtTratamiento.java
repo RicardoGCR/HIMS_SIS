@@ -48,7 +48,7 @@ private Dimension DimensionBarra = null;
             CXRsR.setIndicaciones(txtIndicaciones.getText());
             CXRsR.setOtras(txtOtras.getText());
 
-            CXRsR.setCodUsu(adEmerCab.codUsuario(ConsultorioExt.lblusu.getText()));
+            CXRsR.setCodUsu(adEmerCab.codUsuario(ConsultorioExt.lblUsu.getText()));
 
             
                 if(CXRsR.mantenimientoConsultorioExtTratamiento(lblMant.getText())==true){

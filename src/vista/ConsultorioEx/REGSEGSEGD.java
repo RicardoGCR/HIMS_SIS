@@ -132,7 +132,7 @@ private Dimension DimensionBarra = null;
             seguimiento1.setSdFecha(determinarFecha(dtFecha));
             seguimiento1.setSdRes(txtRes.getText());
             seguimiento1.setId_cie10(Integer.parseInt(lblIdCie10.getText()));
-            seguimiento1.setCodUsu(ad1.codUsuario(RegistroSeguimiento.lblusu.getText()));
+            seguimiento1.setCodUsu(ad1.codUsuario(RegistroSeguimiento.lblUsu.getText()));
             if(seguimiento1.mantenimientoConsultorioExtRsSeguimientoDesarrollo(lblMant.getText())==true){
                 pnlMensaje.setVisible(true);
                 lblMensaje.setText("Datos guardados de forma correcta");

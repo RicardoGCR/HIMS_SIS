@@ -420,7 +420,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         btnValores3 = new javax.swing.JButton();
         jPanel93 = new javax.swing.JPanel();
         jLabel107 = new javax.swing.JLabel();
-        btnValores4 = new javax.swing.JButton();
+        btnCarnetPerinatal = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         lblUsu = new javax.swing.JLabel();
         btnNuevo1 = new javax.swing.JButton();
@@ -430,7 +430,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         setTitle("Sistema de Gestion Hospitalaria - Modulo Administracion del Sistema");
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(43, 43, 43));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -733,7 +733,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         btnSistema2.setBackground(new java.awt.Color(102, 102, 102));
         btnSistema2.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         btnSistema2.setForeground(new java.awt.Color(255, 255, 255));
-        btnSistema2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Péptido-30.png"))); // NOI18N
+        btnSistema2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Termómetro médico-30.png"))); // NOI18N
         btnSistema2.setText("Consultorios Externos");
         btnSistema2.setContentAreaFilled(false);
         btnSistema2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -790,11 +790,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(btnSistema)
+                .addComponent(btnSistema, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(btnSistema1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSistema1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -4948,19 +4948,19 @@ public class PrincipalMDI extends javax.swing.JFrame {
             }
         });
 
-        btnValores4.setForeground(new java.awt.Color(240, 240, 240));
-        btnValores4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Alinear a la derecha-50.png"))); // NOI18N
-        btnValores4.setMnemonic('N');
-        btnValores4.setToolTipText("");
-        btnValores4.setContentAreaFilled(false);
-        btnValores4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnValores4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        btnValores4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnValores4.setIconTextGap(30);
-        btnValores4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnValores4.addActionListener(new java.awt.event.ActionListener() {
+        btnCarnetPerinatal.setForeground(new java.awt.Color(240, 240, 240));
+        btnCarnetPerinatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Alinear a la derecha-50.png"))); // NOI18N
+        btnCarnetPerinatal.setMnemonic('N');
+        btnCarnetPerinatal.setToolTipText("");
+        btnCarnetPerinatal.setContentAreaFilled(false);
+        btnCarnetPerinatal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCarnetPerinatal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        btnCarnetPerinatal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCarnetPerinatal.setIconTextGap(30);
+        btnCarnetPerinatal.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnCarnetPerinatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnValores4ActionPerformed(evt);
+                btnCarnetPerinatalActionPerformed(evt);
             }
         });
 
@@ -4968,7 +4968,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel93.setLayout(jPanel93Layout);
         jPanel93Layout.setHorizontalGroup(
             jPanel93Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnValores4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnCarnetPerinatal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel107, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
         );
         jPanel93Layout.setVerticalGroup(
@@ -4976,7 +4976,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGroup(jPanel93Layout.createSequentialGroup()
                 .addComponent(jLabel107, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnValores4, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
+                .addComponent(btnCarnetPerinatal, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel86Layout = new javax.swing.GroupLayout(jPanel86);
@@ -5010,7 +5010,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         getContentPane().add(jTabbedPane1);
         jTabbedPane1.setBounds(255, 71, 1040, 710);
 
-        jPanel9.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel9.setBackground(new java.awt.Color(61, 57, 57));
 
         lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         lblUsu.setForeground(new java.awt.Color(102, 102, 102));
@@ -5103,6 +5103,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(false);  
          p13.setVisible(false);  
+         p14.setVisible(false);  
          jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_bcActionPerformed
 
@@ -5116,6 +5117,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(false);   
          p13.setVisible(false);
+         p14.setVisible(false);  
          jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_bc1ActionPerformed
 
@@ -5129,6 +5131,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(false);  
          p13.setVisible(false);
+         p14.setVisible(false);  
          jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_bc2ActionPerformed
 
@@ -5271,6 +5274,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(false);    
          p13.setVisible(false); 
+         p14.setVisible(false);  
          jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_HospitalicacionActionPerformed
 
@@ -5283,6 +5287,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(true);
          p12.setVisible(false);    
          p13.setVisible(false); 
+         p14.setVisible(false);  
     }//GEN-LAST:event_bc4ActionPerformed
 
     private void bc5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bc5ActionPerformed
@@ -5294,6 +5299,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(false);    
          p13.setVisible(false); 
+         p14.setVisible(false);  
         
         jTabbedPane1.setSelectedIndex(5);
         lblServicio.setText(mostrarServicioHosp());
@@ -5348,7 +5354,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(true);    
          p13.setVisible(false); 
-        
+         p14.setVisible(false);  
         jTabbedPane1.setSelectedIndex(7);
     }//GEN-LAST:event_btnSistemaActionPerformed
 
@@ -5504,6 +5510,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p11.setVisible(false);
          p12.setVisible(false);  
          p13.setVisible(false);  
+         p14.setVisible(false);  
         jTabbedPane1.setSelectedIndex(6);
     }//GEN-LAST:event_bc3ActionPerformed
 
@@ -5744,13 +5751,13 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnValores3ActionPerformed
 
     private void jLabel107MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel107MouseClicked
-        // TODO add your handling code here:
+        btnCarnetPerinatal.doClick();
     }//GEN-LAST:event_jLabel107MouseClicked
 
-    private void btnValores4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValores4ActionPerformed
+    private void btnCarnetPerinatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarnetPerinatalActionPerformed
         RegistroEmbarazo embarazo = new RegistroEmbarazo();
         embarazo.setVisible(true);
-    }//GEN-LAST:event_btnValores4ActionPerformed
+    }//GEN-LAST:event_btnCarnetPerinatalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -5799,6 +5806,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JButton bc4;
     private javax.swing.JButton bc5;
     private javax.swing.JButton btnAnalisis;
+    private javax.swing.JButton btnCarnetPerinatal;
     private javax.swing.JButton btnClasificacion;
     private javax.swing.JButton btnConsultorio;
     private javax.swing.JButton btnContenedor;
@@ -5841,7 +5849,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JButton btnUnidadMedi;
     private javax.swing.JButton btnValores;
     private javax.swing.JButton btnValores3;
-    private javax.swing.JButton btnValores4;
     private javax.swing.JButton btneditar1;
     private javax.swing.JButton btneditar11;
     private javax.swing.JButton btneditar14;

@@ -68,7 +68,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             CXRsR.setIdConsultorioEx(0);
             CXRsR.setId_hc(lblIdHC.getText());
             CXRsR.setId_ActoMedico(Integer.parseInt(lblIdActoM.getText()));
-            CXRsR.setCodUsu(adEmerCab.codUsuario(ConsultorioExt.lblusu.getText()));
+            CXRsR.setCodUsu(adEmerCab.codUsuario(ConsultorioExt.lblUsu.getText()));
                 if(CXRsR.mantenimientoConsultorioExtCabecera(lblMant.getText())==true){
                     if (lblMant.getText().equals("I")){
 
@@ -113,6 +113,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         ConsultorioExConsultorio cabecera = new ConsultorioExConsultorio();
         cabecera.listarConsultorioCabecera(lblIdHC.getText(), HistoriaClinica.tbIngresosConsultorio);
         cabecera.listarEmergencia(lblIdHC.getText(), HistoriaClinica.tbIngresosEmergencia);
+        cabecera.listarHospitalizacion(lblIdHC.getText(), HistoriaClinica.tbIngresosHospitalizacion);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -457,10 +458,10 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             lblNombres.setText(String.valueOf(tbTriaje.getValueAt(fila, 4)));
             lblDNI.setText("DNI   "+String.valueOf(tbTriaje.getValueAt(fila, 2)));
             panelTriaje.setVisible(true);
-            abrirHistoriaClinica();
             HistoriaClinica.lblHC.setText(String.valueOf(tbTriaje.getValueAt(fila, 3)));
         }
         if(evt.getClickCount()==2){
+            abrirHistoriaClinica();
             Guardar( );
             ActualizarTriaje();
            

@@ -15,6 +15,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import static modelos.hospitalizacion.HospitalizacionPapeletas.m;
 import servicios.Conexion;
+import vista.ConsultorioEx.HistoriaClinica;
 import vista.hospitalizacion.FrmHospitalizacionExClinico;
 import static vista.hospitalizacion.FrmHospitalizacionExClinico.txtActoMedico;
 
@@ -469,6 +470,23 @@ public class HospitalizacionExamenClinico {
             System.out.println("Error: listarDiagnosticosEpicrisis: " + e.getMessage());
         }
     }
+    
+    public void historiaClinicaExamenClinico(String id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_LISTAR_HISTORIAL_HOSPITALIZACION_EXAMEN_CLINICO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                HistoriaClinica.txtExamenClinico.setText(r.getString(1)); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: historiaClinicaExamenClinico  " + e.getMessage());
+        }
+    } 
     
     public HospitalizacionExamenClinico()
     {

@@ -163,7 +163,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             else
                 consultorio1.setCpEstudios("");
             consultorio1.setCpPadreRn(txtPadreRN.getText());
-            consultorio1.setCodUsu(adEmerCab.codUsuario(lblusu.getText()));
+            consultorio1.setCodUsu(adEmerCab.codUsuario(lblUsu.getText()));
             if(consultorio1.mantenimientoConsultorioExtCarnetPerinatalCabecera(lblMant.getText(),lblTriaje.getText())==true){
                 RegistroEmbarazoPrincipal GA =new RegistroEmbarazoPrincipal();
                 Contenedor.add(GA);
@@ -248,7 +248,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             jPanel2 = new javax.swing.JPanel();
             jPanel1 = new javax.swing.JPanel();
             jLabel1 = new javax.swing.JLabel();
-            lblusu = new javax.swing.JLabel();
+            lblUsu = new javax.swing.JLabel();
             btnAlertas = new javax.swing.JButton();
             btnGuardar = new javax.swing.JButton();
             jLabel2 = new javax.swing.JLabel();
@@ -513,7 +513,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             );
 
             BuscarMadres.getContentPane().add(jPanel28);
-            jPanel28.setBounds(0, 0, 178, 370);
+            jPanel28.setBounds(0, 0, 0, 370);
 
             jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
@@ -709,12 +709,12 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     jLabel1.setForeground(new java.awt.Color(255, 255, 255));
                     jLabel1.setText("<html>Carnet de<br>Control Materno <br>Perinatal <span style=\"font-size:'15px'\"></span></html>");
 
-                    lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-                    lblusu.setForeground(new java.awt.Color(255, 255, 255));
-                    lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
-                    lblusu.setText("Silvana");
-                    lblusu.setFocusable(false);
-                    lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+                    lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+                    lblUsu.setForeground(new java.awt.Color(255, 255, 255));
+                    lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+                    lblUsu.setText("Silvana");
+                    lblUsu.setFocusable(false);
+                    lblUsu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
                     btnAlertas.setBackground(new java.awt.Color(232, 76, 61));
                     btnAlertas.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -848,7 +848,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                                         .addComponent(jLabel1)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel2)
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                     .addComponent(ChkAnalf1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -887,7 +887,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                                 .addComponent(btnAlertas)
                                 .addComponent(lblAlertas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(73, 73, 73)
-                            .addComponent(lblusu)
+                            .addComponent(lblUsu)
                             .addGap(28, 28, 28)
                             .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1891,7 +1891,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE))
-                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                             .addContainerGap())
                     );
 
@@ -2572,7 +2572,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
     public static javax.swing.JLabel lblSector;
     public static javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblTriaje;
-    public static javax.swing.JLabel lblusu;
+    public static javax.swing.JLabel lblUsu;
     public static javax.swing.JPanel pnlControl;
     private javax.swing.JPanel pnlMensaje;
     private javax.swing.JTable tbEmbarazoActual;

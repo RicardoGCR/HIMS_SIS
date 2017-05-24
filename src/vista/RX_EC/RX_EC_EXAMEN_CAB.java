@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.RX_EC.*;
+import modelos.Usuario;
 import servicios.Conexion;
 import vista.RX_EC.*;
 
@@ -34,7 +35,7 @@ Connection con;
 String hora, minutos, segundos, ampm;
 Calendar calendario;
 Thread h1;
-DefaultTableModel m1, m2;
+DefaultTableModel m1, m2,msb1,m3;
 static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 
     /**
@@ -48,12 +49,13 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         PERSONAL_ROL.getContentPane().setBackground(Color.white);
         mostrarArea();
         CargarPersonalRol();
+        inicializar_tabla_Examenes_detalle();
         
         //FECHA Y HORA
         h1 = new Thread(this);
         h1.start();
         Calendar cal=Calendar.getInstance();          
-        lblFecha.setText(fechaActual());
+        lblFechaReg.setText(fechaActual());
         
         RX_EC_EXAMEN num=new RX_EC_EXAMEN();
         txtNumExamen.setText(num.RX_EC_EXAMEN_generarNum());
@@ -82,6 +84,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         lblPerB = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_Personal_rol = new javax.swing.JTable();
+        jPopupMenu2 = new javax.swing.JPopupMenu();
+        Frontal = new javax.swing.JMenuItem();
+        Lateral = new javax.swing.JMenuItem();
+        Posterior = new javax.swing.JMenuItem();
         jpanel = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         lblUsu = new javax.swing.JLabel();
@@ -113,18 +119,19 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         jLabel26 = new javax.swing.JLabel();
         txtPersonalRegistraExamen = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        lblFecha = new javax.swing.JLabel();
+        lblFechaReg = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        lblHora = new javax.swing.JLabel();
+        lblHoraReg = new javax.swing.JLabel();
         lblHc1 = new javax.swing.JLabel();
         lblCantidad = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         lblCod_Per = new javax.swing.JLabel();
         lblCod_Per_R = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tb_examen_det = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         txtNumExamen = new javax.swing.JTextField();
 
@@ -248,6 +255,20 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addGap(31, 31, 31))
         );
 
+        Frontal.setText("Frontal");
+        jPopupMenu2.add(Frontal);
+
+        Lateral.setText("Lateral");
+        Lateral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LateralActionPerformed(evt);
+            }
+        });
+        jPopupMenu2.add(Lateral);
+
+        Posterior.setText("Posterior");
+        jPopupMenu2.add(Posterior);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jpanel.setBackground(new java.awt.Color(40, 112, 99));
@@ -268,12 +289,17 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         lblIDArea.setForeground(new java.awt.Color(255, 255, 255));
         lblIDArea.setText("jLabel1");
 
-        lblNomA.setFont(new java.awt.Font("Tahoma", 1, 9)); // NOI18N
+        lblNomA.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblNomA.setForeground(new java.awt.Color(255, 255, 255));
         lblNomA.setText("jLabel1");
 
         txtCodigoDoc.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         txtCodigoDoc.setText("jTextField1");
+        txtCodigoDoc.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtCodigoDocCaretUpdate(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/flecha-a-la-izquierda-volver.png"))); // NOI18N
         jButton2.setToolTipText("Regresar");
@@ -406,18 +432,18 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombreP, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtHC, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNombreP, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                    .addComponent(txtHC))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtFechaNac)
-                    .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53))
+                    .addComponent(txtGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addComponent(txtFechaNac))
+                .addGap(32, 32, 32))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -491,16 +517,16 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setText("Fecha Examen");
 
-        lblFecha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblFecha.setText("00/00/00");
+        lblFechaReg.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblFechaReg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFechaReg.setText("00/00/00");
 
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText("Hora Examen");
 
-        lblHora.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblHora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHora.setText("00:00:00");
+        lblHoraReg.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblHoraReg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHoraReg.setText("00:00:00");
 
         lblHc1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHc1.setText("Cantidad de Exámenes");
@@ -530,6 +556,15 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 
         lblCod_Per_R.setText("jLabel13");
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/guardar16x16.png"))); // NOI18N
+        jButton4.setText("GUARDAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -540,7 +575,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                     .addComponent(lblNumExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblFechaReg, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
@@ -548,7 +583,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(lblHora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblHoraReg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtPersonalExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, 0)
@@ -571,6 +606,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblCod_Per_R)
                 .addGap(167, 167, 167))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(409, 409, 409)
+                .addComponent(jButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -609,22 +648,24 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
-                                .addGap(18, 18, 18))
+                                .addComponent(lblFechaReg, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                                .addGap(48, 48, 48))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(lblCantidad)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel28)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblHora)
+                        .addComponent(lblHoraReg)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 9)); // NOI18N
         jLabel9.setText("DATOS DEL PERSONAL");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tb_examen_det.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -635,7 +676,9 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tb_examen_det.setComponentPopupMenu(jPopupMenu2);
+        tb_examen_det.setRowHeight(25);
+        jScrollPane1.setViewportView(tb_examen_det);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 9)); // NOI18N
         jLabel11.setText("EXAMENES A REALIZAR");
@@ -657,7 +700,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                             .addComponent(jLabel8)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel11)
-                                .addGap(163, 163, 163)
+                                .addGap(168, 168, 168)
                                 .addComponent(txtNumExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -673,14 +716,15 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel11))
                     .addComponent(txtNumExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -820,6 +864,18 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         txtBuscarPersonal.setText(txtBuscarPersonal.getText().toUpperCase());
     }//GEN-LAST:event_txtBuscarPersonalKeyReleased
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        guardar_examen_cabecera();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void txtCodigoDocCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtCodigoDocCaretUpdate
+               mostrar_VER_DETALLE();     
+    }//GEN-LAST:event_txtCodigoDocCaretUpdate
+
+    private void LateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LateralActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LateralActionPerformed
+
     public void buscarPersonal(){
         String consulta="";
         try {
@@ -924,76 +980,110 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         tb_Personal_rol.getColumnModel().getColumn(7).setPreferredWidth(100); 
     }
     
-//    public void guardar_cabecera(){
-//        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
-//        RX_EC_EXAMEN C=new RX_EC_EXAMEN();
-//        RX_EC_EXAMEN C1=new RX_EC_EXAMEN();
-//        RX_EC_EXAMEN C2=new RX_EC_EXAMEN();
-//        try{
-//            if(txtGM.getText().equalsIgnoreCase("G")){
-//                if(txtNumeroRegla.getText().equalsIgnoreCase("") || txtDescripcionRegla.getText().equalsIgnoreCase("")){
-//                    JOptionPane.showMessageDialog(rootPane, "Verifique si ha ingresado todos los campos");
-//                }
-//                else if(C.SIS_REGLA_VALIDACION_Ver(txtDescripcionRegla.getText())>0){
-//                    JOptionPane.showMessageDialog(rootPane, "El registro ya existe\nIntente nuevamente");
-//                    txtDescripcionRegla.setText("");
-//                    txtDescripcionRegla.requestFocus();
-//                }else{
-//
-//                    int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
-//                        "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
-//                    if(guardar == 0 ){
-//                        SIS_REGLA_VALIDACION cg = new SIS_REGLA_VALIDACION();
-//                        cg.setNUM_REGLA(txtNumeroRegla.getText());
-//                        cg.setDESCRIPCION(txtDescripcionRegla.getText());
-//
-//                        if(cg.SIS_REGLA_VALIDACION_GUARDAR()){
-//                            JOptionPane.showMessageDialog(null, "Datos Guardados");
-//                            limpiar();
-//                            deshabilitar();
-//                            txtGM.setText("G");
-//                            btnguardar.setEnabled(false);
-//                        }
-//                        else{
-//                            JOptionPane.showMessageDialog(this, "El registro ya existe\nIntente nuevamente");
-//
-//                        }}
-//                    }}else{
-//                        if(txtDescripcionRegla.getText().equalsIgnoreCase("")){
-//                            JOptionPane.showMessageDialog(rootPane, "Verifique si ha ingresado todos los campos");
-//                        }
-//                        else if(C1.SIS_REGLA_VALIDACION_Codigo(txtDescripcionRegla.getText()).equalsIgnoreCase(txtNumeroRegla.getText())==false && C2.SIS_REGLA_VALIDACION_Ver(txtDescripcionRegla.getText())>0 ){
-//                            JOptionPane.showMessageDialog(rootPane, "El registro ya existe\nIntente nuevamente");
-//                            txtDescripcionRegla.setText("");
-//                            txtDescripcionRegla.requestFocus();
-//                        }else{
-//                            int modificar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",
-//                                "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
-//                            if(modificar == 0 ){
-//                                SIS_REGLA_VALIDACION cm= new SIS_REGLA_VALIDACION();
-//                                cm.setID_REGLA(Integer.parseInt(txtIDREGLA.getText()));
-//                                cm.setNUM_REGLA(txtNumeroRegla.getText());
-//                                cm.setDESCRIPCION(txtDescripcionRegla.getText());
-//
-//                                if(cm.SIS_REGLA_VALIDACION_MODIFICAR()){
-//                                    JOptionPane.showMessageDialog(this, "Datos Modificados");
-//                                    limpiar();
-//                                    deshabilitar();
-//                                    txtGM.setText("G");
-//                                    btnguardar.setEnabled(false);
-//                                    btnmodificar.setEnabled(false);
-//                                    btneliminar.setEnabled(false);
-//                                }
-//                                else{
-//                                    JOptionPane.showMessageDialog(this, "El registro ya existe\nIntente nuevamente");
-//
-//                                }}
-//                            }}}catch(Exception e) {
-//                                JOptionPane.showMessageDialog(this, "Ingrese todos los campos");
-//
-//                            }
-//
-//    }
+    public void guardar_examen_cabecera(){
+        ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
+        RX_EC_EXAMEN C=new RX_EC_EXAMEN();
+        RX_EC_EXAMEN C1=new RX_EC_EXAMEN();
+        RX_EC_EXAMEN C2=new RX_EC_EXAMEN();
+        try{          
+                if(txtPersonalExamen.getText().equalsIgnoreCase("") || txtPersonalRegistraExamen.getText().equalsIgnoreCase("")){
+                    JOptionPane.showMessageDialog(rootPane, "Verifique si ha seleccionado el personal");
+                }
+                else{
+
+                    int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+                        "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                    if(guardar == 0 ){
+                        RX_EC_EXAMEN rxg = new RX_EC_EXAMEN();
+                        rxg.setID_DOCUMENTO(txtCodigoDoc.getText());
+                        rxg.setNUMERO_EXAMEN(lblNumExamen.getText());
+                        rxg.setCOD_PERSONAL_EXAMEN(lblCod_Per.getText());
+                        rxg.setNOMBRE_PERSONAL_EXAMEN(txtPersonalExamen.getText());
+                        rxg.setCOD_PERSONAL_EXAMEN_REG(lblCod_Per_R.getText());
+                        rxg.setNOMBRE_PERSONAL_EXAMEN_REG(txtPersonalRegistraExamen.getText());
+                        rxg.setFECHA_REG(lblFechaReg.getText());
+                        rxg.setHORA_REG(lblHoraReg.getText());
+                        rxg.setFECHA_ACTU(lblFechaReg.getText());
+                        rxg.setHORA_ACTU(lblHoraReg.getText());
+                        rxg.setNOM_PC(lblUsu.getText());
+
+                        if(rxg.RX_EC_EXAMEN_GUARDAR()){
+                            JOptionPane.showMessageDialog(null, "Datos Guardados");
+                            //limpiar();
+                            //deshabilitar();
+                            //btnguardar.setEnabled(false);
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(this, "El registro ya existe\nIntente nuevamente");
+
+                        }}
+                    }
+            
+        }catch(Exception e){
+                 JOptionPane.showMessageDialog(this, "Ingrese todos los campos");
+        }
+
+    }
+    
+    public void inicializar_tabla_Examenes_detalle(){       
+        try {
+            
+            String titulosb[]={"Cod. Documento Det.","Cod. Nomenclatura","Descripción Nomenclatura"};
+            msb1=new DefaultTableModel(null,titulosb);
+            JTable psb=new JTable(msb1);
+            String filasb[]=new String[3];
+            tb_examen_det.setModel(msb1);
+            TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(msb1);
+            tb_examen_det.setRowSorter(elQueOrdenasb);
+            tb_examen_det.setModel(msb1);
+            
+            formatoExamen_detalle();
+            
+        } catch (Exception e) {
+            System.out.println("error inicializar tabla_RV: " + e);
+        }
+            
+    }
+    
+    public void formatoExamen_detalle(){                    
+            tb_examen_det.getColumnModel().getColumn(0).setPreferredWidth(80); 
+            tb_examen_det.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_examen_det.getColumnModel().getColumn(2).setPreferredWidth(300);
+    }
+    
+    public void mostrar_VER_DETALLE(){
+        try {
+                    
+                        //detalle
+                        String consulta="";
+                        tb_examen_det.setModel(new DefaultTableModel());
+                        String titulos[]={"Cod. Documento Det.","Cod. Nomenclatura","Descripción Nomenclatura"};
+                        m3=new DefaultTableModel(null,titulos);
+                        JTable p=new JTable(m3);
+                        String fila[]=new String[3];
+                        Usuario obj=new Usuario();
+                        consulta="exec RX_EC_VER_DETALLE_EXAMEN ?";
+                        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+                        cmd.setString(1, txtCodigoDoc.getText());
+                        ResultSet r= cmd.executeQuery();
+                        while(r.next()){
+                        for (int i=0; i<3; i++){
+                        fila[i]=r.getString(i+1);
+                        }
+                            m3.addRow(fila);
+                        }
+                        tb_examen_det.setModel(m3);
+                        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
+                        tb_examen_det.setRowSorter(elQueOrdena);
+                        tb_examen_det.setModel(m3);
+
+                        formatoExamen_detalle();           
+                      
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+    }
     
     public static String fechaActual(){
         Date now = new Date(System.currentTimeMillis());
@@ -1055,11 +1145,15 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Frontal;
+    private javax.swing.JMenuItem Lateral;
     private javax.swing.JDialog PERSONAL_ROL;
+    private javax.swing.JMenuItem Posterior;
     private javax.swing.JButton btnBuscarPersonal;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1080,22 +1174,23 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel jpanel;
     public static javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblCod_Per;
     private javax.swing.JLabel lblCod_Per_R;
-    private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblFechaReg;
     public static javax.swing.JLabel lblHc1;
-    private javax.swing.JLabel lblHora;
+    private javax.swing.JLabel lblHoraReg;
     public static javax.swing.JLabel lblIDArea;
     public static javax.swing.JLabel lblNomA;
     private javax.swing.JLabel lblNumExamen;
     private javax.swing.JLabel lblPerB;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JTable tb_Personal_rol;
+    public static javax.swing.JTable tb_examen_det;
     private javax.swing.JLabel titulo5;
     public static javax.swing.JTextField txtAM;
     private javax.swing.JTextField txtBuscarPersonal;
@@ -1118,7 +1213,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         while (ct == h1) {
             calcula();
             
-            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+            lblHoraReg.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

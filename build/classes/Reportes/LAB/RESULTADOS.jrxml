@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RESULTADOS" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ec354669-dec9-4a6b-8d69-6d1e50ee2625">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="5"/>
+	<property name="ireport.y" value="0"/>
 	<property name="ireport.callouts" value="##Mon May 01 11:04:40 COT 2017"/>
 	<style name="table">
 		<box>
@@ -295,14 +295,14 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 			<staticText>
 				<reportElement x="35" y="70" width="64" height="20" uuid="a510e897-3680-416e-89f0-d5f5061001d7"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Segoe UI Semilight" isBold="true"/>
+					<font fontName="Segoe UI Semilight" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Paciente:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="35" y="90" width="64" height="20" uuid="92622de4-67b5-4b55-b804-8927edea0754"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Segoe UI Semilight" isBold="true"/>
+					<font fontName="Segoe UI Semilight" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Edad:]]></text>
 			</staticText>
@@ -316,7 +316,7 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 			<textField>
 				<reportElement x="302" y="130" width="81" height="20" uuid="befbe6d9-e8a6-418e-a9fb-edc7cf519209"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Segoe UI Semilight" isBold="true"/>
+					<font fontName="Segoe UI Semilight" size="9" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{mostrar}]]></textFieldExpression>
 			</textField>
@@ -442,7 +442,7 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 			<staticText>
 				<reportElement x="35" y="50" width="64" height="20" uuid="4eb3ccca-e890-4b70-9cfc-ecade21818cb"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Segoe UI Semilight" isBold="true"/>
+					<font fontName="Segoe UI Semilight" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[DNI:]]></text>
 			</staticText>
@@ -466,6 +466,20 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 					<font fontName="Segoe UI Semilight" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombre_personal_resultado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="35" y="130" width="64" height="20" uuid="13182ce1-8e71-4666-8ca8-544de9640147"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Forma de Pago:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="99" y="130" width="100" height="20" uuid="f458232d-0416-4d21-90b8-2cdcefad937d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom_forma_pago}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>

@@ -397,7 +397,8 @@ public class AdmisionEmergenciaTriaje {
         String cod="";
         try
         {
-            String sql = "SELECT TRIAJE_ID FROM ADMISION_EMERGENCIA_TRIAJE WHERE TRIAJE_NOM_PC = HOST_NAME()";
+            String sql = "SELECT TOP 1 TRIAJE_ID FROM ADMISION_EMERGENCIA_TRIAJE WHERE TRIAJE_NOM_PC = HOST_NAME()"
+                    + "ORDER BY TRIAJE_ID DESC";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
             if(rs.next())

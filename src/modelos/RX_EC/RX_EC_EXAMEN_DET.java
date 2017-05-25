@@ -3,63 +3,38 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package modelos.RX_EC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import servicios.Conexion;
 
 /**
  *
- * @author USUARIO
+ * @author MYS3
  */
-public class RX_EC_EXAMEN_DETALLE {
+public class RX_EC_EXAMEN_DET {
     private Connection cn;
-    int ID_EXAMEN_CAB;
-    int ID_COD_DOC_DET;
-    String COD_PER_SOL;
-    String NOM_PER_SOL;
-    int ID_EXAMEN_INCIDENCIA;
-    String FECHA_ORDEN;
-    String HORA_ORDEN;
-    int ID_PREVENTA;
-    String HAB_NOM;
-    String CA_DESC;
-    String HOSP_SERVICIO;
-    String NOM_USU;
+    private int ID_EXAMEN_CAB;
+    private int ID_COD_DOC_DET;
+    private String COD_PER_SOL;
+    private String NOM_PER_SOL;
+    private int ID_EXAMEN_INCIDENCIA;
+    private String FECHA_ORDEN;
+    private String HORA_ORDEN;
+    private int ID_PREVENTA;
+    private String HAB_NOM;
+    private String CA_DESC;
+    private String HOSP_SERVICIO;
+    private String NOM_USU;
     
-    public RX_EC_EXAMEN_DETALLE()
+    public RX_EC_EXAMEN_DET()
     {
         Conexion con = new Conexion();
         cn = con.conectar();
     }
     
     
-    public int LAB_Toma_Muestra_Hospitalizacion_ver(String idhc){
-        int resultado=0;
-        try
-        {
-            String sql = "sp_TOMA_MUESTRA_HOSPITALIZACION ?";
-            PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, idhc);
-            ResultSet rs = cmd.executeQuery();
-            for (int i=0; rs.next (); i++)
-            {
-               resultado++;
-            }
-            
-            cmd.close();
-            getCn().close();
-        }
-        catch(Exception ex)
-        {
-            System.out.println("Error: " + ex.getMessage());
-        }
-        return resultado;
-    }
-
     public boolean RX_EC_EXAMEN_DETALLE_GUARDAR(){
         boolean resp = false;
         try
@@ -91,6 +66,7 @@ public class RX_EC_EXAMEN_DETALLE {
         return resp;
     }
     
+
     public Connection getCn() {
         return cn;
     }

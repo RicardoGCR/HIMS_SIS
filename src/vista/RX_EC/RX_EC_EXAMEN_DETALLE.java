@@ -193,7 +193,7 @@ public class RX_EC_EXAMEN_DETALLE extends javax.swing.JFrame {
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
                         .addComponent(titulo5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 377, Short.MAX_VALUE)
                         .addComponent(lblIDArea)
                         .addGap(69, 69, 69)
                         .addComponent(lblNomA, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -318,17 +318,16 @@ public class RX_EC_EXAMEN_DETALLE extends javax.swing.JFrame {
                             .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)))
                 .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCabeceraLayout.createSequentialGroup()
+                    .addComponent(lblHospi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblHospiServ, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                            .addComponent(txtCama)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblHospiServ, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblHospi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(26, 26, 26)
+                .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                    .addComponent(txtCama))
                 .addContainerGap())
             .addGroup(panelCabeceraLayout.createSequentialGroup()
                 .addGap(138, 138, 138)
@@ -352,7 +351,7 @@ public class RX_EC_EXAMEN_DETALLE extends javax.swing.JFrame {
                         .addComponent(lblHospi, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblHospiServ)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(5, 5, 5)
                 .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCabeceraLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -436,7 +435,7 @@ public class RX_EC_EXAMEN_DETALLE extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNomenclatura1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCodigoCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 294, Short.MAX_VALUE))
+                .addGap(0, 228, Short.MAX_VALUE))
         );
 
         pack();
@@ -539,9 +538,9 @@ public class RX_EC_EXAMEN_DETALLE extends javax.swing.JFrame {
     private javax.swing.JPanel panelPaciente;
     private javax.swing.JLabel titulo5;
     public static javax.swing.JTextField txtCama;
-    private javax.swing.JTextField txtCodigoCPT1;
+    public static javax.swing.JTextField txtCodigoCPT1;
     public static javax.swing.JTextField txtHabitacion;
-    private javax.swing.JTextField txtNomenclatura1;
+    public static javax.swing.JTextField txtNomenclatura1;
     private javax.swing.JTextField txtPersonalSolicita;
     public static javax.swing.JTextField txtServicio;
     public static javax.swing.JTextField txtServicio1;

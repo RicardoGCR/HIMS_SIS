@@ -73,6 +73,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);//fondo blanco
         setLocationRelativeTo(null);//en el centro
+        chkHoy.setSelected(false);
         //Mostrar fecha
         h1 = new Thread(this);
         h1.start();
@@ -271,6 +272,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         dtFechaFinal1 = new com.toedter.calendar.JDateChooser();
         btnAtajoII = new javax.swing.JButton();
         btnAtajoVI = new javax.swing.JButton();
+        chkHoy = new javax.swing.JCheckBox();
 
         FrmBuscarNHC.setMinimumSize(new java.awt.Dimension(550, 650));
 
@@ -656,7 +658,8 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 return false;
             }
         };
-        tbMovimientoHC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tbMovimientoHC.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tbMovimientoHC.setForeground(new java.awt.Color(51, 51, 51));
         tbMovimientoHC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -844,6 +847,17 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        chkHoy.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        chkHoy.setForeground(new java.awt.Color(51, 51, 51));
+        chkHoy.setText("Pendientes de Hoy");
+        chkHoy.setContentAreaFilled(false);
+        chkHoy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chkHoy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkHoyActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -864,14 +878,6 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 .addGap(6, 6, 6)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(txtConsultorio, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxEstadoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(chkTodosArea)
@@ -886,13 +892,26 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkTodosEstado)))
+                        .addComponent(chkTodosEstado))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(txtConsultorio, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxEstadoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(64, 64, 64)
-                .addComponent(btnAtajoII)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAtajoVI)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(64, 64, 64)
+                        .addComponent(btnAtajoII)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAtajoVI))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(chkHoy)))
                 .addGap(18, 18, 18)
                 .addComponent(lblD))
         );
@@ -901,33 +920,37 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel4)
-                        .addComponent(chkTodosArea)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel5)
-                        .addComponent(chkTodosConsultorio)
-                        .addComponent(jLabel7)
-                        .addComponent(chkTodosTurno)
-                        .addComponent(jLabel8)
-                        .addComponent(chkTodosEstado))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(chkTodosArea)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel5)
+                            .addComponent(chkTodosConsultorio)
+                            .addComponent(jLabel7)
+                            .addComponent(chkTodosTurno)
+                            .addComponent(jLabel8)
+                            .addComponent(chkTodosEstado))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxEstadoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtTurno, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtConsultorio, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtServicio, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(dtFechaFinal1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(dtFechI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbxMovimiento, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addComponent(jLabel9)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblD)
                         .addComponent(btnAtajoII)
                         .addComponent(btnAtajoVI))
-                    .addComponent(jLabel9))
-                .addGap(7, 7, 7)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbxEstadoM)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtTurno, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtConsultorio, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtServicio, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(dtFechaFinal1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(dtFechI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cbxMovimiento, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(chkHoy)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -950,7 +973,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1026,6 +1049,9 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
             chkTodosEstado.setEnabled(true);
             cbxEstadoM.setEnabled(false);
             chkTodosEstado.setSelected(true);
+            chkTodosArea.setSelected(false);
+            chkTodosConsultorio.setSelected(false);
+            chkTodosTurno.setSelected(false);
             btnActualizarEstado.setEnabled(false);
             btnActualizarTabla.setEnabled(false);
             btnDetener.setMnemonic(KeyEvent.VK_C);
@@ -1043,62 +1069,72 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 txtTurno.setEnabled(false);
         } else 
             //Continuar
-        if(lblD.getText().equals("C")){if(cbxMovimiento.getSelectedIndex() == 0 || dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
-                JOptionPane.showMessageDialog(this, "Debe seleccionar un estado de Movimiento \ne ingresar un rango de fechas");
-            } else 
-            if(cbxMovimiento.getSelectedIndex() > 0){
-                if(chkTodosArea.isSelected()==false && txtServicio.getText().equals("") || 
-                   chkTodosConsultorio.isSelected()==false && txtConsultorio.getText().equals("") ||
-                   chkTodosTurno.isSelected()==false && txtTurno.getText().equals("")){
-                    JOptionPane.showMessageDialog(this, "Debe marcar las casillas o ingresar los datos");
-                } else {
-                    String estadoM = cbxMovimiento.getSelectedItem().toString();
-                    String servicio = txtServicio.getText();
-                    String consultorio = txtConsultorio.getText();
-                    String turno = txtTurno.getText();
-                    String estado = "";
-                    String fechI = "";
-                    String fechF = "";
-                    if(chkTodosEstado.isSelected()==false){
-                        if(cbxEstadoM.getSelectedIndex()==0){
-                            estado = "A";
+        if(lblD.getText().equals("C")){
+            if(!chkHoy.isSelected()){
+                if(cbxMovimiento.getSelectedIndex() == 0 || dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
+                    JOptionPane.showMessageDialog(this, "Debe seleccionar un estado de Movimiento \ne ingresar un rango de fechas");
+                } else 
+                if(cbxMovimiento.getSelectedIndex() > 0){
+                    if(chkTodosArea.isSelected()==false && txtServicio.getText().equals("") || 
+                       chkTodosConsultorio.isSelected()==false && txtConsultorio.getText().equals("") ||
+                       chkTodosTurno.isSelected()==false && txtTurno.getText().equals("")){
+                        JOptionPane.showMessageDialog(this, "Debe marcar las casillas o ingresar los datos");
+                    } else {
+                        String estadoM = cbxMovimiento.getSelectedItem().toString();
+                        String servicio = txtServicio.getText();
+                        String consultorio = txtConsultorio.getText();
+                        String turno = txtTurno.getText();
+                        String estado = "";
+                        String fechI = "";
+                        String fechF = "";
+                        if(chkTodosEstado.isSelected()==false){
+                            if(cbxEstadoM.getSelectedIndex()==0){
+                                estado = "A";
+                            } else {
+                                estado = "D";
+                            }
                         } else {
-                            estado = "D";
+                            estado = "";
                         }
-                    } else {
-                        estado = "";
+                        if(dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
+                            fechI = "";
+                            fechF = "";
+                        } else {
+                            fechI = determinarFecha(dtFechI);
+                            fechF = determinarFecha(dtFechaFinal1);
+                        }
+                        if(chkTodosEstado.isSelected()){
+                            estado = "";
+                        }
+                        if(cbxMovimiento.getSelectedIndex()==4){
+                            movHC.mostrar_MovHC(1, tbMovimientoHC,"",fechI,fechF,servicio,estado,consultorio,turno);
+                            //tbMovimientoHC.setDefaultRenderer(Object.class,new FormatoTablaMovHC());
+                        } else {
+                            movHC.mostrar_MovHC(2, tbMovimientoHC,estadoM,fechI,fechF,servicio,estado,consultorio,turno);
+                        }
+                        btnDetener.setMnemonic(KeyEvent.VK_D);
+                        lblD.setText("D");
+                        btnDetener.setIcon(detener);
+                        btnVisualizar.setEnabled(true);
+                        habilitarOpciones(false);
+                        btnActualizarTabla.setEnabled(true);
+                        tbMovimientoHC.setDefaultRenderer(Object.class,new FormatoTablaMovHC());
+                        txtServicio.setEnabled(false);
+                        txtConsultorio.setEnabled(false);
+                        btnActualizarEstado.setEnabled(true);
                     }
-                    if(dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
-                        fechI = "";
-                        fechF = "";
-                    } else {
-                        fechI = determinarFecha(dtFechI);
-                        fechF = determinarFecha(dtFechaFinal1);
-                    }
-                    if(chkTodosEstado.isSelected()){
-                        estado = "";
-                    }
-                    if(cbxMovimiento.getSelectedIndex()==4){
-                        movHC.mostrar_MovHC(1, tbMovimientoHC,"",fechI,fechF,servicio,estado,consultorio,turno);
-                        //tbMovimientoHC.setDefaultRenderer(Object.class,new FormatoTablaMovHC());
-                    } else {
-                        movHC.mostrar_MovHC(2, tbMovimientoHC,estadoM,fechI,fechF,servicio,estado,consultorio,turno);
-                    }
-                    btnDetener.setMnemonic(KeyEvent.VK_D);
-                    lblD.setText("D");
-                    btnDetener.setIcon(detener);
-                    btnVisualizar.setEnabled(true);
-                    habilitarOpciones(false);
-                    btnActualizarTabla.setEnabled(true);
-                    tbMovimientoHC.setDefaultRenderer(Object.class,new FormatoTablaMovHC());
-                    txtServicio.setEnabled(false);
-                    txtConsultorio.setEnabled(false);
-                    btnActualizarEstado.setEnabled(true);
+                }
+            // DESLIZAR CON LAS FLECHAS DENTRO DE LA TABLA
+            tbMovimientoHC.getSelectionModel().setSelectionInterval(0,0);
+            tbMovimientoHC.requestFocus();
+            }else{//SOLO MUESTRA LOS DE HOY
+                if(cbxMovimiento.getSelectedIndex() == 0){
+                    JOptionPane.showMessageDialog(this, "Debe seleccionar un estado de Movimiento");
+                }else{
+                    String estadoM = cbxMovimiento.getSelectedItem().toString();
+                    movHC.mostrar_MovHC(2, tbMovimientoHC,estadoM,"","","","","","");
                 }
             }
-        // DESLIZAR CON LAS FLECHAS DENTRO DE LA TABLA
-        tbMovimientoHC.getSelectionModel().setSelectionInterval(0,0);
-        tbMovimientoHC.requestFocus();
         }
     }//GEN-LAST:event_btnDetenerActionPerformed
 
@@ -1381,6 +1417,51 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void chkHoyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkHoyActionPerformed
+        if(chkHoy.isSelected()){//SE ACTIVA BUSQUEDA DE HOY 'PENDIENTES'
+            btnDetener.setEnabled(false);
+            cbxMovimiento.setEnabled(false);
+            dtFechI.setEnabled(false);
+            dtFechaFinal1.setEnabled(false);
+            txtConsultorio.setEnabled(false);
+            txtServicio.setEnabled(false);
+            txtTurno.setEnabled(false);
+            chkTodosArea.setEnabled(false);
+            chkTodosConsultorio.setEnabled(false);
+            chkTodosEstado.setEnabled(false);
+            chkTodosTurno.setEnabled(false);
+            cbxEstadoM.setEnabled(false);
+        } else {
+            btnDetener.setEnabled(true);
+            if(lblD.getText().equals("C")){
+                cbxMovimiento.setEnabled(true);
+                dtFechI.setEnabled(true);
+                dtFechaFinal1.setEnabled(true);
+                txtConsultorio.setEnabled(true);
+                txtServicio.setEnabled(true);
+                txtTurno.setEnabled(true);
+                chkTodosArea.setEnabled(true);
+                chkTodosConsultorio.setEnabled(true);
+                chkTodosEstado.setEnabled(true);
+                chkTodosTurno.setEnabled(true);
+                cbxEstadoM.setEnabled(true);
+            } else {
+                movHC.mostrar_MovHC(2,tbMovimientoHC,"Retorno","","","","","","");
+                cbxMovimiento.setEnabled(false);
+                dtFechI.setEnabled(false);
+                dtFechaFinal1.setEnabled(false);
+                txtConsultorio.setEnabled(false);
+                txtServicio.setEnabled(false);
+                txtTurno.setEnabled(false);
+                chkTodosArea.setEnabled(false);
+                chkTodosConsultorio.setEnabled(false);
+                chkTodosEstado.setEnabled(false);
+                chkTodosTurno.setEnabled(false);
+                cbxEstadoM.setEnabled(false);
+            }
+        }
+    }//GEN-LAST:event_chkHoyActionPerformed
     
     public void run() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.       
@@ -1389,7 +1470,11 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
             calcula();
             lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10000);
+                // mostrar datos en la tabla tbMvimientoHC
+                if(chkHoy.isSelected()){
+                    movHC.mostrar_MovHC(2,tbMovimientoHC,"Pendiente","","","","","","");
+                }
             } catch (InterruptedException e) {
                 System.out.println(e.toString());
             }
@@ -1443,6 +1528,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
     private javax.swing.JComboBox cbxEstadoM;
     private javax.swing.JComboBox cbxMovimiento;
     private javax.swing.JComboBox cbxTipoBusquedaNHC;
+    private javax.swing.JCheckBox chkHoy;
     private javax.swing.JCheckBox chkTodosArea;
     private javax.swing.JCheckBox chkTodosConsultorio;
     private javax.swing.JCheckBox chkTodosEstado;

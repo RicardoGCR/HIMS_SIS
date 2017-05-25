@@ -28,12 +28,12 @@ public boolean nuevoSIS(){
         boolean resp = false;
         try{
             String sql = "exec CAJA_CABECERA_SIS_INSERTAR "
-                        + "?,?,?,?";
+                        + "?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getID_FUA());
-            cmd.setString(2, getID_DOCUMENTO());
-            cmd.setInt(3, getID_ESTABLECIMIENTO());
-            cmd.setString(4, getATENCION());
+//            cmd.setString(1, getID_FUA());
+            cmd.setString(1, getID_DOCUMENTO());
+            cmd.setInt(2, getID_ESTABLECIMIENTO());
+            cmd.setString(3, getATENCION());
             if(!cmd.execute())
             {
                 resp = true;
@@ -47,20 +47,20 @@ public boolean nuevoSIS(){
         }
         return resp;
     }
-   public String idSIS(){//muestra el codigo
-        String id = "";
-        try {
-            String consulta = "exec SIS_FUA_GENERAR_ID";
-            ResultSet r;
-            r=con.Listar(consulta);
-        if(r.next()){
-               id = r.getString(1);
-        }
-        }catch(Exception ex){
-            System.out.println("Error_SIS: " + ex.getMessage());
-        }
-        return id;
-    }
+//   public String idSIS(){//muestra el codigo
+//        String id = "";
+//        try {
+//            String consulta = "exec SIS_FUA_GENERAR_ID";
+//            ResultSet r;
+//            r=con.Listar(consulta);
+//        if(r.next()){
+//               id = r.getString(1);
+//        }
+//        }catch(Exception ex){
+//            System.out.println("Error_SIS: " + ex.getMessage());
+//        }
+//        return id;
+//    }
 
 
 public Caja_SIS_Cabecera(){

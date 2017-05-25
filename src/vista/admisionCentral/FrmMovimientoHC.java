@@ -1218,39 +1218,43 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_tbMovimientoHCMouseClicked
 
     private void btnActualizarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaActionPerformed
-        String estadoM = cbxMovimiento.getSelectedItem().toString();
-        String servicio = txtServicio.getText();
-        String consultorio = txtConsultorio.getText();
-        String turno = txtTurno.getText();
-                    String estado = "";
-                    String fechI = "";
-                    String fechF = "";
-                    if(chkTodosEstado.isSelected()==false){
-                        if(cbxEstadoM.getSelectedIndex()==0){
-                            estado = "A";
+        if(chkHoy.isSelected()){
+            movHC.mostrar_MovHC(2,tbMovimientoHC,"Pendiente","","","","","","");
+        }else{
+            String estadoM = cbxMovimiento.getSelectedItem().toString();
+            String servicio = txtServicio.getText();
+            String consultorio = txtConsultorio.getText();
+            String turno = txtTurno.getText();
+                        String estado = "";
+                        String fechI = "";
+                        String fechF = "";
+                        if(chkTodosEstado.isSelected()==false){
+                            if(cbxEstadoM.getSelectedIndex()==0){
+                                estado = "A";
+                            } else {
+                                estado = "D";
+                            }
                         } else {
-                            estado = "D";
+                            estado = "";
                         }
-                    } else {
-                        estado = "";
-                    }
-                    if(dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
-                        fechI = "";
-                        fechF = "";
-                    } else {
-                        fechI = determinarFecha(dtFechI);
-                        fechF = determinarFecha(dtFechaFinal1);
-                    }
-                    if(chkTodosEstado.isSelected()){
-                        estado = "";
-                    }
-        if(cbxMovimiento.getSelectedIndex()==4)
-            movHC.mostrar_MovHC(1,tbMovimientoHC,estadoM,fechI,fechF,servicio,estado,consultorio,turno);
-        else
-            movHC.mostrar_MovHC(2,tbMovimientoHC,estadoM,fechI,fechF,servicio,estado,consultorio,turno);
-        // DESLIZAR CON LAS FLECHAS DENTRO DE LA TABLA
-        tbMovimientoHC.getSelectionModel().setSelectionInterval(0,0);
-        tbMovimientoHC.requestFocus();
+                        if(dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
+                            fechI = "";
+                            fechF = "";
+                        } else {
+                            fechI = determinarFecha(dtFechI);
+                            fechF = determinarFecha(dtFechaFinal1);
+                        }
+                        if(chkTodosEstado.isSelected()){
+                            estado = "";
+                        }
+            if(cbxMovimiento.getSelectedIndex()==4)
+                movHC.mostrar_MovHC(1,tbMovimientoHC,estadoM,fechI,fechF,servicio,estado,consultorio,turno);
+            else
+                movHC.mostrar_MovHC(2,tbMovimientoHC,estadoM,fechI,fechF,servicio,estado,consultorio,turno);
+            // DESLIZAR CON LAS FLECHAS DENTRO DE LA TABLA
+            tbMovimientoHC.getSelectionModel().setSelectionInterval(0,0);
+            tbMovimientoHC.requestFocus();
+        }
     }//GEN-LAST:event_btnActualizarTablaActionPerformed
 
     private void formMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseReleased
@@ -1432,7 +1436,10 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
             chkTodosEstado.setEnabled(false);
             chkTodosTurno.setEnabled(false);
             cbxEstadoM.setEnabled(false);
+            btnActualizarTabla.setEnabled(true);
+            btnVisualizar.setEnabled(false);
         } else {
+            btnVisualizar.setEnabled(true);
             btnDetener.setEnabled(true);
             if(lblD.getText().equals("C")){
                 cbxMovimiento.setEnabled(true);
@@ -1446,6 +1453,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 chkTodosEstado.setEnabled(true);
                 chkTodosTurno.setEnabled(true);
                 cbxEstadoM.setEnabled(true);
+                btnActualizarTabla.setEnabled(true);
             } else {
                 movHC.mostrar_MovHC(2,tbMovimientoHC,"Retorno","","","","","","");
                 cbxMovimiento.setEnabled(false);
@@ -1459,6 +1467,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 chkTodosEstado.setEnabled(false);
                 chkTodosTurno.setEnabled(false);
                 cbxEstadoM.setEnabled(false);
+                btnActualizarTabla.setEnabled(false);
             }
         }
     }//GEN-LAST:event_chkHoyActionPerformed
@@ -1468,7 +1477,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         Thread ct = Thread.currentThread();
         while (ct == h1) {
             calcula();
-            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+            lblHora.setText(hora + ":" + minutos + " " + ampm);
             try {
                 Thread.sleep(10000);
                 // mostrar datos en la tabla tbMvimientoHC

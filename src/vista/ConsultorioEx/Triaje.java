@@ -1208,14 +1208,14 @@ byte tge;
             btnEliminar.setEnabled(false);
             pnlTriaje.setVisible(true);
             btnsubir.setEnabled(true);
-        jPanel29.setVisible(false);
+            jPanel29.setVisible(false);
             habilitarDatosTriaje();
             limpiarDatosTriaje();
             
              filtrarDatos();
      
-        tbPaciente.getSelectionModel().setSelectionInterval(0,0);
-         buscarNHC();
+            tbPaciente.getSelectionModel().setSelectionInterval(0,0);
+            buscarNHC();
             tg=1;
     }//GEN-LAST:event_btnNuevoActionPerformed
 

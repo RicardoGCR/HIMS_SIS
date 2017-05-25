@@ -59,12 +59,19 @@ DefaultTableModel m,n,muestra;
      */
     public frm_LAB_TOMA_MUESTRA_INGRESO() {
         initComponents();
-        c.conectar();
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
         
-     
+        c.conectar();
         h1 = new Thread(this);
         h1.start();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
+        
+        
+        //Servicio-Area
+        LAB_PC_AREA pa=new LAB_PC_AREA();
+        lblServicio.setText(pa.LAB_PC_AREA_SERVICIO());
+        lblArea.setText(pa.LAB_PC_AREA_AREA());
+         LISTAR_examenes();
+         
         buscar_HC.getContentPane().setBackground(Color.white); 
         buscar_HC.setLocationRelativeTo(null);
         nomenclatura.getContentPane().setBackground(Color.white); 
@@ -92,11 +99,7 @@ DefaultTableModel m,n,muestra;
     dateDesde.requestFocus();
   
  
-    //Servicio-Area
-        LAB_PC_AREA pa=new LAB_PC_AREA();
-        lblServicio.setText(pa.LAB_PC_AREA_SERVICIO());
-        lblArea.setText(pa.LAB_PC_AREA_AREA());
-         LISTAR_examenes();
+    
    //salir presionando escape
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
         javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
@@ -109,13 +112,13 @@ DefaultTableModel m,n,muestra;
     
     public void formato(){
     tb_Pacientes.getColumnModel().getColumn(0).setPreferredWidth(40);
-    tb_Pacientes.getColumnModel().getColumn(1).setPreferredWidth(90);
+    tb_Pacientes.getColumnModel().getColumn(1).setPreferredWidth(70);
     tb_Pacientes.getColumnModel().getColumn(2).setPreferredWidth(260);
-    tb_Pacientes.getColumnModel().getColumn(3).setPreferredWidth(85);
+    tb_Pacientes.getColumnModel().getColumn(3).setPreferredWidth(70);
     tb_Pacientes.getColumnModel().getColumn(4).setPreferredWidth(140);
-    tb_Pacientes.getColumnModel().getColumn(5).setPreferredWidth(50);
-    tb_Pacientes.getColumnModel().getColumn(6).setPreferredWidth(50);
-    tb_Pacientes.getColumnModel().getColumn(7).setPreferredWidth(145);
+    tb_Pacientes.getColumnModel().getColumn(5).setPreferredWidth(45);
+    tb_Pacientes.getColumnModel().getColumn(6).setPreferredWidth(45);
+    tb_Pacientes.getColumnModel().getColumn(7).setPreferredWidth(140);
     //Ocultar    
     tb_Pacientes.getColumnModel().getColumn(0).setMinWidth(0);
     tb_Pacientes.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -295,7 +298,7 @@ DefaultTableModel m,n,muestra;
     String consulta="";
         try {
             tb_Pacientes.setModel(new DefaultTableModel());
-            String titulos[]={"Código","N° de H.C.","Datos del Paciente","DNI","Fecha de Nacimiento","Edad","Sexo","Cantidad de Exámenes","Documento","Acto Medico"};
+            String titulos[]={"Código","N° de H.C.","Datos del Paciente","DNI","Fecha de Nacimiento","Edad","Sexo","Cant. de Exámenes","Documento","Acto Medico"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[10];
@@ -715,7 +718,7 @@ public void calcula() {
 
                         },
                         new String [] {
-                            "Código", "N° de H.C", "Datos del Paciente", "DNI", "Fecha de Nacimiento", "Edad", "Sexo", "Cantidad de Exámenes", "Documento", "Acto Medico"
+                            "Código", "N° de H.C", "Datos del Paciente", "DNI", "Fecha de Nacimiento", "Edad", "Sexo", "<html>Cant.<br> de Exámenes</html>", "Documento", "Acto Medico"
                         }
                     ) {
                         boolean[] canEdit = new boolean [] {
@@ -726,7 +729,6 @@ public void calcula() {
                             return canEdit [columnIndex];
                         }
                     });
-                    tb_Pacientes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                     tb_Pacientes.setComponentPopupMenu(jPopupMenu1);
                     tb_Pacientes.setRowHeight(20);
                     tb_Pacientes.setSelectionBackground(new java.awt.Color(2, 67, 115));
@@ -1049,7 +1051,7 @@ public void buscar_examenes(){
     String consulta="";
         try {
             tb_Pacientes.setModel(new DefaultTableModel());
-            String titulos[]={"Código","N° de H.C.","Datos del Paciente","DNI","Fecha de Nacimiento","Edad","Sexo","Cantidad de Exámenes","Documento","Acto Medico"};
+            String titulos[]={"Código","N° de H.C.","Datos del Paciente","DNI","Fecha de Nacimiento","Edad","Sexo","Cant. de Exámenes","Documento","Acto Medico"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[10];
@@ -1194,14 +1196,14 @@ public void buscar_examenes(){
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.       
         Thread ct = Thread.currentThread();
         while (ct == h1) {
-            calcula();
-            if(lbldia.getText().equalsIgnoreCase("Exámenes del día")){
-                formato();
-            LISTAR_examenes();
-            
-            }
-//            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+//            calcula();
+//            if(lbldia.getText().equalsIgnoreCase("Exámenes del día")){
+//                formato();            
+//            }
             try {
+                if(lbldia.getText().equalsIgnoreCase("Exámenes del día")){
+                LISTAR_examenes();
+                }
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
             }
@@ -1299,8 +1301,8 @@ public void buscar_examenes(){
     private javax.swing.JPanel jpanel;
     private javax.swing.JPanel jpanel1;
     private javax.swing.JPanel jpanel3;
-    private javax.swing.JLabel lblArea;
-    private javax.swing.JLabel lblServicio;
+    public static javax.swing.JLabel lblArea;
+    public static javax.swing.JLabel lblServicio;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JLabel lbldia;
     private javax.swing.JDialog nomenclatura;

@@ -53,7 +53,7 @@ public void ConsultoriosExtPREVENTAListar(String ap_id){
             int c=1;
             while(r.next()){
                     
-                Caja_Pagos.AM.setText(r.getString(1));    
+                Caja_Pagos.lblActoMedico.setText(r.getString(1));    
             }
             //
         } catch (Exception e) {
@@ -71,7 +71,7 @@ public void ConsultoriosExtPREVENTAListarCEX(String ap_id){
             int c=1;
             while(r.next()){
                     
-                Caja_Pagos.AM.setText(r.getString(1));    
+                Caja_Pagos.lblActoMedico.setText(r.getString(1));    
             }
             //
         } catch (Exception e) {

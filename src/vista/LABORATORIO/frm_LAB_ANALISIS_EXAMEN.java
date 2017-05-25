@@ -499,7 +499,7 @@ public void calcula() {
                                     .addContainerGap(39, Short.MAX_VALUE))
                             );
 
-                            buscar_nomenclatura.setMinimumSize(new java.awt.Dimension(551, 461));
+                            buscar_nomenclatura.setMinimumSize(new java.awt.Dimension(537, 446));
 
                             tb_Nomenclatura.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             tb_Nomenclatura.setModel(new javax.swing.table.DefaultTableModel(
@@ -562,18 +562,18 @@ public void calcula() {
                                 .addGroup(buscar_nomenclaturaLayout.createSequentialGroup()
                                     .addGroup(buscar_nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(buscar_nomenclaturaLayout.createSequentialGroup()
-                                            .addGap(164, 164, 164)
+                                            .addGap(146, 146, 146)
                                             .addComponent(txtbuscarNomen, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(btnBuscarNomen, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(buscar_nomenclaturaLayout.createSequentialGroup()
-                                            .addGap(21, 21, 21)
+                                            .addGap(13, 13, 13)
                                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addContainerGap(19, Short.MAX_VALUE))
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buscar_nomenclaturaLayout.createSequentialGroup()
-                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addGap(0, 216, Short.MAX_VALUE)
                                     .addComponent(jLabel2)
-                                    .addGap(207, 207, 207))
+                                    .addGap(198, 198, 198))
                             );
                             buscar_nomenclaturaLayout.setVerticalGroup(
                                 buscar_nomenclaturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -586,7 +586,7 @@ public void calcula() {
                                         .addComponent(btnBuscarNomen, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(18, 18, 18)
                                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
-                                    .addGap(29, 29, 29))
+                                    .addGap(14, 14, 14))
                             );
 
                             buscar_muestra.setMinimumSize(new java.awt.Dimension(415, 491));

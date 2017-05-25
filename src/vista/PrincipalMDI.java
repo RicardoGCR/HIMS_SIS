@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelos.LABORATORIO.LAB_PC_AREA;
 import modelos.hospitalizacion.HospitalizacionPapeletas;
 import servicios.Conexion;
 import vista.COSTOS.BUSCAR_ESTIMACION_COSTOS;
@@ -5608,6 +5609,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         lme.setVisible(true);
         String u=lblUsu.getText();
         frm_LAB_TOMA_MUESTRA_INGRESO.lblUsu.setText(u);
+        
     }//GEN-LAST:event_btnTMActionPerformed
 
     private void jLabel94MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel94MouseClicked

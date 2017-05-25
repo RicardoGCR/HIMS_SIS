@@ -62,10 +62,16 @@ DefaultTableModel m,n,resultado;
     public frm_LAB_RESULTADOS_MUESTRA_INGRESO() {
         initComponents();
         c.conectar();
+         h1 = new Thread(this);
+        h1.start();
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
      
-        h1 = new Thread(this);
-        h1.start();
+        //Servicio-Area
+        LAB_PC_AREA pa=new LAB_PC_AREA();
+        lblServicio.setText(pa.LAB_PC_AREA_SERVICIO());
+        lblArea.setText(pa.LAB_PC_AREA_AREA());
+       LAB_BUSCAR_TM_DIA();
+       
         buscar_HC.getContentPane().setBackground(Color.white); 
         buscar_HC.setLocationRelativeTo(null);
         personal.getContentPane().setBackground(Color.white);
@@ -112,12 +118,7 @@ DefaultTableModel m,n,resultado;
             txtPersonal.setEnabled(false);
             btnPersonal.setEnabled(false);
             txtActoM.setEnabled(false);
-    //Servicio-Area
-        LAB_PC_AREA pa=new LAB_PC_AREA();
-        lblServicio.setText(pa.LAB_PC_AREA_SERVICIO());
-        lblArea.setText(pa.LAB_PC_AREA_AREA());
-       LAB_BUSCAR_TM_DIA();
-      formato();
+    
    //salir presionando escape
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
         javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
@@ -1093,10 +1094,10 @@ public void calcula() {
                                     .addComponent(chPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(txtPacientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(txtPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(txtActoM, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
+                                    .addComponent(txtAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPacientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtActoM, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnPacientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2282,10 +2283,14 @@ public void buscar_examenes(){
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.       
         Thread ct = Thread.currentThread();
         while (ct == h1) {
-            calcula();
+//            calcula();
 //            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                Thread.sleep(1000);
+                if(lbldia.getText().equalsIgnoreCase("Exámenes con Toma de Muestras del Día")){
+                LAB_BUSCAR_TM_DIA();
+                }
+                Thread.sleep(5000);
+                
             } catch (InterruptedException e) {
             }
         }

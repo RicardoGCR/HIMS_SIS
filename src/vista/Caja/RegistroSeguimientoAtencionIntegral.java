@@ -1034,8 +1034,8 @@ public class RegistroSeguimientoAtencionIntegral extends javax.swing.JFrame {
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
+                .addGap(51, 51, 51)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
@@ -1150,8 +1150,8 @@ public class RegistroSeguimientoAtencionIntegral extends javax.swing.JFrame {
         jPanel20Layout.setHorizontalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel20Layout.setVerticalGroup(
@@ -1196,8 +1196,8 @@ public class RegistroSeguimientoAtencionIntegral extends javax.swing.JFrame {
         jPanel22Layout.setHorizontalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel22Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel22Layout.setVerticalGroup(
@@ -1240,8 +1240,8 @@ public class RegistroSeguimientoAtencionIntegral extends javax.swing.JFrame {
         jPanel24Layout.setHorizontalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel24Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel15)
+                .addGap(50, 50, 50)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel24Layout.setVerticalGroup(

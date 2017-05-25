@@ -56,19 +56,15 @@ public class RX_EC_EXAMEN {
         boolean resp = false;
         try
         {
-            String sql = "exec RX_EC_EXAMEN_CABECERA_GUARDAR ?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "exec RX_EC_EXAMEN_CABECERA_GUARDAR ?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getID_DOCUMENTO());
             cmd.setString(2, getNUMERO_EXAMEN());
             cmd.setString(3, getCOD_PERSONAL_EXAMEN());
             cmd.setString(4, getNOMBRE_PERSONAL_EXAMEN());
             cmd.setString(5, getCOD_PERSONAL_EXAMEN_REG());
-            cmd.setString(6, getNOMBRE_PERSONAL_EXAMEN_REG());
-            cmd.setString(7, getFECHA_REG());
-            cmd.setString(8, getHORA_REG());
-            cmd.setString(9, getFECHA_ACTU());
-            cmd.setString(10, getHORA_ACTU());
-            cmd.setString(11, getNOM_PC());
+            cmd.setString(6, getNOMBRE_PERSONAL_EXAMEN_REG());          
+            cmd.setString(7, getNOM_PC());
             
             if(!cmd.execute())
             {

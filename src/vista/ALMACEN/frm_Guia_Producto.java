@@ -495,10 +495,10 @@ String hora, minutos, segundos, ampm;
 
     private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
         // TODO add your handling code here:
-        char tecla= evt.getKeyChar();
-        if(tecla==KeyEvent.VK_ENTER){
-            btnBuscarProducto.doClick();
-        }
+//        char tecla= evt.getKeyChar();
+//        if(tecla==KeyEvent.VK_ENTER){
+//            btnBuscarProducto.doClick();
+//        }
     }//GEN-LAST:event_txtBuscarKeyPressed
 
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
@@ -725,7 +725,41 @@ String hora, minutos, segundos, ampm;
     }//GEN-LAST:event_tbGuiaKeyTyped
 
     private void txtBuscarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCaretUpdate
-      btnBuscarProducto.doClick();
+      String consulta="";
+        try {
+            tbProductoAlmacen.setModel(new DefaultTableModel());
+
+            String titulos[]={"Nº","Código","Nombre del Producto","Cantidad de Unidad de Medida","Unidad de Medida"};
+            m3=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m3);
+            String fila[]=new String[6];
+            
+            Usuario obj=new Usuario();
+            consulta="exec ASIGNAR_UNIDAD_MEDIDA_LISTAR ?,?";
+        
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setString(1,"2");
+            cmd.setString(2,txtBuscar.getText());
+            
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=String.valueOf(c)+"º";
+                fila[1]=r.getString(1);
+                fila[2]=r.getString(2);
+                fila[3]=r.getString(3);
+                fila[4]=r.getString(4);
+                m3.addRow(fila);
+                c++;
+            }
+            tbProductoAlmacen.setModel(m3);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
+            tbProductoAlmacen.setRowSorter(elQueOrdena);
+            this.tbProductoAlmacen.setModel(m3);
+            formatoProducto();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }//GEN-LAST:event_txtBuscarCaretUpdate
  public void enableDatos(boolean op){
     btnNuevo.setVisible(op);

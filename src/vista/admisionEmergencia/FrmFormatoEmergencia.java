@@ -69,6 +69,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
     Thread h1;
     AdmisionEmergenciaTriaje adEmerTr = new AdmisionEmergenciaTriaje();
     AdmisionEmergenciaTopico adEmerTo = new AdmisionEmergenciaTopico();
+    
     /**
      * Creates new form FrmemergenciaCabecera
      */
@@ -146,6 +147,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         txtaAnotMed.setDocument(limitAnotacionesMed);
         LimitadorDeDocumento limitAnotacionesEnf = new LimitadorDeDocumento(2000);
         txtaAnotacionesEnf.setDocument(limitAnotacionesEnf);
+        lblNewMod.setVisible(false);
+        lblCabpT.setVisible(false);
     }
     
     public void habilitarPestanas(int tipo,boolean opcion){
@@ -515,10 +518,10 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         pnlTopicoP.setVisible(true);
         FrmFormatoEmergencia.lblCabpT.setText(String.valueOf(tbMostrarTriajepT.getValueAt(fila, 4)));
         FrmFormatoEmergencia.lblIDTriajepTop.setText(String.valueOf(tbMostrarTriajepT.getValueAt(fila, 5)));
-        txtIDTopico.setText(adEmerTo.idAdmisionEmergenciaTopico());
-        if(txtIDTopico.getText().equalsIgnoreCase("")){
-            txtIDTopico.setText("TO000000000000000001");
-        }
+//        txtIDTopico.setText(adEmerTo.idAdmisionEmergenciaTopico());
+//        if(txtIDTopico.getText().equalsIgnoreCase("")){
+//            txtIDTopico.setText("TO000000000000000001");
+//        }
         btnGuardar.setEnabled(true);
     }
     
@@ -1021,6 +1024,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                     adEmertopico.setCod_usu(usuario);
                     adEmertopico.setPrioridad(prioridad);
                     if(adEmertopico.mantenimientoAdmisionEmergenciaTopico("I")==true){
+                        AdmisionEmergenciaTopico top = new AdmisionEmergenciaTopico();
+                        top.topicoID();
                         retorna = true;
                     }
                 }else{
@@ -3210,8 +3215,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             });
 
             txtCPT.setEditable(false);
-            txtCPT.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
-            txtCPT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+            txtCPT.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+            txtCPT.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
             javax.swing.GroupLayout pnlDatosCabeceraLayout = new javax.swing.GroupLayout(pnlDatosCabecera);
             pnlDatosCabecera.setLayout(pnlDatosCabeceraLayout);
@@ -3248,22 +3253,20 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                                     .addComponent(jLabel6)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                                     .addComponent(btnBuscarCPT))
                                 .addGroup(pnlDatosCabeceraLayout.createSequentialGroup()
-                                    .addGroup(pnlDatosCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(pnlDatosCabeceraLayout.createSequentialGroup()
-                                            .addComponent(jLabel7)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(pnlDatosCabeceraLayout.createSequentialGroup()
-                                            .addComponent(jLabel9)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblEstcivil, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtCPT, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(0, 0, Short.MAX_VALUE)))
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(pnlDatosCabeceraLayout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblEstcivil, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtCPT)))
+                            .addContainerGap())
                         .addGroup(pnlDatosCabeceraLayout.createSequentialGroup()
                             .addGroup(pnlDatosCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(pnlDatosCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)

@@ -72,7 +72,6 @@ public class RX_EC_EXAMEN_DETALLE extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(868, 635));
         setMinimumSize(new java.awt.Dimension(868, 635));
-        setPreferredSize(new java.awt.Dimension(868, 635));
 
         panelPaciente.setBackground(new java.awt.Color(255, 255, 255));
         panelPaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));

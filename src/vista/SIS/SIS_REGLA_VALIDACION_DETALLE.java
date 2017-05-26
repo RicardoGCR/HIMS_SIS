@@ -678,10 +678,12 @@ static SIS_REGLA_VALIDACION_DET DT = new SIS_REGLA_VALIDACION_DET();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNumeroReglaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtNumeroReglaCaretUpdate
-        mostrarReglaVal(txtNumeroRegla.getText());
-        mostrarDetalleBuscarRV();
-        limpiarRVAL();
-        txtNombreCampo.setEnabled(true);
+   
+            mostrarReglaVal(txtNumeroRegla.getText());
+            mostrarDetalleBuscarRV();
+            limpiarRVAL();
+            txtNombreCampo.setEnabled(true);
+        
     }//GEN-LAST:event_txtNumeroReglaCaretUpdate
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed

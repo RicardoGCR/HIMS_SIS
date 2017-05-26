@@ -59,6 +59,8 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import java.text.SimpleDateFormat;
 import Atxy2k.CustomTextField.RestrictedTextField;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.lang.Object;
@@ -131,9 +133,24 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 dispose();
             }
         });
+        cerrar();
         //ICONO DE FORMULARIO
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/iconNuevoPac24x24.png")).getImage());
         
+    }
+    
+    public void cerrar (){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e){
+                    dispose();
+                }
+        });
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     //Restringir campos al ingresar datos
     public void restringirCampos(int limite,javax.swing.JTextField campo){

@@ -380,6 +380,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
             }
         ));
         tbSectorizacion.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbSectorizacion.getTableHeader().setReorderingAllowed(false);
         tbSectorizacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbSectorizacionKeyPressed(evt);

@@ -100,6 +100,7 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
             }
         ));
         tbBuscar.setSelectionBackground(new java.awt.Color(0, 118, 168));
+        tbBuscar.getTableHeader().setReorderingAllowed(false);
         tbBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbBuscarKeyPressed(evt);

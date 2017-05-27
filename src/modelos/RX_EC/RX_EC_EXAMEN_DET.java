@@ -7,6 +7,7 @@ package modelos.RX_EC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import servicios.Conexion;
 
 /**
@@ -22,7 +23,7 @@ public class RX_EC_EXAMEN_DET {
     private int ID_EXAMEN_INCIDENCIA;
     private String FECHA_ORDEN;
     private String HORA_ORDEN;
-    private int ID_PREVENTA;
+    private String ID_PREVENTA;
     private String HAB_NOM;
     private String CA_DESC;
     private String HOSP_SERVICIO;
@@ -46,7 +47,7 @@ public class RX_EC_EXAMEN_DET {
             cmd.setString(3, getCOD_PER_SOL());
             cmd.setString(4, getNOM_PER_SOL());
             cmd.setInt(5, getID_EXAMEN_INCIDENCIA());
-            cmd.setInt(6, getID_PREVENTA());          
+            cmd.setString(6, getID_PREVENTA());          
             cmd.setString(7, getHAB_NOM());
             cmd.setString(8, getCA_DESC());
             cmd.setString(9, getHOSP_SERVICIO());
@@ -66,7 +67,166 @@ public class RX_EC_EXAMEN_DET {
         return resp;
     }
     
+     public int RX_EC_Hospitalizacion_ver(String idhc){
+        int resultado=0;
+        try
+        {
+            String sql = "EXEC RX_EC_EXAMEN_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resultado;
+    }
+    
+ 
+    public String RX_EC_Hospi_idPreventa(String idhc)
+    {
+        String cod="";
+        try
+        {
+            String sql = "EXEC RX_EC_EXAMEN_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public String RX_EC_Hospi_habitacion(String idhc)
+    {
+        String cod="";
+        try
+        {
+            String sql = "EXEC RX_EC_EXAMEN_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(2);
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public String RX_EC_Hospi_cama(String idhc)
+    {
+        String cod="";
+        try
+        {
+            String sql = "EXEC RX_EC_EXAMEN_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(3);
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public String RX_EC_Hospi_Servicio(String idhc)
+    {
+        String cod="";
+        try
+        {
+            String sql = "EXEC RX_EC_EXAMEN_HOSPITALIZACION ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, idhc);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(4);
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return cod;
+    }
 
+    public boolean RX_EC_Estado_Caja(int id_cod_doc_det){
+         boolean resp = false;
+        try{
+            String sql = "RX_EC_EXAMEN_ESTADO_CAJA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, id_cod_doc_det);
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean RX_EC_ESTADO_CAJA_MODIFICAR()
+    {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec RX_EC_EXAMEN_ESTADO_CAJA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_COD_DOC_DET());
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public Connection getCn() {
         return cn;
     }
@@ -131,11 +291,11 @@ public class RX_EC_EXAMEN_DET {
         this.HORA_ORDEN = HORA_ORDEN;
     }
 
-    public int getID_PREVENTA() {
+    public String getID_PREVENTA() {
         return ID_PREVENTA;
     }
 
-    public void setID_PREVENTA(int ID_PREVENTA) {
+    public void setID_PREVENTA(String ID_PREVENTA) {
         this.ID_PREVENTA = ID_PREVENTA;
     }
 

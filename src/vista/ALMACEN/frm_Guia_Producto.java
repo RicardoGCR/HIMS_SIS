@@ -275,9 +275,10 @@ String hora, minutos, segundos, ampm;
                     .addGroup(upssLayout.createSequentialGroup()
                         .addComponent(jpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(upssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtBuscarUpss, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
+                        .addGroup(upssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addGroup(upssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtBuscarUpss, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
                         .addContainerGap())
@@ -602,27 +603,17 @@ String hora, minutos, segundos, ampm;
                 tbGuia.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
                 tbGuia.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null}
+
                     },
                     new String [] {
-                        "Title 1", "Title 2", "Title 3", "Title 4"
+                        "CodProducto", "Producto", "Cantidad", "UPSS"
                     }
-                ) {
-                    boolean[] canEdit = new boolean [] {
-                        false, true, true, true
-                    };
-
-                    public boolean isCellEditable(int rowIndex, int columnIndex) {
-                        return canEdit [columnIndex];
-                    }
-                });
+                ));
                 tbGuia.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
                 tbGuia.setRowHeight(25);
                 tbGuia.setSelectionBackground(new java.awt.Color(126, 5, 46));
                 tbGuia.setSelectionForeground(new java.awt.Color(0, 0, 0));
+                tbGuia.getTableHeader().setReorderingAllowed(false);
                 tbGuia.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
                         tbGuiaMouseClicked(evt);
@@ -637,21 +628,15 @@ String hora, minutos, segundos, ampm;
                     }
                 });
                 jScrollPane3.setViewportView(tbGuia);
-                if (tbGuia.getColumnModel().getColumnCount() > 0) {
-                    tbGuia.getColumnModel().getColumn(0).setResizable(false);
-                    tbGuia.getColumnModel().getColumn(1).setResizable(false);
-                    tbGuia.getColumnModel().getColumn(2).setResizable(false);
-                    tbGuia.getColumnModel().getColumn(3).setResizable(false);
-                }
 
                 javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
                 jPanel2.setLayout(jPanel2Layout);
                 jPanel2Layout.setHorizontalGroup(
                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(29, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+                        .addContainerGap())
                 );
                 jPanel2Layout.setVerticalGroup(
                     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -203,8 +203,8 @@ DefaultTableModel m,n,muestra;
 }
     
         public void LAB_Nomenclatura_cargar(){
-     String consulta="";
-        try {
+            String consulta="";
+            try {
             tb_Nomenclatura.setModel(new DefaultTableModel());
             String titulos[]={"Nº","Código","Código CPT","Nomenclatura","Tiempo(hora)","Tiempo(min)"};
             n=new DefaultTableModel(null,titulos);
@@ -212,7 +212,7 @@ DefaultTableModel m,n,muestra;
             String fila[]=new String[6];
 
             LAB_Clasificacion_Examen obj=new LAB_Clasificacion_Examen();
-                    consulta="exec sp_LAB_ANALISIS_NOMEN_listar ?";
+            consulta="exec sp_LAB_ANALISIS_NOMEN_listar ?";
                     
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setInt(1, Integer.parseInt(lblArea.getText()));
@@ -234,17 +234,22 @@ DefaultTableModel m,n,muestra;
             this.tb_Nomenclatura.setModel(n);
             
             
-        } catch (Exception e) {
+            } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
+            }
         }
-}
     public void LAB_Nomenclatura_formato(){
-    tb_Nomenclatura.getColumnModel().getColumn(0).setPreferredWidth(50);
-    tb_Nomenclatura.getColumnModel().getColumn(1).setPreferredWidth(120);
-    tb_Nomenclatura.getColumnModel().getColumn(2).setPreferredWidth(120);
-    tb_Nomenclatura.getColumnModel().getColumn(3).setPreferredWidth(230);
+    tb_Nomenclatura.getColumnModel().getColumn(0).setPreferredWidth(35);
+    tb_Nomenclatura.getColumnModel().getColumn(1).setPreferredWidth(85);
+    tb_Nomenclatura.getColumnModel().getColumn(2).setPreferredWidth(83);
+    tb_Nomenclatura.getColumnModel().getColumn(3).setPreferredWidth(287);
     tb_Nomenclatura.getColumnModel().getColumn(4).setPreferredWidth(100);
     tb_Nomenclatura.getColumnModel().getColumn(5).setPreferredWidth(100);
+    
+    tb_Nomenclatura.getColumnModel().getColumn(4).setMinWidth(0);
+    tb_Nomenclatura.getColumnModel().getColumn(4).setMaxWidth(0);
+    tb_Nomenclatura.getColumnModel().getColumn(5).setMinWidth(0);
+    tb_Nomenclatura.getColumnModel().getColumn(5).setMaxWidth(0);
     tb_Nomenclatura.getSelectionModel().setSelectionInterval(0, 0);
             tb_Nomenclatura.requestFocus();
 }
@@ -910,7 +915,7 @@ public void calcula() {
                             jLabel16.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel16.setText("Nomenclatura:");
 
-                            txtNomen.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
+                            txtNomen.setFont(new java.awt.Font("Segoe UI Semilight", 0, 10)); // NOI18N
                             txtNomen.setEnabled(false);
 
                             jLabel17.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
@@ -956,7 +961,7 @@ public void calcula() {
                             jLabel23.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                             jLabel23.setText("Nombre del Examen:");
 
-                            txtNombreExamen.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+                            txtNombreExamen.setFont(new java.awt.Font("Segoe UI Semilight", 0, 10)); // NOI18N
 
                             panelMuestras.setBorder(javax.swing.BorderFactory.createTitledBorder("Muestras"));
 
@@ -977,7 +982,7 @@ public void calcula() {
                                     return canEdit [columnIndex];
                                 }
                             });
-                            tb_Muestras.setRowHeight(18);
+                            tb_Muestras.setRowHeight(20);
                             tb_Muestras.setSelectionBackground(new java.awt.Color(2, 67, 115));
                             tb_Muestras.addMouseListener(new java.awt.event.MouseAdapter() {
                                 public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1240,8 +1245,8 @@ public void calcula() {
                   meGuardar.setCod_nomen_caja(txtCodNomen.getText());
                   meGuardar.setNombre_ana_exa(txtNombreExamen.getText());
                   meGuardar.setAbrev_ana_exa(txtAbrev.getText());
-                  meGuardar.setTiempo_hora(Integer.parseInt(txtTiempoHora.getText()));
-                  meGuardar.setTiempo_min(Integer.parseInt(txtTiempoMin.getText()));
+//                  meGuardar.setTiempo_hora(Integer.parseInt(txtTiempoHora.getText()));
+//                  meGuardar.setTiempo_min(Integer.parseInt(txtTiempoMin.getText()));
                   meGuardar.setTipo_procesamiento(cbxTipoProc.getSelectedItem().toString());
                   meGuardar.setRestriccion_analisis(cbxRestric.getSelectedItem().toString());
                   meGuardar.setExplicacion_met_proce(txtExplicacion.getText());

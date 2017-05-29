@@ -4,6 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+            <file>file:/D:/proyecto/SISGESH/src/vista/ConfiguracionServidor.java</file>
+            <file>file:/D:/proyecto/SISGESH/src/vista/admisionCentral/FrmMovimientoHC.java</file>
+            <file>file:/D:/proyecto/SISGESH/src/servicios/Conexion.java</file>
+            <file>file:/D:/proyecto/SISGESH/src/vista/admisionCentral/FrmNuevaHistoriaC.java</file>
+=======
+<<<<<<< HEAD
             <file>file:/E:/pry/SISGESH/src/vista/SALA_OPERACIONES/frm_SALA_OPERACION_TIPO_ANESTESIA.java</file>
             <file>file:/E:/pry/SISGESH/src/vista/admisionEmergencia/FrmListFormatoEmergencia.java</file>
             <file>file:/E:/pry/SISGESH/src/modelos/Caja/Caja_Cta6.java</file>
@@ -49,6 +55,7 @@
             <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_ANALISIS_EXAMEN.java</file>
 >>>>>>> 29ab70c66797b5d2eba475081eaa1814dc201df8
 >>>>>>> 29d11ad847a18779566b221b459066ed9889f4c2
+>>>>>>> ebf1833075862f62bba8ef58e1a59530244694b5
         </group>
     </open-files>
 </project-private>

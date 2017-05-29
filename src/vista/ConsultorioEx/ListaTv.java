@@ -312,11 +312,17 @@ public class ListaTv extends javax.swing.JFrame implements Runnable{
             jPanel23.setLayout(jPanel23Layout);
             jPanel23Layout.setHorizontalGroup(
                 jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(lblPaciente4, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
+                .addGroup(jPanel23Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(lblPaciente4, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+                    .addContainerGap())
             );
             jPanel23Layout.setVerticalGroup(
                 jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(lblPaciente4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel23Layout.createSequentialGroup()
+                    .addGap(28, 28, 28)
+                    .addComponent(lblPaciente4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(38, 38, 38))
             );
 
             jPanel24.setBackground(new java.awt.Color(153, 153, 153));
@@ -370,11 +376,11 @@ public class ListaTv extends javax.swing.JFrame implements Runnable{
             pnlMensaje.setLayout(pnlMensajeLayout);
             pnlMensajeLayout.setHorizontalGroup(
                 pnlMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 1354, Short.MAX_VALUE)
             );
             pnlMensajeLayout.setVerticalGroup(
                 pnlMensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 70, Short.MAX_VALUE)
+                .addGap(0, 117, Short.MAX_VALUE)
             );
 
             jScrollPane5.setBorder(null);

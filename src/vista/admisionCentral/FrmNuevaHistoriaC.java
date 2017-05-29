@@ -84,6 +84,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     HistoriaClinica hC = new HistoriaClinica();
     DefaultTableModel m;
     PreparedStatement pstm;
+    String estado = "A";
     /**
      * Creates new form FrmNuevaHistoriaC
      */
@@ -718,6 +719,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         chkT = new javax.swing.JRadioButton();
         chkD = new javax.swing.JRadioButton();
         btnImprimir = new javax.swing.JButton();
+        btnBuscarHc = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbHistoriaC = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
@@ -952,6 +954,16 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             }
         });
 
+        btnBuscarHc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/buscar.png"))); // NOI18N
+        btnBuscarHc.setBorderPainted(false);
+        btnBuscarHc.setContentAreaFilled(false);
+        btnBuscarHc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarHc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarHcActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -962,8 +974,10 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addGap(18, 18, 18)
                 .addComponent(cbxTipoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscarHc, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel38)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkA)
@@ -971,7 +985,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 .addComponent(chkD)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chkT)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 268, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
                 .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64))
         );
@@ -987,7 +1001,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     .addComponent(chkA)
                     .addComponent(chkT)
                     .addComponent(chkD)
-                    .addComponent(btnImprimir))
+                    .addComponent(btnImprimir)
+                    .addComponent(btnBuscarHc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2631,7 +2646,6 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         chkA.setSelected(true);
         chkD.setSelected(false);
         chkT.setSelected(false);
-        buscar_HC(1, "A", "");
         cbxTipoBusqueda.setSelectedIndex(1);
         tbHistoriaC.getSelectionModel().setSelectionInterval(0,0);
         tbHistoriaC.requestFocus();
@@ -2744,16 +2758,16 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         int index = cbxTipoBusqueda.getSelectedIndex();
         if(chkA.isSelected()== false && chkD.isSelected() == false && chkT.isSelected()==false && txtBuscar.isEnabled() == true){
             JOptionPane.showMessageDialog(BuscarHC, "Debe seleccionar una opción \n ");
-        } else
-        if(chkA.isSelected()==true){
-        buscar_HC(index, "A", txtBuscar.getText());
-        } else 
-        if(chkD.isSelected()==true){
-            buscar_HC(index, "D", txtBuscar.getText());
-        } else
-        if(chkT.isSelected()==true){
-            buscar_HC(index, "", txtBuscar.getText());
-        }
+        } //else
+//        if(chkA.isSelected()==true){
+//        buscar_HC(index, "A", txtBuscar.getText());
+//        } else 
+//        if(chkD.isSelected()==true){
+//            buscar_HC(index, "D", txtBuscar.getText());
+//        } else
+//        if(chkT.isSelected()==true){
+//            buscar_HC(index, "", txtBuscar.getText());
+//        }
     }//GEN-LAST:event_txtBuscarCaretUpdate
 
     private void tbHistoriaCKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbHistoriaCKeyPressed
@@ -2878,8 +2892,9 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         int index = cbxTipoBusqueda.getSelectedIndex();
         String busqueda = txtBuscar.getText();
         String opcion = "";
-            buscar_HC(index, "A", "");
+        estado = "A";
         txtBuscar.setText("");
+        txtBuscar.setEnabled(true);
     }//GEN-LAST:event_chkAActionPerformed
 
     private void chkAItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chkAItemStateChanged
@@ -2910,8 +2925,9 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         int index = cbxTipoBusqueda.getSelectedIndex();
         String busqueda = txtBuscar.getText();
         String opcion = "";
-            buscar_HC(index, "D", "");
+        estado = "D";
         txtBuscar.setText("");
+        txtBuscar.setEnabled(true);
     }//GEN-LAST:event_chkDActionPerformed
 
     private void chkTItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chkTItemStateChanged
@@ -2927,8 +2943,9 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         int index = cbxTipoBusqueda.getSelectedIndex();
         String busqueda = txtBuscar.getText();
         String opcion = "";
-            buscar_HC(index, "", "");
+        estado="";
         txtBuscar.setText("");
+        txtBuscar.setEnabled(true);
     }//GEN-LAST:event_chkTActionPerformed
 
     private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
@@ -3369,9 +3386,13 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_txtDniActionPerformed
 
     private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
+        
         if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
             tbHistoriaC.getSelectionModel().setSelectionInterval(0, 0);
             tbHistoriaC.requestFocus();
+        }
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_ENTER){
+            btnBuscarHc.doClick();
         }
     }//GEN-LAST:event_txtBuscarKeyPressed
 
@@ -3383,6 +3404,19 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     private void txtNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombre1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombre1ActionPerformed
+
+    private void btnBuscarHcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHcActionPerformed
+        int index = cbxTipoBusqueda.getSelectedIndex();
+        if(chkA.isSelected()==true){
+            buscar_HC(index, estado, txtBuscar.getText());
+        } else 
+            if(chkD.isSelected()==true){
+                buscar_HC(index, estado, txtBuscar.getText());
+        } else
+            if(chkT.isSelected()==true){
+                buscar_HC(index, estado, txtBuscar.getText());
+        }
+    }//GEN-LAST:event_btnBuscarHcActionPerformed
     
     //HORA
     public void run() {
@@ -3435,6 +3469,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     private javax.swing.JButton btnAnadirRe;
     private javax.swing.JButton btnAsignarDistrito;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarHc;
     public static javax.swing.JButton btnEliminar;
     public static javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnImprimir;

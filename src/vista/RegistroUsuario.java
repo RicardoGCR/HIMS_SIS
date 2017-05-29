@@ -346,7 +346,7 @@ Conexion c=new Conexion();
             }
         });
 
-        jLabel2.setText("Tipo de Usuario:");
+        jLabel2.setText("Módulo:");
 
         cbxTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Auxiliar Tecnico", "Trabajador", " " }));
         cbxTipo.addActionListener(new java.awt.event.ActionListener() {

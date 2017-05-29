@@ -143,18 +143,18 @@ public class PrincipalMDI extends javax.swing.JFrame {
         p1 = new javax.swing.JPanel();
         p3 = new javax.swing.JPanel();
         btnCostos = new javax.swing.JButton();
-        btnSalaDeOperaciones = new javax.swing.JButton();
+        btnRayosX = new javax.swing.JButton();
         btnHospitalizacion = new javax.swing.JButton();
         p9 = new javax.swing.JPanel();
         p10 = new javax.swing.JPanel();
         p11 = new javax.swing.JPanel();
-        btnSistema = new javax.swing.JButton();
+        btnInvBact = new javax.swing.JButton();
         p12 = new javax.swing.JPanel();
         btnAdmEme = new javax.swing.JButton();
         p4 = new javax.swing.JPanel();
-        btnSistema1 = new javax.swing.JButton();
+        btnConfiguracion = new javax.swing.JButton();
         p13 = new javax.swing.JPanel();
-        btnSistema2 = new javax.swing.JButton();
+        btnConExt = new javax.swing.JButton();
         p14 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -556,21 +556,21 @@ public class PrincipalMDI extends javax.swing.JFrame {
             }
         });
 
-        btnSalaDeOperaciones.setBackground(new java.awt.Color(102, 102, 102));
-        btnSalaDeOperaciones.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        btnSalaDeOperaciones.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalaDeOperaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Estetoscopio-30.png"))); // NOI18N
-        btnSalaDeOperaciones.setText("Sala de Operaciones");
-        btnSalaDeOperaciones.setContentAreaFilled(false);
-        btnSalaDeOperaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSalaDeOperaciones.setFocusPainted(false);
-        btnSalaDeOperaciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnSalaDeOperaciones.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnSalaDeOperaciones.setIconTextGap(30);
-        btnSalaDeOperaciones.setVerifyInputWhenFocusTarget(false);
-        btnSalaDeOperaciones.addActionListener(new java.awt.event.ActionListener() {
+        btnRayosX.setBackground(new java.awt.Color(102, 102, 102));
+        btnRayosX.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnRayosX.setForeground(new java.awt.Color(255, 255, 255));
+        btnRayosX.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Estetoscopio-30.png"))); // NOI18N
+        btnRayosX.setText("Rayos X");
+        btnRayosX.setContentAreaFilled(false);
+        btnRayosX.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRayosX.setFocusPainted(false);
+        btnRayosX.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRayosX.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnRayosX.setIconTextGap(30);
+        btnRayosX.setVerifyInputWhenFocusTarget(false);
+        btnRayosX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalaDeOperacionesActionPerformed(evt);
+                btnRayosXActionPerformed(evt);
             }
         });
 
@@ -631,21 +631,21 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGap(0, 37, Short.MAX_VALUE)
         );
 
-        btnSistema.setBackground(new java.awt.Color(102, 102, 102));
-        btnSistema.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
-        btnSistema.setForeground(new java.awt.Color(255, 255, 255));
-        btnSistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Péptido-30.png"))); // NOI18N
-        btnSistema.setText("<html>Investigación Bactereológica");
-        btnSistema.setContentAreaFilled(false);
-        btnSistema.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSistema.setFocusPainted(false);
-        btnSistema.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnSistema.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnSistema.setIconTextGap(30);
-        btnSistema.setVerifyInputWhenFocusTarget(false);
-        btnSistema.addActionListener(new java.awt.event.ActionListener() {
+        btnInvBact.setBackground(new java.awt.Color(102, 102, 102));
+        btnInvBact.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
+        btnInvBact.setForeground(new java.awt.Color(255, 255, 255));
+        btnInvBact.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Péptido-30.png"))); // NOI18N
+        btnInvBact.setText("<html>Investigación Bactereológica");
+        btnInvBact.setContentAreaFilled(false);
+        btnInvBact.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInvBact.setFocusPainted(false);
+        btnInvBact.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnInvBact.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnInvBact.setIconTextGap(30);
+        btnInvBact.setVerifyInputWhenFocusTarget(false);
+        btnInvBact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSistemaActionPerformed(evt);
+                btnInvBactActionPerformed(evt);
             }
         });
 
@@ -699,21 +699,21 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGap(0, 37, Short.MAX_VALUE)
         );
 
-        btnSistema1.setBackground(new java.awt.Color(102, 102, 102));
-        btnSistema1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        btnSistema1.setForeground(new java.awt.Color(255, 255, 255));
-        btnSistema1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Ajustes-30.png"))); // NOI18N
-        btnSistema1.setText("Configuracion");
-        btnSistema1.setContentAreaFilled(false);
-        btnSistema1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSistema1.setFocusPainted(false);
-        btnSistema1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnSistema1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnSistema1.setIconTextGap(30);
-        btnSistema1.setVerifyInputWhenFocusTarget(false);
-        btnSistema1.addActionListener(new java.awt.event.ActionListener() {
+        btnConfiguracion.setBackground(new java.awt.Color(102, 102, 102));
+        btnConfiguracion.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnConfiguracion.setForeground(new java.awt.Color(255, 255, 255));
+        btnConfiguracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Ajustes-30.png"))); // NOI18N
+        btnConfiguracion.setText("Configuracion");
+        btnConfiguracion.setContentAreaFilled(false);
+        btnConfiguracion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConfiguracion.setFocusPainted(false);
+        btnConfiguracion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnConfiguracion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnConfiguracion.setIconTextGap(30);
+        btnConfiguracion.setVerifyInputWhenFocusTarget(false);
+        btnConfiguracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSistema1ActionPerformed(evt);
+                btnConfiguracionActionPerformed(evt);
             }
         });
 
@@ -730,21 +730,21 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGap(0, 37, Short.MAX_VALUE)
         );
 
-        btnSistema2.setBackground(new java.awt.Color(102, 102, 102));
-        btnSistema2.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
-        btnSistema2.setForeground(new java.awt.Color(255, 255, 255));
-        btnSistema2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Termómetro médico-30.png"))); // NOI18N
-        btnSistema2.setText("Consultorios Externos");
-        btnSistema2.setContentAreaFilled(false);
-        btnSistema2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSistema2.setFocusPainted(false);
-        btnSistema2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnSistema2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnSistema2.setIconTextGap(30);
-        btnSistema2.setVerifyInputWhenFocusTarget(false);
-        btnSistema2.addActionListener(new java.awt.event.ActionListener() {
+        btnConExt.setBackground(new java.awt.Color(102, 102, 102));
+        btnConExt.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
+        btnConExt.setForeground(new java.awt.Color(255, 255, 255));
+        btnConExt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Termómetro médico-30.png"))); // NOI18N
+        btnConExt.setText("Consultorios Externos");
+        btnConExt.setContentAreaFilled(false);
+        btnConExt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConExt.setFocusPainted(false);
+        btnConExt.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnConExt.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnConExt.setIconTextGap(30);
+        btnConExt.setVerifyInputWhenFocusTarget(false);
+        btnConExt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSistema2ActionPerformed(evt);
+                btnConExtActionPerformed(evt);
             }
         });
 
@@ -772,7 +772,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
                     .addComponent(btnHospitalizacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCostos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLaboratorio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSalaDeOperaciones, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnRayosX, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -790,15 +790,15 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(btnSistema, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                .addComponent(btnInvBact, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(btnSistema1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnConfiguracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btnSistema2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnConExt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -836,19 +836,19 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(p11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalaDeOperaciones))
+                    .addComponent(btnRayosX))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(p14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSistema2))
+                    .addComponent(btnConExt))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(p12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSistema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnInvBact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(p13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSistema1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(412, Short.MAX_VALUE))
         );
 
@@ -5007,6 +5007,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
         btnguardar3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnguardar3.setIconTextGap(30);
         btnguardar3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnguardar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardar3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -5245,7 +5250,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_btnCostosActionPerformed
 
-    private void btnSalaDeOperacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalaDeOperacionesActionPerformed
+    private void btnRayosXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRayosXActionPerformed
         p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(false);        // TODO add your handling code here:
@@ -5255,7 +5260,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p12.setVisible(false);    
          p13.setVisible(false); 
          p14.setVisible(false);  
-    }//GEN-LAST:event_btnSalaDeOperacionesActionPerformed
+    }//GEN-LAST:event_btnRayosXActionPerformed
 
     private void btnHospitalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalizacionActionPerformed
     p1.setVisible(false);
@@ -5312,7 +5317,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btneditar17ActionPerformed
 
-    private void btnSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSistemaActionPerformed
+    private void btnInvBactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvBactActionPerformed
         p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(false);        // TODO add your handling code here:
@@ -5323,7 +5328,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p13.setVisible(false); 
          p14.setVisible(false);  
         jTabbedPane1.setSelectedIndex(7);
-    }//GEN-LAST:event_btnSistemaActionPerformed
+    }//GEN-LAST:event_btnInvBactActionPerformed
 
     private void btnguardar24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar24ActionPerformed
         // TODO add your handling code here:
@@ -5658,9 +5663,9 @@ public class PrincipalMDI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel83MouseClicked
 
-    private void btnSistema1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSistema1ActionPerformed
+    private void btnConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSistema1ActionPerformed
+    }//GEN-LAST:event_btnConfiguracionActionPerformed
 
     private void btnSolicitudInvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitudInvActionPerformed
        frm_SOLICITUD_INVESTIGACION_BACT sol=new frm_SOLICITUD_INVESTIGACION_BACT();
@@ -5695,7 +5700,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         Triaje.lblUsu.setText(u);
     }//GEN-LAST:event_btnTriajeActionPerformed
 
-    private void btnSistema2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSistema2ActionPerformed
+    private void btnConExtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConExtActionPerformed
          p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(false);        // TODO add your handling code here:
@@ -5706,7 +5711,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p13.setVisible(false);  
          p14.setVisible(true); 
         jTabbedPane1.setSelectedIndex(8);
-    }//GEN-LAST:event_btnSistema2ActionPerformed
+    }//GEN-LAST:event_btnConExtActionPerformed
 
     private void jLabel106MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel106MouseClicked
         // TODO add your handling code here:
@@ -5748,6 +5753,12 @@ public class PrincipalMDI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void btnguardar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar3ActionPerformed
+     dispose();
+        inicioSesion i=new inicioSesion();
+      i.setVisible(true);
+    }//GEN-LAST:event_btnguardar3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -5787,29 +5798,33 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdmCentral;
-    private javax.swing.JButton btnAdmEme;
+    public static javax.swing.JButton btnAdmCentral;
+    public static javax.swing.JButton btnAdmEme;
     private javax.swing.JButton btnAnalisis;
-    private javax.swing.JButton btnCaja;
+    public static javax.swing.JButton btnCaja;
     private javax.swing.JButton btnCarnetPerinatal;
     private javax.swing.JButton btnClasificacion;
+    public static javax.swing.JButton btnConExt;
+    public static javax.swing.JButton btnConfiguracion;
     private javax.swing.JButton btnConsultorio;
     private javax.swing.JButton btnContenedor;
     private javax.swing.JButton btnConversion;
-    private javax.swing.JButton btnCostos;
+    public static javax.swing.JButton btnCostos;
     private javax.swing.JButton btnEntrega;
     private javax.swing.JButton btnEsquema;
     private javax.swing.JButton btnFormatEmergencia;
     private javax.swing.JButton btnFormatEmergencia1;
     private javax.swing.JButton btnFormatEmergencia3;
-    private javax.swing.JButton btnHospitalizacion;
-    private javax.swing.JButton btnLaboratorio;
+    public static javax.swing.JButton btnHospitalizacion;
+    public static javax.swing.JButton btnInvBact;
+    public static javax.swing.JButton btnLaboratorio;
     private javax.swing.JButton btnMantLlegada;
     private javax.swing.JButton btnMantLlegada1;
     private javax.swing.JButton btnMantLlegada2;
     private javax.swing.JButton btnMuestras;
     private javax.swing.JButton btnNuevo1;
     private javax.swing.JButton btnPaciente;
+    public static javax.swing.JButton btnRayosX;
     private javax.swing.JButton btnReporTopico;
     private javax.swing.JButton btnReporTopico1;
     private javax.swing.JButton btnReportCabecera;
@@ -5825,11 +5840,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JButton btnReporteFEmer1;
     private javax.swing.JButton btnResultado;
     private javax.swing.JButton btnResultadoBusq;
-    private javax.swing.JButton btnSalaDeOperaciones;
     private javax.swing.JButton btnSectorizacion;
-    public static javax.swing.JButton btnSistema;
-    public static javax.swing.JButton btnSistema1;
-    public static javax.swing.JButton btnSistema2;
     private javax.swing.JButton btnSolicitudInv;
     private javax.swing.JButton btnSolicitudRecep;
     private javax.swing.JButton btnTM;

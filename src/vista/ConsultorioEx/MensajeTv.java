@@ -165,7 +165,7 @@ public class MensajeTv extends javax.swing.JFrame {
             ListaTv listaTv = new ListaTv();
             dispose();
             listaTv.setVisible(true);
-            ListaTv.lblTexto.setText(String.valueOf(tbMensajes.getValueAt(fila, 1)));
+            Mensaje.lblTexto.setText(String.valueOf(tbMensajes.getValueAt(fila, 1)));
         }
     }//GEN-LAST:event_tbMensajesMouseClicked
 

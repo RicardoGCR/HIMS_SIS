@@ -249,27 +249,16 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
         tabla.setRowHeight(30);
     }
     
-    public void formatolistarConsultorioTv(JTable tabla){;
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(70);//nhc
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//nhc
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(60);//nhc
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(280);//nhc
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(20);//nhc
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(60);//nhc
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(280);//nhc
-        tabla.getColumnModel().getColumn(7).setPreferredWidth(80);//nhc
-        tabla.setRowHeight(30);
-    }
     
     public void listarConsultorioTv(JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Acto Médico","DNI","Nº H.C.","Apellidos y Nombres",
-                "Nº","Consultorio","Médico","Turno"};
+            String titulos[]={"Apellidos y Nombres",
+                "Nº","Consultorio","Médico"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[8];
+            String fila[]=new String[4];
             consulta="EXEC CONSULTORIO_EXT_CONSULTORIO_LISTAR_TV";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             ResultSet r= cmd.executeQuery();
@@ -278,11 +267,7 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
                 fila[0]=r.getString(1); // 
                 fila[1]=r.getString(2);
                 fila[2]=r.getString(3);
-                fila[3]=r.getString(4); // 
-                fila[4]=r.getString(5);
-                fila[5]=r.getString(6);
-                fila[6]=r.getString(7); // 
-                fila[7]=r.getString(8); // 
+                fila[3]=r.getString(4); // / 
                     m.addRow(fila);
                     c++;
             }
@@ -290,7 +275,6 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             tabla.setRowSorter(elQueOrdena);
             tabla.setModel(m);
-            formatolistarConsultorioTv(tabla);
         } catch (Exception e) {
             System.out.println("Error: listarConsultorioTv: " + e.getMessage());
         }

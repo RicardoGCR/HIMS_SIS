@@ -624,6 +624,16 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             nuevaHC.setVisible(true);
             BuscarHC.setVisible(false);
             dispose();
+            if(String.valueOf(tbHistoriaC.getValueAt(fila, 35)).equals("D")){
+                btnEliminar.setText("Restaurar");
+                btnModificar.setEnabled(false);
+                btnEliminar.setToolTipText("Restaurar (Alt + R)");
+                btnEliminar.setMnemonic(KeyEvent.VK_R);
+                ImageIcon iRestaurar=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Restaurar-32.png")); 
+                btnEliminar.setIcon(iRestaurar);
+            } else {
+                btnModificar.setEnabled(true);
+            }
             FrmNuevaHistoriaC.txtID.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 1)));  
             FrmNuevaHistoriaC.txtCodigo.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 0))); 
             FrmNuevaHistoriaC.txtDni.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 2)));     
@@ -662,16 +672,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             FrmNuevaHistoriaC.txtTelefono.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 27))); 
             FrmNuevaHistoriaC.txtCelular.setText(String.valueOf(tbHistoriaC.getValueAt(fila, 25))); 
             
-            if(String.valueOf(tbHistoriaC.getValueAt(fila, 35)).equals("D")){
-                btnEliminar.setText("Restaurar");
-                btnModificar.setEnabled(false);
-                btnEliminar.setToolTipText("Restaurar (Alt + R)");
-                btnEliminar.setMnemonic(KeyEvent.VK_R);
-                ImageIcon iRestaurar=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Restaurar-32.png")); 
-                btnEliminar.setIcon(iRestaurar);
-            } else {
-                btnModificar.setEnabled(true);
-            }
+            
             habilitarOpciones(false);
             btnEliminar.setEnabled(true);
     }

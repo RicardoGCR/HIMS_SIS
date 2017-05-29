@@ -271,28 +271,28 @@ DefaultTableModel m,n,resultado;
              String titulos[]={"N°","N° H.C.","Paciente","Dirección","DNI","Sexo","Fecha de Nac.","Edad","COdigo"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[9];
-
-            LAB_Clasificacion_Examen obj=new LAB_Clasificacion_Examen();
-        String consulta="exec Caja_BuscarHC ?";
-        
-        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1, "");
-        ResultSet r=cmd.executeQuery();
-        int c=1;
-        while(r.next()){
-            fila[0]=String.valueOf(c)+"º";
-            fila[1]=r.getString(1);
-            fila[2]=r.getString(2);
-            fila[3]=r.getString(3);
-            fila[4]=r.getString(4);
-            fila[5]=r.getString(5);
-            fila[6]=r.getString(6);
-             fila[7]=r.getString(7);
-              fila[8]=r.getString(8);
-                m.addRow(fila);
-                c++;
-            }
+//            String fila[]=new String[9];
+//
+//            LAB_Clasificacion_Examen obj=new LAB_Clasificacion_Examen();
+//        String consulta="exec Caja_BuscarHC ?";
+//        
+//        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+//            cmd.setString(1, "");
+//        ResultSet r=cmd.executeQuery();
+//        int c=1;
+//        while(r.next()){
+//            fila[0]=String.valueOf(c)+"º";
+//            fila[1]=r.getString(1);
+//            fila[2]=r.getString(2);
+//            fila[3]=r.getString(3);
+//            fila[4]=r.getString(4);
+//            fila[5]=r.getString(5);
+//            fila[6]=r.getString(6);
+//             fila[7]=r.getString(7);
+//              fila[8]=r.getString(8);
+//                m.addRow(fila);
+//                c++;
+//            }
             tb_HC.setModel(m);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             tb_HC.setRowSorter(elQueOrdena);

@@ -96,8 +96,7 @@ String hora, minutos, segundos, ampm;
     
     tbProductoAlmacen.getColumnModel().getColumn(3).setMinWidth(0);
     tbProductoAlmacen.getColumnModel().getColumn(3).setMaxWidth(0);
-    tbProductoAlmacen.getSelectionModel().setSelectionInterval(0, 0);
-    tbProductoAlmacen.requestFocus();
+    
 }
     public void cargar_upss(){
          String consulta="";
@@ -202,6 +201,7 @@ String hora, minutos, segundos, ampm;
                     }
                 }};
 
+                upss.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 upss.setMinimumSize(new java.awt.Dimension(369, 466));
 
                 jpanel1.setBackground(new java.awt.Color(126, 5, 46));
@@ -277,8 +277,7 @@ String hora, minutos, segundos, ampm;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(upssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
-                            .addGroup(upssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtBuscarUpss, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtBuscarUpss, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
                         .addContainerGap())
@@ -372,6 +371,10 @@ String hora, minutos, segundos, ampm;
                     }
                 });
 
+                lblCodProducto.setForeground(new java.awt.Color(126, 5, 46));
+
+                lblCodUpss.setForeground(new java.awt.Color(126, 5, 46));
+
                 javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
                 jpanel.setLayout(jpanelLayout);
                 jpanelLayout.setHorizontalGroup(
@@ -448,6 +451,7 @@ String hora, minutos, segundos, ampm;
 
                 txtCantidad.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                 txtCantidad.setForeground(new java.awt.Color(0, 51, 51));
+                txtCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtCantidad.setSelectionColor(new java.awt.Color(126, 5, 46));
                 txtCantidad.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -470,6 +474,7 @@ String hora, minutos, segundos, ampm;
                 txtProducto.setEditable(false);
                 txtProducto.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                 txtProducto.setForeground(new java.awt.Color(0, 51, 51));
+                txtProducto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtProducto.setSelectionColor(new java.awt.Color(126, 5, 46));
                 txtProducto.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -539,6 +544,7 @@ String hora, minutos, segundos, ampm;
 
                 txtUpss.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                 txtUpss.setForeground(new java.awt.Color(0, 51, 51));
+                txtUpss.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtUpss.setSelectionColor(new java.awt.Color(126, 5, 46));
                 txtUpss.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -662,7 +668,8 @@ String hora, minutos, segundos, ampm;
         // TODO add your handling code here:
         char tecla= evt.getKeyChar();
         if(tecla==KeyEvent.VK_ENTER){
-            btnBuscarProducto.doClick();
+          tbProductoAlmacen.getSelectionModel().setSelectionInterval(0, 0);
+    tbProductoAlmacen.requestFocus();
         }
     }//GEN-LAST:event_txtBuscarKeyPressed
 
@@ -671,42 +678,7 @@ String hora, minutos, segundos, ampm;
     }//GEN-LAST:event_txtBuscarKeyTyped
 
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
-        // TODO add your handling code here:
-        String consulta="";
-        try {
-            tbProductoAlmacen.setModel(new DefaultTableModel());
-
-            String titulos[]={"Nº","Código","Nombre del Producto","Cantidad de Unidad de Medida","Unidad de Medida"};
-            m3=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(m3);
-            String fila[]=new String[6];
-            
-            Usuario obj=new Usuario();
-            consulta="exec ASIGNAR_UNIDAD_MEDIDA_LISTAR ?,?";
-        
-            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1,"2");
-            cmd.setString(2,txtBuscar.getText());
-            
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-                fila[0]=String.valueOf(c)+"º";
-                fila[1]=r.getString(1);
-                fila[2]=r.getString(2);
-                fila[3]=r.getString(3);
-                fila[4]=r.getString(4);
-                m3.addRow(fila);
-                c++;
-            }
-            tbProductoAlmacen.setModel(m3);
-            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
-            tbProductoAlmacen.setRowSorter(elQueOrdena);
-            this.tbProductoAlmacen.setModel(m3);
-            formatoProducto();
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+      listarProducto();
     }//GEN-LAST:event_btnBuscarProductoActionPerformed
 
     private void tbProductoAlmacenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbProductoAlmacenKeyTyped
@@ -827,7 +799,11 @@ tab.setSelectedIndex(1);
     }//GEN-LAST:event_tbGuiaKeyTyped
 
     private void txtBuscarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCaretUpdate
-    /*  String consulta="";
+    listarProducto();
+
+    }//GEN-LAST:event_txtBuscarCaretUpdate
+public void listarProducto(){
+          String consulta="";
         try {
             tbProductoAlmacen.setModel(new DefaultTableModel());
 
@@ -861,9 +837,8 @@ tab.setSelectedIndex(1);
             formatoProducto();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
-        }*/
-    }//GEN-LAST:event_txtBuscarCaretUpdate
-
+        }
+}
     private void txtUpssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpssActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUpssActionPerformed

@@ -14,7 +14,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import vista.ConfiguracionServidor;
 
 
 
@@ -66,7 +65,7 @@ public class Conexion {
             String url="jdbc:sqlserver://"+servidor+":"+puerto+";"+"databaseName="+baseDatos
                     +";user="+user+";password="+password;
             conexion=DriverManager.getConnection(url);
-             System.out.println("Conexión exitosa");
+//             System.out.println("Conexión exitosa");
         }
         catch(Exception ex)
         {   

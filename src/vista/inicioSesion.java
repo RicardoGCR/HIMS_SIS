@@ -300,6 +300,12 @@ String hora, minutos, segundos, ampm;
             }
         });
 
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyReleased(evt);
+            }
+        });
+
         txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtContraKeyPressed(evt);
@@ -540,6 +546,10 @@ String hora, minutos, segundos, ampm;
         String contra=String.valueOf(txtContra.getPassword());
         acceder(usuario, contra);
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
+     txtUsuario.setText(txtUsuario.getText().toUpperCase());
+    }//GEN-LAST:event_txtUsuarioKeyReleased
   class TimerListener implements ActionListener{
 
         @Override

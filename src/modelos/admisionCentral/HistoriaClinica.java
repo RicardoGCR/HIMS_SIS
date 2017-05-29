@@ -161,6 +161,28 @@ public class HistoriaClinica {
         return resp;
     }
     
+    
+    public String idHc()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT cod_hc FROM ADMISION_HISTORIA_CLINICA\n" +
+"											 WHERE nom_pc = HOST_NAME()";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               FrmNuevaHistoriaC.txtCodigo.setText(rs.getString(1));
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: idHc: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
     public boolean eliminarHistoriaClinica()
     {
         boolean resp = false;

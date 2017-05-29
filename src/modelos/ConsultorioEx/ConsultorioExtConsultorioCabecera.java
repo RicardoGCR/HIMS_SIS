@@ -89,8 +89,7 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
             System.out.println("Error: mantenimientoAdmisionemergenciaTriaje: " + ex.getMessage());
         }
         return resp;
-    }
-        
+    } 
     
     public void TriajeListarReporte(String nhc,JTable tabla,String tipo){
     String consulta="";
@@ -250,7 +249,36 @@ public class ConsultorioExtConsultorioCabecera implements Serializable {
         tabla.setRowHeight(30);
     }
     
-
+    
+    public void listarConsultorioTv(JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Apellidos y Nombres",
+                "Nº","Consultorio","Médico"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[4];
+            consulta="EXEC CONSULTORIO_EXT_CONSULTORIO_LISTAR_TV";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); // / 
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+        } catch (Exception e) {
+            System.out.println("Error: listarConsultorioTv: " + e.getMessage());
+        }
+    }
 
     public ConsultorioExtConsultorioCabecera() {
           Conexion con = new Conexion();

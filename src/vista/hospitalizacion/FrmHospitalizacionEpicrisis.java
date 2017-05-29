@@ -9,10 +9,13 @@ import campos.LimitadorDeDocumento;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -66,8 +69,34 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
         txtPronosticoAlta.setDocument(limitPronostico);
         LimitadorDeDocumento limitCondicion = new LimitadorDeDocumento(40);
         txtCondicionEgreso.setDocument(limitCondicion);
+        //BOTON CERRAR
+        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+        javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
+        // BOTON ESCAPE (ESC)
+        getRootPane().getActionMap().put("Cancel", new javax.swing.AbstractAction(){
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e)
+            {
+                dispose();
+            }
+        });
+        cerrar();
     }
 
+    public void cerrar (){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e){
+                    dispose();
+                }
+        });
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void habilitarCampos(boolean opcion){
         btnDiagEgreso.setEnabled(opcion);
         txtComplicaciones.setEditable(opcion);
@@ -166,7 +195,7 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
                 HospitalizacionEpicrisisDiagnosticosEgreso hospitalizacion = new HospitalizacionEpicrisisDiagnosticosEgreso();
                 hospitalizacion.setHhId(id);
                 hospitalizacion.setIdCie10(Integer.parseInt(tbDiagnosticoEgreso.getValueAt(i,0).toString()));
-                hospitalizacion.setCodUsu(adEmer2.codUsuario(lblusu.getText()));
+                hospitalizacion.setCodUsu(adEmer2.codUsuario(lblUsu.getText()));
                 if(hospitalizacion.mantenimientoHospitalizacionEpicrisisDiagnosticosEgreso(lblMant.getText())==true)
                     retorna = true;
             }
@@ -189,7 +218,7 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
             hospitalizacion.setHhCondicionEgreso(txtCondicionEgreso.getText());
             hospitalizacion.setHhPronosticoAlta(txtPronosticoAlta.getText());
             hospitalizacion.setHhInfMortalidad(txtInfo.getText());
-            hospitalizacion.setCodUsu(adEmerCab.codUsuario(lblusu.getText()));
+            hospitalizacion.setCodUsu(adEmerCab.codUsuario(lblUsu.getText()));
             if(hospitalizacion.mantenimientoHospitalizacionEpicrisis(lblMant.getText())==true){
                 hospitalizacion.epicrisisID();
                 if(lblMant.getText().equals("I")){
@@ -293,7 +322,7 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
                     txtBuscarEpicrisis = new javax.swing.JTextField();
                     jPanel1 = new javax.swing.JPanel();
                     jLabel1 = new javax.swing.JLabel();
-                    lblusu = new javax.swing.JLabel();
+                    lblUsu = new javax.swing.JLabel();
                     btnNuevo = new javax.swing.JButton();
                     btnGuardar = new javax.swing.JButton();
                     btnBuscarPaciente = new javax.swing.JButton();
@@ -949,12 +978,12 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
                                 jLabel1.setForeground(new java.awt.Color(255, 255, 255));
                                 jLabel1.setText("EPICRISIS");
 
-                                lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-                                lblusu.setForeground(new java.awt.Color(255, 255, 255));
-                                lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
-                                lblusu.setText("Silvana");
-                                lblusu.setFocusable(false);
-                                lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+                                lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+                                lblUsu.setForeground(new java.awt.Color(255, 255, 255));
+                                lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+                                lblUsu.setText("Silvana");
+                                lblUsu.setFocusable(false);
+                                lblUsu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
                                 btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                 btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
@@ -1057,7 +1086,7 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
                                             .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(btnEliminar)
-                                            .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 );
@@ -1079,7 +1108,7 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
                                         .addGap(18, 18, 18)
                                         .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblusu))
+                                        .addComponent(lblUsu))
                                 );
 
                                 jPanel2.setBackground(new java.awt.Color(43, 43, 43));
@@ -2329,7 +2358,7 @@ public class FrmHospitalizacionEpicrisis extends javax.swing.JFrame implements R
     private javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblPaciente;
     private javax.swing.JLabel lblServicio;
-    public static javax.swing.JLabel lblusu;
+    public static javax.swing.JLabel lblUsu;
     public static javax.swing.JLabel lblusu1;
     private javax.swing.JPanel pnlMensaje;
     private javax.swing.JTable tbCie10;

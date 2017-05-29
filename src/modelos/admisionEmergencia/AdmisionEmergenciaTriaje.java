@@ -12,6 +12,7 @@ import javax.swing.table.TableRowSorter;
 import static modelos.admisionEmergencia.AdmisionEmergenciaCabecera.m;
 import servicios.Conexion;
 import vista.ConsultorioEx.HistoriaClinica;
+import vista.admisionEmergencia.FrmFormatoEmergencia;
 
 /**
  *
@@ -390,6 +391,27 @@ public class AdmisionEmergenciaTriaje {
             System.out.println("Error: historiaClinicaTratamiento  " + e.getMessage());
         }
     } 
+    
+    public String triajeID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 TRIAJE_ID FROM ADMISION_EMERGENCIA_TRIAJE WHERE TRIAJE_NOM_PC = HOST_NAME()"
+                    + "ORDER BY TRIAJE_ID DESC";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               FrmFormatoEmergencia.txtIDTriaje.setText(rs.getString(1));
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: triajeID: " + ex.getMessage());
+        }
+        return cod;
+    }
     
     public AdmisionEmergenciaTriaje()
     {

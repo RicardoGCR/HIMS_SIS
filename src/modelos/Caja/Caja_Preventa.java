@@ -263,6 +263,31 @@ public class Caja_Preventa {
         }
         return resp;
     }
+    
+        public boolean modificarPreventaCEX(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec Caja_Actualizar_Preventa_CEX ?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+            cmd.setInt(2, getACTO_MEDICO());
+            cmd.setString(3, getCod_jerar_forma_pago());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error Modificar CEX  PREVENTA MODELO" + ex.getMessage());
+        }
+        return resp;
+    }
+
 
  
     public String Ultima_Emergencia(String ActoMedico){
@@ -739,6 +764,77 @@ public class Caja_Preventa {
         } catch (Exception e) {
             System.out.println("Error: listarElisa: " + e.getMessage());
         }
+    }
+    
+    public void ListarPreventasCEX(String paciente,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID Prev","DNI","Nº H.C","Paciente",
+                "Modulo", "Fecha","Hora","Id_Hc","estado","ID_CPT","CPT","AREA"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[12];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="Caja_Mostrar_Preventas_CEX ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, paciente);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); 
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7); 
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
+                fila[10]=r.getString(11); 
+                fila[11]=r.getString(12);
+
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaCargarPreventaCEX(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar PREVENTA CEX: " + e.getMessage());
+        }
+    }
+    
+    public void formatoTablaCargarPreventaCEX(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);  
+        tabla.getColumnModel().getColumn(2).setMinWidth(0);
+        tabla.getColumnModel().getColumn(2).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(3).setMinWidth(0);
+        tabla.getColumnModel().getColumn(3).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(500);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(11).setMinWidth(0);
+        tabla.getColumnModel().getColumn(11).setMaxWidth(0); 
+
+        
+        tabla.setRowHeight(45);
     }
     
     public Caja_Preventa()

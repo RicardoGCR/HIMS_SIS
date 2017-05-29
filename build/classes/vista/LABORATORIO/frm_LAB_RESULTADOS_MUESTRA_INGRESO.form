@@ -1023,10 +1023,10 @@
                   </Group>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="txtAnalisis" alignment="0" pref="220" max="32767" attributes="0"/>
-                      <Component id="txtPacientes" alignment="0" pref="220" max="32767" attributes="0"/>
-                      <Component id="txtPersonal" pref="220" max="32767" attributes="0"/>
-                      <Component id="txtActoM" pref="220" max="32767" attributes="0"/>
+                      <Component id="txtAnalisis" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                      <Component id="txtPacientes" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                      <Component id="txtPersonal" min="-2" pref="220" max="-2" attributes="0"/>
+                      <Component id="txtActoM" min="-2" pref="220" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">

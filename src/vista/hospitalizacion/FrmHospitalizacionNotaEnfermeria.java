@@ -239,7 +239,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
             hospitalizacion.setNeTalla(txtTalla.getText());
             hospitalizacion.setNeIdm(txtIDM.getText());
             hospitalizacion.setNeAnotaciones(txtAnotacionesMedicas.getText());
-            hospitalizacion.setCodUsu(adEmerCab.codUsuario(lblusu.getText()));
+            hospitalizacion.setCodUsu(adEmerCab.codUsuario(lblUsu.getText()));
             if(hospitalizacion.mantenimientoHospitalizacionNotaEnfermeria(lblMant.getText())==true){
                 hospitalizacion.notaEnfermeriaID();
                 if(lblMant.getText().equals("I")){
@@ -304,7 +304,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                 HospitalizacionNotaEnfermeriaProcedimiento hospitalizacion = new HospitalizacionNotaEnfermeriaProcedimiento();
                 hospitalizacion.setNeId(id);
                 hospitalizacion.setCodNomenCaja(tbProced.getValueAt(i,2).toString());
-                hospitalizacion.setCodUsu(adEmer2.codUsuario(lblusu.getText()));
+                hospitalizacion.setCodUsu(adEmer2.codUsuario(lblUsu.getText()));
                 if(hospitalizacion.mantenimientoHospitalizacionNotaEnfermeriaProcedimiento(lblMant.getText())==true)
                     retorna = true;
             }
@@ -316,7 +316,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
     
     public void validaTurno(String ne_id){
         try {
-            String codUsu = adEmer.codUsuario(lblusu.getText());
+            String codUsu = adEmer.codUsuario(lblUsu.getText());
             PreparedStatement cmd = notaEnfermeria.getCn().prepareStatement("SELECT NE_ID\n" +
                 "FROM HOSPITALIZACION_NOTA_ENFERMERIA\n" +
                 "WHERE COD_USU = '"+codUsu+"'\n" +
@@ -375,7 +375,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                 btnNuevo = new javax.swing.JButton();
                 btnGuardar = new javax.swing.JButton();
                 btnEliminar = new javax.swing.JButton();
-                lblusu = new javax.swing.JLabel();
+                lblUsu = new javax.swing.JLabel();
                 lblMant = new javax.swing.JLabel();
                 jPanel1 = new javax.swing.JPanel();
                 jPanel4 = new javax.swing.JPanel();
@@ -782,12 +782,12 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                     }
                 });
 
-                lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-                lblusu.setForeground(new java.awt.Color(255, 255, 255));
-                lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
-                lblusu.setText("Silvana");
-                lblusu.setFocusable(false);
-                lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+                lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+                lblUsu.setForeground(new java.awt.Color(255, 255, 255));
+                lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+                lblUsu.setText("Silvana");
+                lblUsu.setFocusable(false);
+                lblUsu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
                 lblMant.setText("jLabel1");
 
@@ -797,7 +797,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                     jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -833,7 +833,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblusu))
+                        .addComponent(lblUsu))
                 );
 
                 jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -1264,7 +1264,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                         return false;
                     }
                 };
-                tbProced.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                tbProced.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                 tbProced.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
 
@@ -1868,7 +1868,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
     private javax.swing.JLabel lblPaciente;
     private javax.swing.JLabel lblProcedimientos;
     private javax.swing.JLabel lblServicio;
-    public static javax.swing.JLabel lblusu;
+    public static javax.swing.JLabel lblUsu;
     private javax.swing.JPanel pnlCabecera;
     private javax.swing.JPanel pnlMensaje;
     private javax.swing.JTable tbNotas;

@@ -19,6 +19,8 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 import vista.ConsultorioEx.HistoriaClinica;
+import vista.admisionEmergencia.FrmFormatoEmergencia;
+import static vista.admisionEmergencia.FrmFormatoEmergencia.txtIDTopico;
 import static vista.admisionEmergencia.FrmListFormatoEmergencia.tbTriaje;
 
 /**
@@ -563,7 +565,26 @@ public class AdmisionEmergenciaTopico {
         }
     }
     
-    
+    public String topicoID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 TOPICO_ID FROM ADMISION_EMERGENCIA_TOPICO WHERE PC_NOMBRE = HOST_NAME()"
+                    + "ORDER BY TRIAJE_ID DESC";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               FrmFormatoEmergencia.txtIDTopico.setText(rs.getString(1));
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: topicoID: " + ex.getMessage());
+        }
+        return cod;
+    }
     //Constructor
     
     public AdmisionEmergenciaTopico()

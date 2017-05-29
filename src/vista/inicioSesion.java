@@ -69,7 +69,7 @@ String hora, minutos, segundos, ampm;
         panelRecuperar.setVisible(false);
         h1 = new Thread(this);
         h1.start();
-        barra.setBackground(new Color(155,155,155));
+//        barra.setBackground(new Color(155,155,155));
         barra.setForeground(new Color(0,0,0));
 //       setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
     }

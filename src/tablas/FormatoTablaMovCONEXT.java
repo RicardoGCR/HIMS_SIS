@@ -27,18 +27,18 @@ public class FormatoTablaMovCONEXT extends DefaultTableCellRenderer{
             //componente.setBackground(new Color(255,85,64));
         //}
         try {
-         if(table.getValueAt(row, 11).equals(fechaActual())){
+         if(table.getValueAt(row, 13).equals(fechaActual())){
             componente.setBackground(new Color(39,174,97));
         
    
         } else
-          if(table.getValueAt(row, 11).equals(fechaAyer())){
+          if(table.getValueAt(row, 13).equals(fechaAyer())){
             componente.setBackground(new Color(232,76,61));
         
    
         }
           else
-              if(table.getValueAt(row, 11).equals(fechaMañana())){
+              if(table.getValueAt(row, 13).equals(fechaMañana())){
             componente.setBackground(new Color(50,151,219));
         
    

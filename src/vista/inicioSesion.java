@@ -482,11 +482,12 @@ PrincipalMDI pmdi = new PrincipalMDI();
                tiempo1.stop();
                esconder();
                 
-        PrincipalMDI.btnSistema.setEnabled(false);
+        
         
         PrincipalMDI pmdi = new PrincipalMDI();
                 PrincipalMDI.lblUsu.setText(usuario);
                 pmdi.setVisible(true);
+                PrincipalMDI.btnSistema.setEnabled(false);
            }
         }
     }

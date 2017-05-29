@@ -136,21 +136,21 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        bc = new javax.swing.JButton();
-        bc1 = new javax.swing.JButton();
-        bc2 = new javax.swing.JButton();
+        btnAdmCentral = new javax.swing.JButton();
+        btnCaja = new javax.swing.JButton();
+        btnLaboratorio = new javax.swing.JButton();
         p2 = new javax.swing.JPanel();
         p1 = new javax.swing.JPanel();
         p3 = new javax.swing.JPanel();
-        Hospitalicacion = new javax.swing.JButton();
-        bc4 = new javax.swing.JButton();
-        bc5 = new javax.swing.JButton();
+        btnCostos = new javax.swing.JButton();
+        btnSalaDeOperaciones = new javax.swing.JButton();
+        btnHospitalizacion = new javax.swing.JButton();
         p9 = new javax.swing.JPanel();
         p10 = new javax.swing.JPanel();
         p11 = new javax.swing.JPanel();
         btnSistema = new javax.swing.JButton();
         p12 = new javax.swing.JPanel();
-        bc3 = new javax.swing.JButton();
+        btnAdmEme = new javax.swing.JButton();
         p4 = new javax.swing.JPanel();
         btnSistema1 = new javax.swing.JButton();
         p13 = new javax.swing.JPanel();
@@ -436,65 +436,65 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("HIMS");
 
-        bc.setBackground(new java.awt.Color(102, 102, 102));
-        bc.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        bc.setForeground(new java.awt.Color(255, 255, 255));
-        bc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Recepción-30.png"))); // NOI18N
-        bc.setText("Admisión Central");
-        bc.setToolTipText("");
-        bc.setContentAreaFilled(false);
-        bc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bc.setFocusPainted(false);
-        bc.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        bc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        bc.setIconTextGap(30);
-        bc.setVerifyInputWhenFocusTarget(false);
-        bc.addActionListener(new java.awt.event.ActionListener() {
+        btnAdmCentral.setBackground(new java.awt.Color(102, 102, 102));
+        btnAdmCentral.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnAdmCentral.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdmCentral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Recepción-30.png"))); // NOI18N
+        btnAdmCentral.setText("Admisión Central");
+        btnAdmCentral.setToolTipText("");
+        btnAdmCentral.setContentAreaFilled(false);
+        btnAdmCentral.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdmCentral.setFocusPainted(false);
+        btnAdmCentral.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnAdmCentral.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnAdmCentral.setIconTextGap(30);
+        btnAdmCentral.setVerifyInputWhenFocusTarget(false);
+        btnAdmCentral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bcActionPerformed(evt);
+                btnAdmCentralActionPerformed(evt);
             }
         });
 
-        bc1.setBackground(new java.awt.Color(102, 102, 102));
-        bc1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        bc1.setForeground(new java.awt.Color(255, 255, 255));
-        bc1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Caja fuerte-30.png"))); // NOI18N
-        bc1.setMnemonic('N');
-        bc1.setText("Caja");
-        bc1.setContentAreaFilled(false);
-        bc1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bc1.setFocusPainted(false);
-        bc1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        bc1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        bc1.setIconTextGap(30);
-        bc1.setVerifyInputWhenFocusTarget(false);
-        bc1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCaja.setBackground(new java.awt.Color(102, 102, 102));
+        btnCaja.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnCaja.setForeground(new java.awt.Color(255, 255, 255));
+        btnCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Caja fuerte-30.png"))); // NOI18N
+        btnCaja.setMnemonic('N');
+        btnCaja.setText("Caja");
+        btnCaja.setContentAreaFilled(false);
+        btnCaja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaja.setFocusPainted(false);
+        btnCaja.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnCaja.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnCaja.setIconTextGap(30);
+        btnCaja.setVerifyInputWhenFocusTarget(false);
+        btnCaja.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bc1MouseEntered(evt);
+                btnCajaMouseEntered(evt);
             }
         });
-        bc1.addActionListener(new java.awt.event.ActionListener() {
+        btnCaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bc1ActionPerformed(evt);
+                btnCajaActionPerformed(evt);
             }
         });
 
-        bc2.setBackground(new java.awt.Color(102, 102, 102));
-        bc2.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        bc2.setForeground(new java.awt.Color(255, 255, 255));
-        bc2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Tubo de ensayo-30.png"))); // NOI18N
-        bc2.setMnemonic('N');
-        bc2.setText("Laboratorio");
-        bc2.setContentAreaFilled(false);
-        bc2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bc2.setFocusPainted(false);
-        bc2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        bc2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        bc2.setIconTextGap(30);
-        bc2.setVerifyInputWhenFocusTarget(false);
-        bc2.addActionListener(new java.awt.event.ActionListener() {
+        btnLaboratorio.setBackground(new java.awt.Color(102, 102, 102));
+        btnLaboratorio.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnLaboratorio.setForeground(new java.awt.Color(255, 255, 255));
+        btnLaboratorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Tubo de ensayo-30.png"))); // NOI18N
+        btnLaboratorio.setMnemonic('N');
+        btnLaboratorio.setText("Laboratorio");
+        btnLaboratorio.setContentAreaFilled(false);
+        btnLaboratorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLaboratorio.setFocusPainted(false);
+        btnLaboratorio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnLaboratorio.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnLaboratorio.setIconTextGap(30);
+        btnLaboratorio.setVerifyInputWhenFocusTarget(false);
+        btnLaboratorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bc2ActionPerformed(evt);
+                btnLaboratorioActionPerformed(evt);
             }
         });
 
@@ -537,58 +537,58 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGap(0, 37, Short.MAX_VALUE)
         );
 
-        Hospitalicacion.setBackground(new java.awt.Color(102, 102, 102));
-        Hospitalicacion.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        Hospitalicacion.setForeground(new java.awt.Color(255, 255, 255));
-        Hospitalicacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Dinero-30.png"))); // NOI18N
-        Hospitalicacion.setMnemonic('N');
-        Hospitalicacion.setText("Costos");
-        Hospitalicacion.setContentAreaFilled(false);
-        Hospitalicacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Hospitalicacion.setFocusPainted(false);
-        Hospitalicacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Hospitalicacion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        Hospitalicacion.setIconTextGap(30);
-        Hospitalicacion.setVerifyInputWhenFocusTarget(false);
-        Hospitalicacion.addActionListener(new java.awt.event.ActionListener() {
+        btnCostos.setBackground(new java.awt.Color(102, 102, 102));
+        btnCostos.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnCostos.setForeground(new java.awt.Color(255, 255, 255));
+        btnCostos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Dinero-30.png"))); // NOI18N
+        btnCostos.setMnemonic('N');
+        btnCostos.setText("Costos");
+        btnCostos.setContentAreaFilled(false);
+        btnCostos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCostos.setFocusPainted(false);
+        btnCostos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnCostos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnCostos.setIconTextGap(30);
+        btnCostos.setVerifyInputWhenFocusTarget(false);
+        btnCostos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HospitalicacionActionPerformed(evt);
+                btnCostosActionPerformed(evt);
             }
         });
 
-        bc4.setBackground(new java.awt.Color(102, 102, 102));
-        bc4.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        bc4.setForeground(new java.awt.Color(255, 255, 255));
-        bc4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Estetoscopio-30.png"))); // NOI18N
-        bc4.setText("Sala de Operaciones");
-        bc4.setContentAreaFilled(false);
-        bc4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bc4.setFocusPainted(false);
-        bc4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        bc4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        bc4.setIconTextGap(30);
-        bc4.setVerifyInputWhenFocusTarget(false);
-        bc4.addActionListener(new java.awt.event.ActionListener() {
+        btnSalaDeOperaciones.setBackground(new java.awt.Color(102, 102, 102));
+        btnSalaDeOperaciones.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnSalaDeOperaciones.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalaDeOperaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Estetoscopio-30.png"))); // NOI18N
+        btnSalaDeOperaciones.setText("Sala de Operaciones");
+        btnSalaDeOperaciones.setContentAreaFilled(false);
+        btnSalaDeOperaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalaDeOperaciones.setFocusPainted(false);
+        btnSalaDeOperaciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnSalaDeOperaciones.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnSalaDeOperaciones.setIconTextGap(30);
+        btnSalaDeOperaciones.setVerifyInputWhenFocusTarget(false);
+        btnSalaDeOperaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bc4ActionPerformed(evt);
+                btnSalaDeOperacionesActionPerformed(evt);
             }
         });
 
-        bc5.setBackground(new java.awt.Color(102, 102, 102));
-        bc5.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        bc5.setForeground(new java.awt.Color(255, 255, 255));
-        bc5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Hospital-30.png"))); // NOI18N
-        bc5.setText("Hospitalización");
-        bc5.setContentAreaFilled(false);
-        bc5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bc5.setFocusPainted(false);
-        bc5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        bc5.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        bc5.setIconTextGap(30);
-        bc5.setVerifyInputWhenFocusTarget(false);
-        bc5.addActionListener(new java.awt.event.ActionListener() {
+        btnHospitalizacion.setBackground(new java.awt.Color(102, 102, 102));
+        btnHospitalizacion.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnHospitalizacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnHospitalizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Hospital-30.png"))); // NOI18N
+        btnHospitalizacion.setText("Hospitalización");
+        btnHospitalizacion.setContentAreaFilled(false);
+        btnHospitalizacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHospitalizacion.setFocusPainted(false);
+        btnHospitalizacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnHospitalizacion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnHospitalizacion.setIconTextGap(30);
+        btnHospitalizacion.setVerifyInputWhenFocusTarget(false);
+        btnHospitalizacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bc5ActionPerformed(evt);
+                btnHospitalizacionActionPerformed(evt);
             }
         });
 
@@ -662,27 +662,27 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGap(0, 37, Short.MAX_VALUE)
         );
 
-        bc3.setBackground(new java.awt.Color(102, 102, 102));
-        bc3.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        bc3.setForeground(new java.awt.Color(255, 255, 255));
-        bc3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Ambulancia-30.png"))); // NOI18N
-        bc3.setMnemonic('N');
-        bc3.setText("Admisión Emergencia");
-        bc3.setContentAreaFilled(false);
-        bc3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bc3.setFocusPainted(false);
-        bc3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        bc3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        bc3.setIconTextGap(30);
-        bc3.setVerifyInputWhenFocusTarget(false);
-        bc3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAdmEme.setBackground(new java.awt.Color(102, 102, 102));
+        btnAdmEme.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnAdmEme.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdmEme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Ambulancia-30.png"))); // NOI18N
+        btnAdmEme.setMnemonic('N');
+        btnAdmEme.setText("Admisión Emergencia");
+        btnAdmEme.setContentAreaFilled(false);
+        btnAdmEme.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdmEme.setFocusPainted(false);
+        btnAdmEme.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnAdmEme.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnAdmEme.setIconTextGap(30);
+        btnAdmEme.setVerifyInputWhenFocusTarget(false);
+        btnAdmEme.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bc3MouseEntered(evt);
+                btnAdmEmeMouseEntered(evt);
             }
         });
-        bc3.addActionListener(new java.awt.event.ActionListener() {
+        btnAdmEme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bc3ActionPerformed(evt);
+                btnAdmEmeActionPerformed(evt);
             }
         });
 
@@ -767,12 +767,12 @@ public class PrincipalMDI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bc, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bc1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bc5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Hospitalicacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bc2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bc4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAdmCentral, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnHospitalizacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCostos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLaboratorio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSalaDeOperaciones, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -782,7 +782,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
                     .addComponent(p10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(p11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(bc3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAdmEme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -809,11 +809,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bc)
+                    .addComponent(btnAdmCentral)
                     .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bc3)
+                    .addComponent(btnAdmEme)
                     .addComponent(p4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -821,22 +821,22 @@ public class PrincipalMDI extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(bc1)
+                                    .addComponent(btnCaja)
                                     .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(19, 19, 19)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(p3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Hospitalicacion))
+                                    .addComponent(btnCostos))
                                 .addGap(18, 18, 18)
-                                .addComponent(bc5))
+                                .addComponent(btnHospitalizacion))
                             .addComponent(p9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(bc2))
+                        .addComponent(btnLaboratorio))
                     .addComponent(p10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(p11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bc4))
+                    .addComponent(btnSalaDeOperaciones))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(p14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -5060,7 +5060,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btneditar1ActionPerformed
 
-    private void bcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcActionPerformed
+    private void btnAdmCentralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdmCentralActionPerformed
          p1.setVisible(true);
          p2.setVisible(false);
          p3.setVisible(false);        // TODO add your handling code here:
@@ -5072,9 +5072,9 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p13.setVisible(false);  
          p14.setVisible(false);  
          jTabbedPane1.setSelectedIndex(2);
-    }//GEN-LAST:event_bcActionPerformed
+    }//GEN-LAST:event_btnAdmCentralActionPerformed
 
-    private void bc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bc1ActionPerformed
+    private void btnCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCajaActionPerformed
          p1.setVisible(false);
          p2.setVisible(true);
          p3.setVisible(false);        // TODO add your handling code here:
@@ -5086,9 +5086,9 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p13.setVisible(false);
          p14.setVisible(false);  
          jTabbedPane1.setSelectedIndex(4);
-    }//GEN-LAST:event_bc1ActionPerformed
+    }//GEN-LAST:event_btnCajaActionPerformed
 
-    private void bc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bc2ActionPerformed
+    private void btnLaboratorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaboratorioActionPerformed
      p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(false);        // TODO add your handling code here:
@@ -5100,11 +5100,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p13.setVisible(false);
          p14.setVisible(false);  
          jTabbedPane1.setSelectedIndex(3);
-    }//GEN-LAST:event_bc2ActionPerformed
+    }//GEN-LAST:event_btnLaboratorioActionPerformed
 
-    private void bc1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bc1MouseEntered
+    private void btnCajaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCajaMouseEntered
       
-    }//GEN-LAST:event_bc1MouseEntered
+    }//GEN-LAST:event_btnCajaMouseEntered
 
     private void btneditar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar5ActionPerformed
         Costos_Depreciacion frm = new Costos_Depreciacion();
@@ -5232,7 +5232,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         frmEmer.lblusu.setText(u);
     }//GEN-LAST:event_btnFormatEmergenciaActionPerformed
 
-    private void HospitalicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalicacionActionPerformed
+    private void btnCostosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCostosActionPerformed
          p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(true);        // TODO add your handling code here:
@@ -5243,9 +5243,9 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p13.setVisible(false); 
          p14.setVisible(false);  
          jTabbedPane1.setSelectedIndex(1);
-    }//GEN-LAST:event_HospitalicacionActionPerformed
+    }//GEN-LAST:event_btnCostosActionPerformed
 
-    private void bc4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bc4ActionPerformed
+    private void btnSalaDeOperacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalaDeOperacionesActionPerformed
         p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(false);        // TODO add your handling code here:
@@ -5255,9 +5255,9 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p12.setVisible(false);    
          p13.setVisible(false); 
          p14.setVisible(false);  
-    }//GEN-LAST:event_bc4ActionPerformed
+    }//GEN-LAST:event_btnSalaDeOperacionesActionPerformed
 
-    private void bc5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bc5ActionPerformed
+    private void btnHospitalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalizacionActionPerformed
     p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(false);        // TODO add your handling code here:
@@ -5270,7 +5270,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         
         jTabbedPane1.setSelectedIndex(5);
         lblServicio.setText(mostrarServicioHosp());
-    }//GEN-LAST:event_bc5ActionPerformed
+    }//GEN-LAST:event_btnHospitalizacionActionPerformed
 
     private void btneditar14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar14ActionPerformed
         // TODO add your handling code here:
@@ -5459,11 +5459,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMantLlegada2ActionPerformed
 
-    private void bc3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bc3MouseEntered
+    private void btnAdmEmeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdmEmeMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_bc3MouseEntered
+    }//GEN-LAST:event_btnAdmEmeMouseEntered
 
-    private void bc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bc3ActionPerformed
+    private void btnAdmEmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdmEmeActionPerformed
         p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(false);       
@@ -5475,7 +5475,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p13.setVisible(false);  
          p14.setVisible(false);  
         jTabbedPane1.setSelectedIndex(6);
-    }//GEN-LAST:event_bc3ActionPerformed
+    }//GEN-LAST:event_btnAdmEmeActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         FrmHospitalizacionExClinico frmExamen =new  FrmHospitalizacionExClinico();
@@ -5787,24 +5787,23 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Hospitalicacion;
-    private javax.swing.JButton bc;
-    private javax.swing.JButton bc1;
-    private javax.swing.JButton bc2;
-    private javax.swing.JButton bc3;
-    private javax.swing.JButton bc4;
-    private javax.swing.JButton bc5;
+    private javax.swing.JButton btnAdmCentral;
+    private javax.swing.JButton btnAdmEme;
     private javax.swing.JButton btnAnalisis;
+    private javax.swing.JButton btnCaja;
     private javax.swing.JButton btnCarnetPerinatal;
     private javax.swing.JButton btnClasificacion;
     private javax.swing.JButton btnConsultorio;
     private javax.swing.JButton btnContenedor;
     private javax.swing.JButton btnConversion;
+    private javax.swing.JButton btnCostos;
     private javax.swing.JButton btnEntrega;
     private javax.swing.JButton btnEsquema;
     private javax.swing.JButton btnFormatEmergencia;
     private javax.swing.JButton btnFormatEmergencia1;
     private javax.swing.JButton btnFormatEmergencia3;
+    private javax.swing.JButton btnHospitalizacion;
+    private javax.swing.JButton btnLaboratorio;
     private javax.swing.JButton btnMantLlegada;
     private javax.swing.JButton btnMantLlegada1;
     private javax.swing.JButton btnMantLlegada2;
@@ -5826,6 +5825,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JButton btnReporteFEmer1;
     private javax.swing.JButton btnResultado;
     private javax.swing.JButton btnResultadoBusq;
+    private javax.swing.JButton btnSalaDeOperaciones;
     private javax.swing.JButton btnSectorizacion;
     public static javax.swing.JButton btnSistema;
     public static javax.swing.JButton btnSistema1;

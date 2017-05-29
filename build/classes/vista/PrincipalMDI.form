@@ -49,12 +49,12 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="bc" alignment="0" max="32767" attributes="0"/>
-                      <Component id="bc1" alignment="1" max="32767" attributes="0"/>
-                      <Component id="bc5" alignment="1" max="32767" attributes="0"/>
-                      <Component id="Hospitalicacion" alignment="0" max="32767" attributes="0"/>
-                      <Component id="bc2" alignment="0" max="32767" attributes="0"/>
-                      <Component id="bc4" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnAdmCentral" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnCaja" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnHospitalizacion" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnCostos" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnLaboratorio" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnSalaDeOperaciones" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -67,7 +67,7 @@
                   </Group>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="bc3" max="32767" attributes="0"/>
+                  <Component id="btnAdmEme" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="p4" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -100,12 +100,12 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="bc" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAdmCentral" min="-2" max="-2" attributes="0"/>
                       <Component id="p1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="bc3" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAdmEme" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="p4" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -114,28 +114,28 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="bc1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnCaja" min="-2" max="-2" attributes="0"/>
                                       <Component id="p2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="p3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Hospitalicacion" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnCostos" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="bc5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnHospitalizacion" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="p9" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="bc2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLaboratorio" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="p10" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="p11" min="-2" max="-2" attributes="0"/>
-                      <Component id="bc4" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSalaDeOperaciones" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -169,7 +169,7 @@
             <Property name="text" type="java.lang.String" value="HIMS"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="bc">
+        <Component class="javax.swing.JButton" name="btnAdmCentral">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -196,10 +196,10 @@
             <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bcActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdmCentralActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="bc1">
+        <Component class="javax.swing.JButton" name="btnCaja">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -226,11 +226,11 @@
             <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bc1MouseEntered"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bc1ActionPerformed"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCajaMouseEntered"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCajaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="bc2">
+        <Component class="javax.swing.JButton" name="btnLaboratorio">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -257,7 +257,7 @@
             <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bc2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLaboratorioActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="p2">
@@ -320,7 +320,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JButton" name="Hospitalicacion">
+        <Component class="javax.swing.JButton" name="btnCostos">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -347,10 +347,10 @@
             <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HospitalicacionActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCostosActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="bc4">
+        <Component class="javax.swing.JButton" name="btnSalaDeOperaciones">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -376,10 +376,10 @@
             <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bc4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalaDeOperacionesActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="bc5">
+        <Component class="javax.swing.JButton" name="btnHospitalizacion">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -405,7 +405,7 @@
             <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bc5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHospitalizacionActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="p9">
@@ -520,7 +520,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JButton" name="bc3">
+        <Component class="javax.swing.JButton" name="btnAdmEme">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -547,8 +547,8 @@
             <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bc3MouseEntered"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bc3ActionPerformed"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAdmEmeMouseEntered"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdmEmeActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="p4">

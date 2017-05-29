@@ -360,7 +360,7 @@ try {
           if((idac.getText().equals(""))  || (abono.getText().equals(""))){
                                 cargareliminar.setVisible(true);
                                 cargareliminar.setBackground(new Color(255,91,70)); 
-                                Mensaje.setText("Ocurrio un error");
+                                Mensaje.setText("Ocurrió un error");
                                 eli.setVisible(false);
                                 noeli.setVisible(false);
                                 btnguardar.setEnabled(false);
@@ -391,7 +391,7 @@ try {
                        } else {
                            cargareliminar.setVisible(true);
                            cargareliminar.setBackground(new Color(255,91,70)); 
-                           Mensaje.setText("Ocurrio un error, Verifique");
+                           Mensaje.setText("Ocurrió un error, Verifique");
                            eli.setVisible(false);
                            noeli.setVisible(false);
     }}}
@@ -425,7 +425,7 @@ try {
                         } else {
                            
                                 cargareliminar.setBackground(new Color(255,91,70)); 
-                                Mensaje.setText("Ocurrio un error, Verifique");
+                                Mensaje.setText("Ocurrió un error, Verifique");
                                 eli.setVisible(false);
                                 noeli.setVisible(false);
                         }

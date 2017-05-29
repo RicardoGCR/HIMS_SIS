@@ -219,7 +219,7 @@ public void Detalle(String codigo,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"CPT","Cantidad","Precio","Dsct.","SubTotal","Consultorio","Atencion","Medico/Personal","Nº Atencion","Turno","cpt","idd","id"};
+            String titulos[]={"CPT","Cantidad","Precio","Dsct.","SubTotal","Departamento / Área","Atencion","Medico/Personal","Nº Atencion","Turno","cpt","idd","id"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[12];

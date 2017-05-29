@@ -330,7 +330,7 @@ Caja_Precio cnn = new Caja_Precio();
                        } else {
                             cargareliminar.setVisible(true);
                                 cargareliminar.setBackground(new Color(255,91,70)); 
-                                Mensaje.setText("Ocurrio un error, Verifique");
+                                Mensaje.setText("Ocurrió un error, Verifique");
                                 eli.setVisible(false);
                                 noeli.setVisible(false);
                                 tge=1;
@@ -371,7 +371,7 @@ Caja_Precio cnn = new Caja_Precio();
                            
                                 cargareliminar.setVisible(true);
                                 cargareliminar.setBackground(new Color(255,91,70)); 
-                                Mensaje.setText("Ocurrio un error, Verifique");
+                                Mensaje.setText("Ocurrió un error, Verifique");
                                 eli.setVisible(false);
                                 noeli.setVisible(false);
                                 tge=2;

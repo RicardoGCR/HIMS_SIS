@@ -44,7 +44,12 @@ private int ID_ACTOMEDICO1 ;
 private int NUM_ACTOMEDICO ;//////////////ACTO MEDICO
 private String FECHA_TERMINO ;
 private String DURACION ;
+private int CA_ID;
+private int CONTADOR_CITAS; 
+private int CITAS_CAJA ;
+private String ESTADOP;
 
+        
 ////////////////////////////////////////////////////
 Conexion con = new Conexion();
 
@@ -133,7 +138,7 @@ public boolean Nuevo()
         {
         boolean resp = false;
         try{
-            String sql = "EXEC Caja_VENTA_NUEVA_CABEZERA ?,?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "EXEC Caja_VENTA_NUEVA_CABEZERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_documento());
             cmd.setString(2, getCod_tipo_documento());
@@ -143,11 +148,12 @@ public boolean Nuevo()
             cmd.setString(6, getSerie_documento());
             cmd.setString(7, getNum_documento());
             cmd.setString(8, getDependencia());
-            cmd.setString(9, getCod_usu());
-            cmd.setString(10, getId_liquidacion());
-            cmd.setInt(11, getCorrelativo());
-            cmd.setInt(12, getId_ActoMedico());
-            cmd.setInt(13, getId_Cta_Abono());
+            cmd.setString(9, getESTADOP());
+            cmd.setString(10, getCod_usu());
+            cmd.setString(11, getId_liquidacion());
+            cmd.setInt(12, getCorrelativo());
+            cmd.setInt(13, getId_ActoMedico());
+            cmd.setInt(14, getId_Cta_Abono());
 
             if(!cmd.execute())
             {
@@ -400,11 +406,21 @@ public void listarMedicos1(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(0).setMinWidth(0);
         tabla.getColumnModel().getColumn(0).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(1).setPreferredWidth(350);  
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(50); 
-        tabla.getColumnModel().getColumn(3).setPreferredWidth(50); 
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(50); 
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(150); 
         
+        tabla.getColumnModel().getColumn(2).setMinWidth(0);
+        tabla.getColumnModel().getColumn(2).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(3).setMinWidth(0);
+        tabla.getColumnModel().getColumn(3).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0); 
+        
+//        tabla.getColumnModel().getColumn(2).setPreferredWidth(50); 
+//        tabla.getColumnModel().getColumn(3).setPreferredWidth(50); 
+//        tabla.getColumnModel().getColumn(4).setPreferredWidth(50); 
+//        tabla.getColumnModel().getColumn(5).setPreferredWidth(150); 
+//        
   
         tabla.setRowHeight(40);
     }
@@ -447,6 +463,277 @@ public void listarMedicos1(String Servicio,JTable tabla){
             System.out.println("Error: listar PREVENTA CEX: " + e.getMessage());
         }
     }
+    
+    
+    public void ListarAsistentaSocial(JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Apellidos y Nombres"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[1];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC Caja_Asiste_Social_Listar";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); 
+
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaAsistente(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar PREVENTA CEX: " + e.getMessage());
+        }
+    }
+    
+     public void formatoTablaAsistente(JTable tabla){
+
+        tabla.setRowHeight(37);
+    }
+     
+     public void BuscarCPT(String Texto,String FormaPago,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Nomeclatura","Descripcion","Precio","Forma de Pago","Decripcion Forma Pago","","","","",""};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[10];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec Caja_NomenclaturaVentaBUSCAR ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Texto);
+            cmd.setString(2, FormaPago);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
+
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaCPT(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar PREVENTA CEX: " + e.getMessage());
+        }
+    }
+     public void formatoTablaCPT(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(500);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
+
+        tabla.getColumnModel().getColumn(3).setMinWidth(0);
+        tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+        tabla.setRowHeight(37);
+        
+    }
+     
+    public void ListarConsultorios(String Texto,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID","Dia","Hora Inicio","Hora Termino","Consultorio","Nº de Citas","Adicionales","Futuras","Turno","Médico","","","","","","","","","","",""};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[21];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec Caja_ConsultoriosExternosListar ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Texto);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                    fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
+                    fila[9]=r.getString(10);  
+                    fila[10]=r.getString(11); 
+                    fila[11]=r.getString(12); 
+                    fila[12]=r.getString(13); 
+                    fila[13]=r.getString(14); 
+                    fila[14]=r.getString(15);
+                    fila[15]=r.getString(16);
+                    fila[16]=r.getString(17);
+                    fila[17]=r.getString(18); 
+                    fila[18]=r.getString(19);
+                    fila[19]=r.getString(20);
+                    fila[20]=r.getString(21);
+
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaDetalle(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarConsultorios CAJA: " + e.getMessage());
+        }
+    }
+     public void formatoTablaDetalle(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(80);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(40);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(40);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(40);
+       
+        
+        tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(10).setMinWidth(0);
+        tabla.getColumnModel().getColumn(10).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(11).setMinWidth(0);
+        tabla.getColumnModel().getColumn(11).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(12).setMinWidth(0);
+        tabla.getColumnModel().getColumn(12).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(13).setMinWidth(0);
+        tabla.getColumnModel().getColumn(13).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(14).setMinWidth(0);
+        tabla.getColumnModel().getColumn(14).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(15).setMinWidth(0);
+        tabla.getColumnModel().getColumn(15).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(16).setMinWidth(0);
+        tabla.getColumnModel().getColumn(16).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(17).setMinWidth(0);
+        tabla.getColumnModel().getColumn(17).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(18).setMinWidth(0);
+        tabla.getColumnModel().getColumn(18).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(19).setMinWidth(0);
+        tabla.getColumnModel().getColumn(19).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(20).setMinWidth(0);
+        tabla.getColumnModel().getColumn(20).setMaxWidth(0);
+
+   
+
+//        COLUMNAS OCULTAS
+//        TableColumn columna = tabla.getColumnModel().getColumn(0);
+//            columna.setMaxWidth(0);
+//            columna.setMinWidth(0);
+//            columna.setPreferredWidth(0);
+//            tabla.doLayout();
+        tabla.setRowHeight(45);
+    }
+     
+     public boolean ActualizarCitas()
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_ACTUALIZAR_CITAS ?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCA_ID());
+            cmd.setInt(2, getCONTADOR_CITAS());
+            cmd.setInt(3, getCITAS_CAJA());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error : " + ex.getMessage());
+        }
+        return resp;
+    }
+     
+     public boolean ActualizarCitasFuturas()
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_ACTUALIZAR_CITAS_FUTURA ?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCA_ID());
+            cmd.setInt(2, getCONTADOR_CITAS());
+            cmd.setInt(3, getCITAS_CAJA());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error : " + ex.getMessage());
+        }
+        return resp;
+    }
+     public boolean ActualizarCitasAdicionales()
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_ACTUALIZAR_CITAS_ADICIONAL ?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCA_ID());
+            cmd.setInt(2, getCONTADOR_CITAS());
+            cmd.setInt(3, getCITAS_CAJA());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error : " + ex.getMessage());
+        }
+        return resp;
+    }
+
 
 
 
@@ -639,5 +926,41 @@ public void listarMedicos1(String Servicio,JTable tabla){
     public void setCon(Conexion con) {
         this.con = con;
     }
+
+    public int getCA_ID() {
+        return CA_ID;
+    }
+
+    public void setCA_ID(int CA_ID) {
+        this.CA_ID = CA_ID;
+    }
+
+    public int getCONTADOR_CITAS() {
+        return CONTADOR_CITAS;
+    }
+
+    public void setCONTADOR_CITAS(int CONTADOR_CITAS) {
+        this.CONTADOR_CITAS = CONTADOR_CITAS;
+    }
+
+    public int getCITAS_CAJA() {
+        return CITAS_CAJA;
+    }
+
+    public void setCITAS_CAJA(int CITAS_CAJA) {
+        this.CITAS_CAJA = CITAS_CAJA;
+    }
+
+    public String getESTADOP() {
+        return ESTADOP;
+    }
+
+    public void setESTADOP(String ESTADOP) {
+        this.ESTADOP = ESTADOP;
+    }
+    
+    
+    
+    
 
 }

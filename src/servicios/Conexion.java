@@ -6,12 +6,15 @@
  */
 package servicios;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import vista.ConfiguracionServidor;
 
 
 
@@ -20,21 +23,50 @@ import javax.swing.JOptionPane;
  * @author Profe
  */
 public class Conexion {
-
-    static String servidor="192.168.1.36";
-    static String puerto="1433";
-    static String user="sa";
-    static String password="sistemas";
-    static String baseDatos="SISGESH_NET";
+    
+     static String servidor="";
+     static String puerto="";
+     static String user="";
+     static String password="";
+     static String baseDatos="";
+    public void leerTexto(String direccion){
+        try {
+            BufferedReader bf = new BufferedReader(new FileReader(direccion));
+            String bfRead;
+            int cont = 0;
+            while((bfRead = bf.readLine()) != null){
+                cont = cont + 1;
+                if (cont ==1){
+                    servidor = "" + bfRead + "";
+                }
+                if (cont ==2){
+                    puerto = "" + bfRead + "";
+                }
+                if (cont ==3){
+                    user = "" + bfRead + "";
+                }
+                if (cont ==4){
+                    password = "" + bfRead + "";
+                }
+                if (cont ==5){
+                    baseDatos = "" + bfRead + "";
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("No se encontró el archivo");
+        }
+    }
+    
     Connection conexion=null;
        
      public Connection conectar(){
         try{
+            leerTexto("C:\\Program Files\\SOFT\\conexion.txt");
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String url="jdbc:sqlserver://"+servidor+":"+puerto+";"+"databaseName="+baseDatos
                     +";user="+user+";password="+password;
             conexion=DriverManager.getConnection(url);
-             //System.out.println("Conexión exitosa");
+             System.out.println("Conexión exitosa");
         }
         catch(Exception ex)
         {   
@@ -57,11 +89,11 @@ public class Conexion {
             return null;
         }
     }
-
-     
-        /*public static void main(String[] args) throws SQLException {
-        Conexion conexion = new Conexion();
-        Connection con = conexion.conectar();
-        }*/
+//
+//     
+//        public static void main(String[] args) throws SQLException {
+//        Conexion conexion = new Conexion();
+//        Connection con = conexion.conectar();
+//        }
 
      }

@@ -38,7 +38,6 @@ byte tga;
      */
  Caja_Nomenclatura cnn = new Caja_Nomenclatura();
     public Caja_Nomenclaturas() {
-
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
@@ -48,8 +47,7 @@ byte tga;
          Unidad.getContentPane().setBackground(Color.WHITE); 
          Cta6.setLocationRelativeTo(null);//en el centro
          Cta6.getContentPane().setBackground(Color.WHITE); 
-
-     
+         
                 
         //setResizable(false);//para que no funcione el boton maximizar
         LISTAR();
@@ -374,7 +372,7 @@ byte tga;
     tb_Grupo1.getColumnModel().getColumn(10).setMaxWidth(0); 
     tb_Grupo1.getColumnModel().getColumn(11).setMinWidth(0);
     tb_Grupo1.getColumnModel().getColumn(11).setMaxWidth(0); 
-    tb_Grupo1.setRowHeight(30);
+    tb_Grupo1.setRowHeight(45);
     
 }
     public void formatoventanas(){
@@ -387,14 +385,14 @@ byte tga;
     tb_Grupos2.getColumnModel().getColumn(1).setPreferredWidth(250);
     tb_Grupos2.getColumnModel().getColumn(2).setMinWidth(0);
     tb_Grupos2.getColumnModel().getColumn(2).setMaxWidth(0);
-    tb_Grupos2.setRowHeight(30);
+    tb_Grupos2.setRowHeight(45);
     
 }
     public void formatoventanas1(){
     tb_Grupos1.getColumnModel().getColumn(0).setPreferredWidth(200);
     tb_Grupos1.getColumnModel().getColumn(1).setMinWidth(0);
     tb_Grupos1.getColumnModel().getColumn(1).setMaxWidth(0);
-    tb_Grupos1.setRowHeight(30);
+    tb_Grupos1.setRowHeight(45);
 }
     
     public void Modificar(){
@@ -1531,6 +1529,7 @@ byte tga;
                         tb_Grupo1.setGridColor(new java.awt.Color(255, 255, 255));
                         tb_Grupo1.setRowHeight(25);
                         tb_Grupo1.setSelectionBackground(new java.awt.Color(50, 151, 219));
+                        tb_Grupo1.getTableHeader().setReorderingAllowed(false);
                         tb_Grupo1.addMouseListener(new java.awt.event.MouseAdapter() {
                             public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 tb_Grupo1MouseClicked(evt);

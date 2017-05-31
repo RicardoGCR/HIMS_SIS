@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import static modelos.admisionEmergencia.AdmisionEmergenciaCabecera.m;
+//import static modelos.admisionEmergencia.AdmisionEmergenciaCabecera.m;
 import static modelos.admisionEmergencia.AdmisionEmergenciaTriaje.m;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;

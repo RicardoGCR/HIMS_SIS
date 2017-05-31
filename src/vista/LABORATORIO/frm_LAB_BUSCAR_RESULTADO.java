@@ -2445,9 +2445,9 @@ public void buscar_examenes(){
             JOptionPane.showMessageDialog(null, "Error al Exportar el archivo!"+e.getMessage(), "Oops! Error", JOptionPane.ERROR_MESSAGE);
         } catch (JRException ex) {
          Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
-     } catch (IOException ex) {
+     } /*catch (IOException ex) {
         Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    }*/
     }
     
     public void enableDatos(){

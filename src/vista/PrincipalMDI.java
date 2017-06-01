@@ -5272,9 +5272,8 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p12.setVisible(false);    
          p13.setVisible(false); 
          p14.setVisible(false);  
-        
-        jTabbedPane1.setSelectedIndex(5);
         lblServicio.setText(mostrarServicioHosp());
+        jTabbedPane1.setSelectedIndex(5);
     }//GEN-LAST:event_btnHospitalizacionActionPerformed
 
     private void btneditar14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar14ActionPerformed

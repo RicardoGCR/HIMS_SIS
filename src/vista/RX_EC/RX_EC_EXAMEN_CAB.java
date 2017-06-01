@@ -105,6 +105,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tb_Personal_rol_todo = new javax.swing.JTable();
+        jDateChooserBeanInfo1 = new com.toedter.calendar.JDateChooserBeanInfo();
         jpanel = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         lblIDArea = new javax.swing.JLabel();
@@ -1738,9 +1739,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     
     public void guardar_examen_cabecera(){
         ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
-        RX_EC_EXAMEN C=new RX_EC_EXAMEN();
-        RX_EC_EXAMEN C1=new RX_EC_EXAMEN();
-        RX_EC_EXAMEN C2=new RX_EC_EXAMEN();
+
         try{          
                 if(txtPersonalExamen.getText().equalsIgnoreCase("") || txtPersonalRegistraExamen.getText().equalsIgnoreCase("")){
                     JOptionPane.showMessageDialog(rootPane, "Verifique si ha seleccionado el personal");
@@ -1978,9 +1977,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
        
     public void guardar_examen_detalle(){
         ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
-        RX_EC_EXAMEN_DET Cd=new RX_EC_EXAMEN_DET();
-        RX_EC_EXAMEN_DET Cd1=new RX_EC_EXAMEN_DET();
-        RX_EC_EXAMEN_DET Cd2=new RX_EC_EXAMEN_DET();
+        
         try{          
                 if(txtPersonalSolicita.getText().equalsIgnoreCase("")){
                     JOptionPane.showMessageDialog(rootPane, "Verifique si ha seleccionado el personal");
@@ -2130,6 +2127,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private com.toedter.calendar.JDateChooserBeanInfo jDateChooserBeanInfo1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

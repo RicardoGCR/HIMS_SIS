@@ -1019,7 +1019,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
 
         lblusu1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         lblusu1.setForeground(new java.awt.Color(102, 102, 102));
-        lblusu1.setText("Bienvenido a SISGESH");
+        lblusu1.setText("Bienvenido a HIMS");
 
         btnguardar2.setForeground(new java.awt.Color(240, 240, 240));
         btnguardar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Monitor cardíaco Filled-100 (1).png"))); // NOI18N

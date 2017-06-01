@@ -726,7 +726,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Resultado">
+                <TitledBorder title="Paciente">
                   <Font PropertyName="font" name="Segoe UI Semilight" size="12" style="1"/>
                 </TitledBorder>
               </Border>
@@ -948,7 +948,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Resultado">
+                <TitledBorder title="An&#xe1;lisis">
                   <Font PropertyName="font" name="Segoe UI Semilight" size="12" style="1"/>
                 </TitledBorder>
               </Border>
@@ -1249,7 +1249,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Resultado">
+                <TitledBorder title="Toma de Muestra">
                   <Font PropertyName="font" name="Segoe UI Semilight" size="12" style="1"/>
                 </TitledBorder>
               </Border>
@@ -1589,7 +1589,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Resultado">
+                <TitledBorder title="Entrega de Resultado">
                   <Font PropertyName="font" name="Segoe UI Semilight" size="12" style="1"/>
                 </TitledBorder>
               </Border>
@@ -1786,7 +1786,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Resultado">
+                <TitledBorder title="Recepci&#xf3;n">
                   <Font PropertyName="font" name="Segoe UI Semilight" size="12" style="1"/>
                 </TitledBorder>
               </Border>
@@ -1943,6 +1943,7 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPacienteRecepActionPerformed"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPacienteRecepKeyPressed"/>
               </Events>
               <AuxValues>

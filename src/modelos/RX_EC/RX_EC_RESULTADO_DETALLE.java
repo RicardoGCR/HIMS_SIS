@@ -97,15 +97,13 @@ public class RX_EC_RESULTADO_DETALLE {
         return cod;
     }
     
-    public boolean RX_EC_ESTADO_RESULTADO_CAJA_MODIFICAR()
-    {
-        boolean resp = false;
-        try
-        {
-            String sql = "exec RX_EC_RESULTADO_ESTADO_CAJA ?";
+     public boolean RX_EC_Estado_RESULTADO_Caja(int id_cod_doc_det){
+         boolean resp = false;
+        try{
+            String sql = "RX_EC_RESULTADO_ESTADO_CAJA ?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setInt(1, getID_COD_DOC_DET());
-            
+            cmd.setInt(1, id_cod_doc_det);
+
             if(!cmd.execute())
             {
                 resp = true;
@@ -115,7 +113,7 @@ public class RX_EC_RESULTADO_DETALLE {
         }
         catch(Exception ex)
         {
-          System.out.println("Error: " + ex.getMessage());
+            System.out.println("Error: " + ex.getMessage());
         }
         return resp;
     }

@@ -3,27 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/proyecto%2001/SISGESH/src/modelos/RX_EC/RX_EC_EXAMEN_DET.java</file>
-            <file>file:/D:/proyecto%2001/SISGESH/src/vista/RX_EC/RX_EC_EXAMEN_CAB_RESULTADO.java</file>
-            <file>file:/D:/proyecto%2001/SISGESH/src/modelos/RX_EC/RX_EC_RESULTADO_CAB.java</file>
-            <file>file:/D:/proyecto%2001/SISGESH/src/modelos/RX_EC/RX_EC_RESULTADO_DETALLE_DIAGNOSTICO.java</file>
-            <file>file:/D:/proyecto%2001/SISGESH/src/modelos/RX_EC/RX_EC_RESULTADO_DETALLE.java</file>
-            <file>file:/D:/proyecto%2001/SISGESH/src/vista/RX_EC/RX_EC_EXAMEN_CAB.java</file>
-            <file>file:/D:/proyecto%2001/SISGESH/src/vista/RX_EC/RX_EC_BUSCAR_EXAMEN_RESULTADO.java</file>
-            <file>file:/D:/proyecto%2001/SISGESH/src/vista/RX_EC/RX_EC_BUSCAR_EXAMEN_C.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/proyecto/SISGESH/src/vista/cuentaCorriente/Facturador.java</file>
-            <file>file:/D:/proyecto/SISGESH/src/vista/Principal.java</file>
-            <file>file:/D:/proyecto/SISGESH/src/vista/admisionCentral/FrmNuevaHistoriaC.java</file>
-=======
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_BUSCAR_RESULTADO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_INGRESO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADOS_MUESTRA_INGRESO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_ENTREGA_RESULTADO.java</file>
->>>>>>> c5791d49e4bddfffa2ab6f5bf1db1d3c3c0fcab4
->>>>>>> a897ca84bd5ceba188d321641c99da03e8a8d428
+            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX_EC/RX_EC_BUSCAR_EXAMEN_RESULTADO.java</file>
+            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/SIS/SIS_PREST_COND_EXCLUYENTE.java</file>
+            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX_EC/RX_EC_EXAMEN_CAB.java</file>
+            <file>file:/D:/PROYECTO%2002/SISGESH/src/modelos/RX_EC/RX_EC_EXAMEN_DET.java</file>
+            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX_EC/RX_EC_BUSCAR_EXAMEN_C.java</file>
+            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX_EC/RX_EC_EXAMEN_CAB_RESULTADO.java</file>
         </group>
     </open-files>
 </project-private>

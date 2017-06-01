@@ -1204,7 +1204,7 @@ public void buscar_examenes(){
                 if(lbldia.getText().equalsIgnoreCase("Exámenes del día")){
                 LISTAR_examenes();
                 }
-                Thread.sleep(5000);
+                Thread.sleep(7000);
             } catch (InterruptedException e) {
             }
         }

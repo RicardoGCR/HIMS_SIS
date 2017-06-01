@@ -34,6 +34,7 @@ import static vista.Principal.fechaActual;
  * @author silvana
  */
 public class inicioSesion extends javax.swing.JFrame implements Runnable{
+    
 String hora, minutos, segundos, ampm;
     Calendar calendario;
     Thread h1;
@@ -58,6 +59,7 @@ String hora, minutos, segundos, ampm;
      * Creates new form inicioSesion
      */
     public inicioSesion() {
+        
         initComponents();
         lblFecha.setText(fechaActual());
         txtUsuario.requestFocus();
@@ -67,6 +69,8 @@ String hora, minutos, segundos, ampm;
         panelRecuperar.setVisible(false);
         h1 = new Thread(this);
         h1.start();
+//        barra.setBackground(new Color(155,155,155));
+        barra.setForeground(new Color(0,0,0));
 //       setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
     }
 
@@ -263,7 +267,7 @@ String hora, minutos, segundos, ampm;
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SISGESH .::. Inicio de Sesión");
+        setTitle("HIMS .::. Inicio de Sesión");
         setMinimumSize(new java.awt.Dimension(915, 467));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -544,7 +548,7 @@ String hora, minutos, segundos, ampm;
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
-       txtUsuario.setText(txtUsuario.getText().toUpperCase());
+     txtUsuario.setText(txtUsuario.getText().toUpperCase());
     }//GEN-LAST:event_txtUsuarioKeyReleased
   class TimerListener implements ActionListener{
 

@@ -612,7 +612,7 @@ public void calcula() {
 
             jLabel18.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel18.setText("Sexo");
+            jLabel18.setText("Sexo    ");
 
             txtSexo.setEditable(false);
             txtSexo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
@@ -2224,9 +2224,9 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32
             JOptionPane.showMessageDialog(null, "Error al Exportar el archivo!"+e.getMessage(), "Oops! Error", JOptionPane.ERROR_MESSAGE);
         } catch (JRException ex) {
          Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
-     } catch (IOException ex) {
+     } /*catch (IOException ex) {
         Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    }*/
     }
     
     public void Insumos_cargar(String cod){

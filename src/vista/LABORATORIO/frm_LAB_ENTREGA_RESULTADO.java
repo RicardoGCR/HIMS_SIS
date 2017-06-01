@@ -1081,7 +1081,7 @@ public void calcula() {
                         );
 
                         panelPaciente.setBackground(new java.awt.Color(255, 255, 255));
-                        panelPaciente.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
+                        panelPaciente.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Paciente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
 
                         jLabel23.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1193,7 +1193,7 @@ public void calcula() {
                         );
 
                         panelAnalisis.setBackground(new java.awt.Color(255, 255, 255));
-                        panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
+                        panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Análisis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
 
                         txtNomenclatura.setFont(new java.awt.Font("Segoe UI Semilight", 1, 11)); // NOI18N
                         txtNomenclatura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1399,7 +1399,7 @@ public void calcula() {
                         );
 
                         panelTM.setBackground(new java.awt.Color(255, 255, 255));
-                        panelTM.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
+                        panelTM.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Toma de Muestra", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
 
                         jLabel31.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1648,7 +1648,7 @@ public void calcula() {
                         );
 
                         panelEntrega.setBackground(new java.awt.Color(255, 255, 255));
-                        panelEntrega.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
+                        panelEntrega.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Entrega de Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
 
                         date.setDateFormatString("dd-MM-yyyy");
                         date.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
@@ -1759,7 +1759,7 @@ public void calcula() {
                         );
 
                         panelRecepcion.setBackground(new java.awt.Color(255, 255, 255));
-                        panelRecepcion.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
+                        panelRecepcion.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Recepción", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semilight", 1, 12))); // NOI18N
 
                         buttonGroup1.add(rbPersonal);
                         rbPersonal.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
@@ -1791,6 +1791,11 @@ public void calcula() {
                         txtPacienteRecep.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
                         txtPacienteRecep.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtPacienteRecep.setEnabled(false);
+                        txtPacienteRecep.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                txtPacienteRecepActionPerformed(evt);
+                            }
+                        });
                         txtPacienteRecep.addKeyListener(new java.awt.event.KeyAdapter() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 txtPacienteRecepKeyPressed(evt);
@@ -3563,6 +3568,10 @@ char tecla= evt.getKeyChar();
         buscar_HC1.setVisible(false);
         personal_rol.setVisible(false);
     }//GEN-LAST:event_btnCerrarDialogActionPerformed
+
+    private void txtPacienteRecepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPacienteRecepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPacienteRecepActionPerformed
     public void enableDatos(){
     tb_Resultado.setEnabled(true);
     tb_Resultado.setBackground(Color.white);
@@ -3585,7 +3594,10 @@ char tecla= evt.getKeyChar();
             calcula();
             lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                Thread.sleep(1000);
+//                if(lbldia.getText().equalsIgnoreCase("Resultados del Día")){
+//                LAB_BUSCAR_TM_DIA();
+//                }
+                Thread.sleep(7000);
             } catch (InterruptedException e) {
             }
         }

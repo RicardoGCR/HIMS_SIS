@@ -3585,7 +3585,10 @@ char tecla= evt.getKeyChar();
             calcula();
             lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                Thread.sleep(1000);
+                if(lbldia.getText().equalsIgnoreCase("Resultados del Día")){
+                LAB_BUSCAR_TM_DIA();
+                }
+                Thread.sleep(7000);
             } catch (InterruptedException e) {
             }
         }

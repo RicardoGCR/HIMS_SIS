@@ -796,7 +796,11 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
+<<<<<<< HEAD
                   <EmptySpace min="-2" pref="718" max="-2" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="709" max="-2" attributes="0"/>
+>>>>>>> c5791d49e4bddfffa2ab6f5bf1db1d3c3c0fcab4
                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>

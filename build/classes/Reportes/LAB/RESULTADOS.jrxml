@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RESULTADOS" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ec354669-dec9-4a6b-8d69-6d1e50ee2625">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="54"/>
 	<property name="ireport.y" value="0"/>
 	<property name="ireport.callouts" value="##Mon May 01 11:04:40 COT 2017"/>
 	<style name="table">
@@ -307,7 +307,7 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 				<text><![CDATA[Edad:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="99" y="90" width="100" height="20" uuid="8f027733-a87c-4f8b-954e-f2b054bd051a"/>
+				<reportElement x="99" y="90" width="72" height="20" uuid="8f027733-a87c-4f8b-954e-f2b054bd051a"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight"/>
 				</textElement>
@@ -480,6 +480,20 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 					<font fontName="Segoe UI Semilight"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nom_forma_pago}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="171" y="90" width="64" height="20" uuid="0f27ce6a-2168-466c-99dc-e470863729d7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sexo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="235" y="90" width="56" height="20" uuid="e722140d-c7cc-40be-b3e5-b49cf6986448"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sexo}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>

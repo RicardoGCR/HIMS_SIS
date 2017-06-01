@@ -2471,7 +2471,10 @@ public void buscar_examenes(){
             calcula();
 //            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                Thread.sleep(1000);
+                 if(lbldia.getText().equalsIgnoreCase("Exámenes con Toma de Muestras del Día")){
+                LAB_BUSCAR_TM_DIA();
+                }
+                Thread.sleep(7000);
             } catch (InterruptedException e) {
             }
         }

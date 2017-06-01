@@ -34,6 +34,7 @@ import static vista.Principal.fechaActual;
  * @author silvana
  */
 public class inicioSesion extends javax.swing.JFrame implements Runnable{
+    
 String hora, minutos, segundos, ampm;
     Calendar calendario;
     Thread h1;
@@ -58,6 +59,7 @@ String hora, minutos, segundos, ampm;
      * Creates new form inicioSesion
      */
     public inicioSesion() {
+        
         initComponents();
         lblFecha.setText(fechaActual());
         txtUsuario.requestFocus();
@@ -67,6 +69,8 @@ String hora, minutos, segundos, ampm;
         panelRecuperar.setVisible(false);
         h1 = new Thread(this);
         h1.start();
+//        barra.setBackground(new Color(155,155,155));
+        barra.setForeground(new Color(0,0,0));
 //       setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
     }
 
@@ -544,7 +548,7 @@ String hora, minutos, segundos, ampm;
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
-       txtUsuario.setText(txtUsuario.getText().toUpperCase());
+     txtUsuario.setText(txtUsuario.getText().toUpperCase());
     }//GEN-LAST:event_txtUsuarioKeyReleased
   class TimerListener implements ActionListener{
 

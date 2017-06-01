@@ -3,16 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/proyecto%2001/SISGESH/src/vista/RX_EC/RX_EC_EXAMEN_CAB_RESULTADO.java</file>
-            <file>file:/D:/proyecto%2001/SISGESH/src/modelos/RX_EC/RX_EC_RESULTADO_CAB.java</file>
-            <file>file:/D:/proyecto%2001/SISGESH/src/modelos/RX_EC/RX_EC_RESULTADO_DETALLE_DIAGNOSTICO.java</file>
-            <file>file:/D:/proyecto%2001/SISGESH/src/vista/RX_EC/RX_EC_EXAMEN_CAB.java</file>
-            <file>file:/D:/proyecto%2001/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionNotaEnfermeria.java</file>
-=======
             <file>file:/D:/proyecto/SISGESH/src/vista/cuentaCorriente/Facturador.java</file>
+            <file>file:/D:/proyecto/SISGESH/src/vista/Principal.java</file>
             <file>file:/D:/proyecto/SISGESH/src/vista/admisionCentral/FrmNuevaHistoriaC.java</file>
->>>>>>> 8c88216571c78594cb7ead0a602804379254d1d4
         </group>
     </open-files>
 </project-private>

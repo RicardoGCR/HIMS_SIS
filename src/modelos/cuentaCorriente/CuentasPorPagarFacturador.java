@@ -9,7 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 import vista.cuentaCorriente.Facturador;
 
@@ -39,6 +43,68 @@ public class CuentasPorPagarFacturador implements Serializable {
             System.out.println("Error: Consultorios CABECERA LISTAR  " + e.getMessage());
         }
     } 
+    
+    public void formatoTablaVentas(JTable tabla){
+//        tabla.getColumnModel().getColumn(0).setPreferredWidth(60);//CODIGO
+        TableColumn columna = tabla.getColumnModel().getColumn(0);
+            columna.setMaxWidth(0);
+            columna.setMinWidth(0);
+            columna.setPreferredWidth(0);
+            tabla.doLayout();
+        TableColumn columna1 = tabla.getColumnModel().getColumn(1);
+            columna1.setMaxWidth(0);
+            columna1.setMinWidth(0);
+            columna1.setPreferredWidth(0);
+            tabla.doLayout();
+        TableColumn columna2 = tabla.getColumnModel().getColumn(2);
+            columna2.setMaxWidth(0);
+            columna2.setMinWidth(0);
+            columna2.setPreferredWidth(0);
+            tabla.doLayout();
+        TableColumn columna3 = tabla.getColumnModel().getColumn(3);
+            columna3.setMaxWidth(0);
+            columna3.setMinWidth(0);
+            columna3.setPreferredWidth(0);
+            tabla.doLayout();
+        tabla.setRowHeight(25);
+    }
+    
+    public void cargarVentas(String busqueda,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"","","","",
+            "Cantidad","Código","Descripción","Precio"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[8];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_DOCUMENTO_CABECERA_FACTURADOR_BUSCAR_ACTO_MEDICO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, busqueda);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2); 
+                fila[2]=r.getString(3); 
+                fila[3]=r.getString(4); 
+                fila[4]=r.getString(5); 
+                fila[5]=r.getString(6); 
+                fila[6]=r.getString(7); 
+                fila[7]=r.getString(8); 
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaVentas(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: cargarVentas: " + e.getMessage());
+        }
+    }
 
     public CuentasPorPagarFacturador() {
         Conexion con = new Conexion();

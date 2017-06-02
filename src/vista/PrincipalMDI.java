@@ -56,7 +56,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     Conexion con = new Conexion();
     public PrincipalMDI() {
         initComponents();
-        lblServicio.setText(mostrarServicioHosp());
+//        lblServicio.setText(mostrarServicioHosp());
         jTabbedPane1.setBackgroundAt(0, Color.white);
          this.getContentPane().setBackground(Color.WHITE);
          
@@ -76,23 +76,20 @@ public class PrincipalMDI extends javax.swing.JFrame {
         
     }
     
-    public String mostrarServicioHosp(){
+    public void mostrarServicioHosp(){
         String desc = "";
         String id = "";
         try {
             String consulta = "EXEC HOSPITALIZACION_MOSTRAR_SERVICIO";
             ResultSet r;
             r=con.Listar(consulta);
-        if(r.next()){
-               desc = r.getString(2);
-               lblServicio.setText(desc);
-               id = r.getString(1);
-               lblSe_ID.setText(id);
+        while(r.next()){
+               lblSe_ID.setText(r.getString(1));
+               lblServicio.setText(r.getString(2));
         }
         }catch(Exception ex){
             System.out.println("Error: PrincipalMDI - mostrarServicioHosp: " + ex.getMessage());
         }
-        return desc;
     }
     
 //    public void cerrar(){
@@ -5263,7 +5260,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRayosXActionPerformed
 
     private void btnHospitalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalizacionActionPerformed
-    p1.setVisible(false);
+        p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(false);        // TODO add your handling code here:
          p9.setVisible(true);
@@ -5272,9 +5269,8 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p12.setVisible(false);    
          p13.setVisible(false); 
          p14.setVisible(false);  
-        
+        mostrarServicioHosp();
         jTabbedPane1.setSelectedIndex(5);
-        lblServicio.setText(mostrarServicioHosp());
     }//GEN-LAST:event_btnHospitalizacionActionPerformed
 
     private void btneditar14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditar14ActionPerformed

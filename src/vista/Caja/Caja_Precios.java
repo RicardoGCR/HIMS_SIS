@@ -148,8 +148,8 @@ Ticket ticket=new Ticket();
             ticket.AddPieLinea(ticket.DarEspacio());
             ticket.AddPieLinea("Gracias por su Preferencia");
 //            String miImpresora="HP LaserJet Professional P 1102w";
-            ticket.ImprimirDocumento("HP LaserJet Professional P 1102w",true);
-            System.out.println("IMprimiendo");
+            ticket.ImprimirDocumento(true);
+            System.out.println("Imprimiendo");
         }catch(Exception e){System.out.print("\nerror "+e.toString());}
     }
     ///////////////////////////////////////////////////////////////
@@ -158,10 +158,10 @@ Ticket ticket=new Ticket();
     
     public void LISTAR(){
     try {
-             String titulos[]={"Codigo","Forma de Pago","Descripcion Forma de pago",""};//,"Nomenclatura","Descripcion Nomenclatura","Precio","",""
+             String titulos[]={"Codigo","Forma de Pago","Descripcion Forma de pago","CPT","Descripcion Nomenclatura","Precio","",""};//
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[4];
+            String fila[]=new String[8];
 
             Conexion obj = new Conexion();  
         String consulta="exec caja_Precios_listar";
@@ -173,10 +173,10 @@ Ticket ticket=new Ticket();
                 fila[1]=r.getString(2); // codigo de hc
                 fila[2]=r.getString(3);
                 fila[3]=r.getString(4);
-//                fila[4]=r.getString(5);
-//                fila[5]=r.getString(6);
-//                fila[6]=r.getString(7);
-//                fila[7]=r.getString(8);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
       
                     m.addRow(fila);
                     c++;
@@ -254,7 +254,7 @@ Ticket ticket=new Ticket();
         String consulta="";
         try {
             tb_Grupo1.setModel(new DefaultTableModel());
-             String titulos[]={"Codigo","Forma de Pago","Descripcion Forma de pago","Nomenclatura","Descripcion Nomenclatura","Precio","",""};
+             String titulos[]={"Codigo","Forma de Pago","Descripcion Forma de pago","CPT","Descripcion Nomenclatura","Precio","",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[8];
@@ -290,20 +290,20 @@ Ticket ticket=new Ticket();
         }
       }
     public void formato(){
-//    tb_Grupo1.getColumnModel().getColumn(0).setMinWidth(0);
-//    tb_Grupo1.getColumnModel().getColumn(0).setMaxWidth(0);
+    tb_Grupo1.getColumnModel().getColumn(0).setMinWidth(0);
+    tb_Grupo1.getColumnModel().getColumn(0).setMaxWidth(0);
     tb_Grupo1.getColumnModel().getColumn(1).setPreferredWidth(220);
     tb_Grupo1.getColumnModel().getColumn(2).setPreferredWidth(220);
-//    tb_Grupo1.getColumnModel().getColumn(3).setPreferredWidth(90);
-//    tb_Grupo1.getColumnModel().getColumn(4).setPreferredWidth(600);
-//    tb_Grupo1.getColumnModel().getColumn(5).setPreferredWidth(100);
-//    
-//    tb_Grupo1.getColumnModel().getColumn(6).setMinWidth(0);
-//    tb_Grupo1.getColumnModel().getColumn(6).setMaxWidth(0);
-//    
-//    tb_Grupo1.getColumnModel().getColumn(7).setMinWidth(0);
-//    tb_Grupo1.getColumnModel().getColumn(7).setMaxWidth(0);
-//    tb_Grupo1.setRowHeight(30);
+    tb_Grupo1.getColumnModel().getColumn(3).setPreferredWidth(90);
+    tb_Grupo1.getColumnModel().getColumn(4).setPreferredWidth(600);
+    tb_Grupo1.getColumnModel().getColumn(5).setPreferredWidth(100);
+    
+    tb_Grupo1.getColumnModel().getColumn(6).setMinWidth(0);
+    tb_Grupo1.getColumnModel().getColumn(6).setMaxWidth(0);
+    
+    tb_Grupo1.getColumnModel().getColumn(7).setMinWidth(0);
+    tb_Grupo1.getColumnModel().getColumn(7).setMaxWidth(0);
+    tb_Grupo1.setRowHeight(45);
     }
     
     public void BuscarFP(){
@@ -537,7 +537,6 @@ Ticket ticket=new Ticket();
                 btneditar = new javax.swing.JButton();
                 btnguardar = new javax.swing.JButton();
                 btneliminar = new javax.swing.JButton();
-                btnbuscar1 = new javax.swing.JButton();
                 lblusu = new javax.swing.JLabel();
                 jLabel57 = new javax.swing.JLabel();
                 jPanel23 = new javax.swing.JPanel();
@@ -893,20 +892,6 @@ Ticket ticket=new Ticket();
                         }
                     });
 
-                    btnbuscar1.setForeground(new java.awt.Color(240, 240, 240));
-                    btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icon/Buscar-32.png"))); // NOI18N
-                    btnbuscar1.setMnemonic('N');
-                    btnbuscar1.setContentAreaFilled(false);
-                    btnbuscar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                    btnbuscar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                    btnbuscar1.setIconTextGap(30);
-                    btnbuscar1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-                    btnbuscar1.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            btnbuscar1ActionPerformed(evt);
-                        }
-                    });
-
                     lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
                     lblusu.setForeground(new java.awt.Color(255, 255, 255));
                     lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
@@ -966,7 +951,6 @@ Ticket ticket=new Ticket();
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(24, 24, 24)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnbuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lbldetalle)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1000,9 +984,7 @@ Ticket ticket=new Ticket();
                             .addComponent(btneditar)
                             .addGap(18, 18, 18)
                             .addComponent(btneliminar)
-                            .addGap(86, 86, 86)
-                            .addComponent(btnbuscar1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGap(133, 133, 133)
                             .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(57, 57, 57))
                     );
@@ -1399,33 +1381,32 @@ Ticket ticket=new Ticket();
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void tb_Grupo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo1MouseClicked
-//        //CUENTA2
-//        Caja_Precio cno1 = new Caja_Precio();
-//        int fila=tb_Grupo1.getSelectedRow();
-//        if(evt.getClickCount()==1){
-//       
-//            txtcodigo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 0)));
-//            forma.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 1)));
-//            Nomen.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 3)));
-//            precio.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
-//            
-//            nom.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 6)));
-//            fp.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 7)));
-//            
-//        }
-//        tg=2;
-//        forma.setEnabled(false);
-//        precio.setEnabled(false);
-//        btneditar.setEnabled(true);
-//        btneliminar.setEnabled(true);
-//        btnbuscar.setEnabled(true);
-//        b.setEnabled(false);
-//        b1.setEnabled(false);
-//        Nomen.setEnabled(true);
-//        forma.setEnabled(true);
-//        txtcodigo.setEnabled(true);
-//        precio.setEnabled(true);
-//        precio.setEditable(false);
+        //CUENTA2
+        Caja_Precio cno1 = new Caja_Precio();
+        int fila=tb_Grupo1.getSelectedRow();
+        if(evt.getClickCount()==2){
+       
+            txtcodigo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 0)));
+            forma.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 1)));
+            Nomen.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 3)));
+            txtPrecio.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
+            
+            nom.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 6)));
+            fp.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 7)));
+            
+        }
+        tg=2;
+        forma.setEnabled(false);
+        txtPrecio.setEditable(false);
+        btneditar.setEnabled(true);
+        btneliminar.setEnabled(true);
+        b.setEnabled(false);
+        b1.setEnabled(false);
+        Nomen.setEnabled(true);
+        forma.setEnabled(true);
+        txtcodigo.setEnabled(true);
+        txtPrecio.setEditable(true);
+        txtPrecio.setEditable(false);
        
        
     }//GEN-LAST:event_tb_Grupo1MouseClicked
@@ -1641,10 +1622,6 @@ Ticket ticket=new Ticket();
          txtBuscar1.setText(txtBuscar1.getText().toUpperCase());
     }//GEN-LAST:event_txtBuscar1KeyReleased
 
-    private void btnbuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar1ActionPerformed
-       imprimir();
-    }//GEN-LAST:event_btnbuscar1ActionPerformed
-
     private void buscartodoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodoCaretUpdate
         btnNuevo.setEnabled(true);
         btnguardar.setEnabled(true);
@@ -1720,7 +1697,6 @@ Ticket ticket=new Ticket();
     private javax.swing.JButton b1;
     private javax.swing.JButton btnBuscarPaciente;
     private javax.swing.JButton btnNuevo;
-    private javax.swing.JButton btnbuscar1;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;

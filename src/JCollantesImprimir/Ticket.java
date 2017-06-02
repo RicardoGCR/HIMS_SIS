@@ -39,10 +39,10 @@ public class Ticket{
                 System.out.print(e);
             }
        }
-       public static void ImprimirDocumento(String impresora,boolean abrir){
+       public static void ImprimirDocumento(boolean abrir){//String impresora,
             try{
-                //FileWriter imp = new FileWriter("LPT1");
-                FileWriter imp = new FileWriter(impresora);
+                FileWriter imp = new FileWriter("EPSON TM-T88V Receipt");
+//                FileWriter imp = new FileWriter(impresora);
                 char[] Caracter = new char[] { 0x1B, 'R',18};
                 imp.write(Caracter);
                 for(int cabecera=0;cabecera<CabezaLineas.size();cabecera++){
@@ -131,3 +131,32 @@ public class Ticket{
       }
       public static void main(String[] args){}
 }
+
+
+// 
+////    System.out.println("Imprimiendo en : " + services[0].getName());
+// 
+//    DocPrintJob printJob = services[0].createPrintJob();
+//    //Envio a la impresora
+//            try {
+//                printJob.print(document,null);
+//            } catch (Exception e) {
+//            }
+// 
+//    inputStream.close();
+//            
+//            
+  
+            
+//            JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+//                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, informe );
+//                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, services[0].createPrintJob());
+//                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+//                    jrprintServiceExporter.exportReport();
+//            JasperPrintManager.printReport(informe, true);
+//            } catch (Exception e) {
+//                JOptionPane.showMessageDialog(this, "Error: _btnVisualizarDetalle" + e.toString());
+//            }
+//        
+
+    

@@ -70,7 +70,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         lblIDArea.setVisible(false);
         lblNomAD.setVisible(false);
         lblUsuD.setVisible(false);
-        lblRegistro.setVisible(false);
+        
         
 //////obtener el nombre de la pc
 //        InetAddress localHost = InetAddress.getLocalHost();
@@ -142,7 +142,6 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_Examenes = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        lblRegistro = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -622,10 +621,6 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("EXAMENES DEL DIA");
 
-        lblRegistro.setFont(new java.awt.Font("Segoe UI Light", 1, 13)); // NOI18N
-        lblRegistro.setForeground(new java.awt.Color(255, 51, 51));
-        lblRegistro.setText("No se encontraron registros");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -637,19 +632,16 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                     .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblRegistro)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(lblRegistro))
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel3)
+                .addGap(0, 1, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -674,29 +666,30 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
          int anioFN = fecha_fin.getCalendar().get(Calendar.YEAR);
          
 
-            if(fecha_inicio.getDate()==null || fecha_fin.getDate()==null){
-              JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de fechas");
-            }else{
-                 if(diaIN > diaAC || mesIN > mesAC || anioIN > anioAC){
-                        JOptionPane.showMessageDialog(rootPane, "Seleccione una fecha de inicio \n menor a la actual: " + diaAC + "-" +
-                        mesAC + "-" + anioAC);
-                        fecha_inicio.setDate(null);
-                 }else{
-                       if(diaFN > diaAC || mesFN > mesAC || anioFN > anioAC){
-                                JOptionPane.showMessageDialog(rootPane, "Seleccione una fecha de termino \n menor a la actual: " + diaAC + "-" +
-                                mesAC + "-" + anioAC);
-                                fecha_fin.setDate(null);
-                       }else{
+//            if(fecha_inicio.getDate()==null || fecha_fin.getDate()==null){
+//              JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de fechas");
+//            }else{
+//                 if(diaIN > diaAC || mesIN > mesAC || anioIN > anioAC){
+//                        JOptionPane.showMessageDialog(rootPane, "Seleccione una fecha de inicio \n menor a la actual: " + diaAC + "-" +
+//                        mesAC + "-" + anioAC);
+//                        fecha_inicio.setDate(null);
+//                 }else{
+//                       if(diaFN > diaAC || mesFN > mesAC || anioFN > anioAC){
+//                                JOptionPane.showMessageDialog(rootPane, "Seleccione una fecha de termino \n menor a la actual: " + diaAC + "-" +
+//                                mesAC + "-" + anioAC);
+//                                fecha_fin.setDate(null);
+//                       }else{
                                 buscar_examen();
-                       }  
-                }
-             
-            }
+//                       }  
+//                }
+//             
+//            }
             
             if(tb_Examenes.getRowCount()==0){
-                lblRegistro.setVisible(true);
+//                lblRegistro.setVisible(true);
+                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
             }else{
-                lblRegistro.setVisible(false);
+//                lblRegistro.setVisible(false);
             }
          
           }catch(Exception e) {
@@ -1023,6 +1016,14 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             this.tb_Examenes.setModel(m);
             
             formatoExamen();
+            
+            if(tb_Examenes.getRowCount()==0){
+//                lblRegistro.setVisible(true);
+                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
+            }else{
+//                lblRegistro.setVisible(false);
+            }
+            
         } catch (Exception e) {
             System.out.println("Error buscar examen: " + e.getMessage());
         }
@@ -1058,6 +1059,13 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             tb_Examenes.setModel(m2);
                        
             formatoExamen();
+            
+            if(tb_Examenes.getRowCount()==0){
+//                lblRegistro.setVisible(true);
+                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
+            }else{
+//                lblRegistro.setVisible(false);
+            }
             
         } catch (Exception e) {
             System.out.println("Error mostrar paciente: " + e.getMessage());
@@ -1354,7 +1362,6 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
     private javax.swing.JLabel lblNomArea;
     private javax.swing.JLabel lblNumeArea;
     private javax.swing.JLabel lblNumero;
-    private javax.swing.JLabel lblRegistro;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JLabel lblUsuD;
     private javax.swing.JTable tb_Detalle;
@@ -1381,7 +1388,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             
             lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                Thread.sleep(4000);
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
             }
         }

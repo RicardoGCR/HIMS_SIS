@@ -7,6 +7,8 @@ package modelos.cuentaCorriente;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,11 +16,9 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.swing.table.DefaultTableModel;
+import servicios.Conexion;
 
-/**
- *
- * @author PC02
- */
 @Entity
 @Table(name = "CUENTAS_POR_PAGAR_FACTURAS_DETALLE")
 @NamedQueries({
@@ -28,7 +28,7 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "CPD_ID")
-    private Long cpdId;
+    private int cpdId;
     @Column(name = "CPD_GRAV")
     private String cpdGrav;
     @Column(name = "CPD_COD_UNIDAD")
@@ -86,19 +86,53 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
     private Character estado;
     @Column(name = "COD_USU")
     private String codUsu;
+    DefaultTableModel m;
+    Conexion con = new Conexion();
+    private Connection cn;
 
+//    public boolean mantenimientoCuentasPorPagarFacturasCabecera(String tipo)
+//        {
+//        boolean resp = false;
+//        try{
+//            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_CABECERA ?,?,?,?,?,?,?,?,?,?";
+//            PreparedStatement cmd = getCn().prepareStatement(sql);
+//            cmd.setInt(1, getId());
+//            cmd.setString(2, getSerie());
+//            cmd.setString(3, getCorrelativo());
+//            cmd.setString(4, getTipoOperacion());
+//            cmd.setString(5, getFechaEmision());
+//            cmd.setString(6, getTipoMoneda());
+//            cmd.setString(7, getDocumento());
+//            cmd.setString(8, getActoMedico());
+//            cmd.setString(9, getCod_usu());
+//            cmd.setString(10, tipo);
+//            if(!cmd.execute())
+//            {
+//                resp = true;
+//            }
+//            cmd.close();
+//        }
+//        catch(Exception ex)
+//        {
+//            System.out.println("Error: mantenimientoCuentasPorPagarFacturasCabecera: " + ex.getMessage());
+//        }
+//        return resp;
+//    }
+    
     public CuentasPorPagarFacturasDetalle() {
+        Conexion con = new Conexion();
+        cn = con.conectar();
     }
 
-    public CuentasPorPagarFacturasDetalle(Long cpdId) {
+    public CuentasPorPagarFacturasDetalle(int cpdId) {
         this.cpdId = cpdId;
     }
 
-    public Long getCpdId() {
+    public int getCpdId() {
         return cpdId;
     }
 
-    public void setCpdId(Long cpdId) {
+    public void setCpdId(int cpdId) {
         this.cpdId = cpdId;
     }
 
@@ -327,28 +361,22 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (cpdId != null ? cpdId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CuentasPorPagarFacturasDetalle)) {
-            return false;
-        }
-        CuentasPorPagarFacturasDetalle other = (CuentasPorPagarFacturasDetalle) object;
-        if ((this.cpdId == null && other.cpdId != null) || (this.cpdId != null && !this.cpdId.equals(other.cpdId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
     public String toString() {
         return "modelos.cuentaCorriente.CuentasPorPagarFacturasDetalle[ cpdId=" + cpdId + " ]";
+    }
+
+    /**
+     * @return the cn
+     */
+    public Connection getCn() {
+        return cn;
+    }
+
+    /**
+     * @param cn the cn to set
+     */
+    public void setCn(Connection cn) {
+        this.cn = cn;
     }
     
 }

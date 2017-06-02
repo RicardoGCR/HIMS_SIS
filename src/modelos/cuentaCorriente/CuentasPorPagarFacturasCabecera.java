@@ -63,7 +63,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
         }
         catch(Exception ex)
         {
-            System.out.println("Error: mantenimientoConsultorioExtEsnitss: " + ex.getMessage());
+            System.out.println("Error: mantenimientoCuentasPorPagarFacturasCabecera: " + ex.getMessage());
         }
         return resp;
     }

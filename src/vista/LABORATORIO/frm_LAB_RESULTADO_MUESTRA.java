@@ -603,7 +603,7 @@ public void calcula() {
 
             jLabel17.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel17.setText("Fecha de Nac.");
+            jLabel17.setText("Fecha de Nac.     ");
 
             txtFecha.setEditable(false);
             txtFecha.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
@@ -612,7 +612,7 @@ public void calcula() {
 
             jLabel18.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel18.setText("Sexo    ");
+            jLabel18.setText("Sexo         ");
 
             txtSexo.setEditable(false);
             txtSexo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
@@ -1337,7 +1337,7 @@ public void calcula() {
                                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel28)
                                 .addComponent(jLabel32))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtHoraTM, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
                                 .addComponent(txtFechaTM, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1487,7 +1487,7 @@ public void calcula() {
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelOcultar, javax.swing.GroupLayout.PREFERRED_SIZE, 1265, Short.MAX_VALUE)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
+                    .addGap(19, 19, 19)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

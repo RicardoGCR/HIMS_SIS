@@ -23,9 +23,50 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    private String serie;
+    private String correlativo;
+    private String tipoOperacion;
+    private String fechaEmision;
+    private String tipoMoneda;
+    private String documento;
+    private String actoMedico;
+    private String fecha_actu;
+    private String hora_actu;
+    private String nom_pc;
+    private String estado;
+    private String cod_usu;
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
+    
+    public boolean mantenimientoCuentasPorPagarFacturasCabecera(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_CABECERA ?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId());
+            cmd.setString(2, getSerie());
+            cmd.setString(3, getCorrelativo());
+            cmd.setString(4, getTipoOperacion());
+            cmd.setString(5, getFechaEmision());
+            cmd.setString(6, getTipoMoneda());
+            cmd.setString(7, getDocumento());
+            cmd.setString(8, getActoMedico());
+            cmd.setString(9, getCod_usu());
+            cmd.setString(10, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoConsultorioExtEsnitss: " + ex.getMessage());
+        }
+        return resp;
+    }
     
     public void historiaClinicaMotivo(String busqueda){
         String consulta="";
@@ -136,6 +177,178 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
      */
     public void setCn(Connection cn) {
         this.cn = cn;
+    }
+
+    /**
+     * @return the serieCorrelativo
+     */
+   
+    /**
+     * @return the tipoOperacion
+     */
+    public String getTipoOperacion() {
+        return tipoOperacion;
+    }
+
+    /**
+     * @param tipoOperacion the tipoOperacion to set
+     */
+    public void setTipoOperacion(String tipoOperacion) {
+        this.tipoOperacion = tipoOperacion;
+    }
+
+    /**
+     * @return the fechaEmision
+     */
+    public String getFechaEmision() {
+        return fechaEmision;
+    }
+
+    /**
+     * @param fechaEmision the fechaEmision to set
+     */
+    public void setFechaEmision(String fechaEmision) {
+        this.fechaEmision = fechaEmision;
+    }
+
+    /**
+     * @return the tipoMoneda
+     */
+    public String getTipoMoneda() {
+        return tipoMoneda;
+    }
+
+    /**
+     * @param tipoMoneda the tipoMoneda to set
+     */
+    public void setTipoMoneda(String tipoMoneda) {
+        this.tipoMoneda = tipoMoneda;
+    }
+
+    /**
+     * @return the documento
+     */
+    public String getDocumento() {
+        return documento;
+    }
+
+    /**
+     * @param documento the documento to set
+     */
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
+
+    /**
+     * @return the actoMedico
+     */
+    public String getActoMedico() {
+        return actoMedico;
+    }
+
+    /**
+     * @param actoMedico the actoMedico to set
+     */
+    public void setActoMedico(String actoMedico) {
+        this.actoMedico = actoMedico;
+    }
+
+    /**
+     * @return the fecha_actu
+     */
+    public String getFecha_actu() {
+        return fecha_actu;
+    }
+
+    /**
+     * @param fecha_actu the fecha_actu to set
+     */
+    public void setFecha_actu(String fecha_actu) {
+        this.fecha_actu = fecha_actu;
+    }
+
+    /**
+     * @return the hora_actu
+     */
+    public String getHora_actu() {
+        return hora_actu;
+    }
+
+    /**
+     * @param hora_actu the hora_actu to set
+     */
+    public void setHora_actu(String hora_actu) {
+        this.hora_actu = hora_actu;
+    }
+
+    /**
+     * @return the nom_pc
+     */
+    public String getNom_pc() {
+        return nom_pc;
+    }
+
+    /**
+     * @param nom_pc the nom_pc to set
+     */
+    public void setNom_pc(String nom_pc) {
+        this.nom_pc = nom_pc;
+    }
+
+    /**
+     * @return the estado
+     */
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * @return the cod_usu
+     */
+    public String getCod_usu() {
+        return cod_usu;
+    }
+
+    /**
+     * @param cod_usu the cod_usu to set
+     */
+    public void setCod_usu(String cod_usu) {
+        this.cod_usu = cod_usu;
+    }
+
+    /**
+     * @return the serie
+     */
+    public String getSerie() {
+        return serie;
+    }
+
+    /**
+     * @param serie the serie to set
+     */
+    public void setSerie(String serie) {
+        this.serie = serie;
+    }
+
+    /**
+     * @return the correlativo
+     */
+    public String getCorrelativo() {
+        return correlativo;
+    }
+
+    /**
+     * @param correlativo the correlativo to set
+     */
+    public void setCorrelativo(String correlativo) {
+        this.correlativo = correlativo;
     }
     
 }

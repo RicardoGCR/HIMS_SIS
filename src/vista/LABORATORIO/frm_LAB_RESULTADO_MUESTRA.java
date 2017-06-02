@@ -612,7 +612,7 @@ public void calcula() {
 
             jLabel18.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel18.setText("Sexo");
+            jLabel18.setText("Sexo    ");
 
             txtSexo.setEditable(false);
             txtSexo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N

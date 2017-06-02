@@ -1206,7 +1206,7 @@ public void calcula() {
 
                         lbldia.setFont(new java.awt.Font("Segoe UI Semilight", 1, 13)); // NOI18N
                         lbldia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        lbldia.setText("Exámenes con Toma de Muestras del Día");
+                        lbldia.setText("Resultados del Día");
 
                         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
                         jPanel1.setPreferredSize(new java.awt.Dimension(721, 25));
@@ -2471,10 +2471,10 @@ public void buscar_examenes(){
             calcula();
 //            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                 if(lbldia.getText().equalsIgnoreCase("Exámenes con Toma de Muestras del Día")){
+                 if(lbldia.getText().equalsIgnoreCase("Resultados del Día")){
                 LAB_BUSCAR_TM_DIA();
                 }
-                Thread.sleep(7000);
+                Thread.sleep(9000);
             } catch (InterruptedException e) {
             }
         }

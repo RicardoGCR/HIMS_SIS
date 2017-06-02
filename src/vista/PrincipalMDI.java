@@ -56,7 +56,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     Conexion con = new Conexion();
     public PrincipalMDI() {
         initComponents();
-        lblServicio.setText(mostrarServicioHosp());
+//        lblServicio.setText(mostrarServicioHosp());
         jTabbedPane1.setBackgroundAt(0, Color.white);
          this.getContentPane().setBackground(Color.WHITE);
          
@@ -76,23 +76,20 @@ public class PrincipalMDI extends javax.swing.JFrame {
         
     }
     
-    public String mostrarServicioHosp(){
+    public void mostrarServicioHosp(){
         String desc = "";
         String id = "";
         try {
             String consulta = "EXEC HOSPITALIZACION_MOSTRAR_SERVICIO";
             ResultSet r;
             r=con.Listar(consulta);
-        if(r.next()){
-               desc = r.getString(2);
-               lblServicio.setText(desc);
-               id = r.getString(1);
-               lblSe_ID.setText(id);
+        while(r.next()){
+               lblSe_ID.setText(r.getString(1));
+               lblServicio.setText(r.getString(2));
         }
         }catch(Exception ex){
             System.out.println("Error: PrincipalMDI - mostrarServicioHosp: " + ex.getMessage());
         }
-        return desc;
     }
     
 //    public void cerrar(){
@@ -1019,7 +1016,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
 
         lblusu1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         lblusu1.setForeground(new java.awt.Color(102, 102, 102));
-        lblusu1.setText("Bienvenido a SISGESH");
+        lblusu1.setText("Bienvenido a HIMS");
 
         btnguardar2.setForeground(new java.awt.Color(240, 240, 240));
         btnguardar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Monitor cardíaco Filled-100 (1).png"))); // NOI18N
@@ -5263,7 +5260,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRayosXActionPerformed
 
     private void btnHospitalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalizacionActionPerformed
-    p1.setVisible(false);
+        p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(false);        // TODO add your handling code here:
          p9.setVisible(true);
@@ -5272,7 +5269,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p12.setVisible(false);    
          p13.setVisible(false); 
          p14.setVisible(false);  
-        lblServicio.setText(mostrarServicioHosp());
+        mostrarServicioHosp();
         jTabbedPane1.setSelectedIndex(5);
     }//GEN-LAST:event_btnHospitalizacionActionPerformed
 

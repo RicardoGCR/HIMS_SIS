@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Formatter;
 import javax.swing.JOptionPane;
-import modelos.cuentaCorriente.CuentasPorPagarFacturador;
+import modelos.cuentaCorriente.CuentasPorPagarFacturasCabecera;
 import static vista.Principal.fechaActual;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
 
@@ -2996,7 +2996,7 @@ public class Facturador extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoActionPerformed
 
     private void txtActoMedicoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtActoMedicoCaretUpdate
-        CuentasPorPagarFacturador cuentas = new CuentasPorPagarFacturador();
+        CuentasPorPagarFacturasCabecera cuentas = new CuentasPorPagarFacturasCabecera();
         cuentas.cargarVentas(txtActoMedico.getText(), tbVentas);
         if(tbVentas.getRowCount()!=0){
             Ventas.setVisible(true);

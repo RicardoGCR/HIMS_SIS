@@ -674,24 +674,24 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
          int anioFN = fecha_fin.getCalendar().get(Calendar.YEAR);
          
 
-            if(fecha_inicio.getDate()==null || fecha_fin.getDate()==null){
-              JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de fechas");
-            }else{
-                 if(diaIN > diaAC || mesIN > mesAC || anioIN > anioAC){
-                        JOptionPane.showMessageDialog(rootPane, "Seleccione una fecha de inicio \n menor a la actual: " + diaAC + "-" +
-                        mesAC + "-" + anioAC);
-                        fecha_inicio.setDate(null);
-                 }else{
-                       if(diaFN > diaAC || mesFN > mesAC || anioFN > anioAC){
-                                JOptionPane.showMessageDialog(rootPane, "Seleccione una fecha de termino \n menor a la actual: " + diaAC + "-" +
-                                mesAC + "-" + anioAC);
-                                fecha_fin.setDate(null);
-                       }else{
+//            if(fecha_inicio.getDate()==null || fecha_fin.getDate()==null){
+//              JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de fechas");
+//            }else{
+//                 if(diaIN > diaAC || mesIN > mesAC || anioIN > anioAC){
+//                        JOptionPane.showMessageDialog(rootPane, "Seleccione una fecha de inicio \n menor a la actual: " + diaAC + "-" +
+//                        mesAC + "-" + anioAC);
+//                        fecha_inicio.setDate(null);
+//                 }else{
+//                       if(diaFN > diaAC || mesFN > mesAC || anioFN > anioAC){
+//                                JOptionPane.showMessageDialog(rootPane, "Seleccione una fecha de termino \n menor a la actual: " + diaAC + "-" +
+//                                mesAC + "-" + anioAC);
+//                                fecha_fin.setDate(null);
+//                       }else{
                                 buscar_examen();
-                       }  
-                }
-             
-            }
+//                       }  
+//                }
+//             
+//            }
             
             if(tb_Examenes.getRowCount()==0){
                 lblRegistro.setVisible(true);
@@ -1381,7 +1381,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             
             lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                Thread.sleep(4000);
+                Thread.sleep(7000);
             } catch (InterruptedException e) {
             }
         }

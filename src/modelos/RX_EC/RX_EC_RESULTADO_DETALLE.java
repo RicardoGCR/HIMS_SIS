@@ -7,7 +7,9 @@ package modelos.RX_EC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import servicios.Conexion;
+import vista.RX_EC.RX_EC_EXAMEN_CAB_RESULTADO;
 
 /**
  *
@@ -15,6 +17,7 @@ import servicios.Conexion;
  */
 public class RX_EC_RESULTADO_DETALLE {
     private Connection cn;
+    private int ID_COD_DOC_DET;
     private int COD_CAB_RESULTADO;
     private int COD_EXAMEN_DETALLE;
     private String DESCRIPCION_RESULTADO;
@@ -55,6 +58,68 @@ public class RX_EC_RESULTADO_DETALLE {
     }
     
 
+//    public String RX_EC_ID_DX()
+//    {
+//        String cod="";
+//        try
+//        {
+//            String sql = "RX_EC_ID";
+//            PreparedStatement cmd = getCn().prepareStatement(sql);
+//            ResultSet rs = cmd.executeQuery();
+//            if(rs.next())
+//            {
+//               RX_EC_EXAMEN_CAB_RESULTADO.lblId_DX.setText(rs.getString(1));
+//            }
+//        }
+//        catch(Exception ex)
+//        {
+//            System.out.println("RESULTADO_DETALLE_ID: " + ex.getMessage());
+//        }
+//        return cod;
+//    }
+    
+    public String RX_EC_ID()
+    {
+        Conexion cn=new Conexion();
+        String cod="";
+        try{
+        String consulta="exec RX_EC_ID";
+        ResultSet r;
+        r=cn.Listar(consulta);
+        if(r.next())
+            {
+               cod = r.getString(1);
+            }
+        }catch(Exception ex)
+        {
+            System.out.println("Error CODIGO: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public boolean RX_EC_ESTADO_RESULTADO_CAJA_MODIFICAR()
+    {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec RX_EC_RESULTADO_ESTADO_CAJA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getID_COD_DOC_DET());
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public Connection getCn() {
         return cn;
     }
@@ -102,5 +167,15 @@ public class RX_EC_RESULTADO_DETALLE {
     public void setNOM_USU(String NOM_USU) {
         this.NOM_USU = NOM_USU;
     }
+
+    public int getID_COD_DOC_DET() {
+        return ID_COD_DOC_DET;
+    }
+
+    public void setID_COD_DOC_DET(int ID_COD_DOC_DET) {
+        this.ID_COD_DOC_DET = ID_COD_DOC_DET;
+    }
+    
+    
   
 }

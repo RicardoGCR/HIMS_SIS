@@ -51,44 +51,44 @@ public class RX_EC_RESULTADO_DETALLE_DIAGNOSTICO {
         return resp;
     }
     
-//    public String RX_EC_ID_DX()
-//    {
-//        String cod="";
-//        try
-//        {
-//            String sql = "RX_EC_ID";
-//            PreparedStatement cmd = getCn().prepareStatement(sql);
-//            ResultSet rs = cmd.executeQuery();
-//            if(rs.next())
-//            {
-//               RX_EC_EXAMEN_CAB_RESULTADO.lblId_DX.setText(rs.getString(1));
-//            }
-//        }
-//        catch(Exception ex)
-//        {
-//            System.out.println("RESULTADO_DETALLE_ID: " + ex.getMessage());
-//        }
-//        return cod;
-//    }
-    
-    public String RX_EC_ID()
+    public String RX_EC_ID_DX()
     {
-        Conexion cn=new Conexion();
         String cod="";
-        try{
-        String consulta="exec RX_EC_ID";
-        ResultSet r;
-        r=cn.Listar(consulta);
-        if(r.next())
-            {
-               cod = r.getString(1);
-            }
-        }catch(Exception ex)
+        try
         {
-            System.out.println("Error: " + ex.getMessage());
+            String sql = "RX_EC_ID";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               RX_EC_EXAMEN_CAB_RESULTADO.lblId_DX.setText(rs.getString(1));
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("RESULTADO_DETALLE_ID: " + ex.getMessage());
         }
         return cod;
     }
+    
+//    public String RX_EC_ID()
+//    {
+//        Conexion cn=new Conexion();
+//        String cod="";
+//        try{
+//        String consulta="exec RX_EC_ID";
+//        ResultSet r;
+//        r=cn.Listar(consulta);
+//        if(r.next())
+//            {
+//               cod = r.getString(1);
+//            }
+//        }catch(Exception ex)
+//        {
+//            System.out.println("Error CODIGO: " + ex.getMessage());
+//        }
+//        return cod;
+//    }
 
     public Connection getCn() {
         return cn;

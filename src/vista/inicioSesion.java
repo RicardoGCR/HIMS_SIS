@@ -267,7 +267,7 @@ String hora, minutos, segundos, ampm;
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SISGESH .::. Inicio de Sesión");
+        setTitle("HIMS .::. Inicio de Sesión");
         setMinimumSize(new java.awt.Dimension(915, 467));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {

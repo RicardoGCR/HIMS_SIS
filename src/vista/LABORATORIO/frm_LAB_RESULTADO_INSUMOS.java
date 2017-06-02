@@ -790,6 +790,7 @@ public void calcula() {
                 });
 
                 lblCodKardex.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                lblCodKardex.setForeground(new java.awt.Color(255, 255, 255));
 
                 jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
                 jLabel22.setText("Cantidad a Usar");

@@ -20,7 +20,7 @@ public class RX_EC_EXAMEN_DET {
     private int ID_COD_DOC_DET;
     private String COD_PER_SOL;
     private String NOM_PER_SOL;
-    private int ID_EXAMEN_INCIDENCIA;
+    private String INCIDENCIA;
     private String FECHA_ORDEN;
     private String HORA_ORDEN;
     private String ID_PREVENTA;
@@ -46,7 +46,7 @@ public class RX_EC_EXAMEN_DET {
             cmd.setInt(2, getID_COD_DOC_DET());
             cmd.setString(3, getCOD_PER_SOL());
             cmd.setString(4, getNOM_PER_SOL());
-            cmd.setInt(5, getID_EXAMEN_INCIDENCIA());
+            cmd.setString(5, getINCIDENCIA());
             cmd.setString(6, getID_PREVENTA());          
             cmd.setString(7, getHAB_NOM());
             cmd.setString(8, getCA_DESC());
@@ -267,12 +267,12 @@ public class RX_EC_EXAMEN_DET {
         this.NOM_PER_SOL = NOM_PER_SOL;
     }
 
-    public int getID_EXAMEN_INCIDENCIA() {
-        return ID_EXAMEN_INCIDENCIA;
+    public String getINCIDENCIA() {
+        return INCIDENCIA;
     }
 
-    public void setID_EXAMEN_INCIDENCIA(int ID_EXAMEN_INCIDENCIA) {
-        this.ID_EXAMEN_INCIDENCIA = ID_EXAMEN_INCIDENCIA;
+    public void setINCIDENCIA(String INCIDENCIA) {
+        this.INCIDENCIA = INCIDENCIA;
     }
 
     public String getFECHA_ORDEN() {

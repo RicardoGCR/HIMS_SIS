@@ -149,6 +149,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         txtaAnotacionesEnf.setDocument(limitAnotacionesEnf);
         lblNewMod.setVisible(false);
         lblCabpT.setVisible(false);
+        lblIDHCTr.setVisible(false);
     }
     
     public void habilitarPestanas(int tipo,boolean opcion){
@@ -4832,17 +4833,20 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnFiltrarTri1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarTri1ActionPerformed
-        // TODO add your handling code here:
+        buscarNHC();
     }//GEN-LAST:event_btnFiltrarTri1ActionPerformed
 
     private void txtBusquedaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBusquedaCaretUpdate
-        buscarNHC();
+        
     }//GEN-LAST:event_txtBusquedaCaretUpdate
 
     private void txtBusquedaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyPressed
         if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
             tbPaciente.getSelectionModel().setSelectionInterval(0, 0);
             tbPaciente.requestFocus();
+        }
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_ENTER){
+            buscarNHC();
         }
     }//GEN-LAST:event_txtBusquedaKeyPressed
 

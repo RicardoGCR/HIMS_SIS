@@ -242,7 +242,7 @@ DefaultTableModel m,n,muestra;
     tb_Nomenclatura.getColumnModel().getColumn(0).setPreferredWidth(35);
     tb_Nomenclatura.getColumnModel().getColumn(1).setPreferredWidth(85);
     tb_Nomenclatura.getColumnModel().getColumn(2).setPreferredWidth(83);
-    tb_Nomenclatura.getColumnModel().getColumn(3).setPreferredWidth(287);
+    tb_Nomenclatura.getColumnModel().getColumn(3).setPreferredWidth(305);
     tb_Nomenclatura.getColumnModel().getColumn(4).setPreferredWidth(100);
     tb_Nomenclatura.getColumnModel().getColumn(5).setPreferredWidth(100);
     

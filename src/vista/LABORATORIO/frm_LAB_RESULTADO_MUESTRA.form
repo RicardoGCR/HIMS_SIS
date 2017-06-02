@@ -242,7 +242,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="panelOcultar" alignment="0" pref="1265" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -751,7 +751,7 @@
               <Font name="Segoe UI Semilight" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Fecha de Nac."/>
+            <Property name="text" type="java.lang.String" value="Fecha de Nac.     "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtFecha">
@@ -779,7 +779,7 @@
               <Font name="Segoe UI Semilight" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Sexo"/>
+            <Property name="text" type="java.lang.String" value="Sexo         "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtSexo">
@@ -1635,7 +1635,7 @@
                               <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="8" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtHoraTM" pref="23" max="32767" attributes="0"/>
                               <Component id="txtFechaTM" alignment="1" max="32767" attributes="0"/>

@@ -5098,6 +5098,8 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRayosXActionPerformed
 
     private void btnHospitalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalizacionActionPerformed
+        
+        mostrarServicioHosp();
         p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(false);        // TODO add your handling code here:
@@ -5107,7 +5109,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p12.setVisible(false);    
          p13.setVisible(false); 
          p14.setVisible(false);  
-        mostrarServicioHosp();
         jTabbedPane1.setSelectedIndex(5);
     }//GEN-LAST:event_btnHospitalizacionActionPerformed
 

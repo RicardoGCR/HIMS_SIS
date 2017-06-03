@@ -2119,6 +2119,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Component id="titulo5" min="-2" pref="275" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="lblIDHCTo" min="-2" pref="158" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -2158,6 +2160,8 @@
                           <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
+                          <Component id="txtIDTriaje" min="-2" pref="16" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="lblCabpT" min="-2" pref="154" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -2178,7 +2182,15 @@
                                   <Component id="lblFecha" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="titulo5" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="titulo5" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="lblIDHCTo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnNuevo" alignment="0" max="32767" attributes="0"/>
@@ -2197,7 +2209,10 @@
                                               <Component id="lblusu" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblCabpT" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="lblCabpT" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtIDTriaje" alignment="3" pref="0" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <Component id="lblNewMod" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -2451,6 +2466,35 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
         </Component>
+        <Component class="javax.swing.JTextField" name="txtIDTriaje">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="13" style="0"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtIDTriajeCaretUpdate"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblIDHCTo">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="10" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="jLabel65"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JTabbedPane" name="tbPaneles">
@@ -2506,8 +2550,8 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="txtNroRegistro" min="-2" pref="182" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Component id="txtNroRegistro" min="-2" pref="58" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -3320,11 +3364,9 @@
                               <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="147" max="32767" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtIDTriaje" min="-2" pref="160" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" pref="12" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
                           <Component id="pnlTriaje" alignment="1" max="32767" attributes="0"/>
@@ -3341,10 +3383,9 @@
                           <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                           <Component id="jPanel9" min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="txtIDTriaje" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
@@ -3363,21 +3404,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="ID Triaje"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtIDTriaje">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="13" style="0"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtIDTriajeCaretUpdate"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
@@ -3511,7 +3537,7 @@
                                                   <Component id="lblTraidoporTriaje" min="-2" pref="232" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="152" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -3519,24 +3545,21 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lblParentesco" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <EmptySpace min="0" pref="340" max="32767" attributes="0"/>
+                          <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="lblParentesco" min="-2" pref="150" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="lblIDHCTr" min="-2" pref="263" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
+                          <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3917,41 +3940,42 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jSeparator7" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jSeparator7" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jLabel50" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel85" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="lblIDHCTo" min="-2" pref="158" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabel51" min="-2" pref="19" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtIDTopico" min="-2" pref="16" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="jLabel84" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtIDTopico" min="-2" pref="160" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jLabel86" min="-2" pref="228" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jPanel7" min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="jLabel50" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblIDHCTo" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel85" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtIDTopico" alignment="3" max="32767" attributes="0"/>
+                              <Component id="jLabel84" alignment="3" max="32767" attributes="0"/>
+                              <Component id="jLabel86" alignment="3" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="txtIDTopico" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator7" min="-2" pref="10" max="-2" attributes="0"/>
@@ -5042,23 +5066,25 @@
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator7">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblIDHCTo">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="10" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jLabel65"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel85">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Alt + B"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel84">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Forma de pago:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel86">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
             </Component>
           </SubComponents>

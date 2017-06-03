@@ -17,7 +17,13 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int cpdId;
+<<<<<<< HEAD
 
+=======
+    private int cpfId;
+    private String nomenclatura;
+    @Column(name = "CPD_GRAV")
+>>>>>>> 3cbfaf97c6f87dc0c0c4016e63261f25cb75d3a6
     private String cpdGrav;
 
     private String cpdCodUnidad;
@@ -78,34 +84,53 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
     Conexion con = new Conexion();
     private Connection cn;
 
-//    public boolean mantenimientoCuentasPorPagarFacturasCabecera(String tipo)
-//        {
-//        boolean resp = false;
-//        try{
-//            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_CABECERA ?,?,?,?,?,?,?,?,?,?";
-//            PreparedStatement cmd = getCn().prepareStatement(sql);
-//            cmd.setInt(1, getId());
-//            cmd.setString(2, getSerie());
-//            cmd.setString(3, getCorrelativo());
-//            cmd.setString(4, getTipoOperacion());
-//            cmd.setString(5, getFechaEmision());
-//            cmd.setString(6, getTipoMoneda());
-//            cmd.setString(7, getDocumento());
-//            cmd.setString(8, getActoMedico());
-//            cmd.setString(9, getCod_usu());
-//            cmd.setString(10, tipo);
-//            if(!cmd.execute())
-//            {
-//                resp = true;
-//            }
-//            cmd.close();
-//        }
-//        catch(Exception ex)
-//        {
-//            System.out.println("Error: mantenimientoCuentasPorPagarFacturasCabecera: " + ex.getMessage());
-//        }
-//        return resp;
-//    }
+    public boolean mantenimientoCuentasPorPagarFacturasDetalle(String tipo)
+        {
+        boolean resp = false;
+        try{
+            String sql = "[CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_DETALLE] ?,?,?,?,?,?,?,?,?,?,"
+                    + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCpdId());
+            cmd.setInt(2, getCpfId());
+            cmd.setString(3, getCpdGrav());
+            cmd.setString(4, getCpdCodUnidad());
+            cmd.setInt(5, getCpdCantidad());
+            cmd.setString(6, getNomenclatura());
+            cmd.setString(7, getCpdCodProdSunat());
+            cmd.setBigDecimal(8, getCpdValorU());
+            cmd.setBigDecimal(9, getCpdDescPorcen());
+            cmd.setBigDecimal(10, getCpdDscto());
+            cmd.setBigDecimal(11, getCpdIgv());
+            cmd.setString(12, getCpdAfecIgv());
+            cmd.setBigDecimal(13, getCpdIsc());
+            cmd.setString(14, getCpdAfecIsc());
+            cmd.setBigDecimal(15, getCpdPrecioVenta());
+            cmd.setBigDecimal(16, getCpdValorVenta());
+            cmd.setBigDecimal(17, getCpdDsctoGlobal());
+            cmd.setBigDecimal(18, getCpdSumOtrosCargos());
+            cmd.setBigDecimal(19, getCpdSumIgv());
+            cmd.setBigDecimal(20, getCpdTVvInafec());
+            cmd.setBigDecimal(21, getCpdTVvGrav());
+            cmd.setBigDecimal(22, getCpdTDsctos());
+            cmd.setBigDecimal(23, getCpdOtrosTribut());
+            cmd.setBigDecimal(24, getCpdSumIsc());
+            cmd.setBigDecimal(25, getCpdTVExonen());
+            cmd.setBigDecimal(26, getCpdImpTotVtas());
+            cmd.setString(27, getCodUsu());
+            cmd.setString(28, tipo);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoCuentasPorPagarFacturasDetalle: " + ex.getMessage());
+        }
+        return resp;
+    }
     
     public CuentasPorPagarFacturasDetalle() {
         Conexion con = new Conexion();
@@ -365,6 +390,34 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
      */
     public void setCn(Connection cn) {
         this.cn = cn;
+    }
+
+    /**
+     * @return the cpfId
+     */
+    public int getCpfId() {
+        return cpfId;
+    }
+
+    /**
+     * @param cpfId the cpfId to set
+     */
+    public void setCpfId(int cpfId) {
+        this.cpfId = cpfId;
+    }
+
+    /**
+     * @return the nomenclatura
+     */
+    public String getNomenclatura() {
+        return nomenclatura;
+    }
+
+    /**
+     * @param nomenclatura the nomenclatura to set
+     */
+    public void setNomenclatura(String nomenclatura) {
+        this.nomenclatura = nomenclatura;
     }
     
 }

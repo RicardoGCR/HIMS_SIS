@@ -152,6 +152,11 @@ DefaultTableModel m,n,muestra;
     tb_Esquema.getColumnModel().getColumn(0).setMaxWidth(0);
     tb_Esquema.getColumnModel().getColumn(4).setMinWidth(0);
     tb_Esquema.getColumnModel().getColumn(4).setMaxWidth(0);
+    tb_Esquema.getColumnModel().getColumn(6).setMinWidth(0);
+    tb_Esquema.getColumnModel().getColumn(6).setMaxWidth(0);
+    tb_Esquema.getColumnModel().getColumn(7).setMinWidth(0);
+    tb_Esquema.getColumnModel().getColumn(7).setMaxWidth(0);
+    
     }
     public void refrescartabla(){
         
@@ -190,10 +195,8 @@ DefaultTableModel m,n,muestra;
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             frm_LAB_ESQUEMA_RESULTADO.tb_Esquema.setRowSorter(elQueOrdena);
             frm_LAB_ESQUEMA_RESULTADO.tb_Esquema.setModel(m);
-             frm_LAB_ESQUEMA_RESULTADO.tb_Esquema.getColumnModel().getColumn(0).setMinWidth(0);
-    frm_LAB_ESQUEMA_RESULTADO.tb_Esquema.getColumnModel().getColumn(0).setMaxWidth(0);
-    frm_LAB_ESQUEMA_RESULTADO.tb_Esquema.getColumnModel().getColumn(4).setMinWidth(0);
-    frm_LAB_ESQUEMA_RESULTADO.tb_Esquema.getColumnModel().getColumn(4).setMaxWidth(0);
+            
+            formato_esquema();
     } catch (SQLException ex) {
                    Logger.getLogger(frm_LAB_ESQUEMA_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
                }
@@ -536,7 +539,7 @@ public void calcula() {
                         return canEdit [columnIndex];
                     }
                 });
-                tb_Esquema.setRowHeight(19);
+                tb_Esquema.setRowHeight(20);
                 tb_Esquema.setSelectionBackground(new java.awt.Color(2, 67, 115));
                 tb_Esquema.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {

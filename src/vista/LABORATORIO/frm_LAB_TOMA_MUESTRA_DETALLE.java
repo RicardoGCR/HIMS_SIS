@@ -933,12 +933,12 @@ public void calcula() {
                                     .addComponent(lblHospi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(panelCabeceraLayout.createSequentialGroup()
                                         .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtHabitacion)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(20, 20, 20)
                                         .addGroup(panelCabeceraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtCama)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)))
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtCama, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(lblHospiServ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap())
                         );
@@ -989,6 +989,7 @@ public void calcula() {
                         txtidDocumen.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
                         txtidDocumen.setEnabled(false);
 
+                        txtNomenclatura.setEditable(false);
                         txtNomenclatura.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
                         txtNomenclatura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtNomenclatura.setEnabled(false);
@@ -999,6 +1000,7 @@ public void calcula() {
                         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         jLabel17.setText("Servicio/Área");
 
+                        txtServicio.setEditable(false);
                         txtServicio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
                         txtServicio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtServicio.setEnabled(false);
@@ -1018,13 +1020,13 @@ public void calcula() {
                                     .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
                                 .addGap(27, 27, 27)
                                 .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtNomenclatura)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtNomenclatura, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(37, 37, 37)
                                 .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtServicio)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(43, Short.MAX_VALUE))
                         );
                         panelPacienteLayout.setVerticalGroup(
                             panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

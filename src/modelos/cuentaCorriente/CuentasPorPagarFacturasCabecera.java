@@ -5,10 +5,7 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -17,11 +14,11 @@ import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 import vista.cuentaCorriente.Facturador;
 
-@Entity
+
 public class CuentasPorPagarFacturasCabecera implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
+
     private int id;
     private String serie;
     private String correlativo;

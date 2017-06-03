@@ -9,82 +9,70 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
 
-@Entity
-@Table(name = "CUENTAS_POR_PAGAR_FACTURAS_DETALLE")
-@NamedQueries({
-    @NamedQuery(name = "CuentasPorPagarFacturasDetalle.findAll", query = "SELECT c FROM CuentasPorPagarFacturasDetalle c")})
 public class CuentasPorPagarFacturasDetalle implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "CPD_ID")
+
     private int cpdId;
-    @Column(name = "CPD_GRAV")
+
     private String cpdGrav;
-    @Column(name = "CPD_COD_UNIDAD")
+
     private String cpdCodUnidad;
-    @Column(name = "CPD_CANTIDAD")
+
     private Integer cpdCantidad;
-    @Column(name = "CPD_COD_PROD_SUNAT")
+
     private String cpdCodProdSunat;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "CPD_VALOR_U")
+
     private BigDecimal cpdValorU;
-    @Column(name = "CPD_DESC_PORCEN")
+
     private BigDecimal cpdDescPorcen;
-    @Column(name = "CPD_DSCTO")
+
     private BigDecimal cpdDscto;
-    @Column(name = "CPD_IGV")
+
     private BigDecimal cpdIgv;
-    @Column(name = "CPD_AFEC_IGV")
+   
     private String cpdAfecIgv;
-    @Column(name = "CPD_ISC")
+ 
     private BigDecimal cpdIsc;
-    @Column(name = "CPD_AFEC_ISC")
+
     private String cpdAfecIsc;
-    @Column(name = "CPD_PRECIO_VENTA")
+
     private BigDecimal cpdPrecioVenta;
-    @Column(name = "CPD_VALOR_VENTA")
+
     private BigDecimal cpdValorVenta;
-    @Column(name = "CPD_DSCTO_GLOBAL")
+
     private BigDecimal cpdDsctoGlobal;
-    @Column(name = "CPD_SUM_OTROS_CARGOS")
+
     private BigDecimal cpdSumOtrosCargos;
-    @Column(name = "CPD_SUM_IGV")
+
     private BigDecimal cpdSumIgv;
-    @Column(name = "CPD_T_VV_INAFEC")
+
     private BigDecimal cpdTVvInafec;
-    @Column(name = "CPD_T_VV_GRAV")
+
     private BigDecimal cpdTVvGrav;
-    @Column(name = "CPD_T_DSCTOS")
+
     private BigDecimal cpdTDsctos;
-    @Column(name = "CPD_OTROS_TRIBUT")
+
     private BigDecimal cpdOtrosTribut;
-    @Column(name = "CPD_SUM_ISC")
+
     private BigDecimal cpdSumIsc;
-    @Column(name = "CPD_T_V_EXONEN")
+
     private BigDecimal cpdTVExonen;
-    @Column(name = "CPD_IMP_TOT_VTAS")
+
     private BigDecimal cpdImpTotVtas;
-    @Column(name = "FECHA_ACTU")
+
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
+
     private String horaActu;
-    @Column(name = "NOM_PC")
+
     private String nomPc;
-    @Column(name = "ESTADO")
+
     private Character estado;
-    @Column(name = "COD_USU")
+
     private String codUsu;
     DefaultTableModel m;
     Conexion con = new Conexion();

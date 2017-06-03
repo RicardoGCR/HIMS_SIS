@@ -1313,6 +1313,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             btnBuscar = new javax.swing.JButton();
             lblNewMod = new javax.swing.JLabel();
             lblCabpT = new javax.swing.JLabel();
+            txtIDTriaje = new javax.swing.JTextField();
+            lblIDHCTo = new javax.swing.JLabel();
             tbPaneles = new javax.swing.JTabbedPane();
             jPanel1 = new javax.swing.JPanel();
             jLabel4 = new javax.swing.JLabel();
@@ -1365,7 +1367,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             txtNroRegistro = new javax.swing.JLabel();
             plTriaje = new javax.swing.JPanel();
             jLabel2 = new javax.swing.JLabel();
-            txtIDTriaje = new javax.swing.JTextField();
             jLabel22 = new javax.swing.JLabel();
             jPanel9 = new javax.swing.JPanel();
             txtNHCTri = new javax.swing.JTextField();
@@ -1473,8 +1474,9 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             jLabel51 = new javax.swing.JLabel();
             txtIDTopico = new javax.swing.JTextField();
             jSeparator7 = new javax.swing.JSeparator();
-            lblIDHCTo = new javax.swing.JLabel();
             jLabel85 = new javax.swing.JLabel();
+            jLabel84 = new javax.swing.JLabel();
+            jLabel86 = new javax.swing.JLabel();
             jPanel15 = new javax.swing.JPanel();
             jLabel36 = new javax.swing.JLabel();
             jLabel42 = new javax.swing.JLabel();
@@ -2933,12 +2935,27 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             lblCabpT.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
             lblCabpT.setText("jLabel71");
 
+            txtIDTriaje.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+            txtIDTriaje.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+            txtIDTriaje.setEnabled(false);
+            txtIDTriaje.addCaretListener(new javax.swing.event.CaretListener() {
+                public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                    txtIDTriajeCaretUpdate(evt);
+                }
+            });
+
+            lblIDHCTo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+            lblIDHCTo.setForeground(new java.awt.Color(255, 255, 255));
+            lblIDHCTo.setText("jLabel65");
+
             javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
             jPanel8.setLayout(jPanel8Layout);
             jPanel8Layout.setHorizontalGroup(
                 jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(lblIDHCTo, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel8Layout.createSequentialGroup()
@@ -2971,6 +2988,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                             .addComponent(lblNewMod)
                             .addGap(177, 177, 177))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                            .addComponent(txtIDTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(lblCabpT, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addContainerGap())))
             );
@@ -2986,7 +3005,13 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGap(1, 1, 1))
-                                .addComponent(titulo5))
+                                .addGroup(jPanel8Layout.createSequentialGroup()
+                                    .addComponent(titulo5)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(lblIDHCTo)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -3002,7 +3027,9 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                                                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(lblusu))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblCabpT))
+                                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(lblCabpT)
+                                                .addComponent(txtIDTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                                         .addComponent(lblNewMod))
                                     .addGap(0, 0, Short.MAX_VALUE)))
                             .addContainerGap())
@@ -3429,8 +3456,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel21)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtNroRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(8, 8, 8)))
+                            .addComponent(txtNroRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(90, 90, 90)))
                     .addContainerGap())
             );
             jPanel1Layout.setVerticalGroup(
@@ -3458,15 +3485,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
 
             jLabel2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
             jLabel2.setText("ID Triaje");
-
-            txtIDTriaje.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-            txtIDTriaje.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-            txtIDTriaje.setEnabled(false);
-            txtIDTriaje.addCaretListener(new javax.swing.event.CaretListener() {
-                public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                    txtIDTriajeCaretUpdate(evt);
-                }
-            });
 
             jLabel22.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
             jLabel22.setText("Nº H.C.");
@@ -3683,23 +3701,22 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                                             .addComponent(jLabel33)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(lblTraidoporTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addGap(0, 152, Short.MAX_VALUE)))
                             .addContainerGap())))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTriajeLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(pnlTriajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTriajeLayout.createSequentialGroup()
-                            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(147, 147, 147))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTriajeLayout.createSequentialGroup()
-                            .addComponent(jLabel34)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(lblParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(36, 36, 36))))
+                    .addGap(0, 340, Short.MAX_VALUE)
+                    .addComponent(jLabel34)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(lblParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(36, 36, 36))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTriajeLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblIDHCTr, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap())
+                .addGroup(pnlTriajeLayout.createSequentialGroup()
+                    .addGap(152, 152, 152)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             pnlTriajeLayout.setVerticalGroup(
                 pnlTriajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3746,11 +3763,9 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                             .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel37)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtIDTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(14, 14, 14))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(jSeparator3)
                         .addComponent(pnlTriaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addContainerGap())
@@ -3763,9 +3778,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                         .addComponent(jLabel22)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(plTriajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtIDTriaje, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addComponent(jLabel37))
+                            .addComponent(jLabel37)
+                            .addComponent(jLabel2)))
                     .addGap(5, 5, 5)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4352,11 +4366,13 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                 }
             });
 
-            lblIDHCTo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-            lblIDHCTo.setForeground(new java.awt.Color(255, 255, 255));
-            lblIDHCTo.setText("jLabel65");
-
             jLabel85.setText("Alt + B");
+
+            jLabel84.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel84.setText("Forma de pago:");
+
+            jLabel86.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+            jLabel86.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
             javax.swing.GroupLayout pnlTopicoLayout = new javax.swing.GroupLayout(pnlTopico);
             pnlTopico.setLayout(pnlTopicoLayout);
@@ -4366,35 +4382,37 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                 .addGroup(pnlTopicoLayout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(pnlTopicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlTopicoLayout.createSequentialGroup()
-                            .addComponent(jSeparator7)
-                            .addContainerGap())
+                        .addComponent(jSeparator7)
                         .addGroup(pnlTopicoLayout.createSequentialGroup()
                             .addComponent(jLabel50)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel85)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblIDHCTo, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel51)
+                            .addComponent(txtIDTopico, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(33, 33, 33)
+                            .addComponent(jLabel84)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtIDTopico, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(27, 27, 27))))
+                            .addComponent(jLabel86, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap())
             );
             pnlTopicoLayout.setVerticalGroup(
                 pnlTopicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTopicoLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addGroup(pnlTopicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(pnlTopicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel50)
                         .addGroup(pnlTopicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel51)
-                            .addComponent(lblIDHCTo)
-                            .addComponent(jLabel85))
-                        .addComponent(txtIDTopico))
+                            .addComponent(jLabel85)
+                            .addComponent(txtIDTopico)
+                            .addComponent(jLabel84, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel86, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -5789,7 +5807,9 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;

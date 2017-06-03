@@ -16,6 +16,8 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 import vista.cuentaCorriente.Facturador;
+import static vista.cuentaCorriente.Facturador.lblNroCorrelativo;
+import static vista.cuentaCorriente.Facturador.txtSerie;
 
 @Entity
 public class CuentasPorPagarFacturasCabecera implements Serializable {
@@ -29,7 +31,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
     private String fechaEmision;
     private String tipoMoneda;
     private String documento;
-    private String actoMedico;
+    private int actoMedico;
     private String fecha_actu;
     private String hora_actu;
     private String nom_pc;
@@ -38,6 +40,20 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
+    
+    public void generarSerieCorrelativo(){
+        try {
+            String consulta = "exec CUENTAS_POR_PAGAR_GENERAR_SERIE_CORRELATIVO";
+            ResultSet r;
+            r=con.Listar(consulta);
+        if(r.next()){
+               txtSerie.setText(r.getString(1));
+               lblNroCorrelativo.setText(r.getString(2));
+        }
+        }catch(Exception ex){
+            System.out.println("Error: generarSerieCorrelativo - " + ex.getMessage());
+        }
+    }
     
     public boolean mantenimientoCuentasPorPagarFacturasCabecera(String tipo)
         {
@@ -52,7 +68,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             cmd.setString(5, getFechaEmision());
             cmd.setString(6, getTipoMoneda());
             cmd.setString(7, getDocumento());
-            cmd.setString(8, getActoMedico());
+            cmd.setInt(8, getActoMedico());
             cmd.setString(9, getCod_usu());
             cmd.setString(10, tipo);
             if(!cmd.execute())
@@ -66,6 +82,27 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             System.out.println("Error: mantenimientoCuentasPorPagarFacturasCabecera: " + ex.getMessage());
         }
         return resp;
+    }
+    
+    public String actoMedicoID(String actoMedico){
+        String cod="";
+        try
+        {
+            String sql = "SELECT ID_ACTOMEDICO\n" +
+                         "FROM CAJA_ACTO_MEDICO\n" +
+                         "WHERE NUM_ACTOMEDICO = "+ actoMedico+ "";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("actoMedicoID: " + ex.getMessage());
+        }
+        return cod;
     }
     
     public void historiaClinicaMotivo(String busqueda){
@@ -242,14 +279,14 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
     /**
      * @return the actoMedico
      */
-    public String getActoMedico() {
+    public int getActoMedico() {
         return actoMedico;
     }
 
     /**
      * @param actoMedico the actoMedico to set
      */
-    public void setActoMedico(String actoMedico) {
+    public void setActoMedico(int actoMedico) {
         this.actoMedico = actoMedico;
     }
 

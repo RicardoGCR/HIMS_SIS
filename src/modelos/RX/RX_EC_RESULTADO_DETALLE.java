@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelos.RX_EC;
+package modelos.RX;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import servicios.Conexion;
-import vista.RX_EC.RX_EC_EXAMEN_CAB_RESULTADO;
+import vista.RX.RX_EC_EXAMEN_CAB_RESULTADO;
 
 /**
  *

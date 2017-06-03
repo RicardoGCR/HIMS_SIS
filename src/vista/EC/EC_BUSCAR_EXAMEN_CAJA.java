@@ -15,8 +15,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import modelos.RX_EC.EC.EC_EXAMEN_CABECERA;
-import modelos.RX_EC.RX_EC_BUSCAR_EXAMEN_CAJA;
+import modelos.EC.EC_EXAMEN_CABECERA;
+//import modelos.RX_EC.RX_EC_BUSCAR_EXAMEN_CAJA;
 import modelos.Usuario;
 import servicios.Conexion;
 

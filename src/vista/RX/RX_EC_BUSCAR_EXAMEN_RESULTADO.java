@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista.RX_EC;
+package vista.RX;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -27,10 +27,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
-import modelos.RX_EC.*;
+import modelos.RX.*;
 import modelos.Usuario;
-import vista.RX_EC.RX_EC_EXAMEN_CAB;
-import static vista.RX_EC.RX_EC_EXAMEN_CAB.tb_examen_det;
+import vista.RX.RX_EC_EXAMEN_CAB;
+import static vista.RX.RX_EC_EXAMEN_CAB.tb_examen_det;
 
 /**
  *

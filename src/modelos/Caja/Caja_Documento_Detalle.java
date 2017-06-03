@@ -26,7 +26,7 @@ private int id_cod_doc_det;
 private String id_documento;  
 private String cod_precio;
 private String nom_consultorio_citas;  
-private Double cantidad_detalle;
+private int cantidad_detalle;
 private Double precio_detalle;
 private Double total_detalle;
 private String fecha_aten;
@@ -148,7 +148,7 @@ public boolean DetalleVenta(){
             cmd.setString(1, getId_documento());
             cmd.setString(2, getCod_precio());
             cmd.setString(3, getNom_consultorio_citas());
-            cmd.setDouble(4, getCantidad_detalle());
+            cmd.setInt(4, getCantidad_detalle());
             cmd.setDouble(5, getPrecio_detalle());
             cmd.setDouble(6, getTotal_detalle());
             cmd.setDouble(7, getDescu_exo_detalle());
@@ -257,22 +257,21 @@ public void Detalle(String codigo,JTable tabla){
     }
     
     public void formatoTablaCPT(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(300);
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(300);  
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(350);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(100);  
         tabla.getColumnModel().getColumn(1).setMinWidth(0);
         tabla.getColumnModel().getColumn(1).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(3).setMinWidth(0);
         tabla.getColumnModel().getColumn(3).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(4).setMinWidth(0);
         tabla.getColumnModel().getColumn(4).setMaxWidth(0); 
-        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(10).setMinWidth(0);
         tabla.getColumnModel().getColumn(10).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(6).setMinWidth(0);
         tabla.getColumnModel().getColumn(6).setMaxWidth(0); 
-        tabla.getColumnModel().getColumn(7).setMinWidth(0);
-        tabla.getColumnModel().getColumn(7).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(250);
         tabla.getColumnModel().getColumn(8).setPreferredWidth(50);
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(150);
         tabla.getColumnModel().getColumn(9).setMinWidth(0);
         tabla.getColumnModel().getColumn(9).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(11).setMinWidth(0);
@@ -337,11 +336,11 @@ public void Detalle(String codigo,JTable tabla){
         this.nom_consultorio_citas = nom_consultorio_citas;
     }
 
-    public Double getCantidad_detalle() {
+    public int getCantidad_detalle() {
         return cantidad_detalle;
     }
 
-    public void setCantidad_detalle(Double cantidad_detalle) {
+    public void setCantidad_detalle(int cantidad_detalle) {
         this.cantidad_detalle = cantidad_detalle;
     }
 

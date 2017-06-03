@@ -3,9 +3,41 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX_EC/RX_EC_EXAMEN_CAB.java</file>
             <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX_EC/EC/EC_EXAMEN_CAB.java</file>
             <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX_EC/EC/EC_BUSCAR_EXAMEN_CAJA.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/modelos/Caja/Caja_Documento_Detalle.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/Caja/Caja_Preventa.java</file>
+            <file>file:/D:/pry/SISGESH/src/tablas/FormatoTablaReporteDiarioCaja.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/ConsultorioEx/ConsultorioAsignacion.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/Caja/Caja_Pagos.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/Caja/Caja_NuevaVenta.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/E:/pry/SISGESH/src/vista/cuentaCorriente/Facturador.java</file>
+            <file>file:/E:/pry/SISGESH/src/vista/cuentaCorriente/NotasCreditoDebito.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/proyecto/SISGESH/src/vista/PrincipalMDI.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/E:/pry/SISGESH/src/modelos/LABORATORIO/LAB_Conversion.java</file>
+            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_CONVERSION.java</file>
+=======
+            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX_EC/RX_EC_BUSCAR_EXAMEN_RESULTADO.java</file>
+            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/SIS/SIS_PREST_COND_EXCLUYENTE.java</file>
+            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX_EC/RX_EC_EXAMEN_CAB.java</file>
+            <file>file:/D:/PROYECTO%2002/SISGESH/src/modelos/RX_EC/RX_EC_EXAMEN_DET.java</file>
+            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX_EC/RX_EC_BUSCAR_EXAMEN_C.java</file>
+            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX_EC/RX_EC_EXAMEN_CAB_RESULTADO.java</file>
+>>>>>>> 3947aed4667b7b951c0b2863d8130994ad1c8966
+>>>>>>> 5f6ad86ab53ad759272984d92e65af5685218e02
+>>>>>>> 0c4b7b5352bb70a3d2cab01962de05d2458b87b3
+>>>>>>> ffdb87184cfd54358597874442a0faa3649ae83f
+>>>>>>> a2742beb35faa137ed6a85a1ec7eb89fbb027b23
         </group>
     </open-files>
 </project-private>

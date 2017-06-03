@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package modelos.RX_EC;
+package modelos.RX;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

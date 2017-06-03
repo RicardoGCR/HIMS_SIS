@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package vista.RX_EC;
+package vista.RX;
 
 import java.awt.Color;
 

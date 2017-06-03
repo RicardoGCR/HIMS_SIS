@@ -13,8 +13,9 @@ import java.sql.ResultSet;
 import java.util.Calendar;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import modelos.EC.EC_EXAMEN_CABECERA;
 import servicios.Conexion;
-import modelos.RX_EC.EC.*;
+import modelos.EC.*;
 
 /**
  *

@@ -66,6 +66,7 @@ public void Caja_Correlativo(){
             r=con.Listar(consulta);
         if(r.next()){
                Caja_Pagos.lblSerie.setText(r.getString(1));
+               Caja_Pagos.lblNumDoc.setText(r.getString(2));
                Caja_Pagos.lblNumeroDoc.setText(r.getString(1)+"-"+r.getString(2));
         }
         }catch(Exception ex){

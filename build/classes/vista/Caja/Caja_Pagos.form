@@ -7572,7 +7572,9 @@
                                           <Component id="lblNumero" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="lblNumerosAdicional" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblNumDoc" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lblSerie" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lblNumeroFuturo" min="-2" max="-2" attributes="0"/>
@@ -7682,6 +7684,7 @@
                                           <Component id="lblMedicoId" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblMantP" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblSerie" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNumDoc" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -8044,6 +8047,14 @@
                 <Component class="javax.swing.JLabel" name="lblSerie">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="SERIE"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNumDoc">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel93"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

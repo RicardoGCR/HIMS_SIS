@@ -809,7 +809,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                 cno1.setId_hc(lblHc.getText());
                 cno1.setCod_motiv_anu(lblSinAnulacion.getText());
                 cno1.setSerie_documento(lblSerie.getText());/////////falta
-                cno1.setNum_documento(lblNumeroDoc.getText());
+                cno1.setNum_documento(lblNumDoc.getText());
                 cno1.setDependencia("CAJA CONTADO");//
                 
                 if (txtFormaPago.getText().equals("CONTADO")){
@@ -1677,6 +1677,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                 lblPorcentaje = new javax.swing.JLabel();
                                                                                 lblUsuPorcentaje = new javax.swing.JLabel();
                                                                                 lblSerie = new javax.swing.JLabel();
+                                                                                lblNumDoc = new javax.swing.JLabel();
                                                                                 panelTablaCPT = new javax.swing.JPanel();
                                                                                 jLabel45 = new javax.swing.JLabel();
                                                                                 jLabel77 = new javax.swing.JLabel();
@@ -6172,6 +6173,8 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
 
                                                                                         lblSerie.setText("SERIE");
 
+                                                                                        lblNumDoc.setText("jLabel93");
+
                                                                                         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                                                                                         jPanel1.setLayout(jPanel1Layout);
                                                                                         jPanel1Layout.setHorizontalGroup(
@@ -6211,7 +6214,9 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                                 .addComponent(lblNumero)
                                                                                                                 .addGap(18, 18, 18)
                                                                                                                 .addComponent(lblNumerosAdicional)
-                                                                                                                .addGap(10, 10, 10)
+                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                .addComponent(lblNumDoc)
+                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                 .addComponent(lblSerie)
                                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                 .addComponent(lblNumeroFuturo)
@@ -6303,7 +6308,8 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                                 .addComponent(lblCAid)
                                                                                                                 .addComponent(lblMedicoId)
                                                                                                                 .addComponent(lblMantP)
-                                                                                                                .addComponent(lblSerie)))
+                                                                                                                .addComponent(lblSerie)
+                                                                                                                .addComponent(lblNumDoc)))
                                                                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                                                                                             .addGap(9, 9, 9)
                                                                                                             .addComponent(panelAbonos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -9323,6 +9329,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JLabel lblMedicoId;
     private javax.swing.JLabel lblModulo;
     private javax.swing.JLabel lblModuloHos;
+    public static javax.swing.JLabel lblNumDoc;
     private javax.swing.JLabel lblNumero;
     private javax.swing.JLabel lblNumeroAF;
     public static javax.swing.JLabel lblNumeroDoc;

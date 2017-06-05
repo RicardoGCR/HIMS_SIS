@@ -2708,7 +2708,7 @@ public class NotasCreditoDebito extends javax.swing.JFrame {
                     .addGroup(jPanel49Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                            .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                             .addComponent(panelCPT26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                 );
@@ -5054,7 +5054,7 @@ public class NotasCreditoDebito extends javax.swing.JFrame {
                                         .addComponent(jPanel82, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel78, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(jPanel78, javax.swing.GroupLayout.PREFERRED_SIZE, 300, Short.MAX_VALUE)
                                     .addComponent(jPanel65, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(25, 25, 25))
                 );
@@ -5720,22 +5720,22 @@ public class NotasCreditoDebito extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValorVentaGravada3ActionPerformed
 
-    private void lblLineCreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLineCreMouseClicked
-       tab.setSelectedIndex(0);
-     lblLineDeb.setForeground(new Color(102,102,102));
-     lblLineCre.setForeground(new Color(41,127,184));
-     lblCredito.setFont(new Font("Segoe UI Semilight",1, 15));
-     lblDebito.setFont(new Font("Segoe UI Semilight",0, 14));
-    }//GEN-LAST:event_lblLineCreMouseClicked
-
     private void lblLineDebMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLineDebMouseClicked
      tab.setSelectedIndex(1);
-     lblLineCre.setForeground(new Color(102,102,102));
+     lblLineCre.setForeground(new Color(255,255,255));
      lblLineDeb.setForeground(new Color(41,127,184));
      
      lblCredito.setFont(new Font("Segoe UI Semilight",0, 14));
      lblDebito.setFont(new Font("Segoe UI Semilight",1, 15));
     }//GEN-LAST:event_lblLineDebMouseClicked
+
+    private void lblLineCreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLineCreMouseClicked
+        tab.setSelectedIndex(0);
+        lblLineDeb.setForeground(new Color(255,255,255));
+        lblLineCre.setForeground(new Color(41,127,184));
+        lblCredito.setFont(new Font("Segoe UI Semilight",1, 15));
+        lblDebito.setFont(new Font("Segoe UI Semilight",0, 14));
+    }//GEN-LAST:event_lblLineCreMouseClicked
 
     /**
      * @param args the command line arguments

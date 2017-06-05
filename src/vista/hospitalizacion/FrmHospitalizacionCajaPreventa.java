@@ -69,6 +69,9 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
             }
         });
         cerrar();
+        lblMant.setVisible(false);
+        lblID.setVisible(false);
+        lblGenero.setVisible(false);
     }
     
     public void cerrar (){
@@ -248,10 +251,8 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
                     cp.setAR_ID(area);
                     cp.setProcedencia(procedencia);
                     if(cp.mantenimientoCajaPreventaHospitalizacion(lblMant.getText())==true){ 
-                        
                         hc.setCA_ID(cama);
                         hc.setCOD_USU(usuario);
-                        JOptionPane.showMessageDialog(this, cp.CajaPreventaID());
                         hc.setID_PREVENTA(cp.CajaPreventaID());
                        if(hc.mantenimientoAsignacionCama()==true){
                         retorna = true;
@@ -269,14 +270,18 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
     public boolean guardarDatos(){
         boolean retorna = false;
         if(guardarDatosHospitalizacion()==true){
-            Caja_Preventa cp = new Caja_Preventa();
-            for (int i = 0; i < tbSelecArticulos.getRowCount(); i++){      
-                HospitalizacionArticuloDetalle hopsArt=new HospitalizacionArticuloDetalle();
-                hopsArt.setId_preventa(cp.CajaPreventaID());
-                hopsArt.setDescripcion(tbSelecArticulos.getValueAt(i, 1).toString());
-                hopsArt.setCod_usu(cp.codUsuario(lblUsuUsuario.getText()));
-                if(hopsArt.insertarArticuloDetalle()==true)
-                    retorna = true;
+            if(tbArticulos.getRowCount()==0){
+                retorna = true;
+            } else{
+                Caja_Preventa cp = new Caja_Preventa();
+                for (int i = 0; i < tbSelecArticulos.getRowCount(); i++){      
+                    HospitalizacionArticuloDetalle hopsArt=new HospitalizacionArticuloDetalle();
+                    hopsArt.setId_preventa(cp.CajaPreventaID());
+                    hopsArt.setDescripcion(tbSelecArticulos.getValueAt(i, 1).toString());
+                    hopsArt.setCod_usu(cp.codUsuario(lblUsuUsuario.getText()));
+                    if(hopsArt.insertarArticuloDetalle()==true)
+                        retorna = true;
+                }
             }
         } else 
             return retorna;
@@ -298,10 +303,10 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
         tbArticulos = new javax.swing.JTable();
         jLabel13 = new javax.swing.JLabel();
         txtBuscarArt = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         lblUsuUsuario = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
@@ -354,20 +359,26 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
                 return false;
             }
         };
+        tbNHC.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tbNHC.setForeground(new java.awt.Color(102, 102, 102));
         tbNHC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "DNI", "Nº H.C.", "Datos del Paciente", "Edad"
             }
-        ));
-        tbNHC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tbNHC.setGridColor(new java.awt.Color(204, 204, 204));
-        tbNHC.setSelectionBackground(new java.awt.Color(217, 176, 86));
+        tbNHC.setSelectionBackground(new java.awt.Color(235, 105, 57));
         tbNHC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbNHCMouseClicked(evt);
@@ -491,7 +502,12 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tbArticulos.setSelectionBackground(new java.awt.Color(217, 176, 86));
+        tbArticulos.setSelectionBackground(new java.awt.Color(235, 105, 57));
+        tbArticulos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbArticulosMouseClicked(evt);
+            }
+        });
         tbArticulos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbArticulosKeyPressed(evt);
@@ -545,9 +561,20 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
                 .addGap(27, 27, 27))
         );
 
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel8.setBackground(new java.awt.Color(217, 176, 86));
+        jPanel8.setBackground(new java.awt.Color(235, 105, 57));
         jPanel8.setPreferredSize(new java.awt.Dimension(500, 65));
         jPanel8.setLayout(null);
 
@@ -563,15 +590,10 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
 
         lblUsuUsuario.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
         lblUsuUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
         lblUsuUsuario.setText("Silvana");
         jPanel8.add(lblUsuUsuario);
-        lblUsuUsuario.setBounds(320, 20, 85, 20);
-
-        jLabel19.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
-        jPanel8.add(jLabel19);
-        jLabel19.setBounds(280, 20, 32, 24);
+        lblUsuUsuario.setBounds(320, 10, 150, 50);
 
         btnNuevo.setBackground(new java.awt.Color(204, 204, 204));
         btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -1014,7 +1036,7 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1079,13 +1101,12 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
         dlgNHC.setLocationRelativeTo(null);//en el centro
         dlgNHC.setResizable(false);
         dlgNHC.getContentPane().setBackground(Color.WHITE);
-        hosP.buscar_HC(1, "A", txtBusqueda.getText(), tbNHC);
         tbNHC.getSelectionModel().setSelectionInterval(0,0);
         tbNHC.requestFocus();
     }//GEN-LAST:event_btnBuscarNHCActionPerformed
 
     private void txtBusquedaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBusquedaCaretUpdate
-        hosP.buscar_HC(cbxTipoBusqueda.getSelectedIndex(), "A", txtBusqueda.getText(), tbNHC);
+        
     }//GEN-LAST:event_txtBusquedaCaretUpdate
 
     private void txtBusquedaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyPressed
@@ -1093,10 +1114,14 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
             tbNHC.getSelectionModel().setSelectionInterval(0, 0);
             tbNHC.requestFocus();
         }
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_ENTER){
+            btnBuscarN.doClick();
+        }
     }//GEN-LAST:event_txtBusquedaKeyPressed
 
     private void btnBuscarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarNActionPerformed
-        // TODO add your handling code here:
+        hosP.buscar_HC(cbxTipoBusqueda.getSelectedIndex(), "A", txtBusqueda.getText(), tbNHC);
+        tbNHC.setAutoResizeMode(0);
     }//GEN-LAST:event_btnBuscarNActionPerformed
 
     private void cbxTipoBusquedaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxTipoBusquedaItemStateChanged
@@ -1290,6 +1315,12 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtBuscarNHCKeyPressed
 
+    private void tbArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbArticulosMouseClicked
+        if(evt.getClickCount()==2){
+            enviarArticulos();
+        }
+    }//GEN-LAST:event_tbArticulosMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1349,7 +1380,6 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1360,6 +1390,7 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

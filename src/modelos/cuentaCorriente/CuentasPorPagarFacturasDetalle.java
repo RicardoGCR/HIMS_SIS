@@ -17,13 +17,10 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int cpdId;
-<<<<<<< HEAD
 
-=======
     private int cpfId;
     private String nomenclatura;
-    @Column(name = "CPD_GRAV")
->>>>>>> 3cbfaf97c6f87dc0c0c4016e63261f25cb75d3a6
+
     private String cpdGrav;
 
     private String cpdCodUnidad;

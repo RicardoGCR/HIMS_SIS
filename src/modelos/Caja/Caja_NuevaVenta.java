@@ -59,6 +59,21 @@ private double TOTAL_DOCUUMENTO;
 ////////////////////////////////////////////////////
 Conexion con = new Conexion();
 
+public void Caja_Correlativo(){
+        try {
+            String consulta = "exec CAJA_SERIE_CORRELATIVO";
+            ResultSet r;
+            r=con.Listar(consulta);
+        if(r.next()){
+               Caja_Pagos.lblSerie.setText(r.getString(1));
+               Caja_Pagos.lblNumeroDoc.setText(r.getString(1)+"-"+r.getString(2));
+        }
+        }catch(Exception ex){
+            System.out.println("Error al generar serie y numero " + ex.getMessage());
+        }
+    }
+    
+
 public void SumaTotalReporte(String total){
         String consulta="";
         try {
@@ -163,6 +178,24 @@ public void ConsultoriosACTOMEDICO_EMERGENCIA(String ap_id){
             //
         } catch (Exception e) {
             System.out.println("Error: AM DE EMERGENCIA  " + e.getMessage());
+        }
+    }
+
+    public void VerificarPreventaHOS_OJO_IMPORTANTE_DE_MOMENTO(String ap_id){
+        String consulta="";
+        try {
+            consulta="CAJA_VERIFICAR_PREVENTA_HOS ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, ap_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    
+                Caja_Pagos.lblActoMedico.setText(r.getString(1));    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Erro Preventa provicional  " + e.getMessage());
         }
     }
 

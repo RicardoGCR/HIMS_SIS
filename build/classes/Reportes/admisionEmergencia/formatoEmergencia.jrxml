@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
 	<property name="ireport.zoom" value="2.1435888100000238"/>
 	<property name="ireport.x" value="228"/>
-=======
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
-	<property name="ireport.zoom" value="1.2100000000000133"/>
-	<property name="ireport.x" value="0"/>
->>>>>>> 3cbfaf97c6f87dc0c0c4016e63261f25cb75d3a6
 	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
@@ -445,6 +439,10 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				</textElement>
 				<text><![CDATA[Personas que atendemos personas]]></text>
 			</staticText>
+			<image>
+				<reportElement x="458" y="3" width="46" height="33" uuid="e213b133-95a7-49de-acf4-c8f97e05c93f"/>
+				<imageExpression><![CDATA["D:\\pry\\SISGESH\\src\\imagenes\\logominsa.gif"]]></imageExpression>
+			</image>
 			<textField>
 				<reportElement x="187" y="52" width="182" height="20" uuid="056da443-f4e4-4e97-abd5-646ec8e3decc"/>
 				<textElement textAlignment="Center">
@@ -452,6 +450,10 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{AR_DESC}]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="18" y="3" width="118" height="63" uuid="7ddf39d2-cf65-4321-b054-81340cc1eaf3"/>
+				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<detail>

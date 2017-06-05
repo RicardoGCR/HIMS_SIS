@@ -73,9 +73,9 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         lblNumExamen.setText(txtNumExamen.getText());
         
         lblA.setVisible(false);
-        txtPersonalSolicita.setEnabled(false);
-        btnPersonalSolicita.setEnabled(false);
-        btnGuardarDetalle.setEnabled(false);
+//        txtPersonalSolicita.setEnabled(false);
+//        btnPersonalSolicita.setEnabled(false);
+//        btnGuardarDetalle.setEnabled(false);
     }
 
     /**

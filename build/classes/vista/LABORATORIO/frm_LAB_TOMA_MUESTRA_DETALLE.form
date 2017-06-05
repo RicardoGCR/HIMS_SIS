@@ -877,13 +877,13 @@
                       <Component id="lblHospi" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtHabitacion" max="32767" attributes="0"/>
-                              <Component id="jLabel4" pref="106" max="32767" attributes="0"/>
+                              <Component id="jLabel4" max="32767" attributes="0"/>
+                              <Component id="txtHabitacion" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtCama" max="32767" attributes="0"/>
-                              <Component id="jLabel5" pref="120" max="32767" attributes="0"/>
+                              <Component id="jLabel5" max="32767" attributes="0"/>
+                              <Component id="txtCama" min="-2" pref="110" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="lblHospiServ" alignment="0" max="32767" attributes="0"/>
@@ -1103,15 +1103,15 @@
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="txtNomenclatura" max="32767" attributes="0"/>
-                      <Component id="jLabel7" pref="285" max="32767" attributes="0"/>
+                      <Component id="jLabel7" max="32767" attributes="0"/>
+                      <Component id="txtNomenclatura" min="-2" pref="285" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="txtServicio" max="32767" attributes="0"/>
-                      <Component id="jLabel17" pref="210" max="32767" attributes="0"/>
+                      <Component id="jLabel17" max="32767" attributes="0"/>
+                      <Component id="txtServicio" min="-2" pref="210" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="43" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1180,6 +1180,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtNomenclatura">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
@@ -1204,6 +1205,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtServicio">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>

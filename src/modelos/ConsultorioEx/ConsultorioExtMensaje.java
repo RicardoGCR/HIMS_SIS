@@ -9,10 +9,7 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -24,11 +21,10 @@ import vista.ConsultorioEx.MensajeTv;
  *
  * @author PC02
  */
-@Entity
+
 public class ConsultorioExtMensaje implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;

@@ -17,6 +17,7 @@ public class Producto_Insumos {
       private Connection cn;
       private String cod_produc;
       private int cantidad_medida;
+      private int cod_unidad;
       
      public Producto_Insumos()
     {
@@ -48,7 +49,29 @@ public class Producto_Insumos {
     }
          
          
-
+ public boolean ASIGNAR_UNIDAD_MEDIDA()
+        {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec ASIGNAR_UNIDAD_MEDIDA ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getCod_produc());
+            cmd.setInt(2, getCod_unidad());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
+         
 
     /**
      * @return the cn
@@ -90,6 +113,20 @@ public class Producto_Insumos {
      */
     public void setCod_produc(String cod_produc) {
         this.cod_produc = cod_produc;
+    }
+
+    /**
+     * @return the cod_unidad
+     */
+    public int getCod_unidad() {
+        return cod_unidad;
+    }
+
+    /**
+     * @param cod_unidad the cod_unidad to set
+     */
+    public void setCod_unidad(int cod_unidad) {
+        this.cod_unidad = cod_unidad;
     }
     
 }

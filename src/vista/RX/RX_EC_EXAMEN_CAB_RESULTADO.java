@@ -197,8 +197,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         jLabel20 = new javax.swing.JLabel();
         txtHabitacion = new javax.swing.JTextField();
         txtCama = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
         txtPersonalSolicita = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
         lblId_Preventa = new javax.swing.JLabel();
         txtCOD_EXAMEN_DETALLE = new javax.swing.JTextField();
         txtID_COD_DOC = new javax.swing.JTextField();
@@ -1196,10 +1196,6 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             }
         });
 
-        jLabel31.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel31.setText("Solicitante:");
-
         txtPersonalSolicita.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         txtPersonalSolicita.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPersonalSolicita.setEnabled(false);
@@ -1214,42 +1210,39 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             }
         });
 
+        jLabel27.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        jLabel27.setText("Médico Solicitante:");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(10, 37, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtHabitacion)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(367, 367, 367))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblHospi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel27)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblHospiServ, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtHabitacion)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(324, 324, 324))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCama, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblHospiServ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtPersonalSolicita)))))
+                            .addComponent(txtCama, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblHospi, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
+                        .addComponent(txtPersonalSolicita)))
                 .addGap(43, 43, 43))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPersonalSolicita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtPersonalSolicita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblHospi, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblHospiServ)
@@ -1260,7 +1253,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
@@ -1434,7 +1427,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         .addComponent(jLabel9)
                         .addGap(0, 0, 0)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
                             .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1617,28 +1610,6 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     }//GEN-LAST:event_txtID_EXAMEN_CABCaretUpdate
 
     private void tb_examen_detKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_examen_detKeyPressed
-        
-        
-//        //HOSPITALIZACION
-//                LAB_Toma_Muestra_Detalle hosp=new LAB_Toma_Muestra_Detalle();
-//                if(hosp.LAB_Toma_Muestra_Hospitalizacion_ver(lblHc.getText())>0){
-//                    LAB_Toma_Muestra_Detalle idpreventa=new LAB_Toma_Muestra_Detalle();
-//                     LAB_Toma_Muestra_Detalle habit=new LAB_Toma_Muestra_Detalle();
-//                     LAB_Toma_Muestra_Detalle cama=new LAB_Toma_Muestra_Detalle();
-//                    LAB_Toma_Muestra_Detalle serv=new LAB_Toma_Muestra_Detalle();
-//                    
-//                    frm_LAB_TOMA_MUESTRA_DETALLE.lblid_preventa.setText(idpreventa.LAB_Toma_Muestra_Hospi_idPreventa(lblHc.getText()));
-//                    frm_LAB_TOMA_MUESTRA_DETALLE.txtHabitacion.setText(habit.LAB_Toma_Muestra_Hospi_habitacion(lblHc.getText()));
-//                    frm_LAB_TOMA_MUESTRA_DETALLE.txtCama.setText(cama.LAB_Toma_Muestra_Hospi_cama(lblHc.getText()));
-//                    frm_LAB_TOMA_MUESTRA_DETALLE.lblHospiServ.setText(serv.LAB_Toma_Muestra_Hospi_Servicio(lblHc.getText()));
-////                    JOptionPane.showMessageDialog(panelCabecera, serv.LAB_Toma_Muestra_Hospi_Servicio(lblHc.getText()));
-//                }else{
-//                    
-//                    frm_LAB_TOMA_MUESTRA_DETALLE.lblid_preventa.setText("");
-//                    frm_LAB_TOMA_MUESTRA_DETALLE.txtHabitacion.setText("--");
-//                    frm_LAB_TOMA_MUESTRA_DETALLE.txtCama.setText("--");
-//                    frm_LAB_TOMA_MUESTRA_DETALLE.lblHospiServ.setText("");
-//                }
         
     }//GEN-LAST:event_tb_examen_detKeyPressed
 
@@ -2645,9 +2616,9 @@ public void guardar_resultado_detalle(){
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

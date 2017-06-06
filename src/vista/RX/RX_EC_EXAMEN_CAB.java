@@ -25,7 +25,7 @@ import javax.swing.table.TableRowSorter;
 import modelos.RX.*;
 import modelos.Usuario;
 import servicios.Conexion;
-import vista.RX_EC.*;
+import vista.RX.*;
 
 /**
  *

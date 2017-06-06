@@ -3,9 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <file>file:/E:/pry/SISGESH/src/vista/RegistroUsuario.java</file>
+=======
+            <file>file:/D:/pry/SISGESH/src/vista/inicioSesion.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/cuentaCorriente/CuentasPorPagarFacturasCabecera.java</file>
+            <file>file:/D:/pry/SISGESH/src/modelos/Caja/Caja_NuevaVenta.java</file>
+            <file>file:/D:/pry/SISGESH/src/vista/Caja/Caja_Pagos.java</file>
+>>>>>>> 7dc68c6196d620e4b4badea645a6e9889512e117
+=======
             <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/EC/EC_EXAMEN_CAB.java</file>
             <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX/RX_EC_EXAMEN_CAB_RESULTADO.java</file>
             <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX/RX_EC_EXAMEN_CAB.java</file>
+>>>>>>> 58a55f3c7d6f8e1ef8f07909d5fca315fd8f2dcc
         </group>
     </open-files>
 </project-private>

@@ -156,7 +156,8 @@ public void ConsultoriosExtPREVENTAListar(String ap_id){
             int c=1;
             while(r.next()){
                     
-                Caja_Pagos.lblActoMedico.setText(r.getString(1));    
+                Caja_Pagos.lblActoMedico.setText(r.getString(1));   
+                Caja_Pagos.lblMantP.setText("PR");
             }
             //
         } catch (Exception e) {
@@ -175,6 +176,7 @@ public void ConsultoriosACTOMEDICO_EMERGENCIA(String ap_id){
             while(r.next()){
                     
                 Caja_Pagos.lblActoMedico.setText(r.getString(1));    
+                Caja_Pagos.lblMantP.setText("PR");
             }
             //
         } catch (Exception e) {
@@ -192,7 +194,8 @@ public void ConsultoriosACTOMEDICO_EMERGENCIA(String ap_id){
             int c=1;
             while(r.next()){
                     
-                Caja_Pagos.lblActoMedico.setText(r.getString(1));    
+                Caja_Pagos.lblActoMedico.setText(r.getString(1));  
+                Caja_Pagos.lblMantP.setText("PR");
             }
             //
         } catch (Exception e) {
@@ -210,7 +213,8 @@ public void ConsultoriosExtPREVENTAListarCEX(String ap_id){
             int c=1;
             while(r.next()){
                     
-                Caja_Pagos.lblActoMedico.setText(r.getString(1));    
+                Caja_Pagos.lblActoMedico.setText(r.getString(1));  
+                Caja_Pagos.lblMantP.setText("PR");
             }
             //
         } catch (Exception e) {
@@ -955,7 +959,7 @@ public void listarMedicos1(String Servicio,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Documento","Nº Documento","Forma de Pago","DNI","HC","C","Estado","Descuento","Total","Fecha","Hora","Am","ID"};
+            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","DNI","HC","C","Estado","Descuento","Total","Fecha","Hora","Am","ID"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[13];

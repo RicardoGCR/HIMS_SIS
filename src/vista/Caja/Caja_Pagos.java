@@ -787,20 +787,27 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
      
 
     public void Guardar(){
- 
-                Caja_NuevaVenta AME = new Caja_NuevaVenta();
+        if (lblMantP.getText().equals("VN")){
+             Caja_NuevaVenta AME = new Caja_NuevaVenta();
                 AME.setID_ACTOMEDICO1(Integer.parseInt(lblActoMedico.getText() ));
                 AME.setNUM_ACTOMEDICO(Integer.parseInt(lblActoMedico.getText() ));
                 AME.setFECHA_TERMINO(" ");
                 AME.setDURACION(" ");
                 if(AME.NuevoActoMedico()==true){
-                           System.out.println("Guardado actoo medico");
+                           System.out.println("Guardado actoo medico nuevo");
                            btnguardar.setEnabled(false);
                            btneliminar.setEnabled(true);
   
                        } else {
                              System.out.println("erorr");
                        }  
+            
+        }else   if (lblMantP.getText().equals("pr")){
+            System.out.println("ERsta venta ya tiene acto medico arrastrando");
+        }
+           
+ 
+               
                 
                 Caja_NuevaVenta cno1 = new Caja_NuevaVenta();
                 cno1.setId_documento(lblcodigo.getText());
@@ -2768,7 +2775,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                 .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                                                                     .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                     .addGroup(jPanel42Layout.createSequentialGroup()
-                                                                                                        .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addComponent(jLabel41)
                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                         .addComponent(btnbuscar10, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                                                                 .addGap(35, 35, 35))
@@ -2803,7 +2810,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                         .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(18, 18, 18)
                                                                                                         .addComponent(jPanel42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                                .addGap(0, 189, Short.MAX_VALUE))
+                                                                                                .addGap(0, 177, Short.MAX_VALUE))
                                                                                         );
                                                                                         jPanel18Layout.setVerticalGroup(
                                                                                             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5060,7 +5067,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                         jPanel52.setBackground(new java.awt.Color(255, 255, 255));
 
                                                                                         jScrollPane19.setBackground(new java.awt.Color(255, 255, 255));
-                                                                                        jScrollPane19.setBorder(null);
+                                                                                        jScrollPane19.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
                                                                                         tb_medicos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                                                                                         tb_medicos.setModel(new javax.swing.table.DefaultTableModel(
@@ -5076,7 +5083,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                         ));
                                                                                         tb_medicos.setGridColor(new java.awt.Color(255, 255, 255));
                                                                                         tb_medicos.setRowHeight(25);
-                                                                                        tb_medicos.setSelectionBackground(new java.awt.Color(0, 153, 153));
+                                                                                        tb_medicos.setSelectionBackground(new java.awt.Color(102, 102, 102));
                                                                                         tb_medicos.addMouseListener(new java.awt.event.MouseAdapter() {
                                                                                             public void mouseClicked(java.awt.event.MouseEvent evt) {
                                                                                                 tb_medicosMouseClicked(evt);
@@ -5315,7 +5322,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                 .addGap(0, 0, 0)
                                                                                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                 .addGap(0, 0, 0)
-                                                                                                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
+                                                                                                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
                                                                                                 .addGap(0, 0, 0))
                                                                                         );
 
@@ -6163,7 +6170,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
 
                                                                                         lblMedicoId.setText("jLabel45");
 
-                                                                                        lblMantP.setText("PD?");
+                                                                                        lblMantP.setText("VN");
 
                                                                                         lblId_EmpresaFP.setText("CJ0001");
 
@@ -6180,7 +6187,8 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                         jPanel1Layout.setHorizontalGroup(
                                                                                             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                                .addContainerGap()
+                                                                                                .addComponent(lblServicio)
+                                                                                                .addGap(2, 2, 2)
                                                                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                                                                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -6243,9 +6251,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                                 .addComponent(lblActoMedicoNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                 .addComponent(lblAbonos)
-                                                                                                                .addGap(10, 10, 10)
-                                                                                                                .addComponent(lblServicio)
-                                                                                                                .addGap(32, 32, 32)
+                                                                                                                .addGap(50, 50, 50)
                                                                                                                 .addComponent(lblSinAnulacion)
                                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                                 .addComponent(lblFP)
@@ -6266,6 +6272,10 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                                                                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                                                                .addComponent(lblPorcentaje)
+                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                                .addComponent(lblUsuPorcentaje))
+                                                                                                            .addGroup(jPanel1Layout.createSequentialGroup()
                                                                                                                 .addComponent(lblContador)
                                                                                                                 .addGap(18, 18, 18)
                                                                                                                 .addComponent(lblContadorF)
@@ -6276,11 +6286,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                                 .addComponent(lblNumeroAF)
                                                                                                                 .addGap(18, 18, 18)
-                                                                                                                .addComponent(lblNumeroFT))
-                                                                                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                                                .addComponent(lblPorcentaje)
-                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                .addComponent(lblUsuPorcentaje)))
+                                                                                                                .addComponent(lblNumeroFT)))
                                                                                                         .addGap(0, 0, Short.MAX_VALUE)))
                                                                                                 .addContainerGap())
                                                                                         );
@@ -6293,7 +6299,8 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                                                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                                 .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addComponent(lblPreventa))
+                                                                                                                .addComponent(lblPreventa)
+                                                                                                                .addComponent(lblServicio))
                                                                                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                                 .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                 .addComponent(ca_id)
@@ -6338,12 +6345,11 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                             .addComponent(lblSinAnulacion)
                                                                                                             .addComponent(lblFP)
                                                                                                             .addComponent(lblFua)
-                                                                                                            .addComponent(lblServicio)
                                                                                                             .addComponent(lblVisAdmi)
                                                                                                             .addComponent(lblIdDetalle)
                                                                                                             .addComponent(lblServicioArea))
                                                                                                         .addGap(0, 0, Short.MAX_VALUE))
-                                                                                                    .addComponent(lblId_EmpresaFP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                    .addComponent(lblId_EmpresaFP, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE))
                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                     .addComponent(lblPorcentaje)
@@ -6806,7 +6812,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                             .addGroup(jPanel5Layout.createSequentialGroup()
                                                                                                 .addComponent(resumen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                 .addGap(0, 0, 0)
-                                                                                                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE))
+                                                                                                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE))
                                                                                         );
 
                                                                                         jTabbedPane1.addTab("tab3", jPanel5);
@@ -6998,7 +7004,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                         layout.setVerticalGroup(
                                                                                             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                             .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 937, Short.MAX_VALUE)
+                                                                                            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
                                                                                         );
 
                                                                                         pack();
@@ -7071,6 +7077,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
            CP.ConsultoriosExtPREVENTAListar(lblIdPreventa.getText());
            CP2.ConsultoriosExtPREVENTAListarCEX(lblIdPreventa.getText());
            CP3.ConsultoriosACTOMEDICO_EMERGENCIA(lblIdPreventa.getText());
+           CP3.VerificarPreventaHOS_OJO_IMPORTANTE_DE_MOMENTO(lblIdPreventa.getText());
            
             Abonnos();
         if(evt.getClickCount()==2){
@@ -7209,35 +7216,32 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
             Jerarquias.dispose();
             txtFormaPago.setText(String.valueOf(tb_Grupo3.getValueAt(fila, 1)));
             lblFP.setText(String.valueOf(tb_Grupo3.getValueAt(fila, 0)));
-           
             
             if(!txtFormaPago.getText().equals("EXONERACION")){
                 Guardar();
                 
                 lblOk.setText("okk");
-             if(txtFormaPago.getText().equalsIgnoreCase("SIS" ) || txtFormaPago.getText().equalsIgnoreCase("SIS CREDITOS"  )){
+            if(txtFormaPago.getText().equalsIgnoreCase("SIS" ) || txtFormaPago.getText().equalsIgnoreCase("SIS CREDITOS"  )){
                  panelColorFp.setBackground(new Color(232,76,61)); 
              GuardarSIS();
              } 
              
-             if(txtFormaPago.getText().equalsIgnoreCase("CONTADO" )){
+            if(txtFormaPago.getText().equalsIgnoreCase("CONTADO" )){
                  panelColorFp.setBackground(new Color(41,127,184)); 
              } 
              
-              if(!txtFormaPago.getText().equalsIgnoreCase("CONTADO" )&&!txtFormaPago.getText().equalsIgnoreCase("SIS" ) && !txtFormaPago.getText().equalsIgnoreCase("SIS CREDITOS"  )){
+            if(!txtFormaPago.getText().equalsIgnoreCase("CONTADO" )&&!txtFormaPago.getText().equalsIgnoreCase("SIS" ) && !txtFormaPago.getText().equalsIgnoreCase("SIS CREDITOS"  )){
                  panelColorFp.setBackground(new Color(243,156,17)); 
-             } 
-            }  
-            
-            }else if(txtFormaPago.getText().equals("EXONERACION")){
+             }
+            if(lblPreventa.getText().equals("NO")){
+               nomenclaturas.setVisible(true);
+               txtBuscarCPT.setText("");
+               txtBuscarCPT.requestFocus();  
+            } 
+            }else 
+                if(txtFormaPago.getText().equals("EXONERACION")){
                 AsistenciaSocial.setVisible(true);
-
-            }
-            
-           
-            
-            
-           
+            }  } 
     }//GEN-LAST:event_tb_Grupo3MouseClicked
 
     private void tb_Grupo3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo3KeyPressed
@@ -7905,9 +7909,10 @@ if(tgp==1){
 //        txtBuscarMedicos.setText(null);
 //        txtBuscarMedicos.requestFocus();
 //        CNV1.listarMedicos1(lblServicio.getText(),tb_medicos1);
-        Medicos.setVisible(true);
         CNV1.listarMedicos1(lblServicio.getText(),tb_medicos);
-        lblMantP.setText("Pr");
+        Medicos.setVisible(true);
+        
+
         //////////////////
          preventas.dispose(); 
     }
@@ -8975,7 +8980,7 @@ jTabbedPane1.setSelectedIndex(1);
         int fila=tb_medicos.getSelectedRow();
         if(evt.getClickCount()==2){
             Medicos.dispose();
-            lblIdMedico.setText(String.valueOf(tb_medicos.getValueAt(fila, 0)));
+            lblMedicoId.setText(String.valueOf(tb_medicos.getValueAt(fila, 0)));
             GuardarDetalle();
             ModificarPreventa();
             panelNumeros.setVisible(true);
@@ -8990,7 +8995,7 @@ jTabbedPane1.setSelectedIndex(1);
             Medicos.dispose();
             int fila = tb_medicos.getSelectedRow();
             Medicos.dispose();
-            lblIdMedico.setText(String.valueOf(tb_medicos.getValueAt(fila, 0)));
+            lblMedicoId.setText(String.valueOf(tb_medicos.getValueAt(fila, 0)));
             GuardarDetalle();
             ModificarPreventa();
             panelNumeros.setVisible(true);
@@ -9324,7 +9329,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JLabel lblIdPreventas;
     private javax.swing.JLabel lblId_EmpresaFP;
     private javax.swing.JLabel lblMant;
-    private javax.swing.JLabel lblMantP;
+    public static javax.swing.JLabel lblMantP;
     private javax.swing.JLabel lblMedicoApeNom;
     private javax.swing.JLabel lblMedicoId;
     private javax.swing.JLabel lblModulo;

@@ -1468,7 +1468,7 @@
                               <Component id="jPanel42" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="189" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="177" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1747,7 +1747,7 @@
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="jPanel43" min="-2" pref="211" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel41" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="btnbuscar10" min="-2" pref="47" max="-2" attributes="0"/>
                               </Group>
@@ -5604,7 +5604,9 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
+                        <CompoundBorder/>
+                      </Border>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -5631,7 +5633,7 @@
                         </Property>
                         <Property name="rowHeight" type="int" value="25"/>
                         <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="99" green="99" red="0" type="rgb"/>
+                          <Color blue="66" green="66" red="66" type="rgb"/>
                         </Property>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -5759,7 +5761,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel21" max="32767" attributes="0"/>
-          <Component id="jTabbedPane1" alignment="0" pref="937" max="32767" attributes="0"/>
+          <Component id="jTabbedPane1" alignment="0" pref="975" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -5812,7 +5814,7 @@
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="148" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="jScrollPane7" pref="660" max="32767" attributes="0"/>
+                      <Component id="jScrollPane7" pref="698" max="32767" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -7534,7 +7536,8 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblServicio" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -7606,9 +7609,7 @@
                                           <Component id="lblActoMedicoNuevo" min="-2" pref="49" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lblAbonos" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                          <Component id="lblServicio" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                                           <Component id="lblSinAnulacion" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="lblFP" min="-2" max="-2" attributes="0"/>
@@ -7633,6 +7634,11 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblPorcentaje" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="lblUsuPorcentaje" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Component id="lblContador" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="lblContadorF" min="-2" max="-2" attributes="0"/>
@@ -7644,11 +7650,6 @@
                                           <Component id="lblNumeroAF" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="lblNumeroFT" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblPorcentaje" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="lblUsuPorcentaje" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -7668,6 +7669,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="txtedad" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblPreventa" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblServicio" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                           <Component id="sexo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -7719,14 +7721,13 @@
                                       <Component id="lblSinAnulacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblFP" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblFua" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblServicio" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblVisAdmi" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblIdDetalle" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblServicioArea" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="lblId_EmpresaFP" max="32767" attributes="0"/>
+                              <Component id="lblId_EmpresaFP" pref="17" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -8026,8 +8027,11 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblMantP">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="PD?"/>
+                    <Property name="text" type="java.lang.String" value="VN"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblId_EmpresaFP">
                   <Properties>
@@ -8302,7 +8306,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="resumen1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="jScrollPane11" pref="808" max="32767" attributes="0"/>
+                      <Component id="jScrollPane11" pref="846" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

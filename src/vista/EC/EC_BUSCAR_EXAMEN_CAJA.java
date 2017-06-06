@@ -6,11 +6,13 @@
 package vista.EC;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -543,6 +545,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         tb_Examen_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Examen_EC.setComponentPopupMenu(jPopupMenu1);
         tb_Examen_EC.setRowHeight(25);
+        tb_Examen_EC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tb_Examen_ECKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tb_Examen_EC);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -623,6 +630,14 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         DETALLE.setVisible(true);
         ver_detalle_EC();
     }//GEN-LAST:event_detalleActionPerformed
+
+    private void tb_Examen_ECKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Examen_ECKeyPressed
+       char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){  
+                    cargar_tabla_cabecera_ENTER_EC();
+                    
+        }
+    }//GEN-LAST:event_tb_Examen_ECKeyPressed
 
     public void inicializar_tabla_Examenes_EC(){       
         try {
@@ -771,7 +786,41 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             tb_Detalle_EC_D.getColumnModel().getColumn(1).setPreferredWidth(130);
             tb_Detalle_EC_D.getColumnModel().getColumn(2).setPreferredWidth(600);                      
     }
-        
+     
+    public void cargar_tabla_cabecera_ENTER_EC(){
+    try{
+                        if( tb_Examen_EC.getRowCount()>0){
+                        int filaselec=tb_Examen_EC.getSelectedRow();
+                        
+                           dispose();
+                            EC_EXAMEN_CAB ec=new EC_EXAMEN_CAB();
+                            ec.setVisible(true);
+                            
+                            EC_EXAMEN_CAB.txtCodigoDoc_EC.setText(tb_Examen_EC.getValueAt(filaselec, 10).toString());
+                            EC_EXAMEN_CAB.txtAM.setText(tb_Examen_EC.getValueAt(filaselec, 7).toString());
+                            EC_EXAMEN_CAB.txtHC.setText(tb_Examen_EC.getValueAt(filaselec, 1).toString());
+                            EC_EXAMEN_CAB.txtDNI.setText(tb_Examen_EC.getValueAt(filaselec, 3).toString());
+                            EC_EXAMEN_CAB.txtNombreP.setText(tb_Examen_EC.getValueAt(filaselec, 2).toString());
+//                            RX_EC_EXAMEN_CAB.lblCantidad.setText(tb_Examenes.getValueAt(filaselec, 8).toString());
+                            EC_EXAMEN_CAB.txtEdad.setText(tb_Examen_EC.getValueAt(filaselec, 5).toString());
+                            EC_EXAMEN_CAB.txtFechaNac.setText(tb_Examen_EC.getValueAt(filaselec, 4).toString());
+                            EC_EXAMEN_CAB.txtGenero.setText(tb_Examen_EC.getValueAt(filaselec, 6).toString());
+//                            RX_EC_EXAMEN_CAB.lblCantidad.setText(tb_Examenes.getValueAt(filaselec, 8).toString());
+//                            lblIDArea.setText(lblNumeArea.getText());
+//                            lblNomAD.setText(lblNomArea.getText());
+                                                    
+                            EC_EXAMEN_CAB.lblIDArea_EC.setText(lblNumeArea_EC.getText());
+                            EC_EXAMEN_CAB.lblNomA_EC.setText(lblNomArea_EC.getText());
+                            
+
+                            String u=lblUsu.getText();
+                            EC_EXAMEN_CAB.lblUsu.setText(u);
+                        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "cargar"+e.getMessage());
+        }           
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -25,6 +25,7 @@ public class Caja_Preventa {
     DefaultTableModel m;
     private Connection cn;
     private int id_preventa;
+    private int Id_Detalle_p;
     private String id_hc;
     private int CA_ID;
     private int id_per_uni_org;
@@ -249,6 +250,49 @@ public class Caja_Preventa {
             cmd.setInt(2, getACTO_MEDICO());
             cmd.setString(3, getCod_jerar_forma_pago());
             cmd.setString(4, getCod_medico());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean modificarDetallePreventa(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec Caja_Actualizar_Detalle_Preventa ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_Detalle_p());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+    public boolean modificarPreventaRetorno(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec Caja_Actualizar_Preventa_RETORNO ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
 
             if(!cmd.execute())
             {
@@ -1426,5 +1470,15 @@ public class Caja_Preventa {
     public void setElisa_consejero(String elisa_consejero) {
         this.elisa_consejero = elisa_consejero;
     }
+
+    public int getId_Detalle_p() {
+        return Id_Detalle_p;
+    }
+
+    public void setId_Detalle_p(int Id_Detalle_p) {
+        this.Id_Detalle_p = Id_Detalle_p;
+    }
+    
+    
 
 }

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
+<<<<<<< HEAD
+	<property name="ireport.zoom" value="1.100000000000012"/>
+	<property name="ireport.x" value="0"/>
+=======
 	<property name="ireport.zoom" value="2.1435888100000238"/>
 	<property name="ireport.x" value="228"/>
+>>>>>>> 1408e43f32240bd05effa5c06da74f26251723e9
 	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
@@ -419,7 +424,7 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				<text><![CDATA[NOTA DE INGRESO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="143" y="0" width="277" height="27" uuid="aa0a04a0-cc5c-4586-ae13-4a31b7538fa0"/>
+				<reportElement x="143" y="0" width="281" height="27" uuid="aa0a04a0-cc5c-4586-ae13-4a31b7538fa0"/>
 				<textElement>
 					<font fontName="Arial" size="20" isBold="true"/>
 				</textElement>
@@ -439,10 +444,6 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				</textElement>
 				<text><![CDATA[Personas que atendemos personas]]></text>
 			</staticText>
-			<image>
-				<reportElement x="458" y="3" width="46" height="33" uuid="e213b133-95a7-49de-acf4-c8f97e05c93f"/>
-				<imageExpression><![CDATA["D:\\pry\\SISGESH\\src\\imagenes\\logominsa.gif"]]></imageExpression>
-			</image>
 			<textField>
 				<reportElement x="187" y="52" width="182" height="20" uuid="056da443-f4e4-4e97-abd5-646ec8e3decc"/>
 				<textElement textAlignment="Center">
@@ -453,6 +454,10 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 			<image>
 				<reportElement x="18" y="3" width="118" height="63" uuid="7ddf39d2-cf65-4321-b054-81340cc1eaf3"/>
 				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="456" y="-1" width="74" height="38" uuid="d11b55af-3a90-4778-adc9-58dca9d15613"/>
+				<imageExpression><![CDATA["D:\\pry\\SISGESH\\src\\imagenes\\iconos\\logomin.gif"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -689,7 +694,7 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				<textFieldExpression><![CDATA[$F{DIS_ACT}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="218" y="2" width="44" height="20" uuid="c66917f6-5f14-43a9-b00f-6f86b07635ea"/>
+				<reportElement x="218" y="26" width="44" height="20" uuid="c66917f6-5f14-43a9-b00f-6f86b07635ea"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
@@ -766,9 +771,9 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				<text><![CDATA[Provincia:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="262" y="2" width="100" height="20" uuid="e7f0a787-fa79-44c9-937c-2296e4f69a46"/>
+				<reportElement x="262" y="26" width="100" height="20" uuid="e7f0a787-fa79-44c9-937c-2296e4f69a46"/>
 				<textElement>
-					<font size="14"/>
+					<font size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dni}]]></textFieldExpression>
 			</textField>
@@ -803,12 +808,12 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 			<textField>
 				<reportElement x="52" y="26" width="100" height="20" uuid="4baf5508-e771-4be8-a3f6-25d8e773efb4"/>
 				<textElement>
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CODIGO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="87" y="2" width="134" height="20" uuid="2ca4b4a2-65b9-488d-bc60-ca6bc2842f6e"/>
+				<reportElement x="87" y="2" width="130" height="20" uuid="2ca4b4a2-65b9-488d-bc60-ca6bc2842f6e"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>

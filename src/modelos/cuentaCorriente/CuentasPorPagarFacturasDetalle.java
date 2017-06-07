@@ -17,7 +17,6 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int cpdId;
-
     private int cpfId;
     private String nomenclatura;
 

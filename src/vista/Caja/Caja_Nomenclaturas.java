@@ -419,7 +419,7 @@ byte tga;
                 
                        if(cno1.modificarNomenclatura()==true){
                         
-                           cargareliminar.setBackground(new Color(0,153,102)); 
+                                cargareliminar.setBackground(new Color(0,153,102)); 
                                 Mensaje.setText("Datos Actualizados de forma correcta");
                                 eli.setText("OK");
                                 eli.setVisible(true);
@@ -498,7 +498,7 @@ byte tga;
                 
                 
 //                    JOptionPane.showMessageDialog(this, (txtnomenclatura.getText()+txtnom1.getText()));
-                 cno1.setNomen_caja(txtnomenclatura.getText()+txtnom1.getText());   
+                cno1.setNomen_caja(txtnomenclatura.getText()+txtnom1.getText());   
                
                 cno1.setDescripcion_nomen_tipo(txtdes.getText().toUpperCase());
                 cno1.setNom_usu(lblusu.getText());
@@ -515,7 +515,7 @@ byte tga;
                 cno1.setVis_aten("");
        
                     if(cno1.nuevaNomenclatura()==true){
-                           cargareliminar.setVisible(true);
+                                cargareliminar.setVisible(true);
                                 cargareliminar.setBackground(new Color(0,153,102)); 
                                 Mensaje.setText("Datos Guardados de forma correcta");
                                 eli.setText("OK");
@@ -1011,7 +1011,7 @@ byte tga;
                                 .addContainerGap())
                         );
 
-                        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                         setMinimumSize(new java.awt.Dimension(1054, 550));
 
                         jPanel1.setBackground(new java.awt.Color(41, 127, 184));
@@ -1722,9 +1722,9 @@ jTabbedPane1.setSelectedIndex(0);
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
         if(tg==1){
             Guardar();
-              b.setVisible(false);
-         b1.setVisible(false);
-         b2.setVisible(false);
+            b.setVisible(false);
+            b1.setVisible(false);
+            b2.setVisible(false);
         }else if(tg==2){
            cargareliminar.setVisible(true);
            cargareliminar.setBackground(new Color(255,153,51)); 

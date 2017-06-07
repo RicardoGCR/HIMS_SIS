@@ -228,13 +228,14 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
 
         lblUsuUsuario.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
         lblUsuUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsuUsuario.setText("Silvana");
+        lblUsuUsuario.setText("Usuario");
 
         jLabel19.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(51, 51, 51));
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
 
-        txtBuscar.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        txtBuscar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtBuscar.setForeground(new java.awt.Color(102, 102, 102));
         txtBuscar.setEnabled(false);
         txtBuscar.setSelectionColor(new java.awt.Color(204, 204, 204));
         txtBuscar.addCaretListener(new javax.swing.event.CaretListener() {
@@ -265,10 +266,14 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
         });
 
         fechai.setBackground(new java.awt.Color(0, 118, 168));
-        fechai.setDateFormatString("dd-MM-yyyy");
+        fechai.setForeground(new java.awt.Color(102, 102, 102));
+        fechai.setDateFormatString("dd/MM/yyyy");
+        fechai.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         fechaf.setBackground(new java.awt.Color(0, 118, 168));
-        fechaf.setDateFormatString("dd-MM-yyyy");
+        fechaf.setForeground(new java.awt.Color(102, 102, 102));
+        fechaf.setDateFormatString("dd/MM/yyyy");
+        fechaf.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -319,6 +324,8 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
                 return false;
             }
         };
+        tbCabecera.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tbCabecera.setForeground(new java.awt.Color(102, 102, 102));
         tbCabecera.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -332,6 +339,7 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
         ));
         tbCabecera.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbCabecera.setSelectionBackground(new java.awt.Color(0, 118, 168));
+        tbCabecera.getTableHeader().setReorderingAllowed(false);
         tbCabecera.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tbCabeceraMouseReleased(evt);
@@ -364,6 +372,8 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
                 return false;
             }
         };
+        tbTriaje.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tbTriaje.setForeground(new java.awt.Color(102, 102, 102));
         tbTriaje.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -377,6 +387,7 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
         ));
         tbTriaje.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbTriaje.setSelectionBackground(new java.awt.Color(0, 118, 168));
+        tbTriaje.getTableHeader().setReorderingAllowed(false);
         tbTriaje.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tbTriajeMouseReleased(evt);
@@ -407,6 +418,8 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
                 return false;
             }
         };
+        tbTopico.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tbTopico.setForeground(new java.awt.Color(102, 102, 102));
         tbTopico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -420,6 +433,7 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
         ));
         tbTopico.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbTopico.setSelectionBackground(new java.awt.Color(0, 118, 168));
+        tbTopico.getTableHeader().setReorderingAllowed(false);
         tbTopico.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tbTopicoMouseReleased(evt);

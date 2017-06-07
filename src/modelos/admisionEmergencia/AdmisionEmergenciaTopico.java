@@ -20,7 +20,7 @@ import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 import vista.ConsultorioEx.HistoriaClinica;
 import vista.admisionEmergencia.FrmFormatoEmergencia;
-import static vista.admisionEmergencia.FrmFormatoEmergencia.txtIDTopico;
+import static vista.admisionEmergencia.FrmFormatoEmergencia.lbl2;
 import static vista.admisionEmergencia.FrmListFormatoEmergencia.tbTriaje;
 
 /**
@@ -107,12 +107,11 @@ public class AdmisionEmergenciaTopico {
             columna.setMaxWidth(0);
             columna.setMinWidth(0);
             columna.setPreferredWidth(0);
-            tabla.setRowHeight(0);
             tabla.doLayout();
-        tabla.setRowHeight(25);
+        tabla.setRowHeight(30);
     }
     
-    public void cargarFormatLaboratorio(String nombre,JTable tabla){
+    public void cargarFormatLaboratorio(String nombre,JTable tabla,String formaPago){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -121,9 +120,10 @@ public class AdmisionEmergenciaTopico {
             JTable p=new JTable(m);
             String fila[]=new String[4];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CAJA_NOMENCLATURA_CAJA_LISTAR_EXAMENES ?";
+            consulta="EXEC CAJA_NOMENCLATURA_CAJA_LISTAR_EXAMENES ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, nombre);
+            cmd.setString(2, formaPago);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -251,6 +251,11 @@ public class AdmisionEmergenciaTopico {
         tabla.getColumnModel().getColumn(19).setPreferredWidth(500);//anot enf
         tabla.getColumnModel().getColumn(20).setPreferredWidth(100);//evaluacion
         tabla.getColumnModel().getColumn(21).setPreferredWidth(100);//ubicacion de egreso
+        TableColumn columna = tabla.getColumnModel().getColumn(24);
+            columna.setMaxWidth(0);
+            columna.setMinWidth(0);
+            columna.setPreferredWidth(0);
+            tabla.doLayout();
         tabla.setRowHeight(25);
     }
     
@@ -264,10 +269,10 @@ public class AdmisionEmergenciaTopico {
                               "Relato","Conciencia","Hidratación","Nutrición",
                               "Examen Físico","Plan de Trabajo","Anotaciones Médicas",
                               "Anotaciones de Enfermería","Evaluación del Paciente",
-                              "Ubicación al egreso","Prioridad","ID"};
+                              "Ubicación al egreso","Prioridad","ID","","FORMA DE PAGO"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[24];
+            String fila[]=new String[30];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC ADMISION_EMERGENCIA_TOPICO_LISTAR_Y_REPORTE ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -300,6 +305,8 @@ public class AdmisionEmergenciaTopico {
                 fila[21]=r.getString(20);//ubic egreso
                 fila[22]=r.getString(26);//ubic egreso
                 fila[23]=r.getString(27);//ubic egreso
+                fila[24]=r.getString(28);//ubic egreso
+                fila[25]=r.getString(29);//ubic egreso
                     m.addRow(fila);
                     c++;
             }
@@ -565,6 +572,24 @@ public class AdmisionEmergenciaTopico {
         }
     }
     
+    public void formadePago(String nhc){
+        String consulta="";
+        try {
+            consulta="EXEC ADMISION_EMERGENCIA_CARGAR_FORMA_PAGO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, nhc);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                FrmFormatoEmergencia.lblIdFP.setText(r.getString(1));
+                FrmFormatoEmergencia.lblFP.setText(r.getString(2));
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: formadePago" + e.getMessage());
+        }
+    }
+    
     public String topicoID()
     {
         String cod="";
@@ -576,7 +601,7 @@ public class AdmisionEmergenciaTopico {
             ResultSet rs = cmd.executeQuery();
             if(rs.next())
             {
-               FrmFormatoEmergencia.txtIDTopico.setText(rs.getString(1));
+               FrmFormatoEmergencia.lbl2.setText(rs.getString(1));
             }
         }
         catch(Exception ex)

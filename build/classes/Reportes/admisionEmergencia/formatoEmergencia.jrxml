@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
+<<<<<<< HEAD
 	<property name="ireport.zoom" value="1.100000000000012"/>
 	<property name="ireport.x" value="0"/>
+=======
+	<property name="ireport.zoom" value="2.1435888100000238"/>
+	<property name="ireport.x" value="228"/>
+>>>>>>> 1408e43f32240bd05effa5c06da74f26251723e9
 	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>

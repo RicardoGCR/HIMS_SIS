@@ -1232,7 +1232,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
 
     private void btnActualizarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaActionPerformed
         if(chkHoy.isSelected()){
-            movHC.mostrar_MovHC(2,tbMovimientoHC,"Pendiente","","","","","","");
+            movHC.mostrar_MovHC(3,tbMovimientoHC,"Pendiente","","","","","","");
         }else{
             String estadoM = cbxMovimiento.getSelectedItem().toString();
             String servicio = txtServicio.getText();
@@ -1560,7 +1560,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 Thread.sleep(10000);
                 // mostrar datos en la tabla tbMvimientoHC
                 if(chkHoy.isSelected()){
-                    movHC.mostrar_MovHC(2,tbMovimientoHC,"Pendiente","","","","","","");
+                    movHC.mostrar_MovHC(3,tbMovimientoHC,"Pendiente","","","","","","");
                 }
             } catch (InterruptedException e) {
                 System.out.println(e.toString());

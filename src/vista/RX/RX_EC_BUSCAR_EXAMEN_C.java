@@ -929,18 +929,18 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
            int mes = fecha_inicio.getCalendar().get(Calendar.MONTH) + 1;
            int anio = fecha_inicio.getCalendar().get(Calendar.YEAR);
                        
-           String fechaI;
+           int fechaI;
                        
                        if(mes<10 && dia<10){
-                           fechaI = "0" + dia + "/"+ "0" + mes + "/" + anio;
+                           fechaI = Integer.parseInt(anio + "0" + mes + "0" + dia);
                        }else{                           
                            if(mes<10 && dia>=10){
-                           fechaI = dia + "/" +"0"+ mes + "/" + anio;
+                           fechaI = Integer.parseInt(anio + "0"+ mes + dia);
                            }else{
                                if(mes >=10 && dia<10){
-                                 fechaI = "0"+ dia + "/" + mes + "/" + anio;
+                                 fechaI = Integer.parseInt( anio + mes + "0"+ dia);
                                }else{
-                                   fechaI = dia + "/" + mes + "/" + anio;
+                                   fechaI = anio +  mes + dia ;
                                }
                            }
                        }
@@ -950,18 +950,18 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
            int mes1 = fecha_fin.getCalendar().get(Calendar.MONTH) + 1;
            int anio1 = fecha_fin.getCalendar().get(Calendar.YEAR);
                        
-           String fechaF;
+           int fechaF;
                        
                        if(mes1<10 && dia1<10){
-                           fechaF = "0" + dia1 + "/"+ "0" + mes1 + "/" + anio1;
+                           fechaF = Integer.parseInt(anio1 + "0" + mes1 + "0" + dia1);
                        }else{                           
                            if(mes1<10 && dia1>=10){
-                           fechaF = dia1 + "/" +"0"+ mes1 + "/" + anio1;
+                           fechaF = Integer.parseInt(anio1 + "0"+ mes1 +  dia1);
                            }else{
                                if(mes1 >=10 && dia1<10){
-                                 fechaF = "0"+ dia1 + "/" + mes1 + "/" + anio1;
+                                 fechaF = Integer.parseInt(anio1  + mes1 + "0"+ dia1);
                                }else{
-                                   fechaF = dia1 + "/" + mes1 + "/" + anio1;
+                                   fechaF = anio1 + mes1 + dia1 ;
                                }
                            }
                        }
@@ -986,8 +986,8 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             RX_EC_BUSCAR_EXAMEN_CAJA obj=new RX_EC_BUSCAR_EXAMEN_CAJA();
             consulta="exec RX_EC_BUSCAR_CAJA_RX ?,?,?,?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1,fechaI);
-            cmd.setString(2, fechaF);
+            cmd.setInt(1,fechaI);
+            cmd.setInt(2, fechaF);
             cmd.setString(3, buscar);
             cmd.setString(4, servicioArea);
             

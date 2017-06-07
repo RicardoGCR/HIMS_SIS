@@ -605,7 +605,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtFormadePago" max="32767" attributes="0"/>
+                      <Component id="txtFormadePago" min="-2" pref="140" max="-2" attributes="0"/>
                       <Component id="jLabel18" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -628,10 +628,9 @@
                                       <Component id="txtCodigoPrecio" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="txtSubServicio" alignment="1" max="32767" attributes="0"/>
+                              <Component id="txtSubServicio" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="txtServicio" max="32767" attributes="0"/>
                                       <Component id="jLabel9" max="32767" attributes="0"/>
                                       <Component id="txtPrecio" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
@@ -640,10 +639,11 @@
                                           <Component id="btnBuscarCPT" min="-2" pref="31" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="txtCodigo6" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txtCodigoCPT" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCodigoCPT" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                                       <Component id="jLabel16" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jLabel14" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel10" alignment="0" pref="140" max="32767" attributes="0"/>
+                                      <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtServicio" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>

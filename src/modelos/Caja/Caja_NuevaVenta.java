@@ -1132,9 +1132,8 @@ public void listarMedicos1(String Servicio,JTable tabla){
         tabla.setRowHeight(40);
     }
 
-     
-
-
+      
+      
  public Caja_NuevaVenta(){
         Conexion con = new Conexion();
         cn = con.conectar();

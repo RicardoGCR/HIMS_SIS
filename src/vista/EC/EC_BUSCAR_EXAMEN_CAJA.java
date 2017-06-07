@@ -6,11 +6,16 @@
 package vista.EC;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -24,7 +29,7 @@ import servicios.Conexion;
  *
  * @author MYS3
  */
-public class EC_BUSCAR_EXAMEN_CAJA extends javax.swing.JFrame {
+public class EC_BUSCAR_EXAMEN_CAJA extends javax.swing.JFrame implements Runnable{
 Conexion conectar=new Conexion();
 Connection con;
 String hora, minutos, segundos, ampm;
@@ -44,8 +49,14 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         DETALLE.setLocationRelativeTo(null);
         DETALLE.getContentPane().setBackground(Color.white);
         
+        //FECHA Y HORA
+        h1 = new Thread(this);
+        h1.start();
+        Calendar cal=Calendar.getInstance();          
+        lblFecha_EC.setText(fechaActual());
+        
         mostrarArea_EC();
-        mostrarPacientes_EC();
+        //mostrarPacientes_EC();
     }
 
     /**
@@ -95,9 +106,9 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         jLabel4 = new javax.swing.JLabel();
         lblNomArea_EC = new javax.swing.JLabel();
         lblNumeArea_EC = new javax.swing.JLabel();
-        cbFecha = new javax.swing.JCheckBox();
-        lblFecha = new javax.swing.JLabel();
-        lblHora = new javax.swing.JLabel();
+        cbFecha_EC = new javax.swing.JCheckBox();
+        lblFecha_EC = new javax.swing.JLabel();
+        lblHora_EC = new javax.swing.JLabel();
         fecha_fin = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -409,26 +420,26 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         lblNumeArea_EC.setForeground(new java.awt.Color(255, 255, 255));
         lblNumeArea_EC.setText("jLabel3");
 
-        cbFecha.setBackground(new java.awt.Color(255, 255, 255));
-        cbFecha.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
-        cbFecha.setForeground(new java.awt.Color(255, 255, 255));
-        cbFecha.setText("BUSCAR POR RANGO DE FECHAS");
-        cbFecha.addActionListener(new java.awt.event.ActionListener() {
+        cbFecha_EC.setBackground(new java.awt.Color(255, 255, 255));
+        cbFecha_EC.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        cbFecha_EC.setForeground(new java.awt.Color(255, 255, 255));
+        cbFecha_EC.setText("BUSCAR POR RANGO DE FECHAS");
+        cbFecha_EC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbFechaActionPerformed(evt);
+                cbFecha_ECActionPerformed(evt);
             }
         });
-        cbFecha.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        cbFecha_EC.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                cbFechaPropertyChange(evt);
+                cbFecha_ECPropertyChange(evt);
             }
         });
 
-        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
-        lblFecha.setText("jLabel3");
+        lblFecha_EC.setForeground(new java.awt.Color(255, 255, 255));
+        lblFecha_EC.setText("jLabel3");
 
-        lblHora.setForeground(new java.awt.Color(255, 255, 255));
-        lblHora.setText("jLabel3");
+        lblHora_EC.setForeground(new java.awt.Color(255, 255, 255));
+        lblHora_EC.setText("jLabel3");
 
         fecha_fin.setBackground(new java.awt.Color(255, 255, 255));
         fecha_fin.setDateFormatString("dd-MM-yyyy");
@@ -456,16 +467,16 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addComponent(titulo5)
                         .addGap(77, 77, 77)
-                        .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblFecha_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblHora, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(lblHora_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblNumeArea_EC)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblNomArea_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbFecha)
+                            .addComponent(cbFecha_EC)
                             .addGroup(jpanelLayout.createSequentialGroup()
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -495,8 +506,8 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                             .addComponent(lblNomArea_EC)
                             .addComponent(lblNumeArea_EC)))
                     .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblFecha)
-                        .addComponent(lblHora)))
+                        .addComponent(lblFecha_EC)
+                        .addComponent(lblHora_EC)))
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -504,7 +515,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                         .addContainerGap())
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addComponent(cbFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbFecha_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -543,6 +554,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         tb_Examen_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Examen_EC.setComponentPopupMenu(jPopupMenu1);
         tb_Examen_EC.setRowHeight(25);
+        tb_Examen_EC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tb_Examen_ECKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tb_Examen_EC);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -595,13 +611,13 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         
     }//GEN-LAST:event_txtBuscarPacienteKeyTyped
 
-    private void cbFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFechaActionPerformed
+    private void cbFecha_ECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFecha_ECActionPerformed
    
-    }//GEN-LAST:event_cbFechaActionPerformed
+    }//GEN-LAST:event_cbFecha_ECActionPerformed
 
-    private void cbFechaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cbFechaPropertyChange
+    private void cbFecha_ECPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cbFecha_ECPropertyChange
 
-    }//GEN-LAST:event_cbFechaPropertyChange
+    }//GEN-LAST:event_cbFecha_ECPropertyChange
 
     private void fecha_finKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fecha_finKeyTyped
 
@@ -623,6 +639,14 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         DETALLE.setVisible(true);
         ver_detalle_EC();
     }//GEN-LAST:event_detalleActionPerformed
+
+    private void tb_Examen_ECKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Examen_ECKeyPressed
+       char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){  
+                    cargar_tabla_cabecera_ENTER_EC();
+                    
+        }
+    }//GEN-LAST:event_tb_Examen_ECKeyPressed
 
     public void inicializar_tabla_Examenes_EC(){       
         try {
@@ -657,7 +681,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             JTable p=new JTable(m1);
             String fila[]=new String[11];
             Usuario obj=new Usuario();
-            consulta="exec EC_LISTAR_CAJA_DIA ";
+            consulta="exec RX_EC_LISTAR_CAJA_DIA_EC ";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             
             ResultSet r= cmd.executeQuery();
@@ -771,7 +795,65 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             tb_Detalle_EC_D.getColumnModel().getColumn(1).setPreferredWidth(130);
             tb_Detalle_EC_D.getColumnModel().getColumn(2).setPreferredWidth(600);                      
     }
-        
+     
+    public void cargar_tabla_cabecera_ENTER_EC(){
+    try{
+                        if( tb_Examen_EC.getRowCount()>0){
+                        int filaselec=tb_Examen_EC.getSelectedRow();
+                        
+                           dispose();
+                            EC_EXAMEN_CAB ec=new EC_EXAMEN_CAB();
+                            ec.setVisible(true);
+                            
+                            EC_EXAMEN_CAB.txtCodigoDoc_EC.setText(tb_Examen_EC.getValueAt(filaselec, 10).toString());
+                            EC_EXAMEN_CAB.txtAM.setText(tb_Examen_EC.getValueAt(filaselec, 7).toString());
+                            EC_EXAMEN_CAB.txtHC.setText(tb_Examen_EC.getValueAt(filaselec, 1).toString());
+                            EC_EXAMEN_CAB.txtDNI.setText(tb_Examen_EC.getValueAt(filaselec, 3).toString());
+                            EC_EXAMEN_CAB.txtNombreP.setText(tb_Examen_EC.getValueAt(filaselec, 2).toString());
+//                            RX_EC_EXAMEN_CAB.lblCantidad.setText(tb_Examenes.getValueAt(filaselec, 8).toString());
+                            EC_EXAMEN_CAB.txtEdad.setText(tb_Examen_EC.getValueAt(filaselec, 5).toString());
+                            EC_EXAMEN_CAB.txtFechaNac.setText(tb_Examen_EC.getValueAt(filaselec, 4).toString());
+                            EC_EXAMEN_CAB.txtGenero.setText(tb_Examen_EC.getValueAt(filaselec, 6).toString());
+//                            RX_EC_EXAMEN_CAB.lblCantidad.setText(tb_Examenes.getValueAt(filaselec, 8).toString());
+//                            lblIDArea.setText(lblNumeArea.getText());
+//                            lblNomAD.setText(lblNomArea.getText());
+                                                    
+                            EC_EXAMEN_CAB.lblIDArea_EC.setText(lblNumeArea_EC.getText());
+                            EC_EXAMEN_CAB.lblNomA_EC.setText(lblNomArea_EC.getText());
+                            
+
+                            String u=lblUsu.getText();
+                            EC_EXAMEN_CAB.lblUsu_EC.setText(u);
+                        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "cargar"+e.getMessage());
+        }           
+    }
+    
+    public static String fechaActual(){
+        Date now = new Date(System.currentTimeMillis());
+        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+        return date.format(now);
+    }
+    
+    public void calcula() {
+        Calendar calendario = new GregorianCalendar();
+        java.util.Date fechaHoraActual = new java.util.Date();
+
+
+        calendario.setTime(fechaHoraActual);
+        ampm = calendario.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
+
+        if (ampm.equals("PM")) {
+            int h = calendario.get(Calendar.HOUR_OF_DAY) - 12;
+            hora = h > 9 ? "" + h : "0" + h;
+        } else {
+            hora = calendario.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendario.get(Calendar.HOUR_OF_DAY) : "0" + calendario.get(Calendar.HOUR_OF_DAY);
+        }
+        minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -809,7 +891,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog DETALLE;
-    private javax.swing.JCheckBox cbFecha;
+    private javax.swing.JCheckBox cbFecha_EC;
     private javax.swing.JMenuItem detalle;
     private com.toedter.calendar.JDateChooser fecha_fin;
     private com.toedter.calendar.JDateChooser fecha_inicio;
@@ -834,10 +916,10 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPanel jpanel;
     private javax.swing.JLabel lblEdad_EC_D;
-    private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFechaNaci_EC_D;
+    private javax.swing.JLabel lblFecha_EC;
     private javax.swing.JLabel lblGenero_EC_D;
-    private javax.swing.JLabel lblHora;
+    private javax.swing.JLabel lblHora_EC;
     private javax.swing.JLabel lblIDArea_EC_D;
     private javax.swing.JLabel lblNomAD_EC_D;
     private javax.swing.JLabel lblNomArea_EC;
@@ -855,4 +937,22 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     private javax.swing.JTextField txtHC_EC_D;
     private javax.swing.JTextField txtNombres_EC_D;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Thread ct = Thread.currentThread();
+        while (ct == h1) {
+            calcula();
+            if(cbFecha_EC.isSelected()==false){
+                mostrarPacientes_EC();
+            }
+            
+            lblHora_EC.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+            }
+        }
+    }
 }

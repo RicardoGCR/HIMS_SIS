@@ -11,6 +11,7 @@ import java.awt.HeadlessException;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,6 +25,14 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.print.Doc;
+import javax.print.DocFlavor;
+import javax.print.DocPrintJob;
+import javax.print.PrintException;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.print.SimpleDoc;
+import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -1222,7 +1231,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
 
     private void btnActualizarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaActionPerformed
         if(chkHoy.isSelected()){
-            movHC.mostrar_MovHC(2,tbMovimientoHC,"Pendiente","","","","","","");
+            movHC.mostrar_MovHC(3,tbMovimientoHC,"Pendiente","","","","","","");
         }else{
             String estadoM = cbxMovimiento.getSelectedItem().toString();
             String servicio = txtServicio.getText();
@@ -1485,7 +1494,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 Thread.sleep(10000);
                 // mostrar datos en la tabla tbMvimientoHC
                 if(chkHoy.isSelected()){
-                    movHC.mostrar_MovHC(2,tbMovimientoHC,"Pendiente","","","","","","");
+                    movHC.mostrar_MovHC(3,tbMovimientoHC,"Pendiente","","","","","","");
                 }
             } catch (InterruptedException e) {
                 System.out.println(e.toString());

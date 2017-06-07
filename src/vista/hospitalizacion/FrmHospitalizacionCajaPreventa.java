@@ -270,7 +270,7 @@ public class FrmHospitalizacionCajaPreventa extends javax.swing.JFrame {
     public boolean guardarDatos(){
         boolean retorna = false;
         if(guardarDatosHospitalizacion()==true){
-            if(tbArticulos.getRowCount()==0){
+            if(tbSelecArticulos.getRowCount()==0){
                 retorna = true;
             } else{
                 Caja_Preventa cp = new Caja_Preventa();

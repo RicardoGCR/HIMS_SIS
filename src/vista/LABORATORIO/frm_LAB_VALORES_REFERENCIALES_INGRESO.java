@@ -554,6 +554,10 @@ public void LAB_Esquema_formato(){
     frm_LAB_VALORES_REFERENCIALES_ESQUEMA.tb_Esquema.getColumnModel().getColumn(0).setMaxWidth(0);
     frm_LAB_VALORES_REFERENCIALES_ESQUEMA.tb_Esquema.getColumnModel().getColumn(4).setMinWidth(0);
     frm_LAB_VALORES_REFERENCIALES_ESQUEMA.tb_Esquema.getColumnModel().getColumn(4).setMaxWidth(0);
+        frm_LAB_VALORES_REFERENCIALES_ESQUEMA.tb_Esquema.getColumnModel().getColumn(6).setMinWidth(0);
+    frm_LAB_VALORES_REFERENCIALES_ESQUEMA.tb_Esquema.getColumnModel().getColumn(6).setMaxWidth(0);
+        frm_LAB_VALORES_REFERENCIALES_ESQUEMA.tb_Esquema.getColumnModel().getColumn(7).setMinWidth(0);
+    frm_LAB_VALORES_REFERENCIALES_ESQUEMA.tb_Esquema.getColumnModel().getColumn(7).setMaxWidth(0);
     
     frm_LAB_VALORES_REFERENCIALES_ESQUEMA.tb_Esquema.getSelectionModel().setSelectionInterval(0, 0);
             frm_LAB_VALORES_REFERENCIALES_ESQUEMA.tb_Esquema.requestFocus();

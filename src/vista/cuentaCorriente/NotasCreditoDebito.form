@@ -4111,7 +4111,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel40" alignment="0" pref="158" max="32767" attributes="0"/>
+                              <Component id="jLabel40" alignment="0" pref="147" max="32767" attributes="0"/>
                               <Component id="panelCPT26" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -4434,7 +4434,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanel78" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jPanel78" pref="300" max="32767" attributes="0"/>
                                   <Component id="jPanel65" max="32767" attributes="0"/>
                               </Group>
                           </Group>

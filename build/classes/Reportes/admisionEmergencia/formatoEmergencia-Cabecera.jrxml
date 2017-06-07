@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
-	<property name="ireport.zoom" value="1.210000000000003"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="90"/>
 	<parameter name="id" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[EXEC CAJA_PREVENTA_EMERGENCIA_REPORTE $P{id}]]>
+		<![CDATA[EXEC CAJA_PREVENTA_EMERGENCIA_REPORTE 23]]>
 	</queryString>
 	<field name="ID_PREVENTA" class="java.lang.Long"/>
 	<field name="COD_HC" class="java.lang.String"/>
@@ -243,7 +243,7 @@
 				<text><![CDATA[Riesgo:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="208" y="6" width="100" height="20" uuid="570e650b-862e-45a6-b7fe-074b0309c655"/>
+				<reportElement x="352" y="22" width="44" height="20" forecolor="#FFFFFF" uuid="570e650b-862e-45a6-b7fe-074b0309c655"/>
 				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
 			</textField>
 		</band>

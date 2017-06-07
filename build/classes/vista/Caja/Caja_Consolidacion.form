@@ -98,11 +98,11 @@
               <Component id="jPanel1" min="-2" pref="284" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel2" max="32767" attributes="0"/>
-                  <Component id="jScrollPane3" pref="633" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="617" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -115,14 +115,9 @@
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="jScrollPane3" min="-2" pref="148" max="-2" attributes="0"/>
-<<<<<<< HEAD
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="639" max="32767" attributes="0"/>
-=======
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="610" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
->>>>>>> 1408e43f32240bd05effa5c06da74f26251723e9
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -337,17 +332,11 @@
         </Component>
         <Component class="javax.swing.JLabel" name="bus1">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="db" green="97" red="32" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;td style=&quot;layout-flow:&apos;vertical-ideographic&apos;&quot;&gt;prueba&lt;/td&gt;&lt;/html&gt;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="abonod">
           <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="db" green="97" red="32" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="jLabel8"/>
           </Properties>
         </Component>

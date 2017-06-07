@@ -53,6 +53,7 @@ private String Usu_Exoneracion ;
 private String porcentaje_Exoneracion ;
 private double DESCUENTO;
 private double TOTAL_DOCUUMENTO;
+private int IdDetalle;
 
 
         
@@ -331,7 +332,7 @@ public boolean Nuevo()
         return resp;
     }
 
-public boolean eliminar(){
+    public boolean eliminar(){
         boolean resp = false;
         try
         {
@@ -352,6 +353,29 @@ public boolean eliminar(){
         }
         return resp;
     }
+    
+     public boolean EliminarDetalle(){
+        boolean resp = false;
+        try
+        {
+            String sql = "EXEC CAJA_ELIMINAR_DETALLE ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getIdDetalle());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_eliminar Detalle: " + ex.getMessage());
+        }
+        return resp;
+    }
+     
 
  public String codUsuario(String nombreUsuario)
     {
@@ -727,10 +751,10 @@ public void listarMedicos1(String Servicio,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"ID","Dia","Hora Inicio","Hora Termino","Consultorio","Nº de Citas","Adicionales","Futuras","Turno","Médico","","","","","","","","","","",""};
+            String titulos[]={"ID","Dia","Hora Inicio","Hora Termino","Consultorio","Nº de Citas","Adicionales","Futuras","Turno","Médico","","","","","","","","","","","",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[21];
+            String fila[]=new String[22];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="exec Caja_ConsultoriosExternosListar ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -759,6 +783,7 @@ public void listarMedicos1(String Servicio,JTable tabla){
                     fila[18]=r.getString(19);
                     fila[19]=r.getString(20);
                     fila[20]=r.getString(21);
+                    fila[21]=r.getString(22);
 
                         m.addRow(fila);
                         c++;
@@ -813,6 +838,8 @@ public void listarMedicos1(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(19).setMaxWidth(0);
         tabla.getColumnModel().getColumn(20).setMinWidth(0);
         tabla.getColumnModel().getColumn(20).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(21).setMinWidth(0);
+        tabla.getColumnModel().getColumn(21).setMaxWidth(0);
 
    
 
@@ -1387,6 +1414,14 @@ public void listarMedicos1(String Servicio,JTable tabla){
 
     public void setTOTAL_DOCUUMENTO(double TOTAL_DOCUUMENTO) {
         this.TOTAL_DOCUUMENTO = TOTAL_DOCUUMENTO;
+    }
+
+    public int getIdDetalle() {
+        return IdDetalle;
+    }
+
+    public void setIdDetalle(int IdDetalle) {
+        this.IdDetalle = IdDetalle;
     }
     
     

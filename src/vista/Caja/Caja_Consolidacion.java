@@ -499,8 +499,10 @@ DefaultTableModel m;
                                         lbldetalle.setForeground(new java.awt.Color(255, 255, 255));
                                         lbldetalle.setText("Acto Médico, DNI y Apellidos");
 
+                                        bus1.setForeground(new java.awt.Color(50, 151, 219));
                                         bus1.setText("<html><td style=\"layout-flow:'vertical-ideographic'\">prueba</td></html>");
 
+                                        abonod.setForeground(new java.awt.Color(50, 151, 219));
                                         abonod.setText("jLabel8");
 
                                         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -900,8 +902,7 @@ DefaultTableModel m;
                                                 .addGap(0, 0, 0)
                                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(0, 0, 0)
-                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
-                                                .addGap(0, 0, 0))
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE))
                                         );
 
                                         pack();

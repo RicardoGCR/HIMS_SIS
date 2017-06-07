@@ -20,10 +20,7 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
 
     private int cpfId;
     private String nomenclatura;
-<<<<<<< HEAD
-=======
 
->>>>>>> a276e93af71a3ed70dfee0746aa8b017c3da3026
     private String cpdGrav;
 
     private String cpdCodUnidad;

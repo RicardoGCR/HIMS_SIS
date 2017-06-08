@@ -1703,11 +1703,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     
     public void CargarPersonalRol(){
         try {
-             String titulos[]={"Nº","Cod. Per","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio",
-                 "Cod. Servicio"};
+             String titulos[]={"Nº","Cod. Per","Apellido Paterno","Apellido Materno","Nombres","Cargo"};
             m1=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m1);
-            String fila[]=new String[8];
+            String fila[]=new String[6];
 
         String consulta="exec RX_EC_PERSONAL_LISTAR";
         ResultSet r;
@@ -1721,8 +1720,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             fila[3]=r.getString(3);
             fila[4]=r.getString(4);
             fila[5]=r.getString(5);
-            fila[6]=r.getString(6);
-            fila[7]=r.getString(7);
+            
                 m1.addRow(fila);
                 c++;
             }
@@ -1743,8 +1741,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         tb_Personal_rol.getColumnModel().getColumn(3).setPreferredWidth(150);  
         tb_Personal_rol.getColumnModel().getColumn(4).setPreferredWidth(200); 
         tb_Personal_rol.getColumnModel().getColumn(5).setPreferredWidth(150); 
-        tb_Personal_rol.getColumnModel().getColumn(6).setPreferredWidth(250); 
-        tb_Personal_rol.getColumnModel().getColumn(7).setPreferredWidth(100); 
+       
     }
     
     public void formato_Personal_Rol_todo(){
@@ -1754,8 +1751,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         tb_Personal_rol_todo.getColumnModel().getColumn(3).setPreferredWidth(150);  
         tb_Personal_rol_todo.getColumnModel().getColumn(4).setPreferredWidth(200); 
         tb_Personal_rol_todo.getColumnModel().getColumn(5).setPreferredWidth(150); 
-        tb_Personal_rol_todo.getColumnModel().getColumn(6).setPreferredWidth(250); 
-        tb_Personal_rol_todo.getColumnModel().getColumn(7).setPreferredWidth(100); 
+         
     }
     
     public void guardar_examen_cabecera(){

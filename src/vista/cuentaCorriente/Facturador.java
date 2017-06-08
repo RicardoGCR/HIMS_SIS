@@ -654,7 +654,7 @@ public class Facturador extends javax.swing.JFrame {
 
                 jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
                 jLabel1.setForeground(new java.awt.Color(41, 127, 184));
-                jLabel1.setText("<html><span style=\"font-size:'30px'\">Cuenta Corriente - </span>Factura Electrónica</html>");
+                jLabel1.setText("<html><span style=\"font-size:'30px'\">Cuenta por Pagar - </span>Factura Electrónica</html>");
 
                 lblMant.setText("I");
 

@@ -6,29 +6,42 @@
 package vista.cuentaCorriente;
 
 import campos.LimitadorDeDocumento;
+import com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.ref.Reference;
 import java.math.BigDecimal;
 import java.security.InvalidAlgorithmParameterException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableEntryException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Formatter;
 import javax.swing.JOptionPane;
+import javax.xml.crypto.dsig.CanonicalizationMethod;
 import javax.xml.crypto.dsig.DigestMethod;
+import javax.xml.crypto.dsig.SignatureMethod;
+import javax.xml.crypto.dsig.SignedInfo;
 import javax.xml.crypto.dsig.Transform;
 import javax.xml.crypto.dsig.XMLSignatureFactory;
+import javax.xml.crypto.dsig.keyinfo.KeyInfoFactory;
+import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
 import javax.xml.crypto.dsig.spec.TransformParameterSpec;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.cuentaCorriente.CuentasPorPagarFacturasCabecera;
 import static vista.Principal.fechaActual;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
-
 /**
  *
  * @author PC02
@@ -217,10 +230,22 @@ public class Facturador extends javax.swing.JFrame {
         }
     }   
     
-    public void crearXML() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException{
+    public void crearXML() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, FileNotFoundException, IOException, CertificateException, UnrecoverableEntryException{
         XMLSignatureFactory fac = XMLSignatureFactory.getInstance("DOM");
-        Reference ref = fac.newReference("", fac.newDigestMethod(DigestMethod.SHA1, null),Collections.singletonList(fac.newTransform(Transform.ENVELOPED,(TransformParameterSpec)null)), null,null);
+        javax.xml.crypto.dsig.Reference ref = fac.newReference("", fac.newDigestMethod(DigestMethod.SHA1, null),
+                Collections.singletonList(fac.newTransform(Transform.ENVELOPED, (TransformParameterSpec)null)),null,null);
         
+        SignedInfo si = fac.newSignedInfo(fac.newCanonicalizationMethod(CanonicalizationMethod.INCLUSIVE, 
+                (C14NMethodParameterSpec) null), 
+                fac.newSignatureMethod(SignatureMethod.RSA_SHA1, null),
+                Collections.singletonList(ref));
+        
+        KeyStore ks = KeyStore.getInstance("JKS");
+        ks.load(new FileInputStream("C:\\sunat_archivos\\sfs\\ENVIO\\prueba.jks"),"prueba".toCharArray());
+        KeyStore.PrivateKeyEntry keyEntry = (KeyStore.PrivateKeyEntry)ks.getEntry("selfsigned", new KeyStore.PasswordProtection("pepito".toCharArray()));
+        
+        X509Certificate cert = (X509Certificate) keyEntry.getCertificate();
+//        KeyInfoFactory kif
     }
     
     public void enviarDatos(){

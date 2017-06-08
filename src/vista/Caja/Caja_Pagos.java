@@ -72,7 +72,7 @@ Caja_NuevaVenta cnn = new Caja_NuevaVenta();
 Caja_MotivoAnulacion cnnA = new Caja_MotivoAnulacion();
 Caja_Documento_Detalle cnnD = new Caja_Documento_Detalle();
 Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
-
+Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 //ManejadorTecla manejador = new ManejadorTecla();
 
     /**
@@ -8914,7 +8914,9 @@ jTabbedPane1.setSelectedIndex(1);
     private void btnTerminiarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminiarVentaActionPerformed
         
         
-        Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
+        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
         lblCPT.setVisible(false);
         panelCPT.setVisible(false);
         panelTablaCPT.setVisible(false);
@@ -8927,15 +8929,7 @@ jTabbedPane1.setSelectedIndex(1);
         cbxTipoDocumento.setVisible(false);
         panelAnular.setVisible(false);
         panelColorFp.setBackground(new Color(255,255,255)); 
-        try {
-            String rutaInforme = "src\\Reportes\\cajaCentral\\ticketVenta.jasper";
-            Map parametros = new HashMap();
-            parametros.put("doc","CD000000000000000005" );
-            JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
-            JasperPrintManager.printReport(informe, false);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Error: _btnVisualizarDetalle" + e.toString());
-            }
+        
         NuevaV();
     }//GEN-LAST:event_btnTerminiarVentaActionPerformed
 

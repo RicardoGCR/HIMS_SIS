@@ -5,6 +5,12 @@
  */
 package vista.cuentaCorriente;
 
+import java.lang.ref.Reference;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.NoSuchAlgorithmException;
+import javax.xml.crypto.dsig.DigestMethod;
+import javax.xml.crypto.dsig.XMLSignatureFactory;
+
 /**
  *
  * @author MYS1
@@ -14,8 +20,9 @@ public class NewMain {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException {
+        XMLSignatureFactory fac = XMLSignatureFactory.getInstance("DOM");
+        javax.xml.crypto.dsig.Reference ref = fac.newReference("", fac.newDigestMethod(DigestMethod.SHA1, null));
     }
     
 }

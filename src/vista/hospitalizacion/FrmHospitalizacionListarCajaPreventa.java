@@ -168,6 +168,11 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
 
         jScrollPane1.setBorder(null);
 
+        tbListarPapeleta = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tbListarPapeleta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -181,7 +186,7 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
         ));
         tbListarPapeleta.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbListarPapeleta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        tbListarPapeleta.setSelectionBackground(new java.awt.Color(217, 176, 86));
+        tbListarPapeleta.setSelectionBackground(new java.awt.Color(235, 105, 57));
         tbListarPapeleta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tbListarPapeletaMouseReleased(evt);
@@ -211,7 +216,7 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 650, 1300, 35);
 
-        jPanel8.setBackground(new java.awt.Color(217, 176, 86));
+        jPanel8.setBackground(new java.awt.Color(235, 105, 57));
         jPanel8.setPreferredSize(new java.awt.Dimension(500, 65));
         jPanel8.setLayout(null);
 
@@ -268,7 +273,7 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
         jPanel8.add(txtBuscarr);
         txtBuscarr.setBounds(10, 70, 270, 30);
 
-        rbtP.setBackground(new java.awt.Color(217, 176, 86));
+        rbtP.setBackground(new java.awt.Color(235, 105, 57));
         buttonGroup1.add(rbtP);
         rbtP.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         rbtP.setForeground(new java.awt.Color(255, 255, 255));
@@ -282,7 +287,7 @@ public class FrmHospitalizacionListarCajaPreventa extends javax.swing.JFrame {
         jPanel8.add(rbtP);
         rbtP.setBounds(350, 70, 120, 29);
 
-        rbtH.setBackground(new java.awt.Color(217, 176, 86));
+        rbtH.setBackground(new java.awt.Color(235, 105, 57));
         buttonGroup1.add(rbtH);
         rbtH.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         rbtH.setForeground(new java.awt.Color(255, 255, 255));

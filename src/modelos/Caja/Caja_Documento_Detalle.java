@@ -116,6 +116,27 @@ Conexion con = new Conexion();
         return cod;
     }
     
+     public String CodPrecio_COD_PRECIO(String precio)
+    {
+        String cod="";
+        try
+        {
+            String sql = "EXEC CAJA_HALLAR_PRECIO_DE_CODPRECIO ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, precio);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_PRECIO DEL CODIGO DEL PRECIO: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
     public String VisibleAdmin(String codigo)
     {
         String cod="";
@@ -216,13 +237,15 @@ public void DetalleID(String ap_id){
         }
     }
 public void Detalle(String codigo,JTable tabla){
+//    tabla.getTableHeader().setVisible(false);
+//    tabla.setTableHeader(null);
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"CPT","Cantidad","Precio","Dsct.","SubTotal","Departamento / Área","Atencion","Medico/Personal","Nº Atencion","Turno","cpt","idd","id"};
+            String titulos[]={"CPT","Cantidad","Precio","Dsct.","SubTotal","Departamento / Área","Fechs Atencion","Medico/Personal","Nº Atencion","Turno","cpt","idd","id_detalle","id_doc"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[12];
+            String fila[]=new String[14];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="Listar_Detalle_preventa ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -242,6 +265,8 @@ public void Detalle(String codigo,JTable tabla){
                 fila[9]=r.getString(10);
                 fila[10]=r.getString(11); 
                 fila[11]=r.getString(12);
+                fila[12]=r.getString(13); 
+                fila[13]=r.getString(14);
 
                     m.addRow(fila);
                     c++;
@@ -252,7 +277,7 @@ public void Detalle(String codigo,JTable tabla){
             tabla.setModel(m);
             formatoTablaCPT(tabla);
         } catch (Exception e) {
-            System.out.println("Error: listar PREVENTA CEX: " + e.getMessage());
+            System.out.println("Error: listar detalle de venta: " + e.getMessage());
         }
     }
     
@@ -278,6 +303,9 @@ public void Detalle(String codigo,JTable tabla){
         tabla.getColumnModel().getColumn(11).setMaxWidth(0);
         tabla.getColumnModel().getColumn(12).setMinWidth(0);
         tabla.getColumnModel().getColumn(12).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(13).setMinWidth(0);
+        tabla.getColumnModel().getColumn(13).setMaxWidth(0);
+
 
 
         

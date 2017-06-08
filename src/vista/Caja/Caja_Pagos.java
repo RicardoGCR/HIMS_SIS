@@ -1734,6 +1734,15 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                         jPanel53 = new javax.swing.JPanel();
                                                                         jLabel91 = new javax.swing.JLabel();
                                                                         jLabel92 = new javax.swing.JLabel();
+                                                                        ActualizarDNI = new javax.swing.JDialog();
+                                                                        jPanel15 = new javax.swing.JPanel();
+                                                                        jLabel45 = new javax.swing.JLabel();
+                                                                        jLabel74 = new javax.swing.JLabel();
+                                                                        bus2 = new javax.swing.JLabel();
+                                                                        jPanel34 = new javax.swing.JPanel();
+                                                                        txtBuscarPaciente1 = new javax.swing.JTextField();
+                                                                        bus4 = new javax.swing.JLabel();
+                                                                        btnBuscarPaciente7 = new javax.swing.JButton();
                                                                         jTabbedPane1 = new javax.swing.JTabbedPane();
                                                                         jPanel2 = new javax.swing.JPanel();
                                                                         jScrollPane3 = new javax.swing.JScrollPane();
@@ -5426,6 +5435,129 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                     .addComponent(jTabbedPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                             );
 
+                                                                                            jPanel15.setBackground(new java.awt.Color(41, 127, 184));
+                                                                                            jPanel15.setMinimumSize(new java.awt.Dimension(310, 441));
+
+                                                                                            jLabel45.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+                                                                                            jLabel45.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                            jLabel45.setText("DNI");
+
+                                                                                            jLabel74.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                                                                                            jLabel74.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                            jLabel74.setText("Busqueda por DNI, H.C. y Apellidos");
+
+                                                                                            bus2.setForeground(new java.awt.Color(41, 127, 184));
+                                                                                            bus2.setText("jLabel37");
+
+                                                                                            jPanel34.setBackground(new java.awt.Color(255, 255, 255));
+
+                                                                                            txtBuscarPaciente1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+                                                                                            txtBuscarPaciente1.setForeground(new java.awt.Color(98, 98, 98));
+                                                                                            txtBuscarPaciente1.setBorder(null);
+                                                                                            txtBuscarPaciente1.addCaretListener(new javax.swing.event.CaretListener() {
+                                                                                                public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                                                                                                    txtBuscarPaciente1CaretUpdate(evt);
+                                                                                                }
+                                                                                            });
+                                                                                            txtBuscarPaciente1.addMouseListener(new java.awt.event.MouseAdapter() {
+                                                                                                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                                                                                    txtBuscarPaciente1MouseClicked(evt);
+                                                                                                }
+                                                                                            });
+                                                                                            txtBuscarPaciente1.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                    txtBuscarPaciente1ActionPerformed(evt);
+                                                                                                }
+                                                                                            });
+                                                                                            txtBuscarPaciente1.addKeyListener(new java.awt.event.KeyAdapter() {
+                                                                                                public void keyPressed(java.awt.event.KeyEvent evt) {
+                                                                                                    txtBuscarPaciente1KeyPressed(evt);
+                                                                                                }
+                                                                                            });
+
+                                                                                            javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
+                                                                                            jPanel34.setLayout(jPanel34Layout);
+                                                                                            jPanel34Layout.setHorizontalGroup(
+                                                                                                jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                .addGroup(jPanel34Layout.createSequentialGroup()
+                                                                                                    .addGap(2, 2, 2)
+                                                                                                    .addComponent(txtBuscarPaciente1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                    .addContainerGap())
+                                                                                            );
+                                                                                            jPanel34Layout.setVerticalGroup(
+                                                                                                jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel34Layout.createSequentialGroup()
+                                                                                                    .addGap(2, 2, 2)
+                                                                                                    .addComponent(txtBuscarPaciente1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                            );
+
+                                                                                            bus4.setForeground(new java.awt.Color(41, 127, 184));
+                                                                                            bus4.setText("jLabel37");
+
+                                                                                            btnBuscarPaciente7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                                                                                            btnBuscarPaciente7.setContentAreaFilled(false);
+                                                                                            btnBuscarPaciente7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                                                                                            btnBuscarPaciente7.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                    btnBuscarPaciente7ActionPerformed(evt);
+                                                                                                }
+                                                                                            });
+
+                                                                                            javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+                                                                                            jPanel15.setLayout(jPanel15Layout);
+                                                                                            jPanel15Layout.setHorizontalGroup(
+                                                                                                jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                .addGroup(jPanel15Layout.createSequentialGroup()
+                                                                                                    .addContainerGap()
+                                                                                                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                        .addComponent(jLabel45)
+                                                                                                        .addGroup(jPanel15Layout.createSequentialGroup()
+                                                                                                            .addComponent(jLabel74)
+                                                                                                            .addGap(39, 39, 39)
+                                                                                                            .addComponent(bus2)
+                                                                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                            .addComponent(bus4))
+                                                                                                        .addGroup(jPanel15Layout.createSequentialGroup()
+                                                                                                            .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                            .addGap(2, 2, 2)
+                                                                                                            .addComponent(btnBuscarPaciente7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                            );
+                                                                                            jPanel15Layout.setVerticalGroup(
+                                                                                                jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                                                                                                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                        .addGroup(jPanel15Layout.createSequentialGroup()
+                                                                                                            .addGap(0, 0, Short.MAX_VALUE)
+                                                                                                            .addComponent(jLabel45)
+                                                                                                            .addGap(10, 10, 10)
+                                                                                                            .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                        .addGroup(jPanel15Layout.createSequentialGroup()
+                                                                                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                            .addComponent(btnBuscarPaciente7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                                                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                        .addComponent(jLabel74, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                                                                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                .addComponent(bus2)
+                                                                                                                .addComponent(bus4))))
+                                                                                                    .addGap(331, 331, 331))
+                                                                                            );
+
+                                                                                            javax.swing.GroupLayout ActualizarDNILayout = new javax.swing.GroupLayout(ActualizarDNI.getContentPane());
+                                                                                            ActualizarDNI.getContentPane().setLayout(ActualizarDNILayout);
+                                                                                            ActualizarDNILayout.setHorizontalGroup(
+                                                                                                ActualizarDNILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                            );
+                                                                                            ActualizarDNILayout.setVerticalGroup(
+                                                                                                ActualizarDNILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                .addGroup(ActualizarDNILayout.createSequentialGroup()
+                                                                                                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                    .addGap(0, 167, Short.MAX_VALUE))
+                                                                                            );
+
                                                                                             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
                                                                                             setIconImage(getIconImage());
 
@@ -6412,9 +6544,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                 .addGroup(panelTablaCPTLayout.createSequentialGroup()
                                                                                                     .addGap(0, 0, 0)
                                                                                                     .addGroup(panelTablaCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                        .addGroup(panelTablaCPTLayout.createSequentialGroup()
-                                                                                                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)
-                                                                                                            .addGap(0, 0, 0))
+                                                                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)
                                                                                                         .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)))
                                                                                             );
                                                                                             panelTablaCPTLayout.setVerticalGroup(
@@ -7383,7 +7513,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                     .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                         .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                         .addGroup(jPanel21Layout.createSequentialGroup()
-                                                                                                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, Short.MAX_VALUE)
+                                                                                                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
                                                                                                             .addContainerGap())))
                                                                                             );
                                                                                             jPanel21Layout.setVerticalGroup(
@@ -8775,6 +8905,9 @@ jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_panelAnularKeyPressed
 
     private void btnTerminiarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminiarVentaActionPerformed
+        
+        
+        Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         lblCPT.setVisible(false);
         panelCPT.setVisible(false);
         panelTablaCPT.setVisible(false);
@@ -8787,7 +8920,7 @@ jTabbedPane1.setSelectedIndex(1);
         cbxTipoDocumento.setVisible(false);
         panelAnular.setVisible(false);
         panelColorFp.setBackground(new Color(255,255,255)); 
-        
+        nuevaV.reporteVentaLaRxEc("/reportes/admisionEmergencia/formatoEmergencia-Cabecera.jasper","");
         NuevaV();
     }//GEN-LAST:event_btnTerminiarVentaActionPerformed
 
@@ -9521,6 +9654,26 @@ jTabbedPane1.setSelectedIndex(1);
         }
     }//GEN-LAST:event_txtT8MouseClicked
 
+    private void txtBuscarPaciente1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPaciente1CaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarPaciente1CaretUpdate
+
+    private void txtBuscarPaciente1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBuscarPaciente1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarPaciente1MouseClicked
+
+    private void txtBuscarPaciente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarPaciente1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarPaciente1ActionPerformed
+
+    private void txtBuscarPaciente1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPaciente1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarPaciente1KeyPressed
+
+    private void btnBuscarPaciente7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPaciente7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPaciente7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -9564,6 +9717,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JLabel AMA;
     private javax.swing.JLabel APENOM;
     private javax.swing.JLabel APENOM1;
+    private javax.swing.JDialog ActualizarDNI;
     private javax.swing.JDialog Anular;
     private javax.swing.JDialog AsistenciaSocial;
     private javax.swing.JDialog BHC;
@@ -9602,6 +9756,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JButton btnBuscarPaciente4;
     private javax.swing.JButton btnBuscarPaciente5;
     private javax.swing.JButton btnBuscarPaciente6;
+    private javax.swing.JButton btnBuscarPaciente7;
     private javax.swing.JButton btnCargarCEX;
     private javax.swing.JButton btnCargarEME;
     private javax.swing.JButton btnCargarHOS;
@@ -9633,7 +9788,9 @@ jTabbedPane1.setSelectedIndex(1);
     public static javax.swing.JButton btnguardar;
     private javax.swing.JLabel bus;
     private javax.swing.JLabel bus1;
+    private javax.swing.JLabel bus2;
     private javax.swing.JLabel bus3;
+    private javax.swing.JLabel bus4;
     private javax.swing.JLabel ca_id;
     private javax.swing.JPanel cargareliminar1;
     private javax.swing.JPanel cargareliminarma;
@@ -9688,6 +9845,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
@@ -9719,6 +9877,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
@@ -9747,6 +9906,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     public static javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
@@ -9767,6 +9927,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
+    private javax.swing.JPanel jPanel34;
     private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel37;
@@ -9951,6 +10112,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JTextField txtBuscarFormaPago;
     private javax.swing.JTextField txtBuscarMedicos;
     private javax.swing.JTextField txtBuscarPaciente;
+    private javax.swing.JTextField txtBuscarPaciente1;
     public static javax.swing.JTextField txtCPT;
     private javax.swing.JTextField txtDescuento;
     private javax.swing.JTextField txtEnterEscapeEnter;

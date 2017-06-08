@@ -1945,11 +1945,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     
     public void CargarPersonalRol_todo(){
         try {
-             String titulos[]={"Nº","Cod. Per","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio",
-                 "Cod. Servicio"};
+             String titulos[]={"Nº","Cod. Per","Apellido Paterno","Apellido Materno","Nombres","Cargo"};
             m5=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m5);
-            String fila[]=new String[8];
+            String fila[]=new String[6];
 
         String consulta="exec RX_EC_PERSONAL_LISTAR_TODO";
         ResultSet r;
@@ -1963,8 +1962,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             fila[3]=r.getString(3);
             fila[4]=r.getString(4);
             fila[5]=r.getString(5);
-            fila[6]=r.getString(6);
-            fila[7]=r.getString(7);
+            
                 m5.addRow(fila);
                 c++;
             }

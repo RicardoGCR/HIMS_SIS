@@ -10,12 +10,20 @@ import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.lang.ref.Reference;
 import java.math.BigDecimal;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Formatter;
 import javax.swing.JOptionPane;
+import javax.xml.crypto.dsig.DigestMethod;
+import javax.xml.crypto.dsig.Transform;
+import javax.xml.crypto.dsig.XMLSignatureFactory;
+import javax.xml.crypto.dsig.spec.TransformParameterSpec;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.cuentaCorriente.CuentasPorPagarFacturasCabecera;
 import static vista.Principal.fechaActual;
@@ -28,7 +36,7 @@ import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
 public class Facturador extends javax.swing.JFrame {
 
     String barra = File.separator;
-    String ubicacion = "D:\\SUNAT\\DATA\\";
+    String ubicacion = "C:\\sunat_archivos\\sfs\\DATA\\";
     public Facturador() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -180,7 +188,7 @@ public class Facturador extends javax.swing.JFrame {
                         crea.format(String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
                         String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) +
                         String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(2)) + "|" +
-                        txtCantidad.getText() + "|" + txtCodProducto.getText() + "|" + 
+                        txtCantidad.getText() + "|" + txtCodProducto.getText() + "|" + txtCodProductoSunat.getText() + "|" + 
                         txtDescripcion.getText() + "|" + txtValorU.getText() + "|" + txtDscto.getText() + "|" +
                         txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
@@ -191,7 +199,7 @@ public class Facturador extends javax.swing.JFrame {
                     } else {
                         crea.format(String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
                         String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) + "|" +
-                        txtCantidad.getText() + "|" + txtCodProducto.getText() + "|" + 
+                        txtCantidad.getText() + "|" + txtCodProducto.getText() + "|" + txtCodProductoSunat.getText() + "|" + 
                         txtDescripcion.getText() + "|" + txtValorU.getText() + "|" + txtDscto.getText() + "|" +
                         txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
@@ -208,6 +216,12 @@ public class Facturador extends javax.swing.JFrame {
             }
         }
     }   
+    
+    public void crearXML() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException{
+        XMLSignatureFactory fac = XMLSignatureFactory.getInstance("DOM");
+        Reference ref = fac.newReference("", fac.newDigestMethod(DigestMethod.SHA1, null),Collections.singletonList(fac.newTransform(Transform.ENVELOPED,(TransformParameterSpec)null)), null,null);
+        
+    }
     
     public void enviarDatos(){
         int fila = tbVentas.getSelectedRow();

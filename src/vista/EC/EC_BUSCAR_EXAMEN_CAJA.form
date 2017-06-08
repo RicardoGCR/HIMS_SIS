@@ -532,18 +532,18 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fecha_inicio" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <Component id="fecha_inicio_EC" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="fecha_fin" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <Component id="fecha_fin_EC" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButton1" min="-2" pref="42" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtBuscarPaciente" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtBuscarPaciente_EC" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jLabel4" alignment="1" min="-2" pref="213" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -592,14 +592,14 @@
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="fecha_inicio" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fecha_fin" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fecha_inicio_EC" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fecha_fin_EC" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="txtBuscarPaciente" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtBuscarPaciente_EC" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jButton1" pref="0" max="32767" attributes="0"/>
@@ -648,7 +648,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="fecha_inicio">
+        <Component class="com.toedter.calendar.JDateChooser" name="fecha_inicio_EC">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -656,8 +656,8 @@
             <Property name="dateFormatString" type="java.lang.String" value="dd-MM-yyyy"/>
           </Properties>
           <Events>
-            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="fecha_inicioPropertyChange"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fecha_inicioKeyTyped"/>
+            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="fecha_inicio_ECPropertyChange"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fecha_inicio_ECKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
@@ -682,10 +682,10 @@
             <Property name="text" type="java.lang.String" value="FECHA TERMINO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtBuscarPaciente">
+        <Component class="javax.swing.JTextField" name="txtBuscarPaciente_EC">
           <Events>
-            <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtBuscarPacienteCaretUpdate"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarPacienteKeyTyped"/>
+            <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtBuscarPaciente_ECCaretUpdate"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarPaciente_ECKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -752,7 +752,7 @@
             <Property name="text" type="java.lang.String" value="jLabel3"/>
           </Properties>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="fecha_fin">
+        <Component class="com.toedter.calendar.JDateChooser" name="fecha_fin_EC">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -760,7 +760,7 @@
             <Property name="dateFormatString" type="java.lang.String" value="dd-MM-yyyy"/>
           </Properties>
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fecha_finKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fecha_fin_ECKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">

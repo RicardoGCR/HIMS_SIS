@@ -37,7 +37,7 @@ Calendar calendario;
 Thread h1;
 ResultSet r;
 CallableStatement cst;
-DefaultTableModel m1,m2, msb;
+DefaultTableModel m1,m2, msb, m3, m4;
 static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     /**
      * Creates new form EC_BUSCAR_EXAMEN_CAJA
@@ -99,17 +99,17 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         jpanel = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         lblUsu = new javax.swing.JLabel();
-        fecha_inicio = new com.toedter.calendar.JDateChooser();
+        fecha_inicio_EC = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtBuscarPaciente = new javax.swing.JTextField();
+        txtBuscarPaciente_EC = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         lblNomArea_EC = new javax.swing.JLabel();
         lblNumeArea_EC = new javax.swing.JLabel();
         cbFecha_EC = new javax.swing.JCheckBox();
         lblFecha_EC = new javax.swing.JLabel();
         lblHora_EC = new javax.swing.JLabel();
-        fecha_fin = new com.toedter.calendar.JDateChooser();
+        fecha_fin_EC = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_Examen_EC = new javax.swing.JTable();
@@ -377,16 +377,16 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
         lblUsu.setText("Usuario");
 
-        fecha_inicio.setBackground(new java.awt.Color(255, 255, 255));
-        fecha_inicio.setDateFormatString("dd-MM-yyyy");
-        fecha_inicio.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        fecha_inicio_EC.setBackground(new java.awt.Color(255, 255, 255));
+        fecha_inicio_EC.setDateFormatString("dd-MM-yyyy");
+        fecha_inicio_EC.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                fecha_inicioPropertyChange(evt);
+                fecha_inicio_ECPropertyChange(evt);
             }
         });
-        fecha_inicio.addKeyListener(new java.awt.event.KeyAdapter() {
+        fecha_inicio_EC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                fecha_inicioKeyTyped(evt);
+                fecha_inicio_ECKeyTyped(evt);
             }
         });
 
@@ -398,14 +398,14 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("FECHA TERMINO");
 
-        txtBuscarPaciente.addCaretListener(new javax.swing.event.CaretListener() {
+        txtBuscarPaciente_EC.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtBuscarPacienteCaretUpdate(evt);
+                txtBuscarPaciente_ECCaretUpdate(evt);
             }
         });
-        txtBuscarPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtBuscarPaciente_EC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtBuscarPacienteKeyTyped(evt);
+                txtBuscarPaciente_ECKeyTyped(evt);
             }
         });
 
@@ -441,11 +441,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         lblHora_EC.setForeground(new java.awt.Color(255, 255, 255));
         lblHora_EC.setText("jLabel3");
 
-        fecha_fin.setBackground(new java.awt.Color(255, 255, 255));
-        fecha_fin.setDateFormatString("dd-MM-yyyy");
-        fecha_fin.addKeyListener(new java.awt.event.KeyAdapter() {
+        fecha_fin_EC.setBackground(new java.awt.Color(255, 255, 255));
+        fecha_fin_EC.setDateFormatString("dd-MM-yyyy");
+        fecha_fin_EC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                fecha_finKeyTyped(evt);
+                fecha_fin_ECKeyTyped(evt);
             }
         });
 
@@ -480,16 +480,16 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                             .addGroup(jpanelLayout.createSequentialGroup()
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
-                                    .addComponent(fecha_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(fecha_inicio_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(8, 8, 8)
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fecha_fin, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fecha_fin_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27)
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtBuscarPaciente)
+                                    .addComponent(txtBuscarPaciente_EC)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
                         .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -525,12 +525,12 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                                         .addComponent(jLabel2))
                                     .addGap(0, 0, 0)
                                     .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(fecha_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(fecha_fin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(fecha_inicio_EC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(fecha_fin_EC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jpanelLayout.createSequentialGroup()
                                     .addComponent(jLabel4)
                                     .addGap(0, 0, 0)
-                                    .addComponent(txtBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtBuscarPaciente_EC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(0, 5, Short.MAX_VALUE))))
         );
@@ -592,24 +592,32 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fecha_inicioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha_inicioPropertyChange
+    private void fecha_inicio_ECPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha_inicio_ECPropertyChange
         //validar_fecha();
-    }//GEN-LAST:event_fecha_inicioPropertyChange
+    }//GEN-LAST:event_fecha_inicio_ECPropertyChange
 
-    private void fecha_inicioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fecha_inicioKeyTyped
+    private void fecha_inicio_ECKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fecha_inicio_ECKeyTyped
         //        char tecla= evt.getKeyChar();
         //        if(tecla==KeyEvent.VK_ENTER){
             //            btnBuscarP.doClick();
             //        }
-    }//GEN-LAST:event_fecha_inicioKeyTyped
+    }//GEN-LAST:event_fecha_inicio_ECKeyTyped
 
-    private void txtBuscarPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPacienteCaretUpdate
-        
-    }//GEN-LAST:event_txtBuscarPacienteCaretUpdate
+    private void txtBuscarPaciente_ECCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPaciente_ECCaretUpdate
+    if(cbFecha_EC.isSelected()==true){
+        buscar_examen_EC();
+    }else if(cbFecha_EC.isSelected()==false){
+        BuscarPacientesDIA_EC();
+    }        
+    }//GEN-LAST:event_txtBuscarPaciente_ECCaretUpdate
 
-    private void txtBuscarPacienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPacienteKeyTyped
-        
-    }//GEN-LAST:event_txtBuscarPacienteKeyTyped
+    private void txtBuscarPaciente_ECKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPaciente_ECKeyTyped
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            tb_Examen_EC.getSelectionModel().setSelectionInterval(0, 0);
+            tb_Examen_EC.requestFocus();
+        }        
+    }//GEN-LAST:event_txtBuscarPaciente_ECKeyTyped
 
     private void cbFecha_ECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFecha_ECActionPerformed
    
@@ -619,12 +627,56 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
     }//GEN-LAST:event_cbFecha_ECPropertyChange
 
-    private void fecha_finKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fecha_finKeyTyped
+    private void fecha_fin_ECKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fecha_fin_ECKeyTyped
 
-    }//GEN-LAST:event_fecha_finKeyTyped
+    }//GEN-LAST:event_fecha_fin_ECKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+      try{
+          
+         String fecha = lblFecha_EC.getText();
+         int diaAC = Integer.parseInt(fecha.substring(0, 2));
+         int mesAC = Integer.parseInt(fecha.substring(3, 5));
+         int anioAC = Integer.parseInt(fecha.substring(6, 10));
+        
+         int diaIN = fecha_inicio_EC.getCalendar().get(Calendar.DAY_OF_MONTH);
+         int mesIN = fecha_inicio_EC.getCalendar().get(Calendar.MONTH) + 1;
+         int anioIN = fecha_inicio_EC.getCalendar().get(Calendar.YEAR);
+         
+         int diaFN = fecha_fin_EC.getCalendar().get(Calendar.DAY_OF_MONTH);
+         int mesFN = fecha_fin_EC.getCalendar().get(Calendar.MONTH) + 1;
+         int anioFN = fecha_fin_EC.getCalendar().get(Calendar.YEAR);
+         
+
+//            if(fecha_inicio.getDate()==null || fecha_fin.getDate()==null){
+//              JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de fechas");
+//            }else{
+//                 if(diaIN > diaAC || mesIN > mesAC || anioIN > anioAC){
+//                        JOptionPane.showMessageDialog(rootPane, "Seleccione una fecha de inicio \n menor a la actual: " + diaAC + "-" +
+//                        mesAC + "-" + anioAC);
+//                        fecha_inicio.setDate(null);
+//                 }else{
+//                       if(diaFN > diaAC || mesFN > mesAC || anioFN > anioAC){
+//                                JOptionPane.showMessageDialog(rootPane, "Seleccione una fecha de termino \n menor a la actual: " + diaAC + "-" +
+//                                mesAC + "-" + anioAC);
+//                                fecha_fin.setDate(null);
+//                       }else{
+                                buscar_examen_EC();
+//                       }  
+//                }
+//             
+//            }
+            
+//            if(tb_Examenes.getRowCount()==0){
+//                lblRegistro.setVisible(true);
+////                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
+//            }else{
+//                lblRegistro.setVisible(false);
+//            }
+         
+          }catch(Exception e) {
+              JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de fechas");
+          }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -643,8 +695,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     private void tb_Examen_ECKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Examen_ECKeyPressed
        char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){  
-                    cargar_tabla_cabecera_ENTER_EC();
-                    
+                    cargar_tabla_cabecera_ENTER_EC();               
         }
     }//GEN-LAST:event_tb_Examen_ECKeyPressed
 
@@ -830,6 +881,154 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         }           
     }
     
+    public void buscar_examen_EC(){
+    
+           int dia = fecha_inicio_EC.getCalendar().get(Calendar.DAY_OF_MONTH);
+           int mes = fecha_inicio_EC.getCalendar().get(Calendar.MONTH) + 1;
+           int anio = fecha_inicio_EC.getCalendar().get(Calendar.YEAR);
+                       
+           int fechaI;
+                       
+                       if(mes<10 && dia<10){
+                           fechaI = Integer.parseInt(anio + "0" + mes + "0" + dia);
+                       }else{                           
+                           if(mes<10 && dia>=10){
+                           fechaI = Integer.parseInt(anio + "0"+ mes + dia);
+                           }else{
+                               if(mes >=10 && dia<10){
+                                 fechaI = Integer.parseInt( anio + mes + "0"+ dia);
+                               }else{
+                                   fechaI = anio +  mes + dia ;
+                               }
+                           }
+                       }
+
+                       
+           int dia1 = fecha_fin_EC.getCalendar().get(Calendar.DAY_OF_MONTH);
+           int mes1 = fecha_fin_EC.getCalendar().get(Calendar.MONTH) + 1;
+           int anio1 = fecha_fin_EC.getCalendar().get(Calendar.YEAR);
+                       
+           int fechaF;
+                       
+                       if(mes1<10 && dia1<10){
+                           fechaF = Integer.parseInt(anio1 + "0" + mes1 + "0" + dia1);
+                       }else{                           
+                           if(mes1<10 && dia1>=10){
+                           fechaF = Integer.parseInt(anio1 + "0"+ mes1 +  dia1);
+                           }else{
+                               if(mes1 >=10 && dia1<10){
+                                 fechaF = Integer.parseInt(anio1  + mes1 + "0"+ dia1);
+                               }else{
+                                   fechaF = anio1 + mes1 + dia1 ;
+                               }
+                           }
+                       }
+
+                       
+        
+        String buscar="",servicioArea="";
+        buscar = txtBuscarPaciente_EC.getText();
+        servicioArea = lblNumeArea_EC.getText();
+        
+        
+        
+    String consulta="";
+        try {
+            tb_Examen_EC.setModel(new DefaultTableModel());
+            String titulos[]={"ID_HC","N° HC","Nombre del Paciente","DNI","Fecha Nac.","Edad","Sexo",
+            "Acto Médico","Cant. Examenes","Fecha Examen","Codigo Documento"};
+            m3=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m3);
+            String fila[]=new String[11];
+
+            EC_EXAMEN_CABECERA obj=new EC_EXAMEN_CABECERA();
+            consulta="exec RX_EC_BUSCAR_CAJA_EC_FECHA ?,?,?";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setInt(1,fechaI);
+            cmd.setInt(2, fechaF);
+            cmd.setString(3, buscar);
+            
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){               
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
+                fila[10]=r.getString(11);
+                
+                m3.addRow(fila);
+                c++;
+            }
+            tb_Examen_EC.setModel(m3);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
+            tb_Examen_EC.setRowSorter(elQueOrdena);
+            this.tb_Examen_EC.setModel(m3);
+            
+            formatoExamen_EC();
+            
+            if(tb_Examen_EC.getRowCount()==0){
+//                lblRegistro.setVisible(true);
+                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
+            }else{
+//                lblRegistro.setVisible(false);
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error buscar examen: " + e.getMessage());
+        }
+    }
+    
+    public void BuscarPacientesDIA_EC(){
+        try {
+                     
+            String consulta="";
+            
+            tb_Examen_EC.setModel(new DefaultTableModel());
+            String titulos[]={"ID_HC","N° HC","Nombre del Paciente","DNI","Fecha Nac.","Edad","Sexo",
+            "Acto Médico","Cant. Examenes","Fecha Examen","Codigo Documento"};
+            m4=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m4);
+            String fila[]=new String[11];
+            Usuario obj=new Usuario();
+            consulta="exec RX_EC_BUSCAR_CAJA_EC_DIA ?,?";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);            
+            cmd.setString(1, txtBuscarPaciente_EC.getText());
+            
+            
+            ResultSet r= cmd.executeQuery();
+            while(r.next()){
+            for (int i=0; i<11; i++){
+            fila[i]=r.getString(i+1);
+            }
+                m4.addRow(fila);
+            }
+            tb_Examen_EC.setModel(m4);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m4);
+            tb_Examen_EC.setRowSorter(elQueOrdena);
+            tb_Examen_EC.setModel(m4);
+                       
+            formatoExamen_EC();
+            
+            if(tb_Examen_EC.getRowCount()==0){
+//                lblRegistro.setVisible(true);
+                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
+            }else{
+//                lblRegistro.setVisible(false);
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error mostrar paciente: " + e.getMessage());
+        }
+        
+    }
+    
     public static String fechaActual(){
         Date now = new Date(System.currentTimeMillis());
         SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
@@ -893,8 +1092,8 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     private javax.swing.JDialog DETALLE;
     private javax.swing.JCheckBox cbFecha_EC;
     private javax.swing.JMenuItem detalle;
-    private com.toedter.calendar.JDateChooser fecha_fin;
-    private com.toedter.calendar.JDateChooser fecha_inicio;
+    private com.toedter.calendar.JDateChooser fecha_fin_EC;
+    private com.toedter.calendar.JDateChooser fecha_inicio_EC;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -931,7 +1130,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     private javax.swing.JTable tb_Examen_EC;
     private javax.swing.JLabel titulo5;
     private javax.swing.JTextField txtAM_EC_D;
-    private javax.swing.JTextField txtBuscarPaciente;
+    private javax.swing.JTextField txtBuscarPaciente_EC;
     private javax.swing.JTextField txtDNI_EC_D;
     private javax.swing.JTextField txtDocumento_EC_D;
     private javax.swing.JTextField txtHC_EC_D;

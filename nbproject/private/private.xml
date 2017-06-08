@@ -4,10 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/D:/pry/SISGESH/src/vista/cuentaCorriente/Facturador.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/cuentaCorriente/NotasCreditoDebito.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/PrincipalMDI.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/Caja/Caja_Pagos.java</file>
+=======
+            <file>file:/E:/pry/SISGESH/src/vista/Caja/Caja_Pagos.java</file>
+            <file>file:/E:/pry/SISGESH/src/modelos/LABORATORIO/LAB_Contenedor_Muestra.java</file>
+            <file>file:/E:/pry/SISGESH/src/modelos/Caja/Caja_NuevaVenta.java</file>
+>>>>>>> dc890f7a8a92a63b6a4b268679a393a8654d6e45
 =======
             <file>file:/D:/proyecto/SISGESH/src/modelos/cuentaCorriente/CuentasPorPagarFacturasCabecera.java</file>
             <file>file:/D:/proyecto/SISGESH/src/vista/admisionCentral/FrmMovimientoHC.java</file>

@@ -9,11 +9,20 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
+import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 import vista.Caja.Caja_Pagos;
 /**
@@ -852,6 +861,86 @@ public void listarMedicos1(String Servicio,JTable tabla){
         tabla.setRowHeight(45);
     }
      
+     
+    public void reporteVentaLaRxEc(String ruta, String id_documento) {
+ 
+        try {
+            String rutaInforme = "src\\Reportes\\cajaCentral\\ticketVenta.jasper";
+            Map parametros = new HashMap();
+//            parametros.put("id", 20144);
+            JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, con.conectar());
+//            JasperViewer ventanavisor = new JasperViewer(informe, false);
+//            ventanavisor.setTitle("Movimiento Historia Clínica a Detalle");
+//            ventanavisor.setVisible(true);
+//            PrintService impresora = "EPSON TM-T88V Receipt";
+             
+            //Archivo que se desea imprimir
+//    FileInputStream inputStream = new FileInputStream("src\\Reportes\\admisionCentral\\historiaClinica.jasper");
+// 
+    //Formato de Documento
+//    DocFlavor docFormat = DocFlavor.INPUT_STREAM.AUTOSENSE;
+    //Lectura de Documento
+//    Doc document = new SimpleDoc(inputStream, docFormat, null);
+ 
+    //Nombre de la impresora
+    String printerName = "EPSON TM-T88V Receipt";
+ 
+    //Inclusion del nombre de impresora y sus atributos
+//    AttributeSet attributeSet = new HashAttributeSet();
+//    attributeSet.add(new PrinterName(printerName, null));
+//    attributeSet = new HashAttributeSet();
+//    //Soporte de color o no
+//    attributeSet.add(ColorSupported.NOT_SUPPORTED);
+ 
+    //Busqueda de la impresora por el nombre asignado en attributeSet
+    PrintService[] services = PrintServiceLookup.lookupPrintServices(null, null);
+//    for(int i=0; i < services.length; i++){
+//
+//            if(services[i].getName().equals(printerName)){
+//
+//            try {
+//            JOptionPane.showMessageDialog(null, "Imprimiendo orden de servicio en " + services[i].getName(), "IMPRESIÓN", JOptionPane.INFORMATION_MESSAGE);
+//            FileInputStream fis = new FileInputStream("src\\Reportes\\admisionCentral\\historiaClinica.jasper");
+//            Doc pdfDoc = new SimpleDoc(fis, DocFlavor.INPUT_STREAM.AUTOSENSE, null); 
+//        
+//            DocPrintJob printJob = services[i].createPrintJob();
+//            printJob.print(pdfDoc, new HashPrintRequestAttributeSet()); 
+//
+//            } catch (PrintException e) {
+//            JOptionPane.showMessageDialog(null, e);
+//            }
+//            catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//            }
+//            }
+//    }
+
+
+// 
+////    System.out.println("Imprimiendo en : " + services[0].getName());
+// 
+//    DocPrintJob printJob = services[0].createPrintJob();
+//    //Envio a la impresora
+//            try {
+//                printJob.print(document,null);
+//            } catch (Exception e) {
+//            }
+// 
+//    inputStream.close();
+//            
+//            
+  
+            
+//            JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+//                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, informe );
+//                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, services[0].createPrintJob());
+//                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+//                    jrprintServiceExporter.exportReport();
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error: _btnVisualizarDetalle" + e.toString());
+            }
+    } 
      public boolean ActualizarCitas()
         {
         boolean resp = false;

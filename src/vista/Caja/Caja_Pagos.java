@@ -48,6 +48,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import tablas.FormatoTablaCajaConsultorio;
 import tablas.FormatoTablaReporteDiarioCaja;
+import static vista.Caja.Caja_HospitalizacionPreventa.lblIDHC;
 /**
  *
  * @author MYS1
@@ -838,10 +839,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
      public void Modificar(){
   
                         Caja_NuevaVenta cno = new Caja_NuevaVenta();
-                        cno.setId_hc(txtHC.getText());//
+                        cno.setId_hc(lblHc.getText());//
                         cno.setDni(Integer.parseInt(txtDNIActu.getText()));//
                         if(cno.ActualizarDNI()==true){
                             System.out.println("DNI ACTUALIZADO");
+                            lblDNI.setText(txtDNIActu.getText());
                             ActualizarDNI.dispose();
                             lTipoDoc.setVisible(true);
                             cbxTipoDocumento.setVisible(true);    
@@ -1907,7 +1909,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                             lblusu = new javax.swing.JLabel();
                                                                                             btnNuevo = new javax.swing.JButton();
                                                                                             jPanel23 = new javax.swing.JPanel();
-                                                                                            txtBuscar4 = new javax.swing.JTextField();
+                                                                                            txtBusquedas = new javax.swing.JTextField();
                                                                                             btnguardar = new javax.swing.JButton();
                                                                                             btnBuscarPaciente = new javax.swing.JButton();
                                                                                             btneliminar = new javax.swing.JButton();
@@ -1960,6 +1962,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                             lblNumDoc = new javax.swing.JLabel();
                                                                                             lblTurno = new javax.swing.JLabel();
                                                                                             lblDetalleId = new javax.swing.JLabel();
+                                                                                            lblNomenclatura = new javax.swing.JLabel();
 
                                                                                             BHC.setAlwaysOnTop(true);
                                                                                             BHC.setMinimumSize(new java.awt.Dimension(749, 350));
@@ -2798,7 +2801,6 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                                                                                             preventas.setAlwaysOnTop(true);
                                                                                             preventas.setMinimumSize(new java.awt.Dimension(800, 440));
-                                                                                            preventas.setPreferredSize(new java.awt.Dimension(800, 440));
                                                                                             preventas.setResizable(false);
 
                                                                                             jPanel18.setBackground(new java.awt.Color(41, 127, 184));
@@ -5468,8 +5470,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                             );
 
                                                                                             ActualizarDNI.setAlwaysOnTop(true);
-                                                                                            ActualizarDNI.setMinimumSize(new java.awt.Dimension(420, 229));
-                                                                                            ActualizarDNI.setPreferredSize(new java.awt.Dimension(420, 229));
+                                                                                            ActualizarDNI.setMinimumSize(new java.awt.Dimension(420, 233));
                                                                                             ActualizarDNI.setResizable(false);
 
                                                                                             jPanel15.setBackground(new java.awt.Color(41, 127, 184));
@@ -5598,7 +5599,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 ActualizarDNILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                 .addGroup(ActualizarDNILayout.createSequentialGroup()
                                                                                                     .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                    .addContainerGap(14, Short.MAX_VALUE))
+                                                                                                    .addContainerGap(18, Short.MAX_VALUE))
                                                                                             );
 
                                                                                             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -5782,15 +5783,15 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                             jPanel3.setBackground(new java.awt.Color(255, 255, 255));
                                                                                             jPanel3.setMinimumSize(new java.awt.Dimension(543, 156));
 
-                                                                                            lForma.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                                                                                            lForma.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
                                                                                             lForma.setForeground(new java.awt.Color(51, 51, 51));
                                                                                             lForma.setText("Forma de Pago");
 
-                                                                                            lTipoDoc.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                                                                                            lTipoDoc.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
                                                                                             lTipoDoc.setForeground(new java.awt.Color(51, 51, 51));
                                                                                             lTipoDoc.setText("Tipo de Documento");
 
-                                                                                            lDoc.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                                                                                            lDoc.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
                                                                                             lDoc.setForeground(new java.awt.Color(51, 51, 51));
                                                                                             lDoc.setText("Numero de Documento");
 
@@ -5822,7 +5823,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 }
                                                                                             });
 
-                                                                                            lblCPT.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                                                                                            lblCPT.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
                                                                                             lblCPT.setForeground(new java.awt.Color(51, 51, 51));
                                                                                             lblCPT.setText("CPT");
 
@@ -6040,7 +6041,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                                 .addComponent(lblDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                 .addComponent(lblHC, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                 .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                                                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                    .addContainerGap(370, Short.MAX_VALUE))
                                                                                             );
                                                                                             panelDatosGeneralesLayout.setVerticalGroup(
                                                                                                 panelDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -6366,7 +6367,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                                                                                             jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
                                                                                             jLabel38.setForeground(new java.awt.Color(102, 102, 102));
-                                                                                            jLabel38.setText("Esta venta esta tiene varios detalles");
+                                                                                            jLabel38.setText("Esta venta tiene varios detalles");
 
                                                                                             btnTerminiarVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
                                                                                             btnTerminiarVenta.setForeground(new java.awt.Color(102, 102, 102));
@@ -6596,7 +6597,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                     .addGap(0, 0, 0)
                                                                                                     .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                     .addGap(0, 0, 0)
-                                                                                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
+                                                                                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
                                                                                             );
 
                                                                                             javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -6615,12 +6616,16 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                                                                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                         .addGroup(jPanel3Layout.createSequentialGroup()
-                                                                                                            .addGap(10, 10, 10)
                                                                                                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                .addComponent(lTipoDoc)
-                                                                                                                .addComponent(lForma)
-                                                                                                                .addComponent(lblCPT)
-                                                                                                                .addComponent(lDoc))
+                                                                                                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                                                                                                    .addGap(10, 10, 10)
+                                                                                                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                        .addComponent(lTipoDoc)
+                                                                                                                        .addComponent(lForma)
+                                                                                                                        .addComponent(lDoc)))
+                                                                                                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                                                                                                    .addContainerGap()
+                                                                                                                    .addComponent(lblCPT)))
                                                                                                             .addGap(24, 24, 24)
                                                                                                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                 .addComponent(lblNumeroDoc)
@@ -7123,13 +7128,18 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                                                                                             jPanel23.setBackground(new java.awt.Color(255, 255, 255));
 
-                                                                                            txtBuscar4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-                                                                                            txtBuscar4.setForeground(new java.awt.Color(51, 51, 51));
-                                                                                            txtBuscar4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-                                                                                            txtBuscar4.setBorder(null);
-                                                                                            txtBuscar4.addCaretListener(new javax.swing.event.CaretListener() {
+                                                                                            txtBusquedas.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+                                                                                            txtBusquedas.setForeground(new java.awt.Color(51, 51, 51));
+                                                                                            txtBusquedas.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+                                                                                            txtBusquedas.setBorder(null);
+                                                                                            txtBusquedas.addCaretListener(new javax.swing.event.CaretListener() {
                                                                                                 public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                                                                                                    txtBuscar4CaretUpdate(evt);
+                                                                                                    txtBusquedasCaretUpdate(evt);
+                                                                                                }
+                                                                                            });
+                                                                                            txtBusquedas.addKeyListener(new java.awt.event.KeyAdapter() {
+                                                                                                public void keyTyped(java.awt.event.KeyEvent evt) {
+                                                                                                    txtBusquedasKeyTyped(evt);
                                                                                                 }
                                                                                             });
 
@@ -7139,14 +7149,14 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                 .addGroup(jPanel23Layout.createSequentialGroup()
                                                                                                     .addGap(2, 2, 2)
-                                                                                                    .addComponent(txtBuscar4, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                    .addComponent(txtBusquedas, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                                             );
                                                                                             jPanel23Layout.setVerticalGroup(
                                                                                                 jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                 .addGroup(jPanel23Layout.createSequentialGroup()
                                                                                                     .addGap(0, 0, 0)
-                                                                                                    .addComponent(txtBuscar4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                    .addComponent(txtBusquedas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                                             );
 
@@ -7340,37 +7350,64 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                             lblDetalleId.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
                                                                                             lblDetalleId.setText("jLabel97");
 
+                                                                                            lblNomenclatura.setText("jLabel75");
+
                                                                                             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                                                                                             jPanel1.setLayout(jPanel1Layout);
                                                                                             jPanel1Layout.setHorizontalGroup(
                                                                                                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                                    .addComponent(lblServicio)
-                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                                                            .addComponent(lblServicio)
+                                                                                                            .addGap(12, 12, 12)
+                                                                                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                                                                    .addComponent(lblPorcentaje)
+                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                                    .addComponent(lblUsuPorcentaje))
+                                                                                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                                                                    .addComponent(lblContador)
+                                                                                                                    .addGap(18, 18, 18)
+                                                                                                                    .addComponent(lblContadorF)
+                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                                    .addComponent(lblNumeroTotal)
+                                                                                                                    .addGap(18, 18, 18)
+                                                                                                                    .addComponent(lblContadorA)
+                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                                    .addComponent(lblNumeroAF)
+                                                                                                                    .addGap(18, 18, 18)
+                                                                                                                    .addComponent(lblNumeroFT)
+                                                                                                                    .addGap(18, 18, 18)
+                                                                                                                    .addComponent(lblTurno)))
+                                                                                                            .addGap(0, 0, Short.MAX_VALUE))
                                                                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                                                    .addComponent(lblPreventa)
-                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                    .addGap(48, 48, 48)
                                                                                                                     .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                                        .addComponent(lblVisAdmi)
-                                                                                                                        .addComponent(lblDetalleId))
-                                                                                                                    .addGap(18, 18, 18)
+                                                                                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                                                            .addComponent(lblVisAdmi)
+                                                                                                                            .addComponent(lblDetalleId))
+                                                                                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                                                                            .addContainerGap()
+                                                                                                                            .addComponent(lblNomenclatura)
+                                                                                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                                            .addComponent(lblPreventa))
+                                                                                                                        .addComponent(lblArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                     .addComponent(lblId_EmpresaFP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                                                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                                                                                     .addComponent(lblIdDetalle)
-                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                     .addComponent(lblServicioArea)
                                                                                                                     .addGap(18, 18, 18)
                                                                                                                     .addComponent(txtHC)
-                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                    .addComponent(lblArea)
-                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                                     .addComponent(lblCajaNomenclaturaPrecio))
                                                                                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                                                                                     .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -7428,29 +7465,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                                     .addComponent(panelAbonos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                                    .addComponent(AMA))))
-                                                                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                                            .addGap(6, 6, 6)
-                                                                                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                                                    .addComponent(lblPorcentaje)
-                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                    .addComponent(lblUsuPorcentaje))
-                                                                                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                                                    .addComponent(lblContador)
-                                                                                                                    .addGap(18, 18, 18)
-                                                                                                                    .addComponent(lblContadorF)
-                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                    .addComponent(lblNumeroTotal)
-                                                                                                                    .addGap(18, 18, 18)
-                                                                                                                    .addComponent(lblContadorA)
-                                                                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                    .addComponent(lblNumeroAF)
-                                                                                                                    .addGap(18, 18, 18)
-                                                                                                                    .addComponent(lblNumeroFT)
-                                                                                                                    .addGap(18, 18, 18)
-                                                                                                                    .addComponent(lblTurno)))
-                                                                                                            .addGap(0, 0, Short.MAX_VALUE)))
+                                                                                                                    .addComponent(AMA)))))
                                                                                                     .addContainerGap())
                                                                                             );
                                                                                             jPanel1Layout.setVerticalGroup(
@@ -7462,7 +7477,6 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                                                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                                     .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                    .addComponent(lblPreventa)
                                                                                                                     .addComponent(lblServicio))
                                                                                                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                                     .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -7497,7 +7511,6 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                .addComponent(lblArea)
                                                                                                                 .addComponent(lblCajaNomenclaturaPrecio)
                                                                                                                 .addComponent(lblIdPreventas)
                                                                                                                 .addComponent(lblIdMedico)
@@ -7514,7 +7527,12 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                                 .addComponent(lblServicioArea))
                                                                                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                             .addComponent(lblDetalleId)
-                                                                                                            .addGap(0, 47, Short.MAX_VALUE))
+                                                                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                                                                                                            .addComponent(lblArea)
+                                                                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                .addComponent(lblNomenclatura)
+                                                                                                                .addComponent(lblPreventa)))
                                                                                                         .addComponent(lblId_EmpresaFP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -7690,7 +7708,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             txtedad.setText(String.valueOf(tbPacientes.getValueAt(fila, 6)));
             lblHc.setText(String.valueOf(tbPacientes.getValueAt(fila, 7))); 
            
-            
+  
+           
           ////////////////////////
 
 	     jLabel36.setText(String.valueOf(tbpreventas.getRowCount()));
@@ -7789,9 +7808,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
              txtBuscarCPT.setText("");
              txtBuscarCPT.requestFocus();
              }
-              
-        }
-        if(lblDNI.getText().equals("        ")) {
+            
+             if(lblDNI.getText().equals("        ")) {
                 ActualizarDNI.setVisible(true);
                 txtDNIActu.requestFocus();
             } 
@@ -7802,6 +7820,9 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                 cbxTipoDocumento.showPopup();
                 cbxTipoDocumento.requestFocus(true);
             } 
+              
+        }
+       
     }//GEN-LAST:event_tbPacientesKeyPressed
 
     private void btnNuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo1ActionPerformed
@@ -7921,17 +7942,29 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             lblServicio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 7)));
             lblCajaNomenclaturaPrecio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
             lblServicioArea.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 9)));
-            
+            lblNomenclatura.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
             Caja_Documento_Detalle cnvd = new Caja_Documento_Detalle();
             lblVisAdmi.setText(cnvd.VisibleAdmin(lblCajaNomenclaturaPrecio.getText()));
             
             if(!lblVisAdmi.getText().equals("N")){
-//                tb_medicos2.setDefaultRenderer(Object.class,new FormatoTablaCajaConsultorio());
-                Caja_NuevaVenta CNV = new Caja_NuevaVenta();
-                MedicosConsultorios.setVisible(true);
-                CNV.listarMedicos1(lblServicio.getText(),tb_medicos1);
-                txtBuscarMedicos.setText(null);
-                txtBuscarMedicos.requestFocus();
+                
+                if (lblNomenclatura.getText().equals("CN00767         ")){
+                    
+                    Caja_HospitalizacionPreventa chos = new Caja_HospitalizacionPreventa();
+                    chos.setVisible(true);
+                    Caja_HospitalizacionPreventa.lblIDHC.setText(lblHc.getText());
+                    Caja_HospitalizacionPreventa.lblNomPaciente.setText(txtape.getText());
+                    Caja_HospitalizacionPreventa.lblUsuUsuario.setText(lblusu.getText());
+                    Caja_HospitalizacionPreventa.lblGenero.setText(sexo.getText());
+                    
+                }else  if (!lblNomenclatura.getText().equals("CN00767         ")){
+                    Caja_NuevaVenta CNV = new Caja_NuevaVenta();
+                    MedicosConsultorios.setVisible(true);
+                    CNV.listarMedicos1(lblServicio.getText(),tb_medicos1);
+                    txtBuscarMedicos.setText(null);
+                    txtBuscarMedicos.requestFocus();
+                }
+                
             }else if(lblVisAdmi.getText().equals("N")){
                 GuardarDetalle();
                 panelNumeros.setVisible(true);
@@ -8705,11 +8738,11 @@ jTabbedPane1.setSelectedIndex(1);
    }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
-    private void txtBuscar4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscar4CaretUpdate
+    private void txtBusquedasCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBusquedasCaretUpdate
         
          
         
-        if (txtBuscar4.getText()!=""){
+        if (txtBusquedas.getText()!=""){
             resumen.setVisible(true);
             jScrollPane3.setVisible(true);
             tb_BusquedaCabecera.setVisible(true);
@@ -8725,7 +8758,7 @@ jTabbedPane1.setSelectedIndex(1);
         
         
             Caja_NuevaVenta CNVRCC = new  Caja_NuevaVenta();
-            CNVRCC.ReporteDiariocajaCabeceraCC(txtBuscar4.getText(),tb_BusquedaCabecera);
+            CNVRCC.ReporteDiariocajaCabeceraCC(txtBusquedas.getText(),tb_BusquedaCabecera);
    
             tb_BusquedaCabecera.getSelectionModel().setSelectionInterval (0,0) ;
 // 
@@ -8755,7 +8788,7 @@ jTabbedPane1.setSelectedIndex(1);
             ////////////////////////////////////////
           
             
-        }if (txtBuscar4.getText().length()==0){
+        }if (txtBusquedas.getText().length()==0){
             resumen.setVisible(false);
   
             jScrollPane3.setVisible(false);
@@ -8765,7 +8798,7 @@ jTabbedPane1.setSelectedIndex(1);
             
         }           
 
-    }//GEN-LAST:event_txtBuscar4CaretUpdate
+    }//GEN-LAST:event_txtBusquedasCaretUpdate
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
 
@@ -9739,7 +9772,7 @@ jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_btnNuevo4ActionPerformed
 
     private void txtDNIActuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIActuKeyTyped
-         if (txtDNIActu.getText().length()==3){
+         if (txtDNIActu.getText().length()==8){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -9750,6 +9783,19 @@ jTabbedPane1.setSelectedIndex(1);
             getToolkit().beep();            
         }    
     }//GEN-LAST:event_txtDNIActuKeyTyped
+
+    private void txtBusquedasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedasKeyTyped
+          if (txtBusquedas.getText().length()==8){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)){
+            evt.consume();
+            getToolkit().beep();            
+        }    
+    }//GEN-LAST:event_txtBusquedasKeyTyped
 
     /**
      * @param args the command line arguments
@@ -10090,6 +10136,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JLabel lblMedicoId;
     private javax.swing.JLabel lblModulo;
     private javax.swing.JLabel lblModuloHos;
+    private javax.swing.JLabel lblNomenclatura;
     public static javax.swing.JLabel lblNumDoc;
     private javax.swing.JLabel lblNumero;
     private javax.swing.JLabel lblNumeroAF;
@@ -10182,12 +10229,12 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JTable tb_medicos;
     private javax.swing.JTable tb_medicos1;
     private javax.swing.JTable tbpreventas;
-    public static javax.swing.JTextField txtBuscar4;
     private javax.swing.JTextField txtBuscarCPT;
     private javax.swing.JTextField txtBuscarEmpresa;
     private javax.swing.JTextField txtBuscarFormaPago;
     private javax.swing.JTextField txtBuscarMedicos;
     private javax.swing.JTextField txtBuscarPaciente;
+    public static javax.swing.JTextField txtBusquedas;
     public static javax.swing.JTextField txtCPT;
     private javax.swing.JTextField txtDNIActu;
     private javax.swing.JTextField txtDescuento;

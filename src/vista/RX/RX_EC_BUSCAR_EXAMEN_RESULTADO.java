@@ -59,7 +59,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         mostrarArea();
         inicializar_tabla_Examenes();
         seleccion();
-        mostrarPacientes();
+//        mostrarPacientes();
         
         lblFecha.setVisible(true);
         lblHora.setVisible(true);
@@ -835,7 +835,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                             RX_EC_EXAMEN_CAB_RESULTADO rx=new RX_EC_EXAMEN_CAB_RESULTADO();
                             rx.setVisible(true);
                             
-                            RX_EC_EXAMEN_CAB_RESULTADO.txtID_EXAMEN_CAB.setText(tb_Examenes.getValueAt(filaselec, 9).toString());
+                            RX_EC_EXAMEN_CAB_RESULTADO.txtID_EXAMEN_CAB.setText(tb_Examenes.getValueAt(filaselec, 10).toString());
                             RX_EC_EXAMEN_CAB_RESULTADO.txtAM.setText(tb_Examenes.getValueAt(filaselec, 7).toString());
                             RX_EC_EXAMEN_CAB_RESULTADO.txtHC.setText(tb_Examenes.getValueAt(filaselec, 1).toString());
                             RX_EC_EXAMEN_CAB_RESULTADO.txtDNI.setText(tb_Examenes.getValueAt(filaselec, 3).toString());
@@ -928,18 +928,18 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
            int mes = fecha_inicio.getCalendar().get(Calendar.MONTH) + 1;
            int anio = fecha_inicio.getCalendar().get(Calendar.YEAR);
                        
-           String fechaI;
+           int fechaI;
                        
                        if(mes<10 && dia<10){
-                           fechaI = "0" + dia + "/"+ "0" + mes + "/" + anio;
+                           fechaI = Integer.parseInt(anio + "0" + mes + "0" + dia);
                        }else{                           
                            if(mes<10 && dia>=10){
-                           fechaI = dia + "/" +"0"+ mes + "/" + anio;
+                           fechaI = Integer.parseInt(anio + "0"+ mes + dia);
                            }else{
                                if(mes >=10 && dia<10){
-                                 fechaI = "0"+ dia + "/" + mes + "/" + anio;
+                                 fechaI = Integer.parseInt( anio + mes + "0"+ dia);
                                }else{
-                                   fechaI = dia + "/" + mes + "/" + anio;
+                                   fechaI = anio +  mes + dia ;
                                }
                            }
                        }
@@ -949,18 +949,18 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
            int mes1 = fecha_fin.getCalendar().get(Calendar.MONTH) + 1;
            int anio1 = fecha_fin.getCalendar().get(Calendar.YEAR);
                        
-           String fechaF;
+           int fechaF;
                        
                        if(mes1<10 && dia1<10){
-                           fechaF = "0" + dia1 + "/"+ "0" + mes1 + "/" + anio1;
+                           fechaF = Integer.parseInt(anio1 + "0" + mes1 + "0" + dia1);
                        }else{                           
                            if(mes1<10 && dia1>=10){
-                           fechaF = dia1 + "/" +"0"+ mes1 + "/" + anio1;
+                           fechaF = Integer.parseInt(anio1 + "0"+ mes1 +  dia1);
                            }else{
                                if(mes1 >=10 && dia1<10){
-                                 fechaF = "0"+ dia1 + "/" + mes1 + "/" + anio1;
+                                 fechaF = Integer.parseInt(anio1  + mes1 + "0"+ dia1);
                                }else{
-                                   fechaF = dia1 + "/" + mes1 + "/" + anio1;
+                                   fechaF = anio1 + mes1 + dia1 ;
                                }
                            }
                        }
@@ -985,8 +985,8 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             RX_EC_BUSCAR_EXAMEN_CAJA obj=new RX_EC_BUSCAR_EXAMEN_CAJA();
             consulta="exec RX_EC_BUSCAR_RESULTADO_RX ?,?,?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1,fechaI);
-            cmd.setString(2, fechaF);
+            cmd.setInt(1,fechaI);
+            cmd.setInt(2, fechaF);
             cmd.setString(3, buscar);          
             
             ResultSet r= cmd.executeQuery();
@@ -1030,11 +1030,10 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             JTable p=new JTable(m2);
             String fila[]=new String[11];
             Usuario obj=new Usuario();
-            consulta="exec RX_EC_BUSCAR_CAJA_RX_DIA ?,?";
+            consulta="exec RX_EC_BUSCAR_CAJA_RX_DIA ?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);            
             cmd.setString(1, txtBuscarPaciente.getText());
-            cmd.setString(2, lblNumeArea.getText());
-            
+       
             ResultSet r= cmd.executeQuery();
             while(r.next()){
             for (int i=0; i<11; i++){
@@ -1139,9 +1138,10 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             tb_Examenes.getColumnModel().getColumn(4).setPreferredWidth(60); 
             tb_Examenes.getColumnModel().getColumn(5).setPreferredWidth(60);
             tb_Examenes.getColumnModel().getColumn(6).setPreferredWidth(60);
-            tb_Examenes.getColumnModel().getColumn(7).setPreferredWidth(80);          
-            tb_Examenes.getColumnModel().getColumn(8).setPreferredWidth(110);
-            tb_Examenes.getColumnModel().getColumn(9).setPreferredWidth(180);
+            tb_Examenes.getColumnModel().getColumn(7).setPreferredWidth(80); 
+            tb_Examenes.getColumnModel().getColumn(8).setPreferredWidth(100);
+            tb_Examenes.getColumnModel().getColumn(9).setPreferredWidth(100);
+            tb_Examenes.getColumnModel().getColumn(10).setPreferredWidth(150);
             //Ocultar
             tb_Examenes.getColumnModel().getColumn(0).setMinWidth(0);
             tb_Examenes.getColumnModel().getColumn(0).setMaxWidth(0);    
@@ -1180,10 +1180,10 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             
             tb_Examenes.setModel(new DefaultTableModel());
             String titulos[]={"ID_HC","N° HC","Nombre del Paciente","DNI","Fecha Nac.","Edad","Sexo",
-            "Acto Médico","Fecha Examen","Codigo Exámen"};
+            "Acto Médico","Cant Examenes","Fecha Examen","Codigo Exámen"};
             m4=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m4);
-            String fila[]=new String[10];
+            String fila[]=new String[11];
             Usuario obj=new Usuario();
             consulta="exec RX_EC_LISTAR_EXAMEN_RESULTADO ";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
@@ -1191,7 +1191,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
  
             ResultSet r= cmd.executeQuery();
             while(r.next()){
-            for (int i=0; i<10; i++){
+            for (int i=0; i<11; i++){
             fila[i]=r.getString(i+1);
             }
                 m4.addRow(fila);

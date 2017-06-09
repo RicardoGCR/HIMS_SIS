@@ -78,6 +78,25 @@ public class RX_EC_RESULTADO_CAB {
         return resp;
     }
 
+    public String RX_EC_ID_CAB_RES()
+    {
+        Conexion cn=new Conexion();
+        String cod="";
+        try{
+        String consulta="exec RX_EC_ID_CAB_RES_EX";
+        ResultSet r;
+        r=cn.Listar(consulta);
+        if(r.next())
+            {
+               cod = r.getString(1);
+            }
+        }catch(Exception ex)
+        {
+            System.out.println("Error CODIGO: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
     public Connection getCn() {
         return cn;
     }

@@ -61,16 +61,16 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         seleccion();
         mostrarPacientes();
         
-        lblFecha.setVisible(false);
-        lblHora.setVisible(false);
-        lblNumeArea.setVisible(false);
-        lblFechaNaci.setVisible(false);
-        lblGenero.setVisible(false);
-        lblEdad.setVisible(false);
-        lblIDArea.setVisible(false);
-        lblNomAD.setVisible(false);
-        lblUsuD.setVisible(false);
-        
+//        lblFecha.setVisible(false);
+//        lblHora.setVisible(false);
+//        lblNumeArea.setVisible(false);
+//        lblFechaNaci.setVisible(false);
+//        lblGenero.setVisible(false);
+//        lblEdad.setVisible(false);
+//        lblIDArea.setVisible(false);
+//        lblNomAD.setVisible(false);
+//        lblUsuD.setVisible(false);
+//        
         
 //////obtener el nombre de la pc
 //        InetAddress localHost = InetAddress.getLocalHost();
@@ -701,12 +701,16 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
     }//GEN-LAST:event_fecha_inicioPropertyChange
 
     private void txtBuscarPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPacienteCaretUpdate
+    if(cbFecha.isSelected()== true && (fecha_inicio.getDate()==null || fecha_fin.getDate()==null)){
+        JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un rango de fechas");
+    }
+        
     if(cbFecha.isSelected()==true){
         buscar_examen();
     }else if(cbFecha.isSelected()==false){
         BuscarPacientesDIA();
     }
-        
+            
     }//GEN-LAST:event_txtBuscarPacienteCaretUpdate
 
     private void cbFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFechaActionPerformed
@@ -915,11 +919,13 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         if(cbFecha.isSelected()==true){
             fecha_inicio.setEnabled(true);
             fecha_fin.setEnabled(true);
+            txtBuscarPaciente.setText("");
         }else{
             fecha_inicio.setEnabled(false);
             fecha_fin.setEnabled(false);
             fecha_inicio.setDate(null);
             fecha_fin.setDate(null);
+            txtBuscarPaciente.setText("");
         }
     }
     
@@ -1019,8 +1025,6 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             if(tb_Examenes.getRowCount()==0){
 //                lblRegistro.setVisible(true);
                 JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
-            }else{
-//                lblRegistro.setVisible(false);
             }
             
         } catch (Exception e) {
@@ -1062,8 +1066,6 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             if(tb_Examenes.getRowCount()==0){
 //                lblRegistro.setVisible(true);
                 JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
-            }else{
-//                lblRegistro.setVisible(false);
             }
             
         } catch (Exception e) {

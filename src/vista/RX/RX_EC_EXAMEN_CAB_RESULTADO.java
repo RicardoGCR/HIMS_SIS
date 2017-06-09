@@ -141,6 +141,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         lblFUA = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         lblFP = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        lblNumExamen = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -163,7 +165,6 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         txtAM = new javax.swing.JTextField();
         txtEdad = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        lblNumExamen = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
@@ -616,6 +617,15 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         lblFP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFP.setText("forma PAGO");
 
+        jLabel28.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setText("N° RESULTADO:");
+
+        lblNumExamen.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        lblNumExamen.setForeground(new java.awt.Color(255, 255, 255));
+        lblNumExamen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNumExamen.setText("----");
+
         javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
         jpanel.setLayout(jpanelLayout);
         jpanelLayout.setHorizontalGroup(
@@ -648,11 +658,15 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         .addComponent(lblNomA, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(71, 71, 71))
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblNumExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblFechaReg, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblHoraReg, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                         .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43))))
         );
@@ -684,7 +698,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                             .addComponent(lblFP)
                             .addComponent(jLabel15)
                             .addComponent(lblFUA)
-                            .addComponent(jLabel23))))
+                            .addComponent(jLabel23)
+                            .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblNumExamen)
+                                .addComponent(jLabel28)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -874,10 +891,6 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         jLabel29.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setText("N° de Examen:");
-
-        lblNumExamen.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        lblNumExamen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNumExamen.setText("10000");
 
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
         jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(34, 113, 179)));
@@ -1218,21 +1231,21 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel27)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(lblHospiServ, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtHabitacion)
-                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(324, 324, 324))
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCama, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(lblHospi, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
-                        .addComponent(txtPersonalSolicita)))
+                        .addComponent(txtPersonalSolicita)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtCama, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)))))
                 .addGap(43, 43, 43))
         );
         jPanel4Layout.setVerticalGroup(
@@ -1385,8 +1398,6 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         .addComponent(txtNumExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel29)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblNumExamen)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtAMB, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(101, 101, 101)
@@ -1436,7 +1447,6 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtAMB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel29)
-                                .addComponent(lblNumExamen)
                                 .addComponent(txtNumExamen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblId_DX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblId_Preventa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1962,8 +1972,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         tb_Personal_rol_todo.getColumnModel().getColumn(3).setPreferredWidth(150);  
         tb_Personal_rol_todo.getColumnModel().getColumn(4).setPreferredWidth(200); 
         tb_Personal_rol_todo.getColumnModel().getColumn(5).setPreferredWidth(150); 
-        tb_Personal_rol_todo.getColumnModel().getColumn(6).setPreferredWidth(250); 
-        tb_Personal_rol_todo.getColumnModel().getColumn(7).setPreferredWidth(100); 
+        
     }
     
     public void guardar_resultado_cabecera(){
@@ -2142,11 +2151,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         String consulta="";
         try {
             tb_Personal_rol_todo.setModel(new DefaultTableModel());
-            String titulos[]={"Nº","Cod. Per","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio",
-                 "Cod. Servicio"};
+            String titulos[]={"Nº","Cod. Per","Apellido Paterno","Apellido Materno","Nombres","Cargo"};
             m4=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m4);
-            String fila[]=new String[8];
+            String fila[]=new String[6];
 
             RX_EC_EXAMEN obj=new RX_EC_EXAMEN();
                     consulta="exec RX_EC_PERSONAL_BUSCAR_TODO ?";
@@ -2162,8 +2170,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 fila[3]=r.getString(3);
                 fila[4]=r.getString(4);
                 fila[5]=r.getString(5);
-                fila[6]=r.getString(6);
-                fila[7]=r.getString(7);
+                
                 m4.addRow(fila);
                 c++;
             }
@@ -2181,11 +2188,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     
     public void CargarPersonalRol_todo(){
         try {
-             String titulos[]={"Nº","Cod. Per","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio",
-                 "Cod. Servicio"};
+             String titulos[]={"Nº","Cod. Per","Apellido Paterno","Apellido Materno","Nombres","Cargo"};
             m5=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m5);
-            String fila[]=new String[8];
+            String fila[]=new String[6];
 
         String consulta="exec RX_EC_PERSONAL_LISTAR_TODO";
         ResultSet r;
@@ -2199,8 +2205,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             fila[3]=r.getString(3);
             fila[4]=r.getString(4);
             fila[5]=r.getString(5);
-            fila[6]=r.getString(6);
-            fila[7]=r.getString(7);
+            
                 m5.addRow(fila);
                 c++;
             }
@@ -2617,6 +2622,7 @@ public void guardar_resultado_detalle(){
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

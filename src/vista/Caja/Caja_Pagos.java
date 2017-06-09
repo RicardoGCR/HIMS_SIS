@@ -38,7 +38,14 @@ import modelos.Caja.Caja_SIS_Cabecera;
 import servicios.Conexion;
 import vista.admisionCentral.FrmNuevaHistoriaC;
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
+import java.util.Map;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
 import javax.swing.table.JTableHeader;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
 import tablas.FormatoTablaCajaConsultorio;
 import tablas.FormatoTablaReporteDiarioCaja;
 /**
@@ -65,7 +72,7 @@ Caja_NuevaVenta cnn = new Caja_NuevaVenta();
 Caja_MotivoAnulacion cnnA = new Caja_MotivoAnulacion();
 Caja_Documento_Detalle cnnD = new Caja_Documento_Detalle();
 Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
-
+Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 //ManejadorTecla manejador = new ManejadorTecla();
 
     /**
@@ -8961,7 +8968,9 @@ jTabbedPane1.setSelectedIndex(1);
     private void btnTerminiarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminiarVentaActionPerformed
         
         
-        Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
+        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
         lblCPT.setVisible(false);
         panelCPT.setVisible(false);
         panelTablaCPT.setVisible(false);
@@ -8974,7 +8983,7 @@ jTabbedPane1.setSelectedIndex(1);
         cbxTipoDocumento.setVisible(false);
         panelAnular.setVisible(false);
         panelColorFp.setBackground(new Color(255,255,255)); 
-        nuevaV.reporteVentaLaRxEc("/reportes/admisionEmergencia/formatoEmergencia-Cabecera.jasper","");
+        
         NuevaV();
     }//GEN-LAST:event_btnTerminiarVentaActionPerformed
 

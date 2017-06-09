@@ -158,7 +158,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         txtIDTriaje.setVisible(false);
         lblIdFP.setVisible(false);
         lblIdTr.setVisible(false);
-        txtNroRegistro.setVisible(false);
+        txtNroRegistro.setVisible(true);
     }
     
     public void habilitarPestanas(int tipo,boolean opcion){
@@ -3453,7 +3453,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
 
             jLabel21.setText("Alt + B");
 
-            txtNroRegistro.setText("jLabel1");
+            txtNroRegistro.setText("21");
 
             javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
             jPanel1.setLayout(jPanel1Layout);
@@ -4563,9 +4563,9 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                             caja1.setCod_nomen(txtCPT.getText());
                             if(caja1.mantanimientoCajaPreventaEmergencia("I")==true){
                                 //VISUALIZAR EL REPORTE
-                                String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Cabecera.jasper";
+//                                String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Cabecera.jasper";
                                 JOptionPane.showMessageDialog(this, "Datos guardados");
-                                adEmerCab.reporteCabecera(ruta, Integer.parseInt(txtNroRegistro.getText()));
+//                                adEmerCab.reporteCabecera(ruta, Integer.parseInt(txtNroRegistro.getText()));
                                 pnlDatosCabecera.setVisible(false);
                                 limpiar();
                                 txtNHC.setText("");

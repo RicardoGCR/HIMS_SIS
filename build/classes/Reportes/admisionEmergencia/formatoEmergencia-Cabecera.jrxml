@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
-<<<<<<< HEAD
-	<property name="ireport.zoom" value="1.210000000000003"/>
-	<property name="ireport.x" value="30"/>
-	<property name="ireport.y" value="0"/>
-=======
-	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="90"/>
->>>>>>> 1408e43f32240bd05effa5c06da74f26251723e9
+	<property name="ireport.y" value="0"/>
 	<parameter name="id" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[EXEC CAJA_PREVENTA_EMERGENCIA_REPORTE 23]]>
+		<![CDATA[EXEC CAJA_PREVENTA_EMERGENCIA_REPORTE $P{id}]]>
 	</queryString>
 	<field name="ID_PREVENTA" class="java.lang.Long"/>
 	<field name="COD_HC" class="java.lang.String"/>
@@ -34,7 +28,6 @@
 	<field name="EMER_PARENTESCO" class="java.lang.String"/>
 	<field name="RIESGO" class="java.lang.String"/>
 	<field name="UE_LOGO" class="java.io.InputStream"/>
-	<field name="nom_forma_pago" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -55,14 +48,14 @@
 				<text><![CDATA[NOTA DE INGRESO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="437" y="35" width="99" height="16" uuid="d6714b89-04d1-45e6-a421-2d4658e91d13"/>
+				<reportElement x="441" y="35" width="99" height="16" uuid="d6714b89-04d1-45e6-a421-2d4658e91d13"/>
 				<textElement>
 					<font size="11" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[Ministerio de Salud]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="418" y="50" width="145" height="13" uuid="6ac7bf62-8ce5-4aca-838b-d6dd807bced3"/>
+				<reportElement x="419" y="50" width="137" height="14" uuid="6ac7bf62-8ce5-4aca-838b-d6dd807bced3"/>
 				<textElement>
 					<font fontName="Impact" size="9" isBold="false"/>
 				</textElement>
@@ -73,7 +66,7 @@
 				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="460" y="0" width="103" height="35" uuid="5dee65cf-a0b4-4ebd-87cf-52761ffb77f1"/>
+				<reportElement x="465" y="1" width="45" height="38" uuid="6ac825e7-95dc-4d2c-9952-f5b295b7fa47"/>
 				<imageExpression><![CDATA["D:\\pry\\SISGESH\\src\\imagenes\\iconos\\logomin.gif"]]></imageExpression>
 			</image>
 		</band>
@@ -249,25 +242,6 @@
 				</textElement>
 				<text><![CDATA[Riesgo:]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="153" y="5" width="100" height="20" uuid="4ed167e0-c52b-4d34-a004-18b7fa50b229"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<text><![CDATA[Forma de pago:]]></text>
-			</staticText>
-			<textField>
-<<<<<<< HEAD
-				<reportElement x="253" y="5" width="143" height="20" uuid="ecf4d957-4baa-44e0-9201-3d95858361b3"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nom_forma_pago}]]></textFieldExpression>
-=======
-				<reportElement x="352" y="22" width="44" height="20" forecolor="#FFFFFF" uuid="570e650b-862e-45a6-b7fe-074b0309c655"/>
-				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
->>>>>>> 1408e43f32240bd05effa5c06da74f26251723e9
-			</textField>
 		</band>
 	</detail>
 	<columnFooter>

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
-<<<<<<< HEAD
+
 	<property name="ireport.zoom" value="1.210000000000003"/>
 	<property name="ireport.x" value="30"/>
 	<property name="ireport.y" value="0"/>
-=======
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="90"/>
->>>>>>> 1408e43f32240bd05effa5c06da74f26251723e9
 	<parameter name="id" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -257,16 +255,16 @@
 				<text><![CDATA[Forma de pago:]]></text>
 			</staticText>
 			<textField>
-<<<<<<< HEAD
+
 				<reportElement x="253" y="5" width="143" height="20" uuid="ecf4d957-4baa-44e0-9201-3d95858361b3"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nom_forma_pago}]]></textFieldExpression>
-=======
+
 				<reportElement x="352" y="22" width="44" height="20" forecolor="#FFFFFF" uuid="570e650b-862e-45a6-b7fe-074b0309c655"/>
 				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
->>>>>>> 1408e43f32240bd05effa5c06da74f26251723e9
+
 			</textField>
 		</band>
 	</detail>

@@ -102,6 +102,8 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
          
          Anular.setLocationRelativeTo(null);//en el centro
          Anular.getContentPane().setBackground(Color.WHITE);
+         ActualizarDNI.getContentPane().setBackground(Color.WHITE);
+         ActualizarDNI.setLocationRelativeTo(null);//en el centro
 
          panelMensaje.setVisible(false);
          panelCPT.setVisible(false);
@@ -823,6 +825,30 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                 System.out.println("ERROR ACTUALIZAR CAMA");
 
         }
+                       
+    }
+     
+     public void Modificar(){
+  
+                        Caja_NuevaVenta cno = new Caja_NuevaVenta();
+                        cno.setId_hc(txtHC.getText());//
+                        cno.setDni(Integer.parseInt(txtDNIActu.getText()));//
+                        if(cno.ActualizarDNI()==true){
+                            System.out.println("DNI ACTUALIZADO");
+                            ActualizarDNI.dispose();
+                            lTipoDoc.setVisible(true);
+                            cbxTipoDocumento.setVisible(true);    
+                            cbxTipoDocumento.showPopup();
+                            cbxTipoDocumento.requestFocus(true);
+ 
+         
+                        } else {
+                            System.out.println("No se actualizo el DNI");
+                            ActualizarDNI.dispose();
+                        }
+
+                          
+
                        
     }
      
@@ -1738,11 +1764,10 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                         jPanel15 = new javax.swing.JPanel();
                                                                         jLabel45 = new javax.swing.JLabel();
                                                                         jLabel74 = new javax.swing.JLabel();
-                                                                        bus2 = new javax.swing.JLabel();
                                                                         jPanel34 = new javax.swing.JPanel();
-                                                                        txtBuscarPaciente1 = new javax.swing.JTextField();
-                                                                        bus4 = new javax.swing.JLabel();
-                                                                        btnBuscarPaciente7 = new javax.swing.JButton();
+                                                                        txtDNIActu = new javax.swing.JTextField();
+                                                                        jPanel54 = new javax.swing.JPanel();
+                                                                        btnNuevo4 = new javax.swing.JButton();
                                                                         jTabbedPane1 = new javax.swing.JTabbedPane();
                                                                         jPanel2 = new javax.swing.JPanel();
                                                                         jScrollPane3 = new javax.swing.JScrollPane();
@@ -5435,43 +5460,48 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                     .addComponent(jTabbedPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                             );
 
+                                                                                            ActualizarDNI.setAlwaysOnTop(true);
+                                                                                            ActualizarDNI.setMinimumSize(new java.awt.Dimension(420, 229));
+                                                                                            ActualizarDNI.setPreferredSize(new java.awt.Dimension(420, 229));
+                                                                                            ActualizarDNI.setResizable(false);
+
                                                                                             jPanel15.setBackground(new java.awt.Color(41, 127, 184));
                                                                                             jPanel15.setMinimumSize(new java.awt.Dimension(310, 441));
 
                                                                                             jLabel45.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
                                                                                             jLabel45.setForeground(new java.awt.Color(255, 255, 255));
-                                                                                            jLabel45.setText("DNI");
+                                                                                            jLabel45.setText("Actualizar DNI");
 
-                                                                                            jLabel74.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                                                                                            jLabel74.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                                                             jLabel74.setForeground(new java.awt.Color(255, 255, 255));
-                                                                                            jLabel74.setText("Busqueda por DNI, H.C. y Apellidos");
-
-                                                                                            bus2.setForeground(new java.awt.Color(41, 127, 184));
-                                                                                            bus2.setText("jLabel37");
+                                                                                            jLabel74.setText("DNI");
 
                                                                                             jPanel34.setBackground(new java.awt.Color(255, 255, 255));
 
-                                                                                            txtBuscarPaciente1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                                                                                            txtBuscarPaciente1.setForeground(new java.awt.Color(98, 98, 98));
-                                                                                            txtBuscarPaciente1.setBorder(null);
-                                                                                            txtBuscarPaciente1.addCaretListener(new javax.swing.event.CaretListener() {
+                                                                                            txtDNIActu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+                                                                                            txtDNIActu.setForeground(new java.awt.Color(98, 98, 98));
+                                                                                            txtDNIActu.setBorder(null);
+                                                                                            txtDNIActu.addCaretListener(new javax.swing.event.CaretListener() {
                                                                                                 public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                                                                                                    txtBuscarPaciente1CaretUpdate(evt);
+                                                                                                    txtDNIActuCaretUpdate(evt);
                                                                                                 }
                                                                                             });
-                                                                                            txtBuscarPaciente1.addMouseListener(new java.awt.event.MouseAdapter() {
+                                                                                            txtDNIActu.addMouseListener(new java.awt.event.MouseAdapter() {
                                                                                                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                                                                                    txtBuscarPaciente1MouseClicked(evt);
+                                                                                                    txtDNIActuMouseClicked(evt);
                                                                                                 }
                                                                                             });
-                                                                                            txtBuscarPaciente1.addActionListener(new java.awt.event.ActionListener() {
+                                                                                            txtDNIActu.addActionListener(new java.awt.event.ActionListener() {
                                                                                                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                                                                                    txtBuscarPaciente1ActionPerformed(evt);
+                                                                                                    txtDNIActuActionPerformed(evt);
                                                                                                 }
                                                                                             });
-                                                                                            txtBuscarPaciente1.addKeyListener(new java.awt.event.KeyAdapter() {
+                                                                                            txtDNIActu.addKeyListener(new java.awt.event.KeyAdapter() {
                                                                                                 public void keyPressed(java.awt.event.KeyEvent evt) {
-                                                                                                    txtBuscarPaciente1KeyPressed(evt);
+                                                                                                    txtDNIActuKeyPressed(evt);
+                                                                                                }
+                                                                                                public void keyTyped(java.awt.event.KeyEvent evt) {
+                                                                                                    txtDNIActuKeyTyped(evt);
                                                                                                 }
                                                                                             });
 
@@ -5481,27 +5511,44 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                 jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                 .addGroup(jPanel34Layout.createSequentialGroup()
                                                                                                     .addGap(2, 2, 2)
-                                                                                                    .addComponent(txtBuscarPaciente1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                    .addComponent(txtDNIActu, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                     .addContainerGap())
                                                                                             );
                                                                                             jPanel34Layout.setVerticalGroup(
                                                                                                 jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel34Layout.createSequentialGroup()
                                                                                                     .addGap(2, 2, 2)
-                                                                                                    .addComponent(txtBuscarPaciente1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                    .addComponent(txtDNIActu, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                             );
 
-                                                                                            bus4.setForeground(new java.awt.Color(41, 127, 184));
-                                                                                            bus4.setText("jLabel37");
+                                                                                            jPanel54.setBackground(new java.awt.Color(50, 151, 219));
 
-                                                                                            btnBuscarPaciente7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
-                                                                                            btnBuscarPaciente7.setContentAreaFilled(false);
-                                                                                            btnBuscarPaciente7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                                                                                            btnBuscarPaciente7.addActionListener(new java.awt.event.ActionListener() {
+                                                                                            btnNuevo4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+                                                                                            btnNuevo4.setForeground(new java.awt.Color(240, 240, 240));
+                                                                                            btnNuevo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-ID Card-50.png"))); // NOI18N
+                                                                                            btnNuevo4.setText("Actualizar");
+                                                                                            btnNuevo4.setContentAreaFilled(false);
+                                                                                            btnNuevo4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                                                                                            btnNuevo4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                                                                                            btnNuevo4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+                                                                                            btnNuevo4.setIconTextGap(30);
+                                                                                            btnNuevo4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+                                                                                            btnNuevo4.addActionListener(new java.awt.event.ActionListener() {
                                                                                                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                                                                                    btnBuscarPaciente7ActionPerformed(evt);
+                                                                                                    btnNuevo4ActionPerformed(evt);
                                                                                                 }
                                                                                             });
+
+                                                                                            javax.swing.GroupLayout jPanel54Layout = new javax.swing.GroupLayout(jPanel54);
+                                                                                            jPanel54.setLayout(jPanel54Layout);
+                                                                                            jPanel54Layout.setHorizontalGroup(
+                                                                                                jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                .addComponent(btnNuevo4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                            );
+                                                                                            jPanel54Layout.setVerticalGroup(
+                                                                                                jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                .addComponent(btnNuevo4)
+                                                                                            );
 
                                                                                             javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
                                                                                             jPanel15.setLayout(jPanel15Layout);
@@ -5510,39 +5557,28 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                 .addGroup(jPanel15Layout.createSequentialGroup()
                                                                                                     .addContainerGap()
                                                                                                     .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                        .addComponent(jLabel45)
+                                                                                                        .addGroup(jPanel15Layout.createSequentialGroup()
+                                                                                                            .addComponent(jLabel45)
+                                                                                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                                                         .addGroup(jPanel15Layout.createSequentialGroup()
                                                                                                             .addComponent(jLabel74)
-                                                                                                            .addGap(39, 39, 39)
-                                                                                                            .addComponent(bus2)
-                                                                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                            .addComponent(bus4))
-                                                                                                        .addGroup(jPanel15Layout.createSequentialGroup()
+                                                                                                            .addGap(18, 18, 18)
                                                                                                             .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                            .addGap(2, 2, 2)
-                                                                                                            .addComponent(btnBuscarPaciente7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                            .addGap(0, 111, Short.MAX_VALUE))))
+                                                                                                .addComponent(jPanel54, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                             );
                                                                                             jPanel15Layout.setVerticalGroup(
                                                                                                 jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                                                                                                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                        .addGroup(jPanel15Layout.createSequentialGroup()
-                                                                                                            .addGap(0, 0, Short.MAX_VALUE)
-                                                                                                            .addComponent(jLabel45)
-                                                                                                            .addGap(10, 10, 10)
-                                                                                                            .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                        .addGroup(jPanel15Layout.createSequentialGroup()
-                                                                                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                            .addComponent(btnBuscarPaciente7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                        .addComponent(jLabel74, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                                                                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                .addComponent(bus2)
-                                                                                                                .addComponent(bus4))))
-                                                                                                    .addGap(331, 331, 331))
+                                                                                                    .addContainerGap()
+                                                                                                    .addComponent(jLabel45)
+                                                                                                    .addGap(40, 40, 40)
+                                                                                                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                                        .addComponent(jPanel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                        .addComponent(jLabel74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                    .addGap(33, 33, 33)
+                                                                                                    .addComponent(jPanel54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                    .addGap(0, 0, 0))
                                                                                             );
 
                                                                                             javax.swing.GroupLayout ActualizarDNILayout = new javax.swing.GroupLayout(ActualizarDNI.getContentPane());
@@ -5554,8 +5590,8 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                             ActualizarDNILayout.setVerticalGroup(
                                                                                                 ActualizarDNILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                 .addGroup(ActualizarDNILayout.createSequentialGroup()
-                                                                                                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                    .addGap(0, 167, Short.MAX_VALUE))
+                                                                                                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                    .addContainerGap(14, Short.MAX_VALUE))
                                                                                             );
 
                                                                                             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -5961,7 +5997,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
 
                                                                                             lblDNI.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                                                                                             lblDNI.setForeground(new java.awt.Color(204, 204, 204));
-                                                                                            lblDNI.setText(" ");
+                                                                                            lblDNI.setText("        ");
 
                                                                                             jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                                                                                             jLabel12.setForeground(new java.awt.Color(204, 204, 204));
@@ -6005,9 +6041,9 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                     .addContainerGap()
                                                                                                     .addComponent(txtape)
                                                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                    .addGroup(panelDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                        .addComponent(jLabel11)
-                                                                                                        .addComponent(lblDNI))
+                                                                                                    .addGroup(panelDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                        .addComponent(lblDNI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                     .addGroup(panelDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                         .addComponent(jLabel12)
@@ -7513,7 +7549,7 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
                                                                                                     .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                         .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                         .addGroup(jPanel21Layout.createSequentialGroup()
-                                                                                                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                                                                                                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, Short.MAX_VALUE)
                                                                                                             .addContainerGap())))
                                                                                             );
                                                                                             jPanel21Layout.setVerticalGroup(
@@ -7613,6 +7649,9 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
     }//GEN-LAST:event_txtBuscarPacienteActionPerformed
 
     private void tbPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPacientesMouseClicked
+       
+        
+        
        Caja_NuevaVenta CP= new Caja_NuevaVenta();
        Caja_NuevaVenta CP2= new Caja_NuevaVenta();
        Caja_NuevaVenta CP3= new Caja_NuevaVenta();
@@ -7670,14 +7709,22 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
              txtBuscarCPT.setText("");
              }
 //            fua.setText(cnn1.idSIS());
-
             
-            lTipoDoc.setVisible(true);
-            cbxTipoDocumento.setVisible(true);    
-            cbxTipoDocumento.showPopup();
-            cbxTipoDocumento.requestFocus(true);
-
+                   
         }
+        if(lblDNI.getText().equals("        ")) {
+                ActualizarDNI.setVisible(true);
+                txtDNIActu.requestFocus();
+            } 
+        if(!lblDNI.getText().equals("        ")) {
+                ActualizarDNI.setVisible(false);
+                lTipoDoc.setVisible(true);
+                cbxTipoDocumento.setVisible(true);    
+                cbxTipoDocumento.showPopup();
+                cbxTipoDocumento.requestFocus(true);
+            } 
+        
+        
     }//GEN-LAST:event_tbPacientesMouseClicked
 
     private void tbPacientesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPacientesKeyPressed
@@ -7735,12 +7782,19 @@ Caja_SIS_Cabecera cnn1 = new Caja_SIS_Cabecera();
              txtBuscarCPT.setText("");
              txtBuscarCPT.requestFocus();
              }
-//            fua.setText(cnn1.idSIS());
-            lTipoDoc.setVisible(true);
-            cbxTipoDocumento.setVisible(true);    
-            cbxTipoDocumento.showPopup();
-            cbxTipoDocumento.requestFocus(true); 
+              
         }
+        if(lblDNI.getText().equals("        ")) {
+                ActualizarDNI.setVisible(true);
+                txtDNIActu.requestFocus();
+            } 
+        if(!lblDNI.getText().equals("        ")) {
+                ActualizarDNI.setVisible(false);
+                lTipoDoc.setVisible(true);
+                cbxTipoDocumento.setVisible(true);    
+                cbxTipoDocumento.showPopup();
+                cbxTipoDocumento.requestFocus(true);
+            } 
     }//GEN-LAST:event_tbPacientesKeyPressed
 
     private void btnNuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo1ActionPerformed
@@ -9654,25 +9708,39 @@ jTabbedPane1.setSelectedIndex(1);
         }
     }//GEN-LAST:event_txtT8MouseClicked
 
-    private void txtBuscarPaciente1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPaciente1CaretUpdate
+    private void txtDNIActuKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIActuKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarPaciente1CaretUpdate
+    }//GEN-LAST:event_txtDNIActuKeyPressed
 
-    private void txtBuscarPaciente1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBuscarPaciente1MouseClicked
+    private void txtDNIActuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNIActuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarPaciente1MouseClicked
+    }//GEN-LAST:event_txtDNIActuActionPerformed
 
-    private void txtBuscarPaciente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarPaciente1ActionPerformed
+    private void txtDNIActuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDNIActuMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarPaciente1ActionPerformed
+    }//GEN-LAST:event_txtDNIActuMouseClicked
 
-    private void txtBuscarPaciente1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPaciente1KeyPressed
+    private void txtDNIActuCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDNIActuCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarPaciente1KeyPressed
+    }//GEN-LAST:event_txtDNIActuCaretUpdate
 
-    private void btnBuscarPaciente7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPaciente7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarPaciente7ActionPerformed
+    private void btnNuevo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo4ActionPerformed
+        Modificar();
+        
+    }//GEN-LAST:event_btnNuevo4ActionPerformed
+
+    private void txtDNIActuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIActuKeyTyped
+         if (txtDNIActu.getText().length()==3){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)){
+            evt.consume();
+            getToolkit().beep();            
+        }    
+    }//GEN-LAST:event_txtDNIActuKeyTyped
 
     /**
      * @param args the command line arguments
@@ -9756,7 +9824,6 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JButton btnBuscarPaciente4;
     private javax.swing.JButton btnBuscarPaciente5;
     private javax.swing.JButton btnBuscarPaciente6;
-    private javax.swing.JButton btnBuscarPaciente7;
     private javax.swing.JButton btnCargarCEX;
     private javax.swing.JButton btnCargarEME;
     private javax.swing.JButton btnCargarHOS;
@@ -9773,6 +9840,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JButton btnNuevo1;
     private javax.swing.JButton btnNuevo2;
     private javax.swing.JButton btnNuevo3;
+    public static javax.swing.JButton btnNuevo4;
     private javax.swing.JButton btnReservar;
     private javax.swing.JButton btnTerminiarVenta;
     private javax.swing.JButton btnbuscar1;
@@ -9788,9 +9856,7 @@ jTabbedPane1.setSelectedIndex(1);
     public static javax.swing.JButton btnguardar;
     private javax.swing.JLabel bus;
     private javax.swing.JLabel bus1;
-    private javax.swing.JLabel bus2;
     private javax.swing.JLabel bus3;
-    private javax.swing.JLabel bus4;
     private javax.swing.JLabel ca_id;
     private javax.swing.JPanel cargareliminar1;
     private javax.swing.JPanel cargareliminarma;
@@ -9949,6 +10015,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JPanel jPanel51;
     private javax.swing.JPanel jPanel52;
     private javax.swing.JPanel jPanel53;
+    private javax.swing.JPanel jPanel54;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
@@ -10112,8 +10179,8 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JTextField txtBuscarFormaPago;
     private javax.swing.JTextField txtBuscarMedicos;
     private javax.swing.JTextField txtBuscarPaciente;
-    private javax.swing.JTextField txtBuscarPaciente1;
     public static javax.swing.JTextField txtCPT;
+    private javax.swing.JTextField txtDNIActu;
     private javax.swing.JTextField txtDescuento;
     private javax.swing.JTextField txtEnterEscapeEnter;
     private javax.swing.JTextField txtEnterEscapeEnter1;

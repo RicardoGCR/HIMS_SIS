@@ -63,6 +63,7 @@ private String porcentaje_Exoneracion ;
 private double DESCUENTO;
 private double TOTAL_DOCUUMENTO;
 private int IdDetalle;
+private int dni;
 
 
         
@@ -941,6 +942,30 @@ public void listarMedicos1(String Servicio,JTable tabla){
                 JOptionPane.showMessageDialog(null, "Error: _btnVisualizarDetalle" + e.toString());
             }
     } 
+    
+    public boolean ActualizarDNI(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec CAJA_ACTUALIZAR_DNI ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_hc());
+            cmd.setInt(2, getDni());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error al actualizar el DNI " + ex.getMessage());
+        }
+        return resp;
+    }
+    
      public boolean ActualizarCitas()
         {
         boolean resp = false;
@@ -1510,6 +1535,14 @@ public void listarMedicos1(String Servicio,JTable tabla){
 
     public void setIdDetalle(int IdDetalle) {
         this.IdDetalle = IdDetalle;
+    }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
     }
     
     

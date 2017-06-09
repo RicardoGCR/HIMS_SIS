@@ -6,21 +6,42 @@
 package vista.cuentaCorriente;
 
 import campos.LimitadorDeDocumento;
+import com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.ref.Reference;
 import java.math.BigDecimal;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableEntryException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Formatter;
 import javax.swing.JOptionPane;
+import javax.xml.crypto.dsig.CanonicalizationMethod;
+import javax.xml.crypto.dsig.DigestMethod;
+import javax.xml.crypto.dsig.SignatureMethod;
+import javax.xml.crypto.dsig.SignedInfo;
+import javax.xml.crypto.dsig.Transform;
+import javax.xml.crypto.dsig.XMLSignatureFactory;
+import javax.xml.crypto.dsig.keyinfo.KeyInfoFactory;
+import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
+import javax.xml.crypto.dsig.spec.TransformParameterSpec;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.cuentaCorriente.CuentasPorPagarFacturasCabecera;
 import static vista.Principal.fechaActual;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
-
 /**
  *
  * @author PC02
@@ -28,7 +49,7 @@ import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
 public class Facturador extends javax.swing.JFrame {
 
     String barra = File.separator;
-    String ubicacion = "D:\\SUNAT\\DATA\\";
+    String ubicacion = "C:\\sunat_archivos\\sfs\\DATA\\";
     public Facturador() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -180,7 +201,7 @@ public class Facturador extends javax.swing.JFrame {
                         crea.format(String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
                         String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) +
                         String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(2)) + "|" +
-                        txtCantidad.getText() + "|" + txtCodProducto.getText() + "|" + 
+                        txtCantidad.getText() + "|" + txtCodProducto.getText() + "|" + txtCodProductoSunat.getText() + "|" + 
                         txtDescripcion.getText() + "|" + txtValorU.getText() + "|" + txtDscto.getText() + "|" +
                         txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
@@ -191,7 +212,7 @@ public class Facturador extends javax.swing.JFrame {
                     } else {
                         crea.format(String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
                         String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) + "|" +
-                        txtCantidad.getText() + "|" + txtCodProducto.getText() + "|" + 
+                        txtCantidad.getText() + "|" + txtCodProducto.getText() + "|" + txtCodProductoSunat.getText() + "|" + 
                         txtDescripcion.getText() + "|" + txtValorU.getText() + "|" + txtDscto.getText() + "|" +
                         txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
@@ -208,6 +229,24 @@ public class Facturador extends javax.swing.JFrame {
             }
         }
     }   
+    
+    public void crearXML() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, FileNotFoundException, IOException, CertificateException, UnrecoverableEntryException{
+        XMLSignatureFactory fac = XMLSignatureFactory.getInstance("DOM");
+        javax.xml.crypto.dsig.Reference ref = fac.newReference("", fac.newDigestMethod(DigestMethod.SHA1, null),
+                Collections.singletonList(fac.newTransform(Transform.ENVELOPED, (TransformParameterSpec)null)),null,null);
+        
+        SignedInfo si = fac.newSignedInfo(fac.newCanonicalizationMethod(CanonicalizationMethod.INCLUSIVE, 
+                (C14NMethodParameterSpec) null), 
+                fac.newSignatureMethod(SignatureMethod.RSA_SHA1, null),
+                Collections.singletonList(ref));
+        
+        KeyStore ks = KeyStore.getInstance("JKS");
+        ks.load(new FileInputStream("C:\\sunat_archivos\\sfs\\ENVIO\\prueba.jks"),"prueba".toCharArray());
+        KeyStore.PrivateKeyEntry keyEntry = (KeyStore.PrivateKeyEntry)ks.getEntry("selfsigned", new KeyStore.PasswordProtection("pepito".toCharArray()));
+        
+        X509Certificate cert = (X509Certificate) keyEntry.getCertificate();
+//        KeyInfoFactory kif
+    }
     
     public void enviarDatos(){
         int fila = tbVentas.getSelectedRow();
@@ -654,7 +693,7 @@ public class Facturador extends javax.swing.JFrame {
 
                 jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
                 jLabel1.setForeground(new java.awt.Color(41, 127, 184));
-                jLabel1.setText("<html><span style=\"font-size:'30px'\">Cuenta Corriente - </span>Factura Electrónica</html>");
+                jLabel1.setText("<html><span style=\"font-size:'30px'\">Cuenta por Pagar - </span>Factura Electrónica</html>");
 
                 lblMant.setText("I");
 

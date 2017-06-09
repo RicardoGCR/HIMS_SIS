@@ -9,11 +9,20 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
+import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 import vista.Caja.Caja_Pagos;
 /**
@@ -852,6 +861,18 @@ public void listarMedicos1(String Servicio,JTable tabla){
         tabla.setRowHeight(45);
     }
      
+     
+    public void reporteVentaLaRxEc(String id_documento) {
+        try {
+            String rutaInforme = "src\\Reportes\\cajaCentral\\report1.jasper";
+            Map parametros = new HashMap();
+            parametros.put("doc",id_documento);
+            JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, con.conectar());
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error: _btnVisualizarDetalle" + e.toString());
+            }
+    } 
      public boolean ActualizarCitas()
         {
         boolean resp = false;

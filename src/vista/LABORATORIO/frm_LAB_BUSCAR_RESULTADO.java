@@ -2474,7 +2474,7 @@ public void buscar_examenes(){
                  if(lbldia.getText().equalsIgnoreCase("Resultados del Día")){
                 LAB_BUSCAR_TM_DIA();
                 }
-                Thread.sleep(9000);
+                Thread.sleep(16000);
             } catch (InterruptedException e) {
             }
         }

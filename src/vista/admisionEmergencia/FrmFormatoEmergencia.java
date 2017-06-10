@@ -247,6 +247,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         txtTraidopor.setText("");
         txtParentesco.setText("");
         pnlEObservación.setText("");
+        txtCPT.setText("");
+        cbxFormaLlegada.setSelectedIndex(0);
     }
     
     public void limpiarDatosTriaje(){

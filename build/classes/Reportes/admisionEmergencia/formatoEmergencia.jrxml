@@ -689,9 +689,9 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				<textFieldExpression><![CDATA[$F{DIS_ACT}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="218" y="26" width="44" height="20" uuid="c66917f6-5f14-43a9-b00f-6f86b07635ea"/>
-				<textElement>
-					<font size="14"/>
+				<reportElement x="233" y="26" width="44" height="20" uuid="c66917f6-5f14-43a9-b00f-6f86b07635ea"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[DNI:]]></text>
 			</staticText>
@@ -740,11 +740,11 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				<text><![CDATA[Género:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-1" y="26" width="52" height="20" uuid="c8b94596-472a-4eb6-87ef-c45332de8f5f"/>
+				<reportElement x="35" y="26" width="52" height="20" uuid="c8b94596-472a-4eb6-87ef-c45332de8f5f"/>
 				<textElement>
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nº H.C.]]></text>
+				<text><![CDATA[Nº H.C.:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="51" y="139" width="244" height="20" uuid="ff55cfd3-12e2-4283-ac6c-de55e6c35395"/>
@@ -753,7 +753,7 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 			<staticText>
 				<reportElement x="-1" y="2" width="100" height="20" uuid="99e55b33-dcee-4836-bc6d-5ec0561464bc"/>
 				<textElement>
-					<font size="14"/>
+					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Acto médico:]]></text>
 			</staticText>
@@ -766,7 +766,7 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				<text><![CDATA[Provincia:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="262" y="26" width="100" height="20" uuid="e7f0a787-fa79-44c9-937c-2296e4f69a46"/>
+				<reportElement x="286" y="26" width="91" height="20" uuid="e7f0a787-fa79-44c9-937c-2296e4f69a46"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -801,16 +801,16 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				<text><![CDATA[Estado Civil:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="52" y="26" width="100" height="20" uuid="4baf5508-e771-4be8-a3f6-25d8e773efb4"/>
+				<reportElement x="87" y="26" width="100" height="20" uuid="4baf5508-e771-4be8-a3f6-25d8e773efb4"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CODIGO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="87" y="2" width="130" height="20" uuid="2ca4b4a2-65b9-488d-bc60-ca6bc2842f6e"/>
+				<reportElement x="87" y="2" width="100" height="20" uuid="2ca4b4a2-65b9-488d-bc60-ca6bc2842f6e"/>
 				<textElement>
-					<font size="14"/>
+					<font size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ACTO_MEDICO}]]></textFieldExpression>
 			</textField>
@@ -860,6 +860,13 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				<reportElement x="467" y="49" width="81" height="20" uuid="820c5169-4693-4b12-bb4d-a8fcef5de485"/>
 				<textFieldExpression><![CDATA[$F{hora_actu}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="186" y="2" width="100" height="20" uuid="5cf5d393-5bfb-4321-9904-49f5e54bec07"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Forma de Pago:]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<pageFooter>

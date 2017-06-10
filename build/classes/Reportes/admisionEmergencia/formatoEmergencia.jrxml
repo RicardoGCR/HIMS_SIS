@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
 	<property name="ireport.zoom" value="1.0000000000000109"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="30"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -208,6 +208,7 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 	<field name="AR_DESC" class="java.lang.String"/>
 	<field name="MEDICO" class="java.lang.String"/>
 	<field name="nom_forma_pago" class="java.lang.String"/>
+	<field name="TRIAJE_TALLA" class="java.lang.String"/>
 	<group name="admisionEmergenciaTopico2">
 		<groupExpression><![CDATA[$F{TOPICO_ID}]]></groupExpression>
 		<groupFooter>
@@ -629,38 +630,38 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				</jr:table>
 			</componentElement>
 			<staticText>
-				<reportElement x="395" y="181" width="16" height="20" uuid="9924a90c-de26-4ce9-a055-9e450c93692d"/>
+				<reportElement x="358" y="181" width="16" height="20" uuid="9924a90c-de26-4ce9-a055-9e450c93692d"/>
 				<text><![CDATA[Tº:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="171" y="181" width="27" height="20" uuid="79ff06e6-c051-41c9-8033-ea3306555850"/>
+				<reportElement x="134" y="181" width="27" height="20" uuid="79ff06e6-c051-41c9-8033-ea3306555850"/>
 				<text><![CDATA[PA:]]></text>
 			</staticText>
 			<line>
 				<reportElement x="-2" y="201" width="555" height="1" forecolor="#C0C0C0" uuid="e0430bf2-f620-4da0-8eee-ac56df7b097a"/>
 			</line>
 			<textField>
-				<reportElement x="271" y="181" width="49" height="20" uuid="03b896be-406b-4ae7-81d0-ac8014fe61f9"/>
+				<reportElement x="234" y="181" width="49" height="20" uuid="03b896be-406b-4ae7-81d0-ac8014fe61f9"/>
 				<textFieldExpression><![CDATA[$F{TRIAJE_FV_FC}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="251" y="181" width="22" height="20" uuid="bcc54109-5ce8-4fb3-bdd5-a28b92ed0470"/>
+				<reportElement x="214" y="181" width="22" height="20" uuid="bcc54109-5ce8-4fb3-bdd5-a28b92ed0470"/>
 				<text><![CDATA[FC:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="322" y="181" width="25" height="20" uuid="da3a1d51-830b-47f9-a9cb-ad7cfab755ec"/>
+				<reportElement x="285" y="181" width="25" height="20" uuid="da3a1d51-830b-47f9-a9cb-ad7cfab755ec"/>
 				<text><![CDATA[FR:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="341" y="181" width="53" height="20" uuid="d8da2ed1-17dd-4744-a427-9c376150deba"/>
+				<reportElement x="304" y="181" width="53" height="20" uuid="d8da2ed1-17dd-4744-a427-9c376150deba"/>
 				<textFieldExpression><![CDATA[$F{TRIAJE_FV_FR}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="409" y="181" width="45" height="20" uuid="9740db15-8bf0-4b87-b6e9-6b8818f295b2"/>
+				<reportElement x="372" y="181" width="45" height="20" uuid="9740db15-8bf0-4b87-b6e9-6b8818f295b2"/>
 				<textFieldExpression><![CDATA[$F{TRIAJE_FV_T}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="458" y="181" width="36" height="20" uuid="4f78a85b-8f13-4565-9652-036cdad2ad92"/>
+				<reportElement x="417" y="181" width="36" height="20" uuid="4f78a85b-8f13-4565-9652-036cdad2ad92"/>
 				<text><![CDATA[Peso:]]></text>
 			</staticText>
 			<staticText>
@@ -671,14 +672,14 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				<text><![CDATA[FUNCIONES VITALES:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="486" y="181" width="55" height="20" uuid="ca84ee56-a772-46f5-bdef-c82a8fdb5a05"/>
+				<reportElement x="445" y="181" width="55" height="20" uuid="ca84ee56-a772-46f5-bdef-c82a8fdb5a05"/>
 				<textFieldExpression><![CDATA[$F{TRIAJE_FV_PESO}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="-2" y="179" width="555" height="1" forecolor="#C0C0C0" uuid="254897a1-ee55-40f1-8357-aa0e597f387e"/>
 			</line>
 			<textField>
-				<reportElement x="192" y="181" width="59" height="20" uuid="b95dda32-5e0e-4990-94e1-2072550e1ec3"/>
+				<reportElement x="155" y="181" width="59" height="20" uuid="b95dda32-5e0e-4990-94e1-2072550e1ec3"/>
 				<textFieldExpression><![CDATA[$F{TRIAJE_FV_PA}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -741,7 +742,7 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				<text><![CDATA[Género:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="26" width="49" height="20" uuid="c8b94596-472a-4eb6-87ef-c45332de8f5f"/>
+				<reportElement x="2" y="26" width="60" height="20" uuid="c8b94596-472a-4eb6-87ef-c45332de8f5f"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -802,7 +803,7 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 				<text><![CDATA[Estado Civil:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="49" y="26" width="100" height="20" uuid="4baf5508-e771-4be8-a3f6-25d8e773efb4"/>
+				<reportElement x="59" y="26" width="100" height="20" uuid="4baf5508-e771-4be8-a3f6-25d8e773efb4"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -875,6 +876,14 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 			<line>
 				<reportElement x="0" y="112" width="555" height="1" forecolor="#C0C0C0" uuid="7fbb0754-7f37-480c-a7bb-90669a1a8918"/>
 			</line>
+			<staticText>
+				<reportElement x="492" y="181" width="29" height="20" uuid="ec4400c8-2491-4271-bb8d-f22a4738967d"/>
+				<text><![CDATA[Talla:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="520" y="181" width="35" height="20" uuid="1d033de6-bf17-4946-89c9-f5a272af3d2a"/>
+				<textFieldExpression><![CDATA[$F{TRIAJE_TALLA}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>

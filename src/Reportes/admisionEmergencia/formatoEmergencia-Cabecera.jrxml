@@ -68,8 +68,8 @@
 				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="465" y="1" width="45" height="38" uuid="6ac825e7-95dc-4d2c-9952-f5b295b7fa47"/>
-				<imageExpression><![CDATA["D:\\pry\\SISGESH\\src\\imagenes\\iconos\\logomin.gif"]]></imageExpression>
+				<reportElement x="472" y="4" width="49" height="29" uuid="1acca759-491a-4cbc-8977-d12f4e3aa7fe"/>
+				<imageExpression><![CDATA["E:\\pry\\SISGESH\\src\\imagenes\\iconos\\logomin.gif"]]></imageExpression>
 			</image>
 		</band>
 	</title>

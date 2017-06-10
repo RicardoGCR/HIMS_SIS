@@ -871,7 +871,8 @@ public void listarMedicos1(String Servicio,JTable tabla){
             JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, con.conectar());
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Error: _btnVisualizarDetalle" + e.toString());
+                Caja_Pagos.ErrorPrint.setVisible(false);
+                
             }
     } 
     

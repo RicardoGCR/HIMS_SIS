@@ -70,9 +70,9 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
             }
         });
         cerrar();
-        lblMant.setVisible(false);
-        lblID.setVisible(false);
-        lblGenero.setVisible(false);
+//        lblMant.setVisible(false);
+//        lblID.setVisible(false);
+//        lblGenero.setVisible(false);
     }
     
     public void cerrar (){
@@ -217,12 +217,11 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
     
     public boolean guardarDatosHospitalizacion(){
         boolean retorna = false;
-        try {
+   
             int id_preventa = 0;
             ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png"));
 
-                if(lblMant.getText().equals("U"))
-                id_preventa = Integer.parseInt(lblID.getText());
+
                 Caja_Preventa cp = new Caja_Preventa();
                 Caja_Preventa cp2 = new Caja_Preventa();
                 HospitalizacionAsignacionCamas hc = new HospitalizacionAsignacionCamas();
@@ -240,21 +239,20 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                     cp.setCA_ID(cama);
                     cp.sethOS_Indicaciones(indicaciones);
                     cp.setCod_usu(usuario);
-                    cp.setAR_ID(area);
+                    cp.setAR_ID(97);
                     if(cp.CAJA_mantenimientoPreventaHospitalizacion()==true){ 
-                        hc.setCA_ID(cama);
-                        hc.setCOD_USU(usuario);
-                        hc.setID_PREVENTA(cp.CajaPreventaID());
-                       if(hc.mantenimientoAsignacionCama()==true){
-                        retorna = true;
-                        }
+                        System.out.println("PAPELETA DE HOSPITALKIZACION GENERADA");
+//                        cp.setCA_ID(cama);
+//                        cp.setCOD_USU(usuario);
+//                        cp.setID_PREVENTA(cp.CajaPreventaID());
+//                       if(cp.CAJA_mantenimientoPreventaHospitalizacion()==true){
+//                        retorna = true;
+//                        }
                     }
                 }
             
 
-        } catch (Exception e) {
-            System.out.println("Error: guardarDatosHospitalizacion " + e.toString());
-        }
+       
         return retorna;
     }
     
@@ -282,18 +280,14 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dlgNHC = new javax.swing.JDialog();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tbNHC = new javax.swing.JTable();
-        pnlB = new javax.swing.JPanel();
-        txtBusqueda = new javax.swing.JTextField();
-        btnBuscarN = new javax.swing.JButton();
-        cbxTipoBusqueda = new javax.swing.JComboBox();
         dlgArticulos = new javax.swing.JDialog();
         jScrollPane4 = new javax.swing.JScrollPane();
         tbArticulos = new javax.swing.JTable();
-        jLabel13 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jPanel28 = new javax.swing.JPanel();
         txtBuscarArt = new javax.swing.JTextField();
+        btnBuscarPaciente3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         lblUsuUsuario = new javax.swing.JLabel();
@@ -330,140 +324,13 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         lblNomPaciente = new javax.swing.JLabel();
 
-        dlgNHC.setAlwaysOnTop(true);
-        dlgNHC.setMinimumSize(new java.awt.Dimension(393, 446));
-
-        tbNHC = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int colIndex){
-                return false;
-            }
-        };
-        tbNHC.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        tbNHC.setForeground(new java.awt.Color(102, 102, 102));
-        tbNHC.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "DNI", "Nº H.C.", "Datos del Paciente", "Edad"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbNHC.setGridColor(new java.awt.Color(204, 204, 204));
-        tbNHC.setSelectionBackground(new java.awt.Color(235, 105, 57));
-        tbNHC.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbNHCMouseClicked(evt);
-            }
-        });
-        tbNHC.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tbNHCKeyPressed(evt);
-            }
-        });
-        jScrollPane3.setViewportView(tbNHC);
-
-        pnlB.setBackground(new java.awt.Color(255, 255, 255));
-        pnlB.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-
-        txtBusqueda.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        txtBusqueda.setBorder(null);
-        txtBusqueda.setEnabled(false);
-        txtBusqueda.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtBusquedaCaretUpdate(evt);
-            }
-        });
-        txtBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtBusquedaKeyPressed(evt);
-            }
-        });
-
-        btnBuscarN.setBackground(new java.awt.Color(0, 153, 153));
-        btnBuscarN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/buscar.png"))); // NOI18N
-        btnBuscarN.setMnemonic('B');
-        btnBuscarN.setToolTipText("Buscar Nª H.C. (Alt + B)");
-        btnBuscarN.setBorderPainted(false);
-        btnBuscarN.setContentAreaFilled(false);
-        btnBuscarN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscarN.setDefaultCapable(false);
-        btnBuscarN.setEnabled(false);
-        btnBuscarN.setFocusPainted(false);
-        btnBuscarN.setFocusable(false);
-        btnBuscarN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarNActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlBLayout = new javax.swing.GroupLayout(pnlB);
-        pnlB.setLayout(pnlBLayout);
-        pnlBLayout.setHorizontalGroup(
-            pnlBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBLayout.createSequentialGroup()
-                .addComponent(txtBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
-                .addComponent(btnBuscarN, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
-        );
-        pnlBLayout.setVerticalGroup(
-            pnlBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(pnlBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBuscarN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        cbxTipoBusqueda.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        cbxTipoBusqueda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Nº H.C.", "DNI", "Apellidos", "Nombres" }));
-        cbxTipoBusqueda.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbxTipoBusquedaItemStateChanged(evt);
-            }
-        });
-        cbxTipoBusqueda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxTipoBusquedaActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout dlgNHCLayout = new javax.swing.GroupLayout(dlgNHC.getContentPane());
-        dlgNHC.getContentPane().setLayout(dlgNHCLayout);
-        dlgNHCLayout.setHorizontalGroup(
-            dlgNHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dlgNHCLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(dlgNHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(dlgNHCLayout.createSequentialGroup()
-                        .addComponent(cbxTipoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnlB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        dlgNHCLayout.setVerticalGroup(
-            dlgNHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgNHCLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addGroup(dlgNHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlB, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxTipoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
+        dlgArticulos.setAlwaysOnTop(true);
         dlgArticulos.setMinimumSize(new java.awt.Dimension(400, 300));
+        dlgArticulos.setResizable(false);
+
+        jScrollPane4.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jScrollPane4.setForeground(new java.awt.Color(51, 51, 51));
+        jScrollPane4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         tbArticulos = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -494,10 +361,18 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(tbArticulos);
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 1, 13)); // NOI18N
-        jLabel13.setText("Buscar:");
+        jPanel11.setBackground(new java.awt.Color(255, 119, 0));
+        jPanel11.setMinimumSize(new java.awt.Dimension(310, 441));
 
-        txtBuscarArt.setFont(new java.awt.Font("Segoe UI Light", 1, 13)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Articulos");
+
+        jPanel28.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtBuscarArt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtBuscarArt.setForeground(new java.awt.Color(98, 98, 98));
+        txtBuscarArt.setBorder(null);
         txtBuscarArt.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtBuscarArtCaretUpdate(evt);
@@ -514,30 +389,70 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
+        jPanel28.setLayout(jPanel28Layout);
+        jPanel28Layout.setHorizontalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addComponent(txtBuscarArt, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel28Layout.setVerticalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(txtBuscarArt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        btnBuscarPaciente3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+        btnBuscarPaciente3.setContentAreaFilled(false);
+        btnBuscarPaciente3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarPaciente3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPaciente3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel21)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscarPaciente3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(135, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBuscarPaciente3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(353, 353, 353))
+        );
+
         javax.swing.GroupLayout dlgArticulosLayout = new javax.swing.GroupLayout(dlgArticulos.getContentPane());
         dlgArticulos.getContentPane().setLayout(dlgArticulosLayout);
         dlgArticulosLayout.setHorizontalGroup(
             dlgArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dlgArticulosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(dlgArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(dlgArticulosLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtBuscarArt, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         dlgArticulosLayout.setVerticalGroup(
             dlgArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgArticulosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(dlgArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txtBuscarArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -662,7 +577,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblIDHC, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblIDHC, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -751,7 +666,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setText("Artículos que debe traer el Paciente");
 
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/mas.png"))); // NOI18N
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
         btnAgregar.setContentAreaFilled(false);
         btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregar.setEnabled(false);
@@ -844,18 +759,6 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                             .addGap(22, 22, 22)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel8)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(chkAislado))
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel4)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -871,12 +774,27 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                                             .addGap(6, 6, 6)
                                             .addComponent(cbxAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel10)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(cbxCama, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel8)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel9)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(chkAislado))
+                                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel10)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cbxCama, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(0, 0, Short.MAX_VALUE))))))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -902,10 +820,10 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                     .addComponent(lblEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel11)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -967,54 +885,6 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
         txtBuscarArt.requestFocus();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void txtBusquedaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBusquedaCaretUpdate
-        
-    }//GEN-LAST:event_txtBusquedaCaretUpdate
-
-    private void txtBusquedaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyPressed
-        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
-            tbNHC.getSelectionModel().setSelectionInterval(0, 0);
-            tbNHC.requestFocus();
-        }
-        if(evt.getExtendedKeyCode()==KeyEvent.VK_ENTER){
-            btnBuscarN.doClick();
-        }
-    }//GEN-LAST:event_txtBusquedaKeyPressed
-
-    private void btnBuscarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarNActionPerformed
-        hosP.buscar_HC(cbxTipoBusqueda.getSelectedIndex(), "A", txtBusqueda.getText(), tbNHC);
-        tbNHC.setAutoResizeMode(0);
-    }//GEN-LAST:event_btnBuscarNActionPerformed
-
-    private void cbxTipoBusquedaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxTipoBusquedaItemStateChanged
-        if(cbxTipoBusqueda.getSelectedIndex()>0){
-            txtBusqueda.setEnabled(true);
-            btnBuscarN.setEnabled(true);
-            txtBusqueda.requestFocus();
-        }else{
-            txtBusqueda.setEnabled(false);
-            btnBuscarN.setEnabled(false);
-        }
-    }//GEN-LAST:event_cbxTipoBusquedaItemStateChanged
-
-    private void tbNHCKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbNHCKeyPressed
-        if(evt.getExtendedKeyCode()==KeyEvent.VK_UP && tbNHC.getSelectedRow()==0){
-            //tbPaciente.getSelectionModel().setSelectionInterval(0, 0);
-            tbNHC.requestFocus();
-            tbNHC.getSelectionModel().setSelectionInterval(0,0);
-        }
-        char teclaPresionada = evt.getKeyChar();
-        if(teclaPresionada==KeyEvent.VK_ENTER){
-            int fila = tbNHC.getSelectedRow();
-            dlgNHC.dispose();
-            
-        }
-    }//GEN-LAST:event_tbNHCKeyPressed
-
-    private void cbxTipoBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoBusquedaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxTipoBusquedaActionPerformed
-
     private void cbxAreasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxAreasItemStateChanged
         if(cbxAreas.getSelectedIndex()>0){
             txtArea.setText(cbxAreas.getSelectedItem().toString());
@@ -1022,25 +892,6 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
         else
             txtArea.setText("");
     }//GEN-LAST:event_cbxAreasItemStateChanged
-
-    private void txtBuscarArtCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarArtCaretUpdate
-        HospitalizacionPapeletas hosP = new HospitalizacionPapeletas();
-        hosP.hospitalizacionArticulosListar(tbArticulos,txtBuscarArt.getText());
-        
-        
-    }//GEN-LAST:event_txtBuscarArtCaretUpdate
-
-    private void txtBuscarArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarArtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarArtActionPerformed
-
-    private void tbNHCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbNHCMouseClicked
-        if(evt.getClickCount()==2){
-            int fila = tbNHC.getSelectedRow();
-            dlgNHC.dispose();
-      
-        }
-    }//GEN-LAST:event_tbNHCMouseClicked
 
     private void tbArticulosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbArticulosKeyPressed
         char teclaPresionada = evt.getKeyChar(); 
@@ -1066,7 +917,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                     //int servicio = Integer.parseInt(hos.codServicio(cbxServicio.getSelectedItem().toString()));
                     String genero = lblGenero.getText();
                     
-                    ResultSet rs=sta.executeQuery("EXEC HOSPITALIZACION_CAMAS_LISTAR_LIBRES '"+genero+"','" + tipo +"'");
+                    ResultSet rs=sta.executeQuery("EXEC CAJA_CAMAS_LISTAR_LIBRES '"+genero+"','" + cbxServicio.getSelectedItem() +"','" + tipo+"'");
                     this.cbxCama.addItem("Seleccionar...");
                     while(rs.next()){
                      this.cbxCama.addItem(rs.getString("CA_DESC"));
@@ -1093,13 +944,6 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cbxAreasActionPerformed
 
-    private void txtBuscarArtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarArtKeyPressed
-        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
-            tbArticulos.getSelectionModel().setSelectionInterval(0,0);
-            tbArticulos.requestFocus();
-        }
-    }//GEN-LAST:event_txtBuscarArtKeyPressed
-
     private void cbxServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxServicioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxServicioActionPerformed
@@ -1125,18 +969,14 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
 
             }
      
-            String tipo="";
-            if(chkAislado.isSelected())
-                tipo = "Aislado";
-            else
-                tipo = "Comun";
+            HospitalizacionPisos hos = new HospitalizacionPisos();
             if(this.cbxServicio.getSelectedIndex()==1){
                 this.cbxCama.removeAllItems();
                 Statement sta=conexion.createStatement();
                 //int servicio = Integer.parseInt(hos.codServicio(cbxServicio.getSelectedItem().toString()));
                 String genero = lblGenero.getText();
 
-                ResultSet rs=sta.executeQuery("EXEC HOSPITALIZACION_CAMAS_LISTAR_LIBRES '"+genero+"','" + tipo +"'");
+                ResultSet rs=sta.executeQuery("EXEC CAJA_CAMAS_LISTAR_LIBRES '"+genero+"','" +cbxServicio.getSelectedItem()+"','" + "" +"'");
                 this.cbxCama.addItem("Seleccionar...");
                 while(rs.next()){
                     this.cbxCama.addItem(rs.getString("CA_DESC"));
@@ -1166,6 +1006,27 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
             enviarArticulos();
         }
     }//GEN-LAST:event_tbArticulosMouseClicked
+
+    private void txtBuscarArtCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarArtCaretUpdate
+        HospitalizacionPapeletas hosP = new HospitalizacionPapeletas();
+        hosP.hospitalizacionArticulosListar(tbArticulos,txtBuscarArt.getText());
+        
+    }//GEN-LAST:event_txtBuscarArtCaretUpdate
+
+    private void txtBuscarArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarArtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarArtActionPerformed
+
+    private void txtBuscarArtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarArtKeyPressed
+       if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
+            tbArticulos.getSelectionModel().setSelectionInterval(0,0);
+            tbArticulos.requestFocus();
+        }
+    }//GEN-LAST:event_txtBuscarArtKeyPressed
+
+    private void btnBuscarPaciente3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPaciente3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPaciente3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1207,21 +1068,19 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnBuscarN;
+    private javax.swing.JButton btnBuscarPaciente3;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox cbxAreas;
     public static javax.swing.JComboBox cbxCama;
     public static javax.swing.JComboBox cbxServicio;
-    private javax.swing.JComboBox cbxTipoBusqueda;
     private javax.swing.JCheckBox chkAislado;
     private javax.swing.JDialog dlgArticulos;
-    private javax.swing.JDialog dlgNHC;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1229,12 +1088,13 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel3;
     public static javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     public static javax.swing.JLabel lblEstado;
@@ -1245,13 +1105,10 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
     public static javax.swing.JLabel lblNomPaciente;
     public static javax.swing.JLabel lblServicio;
     public static javax.swing.JLabel lblUsuUsuario;
-    private javax.swing.JPanel pnlB;
     private javax.swing.JTable tbArticulos;
-    private javax.swing.JTable tbNHC;
     public static javax.swing.JTable tbSelecArticulos;
     public static javax.swing.JTextField txtArea;
     private javax.swing.JTextField txtBuscarArt;
-    private javax.swing.JTextField txtBusqueda;
     public static javax.swing.JEditorPane txtIndicaciones;
     // End of variables declaration//GEN-END:variables
 }

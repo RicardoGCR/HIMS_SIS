@@ -379,7 +379,7 @@ public class AdmisionEmergenciaCabecera {
     public void reporteCabecera(String ruta, int id) {
         try {
             Map parametros = new HashMap();
-            parametros.put("id", 21);
+            parametros.put("id", id);
             String rutaInforme = ruta;
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream(rutaInforme), parametros, cn);          
             JasperViewer ventanavisor = new JasperViewer(informe, false);

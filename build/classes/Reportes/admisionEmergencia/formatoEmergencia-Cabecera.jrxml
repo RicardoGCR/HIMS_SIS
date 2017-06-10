@@ -9,6 +9,7 @@
 	<queryString>
 		<![CDATA[EXEC CAJA_PREVENTA_EMERGENCIA_REPORTE $P{id}]]>
 	</queryString>
+	<field name="NUM_ACTOMEDICO" class="java.lang.Long"/>
 	<field name="ID_PREVENTA" class="java.lang.Long"/>
 	<field name="COD_HC" class="java.lang.String"/>
 	<field name="dni" class="java.lang.String"/>
@@ -28,6 +29,7 @@
 	<field name="EMER_PARENTESCO" class="java.lang.String"/>
 	<field name="RIESGO" class="java.lang.String"/>
 	<field name="UE_LOGO" class="java.io.InputStream"/>
+	<field name="nom_forma_pago" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -66,8 +68,8 @@
 				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="465" y="1" width="45" height="38" uuid="6ac825e7-95dc-4d2c-9952-f5b295b7fa47"/>
-				<imageExpression><![CDATA["D:\\pry\\SISGESH\\src\\imagenes\\iconos\\logomin.gif"]]></imageExpression>
+				<reportElement x="472" y="4" width="49" height="29" uuid="1acca759-491a-4cbc-8977-d12f4e3aa7fe"/>
+				<imageExpression><![CDATA["E:\\pry\\SISGESH\\src\\imagenes\\iconos\\logomin.gif"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -112,21 +114,21 @@
 			<staticText>
 				<reportElement x="0" y="4" width="100" height="20" uuid="7324f47d-caf4-4391-8a4a-7d4717130d20"/>
 				<textElement>
-					<font size="14"/>
+					<font fontName="SansSerif" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Acto médico:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="25" width="52" height="20" uuid="dc0c3afc-8954-432f-b6f4-afd05a72424e"/>
+				<reportElement x="4" y="25" width="95" height="20" uuid="dc0c3afc-8954-432f-b6f4-afd05a72424e"/>
 				<textElement>
-					<font size="14"/>
+					<font fontName="SansSerif" size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nº H.C.]]></text>
+				<text><![CDATA[Nº H.C.:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="153" y="25" width="44" height="20" uuid="9e6fbe6d-3955-4813-9d59-1f2048f175fe"/>
-				<textElement>
-					<font size="14"/>
+				<reportElement x="255" y="25" width="44" height="20" uuid="9e6fbe6d-3955-4813-9d59-1f2048f175fe"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[DNI:]]></text>
 			</staticText>
@@ -166,9 +168,9 @@
 				<textFieldExpression><![CDATA[$F{ID_PREVENTA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="50" y="25" width="103" height="20" uuid="dcdd34bc-4923-4b0d-9f2f-a27463bae141"/>
+				<reportElement x="100" y="25" width="100" height="20" uuid="dcdd34bc-4923-4b0d-9f2f-a27463bae141"/>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font fontName="SansSerif" size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{COD_HC}]]></textFieldExpression>
 			</textField>
@@ -229,9 +231,9 @@
 				<textFieldExpression><![CDATA[$F{EMER_PARENTESCO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="197" y="25" width="134" height="20" uuid="0503dc61-8699-4048-9541-f6604d681cba"/>
+				<reportElement x="300" y="25" width="100" height="20" uuid="0503dc61-8699-4048-9541-f6604d681cba"/>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font fontName="SansSerif" size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dni}]]></textFieldExpression>
 			</textField>
@@ -242,6 +244,27 @@
 				</textElement>
 				<text><![CDATA[Riesgo:]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="100" y="4" width="100" height="20" uuid="e515f291-1ec1-4508-b64b-64e80ff4f897"/>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUM_ACTOMEDICO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="4" width="100" height="20" uuid="fd5a61b7-f240-4c9c-8a17-2762c65f5780"/>
+				<textElement textAlignment="Right">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Forma de Pago:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="4" width="100" height="20" uuid="c5e708f4-1c80-4319-b81a-9467bef4b57f"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom_forma_pago}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>

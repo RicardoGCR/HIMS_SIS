@@ -2471,9 +2471,15 @@ public void buscar_examenes(){
             calcula();
 //            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                 if(lbldia.getText().equalsIgnoreCase("Resultados del Día")){
-                LAB_BUSCAR_TM_DIA();
-                }
+
+//                 if(lbldia.getText().equalsIgnoreCase("Resultados del Día")){
+//                LAB_BUSCAR_TM_DIA();
+//                }
+                Thread.sleep(16000);
+
+//                 if(lbldia.getText().equalsIgnoreCase("Resultados del Día")){
+//                LAB_BUSCAR_TM_DIA();
+//                }
                 Thread.sleep(9000);
             } catch (InterruptedException e) {
             }

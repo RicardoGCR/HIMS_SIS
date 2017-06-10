@@ -876,7 +876,7 @@ public void calcula() {
                         );
 
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                        setPreferredSize(new java.awt.Dimension(1067, 665));
+                        setPreferredSize(new java.awt.Dimension(1067, 658));
 
                         jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
@@ -1682,10 +1682,10 @@ public void buscar_examenes(){
     }
     }
     public void LAB_Validar_Valores(String sexo,int anio,int meses,int dias){
-        
+                
          try {
              int filtro=0,valores=0;
-             
+                
             for(int i=0;i<frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getRowCount();i++){
                 String cod_esquema="",nombre_resultado_exa="",tipo_esquema_sub_ana=""
                         ,cod_uni_med_exa="",cod_valores_refe_resul="",
@@ -1695,7 +1695,7 @@ public void buscar_examenes(){
                         valor_minimo_resul="",valor_maximo_resul="",valor_texto_referencia_resul="",
                         tipo_valor_refencia_resul="", observaciones_resultado_exa=""
                         ,usa_valores_ref="";
-                
+                                                    
                 cod_esquema=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i, 0).toString();
                 nombre_resultado_exa=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i, 1).toString();
                 tipo_esquema_sub_ana=frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i, 3).toString();
@@ -1761,8 +1761,47 @@ public void buscar_examenes(){
                     va=frm_LAB_RESULTADO_MUESTRA.tb_Valores.getRowCount();
                     }
                 }
+                if(frm_LAB_RESULTADO_MUESTRA.tb_Esquema.getValueAt(i,3).toString().equalsIgnoreCase("T")){
+                     cod_valores_refe_resul="";
+                     
+                 unidad_med="";
+                 
+                valor_de_resultado_analisis="";
+                estado_todos_fabricante="";
+            cod_fabricante_producto="";
+            ini_anio_resul="";
+            ini_mes_resul="";
+            ini_dia_resul="";
+            fin_anio_resul="";
+            fin_mes_resul="";
+            fin_dia_resul="";
+            genero="";
+            valor_minimo_resul="";
+            valor_maximo_resul="";
+            valor_texto_referencia_resul="";
+            tipo_valor_refencia_resul="";
+            observaciones_resultado_exa="";
+            
+            usa_valores_ref="N";
+            
                 
-                if(filtro==3){
+              resultado=(DefaultTableModel)frm_LAB_RESULTADO_MUESTRA.tb_Detalle.getModel();
+              String filaelemento[]={cod_esquema,nombre_resultado_exa,tipo_esquema_sub_ana
+                        ,cod_uni_med_exa,cod_valores_refe_resul,
+                        valor_de_resultado_analisis,unidad_med,estado_todos_fabricante,cod_fabricante_producto
+                        ,ini_anio_resul,ini_mes_resul,ini_dia_resul,fin_anio_resul,fin_mes_resul
+                        ,fin_dia_resul,genero,valor_minimo_resul,valor_maximo_resul
+                        ,valor_texto_referencia_resul,tipo_valor_refencia_resul
+                        ,observaciones_resultado_exa,usa_valores_ref};
+               resultado.addRow(filaelemento);   
+               
+               frm_LAB_RESULTADO_MUESTRA.tb_Detalle=new JTable(resultado){
+                public boolean isCellEditable(int rowIndex, int vColIndex) {
+                    return true;
+                }};
+               
+                }
+               else if(filtro==3){
 //                    "Código","Cod Esquema","Nombre Esquema",
 //                 "estado_todos_fabricantes","cod_fabricante_producto_mh","ini_anio","ini_mes",
 //"ini_dia","fin_anio","fin_mes","fin_dia","genero","estado_clinico_ref",
@@ -1839,6 +1878,7 @@ public void buscar_examenes(){
         JOptionPane.showMessageDialog(rootPane, e.getMessage());
     }
     }
+    
     
     private void chPacientesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chPacientesItemStateChanged
         if(chPacientes.isSelected()){
@@ -2289,7 +2329,7 @@ public void buscar_examenes(){
                 if(lbldia.getText().equalsIgnoreCase("Exámenes con Toma de Muestras del Día")){
                 LAB_BUSCAR_TM_DIA();
                 }
-                Thread.sleep(7000);
+                Thread.sleep(9000);
                 
             } catch (InterruptedException e) {
             }

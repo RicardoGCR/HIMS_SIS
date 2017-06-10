@@ -143,31 +143,12 @@
 			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 		</parameter>
 		<queryString>
-			<![CDATA[SELECT RD.nombre_resultado_exa,RD.valor_de_resultado_analisis,
-CASE
-when RD.tipo_valor_referencia_resul='N'
-then cast( rd.valor_minimo_resul as varchar(10))+'-'+cast(rd.valor_maximo_resul as varchar(10))
-when RD.tipo_valor_referencia_resul='S'
-then rd.valor_texto_referencia_resul
-else '-'
-end valor_ref
-,UM.descripcion_unidad_medida,case
-when rd.observaciones_resultado_exa=''
-then '-'
-else
-rd.observaciones_resultado_exa end OBSERV
-FROM LABORATORIO_RESULTADOS_MUESTRA_CABECERA RC,LABORATORIO_RESULTADOS_MUESTRA_DETALLE RD,
-LABORATORIO_TOMA_MUESTRA_DETALLE TD,LABORATORIO_ESQUEMA_RESULTADO_ANALISIS ES,LABORATORIO_UNIDAD_MEDIDA_RESULTADO UM
-WHERE ES.cod_esquema_resul=RD.cod_esquema_resul AND
-TD.cod_det_toma_mu_ana=RC.cod_det_toma_mu_ana AND
-RC.cod_cab_resultado_mu_ana=RD.cod_cab_resultado_mu_ana AND
-UM.cod_uni_med_exa=RD.cod_uni_med_exa
-AND TD.id_cod_det=$P{ID_COD_DET_RESUL}]]>
+			<![CDATA[exec sp_lab_reporte_detalle $P{ID_COD_DET_RESUL}]]>
 		</queryString>
 		<field name="nombre_resultado_exa" class="java.lang.String"/>
-		<field name="valor_de_resultado_analisis" class="java.lang.String"/>
+		<field name="valor" class="java.lang.String"/>
 		<field name="valor_ref" class="java.lang.String"/>
-		<field name="descripcion_unidad_medida" class="java.lang.String"/>
+		<field name="um" class="java.lang.String"/>
 		<field name="OBSERV" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="ID_COD_DET" class="java.lang.String">
@@ -278,10 +259,10 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="26" splitType="Stretch"/>
+		<band height="9" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="178" splitType="Stretch">
+		<band height="164" splitType="Stretch">
 			<rectangle>
 				<reportElement x="25" y="14" width="504" height="148" uuid="4f06df91-184d-4a98-8512-ecbeda7d3901"/>
 			</rectangle>
@@ -498,12 +479,12 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="175" splitType="Stretch">
+		<band height="156" splitType="Stretch">
 			<rectangle>
-				<reportElement x="26" y="15" width="504" height="30" backcolor="#999999" uuid="2143ed25-23de-4bbf-ae0d-ef3a125e2386"/>
+				<reportElement x="26" y="8" width="504" height="30" backcolor="#999999" uuid="2143ed25-23de-4bbf-ae0d-ef3a125e2386"/>
 			</rectangle>
 			<componentElement>
-				<reportElement key="table 5" style="table 5" x="26" y="61" width="504" height="99" uuid="9c2d1fb1-8d23-407b-abcd-f45031f525a5"/>
+				<reportElement key="table 5" style="table 5" x="26" y="48" width="504" height="103" uuid="9c2d1fb1-8d23-407b-abcd-f45031f525a5"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="RESULTADOS" uuid="690ffbe1-b3a6-439f-b073-14e82305fd08">
 						<datasetParameter name="ID_COD_DET_RESUL">
@@ -614,14 +595,14 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 				</jr:table>
 			</componentElement>
 			<textField>
-				<reportElement x="25" y="30" width="504" height="15" forecolor="#FFFFFF" uuid="8cf99ff4-48bd-424e-afcf-8317ade5cdc1"/>
+				<reportElement x="25" y="23" width="504" height="15" forecolor="#FFFFFF" uuid="8cf99ff4-48bd-424e-afcf-8317ade5cdc1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombre_ana_exa}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="26" y="15" width="503" height="15" forecolor="#FFFFFF" uuid="d2cca767-a73b-4f16-8a5b-6e764f8e8611"/>
+				<reportElement x="26" y="8" width="503" height="15" forecolor="#FFFFFF" uuid="d2cca767-a73b-4f16-8a5b-6e764f8e8611"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Segoe UI Semilight" size="10" isBold="true" isItalic="false" isUnderline="false"/>
 				</textElement>
@@ -630,22 +611,20 @@ dd.id_cod_doc_det,rc.resultado_PN]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="40" splitType="Stretch"/>
+		<band height="19" splitType="Stretch">
+			<staticText>
+				<reportElement x="333" y="0" width="100" height="15" uuid="0a69fc3c-0152-46d9-b311-3206c49f75a4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI Semilight" size="11"/>
+				</textElement>
+				<text><![CDATA[ATTE. DR(A)]]></text>
+			</staticText>
+		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="28" splitType="Stretch">
-			<textField>
-				<reportElement x="433" y="0" width="80" height="19" uuid="b9d5ab9a-78cd-4129-90c7-c32e81f32ca7"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="513" y="0" width="42" height="20" uuid="e851fe9f-6a9a-47a7-8b75-fc822c691e8e"/>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="21" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="5" splitType="Stretch"/>
 	</summary>
 </jasperReport>

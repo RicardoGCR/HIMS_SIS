@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX/RX_EC_BUSCAR_RESULTADOS.java</file>
             <file>file:/D:/PROYECTO%2002/SISGESH/src/Reportes/Reportes.java</file>
             <file>file:/D:/PROYECTO%2002/SISGESH/src/modelos/RX/RX_EC_RESULTADO_DETALLE.java</file>
@@ -17,6 +18,15 @@
             <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX/RX_EC_EXAMEN_CAB.java</file>
             <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX/RX_EC_BUSCAR_EXAMEN_C.java</file>
             <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/EC/EC_BUSCAR_EXAMEN_CAJA.java</file>
+=======
+            <file>file:/D:/proyecto/SISGESH/src/modelos/cuentaCorriente/CuentasPorPagarFacturasCabecera.java</file>
+            <file>file:/D:/proyecto/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionCajaPreventa.java</file>
+            <file>file:/D:/proyecto/SISGESH/src/modelos/Caja/Caja_Preventa.java</file>
+            <file>file:/D:/proyecto/SISGESH/src/vista/admisionCentral/FrmMovimientoHC.java</file>
+            <file>file:/D:/proyecto/SISGESH/src/vista/cuentaCorriente/Facturador.java</file>
+            <file>file:/D:/proyecto/SISGESH/src/vista/PrincipalMDI.java</file>
+            <file>file:/D:/proyecto/SISGESH/src/vista/admisionEmergencia/FrmFormatoEmergencia.java</file>
+>>>>>>> bd55ad196616406a5a71626dc9fab6bc6959b77a
         </group>
     </open-files>
 </project-private>

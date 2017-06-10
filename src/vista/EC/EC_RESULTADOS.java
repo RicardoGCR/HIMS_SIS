@@ -15,12 +15,17 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.Usuario;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 
 /**
@@ -63,6 +68,10 @@ DefaultTableModel m, msb;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jpanel = new javax.swing.JPanel();
         titulo5 = new javax.swing.JLabel();
         lblUsu = new javax.swing.JLabel();
@@ -80,6 +89,18 @@ DefaultTableModel m, msb;
         EC_BUSCAR_R = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_RESULTADOS_EC = new javax.swing.JTable();
+
+        jMenuItem1.setText("RESULTADO");
+        jPopupMenu1.add(jMenuItem1);
+        jPopupMenu1.add(jSeparator1);
+
+        jMenuItem2.setText("VER RESULTADO");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -270,6 +291,7 @@ DefaultTableModel m, msb;
             }
         ));
         tb_RESULTADOS_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tb_RESULTADOS_EC.setComponentPopupMenu(jPopupMenu1);
         jScrollPane1.setViewportView(tb_RESULTADOS_EC);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -379,6 +401,29 @@ DefaultTableModel m, msb;
             JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de fechas");
         }
     }//GEN-LAST:event_EC_BUSCAR_RActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+         try {
+           int filaselec=tb_RESULTADOS_EC.getSelectedRow();
+           if(filaselec<0){
+               JOptionPane.showMessageDialog(rootPane, "Seleccione un Registro");
+           }else{
+             String cod=tb_RESULTADOS_EC.getValueAt(filaselec, 7).toString();
+         
+            Map parametros=new HashMap();
+            parametros.put("COD_DET_DOC",cod);
+            
+                JasperPrint informe=JasperFillManager.fillReport(getClass().
+                    getResourceAsStream("/Reportes/EC/EC_RESULTADO.jasper"), parametros,c.conectar());
+
+                JasperViewer ventana= new JasperViewer(informe,false);
+                ventana.setTitle("RESULTADO - "+tb_RESULTADOS_EC.getValueAt(filaselec, 7).toString());
+                ventana.setVisible(true);
+           }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al Cargar el reporte"+e.getMessage());
+            }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     public static String fechaActual(){
         Date now = new Date(System.currentTimeMillis());
@@ -516,7 +561,11 @@ DefaultTableModel m, msb;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPanel jpanel;
     private javax.swing.JLabel lblFecha_EC_R;
     private javax.swing.JLabel lblHora_EC_R;

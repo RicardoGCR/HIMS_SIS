@@ -2289,7 +2289,7 @@ public void buscar_examenes(){
                 if(lbldia.getText().equalsIgnoreCase("Exámenes con Toma de Muestras del Día")){
                 LAB_BUSCAR_TM_DIA();
                 }
-                Thread.sleep(7000);
+                Thread.sleep(9000);
                 
             } catch (InterruptedException e) {
             }

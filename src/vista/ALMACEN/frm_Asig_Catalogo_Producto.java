@@ -610,6 +610,10 @@ String hora, minutos, segundos, ampm;
 
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
         // TODO add your handling code here:
+        buscar_catalogo();
+    }//GEN-LAST:event_btnBuscarProductoActionPerformed
+
+    public void buscar_catalogo(){
         String consulta="";
         try {
             tbProductoAlmacen.setModel(new DefaultTableModel());
@@ -645,8 +649,7 @@ String hora, minutos, segundos, ampm;
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-    }//GEN-LAST:event_btnBuscarProductoActionPerformed
-
+    }
     private void tbProductoAlmacenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductoAlmacenMouseClicked
         // TODO add your handling code here:
 
@@ -817,7 +820,7 @@ String hora, minutos, segundos, ampm;
                       unidad_medida.setVisible(false);
                   cargarProducto();
                   formatoProducto();
-                  
+                  buscar_catalogo();
                   }
                   else{
                       JOptionPane.showMessageDialog(rootPane, "El Contenedor ingresado ya existe\nIntente nuevamente");

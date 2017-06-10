@@ -142,6 +142,9 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_Examenes = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        lblfecha_I = new javax.swing.JLabel();
+        lblG = new javax.swing.JLabel();
+        lblfecha_F = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -619,6 +622,15 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("EXAMENES DEL DIA");
 
+        lblfecha_I.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblfecha_I.setText("  ");
+
+        lblG.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblG.setText("-");
+
+        lblfecha_F.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblfecha_F.setText(" ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -630,6 +642,12 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                     .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblfecha_I, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(lblG)
+                        .addGap(10, 10, 10)
+                        .addComponent(lblfecha_F, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -638,8 +656,16 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblfecha_I)
+                            .addComponent(lblG)
+                            .addComponent(lblfecha_F))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -678,6 +704,9 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
 //                                fecha_fin.setDate(null);
 //                       }else{
                                 buscar_examen();
+                                lblfecha_I.setText(diaIN + "/" + mesIN + "/" + anioIN);
+                                lblfecha_F.setText(diaFN + "/" + mesFN + "/" + anioFN);
+                                lblG.setVisible(true);
 //                       }  
 //                }
 //             
@@ -914,11 +943,17 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         if(cbFecha.isSelected()==true){
             fecha_inicio.setEnabled(true);
             fecha_fin.setEnabled(true);
+            lblfecha_I.setVisible(true);
+            lblfecha_F.setVisible(true);
+            lblG.setVisible(true);
         }else{
             fecha_inicio.setEnabled(false);
             fecha_fin.setEnabled(false);
             fecha_inicio.setDate(null);
             fecha_fin.setDate(null);
+            lblfecha_I.setVisible(false);
+            lblfecha_F.setVisible(false);
+            lblG.setVisible(false);
         }
     }
     
@@ -983,7 +1018,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             String fila[]=new String[11];
 
             RX_EC_BUSCAR_EXAMEN_CAJA obj=new RX_EC_BUSCAR_EXAMEN_CAJA();
-            consulta="exec RX_EC_BUSCAR_RESULTADO_RX ?,?,?";
+            consulta="exec RX_EC_BUSCAR_RESULTADO_RX_2 ?,?,?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setInt(1,fechaI);
             cmd.setInt(2, fechaF);
@@ -1013,6 +1048,12 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             this.tb_Examenes.setModel(m);
             
             formatoExamen();
+            
+            if(tb_Examenes.getRowCount()==0){
+//                lblRegistro.setVisible(true);
+                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
+            }
+            
         } catch (Exception e) {
             System.out.println("Error buscar examen: " + e.getMessage());
         }
@@ -1030,7 +1071,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             JTable p=new JTable(m2);
             String fila[]=new String[11];
             Usuario obj=new Usuario();
-            consulta="exec RX_EC_BUSCAR_CAJA_RX_DIA ?";
+            consulta="exec RX_EC_BUSCAR_EXAMEN_RESULTADO_2 ?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);            
             cmd.setString(1, txtBuscarPaciente.getText());
        
@@ -1047,6 +1088,11 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             tb_Examenes.setModel(m2);
                        
             formatoExamen();
+            
+            if(tb_Examenes.getRowCount()==0){
+//                lblRegistro.setVisible(true);
+                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
+            }
             
         } catch (Exception e) {
             System.out.println("Error mostrar paciente: " + e.getMessage());
@@ -1185,7 +1231,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             JTable p=new JTable(m4);
             String fila[]=new String[11];
             Usuario obj=new Usuario();
-            consulta="exec RX_EC_LISTAR_EXAMEN_RESULTADO ";
+            consulta="exec RX_EC_LISTAR_EXAMEN_RESULTADO_2 ";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             //cmd.setString(1, lblNumeArea.getText());
  
@@ -1337,6 +1383,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFechaNaci;
+    private javax.swing.JLabel lblG;
     private javax.swing.JLabel lblGenero;
     private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblIDArea;
@@ -1346,6 +1393,8 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
     private javax.swing.JLabel lblNumero;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JLabel lblUsuD;
+    private javax.swing.JLabel lblfecha_F;
+    private javax.swing.JLabel lblfecha_I;
     private javax.swing.JTable tb_Detalle;
     public javax.swing.JTable tb_Examenes;
     private javax.swing.JLabel titulo5;
@@ -1370,7 +1419,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             
             lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                Thread.sleep(4000);
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
             }
         }

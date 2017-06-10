@@ -110,7 +110,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         lblFecha_EC = new javax.swing.JLabel();
         lblHora_EC = new javax.swing.JLabel();
         fecha_fin_EC = new com.toedter.calendar.JDateChooser();
-        jButton1 = new javax.swing.JButton();
+        EC_BUSCAR_FECHAS = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_Examen_EC = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
@@ -361,6 +361,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(900, 600));
+        setResizable(false);
 
         jpanel.setBackground(new java.awt.Color(34, 113, 179));
 
@@ -449,11 +450,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-32.png"))); // NOI18N
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        EC_BUSCAR_FECHAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-32.png"))); // NOI18N
+        EC_BUSCAR_FECHAS.setContentAreaFilled(false);
+        EC_BUSCAR_FECHAS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                EC_BUSCAR_FECHASActionPerformed(evt);
             }
         });
 
@@ -486,7 +487,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                                     .addComponent(fecha_fin_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(EC_BUSCAR_FECHAS, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27)
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtBuscarPaciente_EC)
@@ -531,7 +532,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                                     .addComponent(jLabel4)
                                     .addGap(0, 0, 0)
                                     .addComponent(txtBuscarPaciente_EC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(EC_BUSCAR_FECHAS, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(0, 5, Short.MAX_VALUE))))
         );
 
@@ -631,7 +632,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
     }//GEN-LAST:event_fecha_fin_ECKeyTyped
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void EC_BUSCAR_FECHASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EC_BUSCAR_FECHASActionPerformed
       try{
           
          String fecha = lblFecha_EC.getText();
@@ -677,7 +678,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
           }catch(Exception e) {
               JOptionPane.showMessageDialog(rootPane, "Seleccione un rango de fechas");
           }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_EC_BUSCAR_FECHASActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
@@ -1090,11 +1091,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog DETALLE;
+    private javax.swing.JButton EC_BUSCAR_FECHAS;
     private javax.swing.JCheckBox cbFecha_EC;
     private javax.swing.JMenuItem detalle;
     private com.toedter.calendar.JDateChooser fecha_fin_EC;
     private com.toedter.calendar.JDateChooser fecha_inicio_EC;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

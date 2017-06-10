@@ -61,7 +61,7 @@ public class RX_EC_RESULTADO_DETALLE_DIAGNOSTICO {
             ResultSet rs = cmd.executeQuery();
             if(rs.next())
             {
-               RX_EC_EXAMEN_CAB_RESULTADO.lblId_DX.setText(rs.getString(1));
+               RX_EC_EXAMEN_CAB_RESULTADO.txtCOD_DET_RES.setText(rs.getString(1));
             }
         }
         catch(Exception ex)

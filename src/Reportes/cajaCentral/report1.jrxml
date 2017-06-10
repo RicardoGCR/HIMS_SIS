@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="1.771561000000001"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="335"/>
+	<property name="ireport.y" value="143"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -47,6 +47,9 @@
 		</box>
 	</style>
 	<subDataset name="DetalleDoc" uuid="61acbba3-ce3a-4e29-9f2c-ab04b23a8606">
+		<parameter name="id" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
 		<queryString>
 			<![CDATA[SELECT        CAJA_NOMENCLATURA_CAJA.descripcion_nomen_tipo AS CPT, CAJA_DOCUMENTO_DETALLE.cantidad_detalle,
 						 left(CAJA_DOCUMENTO_DETALLE.total_detalle,len(CAJA_DOCUMENTO_DETALLE.total_detalle)) as PRECIO,
@@ -55,7 +58,7 @@ FROM            CAJA_PRECIOS INNER JOIN
                          CAJA_NOMENCLATURA_CAJA ON CAJA_PRECIOS.cod_nomen_caja = CAJA_NOMENCLATURA_CAJA.cod_nomen_caja INNER JOIN
                          CAJA_DOCUMENTO_DETALLE ON CAJA_PRECIOS.cod_precio = CAJA_DOCUMENTO_DETALLE.cod_precio
 						 where estado_doc_det ='A' and
-						 id_documento='CD000000000000000504']]>
+						 id_documento=$P{id}]]>
 		</queryString>
 		<field name="CPT" class="java.lang.String"/>
 		<field name="cantidad_detalle" class="java.lang.Integer"/>
@@ -244,7 +247,10 @@ AND  CDC.id_documento= $P{doc}]]>
 			<componentElement>
 				<reportElement key="table 1" mode="Opaque" x="-4" y="0" width="198" height="16" uuid="f26c0eac-752c-4080-894d-cb30984ffba3"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="DetalleDoc" uuid="755f0000-b3b4-461a-b5f6-365fda4e646b">
+					<datasetRun subDataset="DetalleDoc" uuid="9fdf4a53-af04-4c32-b7f6-901119e781d9">
+						<datasetParameter name="id">
+							<datasetParameterExpression><![CDATA[$P{doc}]]></datasetParameterExpression>
+						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
 					<jr:column width="23" uuid="4eba2c7c-b8be-45b5-b218-46957eac49e8">

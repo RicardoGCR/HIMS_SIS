@@ -1278,7 +1278,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
      int fila = tbMovimientoHC.getSelectedRow();
         try {
             int id = Integer.parseInt(String.valueOf(tbMovimientoHC.getValueAt(fila, 0)));
-            String rutaInforme = "src\\Reportes\\admisionCentral\\ticket.jasper";
+            String rutaInforme = "src\\Reportes\\admisionCentral\\report1.jasper";
             Map parametros = new HashMap();
 //            parametros.put("id", id);
             JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());

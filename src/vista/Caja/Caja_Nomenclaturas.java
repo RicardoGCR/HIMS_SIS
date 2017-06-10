@@ -160,10 +160,10 @@ byte tga;
         String consulta="";
         try {
             tb_Grupos1.setModel(new DefaultTableModel());
-             String titulos[]={"Área",""};
+             String titulos[]={"Área","","Servicio"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[2];
+            String fila[]=new String[3];
 
             Caja_Nomenclatura obj=new Caja_Nomenclatura();
                     consulta="exec buscarunidad ?";
@@ -176,6 +176,7 @@ byte tga;
            
             fila[0]=r.getString(1);
             fila[1]=r.getString(2);
+            fila[2]=r.getString(3);
 
                 m.addRow(fila);
                 c++;
@@ -295,10 +296,10 @@ byte tga;
 }
     public void LISTAR_Unidad(){
     try {
-             String titulos[]={"Área",""};
+             String titulos[]={"Área","","Servicio"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[2];
+            String fila[]=new String[3];
 
             Conexion obj = new Conexion();  
         String consulta="exec listaruinidad";
@@ -308,6 +309,7 @@ byte tga;
           while(r.next()){
                 fila[0]=r.getString(1);
                 fila[1]=r.getString(2); 
+                fila[2]=r.getString(3); 
 
                     m.addRow(fila);
                     c++;
@@ -392,8 +394,11 @@ byte tga;
     tb_Grupos1.getColumnModel().getColumn(0).setPreferredWidth(200);
     tb_Grupos1.getColumnModel().getColumn(1).setMinWidth(0);
     tb_Grupos1.getColumnModel().getColumn(1).setMaxWidth(0);
+    tb_Grupos1.getColumnModel().getColumn(2).setPreferredWidth(200);
     tb_Grupos1.setRowHeight(45);
 }
+    
+    
     
     public void Modificar(){
  
@@ -762,7 +767,7 @@ byte tga;
                         );
 
                         Unidad.setAlwaysOnTop(true);
-                        Unidad.setMinimumSize(new java.awt.Dimension(310, 441));
+                        Unidad.setMinimumSize(new java.awt.Dimension(591, 419));
                         Unidad.setResizable(false);
 
                         jPanel7.setBackground(new java.awt.Color(41, 127, 184));
@@ -829,7 +834,7 @@ byte tga;
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(22, Short.MAX_VALUE))
+                                .addContainerGap(312, Short.MAX_VALUE))
                         );
                         jPanel7Layout.setVerticalGroup(
                             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -875,7 +880,7 @@ byte tga;
                         UnidadLayout.setHorizontalGroup(
                             UnidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
                         );
                         UnidadLayout.setVerticalGroup(
                             UnidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

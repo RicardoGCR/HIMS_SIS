@@ -129,6 +129,32 @@ public class Caja_Preventa {
         return resp;
     }
     
+        public boolean CAJA_mantenimientoPreventaHospitalizacion()
+        {
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_HOSPITALIZACION "
+                        + "?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_hc());
+            cmd.setInt(2, getCA_ID());
+            cmd.setString(3, gethOS_Indicaciones());
+            cmd.setString(4, getCod_usu());
+            cmd.setInt(5, getAR_ID());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("mantenimientoCajaPreventaHospitalizacion caja: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
     public boolean mantanimientoCajaPreventaCExDepSangre(String tipo)
         {
         boolean resp = false;

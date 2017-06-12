@@ -400,7 +400,10 @@
             <Property name="componentPopupMenu" type="javax.swing.JPopupMenu" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="jPopupMenu1"/>
             </Property>
+<<<<<<< HEAD
             <Property name="rowHeight" type="int" value="25"/>
+=======
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>

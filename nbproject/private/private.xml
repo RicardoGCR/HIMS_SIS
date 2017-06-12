@@ -3,41 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+            <file>file:/D:/pry/SISGESH/src/vista/admisionEmergencia/FrmFormaDeLlegada.java</file>
             <file>file:/D:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADOS_MUESTRA_INGRESO.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/E:/pry/SISGESH/src/vista/Caja/Caja_Pagos.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/Caja/Caja_HospitalizacionPreventa.java</file>
-            <file>file:/E:/pry/SISGESH/src/modelos/Caja/Caja_NuevaVenta.java</file>
-            <file>file:/E:/pry/SISGESH/src/modelos/Caja/Caja_Preventa.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX/RX_EC_BUSCAR_RESULTADOS.java</file>
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/Reportes/Reportes.java</file>
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/modelos/RX/RX_EC_RESULTADO_DETALLE.java</file>
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/modelos/RX/RX_EC_RESULTADO_DETALLE_DIAGNOSTICO.java</file>
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/COSTOS/BUSCAR_ESTIMACION_COSTOS.java</file>
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/EC/EC_RESULTADOS.java</file>
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX/RX_EC_BUSCAR_EXAMEN_RESULTADO.java</file>
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/EC/EC_EXAMEN_CAB.java</file>
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/modelos/EC/EC_EXAMEN_CABECERA.java</file>
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/modelos/EC/EC_EXAMEN_RESULTADO_DETALLE_DIAGNOSTICO.java</file>
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX/RX_EC_EXAMEN_CAB_RESULTADO.java</file>
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX/RX_EC_EXAMEN_CAB.java</file>
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/RX/RX_EC_BUSCAR_EXAMEN_C.java</file>
-            <file>file:/D:/PROYECTO%2002/SISGESH/src/vista/EC/EC_BUSCAR_EXAMEN_CAJA.java</file>
-=======
-            <file>file:/D:/proyecto/SISGESH/src/modelos/cuentaCorriente/CuentasPorPagarFacturasCabecera.java</file>
-            <file>file:/D:/proyecto/SISGESH/src/vista/hospitalizacion/FrmHospitalizacionCajaPreventa.java</file>
-            <file>file:/D:/proyecto/SISGESH/src/modelos/Caja/Caja_Preventa.java</file>
-            <file>file:/D:/proyecto/SISGESH/src/vista/admisionCentral/FrmMovimientoHC.java</file>
-            <file>file:/D:/proyecto/SISGESH/src/vista/cuentaCorriente/Facturador.java</file>
-            <file>file:/D:/proyecto/SISGESH/src/vista/PrincipalMDI.java</file>
-            <file>file:/D:/proyecto/SISGESH/src/vista/admisionEmergencia/FrmFormatoEmergencia.java</file>
->>>>>>> bd55ad196616406a5a71626dc9fab6bc6959b77a
->>>>>>> 0df6e9fc0990abd7e82941f1ab329e1e5a08566e
->>>>>>> 6cabf7ad63eecd87b8373c80c3d612e2dc07e1b1
         </group>
     </open-files>
 </project-private>

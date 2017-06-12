@@ -293,7 +293,6 @@ public class Costos_Sustentacion_Detalle_Herramientas extends javax.swing.JFrame
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("SISGESH .::. Equipamiento Básico");
         setMinimumSize(new java.awt.Dimension(720, 571));
         setResizable(false);
         addKeyListener(new java.awt.event.KeyAdapter() {

@@ -45,8 +45,8 @@ String hora, minutos, segundos, ampm;
         setResizable(false);//para que no funcione el boton maximizar
         cargarProducto();
         formatoProducto();
-                    tbProductoAlmacen.getSelectionModel().setSelectionInterval(0, 0);
-                    tbProductoAlmacen.requestFocus();
+            tbProductoAlmacen.getSelectionModel().setSelectionInterval(0, 0);
+            tbProductoAlmacen.requestFocus();
         unidad_medida.setLocationRelativeTo(this);
         unidad_medida.getContentPane().setBackground(Color.WHITE);   
         insertar_um.setLocationRelativeTo(this);

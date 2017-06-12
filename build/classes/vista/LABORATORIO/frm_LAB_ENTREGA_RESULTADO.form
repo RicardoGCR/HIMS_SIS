@@ -2703,6 +2703,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="0" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+=======
+            <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPacientesActionPerformed"/>
@@ -2748,6 +2752,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="0" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+=======
+            <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
           </Properties>
           <Events>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtAnalisisKeyPressed"/>
@@ -2793,6 +2801,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="0" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+=======
+            <Property name="horizontalAlignment" type="int" value="0"/>
+>>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
           </Properties>
           <Events>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonalKeyPressed"/>

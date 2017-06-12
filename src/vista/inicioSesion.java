@@ -203,7 +203,7 @@ String hora, minutos, segundos, ampm;
       }
          }
     } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "catch---Usuario y/o Contraseña Incorrectos");
+        JOptionPane.showMessageDialog(this, "Error al Iniciar Sesión");
     }
 }
     

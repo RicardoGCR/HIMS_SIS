@@ -113,6 +113,9 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
          Anular.getContentPane().setBackground(Color.WHITE);
          ActualizarDNI.getContentPane().setBackground(Color.WHITE);
          ActualizarDNI.setLocationRelativeTo(null);//en el centro
+         
+         GuardarPapeleta.setLocationRelativeTo(null);//en el centro
+         MedicosPepeleta.setLocationRelativeTo(null);//en el centro
 
          panelMensaje.setVisible(false);
          panelCPT.setVisible(false);
@@ -8382,6 +8385,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                     Caja_HospitalizacionPreventa.lblNomPaciente.setText(txtape.getText());
                     Caja_HospitalizacionPreventa.lblUsuUsuario.setText(lblusu.getText());
                     Caja_HospitalizacionPreventa.lblGenero.setText(sexo.getText());
+                    Caja_HospitalizacionPreventa.lblActoMedico.setText(lblActoMedico.getText());
+                    Caja_HospitalizacionPreventa.lblJerarFP.setText(lblFP.getText());
                     
                 }else  if (!lblNomenclatura.getText().equals("CN00767         ")){
                     Caja_NuevaVenta CNV = new Caja_NuevaVenta();
@@ -10284,7 +10289,7 @@ jTabbedPane1.setSelectedIndex(1);
             MedicosPepeleta.dispose();
             Caja_HospitalizacionPreventa.lblIdMedic.setText(String.valueOf(tb_medicosPapeleta.getValueAt(fila, 0)));
             Caja_HospitalizacionPreventa.txtMedico.setText(String.valueOf(tb_medicosPapeleta.getValueAt(fila, 1))); 
-            GuardarDetalle();
+//            GuardarDetalle();
             panelNumeros.setVisible(true);
             suma();
             

@@ -166,7 +166,7 @@ String hora, minutos, segundos, ampm;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=6;
-      }else if(cap.equalsIgnoreCase(codAdmin("RAYOS X"))){//Para editar tipo de usuario
+      }else if(cap.equalsIgnoreCase(codAdmin("RAYOS X - ECOGRAFIA"))){//Para editar tipo de usuario
 
         cont1=-1;
         barra.setValue(0);
@@ -190,7 +190,7 @@ String hora, minutos, segundos, ampm;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=9;
-      }else if(cap.equalsIgnoreCase(codAdmin("CONFIGURACION"))){//Para editar tipo de usuario
+      }else if(cap.equalsIgnoreCase(codAdmin("ALMACEN"))){//Para editar tipo de usuario
 
         cont1=-1;
         barra.setValue(0);
@@ -198,6 +198,22 @@ String hora, minutos, segundos, ampm;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=10;
+      }else if(cap.equalsIgnoreCase(codAdmin("PERSONAL"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=11;
+      }else if(cap.equalsIgnoreCase(codAdmin("CONFIGURACION"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=12;
       }else{
           JOptionPane.showMessageDialog(this, "NO PERTENECE A NINGÚN MÓDULO DEL SISTEMA");
       }
@@ -690,6 +706,10 @@ String hora, minutos, segundos, ampm;
                 PrincipalMDI.btnConExt.setForeground(new Color(155,155,155));
                 PrincipalMDI.btnInvBact.setEnabled(false);
                 PrincipalMDI.btnInvBact.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnAlmacen.setEnabled(false);
+                PrincipalMDI.btnAlmacen.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnPersonal.setEnabled(false);
+                PrincipalMDI.btnPersonal.setForeground(new Color(155,155,155));
                 PrincipalMDI.btnConfiguracion.setEnabled(false);
                 PrincipalMDI.btnConfiguracion.setForeground(new Color(155,155,155));
                 if(filtroModulo==1){
@@ -720,6 +740,12 @@ String hora, minutos, segundos, ampm;
                  PrincipalMDI.btnInvBact.setEnabled(true);
                  PrincipalMDI.btnInvBact.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==10){
+                 PrincipalMDI.btnAlmacen.setEnabled(true);
+                 PrincipalMDI.btnAlmacen.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==11){
+                 PrincipalMDI.btnPersonal.setEnabled(true);
+                 PrincipalMDI.btnPersonal.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==12){
                  PrincipalMDI.btnConfiguracion.setEnabled(true);
                  PrincipalMDI.btnConfiguracion.setForeground(new Color(255,255,255));
                 }

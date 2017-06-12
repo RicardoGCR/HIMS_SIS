@@ -268,6 +268,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                         AsignarCamas();
                         Caja_Pagos.lblIdMedico.setText(txtMedico.getText());
                         Caja_Pagos.GuardarPapeleta.setVisible(true);
+                        dispose();
 //                        cp.setCA_ID(cama);
 //                        cp.setCOD_USU(usuario);
 //                        cp.setID_PREVENTA(cp.CajaPreventaID());
@@ -564,11 +565,13 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
             }
         });
 
-        lblGenero.setForeground(new java.awt.Color(217, 176, 86));
+        lblGenero.setForeground(new java.awt.Color(235, 105, 57));
         lblGenero.setText("jLabel14");
 
+        lblID.setForeground(new java.awt.Color(235, 105, 57));
         lblID.setText("jLabel14");
 
+        lblMant.setForeground(new java.awt.Color(235, 105, 57));
         lblMant.setText("jLabel14");
 
         jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
@@ -576,7 +579,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
         jLabel57.setText("<html>Papeleta<span style=\"font-size:'14px'\"><br>Hospitalización</br></span></html>");
 
         lblIDHC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblIDHC.setForeground(new java.awt.Color(255, 255, 255));
+        lblIDHC.setForeground(new java.awt.Color(235, 105, 57));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -637,6 +640,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Servicio");
@@ -816,14 +820,19 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Médico");
 
+        lblIdMedic.setForeground(new java.awt.Color(255, 255, 255));
         lblIdMedic.setText("jLabel2");
 
+        lblActoMedico.setForeground(new java.awt.Color(255, 255, 255));
         lblActoMedico.setText("jLabel2");
 
+        lblJerarFP.setForeground(new java.awt.Color(255, 255, 255));
         lblJerarFP.setText("jLabel2");
 
+        lblArea.setForeground(new java.awt.Color(255, 255, 255));
         lblArea.setText("jLabel2");
 
+        lblCPT.setForeground(new java.awt.Color(255, 255, 255));
         lblCPT.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1244,7 +1253,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JLabel lblActoMedico;
+    public static javax.swing.JLabel lblActoMedico;
     private javax.swing.JLabel lblArea;
     private javax.swing.JLabel lblCPT;
     public static javax.swing.JLabel lblEstado;
@@ -1252,7 +1261,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
     public static javax.swing.JLabel lblID;
     public static javax.swing.JLabel lblIDHC;
     public static javax.swing.JLabel lblIdMedic;
-    private javax.swing.JLabel lblJerarFP;
+    public static javax.swing.JLabel lblJerarFP;
     private javax.swing.JLabel lblMant;
     public static javax.swing.JLabel lblNomPaciente;
     public static javax.swing.JLabel lblUsuUsuario;

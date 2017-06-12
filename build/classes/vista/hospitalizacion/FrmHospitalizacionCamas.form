@@ -35,7 +35,11 @@
     <Container class="javax.swing.JPanel" name="jPanel8">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+<<<<<<< HEAD
           <Color blue="0" green="77" red="ff" type="rgb"/>
+=======
+          <Color blue="76" green="64" red="d9" type="rgb"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[500, 65]"/>
@@ -63,7 +67,11 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
+<<<<<<< HEAD
             <Property name="text" type="java.lang.String" value="Hospitalizaci&#xf3;n - Camas"/>
+=======
+            <Property name="text" type="java.lang.String" value="Hospitalizaci&#xf3;n - Habitaci&#xf3;n"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor Por defecto"/>
@@ -414,6 +422,7 @@
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="cbxHab" alignment="0" pref="180" max="32767" attributes="0"/>
                                       <Component id="cbxServicio" alignment="0" max="32767" attributes="0"/>
+<<<<<<< HEAD
                                       <Component id="txtDescripcion" alignment="1" max="32767" attributes="0"/>
                                       <Component id="txtAsignacion" alignment="1" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
@@ -429,6 +438,21 @@
                                           </Group>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
+=======
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="rbtM" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="rbtF" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="cbxPiso" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="txtDescripcion" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtAsignacion" alignment="1" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -465,7 +489,10 @@
                               <Component id="rbtM" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="rbtF" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblMant" alignment="3" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                               <Component id="rbtT" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -637,6 +664,7 @@
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
+<<<<<<< HEAD
                 <Component class="javax.swing.JRadioButton" name="rbtT">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
@@ -649,6 +677,8 @@
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
+=======
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
               </SubComponents>
             </Container>
           </SubComponents>

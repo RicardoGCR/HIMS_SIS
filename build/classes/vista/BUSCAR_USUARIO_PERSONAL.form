@@ -3,14 +3,6 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-<<<<<<< HEAD
-    <Property name="title" type="java.lang.String" value="SISGESH .::. B&#xfa;squeda de Personal"/>
-=======
-<<<<<<< HEAD
-    <Property name="title" type="java.lang.String" value="SISGESH .::. B&#xfa;squeda de Personal"/>
-=======
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>

@@ -6,7 +6,7 @@
 package vista.cuentaCorriente;
 
 import campos.LimitadorDeDocumento;
-import com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException;
+//import com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.KeyEvent;

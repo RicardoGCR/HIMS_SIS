@@ -29,9 +29,14 @@ import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 import modelos.RX.*;
 import modelos.Usuario;
+import static vista.EC.EC_EXAMEN_CAB.btnPersonalRegistra_EC;
 import vista.RX.RX_EC_EXAMEN_CAB;
 import static vista.RX.RX_EC_EXAMEN_CAB.tb_examen_det;
+import static vista.RX.RX_EC_EXAMEN_CAB_RESULTADO.btnPersonalResRealiza;
 import static vista.RX.RX_EC_EXAMEN_CAB_RESULTADO.btnPersonalResultado;
+import static vista.RX.RX_EC_EXAMEN_CAB_RESULTADO.txtCAB_RESULTADO;
+import static vista.RX.RX_EC_EXAMEN_CAB_RESULTADO.txtPersonalRealizaRes;
+import static vista.RX.RX_EC_EXAMEN_CAB_RESULTADO.txtPersonalRegistraResultado;
 
 /**
  *
@@ -747,7 +752,19 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
        char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){  
                     cargar_tabla_cabecera_ENTER();
-                    btnPersonalResultado.requestFocus();
+                    
+                    if(txtCAB_RESULTADO.getText().length()!=0){
+                        txtPersonalRegistraResultado.setEnabled(false);
+                        txtPersonalRealizaRes.setEnabled(false);
+                        btnPersonalResultado.setEnabled(false);
+                        btnPersonalResRealiza.setEnabled(false);
+                        tb_examen_det.setEnabled(true);
+                        tb_examen_det.setBackground(Color.white);
+                    }else{
+                        btnPersonalResultado.requestFocus();
+                    }
+                    
+                    
         }
                    
     }//GEN-LAST:event_tb_ExamenesKeyPressed

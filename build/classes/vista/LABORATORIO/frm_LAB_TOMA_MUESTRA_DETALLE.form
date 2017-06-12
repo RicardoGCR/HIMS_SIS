@@ -28,13 +28,7 @@
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[846, 504]"/>
         </Property>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
         <Property name="resizable" type="boolean" value="false"/>
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
       </Properties>
 
       <Layout>
@@ -237,13 +231,7 @@
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[434, 467]"/>
         </Property>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
         <Property name="resizable" type="boolean" value="false"/>
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
       </Properties>
 
       <Layout>
@@ -251,15 +239,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jpanel1" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-=======
-<<<<<<< HEAD
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-=======
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jScrollPane3" alignment="1" min="-2" pref="382" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
@@ -272,15 +252,7 @@
                           <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-<<<<<<< HEAD
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
-=======
-<<<<<<< HEAD
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
-=======
                   <EmptySpace pref="26" max="32767" attributes="0"/>
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
               </Group>
           </Group>
         </DimensionLayout>
@@ -397,21 +369,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
-                      <Component id="titulo6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="147" max="32767" attributes="0"/>
-=======
-<<<<<<< HEAD
-                      <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
-                      <Component id="titulo6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="147" max="32767" attributes="0"/>
-=======
                       <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
                       <Component id="titulo6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="141" max="32767" attributes="0"/>
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
                   </Group>
               </Group>
             </DimensionLayout>
@@ -463,22 +423,12 @@
         <Property name="alwaysOnTop" type="boolean" value="true"/>
         <Property name="focusCycleRoot" type="boolean" value="false"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-<<<<<<< HEAD
-          <Dimension value="[422, 509]"/>
-        </Property>
-=======
-<<<<<<< HEAD
-          <Dimension value="[422, 509]"/>
-        </Property>
-=======
           <Dimension value="[414, 509]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[414, 509]"/>
         </Property>
         <Property name="resizable" type="boolean" value="false"/>
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
       </Properties>
 
       <Layout>
@@ -500,15 +450,7 @@
                           <Component id="btnBuscar2" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-<<<<<<< HEAD
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
-=======
-<<<<<<< HEAD
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
-=======
                   <EmptySpace pref="23" max="32767" attributes="0"/>
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Component id="jpanel3" alignment="0" max="32767" attributes="0"/>
@@ -633,15 +575,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                  <Component id="titulo8" alignment="0" pref="422" max="32767" attributes="0"/>
-=======
-<<<<<<< HEAD
-                  <Component id="titulo8" alignment="0" pref="422" max="32767" attributes="0"/>
-=======
                   <Component id="titulo8" alignment="0" pref="414" max="32767" attributes="0"/>
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -686,18 +620,12 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[916, 674]"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[916, 674]"/>
     </Property>
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -794,15 +722,7 @@
                   <Component id="jButton2" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="jButton3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
-<<<<<<< HEAD
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-=======
-<<<<<<< HEAD
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-=======
               <EmptySpace max="-2" attributes="0"/>
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
               <Component id="jPanel1" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -947,18 +867,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-<<<<<<< HEAD
-                      <Component id="txtPersonalSolicita" max="32767" attributes="0"/>
-                      <Component id="jLabel25" pref="248" max="32767" attributes="0"/>
-=======
-<<<<<<< HEAD
-                      <Component id="txtPersonalSolicita" max="32767" attributes="0"/>
-                      <Component id="jLabel25" pref="248" max="32767" attributes="0"/>
-=======
                       <Component id="jLabel25" max="32767" attributes="0"/>
                       <Component id="txtPersonalSolicita" min="-2" pref="248" max="-2" attributes="0"/>
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1017,14 +927,6 @@
                           </Group>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                              <Component id="txtPersonalSolicita" max="32767" attributes="0"/>
-=======
-<<<<<<< HEAD
-                              <Component id="txtPersonalSolicita" max="32767" attributes="0"/>
-=======
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
                               <Component id="date" alignment="1" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1034,13 +936,7 @@
                                   <Component id="txtHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtCama" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
                               <Component id="txtPersonalSolicita" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -1571,15 +1467,9 @@
                     </Column>
                   </TableColumnModel>
                 </Property>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
                 <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="73" green="43" red="2" type="rgb"/>
                 </Property>
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
->>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                   <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                 </Property>

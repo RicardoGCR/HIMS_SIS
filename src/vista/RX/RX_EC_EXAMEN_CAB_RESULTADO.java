@@ -1527,6 +1527,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                mostrar_VER_DETALLE_RESULTADO();    
                mostrar_FP_RESULTADO(txtID_EXAMEN_CAB.getText());
                mostrar_Personal_Solicita(txtID_EXAMEN_CAB.getText());
+               RX_EC_VER_CODIGO_CAB(txtID_EXAMEN_CAB.getText());
     }//GEN-LAST:event_txtID_EXAMEN_CABCaretUpdate
 
     private void tb_examen_detKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_examen_detKeyPressed
@@ -1964,6 +1965,26 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         EP_Descripcion.setEnabled(true);
         EP_CONCLUSION.setEnabled(true);
         btnBuscarCIE10.setEnabled(true);
+    }
+    
+    public void RX_EC_VER_CODIGO_CAB(String cod){
+        String consulta="";
+        try {
+            consulta="EXEC RX_EC_CODIGO_CAB_GUARDAR_CONC ?";
+            PreparedStatement cmd = DT.getCn().prepareStatement(consulta);
+            cmd.setString(1, cod);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                txtCAB_RESULTADO.setText(r.getString(1));
+                txtPersonalRegistraResultado.setText(r.getString(2));
+                txtPersonalRealizaRes.setText(r.getString(3));
+          
+            }
+            
+        }catch (Exception e) {
+            System.out.println("Error carga cod cabecera RX: " + e.getMessage());
+        }
     }
     
     public void inicializar_tabla_Examenes_detalle(){       
@@ -2602,7 +2623,7 @@ public void guardar_resultado_detalle(){
     private javax.swing.JButton btnBuscarPersonal;
     private javax.swing.JButton btnBuscarPersonal_TODO;
     private javax.swing.JButton btnGuardarCabeceraRes;
-    private javax.swing.JButton btnPersonalResRealiza;
+    public static javax.swing.JButton btnPersonalResRealiza;
     public static javax.swing.JButton btnPersonalResultado;
     private javax.swing.JButton btnRegresarRes;
     private javax.swing.JButton jButton7;
@@ -2680,7 +2701,7 @@ public void guardar_resultado_detalle(){
     private javax.swing.JTextField txtAMB;
     private javax.swing.JTextField txtBuscarPersonal;
     private javax.swing.JTextField txtBuscarPersonal_TODO;
-    private javax.swing.JTextField txtCAB_RESULTADO;
+    public static javax.swing.JTextField txtCAB_RESULTADO;
     public static javax.swing.JTextField txtCOD_DET_RES;
     private javax.swing.JTextField txtCOD_EXAMEN_DETALLE;
     public static javax.swing.JTextField txtCama;
@@ -2695,8 +2716,8 @@ public void guardar_resultado_detalle(){
     private javax.swing.JTextField txtId_Documento_G;
     public static javax.swing.JTextField txtNombreP;
     private javax.swing.JTextField txtNumExamen;
-    private javax.swing.JTextField txtPersonalRealizaRes;
-    private javax.swing.JTextField txtPersonalRegistraResultado;
+    public static javax.swing.JTextField txtPersonalRealizaRes;
+    public static javax.swing.JTextField txtPersonalRegistraResultado;
     private javax.swing.JTextField txtPersonalSolicita;
     private javax.swing.JTextField txt_CIE10;
     // End of variables declaration//GEN-END:variables

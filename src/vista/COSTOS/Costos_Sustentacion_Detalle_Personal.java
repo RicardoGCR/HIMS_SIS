@@ -224,7 +224,6 @@ public class Costos_Sustentacion_Detalle_Personal extends javax.swing.JFrame imp
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("SISGESH .::. Recursos Humanos");
         setResizable(false);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {

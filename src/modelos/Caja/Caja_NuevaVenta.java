@@ -597,6 +597,40 @@ public void listarMedicos1(String Servicio,JTable tabla){
             System.out.println("Error: listar PREVENTA CEX: " + e.getMessage());
         }
     }
+public void listarMedicosPapeleta(String Servicio,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Código","Médico","Día","Mes","Año","Turno",};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[6];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_LISTA_MEDICO_TURNO_PAPELETA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Servicio);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); 
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaMedico(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar PREVENTA CEX: " + e.getMessage());
+        }
+    }
     
     public void formatoTablaMedico(JTable tabla){
         tabla.getColumnModel().getColumn(0).setMinWidth(0);

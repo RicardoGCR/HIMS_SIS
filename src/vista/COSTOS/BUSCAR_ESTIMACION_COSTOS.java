@@ -234,7 +234,6 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
         REPORTES.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("SISGESH .::. Búsqueda de CPT");
 
         txtBuscarEstimacion.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {

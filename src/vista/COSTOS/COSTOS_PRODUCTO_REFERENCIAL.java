@@ -504,7 +504,6 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                     jPopupMenu1.add(jMenuItem2);
 
                     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                    setTitle("SISGESH .::. Producto Referencial");
                     addWindowListener(new java.awt.event.WindowAdapter() {
                         public void windowOpened(java.awt.event.WindowEvent evt) {
                             formWindowOpened(evt);

@@ -669,7 +669,6 @@ public class Costos_Sustentacion_Detalle_Servicio_Basicos extends javax.swing.JF
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("SISGESH .::. Servicios Básicos");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));

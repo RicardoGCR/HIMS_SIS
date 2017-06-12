@@ -389,7 +389,6 @@ public class Costos_Sustentacion_Detalle_Insumo extends javax.swing.JFrame imple
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setTitle("SISGESH .::. Insumos");
             setResizable(false);
             addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {

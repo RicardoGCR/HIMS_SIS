@@ -468,7 +468,6 @@ public class Costos_Depreciacion extends javax.swing.JFrame implements Runnable{
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("SISGESH .::. Depreciación");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));

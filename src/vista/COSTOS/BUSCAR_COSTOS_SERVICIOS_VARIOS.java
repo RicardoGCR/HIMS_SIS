@@ -126,7 +126,6 @@ public void cargarServiciosVarios(){
             btnBuscar = new javax.swing.JButton();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setTitle("SISGESH .::. Búsqueda de Sub Servicio");
             setAlwaysOnTop(true);
 
             tb_ServiciosVarios.setModel(new javax.swing.table.DefaultTableModel(

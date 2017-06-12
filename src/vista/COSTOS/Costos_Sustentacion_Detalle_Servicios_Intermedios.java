@@ -388,7 +388,6 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("SISGESH .::. Servicios Intermedios");
         setResizable(false);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {

@@ -76,6 +76,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p14.setVisible(false); 
          p15.setVisible(false); 
          p16.setVisible(false); 
+         p17.setVisible(false);
 
 //        cerrartodo();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -163,6 +164,8 @@ public class PrincipalMDI extends javax.swing.JFrame {
         p15 = new javax.swing.JPanel();
         btnPersonal = new javax.swing.JButton();
         p16 = new javax.swing.JPanel();
+        btnRayosX1 = new javax.swing.JButton();
+        p17 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -415,6 +418,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         lblUsu = new javax.swing.JLabel();
         btnguardar3 = new javax.swing.JButton();
@@ -552,8 +556,8 @@ public class PrincipalMDI extends javax.swing.JFrame {
         btnRayosX.setBackground(new java.awt.Color(102, 102, 102));
         btnRayosX.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         btnRayosX.setForeground(new java.awt.Color(255, 255, 255));
-        btnRayosX.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Estetoscopio-30.png"))); // NOI18N
-        btnRayosX.setText("Rayos X - Ecografía");
+        btnRayosX.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/X-ray-30.png"))); // NOI18N
+        btnRayosX.setText("Rayos X ");
         btnRayosX.setContentAreaFilled(false);
         btnRayosX.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRayosX.setFocusPainted(false);
@@ -816,6 +820,37 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGap(0, 37, Short.MAX_VALUE)
         );
 
+        btnRayosX1.setBackground(new java.awt.Color(102, 102, 102));
+        btnRayosX1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnRayosX1.setForeground(new java.awt.Color(255, 255, 255));
+        btnRayosX1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/ultrasonido.png"))); // NOI18N
+        btnRayosX1.setText("Ecografia");
+        btnRayosX1.setContentAreaFilled(false);
+        btnRayosX1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRayosX1.setFocusPainted(false);
+        btnRayosX1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRayosX1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnRayosX1.setIconTextGap(30);
+        btnRayosX1.setVerifyInputWhenFocusTarget(false);
+        btnRayosX1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRayosX1ActionPerformed(evt);
+            }
+        });
+
+        p17.setBackground(new java.awt.Color(25, 188, 157));
+
+        javax.swing.GroupLayout p17Layout = new javax.swing.GroupLayout(p17);
+        p17.setLayout(p17Layout);
+        p17Layout.setHorizontalGroup(
+            p17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 12, Short.MAX_VALUE)
+        );
+        p17Layout.setVerticalGroup(
+            p17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 37, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -864,21 +899,25 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addComponent(btnPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(btnRayosX1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(p17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(19, 19, 19)
+                .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnAdmCentral)
                     .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnAdmEme)
                     .addComponent(p4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -886,41 +925,45 @@ public class PrincipalMDI extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnCaja)
                                     .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(8, 8, 8)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(p3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnCostos))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(8, 8, 8)
                                 .addComponent(btnHospitalizacion))
                             .addComponent(p9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(8, 8, 8)
                         .addComponent(btnLaboratorio))
                     .addComponent(p10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(p11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRayosX))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(p17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRayosX1))
+                .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(p14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConExt))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(p12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnInvBact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(p15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(p16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(p13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(405, Short.MAX_VALUE))
+                .addContainerGap(398, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -2134,7 +2177,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
                         .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(5, 5, 5)
                         .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel33, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel22Layout.setVerticalGroup(
@@ -2148,8 +2191,8 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                    .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
+                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, 174, Short.MAX_VALUE)
+                    .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, 174, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2555,7 +2598,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGroup(jPanel30Layout.createSequentialGroup()
                 .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel32, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel39, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btneditar11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2687,7 +2730,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGroup(jPanel75Layout.createSequentialGroup()
                 .addComponent(jPanel78, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel79, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
+                .addComponent(jPanel79, javax.swing.GroupLayout.PREFERRED_SIZE, 109, Short.MAX_VALUE))
         );
 
         jPanel80.setBackground(new java.awt.Color(153, 153, 153));
@@ -2852,7 +2895,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGroup(jPanel80Layout.createSequentialGroup()
                 .addComponent(jPanel81, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel82, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                .addComponent(jPanel82, javax.swing.GroupLayout.PREFERRED_SIZE, 112, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel83, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel95, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -4499,7 +4542,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
                         .addComponent(jPanel76, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel77, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel68, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel68, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(346, Short.MAX_VALUE))
         );
         jPanel66Layout.setVerticalGroup(
@@ -4509,8 +4552,8 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addComponent(lblusu7)
                 .addGap(6, 6, 6)
                 .addGroup(jPanel66Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel73, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel74, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel73, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel74, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel66Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -4837,7 +4880,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGap(0, 705, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Rx Ec", jPanel14);
+        jTabbedPane1.addTab("Rx", jPanel14);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -4883,6 +4926,21 @@ public class PrincipalMDI extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Conf", jPanel16);
+
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 986, Short.MAX_VALUE)
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 705, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("EC", jPanel17);
 
         getContentPane().add(jTabbedPane1);
         jTabbedPane1.setBounds(255, 71, 1040, 710);
@@ -4962,6 +5020,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p14.setVisible(false);  
          p15.setVisible(false);
          p16.setVisible(false);
+         p17.setVisible(false);
          jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_btnAdmCentralActionPerformed
 
@@ -4978,6 +5037,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p14.setVisible(false);  
          p15.setVisible(false);
          p16.setVisible(false);
+         p17.setVisible(false);
          jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_btnCajaActionPerformed
 
@@ -4994,6 +5054,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p14.setVisible(false);  
          p15.setVisible(false);
          p16.setVisible(false);
+         p17.setVisible(false);
          jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_btnLaboratorioActionPerformed
 
@@ -5139,11 +5200,12 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p14.setVisible(false);  
          p15.setVisible(false);
          p16.setVisible(false);
+         p17.setVisible(false);
          jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_btnCostosActionPerformed
 
     private void btnRayosXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRayosXActionPerformed
-        p1.setVisible(false);
+         p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(false);        // TODO add your handling code here:
          p9.setVisible(false);
@@ -5154,7 +5216,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p14.setVisible(false);  
          p15.setVisible(false);
          p16.setVisible(false);
-         
+         p17.setVisible(false);
          jTabbedPane1.setSelectedIndex(9);
     }//GEN-LAST:event_btnRayosXActionPerformed
 
@@ -5172,6 +5234,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p14.setVisible(false);  
          p15.setVisible(false);
          p16.setVisible(false);
+         p17.setVisible(false);
         jTabbedPane1.setSelectedIndex(5);
     }//GEN-LAST:event_btnHospitalizacionActionPerformed
 
@@ -5199,6 +5262,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p14.setVisible(false);  
          p15.setVisible(false);
          p16.setVisible(false);
+         p17.setVisible(false);
         jTabbedPane1.setSelectedIndex(7);
     }//GEN-LAST:event_btnInvBactActionPerformed
 
@@ -5332,6 +5396,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p14.setVisible(false);  
          p15.setVisible(false);
          p16.setVisible(false);
+         p17.setVisible(false);
         jTabbedPane1.setSelectedIndex(6);
     }//GEN-LAST:event_btnAdmEmeActionPerformed
 
@@ -5528,6 +5593,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p14.setVisible(false); 
          p15.setVisible(false);
          p16.setVisible(false);
+         p17.setVisible(false);
         jTabbedPane1.setSelectedIndex(12);
     }//GEN-LAST:event_btnConfiguracionActionPerformed
 
@@ -5576,6 +5642,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p14.setVisible(true); 
          p15.setVisible(false);
          p16.setVisible(false);
+         p17.setVisible(false);
         jTabbedPane1.setSelectedIndex(8);
     }//GEN-LAST:event_btnConExtActionPerformed
 
@@ -5727,6 +5794,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p14.setVisible(false); 
          p15.setVisible(true);
          p16.setVisible(false);
+         p17.setVisible(false);
         jTabbedPane1.setSelectedIndex(10);
     }//GEN-LAST:event_btnAlmacenActionPerformed
 
@@ -5742,8 +5810,26 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p14.setVisible(false); 
          p15.setVisible(false);
          p16.setVisible(true);
+         p17.setVisible(false);
         jTabbedPane1.setSelectedIndex(11);
     }//GEN-LAST:event_btnPersonalActionPerformed
+
+    private void btnRayosX1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRayosX1ActionPerformed
+         p1.setVisible(false);
+         p2.setVisible(false);
+         p3.setVisible(false);        // TODO add your handling code here:
+         p9.setVisible(false);
+         p10.setVisible(false); 
+         p11.setVisible(false);
+         p12.setVisible(false);    
+         p13.setVisible(false); 
+         p14.setVisible(false);  
+         p15.setVisible(false);
+         p16.setVisible(false);
+         p17.setVisible(true);
+         
+         jTabbedPane1.setSelectedIndex(13);
+    }//GEN-LAST:event_btnRayosX1ActionPerformed
 
 
     /**
@@ -5813,6 +5899,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JButton btnPaciente;
     public static javax.swing.JButton btnPersonal;
     public static javax.swing.JButton btnRayosX;
+    public static javax.swing.JButton btnRayosX1;
     private javax.swing.JButton btnReporTopico;
     private javax.swing.JButton btnReporTopico1;
     private javax.swing.JButton btnReportCabecera;
@@ -5957,6 +6044,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
@@ -6063,6 +6151,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JPanel p14;
     private javax.swing.JPanel p15;
     private javax.swing.JPanel p16;
+    private javax.swing.JPanel p17;
     private javax.swing.JPanel p2;
     private javax.swing.JPanel p3;
     private javax.swing.JPanel p4;

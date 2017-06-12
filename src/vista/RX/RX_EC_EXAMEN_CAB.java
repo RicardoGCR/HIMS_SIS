@@ -185,7 +185,6 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 
         PERSONAL_ROL.setAlwaysOnTop(true);
         PERSONAL_ROL.setMinimumSize(new java.awt.Dimension(710, 370));
-        PERSONAL_ROL.setPreferredSize(new java.awt.Dimension(710, 370));
 
         jPanel3.setBackground(new java.awt.Color(34, 113, 179));
 

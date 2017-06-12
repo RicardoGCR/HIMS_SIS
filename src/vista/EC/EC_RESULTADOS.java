@@ -22,6 +22,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import modelos.EC.EC_EXAMEN_CABECERA;
 import modelos.Usuario;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -40,7 +41,8 @@ Calendar calendario;
 Thread h1;
 ResultSet r;
 CallableStatement cst;
-DefaultTableModel m, msb;
+DefaultTableModel m, msb, m2, m3;
+static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     /**
      * Creates new form EC_RESULTADOS
      */
@@ -55,8 +57,14 @@ DefaultTableModel m, msb;
         Calendar cal=Calendar.getInstance();          
         lblFecha_EC_R.setText(fechaActual());
         
+        mostrarArea();
         inicializar_tabla_Examenes_RESULTADO_EC();
+        seleccion();
         
+        lblFecha_EC_R.setVisible(false);
+        lblHora_EC_R.setVisible(false);
+        lblNumeArea_EC.setVisible(false);
+        lblG_R.setVisible(false);
     }
 
     /**
@@ -89,6 +97,10 @@ DefaultTableModel m, msb;
         EC_BUSCAR_R = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_RESULTADOS_EC = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        lblfecha_I_R = new javax.swing.JLabel();
+        lblG_R = new javax.swing.JLabel();
+        lblfecha_F_R = new javax.swing.JLabel();
 
         jMenuItem1.setText("RESULTADO");
         jPopupMenu1.add(jMenuItem1);
@@ -159,6 +171,7 @@ DefaultTableModel m, msb;
 
         lblNomArea_EC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblNomArea_EC.setForeground(new java.awt.Color(255, 255, 255));
+        lblNomArea_EC.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNomArea_EC.setText("jLabel3");
 
         lblNumeArea_EC.setForeground(new java.awt.Color(255, 255, 255));
@@ -292,7 +305,20 @@ DefaultTableModel m, msb;
         ));
         tb_RESULTADOS_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_RESULTADOS_EC.setComponentPopupMenu(jPopupMenu1);
+        tb_RESULTADOS_EC.setRowHeight(22);
         jScrollPane1.setViewportView(tb_RESULTADOS_EC);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("RESULTADOS DEL DIA");
+
+        lblfecha_I_R.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblfecha_I_R.setText("  ");
+
+        lblG_R.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblG_R.setText("-");
+
+        lblfecha_F_R.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblfecha_F_R.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -301,14 +327,31 @@ DefaultTableModel m, msb;
             .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblfecha_I_R, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(lblG_R)
+                        .addGap(10, 10, 10)
+                        .addComponent(lblfecha_F_R, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblfecha_I_R)
+                        .addComponent(lblG_R)
+                        .addComponent(lblfecha_F_R)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -329,9 +372,9 @@ DefaultTableModel m, msb;
 
     private void txtBuscarPaciente_EC_RCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPaciente_EC_RCaretUpdate
         if(cbFecha_EC_R.isSelected()==true){
-//            buscar_examen_EC();
+            buscar_resultado_Fechas_EC();
         }else if(cbFecha_EC_R.isSelected()==false){
-//            BuscarPacientesDIA_EC();
+            BuscarResultadosDIA_EC();
         }
     }//GEN-LAST:event_txtBuscarPaciente_EC_RCaretUpdate
 
@@ -344,7 +387,7 @@ DefaultTableModel m, msb;
     }//GEN-LAST:event_txtBuscarPaciente_EC_RKeyTyped
 
     private void cbFecha_EC_RActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFecha_EC_RActionPerformed
-
+        seleccion();
     }//GEN-LAST:event_cbFecha_EC_RActionPerformed
 
     private void cbFecha_EC_RPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cbFecha_EC_RPropertyChange
@@ -384,7 +427,10 @@ DefaultTableModel m, msb;
                             //                                mesAC + "-" + anioAC);
                         //                                fecha_fin.setDate(null);
                         //                       }else{
-//                        buscar_examen_EC();
+                        buscar_resultado_Fechas_EC();
+                        lblfecha_I_R.setText(diaIN + "/" + mesIN + "/" + anioIN);
+                        lblfecha_F_R.setText(diaFN + "/" + mesFN + "/" + anioFN);
+                        lblG_R.setVisible(true);
                         //                       }
                     //                }
                 //
@@ -408,10 +454,10 @@ DefaultTableModel m, msb;
            if(filaselec<0){
                JOptionPane.showMessageDialog(rootPane, "Seleccione un Registro");
            }else{
-             String cod=tb_RESULTADOS_EC.getValueAt(filaselec, 7).toString();
+             String cod=tb_RESULTADOS_EC.getValueAt(filaselec, 8).toString();
          
             Map parametros=new HashMap();
-            parametros.put("COD_DET_DOC",cod);
+            parametros.put("COD_DET_COD",cod);
             
                 JasperPrint informe=JasperFillManager.fillReport(getClass().
                     getResourceAsStream("/Reportes/EC/EC_RESULTADO.jasper"), parametros,c.conectar());
@@ -420,11 +466,150 @@ DefaultTableModel m, msb;
                 ventana.setTitle("RESULTADO - "+tb_RESULTADOS_EC.getValueAt(filaselec, 7).toString());
                 ventana.setVisible(true);
            }
-            } catch (Exception e) {
+           } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Error al Cargar el reporte"+e.getMessage());
-            }
+           }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    public void buscar_resultado_Fechas_EC(){
+    
+           int dia = fecha_inicio_EC_R.getCalendar().get(Calendar.DAY_OF_MONTH);
+           int mes = fecha_inicio_EC_R.getCalendar().get(Calendar.MONTH) + 1;
+           int anio = fecha_inicio_EC_R.getCalendar().get(Calendar.YEAR);
+                       
+           int fechaI;
+                       
+                       if(mes<10 && dia<10){
+                           fechaI = Integer.parseInt(anio + "0" + mes + "0" + dia);
+                       }else{                           
+                           if(mes<10 && dia>=10){
+                           fechaI = Integer.parseInt(anio + "0"+ mes + dia);
+                           }else{
+                               if(mes >=10 && dia<10){
+                                 fechaI = Integer.parseInt( anio + mes + "0"+ dia);
+                               }else{
+                                   fechaI = anio +  mes + dia ;
+                               }
+                           }
+                       }
+
+                       
+           int dia1 = fecha_fin_EC_R.getCalendar().get(Calendar.DAY_OF_MONTH);
+           int mes1 = fecha_fin_EC_R.getCalendar().get(Calendar.MONTH) + 1;
+           int anio1 = fecha_fin_EC_R.getCalendar().get(Calendar.YEAR);
+                       
+           int fechaF;
+                       
+                       if(mes1<10 && dia1<10){
+                           fechaF = Integer.parseInt(anio1 + "0" + mes1 + "0" + dia1);
+                       }else{                           
+                           if(mes1<10 && dia1>=10){
+                           fechaF = Integer.parseInt(anio1 + "0"+ mes1 +  dia1);
+                           }else{
+                               if(mes1 >=10 && dia1<10){
+                                 fechaF = Integer.parseInt(anio1  + mes1 + "0"+ dia1);
+                               }else{
+                                   fechaF = anio1 + mes1 + dia1 ;
+                               }
+                           }
+                       }
+
+                       
+        
+        String buscar="",servicioArea="";
+        buscar = txtBuscarPaciente_EC_R.getText();
+        servicioArea = lblNumeArea_EC.getText();
+        
+        
+        
+    String consulta="";
+        try {
+            tb_RESULTADOS_EC.setModel(new DefaultTableModel());
+            String titulos[]={"ID_HC","N° HC","Nombre del Paciente","DNI",
+            "Acto Médico","Nomen. Caja","Nomenclatura","Fecha Result.", "Cod_Detalle"};
+            m3=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m3);
+            String fila[]=new String[9];
+
+            EC_EXAMEN_CABECERA obj=new EC_EXAMEN_CABECERA();
+            consulta="exec RX_EC_RESULTADO_BUSCAR_FECHAS_RX_1 ?,?,?";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            cmd.setInt(1,fechaI);
+            cmd.setInt(2, fechaF);
+            cmd.setString(3, buscar);
+            
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){               
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                
+                m3.addRow(fila);
+                c++;
+            }
+            tb_RESULTADOS_EC.setModel(m3);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
+            tb_RESULTADOS_EC.setRowSorter(elQueOrdena);
+            this.tb_RESULTADOS_EC.setModel(m3);
+            
+            formatoExamen_resultado_ec();
+            
+            if(tb_RESULTADOS_EC.getRowCount()==0){
+//                lblRegistro.setVisible(true);
+                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
+            }else{
+//                lblRegistro.setVisible(false);
+            }
+            
+        }catch (Exception e) {
+            System.out.println("Error buscar examen: " + e.getMessage());
+        }
+    }
+    
+    public void mostrarArea(){
+        String consulta="";
+        try {
+            consulta="EXEC RX_EC_SERVICIO ";
+            PreparedStatement cmd = EC.getCn().prepareStatement(consulta);        
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                lblNumeArea_EC.setText(r.getString(1));
+                lblNomArea_EC.setText(r.getString(2));
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error carga area : " + e.getMessage());
+        }
+    }
+    
+    public void seleccion(){
+        if(cbFecha_EC_R.isSelected()==true){
+            fecha_inicio_EC_R.setEnabled(true);
+            fecha_fin_EC_R.setEnabled(true);
+            txtBuscarPaciente_EC_R.setText("");
+            lblfecha_I_R.setVisible(true);
+            lblfecha_F_R.setVisible(true);
+            lblG_R.setVisible(true);
+        }else{
+            fecha_inicio_EC_R.setEnabled(false);
+            fecha_fin_EC_R.setEnabled(false);
+            fecha_inicio_EC_R.setDate(null);
+            fecha_fin_EC_R.setDate(null);
+            txtBuscarPaciente_EC_R.setText("");
+            lblfecha_I_R.setVisible(false);
+            lblfecha_F_R.setVisible(false);
+            lblG_R.setVisible(false);
+        }
+    }
+    
     public static String fechaActual(){
         Date now = new Date(System.currentTimeMillis());
         SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
@@ -456,17 +641,17 @@ DefaultTableModel m, msb;
             
             tb_RESULTADOS_EC.setModel(new DefaultTableModel());
             String titulos[]={"ID_HC","N° HC","Nombre del Paciente","DNI",
-            "Acto Médico","Nomenclatura","Fecha Examen", "Cod_Detalle"};
+            "Acto Médico","Nomen. Caja","Nomenclatura","Fecha Result.", "Cod_Detalle"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[8];
+            String fila[]=new String[9];
             Usuario obj=new Usuario();
             consulta="exec RX_EC_RESULTADO_LISTAR_EC_1 ";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             
             ResultSet r= cmd.executeQuery();
             while(r.next()){
-            for (int i=0; i<8; i++){
+            for (int i=0; i<9; i++){
             fila[i]=r.getString(i+1);
             }
                 m.addRow(fila);
@@ -482,15 +667,58 @@ DefaultTableModel m, msb;
             System.out.println("Error mostrar paciente: " + e.getMessage());
         }       
     }
+    
+    public void BuscarResultadosDIA_EC(){
+        try {
+                     
+            String consulta="";
+            
+            tb_RESULTADOS_EC.setModel(new DefaultTableModel());
+            String titulos[]={"ID_HC","N° HC","Nombre del Paciente","DNI",
+            "Acto Médico","Nomen. Caja","Nomenclatura","Fecha Result.", "Cod_Detalle"};
+            m2=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m2);
+            String fila[]=new String[9];
+            Usuario obj=new Usuario();
+            consulta="exec RX_EC_RESULTADO_BUSCAR_LISTA_DIA_1 ?";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);            
+            cmd.setString(1, txtBuscarPaciente_EC_R.getText());
+            
+            ResultSet r= cmd.executeQuery();
+            while(r.next()){
+            for (int i=0; i<9; i++){
+            fila[i]=r.getString(i+1);
+            }
+                m2.addRow(fila);
+            }
+            tb_RESULTADOS_EC.setModel(m2);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m2);
+            tb_RESULTADOS_EC.setRowSorter(elQueOrdena);
+            tb_RESULTADOS_EC.setModel(m2);
+                      
+            formatoExamen_resultado_ec();
+            
+            if(tb_RESULTADOS_EC.getRowCount()==0){
+//                lblRegistro.setVisible(true);
+                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
+            }else{
+//                lblRegistro.setVisible(false);
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error mostrar paciente: " + e.getMessage());
+        }
+        
+    }
 
     public void inicializar_tabla_Examenes_RESULTADO_EC(){       
         try {
             
             String titulosb[]={"ID_HC","N° HC","Nombre del Paciente","DNI",
-            "Acto Médico","Nomenclatura","Fecha Examen","Cod_Detalle"};
+            "Acto Médico","Nomen. Caja","Nomenclatura","Fecha Result.","Cod_Detalle"};
             msb=new DefaultTableModel(null,titulosb);
             JTable psb=new JTable(msb);
-            String filasb[]=new String[8];
+            String filasb[]=new String[9];
             tb_RESULTADOS_EC.setModel(msb);
             TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(msb);
             tb_RESULTADOS_EC.setRowSorter(elQueOrdenasb);
@@ -510,8 +738,9 @@ DefaultTableModel m, msb;
             tb_RESULTADOS_EC.getColumnModel().getColumn(2).setPreferredWidth(300);
             tb_RESULTADOS_EC.getColumnModel().getColumn(3).setPreferredWidth(80);
             tb_RESULTADOS_EC.getColumnModel().getColumn(4).setPreferredWidth(80); 
-            tb_RESULTADOS_EC.getColumnModel().getColumn(5).setPreferredWidth(400);
-            tb_RESULTADOS_EC.getColumnModel().getColumn(6).setPreferredWidth(110);  
+            tb_RESULTADOS_EC.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tb_RESULTADOS_EC.getColumnModel().getColumn(6).setPreferredWidth(400);  
+            tb_RESULTADOS_EC.getColumnModel().getColumn(7).setPreferredWidth(110);
             tb_RESULTADOS_EC.getColumnModel().getColumn(7).setPreferredWidth(100);
 //            //Ocultar
             tb_RESULTADOS_EC.getColumnModel().getColumn(0).setMinWidth(0);
@@ -560,6 +789,7 @@ DefaultTableModel m, msb;
     private com.toedter.calendar.JDateChooser fecha_inicio_EC_R;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -568,10 +798,13 @@ DefaultTableModel m, msb;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPanel jpanel;
     private javax.swing.JLabel lblFecha_EC_R;
+    private javax.swing.JLabel lblG_R;
     private javax.swing.JLabel lblHora_EC_R;
     private javax.swing.JLabel lblNomArea_EC;
     private javax.swing.JLabel lblNumeArea_EC;
     public static javax.swing.JLabel lblUsu;
+    private javax.swing.JLabel lblfecha_F_R;
+    private javax.swing.JLabel lblfecha_I_R;
     private javax.swing.JTable tb_RESULTADOS_EC;
     private javax.swing.JLabel titulo5;
     private javax.swing.JTextField txtBuscarPaciente_EC_R;

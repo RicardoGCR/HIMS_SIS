@@ -172,7 +172,14 @@
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+<<<<<<< HEAD
+              <Font name="Trebuchet MS" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+=======
               <Font name="Segoe UI Light" size="13" style="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="DETALLE"/>
@@ -373,7 +380,11 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+<<<<<<< HEAD
+                      <EmptySpace pref="13" max="32767" attributes="0"/>
+=======
                       <EmptySpace pref="16" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtDocumento" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -550,7 +561,11 @@
                   <Component id="lblfecha_F" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
+              <Component id="jScrollPane2" pref="494" max="32767" attributes="0"/>
+=======
               <Component id="jScrollPane2" pref="503" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -575,6 +590,18 @@
                               <Component id="cbFecha" min="-2" max="-2" attributes="0"/>
                               <Component id="titulo5" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
+<<<<<<< HEAD
+                          <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                          <Component id="lblFecha" min="-2" pref="107" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lblHora" min="-2" pref="83" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblNumeArea" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lblNomArea" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+=======
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
@@ -592,6 +619,7 @@
                           <Component id="lblNomArea" min="-2" pref="195" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <Component id="fecha_inicio" min="-2" pref="130" max="-2" attributes="0"/>
@@ -608,7 +636,11 @@
                               <Component id="txtBuscarPaciente" max="32767" attributes="0"/>
                               <Component id="jLabel4" min="-2" pref="213" max="-2" attributes="0"/>
                           </Group>
+<<<<<<< HEAD
+                          <EmptySpace pref="140" max="32767" attributes="0"/>
+=======
                           <EmptySpace max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                           <Component id="lblUsu" min="-2" pref="119" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -623,10 +655,14 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
+                                  <Component id="titulo5" min="-2" max="-2" attributes="0"/>
+=======
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="titulo5" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblNumeArea" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                   <Component id="cbFecha" min="-2" pref="19" max="-2" attributes="0"/>
                               </Group>
@@ -655,6 +691,20 @@
                                   <Component id="txtBuscarPaciente" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+<<<<<<< HEAD
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblNomArea" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNumeArea" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="lblUsu" pref="38" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+=======
                           <EmptySpace min="0" pref="7" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -665,6 +715,7 @@
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
               </Group>
           </Group>
         </DimensionLayout>
@@ -743,6 +794,10 @@
         <Component class="javax.swing.JTextField" name="txtBuscarPaciente">
           <Events>
             <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtBuscarPacienteCaretUpdate"/>
+<<<<<<< HEAD
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarPacienteKeyPressed"/>
+=======
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarPacienteKeyTyped"/>
           </Events>
         </Component>

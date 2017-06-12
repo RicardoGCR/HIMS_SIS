@@ -5923,7 +5923,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 );
 
                                                                                                 GuardarPapeleta.setAlwaysOnTop(true);
-                                                                                                GuardarPapeleta.setMinimumSize(new java.awt.Dimension(470, 217));
+                                                                                                GuardarPapeleta.setMinimumSize(new java.awt.Dimension(470, 247));
+                                                                                                GuardarPapeleta.setPreferredSize(new java.awt.Dimension(443, 247));
 
                                                                                                 jPanel61.setBackground(new java.awt.Color(0, 153, 102));
                                                                                                 jPanel61.setMinimumSize(new java.awt.Dimension(310, 441));
@@ -7984,7 +7985,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                             .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                             .addGroup(jPanel21Layout.createSequentialGroup()
-                                                                                                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                                                                                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, Short.MAX_VALUE)
                                                                                                                 .addContainerGap())))
                                                                                                     .addGroup(jPanel21Layout.createSequentialGroup()
                                                                                                         .addGap(28, 28, 28)
@@ -10290,8 +10291,7 @@ jTabbedPane1.setSelectedIndex(1);
             Caja_HospitalizacionPreventa.lblIdMedic.setText(String.valueOf(tb_medicosPapeleta.getValueAt(fila, 0)));
             Caja_HospitalizacionPreventa.txtMedico.setText(String.valueOf(tb_medicosPapeleta.getValueAt(fila, 1))); 
 //            GuardarDetalle();
-            panelNumeros.setVisible(true);
-            suma();
+            
             
         }
     }//GEN-LAST:event_tb_medicosPapeletaMouseClicked
@@ -10302,6 +10302,9 @@ jTabbedPane1.setSelectedIndex(1);
 
     private void btnGuardarDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarDetalleActionPerformed
         GuardarDetalle();
+        panelNumeros.setVisible(true);
+        suma();
+        GuardarPapeleta.dispose();  
     }//GEN-LAST:event_btnGuardarDetalleActionPerformed
 
     /**

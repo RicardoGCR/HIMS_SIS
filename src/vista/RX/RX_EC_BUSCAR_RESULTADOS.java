@@ -319,6 +319,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         ));
         tb_Examenes_R.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Examenes_R.setComponentPopupMenu(jPopupMenu1);
+        tb_Examenes_R.setRowHeight(25);
         jScrollPane1.setViewportView(tb_Examenes_R);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N

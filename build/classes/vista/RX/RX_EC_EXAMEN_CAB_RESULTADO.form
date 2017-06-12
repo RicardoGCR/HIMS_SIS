@@ -577,6 +577,52 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="lblCod_Personal_Sol" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="titulo5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="txtID_EXAMEN_CAB" min="-2" pref="142" max="-2" attributes="0"/>
+                          <EmptySpace pref="170" max="32767" attributes="0"/>
+                          <Component id="txtId_Documento_G" min="-2" pref="119" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblCod_Cab_Resultado" min="-2" pref="159" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lblIDArea" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <Component id="lblFP" min="-2" pref="199" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="lblFUA" min="-2" pref="107" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="lblNumExamen" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="lblFechaReg" min="-2" pref="92" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblHoraReg" min="-2" pref="99" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="lblUsu" min="-2" pref="119" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="lblNomA" alignment="1" min="-2" pref="357" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+=======
                       <Component id="lblCod_Personal_Sol" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -629,6 +675,7 @@
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
               </Group>
           </Group>
         </DimensionLayout>
@@ -637,6 +684,39 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+                      <Component id="titulo5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtID_EXAMEN_CAB" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtId_Documento_G" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCod_Cab_Resultado" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblIDArea" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNomA" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblCod_Personal_Sol" min="-2" pref="11" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblFP" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblFUA" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNumExamen" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                              <Component id="lblFechaReg" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblHoraReg" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblUsu" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="14" max="32767" attributes="0"/>
+=======
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblNomA" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
@@ -676,6 +756,7 @@
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
               </Group>
           </Group>
         </DimensionLayout>
@@ -714,7 +795,11 @@
         <Component class="javax.swing.JLabel" name="lblNomA">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+<<<<<<< HEAD
+              <Font name="Trebuchet MS" size="14" style="1"/>
+=======
               <Font name="Segoe UI" size="14" style="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -796,6 +881,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+            <Property name="horizontalAlignment" type="int" value="4"/>
+=======
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/iconos/User-32.png"/>
             </Property>
@@ -854,7 +943,11 @@
         <Component class="javax.swing.JLabel" name="jLabel29">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+<<<<<<< HEAD
+              <Font name="Trebuchet MS" size="13" style="1"/>
+=======
               <Font name="Segoe UI Light" size="13" style="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -866,7 +959,11 @@
         <Component class="javax.swing.JLabel" name="lblNumExamen">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+<<<<<<< HEAD
+              <Font name="Trebuchet MS" size="13" style="1"/>
+=======
               <Font name="Segoe UI Light" size="13" style="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -875,6 +972,21 @@
             <Property name="text" type="java.lang.String" value="10000"/>
           </Properties>
         </Component>
+<<<<<<< HEAD
+        <Component class="javax.swing.JLabel" name="jLabel30">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Trebuchet MS" size="13" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Fecha y Hora Resultado:"/>
+          </Properties>
+        </Component>
+=======
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel7">
@@ -898,6 +1010,13 @@
                   <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+<<<<<<< HEAD
+                          <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+=======
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                           <Component id="jPanel15" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -915,6 +1034,15 @@
                           <EmptySpace min="-2" pref="523" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
+                          <Component id="jPanel2" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jPanel1" pref="1314" max="32767" attributes="0"/>
+=======
                           <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jPanel4" max="32767" attributes="0"/>
@@ -922,6 +1050,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel1" pref="1262" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -959,12 +1088,23 @@
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+<<<<<<< HEAD
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jPanel2" max="32767" attributes="0"/>
+                      <Component id="jPanel4" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+=======
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jPanel2" max="32767" attributes="0"/>
                       <Component id="jPanel4" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                   <Component id="jPanel15" max="32767" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1138,6 +1278,20 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lblHospiServ" min="-2" pref="574" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="txtHabitacion" max="32767" attributes="0"/>
+                                      <Component id="jLabel19" min="-2" pref="231" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+=======
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="83" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1152,14 +1306,23 @@
                                       <Component id="jLabel19" pref="231" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel20" min="-2" pref="229" max="-2" attributes="0"/>
                                       <Component id="txtCama" min="-2" pref="229" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+<<<<<<< HEAD
+                              <Component id="txtPersonalSolicita" max="32767" attributes="0"/>
+                              <Component id="lblHospi" alignment="0" min="-2" pref="574" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="63" max="32767" attributes="0"/>
+=======
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1168,9 +1331,15 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="txtPersonalSolicita" min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+=======
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="txtPersonalSolicita" min="-2" pref="24" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                       <Component id="lblHospi" min="-2" pref="14" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="lblHospiServ" min="-2" max="-2" attributes="0"/>
@@ -1330,11 +1499,19 @@
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
+                      <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
+                      <Component id="lblCod_Per_Registra" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="lblCod_Per_realiza" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+=======
                       <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
                       <Component id="lblCod_Per_Registra" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="lblCod_Per_realiza" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="310" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1362,7 +1539,11 @@
                           <Component id="lblCod_Per_Registra" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblCod_Per_realiza" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
+=======
                       <EmptySpace max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1388,6 +1569,12 @@
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonalRealizaResKeyPressed"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonalRealizaResKeyReleased"/>
               </Events>
+<<<<<<< HEAD
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+=======
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel26">
               <Properties>
@@ -1409,6 +1596,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPersonalRegistraResultadoActionPerformed"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonalRegistraResultadoKeyPressed"/>
               </Events>
+<<<<<<< HEAD
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+=======
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
             </Component>
             <Component class="javax.swing.JButton" name="btnPersonalResRealiza">
               <Properties>
@@ -1424,6 +1617,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPersonalResRealizaActionPerformed"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnPersonalResRealizaKeyPressed"/>
               </Events>
+<<<<<<< HEAD
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+=======
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
             </Component>
             <Component class="javax.swing.JButton" name="btnPersonalResultado">
               <Properties>
@@ -1510,7 +1709,11 @@
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Component id="txtFechaNac" min="-2" pref="75" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                      <EmptySpace pref="116" max="32767" attributes="0"/>
+=======
                       <EmptySpace pref="64" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1718,11 +1921,33 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                              <EmptySpace pref="186" max="32767" attributes="0"/>
+=======
                               <EmptySpace max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                               <Component id="txtCAB_RESULTADO" min="-2" pref="77" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="txtCOD_DET_RES" min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>
+<<<<<<< HEAD
+                          <Component id="jScrollPane3" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jScrollPane9" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane5" alignment="0" min="-2" pref="338" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel16" min="-2" pref="162" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnBuscarCIE10" min="-2" pref="45" max="-2" attributes="0"/>
+                          </Group>
+=======
                           <Component id="jScrollPane6" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1737,6 +1962,7 @@
                               <Component id="jScrollPane5" alignment="0" min="-2" pref="338" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel16" min="-2" pref="162" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1748,10 +1974,14 @@
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
+<<<<<<< HEAD
+                              <Component id="btnBuscarCIE10" min="-2" pref="32" max="-2" attributes="0"/>
+=======
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel14" alignment="0" min="-2" pref="13" max="-2" attributes="0"/>
                                   <Component id="btnBuscarCIE10" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               <Component id="jScrollPane5" min="-2" pref="133" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
@@ -1765,11 +1995,20 @@
                                   <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtCOD_DET_RES" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtCAB_RESULTADO" alignment="3" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                                  <Component id="jLabel14" alignment="3" min="-2" pref="13" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jScrollPane1" pref="260" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane3" max="32767" attributes="0"/>
+=======
                               </Group>
                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jScrollPane6" alignment="0" pref="260" max="32767" attributes="0"/>
                                   <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
                               </Group>
                           </Group>
                       </Group>
@@ -1954,6 +2193,8 @@
                 </Component>
               </SubComponents>
             </Container>
+<<<<<<< HEAD
+=======
             <Container class="javax.swing.JScrollPane" name="jScrollPane6">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -1965,6 +2206,7 @@
                 </Component>
               </SubComponents>
             </Container>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
             <Component class="javax.swing.JLabel" name="jLabel21">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1988,12 +2230,43 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCAB_RESULTADO">
+<<<<<<< HEAD
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JEditorPane" name="EP_Descripcion">
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="jLabel28">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Trebuchet MS" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="b3" green="71" red="22" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="RESULTADO"/>
+          </Properties>
+        </Component>
+=======
               <Properties>
                 <Property name="text" type="java.lang.String" value="ID_CAB_RES"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
       </SubComponents>
     </Container>
   </SubComponents>

@@ -73,6 +73,10 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         h1.start();
         Calendar cal=Calendar.getInstance();          
         lblFecha_R.setText(fechaActual());
+        
+        lblFecha_R.setVisible(false);
+        lblHora_R.setVisible(false);
+        lblNumeArea.setVisible(false);
     }
 
     /**
@@ -105,6 +109,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         fecha_fin_R = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_Examenes_R = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
 
         VerExamenes.setText("RESULTADOS");
         VerExamenes.addActionListener(new java.awt.event.ActionListener() {
@@ -186,7 +191,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("AM, DNI , HC, APELLIDOS Y NOMBRES");
 
-        lblNomArea.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblNomArea.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblNomArea.setForeground(new java.awt.Color(255, 255, 255));
         lblNomArea.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblNomArea.setText("jLabel3");
@@ -240,7 +245,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
                         .addComponent(lblHora_R, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblNumeArea)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                         .addComponent(lblNomArea, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,13 +257,11 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
                             .addComponent(jLabel2))
                         .addGap(10, 10, 10)
                         .addComponent(btnBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
+                        .addGap(18, 18, 18)
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtBuscarPaciente_R)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 243, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -267,15 +270,19 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
             .addGroup(jpanelLayout.createSequentialGroup()
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpanelLayout.createSequentialGroup()
-                                .addComponent(titulo5)
-                                .addGap(5, 5, 5)
-                                .addComponent(cbFecha_R, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblFecha_R)
-                                .addComponent(lblHora_R)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(titulo5)
+                        .addGap(5, 5, 5)
+                        .addComponent(cbFecha_R, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblFecha_R)
+                        .addComponent(lblHora_R))
+                    .addGroup(jpanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNomArea)
+                            .addComponent(lblNumeArea))))
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpanelLayout.createSequentialGroup()
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jpanelLayout.createSequentialGroup()
                                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,13 +296,10 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
                             .addGroup(jpanelLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(0, 0, 0)
-                                .addComponent(txtBuscarPaciente_R, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtBuscarPaciente_R, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNomArea)
-                            .addComponent(lblNumeArea))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(5, 5, 5))
         );
@@ -317,6 +321,9 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         tb_Examenes_R.setComponentPopupMenu(jPopupMenu1);
         jScrollPane1.setViewportView(tb_Examenes_R);
 
+        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
+        jLabel3.setText("RESULTADOS DEL DIA ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -324,15 +331,21 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
             .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -610,7 +623,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         }       
     }
     
-        public void formatoExamen(){                    
+    public void formatoExamen(){                    
             tb_Examenes_R.getColumnModel().getColumn(0).setPreferredWidth(80); 
             tb_Examenes_R.getColumnModel().getColumn(1).setPreferredWidth(80);
             tb_Examenes_R.getColumnModel().getColumn(2).setPreferredWidth(300);
@@ -751,6 +764,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
     private com.toedter.calendar.JDateChooser fecha_inicio_R;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;

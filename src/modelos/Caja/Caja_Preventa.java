@@ -129,18 +129,20 @@ public class Caja_Preventa {
         return resp;
     }
     
-        public boolean CAJA_mantenimientoPreventaHospitalizacion()
-        {
+        public boolean CAJA_mantenimientoPreventaHospitalizacion(){
         boolean resp = false;
         try{
-            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_HOSPITALIZACION "
-                        + "?,?,?,?,?";
+            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_HOSPITALIZACION_NUEVO "
+                        + "?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_hc());
             cmd.setInt(2, getCA_ID());
             cmd.setString(3, gethOS_Indicaciones());
             cmd.setString(4, getCod_usu());
             cmd.setInt(5, getAR_ID());
+            cmd.setInt(6, getACTO_MEDICO());
+            cmd.setString(7, getCod_jerar_forma_pago());
+            cmd.setString(8, getCod_medico());
             if(!cmd.execute())
             {
                 resp = true;

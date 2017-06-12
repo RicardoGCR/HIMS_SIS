@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="SISGESHPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsCabecera</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsCcd</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsVacunas</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtSolicitudTransfucional</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoNutricional</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsDiagnosticoDesarrollo</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsEstimulacionTemprana</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsTamizajeNeonatal</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsTtoAntiparasitario</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsTamizajeAnemiaParasitosis</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsSuplementacionVitaminaA</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsEpisodiosEnfermedadesPrev</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsVisitasDomiciliarias</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsSuplementacionHierro</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsSeguimientoAnemia</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsSeguimientoDesarrollo</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsSeguimientoParasitosis</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsMonitoreo</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtRsSeguimientoIra</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtOrdenpcr</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtEsnitss</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalCabecera</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalGa</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAp</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAf</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalVp</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAn</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalPt</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalTs</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFd</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalFu</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEm</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEf</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalVg</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalHo</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalEl</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalAtencionPrenatal</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalPmcie10</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalReferencias</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtCarnetPerinatalExamenes</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtConsultorioCabecera</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtConsultorioAntecedentesExf</class>
+<<<<<<< HEAD
+    <class>modelos.ConsultorioEx.ConsultorioExtConsultorioMotivo</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtConsultorioDiagnostico</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtConsultorioTratamiento</class>
+    <class>modelos.ConsultorioEx.CONSULTORIOEXTCONSULTORIOOrden</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtConsultorioCita</class>
+    <class>modelos.ConsultorioEx.ConsultorioExtConsultorioCita_1</class>
+=======
+    <class>modelos.hospitalizacion.HospitalizacionNotaEnfermeriaProcedimiento</class>
+    <class>modelos.hospitalizacion.HospitalizacionNotaEnfermeria</class>
+    <class>modelos.hospitalizacion.HospitalizacionEpicrisis</class>
+    <class>modelos.hospitalizacion.HospitalizacionEpicrisisDiagnosticosEgreso</class>
+>>>>>>> cf3f2b42ebe07b1ad21b9fdcb7d535255fb8ae32
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://192.168.1.36:1433;databaseName=SISGESH_NET"/>
+      <property name="javax.persistence.jdbc.password" value="sistemas"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -218,7 +218,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1253, 579]"/>
+      <Dimension value="[1265, 610]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -240,10 +240,21 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panelOcultar" alignment="0" pref="1265" max="32767" attributes="0"/>
+          <Component id="panelOcultar" alignment="0" pref="0" max="32767" attributes="0"/>
+          <Component id="jpanel" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jScrollPane5" min="-2" pref="1096" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="btnInsumos" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnGenerar" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jButton1" pref="110" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="panelPaciente" max="32767" attributes="0"/>
@@ -254,20 +265,10 @@
                           <Component id="panelTM" min="-2" max="-2" attributes="0"/>
                           <Component id="panelResultado" min="-2" max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jScrollPane5" min="-2" pref="1095" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="btnInsumos" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnGenerar" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButton1" pref="110" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="7" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
-          <Component id="jpanel" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">

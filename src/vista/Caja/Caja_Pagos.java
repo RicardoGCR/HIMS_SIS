@@ -7686,7 +7686,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                     .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                         .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                         .addGroup(jPanel21Layout.createSequentialGroup()
-                                                                                                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, Short.MAX_VALUE)
+                                                                                                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
                                                                                                             .addContainerGap())))
                                                                                                 .addGroup(jPanel21Layout.createSequentialGroup()
                                                                                                     .addGap(28, 28, 28)
@@ -10014,7 +10014,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JDialog Anular;
     private javax.swing.JDialog AsistenciaSocial;
     private javax.swing.JDialog BHC;
-    private javax.swing.JTextField BMedicos;
+    public static javax.swing.JTextField BMedicos;
     private javax.swing.JComboBox CBXANULAR;
     public static javax.swing.JTextField ChkAnalf1;
     public static javax.swing.JTextField ChkEdad1;
@@ -10026,8 +10026,8 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JLabel HCI;
     private javax.swing.JDialog Jerarquias;
     private javax.swing.JLabel M;
-    private javax.swing.JDialog Medicos;
-    private javax.swing.JDialog MedicosConsultorios;
+    public static javax.swing.JDialog Medicos;
+    public static javax.swing.JDialog MedicosConsultorios;
     private javax.swing.JLabel Mensaje;
     private javax.swing.JLabel Mensaje1;
     private javax.swing.JLabel Mensaje2;
@@ -10406,13 +10406,13 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JTable tb_ReporteDiario;
     private javax.swing.JTable tb_ReporteDiario1;
     private javax.swing.JTable tb_consultorios;
-    private javax.swing.JTable tb_medicos;
-    private javax.swing.JTable tb_medicos1;
+    public static javax.swing.JTable tb_medicos;
+    public static javax.swing.JTable tb_medicos1;
     private javax.swing.JTable tbpreventas;
     private javax.swing.JTextField txtBuscarCPT;
     private javax.swing.JTextField txtBuscarEmpresa;
     private javax.swing.JTextField txtBuscarFormaPago;
-    private javax.swing.JTextField txtBuscarMedicos;
+    public static javax.swing.JTextField txtBuscarMedicos;
     private javax.swing.JTextField txtBuscarPaciente;
     public static javax.swing.JTextField txtBusquedas;
     public static javax.swing.JTextField txtCPT;

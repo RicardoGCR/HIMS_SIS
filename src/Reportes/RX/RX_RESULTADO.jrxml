@@ -400,7 +400,7 @@ RXNI.DESC_INCIDENCIA, RXRC.NUMERO_RESULTADO, RXNI.MEDIDA, CDC.FUA]]>
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[MEDIDA:]]></text>
+				<text><![CDATA[PLACA:]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

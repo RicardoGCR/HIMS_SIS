@@ -31,6 +31,7 @@ import modelos.RX.*;
 import modelos.Usuario;
 import vista.RX.RX_EC_EXAMEN_CAB;
 import static vista.RX.RX_EC_EXAMEN_CAB.tb_examen_det;
+import static vista.RX.RX_EC_EXAMEN_CAB_RESULTADO.btnPersonalResultado;
 
 /**
  *
@@ -61,13 +62,13 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         seleccion();
 //        mostrarPacientes();
         
-        lblFecha.setVisible(true);
-        lblHora.setVisible(true);
-        lblNumeArea.setVisible(true);
+        lblFecha.setVisible(false);
+        lblHora.setVisible(false);
+        lblNumeArea.setVisible(false);
         lblFechaNaci.setVisible(false);
         lblGenero.setVisible(false);
         lblEdad.setVisible(false);
-        lblIDArea.setVisible(true);
+        lblIDArea.setVisible(false);
         lblNomAD.setVisible(false);
         lblUsuD.setVisible(false);
        
@@ -745,7 +746,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
        char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){  
                     cargar_tabla_cabecera_ENTER();
-                    
+                    btnPersonalResultado.requestFocus();
         }
                    
     }//GEN-LAST:event_tb_ExamenesKeyPressed

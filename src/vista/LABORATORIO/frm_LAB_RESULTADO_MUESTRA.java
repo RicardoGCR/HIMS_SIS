@@ -42,6 +42,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.LABORATORIO.Celda_Checkox;
 import modelos.LABORATORIO.FormatoTabla;
+import modelos.LABORATORIO.FormatoTablaResultados;
 import modelos.LABORATORIO.LAB_Resultado_Insumos;
 import modelos.LABORATORIO.LAB_Resultado_Muestra_Cabecera;
 import modelos.LABORATORIO.LAB_Resultado_Muestra_Detalle;
@@ -100,7 +101,7 @@ DefaultTableModel m,n,muestra;
         
         lbltipo.setVisible(false);
         
-        
+        tb_Detalle.setDefaultRenderer(Object.class,new FormatoTablaResultados());
   
    //salir presionando escape
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
@@ -123,7 +124,7 @@ DefaultTableModel m,n,muestra;
     tb_Detalle.getColumnModel().getColumn(16).setPreferredWidth(105);
     tb_Detalle.getColumnModel().getColumn(17).setPreferredWidth(105);
     tb_Detalle.getColumnModel().getColumn(18).setPreferredWidth(150);
-    tb_Detalle.getColumnModel().getColumn(20).setPreferredWidth(200);
+    tb_Detalle.getColumnModel().getColumn(20).setPreferredWidth(205);
             //Ocultar    
   tb_Detalle.getColumnModel().getColumn(0).setMinWidth(0);
   tb_Detalle.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -347,6 +348,7 @@ public void calcula() {
 
             personal.setAlwaysOnTop(true);
             personal.setMinimumSize(new java.awt.Dimension(852, 504));
+            personal.setResizable(false);
 
             txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
             txtBuscar.setEnabled(false);
@@ -476,7 +478,7 @@ public void calcula() {
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setMinimumSize(new java.awt.Dimension(1265, 610));
+            setMinimumSize(null);
 
             jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
@@ -1485,7 +1487,7 @@ public void calcula() {
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelOcultar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(panelOcultar, javax.swing.GroupLayout.PREFERRED_SIZE, 1254, Short.MAX_VALUE)
                 .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(13, 13, 13)

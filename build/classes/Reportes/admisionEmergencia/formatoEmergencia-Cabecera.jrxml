@@ -125,36 +125,18 @@
 			<staticText>
 				<reportElement x="0" y="4" width="100" height="20" uuid="7324f47d-caf4-4391-8a4a-7d4717130d20"/>
 				<textElement>
-<<<<<<< HEAD
-					<font fontName="SansSerif" size="14" isBold="true"/>
-=======
 					<font size="14" isBold="true"/>
->>>>>>> 0df6e9fc0990abd7e82941f1ab329e1e5a08566e
 				</textElement>
 				<text><![CDATA[Acto médico:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="4" y="25" width="95" height="20" uuid="dc0c3afc-8954-432f-b6f4-afd05a72424e"/>
+				<reportElement x="0" y="25" width="52" height="20" uuid="dc0c3afc-8954-432f-b6f4-afd05a72424e"/>
 				<textElement>
-<<<<<<< HEAD
-					<font fontName="SansSerif" size="14" isBold="true"/>
-=======
 					<font size="14" isBold="true"/>
->>>>>>> 0df6e9fc0990abd7e82941f1ab329e1e5a08566e
 				</textElement>
-				<text><![CDATA[Nº H.C.:]]></text>
+				<text><![CDATA[Nº H.C.]]></text>
 			</staticText>
 			<staticText>
-<<<<<<< HEAD
-				<reportElement x="255" y="25" width="44" height="20" uuid="9e6fbe6d-3955-4813-9d59-1f2048f175fe"/>
-				<textElement textAlignment="Right">
-					<font fontName="SansSerif" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[DNI:]]></text>
-			</staticText>
-			<staticText>
-=======
->>>>>>> 0df6e9fc0990abd7e82941f1ab329e1e5a08566e
 				<reportElement x="373" y="123" width="38" height="20" uuid="9627ef89-ce83-4f46-882a-d0b6544c8fa1"/>
 				<text><![CDATA[Sector:]]></text>
 			</staticText>
@@ -190,9 +172,9 @@
 				<textFieldExpression><![CDATA[$F{ID_PREVENTA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="100" y="25" width="100" height="20" uuid="dcdd34bc-4923-4b0d-9f2f-a27463bae141"/>
+				<reportElement x="50" y="25" width="103" height="20" uuid="dcdd34bc-4923-4b0d-9f2f-a27463bae141"/>
 				<textElement>
-					<font fontName="SansSerif" size="14" isBold="true"/>
+					<font size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{COD_HC}]]></textFieldExpression>
 			</textField>
@@ -263,13 +245,9 @@
 				<text><![CDATA[Riesgo - Alérgico]]></text>
 			</staticText>
 			<textField>
-<<<<<<< HEAD
-				<reportElement x="300" y="25" width="100" height="20" uuid="0503dc61-8699-4048-9541-f6604d681cba"/>
-=======
 				<reportElement x="97" y="4" width="100" height="20" uuid="4b778e63-c666-427e-9ccd-524ebcf0bd17"/>
->>>>>>> 0df6e9fc0990abd7e82941f1ab329e1e5a08566e
 				<textElement>
-					<font fontName="SansSerif" size="14" isBold="true"/>
+					<font size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NUM_ACTOMEDICO}]]></textFieldExpression>
 			</textField>
@@ -290,27 +268,6 @@
 			</staticText>
 			<textField>
 <<<<<<< HEAD
-				<reportElement x="100" y="4" width="100" height="20" uuid="e515f291-1ec1-4508-b64b-64e80ff4f897"/>
-				<textElement>
-					<font fontName="SansSerif" size="14" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{NUM_ACTOMEDICO}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="200" y="4" width="100" height="20" uuid="fd5a61b7-f240-4c9c-8a17-2762c65f5780"/>
-				<textElement textAlignment="Right">
-					<font size="13" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Forma de Pago:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="300" y="4" width="100" height="20" uuid="c5e708f4-1c80-4319-b81a-9467bef4b57f"/>
-				<textElement>
-					<font size="13" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nom_forma_pago}]]></textFieldExpression>
-=======
-<<<<<<< HEAD
 				<reportElement x="300" y="4" width="100" height="20" uuid="c5e708f4-1c80-4319-b81a-9467bef4b57f"/>
 =======
 				<reportElement x="290" y="4" width="108" height="20" uuid="0503dc61-8699-4048-9541-f6604d681cba"/>
@@ -323,7 +280,6 @@
 =======
 				<textFieldExpression><![CDATA[$F{dni}]]></textFieldExpression>
 >>>>>>> 894a7298a76a531534a9366b8a21d4478eda4c48
->>>>>>> 0df6e9fc0990abd7e82941f1ab329e1e5a08566e
 			</textField>
 		</band>
 	</detail>

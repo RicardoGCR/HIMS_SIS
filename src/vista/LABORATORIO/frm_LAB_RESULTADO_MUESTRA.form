@@ -8,6 +8,7 @@
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[852, 504]"/>
         </Property>
+        <Property name="resizable" type="boolean" value="false"/>
       </Properties>
 
       <Layout>
@@ -218,7 +219,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1265, 610]"/>
+      <Dimension value="null"/>
     </Property>
   </Properties>
   <SyntheticProperties>

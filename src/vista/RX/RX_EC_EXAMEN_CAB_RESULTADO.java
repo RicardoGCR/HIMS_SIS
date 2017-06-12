@@ -937,6 +937,11 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 btnPersonalResRealizaActionPerformed(evt);
             }
         });
+        btnPersonalResRealiza.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnPersonalResRealizaKeyPressed(evt);
+            }
+        });
 
         btnPersonalResultado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
         btnPersonalResultado.setContentAreaFilled(false);
@@ -944,6 +949,11 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         btnPersonalResultado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPersonalResultadoActionPerformed(evt);
+            }
+        });
+        btnPersonalResultado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnPersonalResultadoKeyPressed(evt);
             }
         });
 
@@ -1306,7 +1316,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1249, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1257, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1444,6 +1454,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             if(lblPerB.getText().equalsIgnoreCase("B1")){
                 txtPersonalRealizaRes.setText(String.valueOf(apep + " " + apem + " " + nom));
                 lblCod_Per_realiza.setText(String.valueOf(tb_Personal_rol.getValueAt(fila, 1)));
+                
             }else{
                 if(lblPerB.getText().equalsIgnoreCase("B2")){
                     txtPersonalRegistraResultado.setText(String.valueOf(apep + " " + apem + " " + nom));
@@ -1669,6 +1680,22 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnRegresarResActionPerformed
+
+    private void btnPersonalResultadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPersonalResultadoKeyPressed
+       char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){
+                  btnPersonalResultado.doClick();
+//                  btnPersonalResRealiza.requestFocus();
+        }
+    }//GEN-LAST:event_btnPersonalResultadoKeyPressed
+
+    private void btnPersonalResRealizaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPersonalResRealizaKeyPressed
+        char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){
+                  btnPersonalResultado.doClick();
+//                  btnPersonalResRealiza.requestFocus();
+        }
+    }//GEN-LAST:event_btnPersonalResRealizaKeyPressed
 
       
     public void mostrar_Cod_Cabecera_RESULTADO(String cod){
@@ -2524,7 +2551,7 @@ public void guardar_resultado_detalle(){
     private javax.swing.JButton btnBuscarPersonal_TODO;
     private javax.swing.JButton btnGuardarCabeceraRes;
     private javax.swing.JButton btnPersonalResRealiza;
-    private javax.swing.JButton btnPersonalResultado;
+    public static javax.swing.JButton btnPersonalResultado;
     private javax.swing.JButton btnRegresarRes;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;

@@ -60,6 +60,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         mostrarArea();
         inicializar_tabla_Examenes();
         seleccion();
+        txtBuscarPaciente.requestFocus();
 //        mostrarPacientes();
         
         lblFecha.setVisible(false);

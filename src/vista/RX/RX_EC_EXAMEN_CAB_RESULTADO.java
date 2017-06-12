@@ -86,6 +86,11 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 //        btnBuscarCIE10.setEnabled(false);
 //        btnGuardarDetalleRes.setEnabled(false);
         
+          tb_examen_det.setEnabled(true);
+          tb_examen_det.setBackground(Color.lightGray);
+          tb_examen_det.getSelectionModel().setSelectionInterval(0, 0);
+          tb_examen_det.requestFocus();
+        
     }
 
     /**
@@ -856,7 +861,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
+                .addContainerGap(98, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel27)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1114,7 +1119,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addComponent(jLabel6)
                 .addGap(5, 5, 5)
                 .addComponent(txtFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1228,8 +1233,6 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             }
         });
 
-        txtCAB_RESULTADO.setText("ID_CAB_RES");
-
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
@@ -1316,7 +1319,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1257, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1278, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1454,11 +1457,19 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             if(lblPerB.getText().equalsIgnoreCase("B1")){
                 txtPersonalRealizaRes.setText(String.valueOf(apep + " " + apem + " " + nom));
                 lblCod_Per_realiza.setText(String.valueOf(tb_Personal_rol.getValueAt(fila, 1)));
+                    
+                tb_examen_det.setEnabled(true);
+                    tb_examen_det.setBackground(Color.white);
+                    tb_examen_det.getSelectionModel().setSelectionInterval(0, 0);
+                    tb_examen_det.requestFocus();
                 
             }else{
                 if(lblPerB.getText().equalsIgnoreCase("B2")){
                     txtPersonalRegistraResultado.setText(String.valueOf(apep + " " + apem + " " + nom));
                     lblCod_Per_Registra.setText(String.valueOf(tb_Personal_rol.getValueAt(fila, 1)));
+                    btnPersonalResRealiza.requestFocus();
+                    
+                    
                 }
             }
                                   
@@ -1579,6 +1590,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             PERSONAL_ROL_TODO.dispose();
             txtBuscarPersonal_TODO.setText("");
             
+            
+            
 //            txtNumeroRegla.setEnabled(false);
 //            txtDescripcionRegla.setEnabled(false);
 //            btnmodificar.setEnabled(true);
@@ -1664,10 +1677,23 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     }//GEN-LAST:event_txtCOD_DET_RESCaretUpdate
 
     private void btnGuardarCabeceraResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCabeceraResActionPerformed
-        guardar_resultado_cabecera();
-//        txtId_Documento_G.setText(txtID_EXAMEN_CAB.getText());
-        //txtAMB.setText(txtAM.getText());
-        ENABLED_CAMPOS();
+        if(txtCAB_RESULTADO.getText().equalsIgnoreCase("")){
+            guardar_resultado_cabecera();   
+            mostrar_VER_DETALLE_RESULTADO();
+//            mostrar_VER_DETALLE_EC();    
+            
+       }else{
+            ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
+           int guardar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea GUARDAR los datos?",
+                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                    if(guardar == 0 ){
+                        JOptionPane.showMessageDialog(null, "Datos Guardados");
+                        RX_EC_ESTADO_RESULTADO_MODIFICAR();
+                        GUARDAR_RESULTADO_DETALLE_RX_CONC();
+                        mostrar_VER_DETALLE_RESULTADO();
+                    }
+        }
+        
        
         
     }//GEN-LAST:event_btnGuardarCabeceraResActionPerformed
@@ -1692,7 +1718,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     private void btnPersonalResRealizaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPersonalResRealizaKeyPressed
         char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
-                  btnPersonalResultado.doClick();
+                  btnPersonalResRealiza.doClick();
 //                  btnPersonalResRealiza.requestFocus();
         }
     }//GEN-LAST:event_btnPersonalResRealizaKeyPressed
@@ -2243,6 +2269,32 @@ public void guardar_resultado_detalle(){
            
     }
 
+    public void GUARDAR_RESULTADO_DETALLE_RX_CONC(){  
+        
+//        int id = Integer.parseInt(txtCAB_RESULTADO.getText());
+                
+               RX_EC_RESULTADO_DETALLE rxg1 = new RX_EC_RESULTADO_DETALLE(); 
+               rxg1.setCOD_CAB_RESULTADO(Integer.parseInt(txtCAB_RESULTADO.getText()));
+               rxg1.setCOD_EXAMEN_DETALLE(Integer.parseInt(txtCOD_EXAMEN_DETALLE.getText()));
+               rxg1.setDESCRIPCION_RESULTADO(EP_Descripcion.getText());
+               rxg1.setCONCLUSION_DIAGNOSTICA(EP_CONCLUSION.getText());                   
+               rxg1.setNOM_USU(lblUsu.getText());
+               
+               rxg1.RX_EC_RESULTADO_DETALLE_GUARDAR();
+               
+               txtCOD_DET_RES.setText(rxg1.RX_EC_ID());
+               if(tbCIE10.getRowCount()!=0){
+                   guardarDetalleDiagnostico();
+                   Clear_Tb_GuardarDetalle_RESULTADO();
+                   EP_Descripcion.setText("");
+                   EP_CONCLUSION.setText("");
+//                   Clear_Tb_GuardarDetalle();
+               }else{
+                   System.out.println("error al guardar detalle diagnostico ");
+               }  
+           
+    }
+    
     public void RX_EC_ESTADO_RESULTADO_MODIFICAR(){
         
         RX_EC_RESULTADO_DETALLE ER=new RX_EC_RESULTADO_DETALLE();

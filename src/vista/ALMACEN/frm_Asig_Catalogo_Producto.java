@@ -432,8 +432,6 @@ String hora, minutos, segundos, ampm;
                         .addGap(0, 51, Short.MAX_VALUE))
                 );
 
-                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
                 tbProductoAlmacen.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
                 tbProductoAlmacen.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {

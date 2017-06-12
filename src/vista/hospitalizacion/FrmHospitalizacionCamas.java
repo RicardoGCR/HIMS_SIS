@@ -110,6 +110,7 @@ public class FrmHospitalizacionCamas extends javax.swing.JFrame {
         cbxServicio.setEnabled(opcion);
         rbtM.setEnabled(opcion);
         rbtF.setEnabled(opcion);
+        rbtT.setEnabled(opcion);
         txtAsignacion.setEnabled(opcion);
         txtDescripcion.setEnabled(opcion);
     }
@@ -140,8 +141,10 @@ public class FrmHospitalizacionCamas extends javax.swing.JFrame {
         String genero = String.valueOf(tbListar.getValueAt(fila, 4));
         if(genero .equals("M"))
             rbtM.setSelected(true);
+        else if(genero.equals("F"))
+            rbtF.setSelected(true);
         else
-            rbtF.setSelected(false);
+            rbtT.setSelected(true);
         txtDescripcion.setText(String.valueOf(tbListar.getValueAt(fila, 5)));
         txtAsignacion.setText(String.valueOf(tbListar.getValueAt(fila, 6)));
         tbHosC.setSelectedIndex(0);
@@ -191,6 +194,7 @@ public class FrmHospitalizacionCamas extends javax.swing.JFrame {
         lblID = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
+        rbtT = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbListar = new javax.swing.JTable();
@@ -201,7 +205,7 @@ public class FrmHospitalizacionCamas extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(450, 420));
         getContentPane().setLayout(null);
 
-        jPanel8.setBackground(new java.awt.Color(217, 100, 118));
+        jPanel8.setBackground(new java.awt.Color(255, 119, 0));
         jPanel8.setPreferredSize(new java.awt.Dimension(500, 65));
         jPanel8.setLayout(null);
 
@@ -209,7 +213,7 @@ public class FrmHospitalizacionCamas extends javax.swing.JFrame {
         titulo5.setFont(new java.awt.Font("Segoe UI Light", 0, 22)); // NOI18N
         titulo5.setForeground(new java.awt.Color(255, 255, 255));
         titulo5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        titulo5.setText("Hospitalización - Habitación");
+        titulo5.setText("Hospitalización - Camas");
         titulo5.setToolTipText("");
         titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel8.add(titulo5);
@@ -439,6 +443,11 @@ public class FrmHospitalizacionCamas extends javax.swing.JFrame {
         txtDescripcion.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         txtDescripcion.setEnabled(false);
 
+        buttonGroup1.add(rbtT);
+        rbtT.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        rbtT.setText("T");
+        rbtT.setEnabled(false);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -459,16 +468,18 @@ public class FrmHospitalizacionCamas extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cbxHab, javax.swing.GroupLayout.Alignment.LEADING, 0, 180, Short.MAX_VALUE)
                             .addComponent(cbxServicio, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtDescripcion)
+                            .addComponent(txtAsignacion)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cbxPiso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                         .addComponent(rbtM)
                                         .addGap(18, 18, 18)
-                                        .addComponent(rbtF))
-                                    .addComponent(cbxPiso, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtDescripcion)
-                            .addComponent(txtAsignacion))
+                                        .addComponent(rbtF)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rbtT)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblMant, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -495,7 +506,8 @@ public class FrmHospitalizacionCamas extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(rbtM)
                     .addComponent(rbtF)
-                    .addComponent(lblMant))
+                    .addComponent(lblMant)
+                    .addComponent(rbtT))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -653,8 +665,10 @@ public class FrmHospitalizacionCamas extends javax.swing.JFrame {
                         hospP.setHab_id(Integer.parseInt(hospP2.codHabitacion(habitacion)));
                         if(rbtM.isSelected())
                             hospP.setCa_gen("M");
-                        else
+                        else if (rbtF.isSelected())
                             hospP.setCa_gen("F");
+                        else if(rbtT.isSelected())
+                            hospP.setCa_gen("T");
                         hospP.setCa_asign(asignacion);
                         hospP.setCa_desc(descripcion);
                         hospP.setCod_usu(adEmerCab.codUsuario(lblUsuUsuario.getText()));
@@ -691,8 +705,10 @@ public class FrmHospitalizacionCamas extends javax.swing.JFrame {
                         hospP.setCa_id(Integer.parseInt(lblID.getText()));
                         if(rbtM.isSelected())
                             hospP.setCa_gen("M");
-                        else
+                        else if (rbtF.isSelected())
                             hospP.setCa_gen("F");
+                        else if(rbtT.isSelected())
+                            hospP.setCa_gen("T");
                         hospP.setCa_asign(asignacion);
                         hospP.setCa_desc(descripcion);
                         if(hospP.mantenimientoHospitalizacionCamas(lblMant.getText())){
@@ -895,6 +911,7 @@ public class FrmHospitalizacionCamas extends javax.swing.JFrame {
     public static javax.swing.JLabel lblUsuUsuario;
     private javax.swing.JRadioButton rbtF;
     private javax.swing.JRadioButton rbtM;
+    private javax.swing.JRadioButton rbtT;
     private javax.swing.JTabbedPane tbHosC;
     private javax.swing.JTable tbListar;
     private javax.swing.JLabel titulo5;

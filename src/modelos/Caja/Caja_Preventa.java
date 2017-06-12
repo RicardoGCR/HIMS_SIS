@@ -65,6 +65,7 @@ public class Caja_Preventa {
     private String elisa_prueba_ra;
     private String elisa_prueba_config;
     private String elisa_consejero;
+    private String Sexo;
 
     private String procedencia;
     
@@ -153,6 +154,28 @@ public class Caja_Preventa {
         catch(Exception ex)
         {
             System.out.println("mantenimientoCajaPreventaHospitalizacion caja: " + ex.getMessage());
+        }
+        return resp;
+    }
+    public boolean ActualizarGenero(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec CAJA_ACTUALIZAR_GENERO ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_hc());
+            cmd.setString(2, getSexo());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error al actualizar el DNI " + ex.getMessage());
         }
         return resp;
     }
@@ -1504,6 +1527,14 @@ public class Caja_Preventa {
 
     public void setId_Detalle_p(int Id_Detalle_p) {
         this.Id_Detalle_p = Id_Detalle_p;
+    }
+
+    public String getSexo() {
+        return Sexo;
+    }
+
+    public void setSexo(String Sexo) {
+        this.Sexo = Sexo;
     }
     
     

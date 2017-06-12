@@ -21,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import modelos.Caja.Caja_NuevaVenta;
 import modelos.Caja.Caja_Preventa;
 import modelos.admisionCentral.HistoriaClinica;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
@@ -30,6 +31,7 @@ import modelos.hospitalizacion.HospitalizacionPapeletas;
 import modelos.hospitalizacion.HospitalizacionPisos;
 import servicios.Conexion;
 import vista.admisionEmergencia.FrmFormatoEmergencia;
+import vista.Caja.Caja_Pagos;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.lblPestana;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.lblPestanaMod;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
@@ -242,6 +244,18 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
                     cp.setAR_ID(97);
                     if(cp.CAJA_mantenimientoPreventaHospitalizacion()==true){ 
                         System.out.println("PAPELETA DE HOSPITALKIZACION GENERADA");
+                        
+                        
+                        
+                         Caja_NuevaVenta CNV = new Caja_NuevaVenta();
+                        Caja_Pagos.MedicosConsultorios.setVisible(true);
+                        CNV.listarMedicos1(Caja_Pagos.lblServicio.getText(),Caja_Pagos.tb_medicos1);
+                        Caja_Pagos.txtBuscarMedicos.setText(null);
+                        Caja_Pagos.txtBuscarMedicos.requestFocus();    
+                        
+                        
+                        
+                        
 //                        cp.setCA_ID(cama);
 //                        cp.setCOD_USU(usuario);
 //                        cp.setID_PREVENTA(cp.CajaPreventaID());

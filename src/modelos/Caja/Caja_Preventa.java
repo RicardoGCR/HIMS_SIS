@@ -133,7 +133,7 @@ public class Caja_Preventa {
         {
         boolean resp = false;
         try{
-            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_HOSPITALIZACION "
+            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_HOSPITALIZACION_NUEVO "
                         + "?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_hc());

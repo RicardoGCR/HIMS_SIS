@@ -172,7 +172,7 @@
                       <Component id="p13" min="-2" max="-2" attributes="0"/>
                       <Component id="btnConfiguracion" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="405" max="32767" attributes="0"/>
+                  <EmptySpace pref="403" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -394,7 +394,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/iconos/Estetoscopio-30.png"/>
+              <Image iconType="3" name="/imagenes/iconos/Rayos - X.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Rayos X - Ecograf&#xed;a"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>

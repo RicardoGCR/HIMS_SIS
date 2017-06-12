@@ -75,28 +75,30 @@ Conexion c=new Conexion();
         btneliminar.setEnabled(false);
         cargarProductoCabecera();
         formatoProductoCabecera();
-                PRODUCTO_REFERENCIAL.setLocationRelativeTo(this);
+        PRODUCTO_REFERENCIAL.setLocationRelativeTo(this);
         PRODUCTO_REFERENCIAL.getContentPane().setBackground(Color.WHITE);
         
         tbProductoReferencial.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         tbProductoReferencial.doLayout();
                 tbProductoReferencial.getSelectionModel().setSelectionInterval(0, 0);
         tbProductoReferencial.requestFocus();
-setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
-       
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
 
+        //para no intercambiar columnas
+        tbProductoAlmacen.getTableHeader().setReorderingAllowed(false);
+        tb_productodetalle.getTableHeader().setReorderingAllowed(false);
         //para limpiar el txt al darle click
- txtBuscar.addFocusListener(new FocusListener() {
-    @Override
-    public void focusGained(FocusEvent e) {
-  txtBuscar.setText("");
-    }
-
-    @Override
-    public void focusLost(FocusEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-} );
+// txtBuscar.addFocusListener(new FocusListener() {
+//    @Override
+//    public void focusGained(FocusEvent e) {
+//  txtBuscar.setText("");
+//    }
+//
+//    @Override
+//    public void focusLost(FocusEvent e) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//} );
  //salir presionando escape
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
         javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");
@@ -199,8 +201,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
     tbProductoAlmacen.getColumnModel().getColumn(6).setPreferredWidth(100);
     tbProductoAlmacen.getColumnModel().getColumn(7).setPreferredWidth(150);
     tbProductoAlmacen.getColumnModel().getColumn(8).setPreferredWidth(150);
-    tbProductoAlmacen.getSelectionModel().setSelectionInterval(0, 0);
-            tbProductoAlmacen.requestFocus();
+    
 }
     
      public void cargarProductoCabecera(){
@@ -247,12 +248,12 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
         PRODUCTOS = new javax.swing.JDialog();
         jLabel2 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
-        btnBuscarProducto = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbProductoAlmacen = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false; //Disallow the editing of any cell
             }};
+            jLabel11 = new javax.swing.JLabel();
             PRODUCTO_REFERENCIAL = new javax.swing.JDialog();
             jLabel4 = new javax.swing.JLabel();
             txtBuscarProductoCabecera = new javax.swing.JTextField();
@@ -302,14 +303,18 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                     PRODUCTOS.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                     PRODUCTOS.setAlwaysOnTop(true);
                     PRODUCTOS.setAutoRequestFocus(false);
-                    PRODUCTOS.setMinimumSize(new java.awt.Dimension(917, 574));
+                    PRODUCTOS.setMinimumSize(new java.awt.Dimension(797, 385));
                     PRODUCTOS.setResizable(false);
 
                     jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
                     jLabel2.setText("Búsqueda de Productos");
 
                     txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
-                    txtBuscar.setText("Ingresar Nombre de Producto");
+                    txtBuscar.addCaretListener(new javax.swing.event.CaretListener() {
+                        public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                            txtBuscarCaretUpdate(evt);
+                        }
+                    });
                     txtBuscar.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                             txtBuscarActionPerformed(evt);
@@ -324,14 +329,6 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                         }
                     });
 
-                    btnBuscarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/view.gif"))); // NOI18N
-                    btnBuscarProducto.setBorder(null);
-                    btnBuscarProducto.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                            btnBuscarProductoActionPerformed(evt);
-                        }
-                    });
-
                     tbProductoAlmacen.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
                             {null, null, null, null},
@@ -340,7 +337,7 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                             {null, null, null, null}
                         },
                         new String [] {
-                            "Title 1", "Title 2", "Title 3", "Title 4"
+                            "Codigo", "Nombre del Producto", "Marca", "Unidad"
                         }
                     ));
                     tbProductoAlmacen.setComponentPopupMenu(jPopupMenu1);
@@ -360,37 +357,41 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
                     });
                     jScrollPane2.setViewportView(tbProductoAlmacen);
 
+                    jLabel11.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
+                    jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                    jLabel11.setText("Búsqueda por Nombre del Producto");
+
                     javax.swing.GroupLayout PRODUCTOSLayout = new javax.swing.GroupLayout(PRODUCTOS.getContentPane());
                     PRODUCTOS.getContentPane().setLayout(PRODUCTOSLayout);
                     PRODUCTOSLayout.setHorizontalGroup(
                         PRODUCTOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(PRODUCTOSLayout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addContainerGap()
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 773, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(44, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PRODUCTOSLayout.createSequentialGroup()
+                            .addContainerGap(312, Short.MAX_VALUE)
                             .addGroup(PRODUCTOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
                                 .addGroup(PRODUCTOSLayout.createSequentialGroup()
                                     .addGap(10, 10, 10)
-                                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(btnBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel2))
-                            .addGap(325, 325, 325))
-                        .addGroup(PRODUCTOSLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 897, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(PRODUCTOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtBuscar)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))))
+                            .addGap(235, 235, 235))
                     );
                     PRODUCTOSLayout.setVerticalGroup(
                         PRODUCTOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(PRODUCTOSLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(PRODUCTOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(28, 28, 28)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(27, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(1, 1, 1)
+                            .addComponent(jLabel11)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(21, Short.MAX_VALUE))
                     );
 
                     PRODUCTO_REFERENCIAL.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -1040,10 +1041,8 @@ enableDatos();
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
 
     }//GEN-LAST:event_txtBuscarKeyTyped
-
-    private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
-        // TODO add your handling code here:
-        String consulta="";
+public void buscar_producto_almacen(){
+     String consulta="";
         try {
             tbProductoAlmacen.setModel(new DefaultTableModel());
             String titulos[]={"Nº","Codigo","Nombre del Producto","Clase producto","Descripcion de la clase producto", "Marca",
@@ -1080,8 +1079,7 @@ enableDatos();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-    }//GEN-LAST:event_btnBuscarProductoActionPerformed
-
+}
     private void tbProductoAlmacenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbProductoAlmacenKeyTyped
         // TODO add your handling code here:
        
@@ -1109,7 +1107,8 @@ enableDatos();
         // TODO add your handling code here:
         char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){
-                    btnBuscarProducto.doClick();
+                   tbProductoAlmacen.getSelectionModel().setSelectionInterval(0, 0);
+            tbProductoAlmacen.requestFocus();
                 }
     }//GEN-LAST:event_txtBuscarKeyPressed
 
@@ -1198,6 +1197,10 @@ char tecla= evt.getKeyChar();
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 PRODUCTOS.setVisible(false);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void txtBuscarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCaretUpdate
+       buscar_producto_almacen();
+    }//GEN-LAST:event_txtBuscarCaretUpdate
     public void enableDatos(){                    
                        txtProducto.setEnabled(true);
 }
@@ -1257,6 +1260,8 @@ String Codigo,Nombre_del_Producto,Clase_producto,Descripcion_de_la_clase_product
           else{
            if(repiteDetalle()==true){
                JOptionPane.showMessageDialog(PRODUCTOS,"El Producto ya ha sido ingresado.");   
+          } else if(repiteUM()==true){
+               JOptionPane.showMessageDialog(PRODUCTOS,"Los Productos ingresados deben tener igual Unidad de Medida.");   
           }
            else{
                 m1=(DefaultTableModel) tb_productodetalle.getModel();
@@ -1276,6 +1281,15 @@ String Codigo,Nombre_del_Producto,Clase_producto,Descripcion_de_la_clase_product
          boolean c=false;
          for (int i = 0; i < tb_productodetalle.getRowCount(); i++){    
                if(tb_productodetalle.getValueAt(i, 0).toString().equalsIgnoreCase(tbProductoAlmacen.getValueAt(filaselec, 1).toString())){
+                    c=true;
+			}}
+               return c;
+     }
+     public boolean repiteUM(){
+         int filaselec=tbProductoAlmacen.getSelectedRow();
+         boolean c=false;
+         for (int i = 0; i < tb_productodetalle.getRowCount(); i++){    
+               if(tb_productodetalle.getValueAt(i, 5).toString().equalsIgnoreCase(tbProductoAlmacen.getValueAt(filaselec, 6).toString())==false){
                     c=true;
 			}}
                return c;
@@ -1637,7 +1651,6 @@ String Codigo,Nombre_del_Producto,Clase_producto,Descripcion_de_la_clase_product
     public static javax.swing.JDialog PRODUCTO_REFERENCIAL;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnBuscarProducto;
     private javax.swing.JButton btnBuscarProductoCabecera;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnQuitar;
@@ -1646,6 +1659,7 @@ String Codigo,Nombre_del_Producto,Clase_producto,Descripcion_de_la_clase_product
     public static javax.swing.JButton btnmodificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;

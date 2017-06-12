@@ -308,7 +308,7 @@ public class HospitalizacionPapeletas {
     public void formatoTablaHospitalizacionArticulosListar(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(50);//id tabla HABITACION
         tabla.getColumnModel().getColumn(1).setPreferredWidth(200);//nro piso
-        tabla.setRowHeight(30);
+        tabla.setRowHeight(40);
     }
     
     public void hospitalizacionArticulosListar(JTable tabla,String articulo){

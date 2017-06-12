@@ -20,7 +20,7 @@ public class FormatoTablaResultados extends DefaultTableCellRenderer{
         //if(table.getValueAt(row, 6).equals("Salida")){
             //componente.setBackground(new Color(255,85,64));
         //}
-        
+        isCellEditable(1, 2);
         //Para dar Color-descomentar
         if(table.getValueAt(row, 2).equals("T")){     
             componente.setBackground(new Color(255,255,255));
@@ -28,7 +28,7 @@ public class FormatoTablaResultados extends DefaultTableCellRenderer{
             componente.setForeground(new Color(30,30,30));        
             componente.setFont(new Font("Segoe UI Semilight",1, 11));
 //            componente.setForeground(new Color(255,255,255));
-            isCellEditable(row, column);
+            
         } else {
              componente.setBackground(new Color(255,255,255));
             componente.setForeground(new Color(30,30,30));
@@ -42,7 +42,7 @@ public class FormatoTablaResultados extends DefaultTableCellRenderer{
        // Aquí devolvemos true o false según queramos que una celda
        // identificada por fila,columna (row,column), sea o no editable
        if (column == 2)
-          return true;
+          return false;
        return false;
    }
 }

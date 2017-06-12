@@ -264,10 +264,6 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-<<<<<<< HEAD
-    <Property name="title" type="java.lang.String" value="SISGESH .::. Insumos"/>
-=======
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <AccessibilityProperties>

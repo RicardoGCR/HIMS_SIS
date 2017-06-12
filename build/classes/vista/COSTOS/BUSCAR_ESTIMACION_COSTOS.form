@@ -106,10 +106,6 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-<<<<<<< HEAD
-    <Property name="title" type="java.lang.String" value="SISGESH .::. B&#xfa;squeda de CPT"/>
-=======
->>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
   </Properties>
   <AccessibilityProperties>
     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="B&#xfa;squeda de CPT"/>

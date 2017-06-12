@@ -481,12 +481,15 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="lblfecha_I_EC" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="lblG_EC" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="lblfecha_F_EC" min="-2" pref="62" max="-2" attributes="0"/>
+=======
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
@@ -500,6 +503,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jpanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -510,6 +514,11 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="473" max="32767" attributes="0"/>
+=======
+              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="479" max="32767" attributes="0"/>
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -699,7 +708,10 @@
         <Component class="javax.swing.JTextField" name="txtBuscarPaciente_EC">
           <Events>
             <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtBuscarPaciente_ECCaretUpdate"/>
+<<<<<<< HEAD
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarPaciente_ECKeyPressed"/>
+=======
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarPaciente_ECKeyTyped"/>
           </Events>
         </Component>
@@ -831,6 +843,7 @@
         <Property name="text" type="java.lang.String" value="EXAMENES DEL DIA"/>
       </Properties>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JLabel" name="lblfecha_I_EC">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -855,5 +868,7 @@
         <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
     </Component>
+=======
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
   </SubComponents>
 </Form>

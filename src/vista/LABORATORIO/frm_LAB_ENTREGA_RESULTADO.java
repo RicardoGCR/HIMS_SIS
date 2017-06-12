@@ -2187,6 +2187,7 @@ public void calcula() {
 
                         txtPacientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         txtPacientes.setForeground(new java.awt.Color(0, 51, 51));
+                        txtPacientes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtPacientes.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 txtPacientesActionPerformed(evt);
@@ -2217,6 +2218,7 @@ public void calcula() {
 
                         txtAnalisis.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         txtAnalisis.setForeground(new java.awt.Color(0, 51, 51));
+                        txtAnalisis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtAnalisis.addKeyListener(new java.awt.event.KeyAdapter() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 txtAnalisisKeyPressed(evt);
@@ -2243,6 +2245,7 @@ public void calcula() {
 
                         txtPersonal.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
                         txtPersonal.setForeground(new java.awt.Color(0, 51, 51));
+                        txtPersonal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtPersonal.addKeyListener(new java.awt.event.KeyAdapter() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 txtPersonalKeyPressed(evt);
@@ -2474,7 +2477,12 @@ public void calcula() {
                     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
-        // TODO add your handling code here:
+        buscar_histClinica();
+    }//GEN-LAST:event_btnBuscar1ActionPerformed
+public void buscar_histClinica(){
+     if(txtbuscarHC.getText().equalsIgnoreCase("")){
+           
+        }else{
         String consulta="";
         try {
             tb_HC.setModel(new DefaultTableModel());
@@ -2491,7 +2499,7 @@ public void calcula() {
             ResultSet r= cmd.executeQuery();
             int c=1;
         while(r.next()){
-            fila[0]=String.valueOf(c)+"°";
+            fila[0]=String.valueOf(c)+"º";
             fila[1]=r.getString(1);
             fila[2]=r.getString(2);
             fila[3]=r.getString(3);
@@ -2513,8 +2521,8 @@ public void calcula() {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-    }//GEN-LAST:event_btnBuscar1ActionPerformed
-
+        }
+}
     private void txtbuscarHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbuscarHCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarHCActionPerformed

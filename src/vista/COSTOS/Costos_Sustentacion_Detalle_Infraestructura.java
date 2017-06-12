@@ -443,7 +443,6 @@ setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x3
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("SISGESH .::. Infraestructura");
         setMinimumSize(new java.awt.Dimension(984, 680));
         setResizable(false);
         addKeyListener(new java.awt.event.KeyAdapter() {

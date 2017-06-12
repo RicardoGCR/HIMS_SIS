@@ -8,7 +8,15 @@
         <Property name="alwaysOnTop" type="boolean" value="true"/>
         <Property name="autoRequestFocus" type="boolean" value="false"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<<<<<<< HEAD
           <Dimension value="[917, 574]"/>
+=======
+<<<<<<< HEAD
+          <Dimension value="[917, 574]"/>
+=======
+          <Dimension value="[797, 385]"/>
+>>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
         </Property>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
@@ -16,6 +24,10 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
               <Group type="102" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -33,6 +45,29 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="897" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+<<<<<<< HEAD
+=======
+=======
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="773" max="-2" attributes="0"/>
+                  <EmptySpace pref="44" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="312" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtBuscar" max="32767" attributes="0"/>
+                              <Component id="jLabel11" pref="247" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="235" max="-2" attributes="0"/>
+>>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
               </Group>
           </Group>
         </DimensionLayout>
@@ -41,6 +76,10 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="txtBuscar" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
@@ -49,6 +88,18 @@
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="439" max="-2" attributes="0"/>
                   <EmptySpace pref="27" max="32767" attributes="0"/>
+<<<<<<< HEAD
+=======
+=======
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="txtBuscar" min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="267" max="-2" attributes="0"/>
+                  <EmptySpace pref="21" max="32767" attributes="0"/>
+>>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
               </Group>
           </Group>
         </DimensionLayout>
@@ -67,14 +118,30 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="0" type="rgb"/>
             </Property>
+<<<<<<< HEAD
             <Property name="text" type="java.lang.String" value="Ingresar Nombre de Producto"/>
           </Properties>
           <Events>
+=======
+<<<<<<< HEAD
+            <Property name="text" type="java.lang.String" value="Ingresar Nombre de Producto"/>
+          </Properties>
+          <Events>
+=======
+          </Properties>
+          <Events>
+            <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtBuscarCaretUpdate"/>
+>>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscarActionPerformed"/>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarKeyPressed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscarKeyTyped"/>
           </Events>
         </Component>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
         <Component class="javax.swing.JButton" name="btnBuscarProducto">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -88,6 +155,11 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarProductoActionPerformed"/>
           </Events>
         </Component>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -99,16 +171,64 @@
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
                     <Column editable="true" title="Title 1" type="java.lang.Object"/>
                     <Column editable="true" title="Title 2" type="java.lang.Object"/>
                     <Column editable="true" title="Title 3" type="java.lang.Object"/>
                     <Column editable="true" title="Title 4" type="java.lang.Object"/>
                   </Table>
                 </Property>
+<<<<<<< HEAD
+=======
+=======
+                    <Column editable="true" title="Codigo" type="java.lang.Object"/>
+                    <Column editable="true" title="Nombre del Producto" type="java.lang.Object"/>
+                    <Column editable="true" title="Marca" type="java.lang.Object"/>
+                    <Column editable="true" title="Unidad" type="java.lang.Object"/>
+                  </Table>
+                </Property>
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                  <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                  </TableColumnModel>
+                </Property>
+>>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
                 <Property name="componentPopupMenu" type="javax.swing.JPopupMenu" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="jPopupMenu1"/>
                 </Property>
                 <Property name="rowHeight" type="int" value="25"/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                </Property>
+>>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbProductoAlmacenMouseClicked"/>
@@ -122,6 +242,21 @@
             </Component>
           </SubComponents>
         </Container>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        <Component class="javax.swing.JLabel" name="jLabel11">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Semilight" size="11" style="0"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="B&#xfa;squeda por Nombre del Producto"/>
+          </Properties>
+        </Component>
+>>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="PRODUCTO_REFERENCIAL">
@@ -279,7 +414,14 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
+<<<<<<< HEAD
     <Property name="title" type="java.lang.String" value="SISGESH .::. Producto Referencial"/>
+=======
+<<<<<<< HEAD
+    <Property name="title" type="java.lang.String" value="SISGESH .::. Producto Referencial"/>
+=======
+>>>>>>> 9a177885da9aee3254602b71e354dd8d125d85db
+>>>>>>> 9d2fa081b0ad5d38bdfb25d1a56a2de2e23ed533
   </Properties>
   <AccessibilityProperties>
     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="SISGESH .::. PRODUCTO REFERENCIAL"/>

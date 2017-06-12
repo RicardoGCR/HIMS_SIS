@@ -118,7 +118,6 @@ Conexion conectar=new Conexion();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("SISGESH .::. Búsqueda de Nomenclatura");
         setAlwaysOnTop(true);
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/view.gif"))); // NOI18N

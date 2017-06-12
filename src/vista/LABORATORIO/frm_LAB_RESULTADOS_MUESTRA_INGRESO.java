@@ -1267,6 +1267,12 @@ public void calcula() {
 
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
         // TODO add your handling code here:
+       buscar_histClinica();
+    }//GEN-LAST:event_btnBuscar1ActionPerformed
+public void buscar_histClinica(){
+     if(txtbuscarHC.getText().equalsIgnoreCase("")){
+           
+        }else{
         String consulta="";
         try {
             tb_HC.setModel(new DefaultTableModel());
@@ -1305,7 +1311,8 @@ public void calcula() {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-    }//GEN-LAST:event_btnBuscar1ActionPerformed
+        }
+}
 
     private void txtbuscarHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbuscarHCActionPerformed
         // TODO add your handling code here:

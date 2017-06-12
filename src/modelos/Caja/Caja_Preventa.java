@@ -448,10 +448,9 @@ public class Caja_Preventa {
         String cod="";
         try
         {
-            String sql = " select SA.AR_ID\n" +
-                        " from SISTEMA_SERVICIO SS, SISTEMA_AREAS SA, SISTEMA_CONFIGURACION_PC_AREA SP\n" +
-                        " WHERE SS.UP_ID in (02)\n" +
-                        " AND SP.SE_ID = SS.SE_ID\n" +
+            String sql = "select SA.AR_ID\n" +
+                        " from SISTEMA_SERVICIO SS, SISTEMA_AREAS SA\n" +
+                        " WHERE SS.UP_ID in (2) \n" +
                         " AND SA.AR_DESC = ?\n" +
                         " AND SA.SE_ID = SS.SE_ID";
             PreparedStatement cmd = getCn().prepareStatement(sql);

@@ -5,8 +5,6 @@
  */
 package vista.Caja;
 
-import vista.hospitalizacion.*;
-import campos.LimitadorDeDocumento;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;

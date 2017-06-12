@@ -182,7 +182,7 @@ public class FrmHospitalizacionPisos extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(450, 451));
         getContentPane().setLayout(null);
 
-        jPanel8.setBackground(new java.awt.Color(217, 100, 118));
+        jPanel8.setBackground(new java.awt.Color(255, 119, 0));
         jPanel8.setPreferredSize(new java.awt.Dimension(500, 65));
         jPanel8.setLayout(null);
 

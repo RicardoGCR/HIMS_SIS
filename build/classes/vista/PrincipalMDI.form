@@ -91,6 +91,22 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="p14" min="-2" max="-2" attributes="0"/>
               </Group>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="btnAlmacen" pref="300" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="p15" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="btnPersonal" pref="300" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="p16" min="-2" max="-2" attributes="0"/>
+              </Group>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -98,17 +114,41 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+=======
+<<<<<<< HEAD
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="btnAdmCentral" min="-2" max="-2" attributes="0"/>
                       <Component id="p1" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+<<<<<<< HEAD
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="btnAdmEme" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="p4" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+<<<<<<< HEAD
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -117,42 +157,116 @@
                                       <Component id="btnCaja" min="-2" max="-2" attributes="0"/>
                                       <Component id="p2" min="-2" max="-2" attributes="0"/>
                                   </Group>
+<<<<<<< HEAD
                                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+=======
+<<<<<<< HEAD
+                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+=======
+                                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="p3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnCostos" min="-2" max="-2" attributes="0"/>
                                   </Group>
+<<<<<<< HEAD
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+<<<<<<< HEAD
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                                   <Component id="btnHospitalizacion" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="p9" min="-2" max="-2" attributes="0"/>
                           </Group>
+<<<<<<< HEAD
                           <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+<<<<<<< HEAD
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                           <Component id="btnLaboratorio" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="p10" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+=======
+<<<<<<< HEAD
+                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+=======
+                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="p11" min="-2" max="-2" attributes="0"/>
                       <Component id="btnRayosX" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+=======
+<<<<<<< HEAD
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+=======
+                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="p14" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="btnConExt" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+<<<<<<< HEAD
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="p12" min="-2" max="-2" attributes="0"/>
                       <Component id="btnInvBact" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+<<<<<<< HEAD
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="p15" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAlmacen" alignment="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="p16" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnPersonal" alignment="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="p13" min="-2" max="-2" attributes="0"/>
                       <Component id="btnConfiguracion" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace pref="428" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                  <EmptySpace pref="428" max="32767" attributes="0"/>
+=======
+                  <EmptySpace pref="405" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
               </Group>
           </Group>
         </DimensionLayout>
@@ -376,7 +490,15 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/iconos/Estetoscopio-30.png"/>
             </Property>
+<<<<<<< HEAD
             <Property name="text" type="java.lang.String" value="Rayos X"/>
+=======
+<<<<<<< HEAD
+            <Property name="text" type="java.lang.String" value="Rayos X"/>
+=======
+            <Property name="text" type="java.lang.String" value="Rayos X - Ecograf&#xed;a"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -696,6 +818,116 @@
             </DimensionLayout>
           </Layout>
         </Container>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        <Component class="javax.swing.JButton" name="btnAlmacen">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Light" size="17" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagenes/iconos/P&#xe9;ptido-30.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;Almac&#xe9;n"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
+            <Property name="focusPainted" type="boolean" value="false"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+            <Property name="horizontalTextPosition" type="int" value="4"/>
+            <Property name="iconTextGap" type="int" value="30"/>
+            <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlmacenActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+        </Component>
+        <Container class="javax.swing.JPanel" name="p15">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="9d" green="bc" red="19" type="rgb"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="37" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
+        <Component class="javax.swing.JButton" name="btnPersonal">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Light" size="17" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagenes/iconos/P&#xe9;ptido-30.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;Personal"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
+            <Property name="focusPainted" type="boolean" value="false"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+            <Property name="horizontalTextPosition" type="int" value="4"/>
+            <Property name="iconTextGap" type="int" value="30"/>
+            <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPersonalActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+        </Component>
+        <Container class="javax.swing.JPanel" name="p16">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="9d" green="bc" red="19" type="rgb"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="37" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
       </SubComponents>
     </Container>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
@@ -734,7 +966,15 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <EmptySpace pref="58" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                      <EmptySpace pref="58" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="84" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   </Group>
               </Group>
             </DimensionLayout>
@@ -743,7 +983,15 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                       <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <EmptySpace pref="1108" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                      <EmptySpace pref="1108" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="344" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1034,34 +1282,86 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                           <Group type="102" attributes="0">
+=======
+<<<<<<< HEAD
+                          <Group type="102" attributes="0">
+=======
+                          <Group type="102" alignment="0" attributes="0">
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jPanel18" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jPanel21" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jPanel12" alignment="0" max="32767" attributes="0"/>
                               </Group>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jPanel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jPanel11" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Component id="lblusu2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace pref="156" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                      <EmptySpace pref="156" max="32767" attributes="0"/>
+=======
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton11" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="182" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="lblusu2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+=======
+<<<<<<< HEAD
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="lblusu2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+=======
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="lblusu2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButton11" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jPanel11" alignment="0" max="32767" attributes="0"/>
                           <Component id="jPanel18" alignment="0" max="32767" attributes="0"/>
@@ -1668,6 +1968,20 @@
                 <Property name="text" type="java.lang.String" value="Bienvenido al modulo de costos"/>
               </Properties>
             </Component>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            <Component class="javax.swing.JButton" name="jButton11">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Asignar Unidad de Medida"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton11ActionPerformed"/>
+              </Events>
+            </Component>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel22">
@@ -1732,7 +2046,15 @@
                           <Component id="jPanel24" max="32767" attributes="0"/>
                           <Component id="jPanel33" max="32767" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace pref="179" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                      <EmptySpace pref="179" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="771" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2799,7 +3121,15 @@
                           </Group>
                           <Component id="jPanel80" min="-2" max="-2" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace pref="840" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                      <EmptySpace pref="840" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="668" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   </Group>
               </Group>
             </DimensionLayout>
@@ -4131,7 +4461,15 @@
                       </Group>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       <Component id="jPanel94" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <EmptySpace pref="837" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                      <EmptySpace pref="837" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="665" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   </Group>
               </Group>
             </DimensionLayout>
@@ -4484,7 +4822,15 @@
                                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel61" alignment="0" min="-2" pref="514" max="-2" attributes="0"/>
                                   </Group>
+<<<<<<< HEAD
                                   <EmptySpace pref="113" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                                  <EmptySpace pref="113" max="32767" attributes="0"/>
+=======
+                                  <EmptySpace pref="139" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                               </Group>
                           </Group>
                       </Group>
@@ -5409,7 +5755,15 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButton5" min="-2" pref="296" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <EmptySpace pref="15" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                          <EmptySpace pref="15" max="32767" attributes="0"/>
+=======
+                          <EmptySpace pref="41" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -5739,7 +6093,15 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Component id="jButton8" pref="171" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                          <Component id="jButton8" pref="171" max="32767" attributes="0"/>
+=======
+                          <Component id="jButton8" pref="197" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                           <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -6579,7 +6941,15 @@
                           <Component id="jPanel45" min="-2" max="-2" attributes="0"/>
                           <Component id="lblusu8" min="-2" max="-2" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace pref="612" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                      <EmptySpace pref="612" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="638" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   </Group>
               </Group>
             </DimensionLayout>
@@ -6590,7 +6960,15 @@
                       <Component id="lblusu8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="jPanel45" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <EmptySpace pref="1223" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                      <EmptySpace pref="1223" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="1051" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   </Group>
               </Group>
             </DimensionLayout>
@@ -6715,7 +7093,15 @@
                               <Component id="jPanel93" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace pref="45" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="71" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   </Group>
               </Group>
             </DimensionLayout>
@@ -6729,7 +7115,15 @@
                           <Component id="jPanel92" min="-2" max="-2" attributes="0"/>
                           <Component id="jPanel93" min="-2" max="-2" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace pref="1119" max="32767" attributes="0"/>
+=======
+<<<<<<< HEAD
+                      <EmptySpace pref="1119" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="947" max="32767" attributes="0"/>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
                   </Group>
               </Group>
             </DimensionLayout>
@@ -7048,6 +7442,120 @@
             </Container>
           </SubComponents>
         </Container>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        <Container class="javax.swing.JPanel" name="jPanel14">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Rx Ec">
+                <Property name="tabTitle" type="java.lang.String" value="Rx Ec"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="986" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="705" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel8">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Almac">
+                <Property name="tabTitle" type="java.lang.String" value="Almac"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="986" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="705" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel10">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Person">
+                <Property name="tabTitle" type="java.lang.String" value="Person"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="986" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="705" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel16">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Conf">
+                <Property name="tabTitle" type="java.lang.String" value="Conf"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="986" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="705" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel9">
@@ -7095,6 +7603,15 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ADMIN"/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
+>>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
+>>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblUsuMouseClicked"/>

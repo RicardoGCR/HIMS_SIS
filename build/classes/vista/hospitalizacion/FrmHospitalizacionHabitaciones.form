@@ -31,15 +31,7 @@
     <Container class="javax.swing.JPanel" name="jPanel8">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-<<<<<<< HEAD
-          <Color blue="56" green="b0" red="d9" type="rgb"/>
-=======
-<<<<<<< HEAD
           <Color blue="0" green="77" red="ff" type="rgb"/>
-=======
-          <Color blue="56" green="b0" red="d9" type="rgb"/>
->>>>>>> efb4471d3132736faa9ae057027b4da9e5129633
->>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[500, 65]"/>

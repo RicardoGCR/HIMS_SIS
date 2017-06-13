@@ -206,6 +206,7 @@ public void ConsultoriosACTOMEDICO_EMERGENCIA(String ap_id){
             while(r.next()){
                     
                 Caja_Pagos.lblActoMedico.setText(r.getString(1));  
+                Caja_Pagos.lblIdPreventaAlta.setText(r.getString(2));  
                 Caja_Pagos.lblMantP.setText("PR");
             }
             //

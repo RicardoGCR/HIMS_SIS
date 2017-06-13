@@ -9864,6 +9864,8 @@
                                           <Component id="lblArea" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lblIdPreventaAlta" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="lblId_EmpresaFP" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -10025,6 +10027,10 @@
                               </Group>
                           </Group>
                           <Component id="lblId_EmpresaFP" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="lblIdPreventaAlta" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -10384,6 +10390,14 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel75"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblIdPreventaAlta">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel105"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

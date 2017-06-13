@@ -95,7 +95,7 @@ AND  CDC.id_documento=  $P{doc}]]>
 	<field name="cod_usu" class="java.lang.String"/>
 	<field name="id_hc" class="java.lang.String"/>
 	<field name="DESCRIP" class="java.lang.String"/>
-	<field name="IMAGEN" class="java.lang.Object"/>
+	<field name="IMAGEN" class="java.io.InputStream"/>
 	<field name="PERSONAL" class="java.lang.String"/>
 	<field name="nom_consultorio_citas" class="java.lang.String"/>
 	<field name="personal_aten" class="java.lang.String"/>

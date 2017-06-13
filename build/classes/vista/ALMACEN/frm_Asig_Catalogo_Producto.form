@@ -391,12 +391,6 @@
       </SubComponents>
     </Container>
   </NonVisualComponents>
-<<<<<<< HEAD
-  <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
-  </Properties>
-=======
->>>>>>> 858928762847cb98186c3e2435bf9bade5d72c87
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>

@@ -22,20 +22,14 @@ import javax.swing.JOptionPane;
  * @author Profe
  */
 public class Conexion {
-<<<<<<< HEAD
+
 
     static String servidor="localhost";
     static String puerto="1433";
     static String user="sa";
     static String password="sistemas";
-    static String baseDatos="SISGESH_NET";
-=======
-    
-     static String servidor="";
-     static String puerto="";
-     static String user="";
-     static String password="";
-     static String baseDatos="";
+    static String baseDatos="SISGESH_NET";    
+   
     public void leerTexto(String direccion){
         try {
             BufferedReader bf = new BufferedReader(new FileReader(direccion));
@@ -64,7 +58,6 @@ public class Conexion {
         }
     }
     
->>>>>>> e9d8d6cc2bf077359bc7faafffb7a9325bb3310d
     Connection conexion=null;
        
      public Connection conectar(){

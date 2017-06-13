@@ -11,6 +11,8 @@ import Atxy2k.CustomTextField.RestrictedTextField;
 import campos.LimitadorDeDocumento;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -92,6 +94,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                 dispose();
             }
         });
+        cerrar();
         buscar_HC(1,"A","");
         pnlB.setEnabled(false);
         limpiar();
@@ -160,6 +163,20 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         lblIdTr.setVisible(false);
         txtNroRegistro.setVisible(false);
         lblIDHCTo.setVisible(false);
+    }
+    
+    public void cerrar (){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e){
+                    dispose();
+                }
+        });
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public void habilitarPestanas(int tipo,boolean opcion){

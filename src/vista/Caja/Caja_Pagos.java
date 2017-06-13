@@ -1292,6 +1292,25 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                         }    
     }
      
+         public void ModificarALTA(){
+
+                        Caja_Preventa cnop = new Caja_Preventa();
+                        cnop.setId_preventa(Integer.parseInt(lblIdPreventaAlta.getText()));
+                        if(cnop.modificarPreventa()==true){
+                                   System.out.println("Preventa Modificada ALTA");
+                                   panelPreventa.setVisible(false);
+                        } else {
+                           
+                                panelEliminarEME.setVisible(true);
+                                panelEliminarEME.setBackground(new Color(255,91,70)); 
+                                Mensaje.setText("Ocurrió un error, Verifique  ");
+                                eli.setVisible(false);
+                                noeli.setVisible(false);
+                                System.out.println("error modificar preventa ");        
+                        }    
+    }
+     
+     
      public void ModificarDetallePreventa(){
 
                         Caja_Preventa cnopd = new Caja_Preventa();
@@ -1995,6 +2014,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 lblTurno = new javax.swing.JLabel();
                                                                                                 lblDetalleId = new javax.swing.JLabel();
                                                                                                 lblNomenclatura = new javax.swing.JLabel();
+                                                                                                lblIdPreventaAlta = new javax.swing.JLabel();
                                                                                                 lblCodigoImprimir = new javax.swing.JLabel();
                                                                                                 lblImpresora = new javax.swing.JLabel();
 
@@ -7759,6 +7779,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                                                                                                 lblNomenclatura.setText("jLabel75");
 
+                                                                                                lblIdPreventaAlta.setText("jLabel105");
+
                                                                                                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                                                                                                 jPanel1.setLayout(jPanel1Layout);
                                                                                                 jPanel1Layout.setHorizontalGroup(
@@ -7804,6 +7826,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                                                 .addComponent(lblPreventa))
                                                                                                                             .addComponent(lblArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                        .addComponent(lblIdPreventaAlta)
                                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                         .addComponent(lblId_EmpresaFP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -7940,7 +7964,10 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                                     .addComponent(lblNomenclatura)
                                                                                                                     .addComponent(lblPreventa)))
-                                                                                                            .addComponent(lblId_EmpresaFP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                            .addComponent(lblId_EmpresaFP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                                                                                .addComponent(lblIdPreventaAlta)))
                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                             .addComponent(lblPorcentaje)
@@ -8397,10 +8424,21 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                     txtBuscarMedicos.requestFocus();
                 }
                 
+                
             }else if(lblVisAdmi.getText().equals("N")){
-                GuardarDetalle();
-                panelNumeros.setVisible(true);
-                suma();
+                if (lblNomenclatura.getText().equals("CN00767         ")){
+                    
+                    GuardarDetalle();
+                    ModificarALTA();
+                    panelNumeros.setVisible(true);
+                    suma();
+                    
+                }else  if (!lblNomenclatura.getText().equals("CN00767         ")){
+                    GuardarDetalle();
+                    panelNumeros.setVisible(true);
+                    suma();
+                }
+                
             }
                     
             lblMantP.setText("CP");                   
@@ -10666,6 +10704,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JLabel lblIdDetallePreventa;
     public static javax.swing.JLabel lblIdMedico;
     public static javax.swing.JLabel lblIdPreventa;
+    public static javax.swing.JLabel lblIdPreventaAlta;
     private javax.swing.JLabel lblIdPreventas;
     private javax.swing.JLabel lblId_EmpresaFP;
     private javax.swing.JLabel lblImpresora;

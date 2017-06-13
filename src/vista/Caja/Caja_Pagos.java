@@ -1333,7 +1333,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                         Caja_Preventa cnop = new Caja_Preventa();
                         cnop.setId_preventa(Integer.parseInt(lblIdPreventaAlta.getText()));
-                        if(cnop.modificarPreventa()==true){
+                        if(cnop.PREVENTA_ALTA()==true){
                                    System.out.println("Preventa Modificada ALTA");
                                    panelPreventa.setVisible(false);
                         } else {
@@ -8516,13 +8516,13 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                 
             }else if(lblVisAdmi.getText().equals("N")){
                 if (lblNomenclatura.getText().equals("CN00761         ")){
-                    
+                    System.out.println("-----------------ALTA------------------");
                     GuardarDetalle();
                     ModificarALTA();
                     panelNumeros.setVisible(true);
                     suma();
                     
-                }else  if (!lblNomenclatura.getText().equals("CN00761         ")){
+                }else if (!lblNomenclatura.getText().equals("CN00761         ")){
                     GuardarDetalle();
                     panelNumeros.setVisible(true);
                     suma();

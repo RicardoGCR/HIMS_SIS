@@ -1691,7 +1691,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jLabel30.setBackground(new java.awt.Color(255, 255, 255));
         jLabel30.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel30.setText("<html>Movimiento de<br>Historias Clínicas</html>");
+        jLabel30.setText("<html>Movimiento de Historias Clínicas</html>");
         jLabel30.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel30.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1725,7 +1725,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnReportMovinientoHC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel30)
+            .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jPanel26.setBackground(new java.awt.Color(23, 160, 134));
@@ -1733,7 +1733,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jLabel32.setBackground(new java.awt.Color(255, 255, 255));
         jLabel32.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel32.setText("<html>Seguimiento de<br>Historias Clínicas</html>");
+        jLabel32.setText("<html>Seguimiento de Historias Clínicas</html>");
         jLabel32.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel32.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1766,9 +1766,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnReportSeguimientoHC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+            .addComponent(btnReportSeguimientoHC, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+            .addComponent(jLabel32)
         );
+
+        jPanel23.setBackground(new java.awt.Color(255, 255, 255));
 
         lblusu3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblusu3.setForeground(new java.awt.Color(51, 51, 51));

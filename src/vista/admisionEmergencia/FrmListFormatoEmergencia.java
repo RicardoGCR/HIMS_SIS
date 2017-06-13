@@ -14,6 +14,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Calendar;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -64,6 +65,8 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
             }
         });
         cerrar();
+        //ICONO DE FORMULARIO
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
     }
     
     public void cerrar (){
@@ -232,6 +235,7 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
         jpmCabecera.add(jMenuItem5);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Admisión Emergencia .::. Lista Formato de Emergencia");
 
         jPanel8.setBackground(new java.awt.Color(0, 118, 168));
         jPanel8.setPreferredSize(new java.awt.Dimension(500, 65));

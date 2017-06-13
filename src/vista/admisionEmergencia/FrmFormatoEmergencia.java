@@ -80,8 +80,8 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         this.getContentPane().setBackground(Color.WHITE);//fondo blanco
         setLocationRelativeTo(null);//en el centro
         btnBuscar.setMnemonic(KeyEvent.VK_F3);
-        // ICONO JFRAME
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/iconFormatEmer24x24.png")).getImage());
+        //ICONO DE FORMULARIO
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         conexion = c.conectar();
         //BOTON CERRAR
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
@@ -2840,7 +2840,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             jTabbedPane3.setBounds(0, 108, 749, 230);
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-            setTitle("Admisión emergencia");
+            setTitle("Admisión emergencia .::. Formato de Emergencia");
             setResizable(false);
             addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {

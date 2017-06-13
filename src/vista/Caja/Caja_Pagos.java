@@ -8310,12 +8310,13 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
            PM.Preventamostrar(bus.getText(),tbpreventas);
            CPAM.Caja_Id_Preventa(bus.getText());
            CP.ConsultoriosExtPREVENTAListar(lblIdPreventa.getText());
-           CP2.ConsultoriosExtPREVENTAListarCEX(lblHc.getText());
+           
            
             Abonnos(); 
         char teclaPresionada = evt.getKeyChar();
         
         if(teclaPresionada==KeyEvent.VK_ENTER){
+            CP2.ConsultoriosExtPREVENTAListarCEX(lblHc.getText());
    
             BHC.dispose();
             panelDatosGenerales.setVisible(true);

@@ -2288,6 +2288,14 @@ if(txtCodigoCPT.getText().equalsIgnoreCase("")){
                       "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
               if(guardar == 0 ){
                    CostosSustentacion rcGUARDAR=new CostosSustentacion();
+                   
+                   CostosSustentacion cs=new CostosSustentacion();
+                   txtCodigoSustento.setText(cs.codCostosSustentacion());
+            if(txtCodigoSustento.getText().equalsIgnoreCase("")){
+            txtCodigoSustento.setText("CS000000000000000001");
+            }
+        
+        
                   rcGUARDAR.setCod_sustento_costo(txtCodigoSustento.getText());
                   rcGUARDAR.setCod_precio(txtCodigoPrecio.getText());
                   rcGUARDAR.setTiempo_hora(Integer.parseInt(spHora.getValue().toString()));

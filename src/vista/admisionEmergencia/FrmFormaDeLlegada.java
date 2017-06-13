@@ -42,7 +42,7 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
         });
         cerrar();
         //ICONO DE FORMULARIO
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Pasajero con equipaje-24.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
     }
     
     public void cerrar (){
@@ -146,6 +146,7 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Admisión Emergencia .::. Forma de Llegada");
         setMinimumSize(new java.awt.Dimension(465, 370));
         setResizable(false);
         getContentPane().setLayout(null);

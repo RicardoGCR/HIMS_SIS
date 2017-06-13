@@ -126,7 +126,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         });
         cerrar();
         //ICONO DE FORMULARIO
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/iconMHC24x24.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         
     }
     
@@ -433,7 +433,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         jPopupMenu1.add(btnVisualizarI);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Admisión - Movimiento Historia Clínica");
+        setTitle("Admisión .::. Movimiento Historia Clínica");
         setResizable(false);
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {

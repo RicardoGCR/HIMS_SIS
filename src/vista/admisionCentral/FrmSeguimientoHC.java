@@ -83,8 +83,7 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
         cbxActoMedico.setVisible(false);
         conexion = c.conectar();
         //ICONO DE FORMULARIO
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/iconSegHC24x24.png")).getImage());
-        
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
     }
     
     public void cerrar (){
@@ -381,7 +380,7 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
         lblMovimiento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Admisión - Seguimiento Historia Clínica");
+        setTitle("Admisión .::. Seguimiento Historia Clínica");
         setType(java.awt.Window.Type.POPUP);
 
         jPanel8.setBackground(new java.awt.Color(101, 166, 136));

@@ -140,7 +140,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         });
         cerrar();
         //ICONO DE FORMULARIO
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/iconNuevoPac24x24.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         
     }
     

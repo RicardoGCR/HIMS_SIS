@@ -65,6 +65,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         lblFecha_EC.setVisible(false);
         lblHora_EC.setVisible(false);
         lblNumeArea_EC.setVisible(false);
+        txtBuscarPaciente_EC.requestFocus();
         //mostrarPacientes_EC();
     }
 
@@ -1093,7 +1094,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             JTable p=new JTable(m4);
             String fila[]=new String[11];
             Usuario obj=new Usuario();
-            consulta="exec RX_EC_BUSCAR_CAJA_EC_DIA ?,?";
+            consulta="exec RX_EC_BUSCAR_CAJA_EC_DIA ?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);            
             cmd.setString(1, txtBuscarPaciente_EC.getText());
             

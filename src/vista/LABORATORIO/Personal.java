@@ -41,9 +41,10 @@ DefaultTableModel m;
         lblServicio.setText(pa.LAB_PC_AREA_SERVICIO());
         lblArea.setText(pa.LAB_PC_AREA_AREA());
         
+         QuitarLaBarraTitulo();
         PersonalRol_cargar();
         PersonalRol_formato();
-        QuitarLaBarraTitulo();
+       
     }
 
      public void QuitarLaBarraTitulo()

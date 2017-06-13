@@ -37,7 +37,7 @@ Caja_AperturaCierre cn1 = new Caja_AperturaCierre();
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);//fondo blanco
         setLocationRelativeTo(null);//en el centro
-        cap.setText(cnn.id());
+//        cap.setText(cnn.id());
         canterior.setText(cn1.Apertura());
     }
     

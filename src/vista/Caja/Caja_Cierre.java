@@ -37,7 +37,7 @@ Caja_AperturaCierre cn1 = new Caja_AperturaCierre();
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);//fondo blanco
         setLocationRelativeTo(null);//en el centro
-        capertura.setText(cnn.id());
+//        capertura.setText(cnn.id());
         ccierre.setText(cn1.Apertura());
 //        int fila = aperturalista.getSelectedRow();
 //        codigo.setText(String.valueOf(aperturalista.getValueAt(fila, 0)));

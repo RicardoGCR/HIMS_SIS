@@ -73,6 +73,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 dispose();
             }
         });
+        cerrar();
         conexion = c.conectar();
         lblTriaje.setVisible(false);
         txtPaciente.requestFocus();
@@ -148,7 +149,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 consultorio1.setRsAfilSis(txtCodigoSis.getText());
                 consultorio1.setTriaje_id(lblTriaje.getText());
                 consultorio1.setTipo_seguro(cbxTipoSeguro.getSelectedItem().toString());
-                consultorio1.setUsuario(adEmerCab7.codUsuario(lblusu.getText()));
+                consultorio1.setUsuario(adEmerCab7.codUsuario(lblUsu.getText()));
                 consultorio1.setRsDniPadre(txtDniPadre.getText());
                 consultorio1.setRsDirReferencia(txtReferencia.getText());
                 if(consultorio1.mantenimientoConsultorioRsCabecera("I")==true){
@@ -333,7 +334,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 }};
                 jPanel1 = new javax.swing.JPanel();
                 jLabel1 = new javax.swing.JLabel();
-                lblusu = new javax.swing.JLabel();
+                lblUsu = new javax.swing.JLabel();
                 pnlMensaje = new javax.swing.JPanel();
                 lblMensaje = new javax.swing.JLabel();
                 btnSi = new javax.swing.JButton();
@@ -753,10 +754,10 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                 jLabel1.setForeground(new java.awt.Color(255, 255, 255));
                 jLabel1.setText("<html>Registro de seguimiento a la atención integral <span style=\"font-size:'15px'\"><br>Niños menores de 11 años</br></span></html>");
 
-                lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-                lblusu.setForeground(new java.awt.Color(255, 255, 255));
-                lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
-                lblusu.setText("Silvana");
+                lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+                lblUsu.setForeground(new java.awt.Color(255, 255, 255));
+                lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
+                lblUsu.setText("Silvana");
 
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
@@ -766,7 +767,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(150, 150, 150))
                 );
                 jPanel1Layout.setVerticalGroup(
@@ -775,7 +776,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblusu))
+                            .addComponent(lblUsu))
                         .addGap(587, 587, 587))
                 );
 
@@ -1559,7 +1560,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
                             .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(0, 0, 0)
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jPanel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, Short.MAX_VALUE)
                             .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                             .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
                         .addGroup(pnlContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2889,7 +2890,7 @@ public class RegistroSeguimiento extends javax.swing.JFrame {
     public static javax.swing.JLabel lblSector;
     public static javax.swing.JTextField lblTelefono;
     public static javax.swing.JLabel lblTriaje;
-    public static javax.swing.JLabel lblusu;
+    public static javax.swing.JLabel lblUsu;
     private javax.swing.JPanel pnlContenedor;
     private javax.swing.JPanel pnlMensaje;
     private javax.swing.JPanel pnlPadres;

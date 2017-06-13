@@ -34,8 +34,9 @@ public class ConsultorioExConsultorioAsignacion {
     private String nom_pc;
     private String estado;
     private String usuario;
-    
-    
+    private int nro_cita_A;
+    private int nro_cita_F;
+
     public String codUsuario(String nombreUsuario){
         String cod="";
         try
@@ -132,7 +133,7 @@ public class ConsultorioExConsultorioAsignacion {
         {
         boolean resp = false;
         try{
-            String sql = "CONSULTORIO_EXT_CONSULTORIO_ASIGNACION_MANTENIMIENTO ?,?,?,?,?,?,?,?";
+            String sql = "CONSULTORIO_EXT_CONSULTORIO_ASIGNACION_MANTENIMIENTO ?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId());
             cmd.setInt(2, getConsultorio_id());
@@ -141,7 +142,9 @@ public class ConsultorioExConsultorioAsignacion {
             cmd.setString(5, getFecha());
             cmd.setInt(6, getId_Turno());
             cmd.setString(7, getUsuario());
-            cmd.setString(8, tipo);
+            cmd.setInt(8, getNro_cita_A());
+            cmd.setInt(9, getNro_cita_F());
+            cmd.setString(10, tipo);
             if(!cmd.execute())
             {
                 resp = true;
@@ -214,10 +217,10 @@ public class ConsultorioExConsultorioAsignacion {
         String consulta="";
         try {
                 tabla.setModel(new DefaultTableModel());
-                String titulos[]={"ID","Dia","Hora Inicio","Hora Termino","Consultorio","Nº de Citas","Turno","Médico","","","",""};
+                String titulos[]={"ID","Dia","Hora Inicio","Hora Termino","Consultorio","Nº de Citas","Adicionales","Futuras","Turno","Médico","","","","Fecha"};
                 m=new DefaultTableModel(null,titulos);
                 JTable p=new JTable(m);
-                String fila[]=new String[12];
+                String fila[]=new String[14];
                 //int index = cbxTipoBusqueda.getSelectedIndex();
                 consulta="EXEC CONSULTORIO_EXT_LISTAR_CONSULASIGNA";
                 PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -236,6 +239,8 @@ public class ConsultorioExConsultorioAsignacion {
                     fila[9]=r.getString(10); 
                     fila[10]=r.getString(11); 
                     fila[11]=r.getString(12); 
+                    fila[12]=r.getString(13); 
+                    fila[13]=r.getString(14); 
      
                         m.addRow(fila);
                         c++;
@@ -301,17 +306,20 @@ public class ConsultorioExConsultorioAsignacion {
         tabla.getColumnModel().getColumn(2).setPreferredWidth(40);
         tabla.getColumnModel().getColumn(3).setPreferredWidth(40);
         tabla.getColumnModel().getColumn(4).setPreferredWidth(300);
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(50);
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(50);
-        tabla.getColumnModel().getColumn(7).setPreferredWidth(500);
-        tabla.getColumnModel().getColumn(8).setMinWidth(0);
-        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(9).setMinWidth(0);
-        tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(60);
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(50);
+        
+        tabla.getColumnModel().getColumn(9).setPreferredWidth(500);
         tabla.getColumnModel().getColumn(10).setMinWidth(0);
         tabla.getColumnModel().getColumn(10).setMaxWidth(0);
         tabla.getColumnModel().getColumn(11).setMinWidth(0);
         tabla.getColumnModel().getColumn(11).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(12).setMinWidth(0);
+        tabla.getColumnModel().getColumn(12).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(13).setMinWidth(0);
+        tabla.getColumnModel().getColumn(13).setMaxWidth(0);
    
 
 //        COLUMNAS OCULTAS
@@ -488,4 +496,22 @@ public class ConsultorioExConsultorioAsignacion {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
+
+    public int getNro_cita_A() {
+        return nro_cita_A;
+    }
+
+    public void setNro_cita_A(int nro_cita_A) {
+        this.nro_cita_A = nro_cita_A;
+    }
+
+    public int getNro_cita_F() {
+        return nro_cita_F;
+    }
+
+    public void setNro_cita_F(int nro_cita_F) {
+        this.nro_cita_F = nro_cita_F;
+    }
+    
+    
 }

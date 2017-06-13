@@ -319,6 +319,8 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                 cno1.setTelefono(txttelef.getText());//
                 cno1.setCod_empre_jerar_farma("");//
                 cno1.setNom_usu(lblusu.getText());//
+                cno1.setCorreo(txtCorreo.getText());//
+                cno1.setMoneda(cbxMoneda.getSelectedItem().toString());//
                     if(cno1.Nuevo()==true){
                            JOptionPane.showMessageDialog(this, "Datos Guardados");
                            tg=2;
@@ -424,6 +426,8 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                     txttelef = new javax.swing.JTextField();
                     lbldist = new javax.swing.JLabel();
                     lbljerar = new javax.swing.JLabel();
+                    txtCorreo = new javax.swing.JTextField();
+                    cbxMoneda = new javax.swing.JComboBox();
                     jPanel1 = new javax.swing.JPanel();
                     jLabel1 = new javax.swing.JLabel();
                     btnNuevo = new javax.swing.JButton();
@@ -438,7 +442,6 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
 
                     distritos.setAlwaysOnTop(true);
                     distritos.setMinimumSize(new java.awt.Dimension(310, 441));
-                    distritos.setPreferredSize(new java.awt.Dimension(310, 441));
 
                     jPanel7.setBackground(new java.awt.Color(0, 153, 153));
                     jPanel7.setMinimumSize(new java.awt.Dimension(310, 441));
@@ -550,7 +553,6 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
 
                     jerarquias.setAlwaysOnTop(true);
                     jerarquias.setMinimumSize(new java.awt.Dimension(310, 441));
-                    jerarquias.setPreferredSize(new java.awt.Dimension(310, 441));
 
                     jPanel8.setBackground(new java.awt.Color(0, 153, 153));
                     jPanel8.setMinimumSize(new java.awt.Dimension(310, 441));
@@ -722,7 +724,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                                 .addComponent(buscartodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel8))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
                     );
 
                     jTabbedPane1.addTab("Listado", jPanel2);
@@ -794,6 +796,11 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                     lbljerar.setForeground(new java.awt.Color(255, 255, 255));
                     lbljerar.setText("jLabel12");
 
+                    txtCorreo.setEnabled(false);
+
+                    cbxMoneda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PEN", " " }));
+                    cbxMoneda.setEnabled(false);
+
                     javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
                     jPanel3.setLayout(jPanel3Layout);
                     jPanel3Layout.setHorizontalGroup(
@@ -836,7 +843,9 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                                             .addGap(33, 33, 33)
                                             .addComponent(fp)
                                             .addGap(34, 34, 34)
-                                            .addComponent(nom)))))
+                                            .addComponent(nom))
+                                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbxMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addContainerGap(41, Short.MAX_VALUE))
                     );
                     jPanel3Layout.setVerticalGroup(
@@ -884,7 +893,11 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                                 .addComponent(jLabel11)
                                 .addComponent(lbldist)
                                 .addComponent(lbljerar))
-                            .addContainerGap(14, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(cbxMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
                     jTabbedPane1.addTab("Edicion", jPanel3);
@@ -1060,7 +1073,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE))
+                            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE))
                     );
 
                     pack();
@@ -1165,7 +1178,8 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
         txttelef.setText("");
         txtruc.setText("");
         txtdirec.setText("");
-        jTabbedPane1.setSelectedIndex(1);       
+        jTabbedPane1.setSelectedIndex(1);  
+        cbxMoneda.setEnabled(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
@@ -1335,6 +1349,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
     private javax.swing.JButton btneliminar1;
     private javax.swing.JButton btnguardar;
     private javax.swing.JTextField buscartodo;
+    private javax.swing.JComboBox cbxMoneda;
     private javax.swing.JDialog distritos;
     private javax.swing.JLabel fp;
     private javax.swing.JLabel jLabel1;
@@ -1370,6 +1385,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
     private javax.swing.JTable tb_Grupo2;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtBuscar1;
+    private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtdirec;
     private javax.swing.JTextField txtdistri;

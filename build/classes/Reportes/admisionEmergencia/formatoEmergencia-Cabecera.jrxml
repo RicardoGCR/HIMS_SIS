@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoEmergencia-Cabecera" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b6b8995-d3ee-48b6-9130-42236cc83733">
 	<property name="ireport.zoom" value="1.210000000000003"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="2"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="id" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -62,12 +62,12 @@
 				<text><![CDATA[Personas que atendemos personas]]></text>
 			</staticText>
 			<image>
-				<reportElement x="470" y="0" width="64" height="35" uuid="a1ba0707-a5bc-4556-bfe7-472fe908d465"/>
-				<imageExpression><![CDATA["D:\\pry\\SISGESH\\src\\imagenes\\logominsa.gif"]]></imageExpression>
-			</image>
-			<image>
 				<reportElement x="4" y="1" width="116" height="62" uuid="484060a8-2dc5-4081-b542-108b166e6bb6"/>
 				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="470" y="1" width="49" height="34" uuid="71aaeee2-8078-41a4-963f-20f8f8711ea8"/>
+				<imageExpression><![CDATA["D:\\proyecto\\SISGESH\\src\\imagenes\\iconos\\logomin.gif"]]></imageExpression>
 			</image>
 		</band>
 	</title>

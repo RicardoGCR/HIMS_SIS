@@ -57,7 +57,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             CXRsR.setId_Preventa(Integer.parseInt(lblIDPREVENTA.getText()));
             CXRsR.setId_hc(lblid_hc.getText());
             CXRsR.setCod_nomen(lblCPT.getText());
-            CXRsR.setCodUsu(adEmerCab.codUsuario(ConsultorioExt.lblusu.getText()));
+            CXRsR.setCodUsu(adEmerCab.codUsuario(ConsultorioExt.lblUsu.getText()));
                 if(CXRsR.mantenimientoConsultorioExtPREVENTA(lblMant.getText())==true){
                     if (lblMant.getText().equals("I")){
                         System.out.println("CPT AGREGADO");
@@ -104,7 +104,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             CXRsR.setIdOrden(Integer.parseInt(lblIDO.getText()));
             CXRsR.setIdConsultorioEx(Integer.parseInt(lblID.getText()));
             CXRsR.setId_Preventa(Integer.parseInt(lblIDPREVENTA.getText()));
-            CXRsR.setCodUsu(adEmerCab.codUsuario(ConsultorioExt.lblusu.getText()));
+            CXRsR.setCodUsu(adEmerCab.codUsuario(ConsultorioExt.lblUsu.getText()));
 
             
                 if(CXRsR.mantenimientoConsultorioExtOrden("I")==true){

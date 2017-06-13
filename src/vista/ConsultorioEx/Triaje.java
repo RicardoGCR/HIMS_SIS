@@ -230,7 +230,7 @@ byte tge;
                             adEmerTr1.setTriaje_fv_fr(txtFR.getText());
                             adEmerTr1.setTriaje_talla(txtTalla.getText());
                             adEmerTr1.setTRIAJE_IDM(txtIDM.getText());
-                            adEmerTr1.setCod_usu(adEmerTr1.codUsuario(lblUsuUsuario.getText()));
+                            adEmerTr1.setCod_usu(adEmerTr1.codUsuario(lblUsu.getText()));
                             adEmerTr1.setModulo("CEX");
                             adEmerTr1.setId_doc(HC.getText());
                             if(adEmerTr1.mantenimientoCXTriaje("I")==true){
@@ -359,7 +359,7 @@ byte tge;
             btneditar = new javax.swing.JButton();
             btnGuardar = new javax.swing.JButton();
             btnEliminar = new javax.swing.JButton();
-            lblUsuUsuario = new javax.swing.JLabel();
+            lblUsu = new javax.swing.JLabel();
             btneliminar1 = new javax.swing.JButton();
             btnbuscar = new javax.swing.JButton();
             btnsubir = new javax.swing.JButton();
@@ -687,9 +687,9 @@ byte tge;
                     }
                 });
 
-                lblUsuUsuario.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-                lblUsuUsuario.setForeground(new java.awt.Color(255, 255, 255));
-                lblUsuUsuario.setText("Usuario");
+                lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+                lblUsu.setForeground(new java.awt.Color(255, 255, 255));
+                lblUsu.setText("Usuario");
 
                 btneliminar1.setForeground(new java.awt.Color(240, 240, 240));
                 btneliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
@@ -746,7 +746,7 @@ byte tge;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 496, Short.MAX_VALUE)
                                 .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblUsuUsuario)
+                                .addComponent(lblUsu)
                                 .addGap(16, 16, 16))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -774,7 +774,7 @@ byte tge;
                                 .addGap(18, 18, 18))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
-                                .addComponent(lblUsuUsuario)
+                                .addComponent(lblUsu)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1208,14 +1208,14 @@ byte tge;
             btnEliminar.setEnabled(false);
             pnlTriaje.setVisible(true);
             btnsubir.setEnabled(true);
-        jPanel29.setVisible(false);
+            jPanel29.setVisible(false);
             habilitarDatosTriaje();
             limpiarDatosTriaje();
             
              filtrarDatos();
      
-        tbPaciente.getSelectionModel().setSelectionInterval(0,0);
-         buscarNHC();
+            tbPaciente.getSelectionModel().setSelectionInterval(0,0);
+            buscarNHC();
             tg=1;
     }//GEN-LAST:event_btnNuevoActionPerformed
 
@@ -1635,7 +1635,7 @@ tg=2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JLabel lblUsuUsuario;
+    public static javax.swing.JLabel lblUsu;
     private javax.swing.JLabel men;
     private javax.swing.JPanel mensaje;
     private javax.swing.JPanel pnlB;

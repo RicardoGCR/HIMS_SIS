@@ -994,7 +994,7 @@
                       <Component id="btnEditar" min="-2" pref="157" max="-2" attributes="0"/>
                       <Component id="btnGuardar" min="-2" pref="162" max="-2" attributes="0"/>
                       <Component id="btnEliminar" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblusu" min="-2" pref="198" max="-2" attributes="0"/>
+                      <Component id="lblUsu" min="-2" pref="198" max="-2" attributes="0"/>
                       <Component id="btnNuevo" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -1019,7 +1019,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnNuevo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lblusu" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblUsu" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1036,7 +1036,7 @@
             <Property name="text" type="java.lang.String" value="EPICRISIS"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblusu">
+        <Component class="javax.swing.JLabel" name="lblUsu">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Light" size="18" style="0"/>

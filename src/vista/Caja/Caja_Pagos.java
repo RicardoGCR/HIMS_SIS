@@ -1333,7 +1333,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                         Caja_Preventa cnop = new Caja_Preventa();
                         cnop.setId_preventa(Integer.parseInt(lblIdPreventaAlta.getText()));
-                        if(cnop.modificarPreventa()==true){
+                        if(cnop.PREVENTA_ALTA()==true){
                                    System.out.println("Preventa Modificada ALTA");
                                    panelPreventa.setVisible(false);
                         } else {
@@ -8310,12 +8310,13 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
            PM.Preventamostrar(bus.getText(),tbpreventas);
            CPAM.Caja_Id_Preventa(bus.getText());
            CP.ConsultoriosExtPREVENTAListar(lblIdPreventa.getText());
-           CP2.ConsultoriosExtPREVENTAListarCEX(lblHc.getText());
+           
            
             Abonnos(); 
         char teclaPresionada = evt.getKeyChar();
         
         if(teclaPresionada==KeyEvent.VK_ENTER){
+            CP2.ConsultoriosExtPREVENTAListarCEX(lblHc.getText());
    
             BHC.dispose();
             panelDatosGenerales.setVisible(true);
@@ -8516,13 +8517,13 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                 
             }else if(lblVisAdmi.getText().equals("N")){
                 if (lblNomenclatura.getText().equals("CN00761         ")){
-                    
+                    System.out.println("-----------------ALTA------------------");
                     GuardarDetalle();
                     ModificarALTA();
                     panelNumeros.setVisible(true);
                     suma();
                     
-                }else  if (!lblNomenclatura.getText().equals("CN00761         ")){
+                }else if (!lblNomenclatura.getText().equals("CN00761         ")){
                     GuardarDetalle();
                     panelNumeros.setVisible(true);
                     suma();

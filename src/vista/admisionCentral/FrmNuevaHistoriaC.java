@@ -627,7 +627,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     codigo = r.getString("COD_HC");   
                     String codigo2 = String.valueOf(codigo.charAt(0)) + String.valueOf(codigo.charAt(1)) + 
                                      String.valueOf(codigo.charAt(2)) + String.valueOf(codigo.charAt(3)) + String.valueOf(codigo.charAt(4)) + "-" + 
-                                     String.valueOf(codigo.charAt(6)) + String.valueOf(codigo.charAt(7));
+                                     String.valueOf(codigo.charAt(5)) + String.valueOf(codigo.charAt(6));
                     dni = r.getString("dni");
                     if ( txtDni.getText().equals(dni) ){                
                         JOptionPane.showMessageDialog(ReasignarHC, "Este número de DNI ya existe en la \n"
@@ -941,7 +941,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         btnImprimir.setMnemonic('P');
-        btnImprimir.setText("Imprimir");
+        btnImprimir.setText("Imprimir Historia Clínica");
         btnImprimir.setBorderPainted(false);
         btnImprimir.setContentAreaFilled(false);
         btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2742,7 +2742,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             if(txtCodigo.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Debe ingresar un Número de HistoriaClínica");
             } else {
-                String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(5)) + String.valueOf(txtCodigo.getText().charAt(6)); 
+                String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(6)) + String.valueOf(txtCodigo.getText().charAt(7)); 
                 validaCodigo(codigo);
             }
         } 
@@ -2945,7 +2945,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     if(this.cbxTipoBusqueda.getSelectedIndex() == 6){
                         btnImprimir.setText("Imprimir Ficha por Sector");
                     } else {
-                        btnImprimir.setText("Imprimir");
+                        btnImprimir.setText("Imprimir Historia Clínica");
                     }
                 }
             }
@@ -3187,15 +3187,15 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         int fila = tbReasignado.getSelectedRow();
         String codigoObtenido = String.valueOf(tbReasignado.getValueAt(fila, 0));
         String codigo = String.valueOf(codigoObtenido.charAt(0)) + String.valueOf(codigoObtenido.charAt(1)) 
-                + String.valueOf(codigoObtenido.charAt(2)) + String.valueOf(codigoObtenido.charAt(3)) + String.valueOf(codigoObtenido.charAt(5)) + String.valueOf(codigoObtenido.charAt(6)) ;
+                + String.valueOf(codigoObtenido.charAt(2)) + String.valueOf(codigoObtenido.charAt(3)) + String.valueOf(codigoObtenido.charAt(4)) + String.valueOf(codigoObtenido.charAt(6) + String.valueOf(codigoObtenido.charAt(7))) ;
         int reasignar = JOptionPane.showConfirmDialog(ReasignarHC, "¿Desea limpiar todos los campos de \n la Historia Clínica N°" 
-        + codigo + " para ser reasignada?",
+        + codigoObtenido + " para ser reasignada?",
             "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,ieli );
         if(reasignar==0){
             HistoriaClinica hCRe = new HistoriaClinica();
             hCRe.setCod_hc(codigo);
             if(hCRe.reasignarCodHC() == true){
-                JOptionPane.showMessageDialog(ReasignarHC, "La Historia Clínica N° " + codigo + " está lista para "
+                JOptionPane.showMessageDialog(ReasignarHC, "La Historia Clínica N° " + codigoObtenido + " está lista para "
                         + "ser reasignada");
                 mostrarCodHC("");
             }

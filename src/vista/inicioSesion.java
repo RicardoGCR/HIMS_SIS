@@ -34,6 +34,7 @@ import static vista.Principal.fechaActual;
  * @author silvana
  */
 public class inicioSesion extends javax.swing.JFrame implements Runnable{
+    
 String hora, minutos, segundos, ampm;
     Calendar calendario;
     Thread h1;
@@ -50,7 +51,7 @@ String hora, minutos, segundos, ampm;
    
     
     private Timer tiempo,tiempo1;
-    int cont,cont1,contadmin=1;
+    int cont,cont1,contadmin=1,filtroModulo;
     public final static int TWO_SECOND=5;
     public final static int TWO_SECOND1=5;
  
@@ -58,6 +59,7 @@ String hora, minutos, segundos, ampm;
      * Creates new form inicioSesion
      */
     public inicioSesion() {
+        
         initComponents();
         lblFecha.setText(fechaActual());
         txtUsuario.requestFocus();
@@ -67,6 +69,8 @@ String hora, minutos, segundos, ampm;
         panelRecuperar.setVisible(false);
         h1 = new Thread(this);
         h1.start();
+//        barra.setBackground(new Color(155,155,155));
+        barra.setForeground(new Color(0,0,0));
 //       setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
     }
 
@@ -92,7 +96,8 @@ String hora, minutos, segundos, ampm;
          if(txtUsuario.getText().equalsIgnoreCase("")||txtContra.getText().equalsIgnoreCase("")){
              JOptionPane.showMessageDialog(this, "Debe llenar todos los Campos");
          }else{
-             
+            
+
             String cap="";
             String sql="select * from usuario where Usu_Usuario='"+usu+"' and dbo.fnLeeClave(usu_contrasena)='"+pass+"'";
             PreparedStatement st=cnn.prepareStatement(sql);
@@ -105,7 +110,7 @@ String hora, minutos, segundos, ampm;
             if(cap.equalsIgnoreCase("")){
            JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña Incorrectos");
            txtContra.setText("");
-       }else if(cap.equalsIgnoreCase(codAdmin())){//Para editar tipo de usuario
+       }else if(cap.equalsIgnoreCase(codAdmin("ADMINISTRACION"))){//Para editar tipo de usuario
                 
         //p.pack();
          cont=-1;
@@ -113,29 +118,122 @@ String hora, minutos, segundos, ampm;
         barra.setStringPainted(true);
         tiempo=new Timer(TWO_SECOND, new TimerListener());
         activar();
-      }else if(cap.equalsIgnoreCase(codAdmin())==false){//Para editar tipo de usuario
+      }else if(cap.equalsIgnoreCase(codAdmin("ADMISION CENTRAL"))){//Para editar tipo de usuario
 
         cont1=-1;
         barra.setValue(0);
         barra.setStringPainted(true);
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
-      }}
+        filtroModulo=1;
+      }else if(cap.equalsIgnoreCase(codAdmin("ADMISION EMERGENCIA"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=2;
+      }else if(cap.equalsIgnoreCase(codAdmin("CAJA"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=3;
+      }else if(cap.equalsIgnoreCase(codAdmin("COSTOS"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=4;
+      }else if(cap.equalsIgnoreCase(codAdmin("HOSPITALIZACION"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=5;
+      }else if(cap.equalsIgnoreCase(codAdmin("LABORATORIO"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=6;
+      }else if(cap.equalsIgnoreCase(codAdmin("RAYOS X"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=7;
+      }else if(cap.equalsIgnoreCase(codAdmin("CONSULTORIOS EXTERNOS"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=8;
+      }else if(cap.equalsIgnoreCase(codAdmin("INVESTIGACION BACTEREOLOGICA"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=9;
+      }else if(cap.equalsIgnoreCase(codAdmin("ALMACEN"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=10;
+      }else if(cap.equalsIgnoreCase(codAdmin("PERSONAL"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=11;
+      }else if(cap.equalsIgnoreCase(codAdmin("CONFIGURACION"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=12;
+      }else{
+          JOptionPane.showMessageDialog(this, "NO PERTENECE A NINGÚN MÓDULO DEL SISTEMA");
+      }
+         }
     } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "catch---Usuario y/o Contraseña Incorrectos");
+        JOptionPane.showMessageDialog(this, "Error al Iniciar Sesión");
     }
 }
     
     
-    public String codAdmin()
+    public String codAdmin(String codTipo)
     {
        Usuario u=new  Usuario();
         String cod="";
         try
         {
              
-            String sql = "SELECT tipoUsu_Codigo FROM tipo_Usuario where tipoUsu_tipo='Administrador'";
+            String sql = "SELECT tipoUsu_Codigo FROM tipo_Usuario where tipoUsu_Tipo=?";
             PreparedStatement cmd = u.getCn().prepareStatement(sql);
+            cmd.setString(1, codTipo);
             ResultSet rs = cmd.executeQuery();
            // Statement cmd = cnn1.createStatement();
           //  ResultSet rs = cmd.executeQuery(sql);
@@ -144,13 +242,15 @@ String hora, minutos, segundos, ampm;
                cod = rs.getString(1);
             }
             cmd.close();
+           
         }
-        catch(Exception ex)
-        {
+        catch(Exception ex)        {
+          
             System.out.println("Error en Admin: " + ex.getMessage());
         }
         return cod;
     }
+
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -165,9 +265,6 @@ String hora, minutos, segundos, ampm;
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        btnIniciarSesion = new javax.swing.JButton();
-        txtUsuario = new javax.swing.JTextField();
-        txtContra = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         panelRecuperar = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -180,10 +277,16 @@ String hora, minutos, segundos, ampm;
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         lblHora = new javax.swing.JLabel();
+        panelCPT = new javax.swing.JPanel();
+        txtUsuario = new javax.swing.JTextField();
+        panelCPT1 = new javax.swing.JPanel();
+        txtContra = new javax.swing.JPasswordField();
+        jPanel17 = new javax.swing.JPanel();
+        btnIniciarSesion = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SISGESH .::. Inicio de Sesión");
+        setTitle("HIMS .::. Inicio de Sesión");
         setMinimumSize(new java.awt.Dimension(915, 467));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -204,23 +307,6 @@ String hora, minutos, segundos, ampm;
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Contraseña");
-
-        btnIniciarSesion.setBackground(new java.awt.Color(102, 102, 102));
-        btnIniciarSesion.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        btnIniciarSesion.setText("Iniciar Sesión");
-        btnIniciarSesion.setBorder(null);
-        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarSesionActionPerformed(evt);
-            }
-        });
-
-        txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtContraKeyPressed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -309,6 +395,103 @@ String hora, minutos, segundos, ampm;
         lblHora.setForeground(new java.awt.Color(102, 102, 102));
         lblHora.setText("00:00:00");
 
+        panelCPT.setBackground(new java.awt.Color(255, 255, 255));
+        panelCPT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+        txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(51, 51, 51));
+        txtUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtUsuario.setBorder(null);
+        txtUsuario.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtUsuarioCaretUpdate(evt);
+            }
+        });
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelCPTLayout = new javax.swing.GroupLayout(panelCPT);
+        panelCPT.setLayout(panelCPTLayout);
+        panelCPTLayout.setHorizontalGroup(
+            panelCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCPTLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(txtUsuario)
+                .addContainerGap())
+        );
+        panelCPTLayout.setVerticalGroup(
+            panelCPTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCPTLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelCPT1.setBackground(new java.awt.Color(255, 255, 255));
+        panelCPT1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+        txtContra.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtContra.setForeground(new java.awt.Color(51, 51, 51));
+        txtContra.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContraKeyPressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelCPT1Layout = new javax.swing.GroupLayout(panelCPT1);
+        panelCPT1.setLayout(panelCPT1Layout);
+        panelCPT1Layout.setHorizontalGroup(
+            panelCPT1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCPT1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(txtContra)
+                .addContainerGap())
+        );
+        panelCPT1Layout.setVerticalGroup(
+            panelCPT1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCPT1Layout.createSequentialGroup()
+                .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel17.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel17.setPreferredSize(new java.awt.Dimension(125, 25));
+
+        btnIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnIniciarSesion.setForeground(new java.awt.Color(240, 240, 240));
+        btnIniciarSesion.setText("Iniciar Sesión");
+        btnIniciarSesion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        btnIniciarSesion.setContentAreaFilled(false);
+        btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnIniciarSesion.setIconTextGap(30);
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -319,7 +502,9 @@ String hora, minutos, segundos, ampm;
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,12 +513,14 @@ String hora, minutos, segundos, ampm;
                                             .addComponent(jLabel11)
                                             .addComponent(jLabel10))
                                         .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtContra, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                            .addComponent(txtUsuario)))
-                                    .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(panelCPT1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(panelCPT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel2)
@@ -359,15 +546,15 @@ String hora, minutos, segundos, ampm;
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                    .addComponent(panelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(panelCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panelRecuperar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -441,17 +628,33 @@ String hora, minutos, segundos, ampm;
         }
     }//GEN-LAST:event_btnRecuperarActionPerformed
 
+    private void txtUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtUsuarioCaretUpdate
+
+    }//GEN-LAST:event_txtUsuarioCaretUpdate
+
+    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
+     
+    }//GEN-LAST:event_txtUsuarioKeyPressed
+
     private void txtContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyPressed
         // TODO add your handling code here:
-        
+
         char tecla= evt.getKeyChar();
-                if(tecla==KeyEvent.VK_ENTER){
-                    btnIniciarSesion.doClick();
-                }
+        if(tecla==KeyEvent.VK_ENTER){
+            btnIniciarSesion.doClick();
+        }
     }//GEN-LAST:event_txtContraKeyPressed
 
+    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
+          
+    }//GEN-LAST:event_txtUsuarioKeyTyped
+
+    private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
+        txtUsuario.setText(txtUsuario.getText().toUpperCase());
+    }//GEN-LAST:event_txtUsuarioKeyReleased
+
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-             // TODO add your handling code here:
+              // TODO add your handling code here:
         usuario=txtUsuario.getText();
         String contra=String.valueOf(txtContra.getPassword());
         acceder(usuario, contra);
@@ -466,7 +669,7 @@ String hora, minutos, segundos, ampm;
                tiempo.stop();
                esconder();
                
-PrincipalMDI pmdi = new PrincipalMDI();
+                PrincipalMDI pmdi = new PrincipalMDI();
                 PrincipalMDI.lblUsu.setText(usuario);
                 pmdi.setVisible(true);
            }
@@ -481,12 +684,71 @@ PrincipalMDI pmdi = new PrincipalMDI();
            if(cont1==101){
                tiempo1.stop();
                esconder();
-                
-        PrincipalMDI.btnSistema.setEnabled(false);
-        
         PrincipalMDI pmdi = new PrincipalMDI();
                 PrincipalMDI.lblUsu.setText(usuario);
                 pmdi.setVisible(true);
+                
+                PrincipalMDI.btnAdmCentral.setEnabled(false);
+                PrincipalMDI.btnAdmCentral.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnAdmEme.setEnabled(false);
+                PrincipalMDI.btnAdmEme.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnCaja.setEnabled(false);
+                PrincipalMDI.btnCaja.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnCostos.setEnabled(false);
+                PrincipalMDI.btnCostos.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnHospitalizacion.setEnabled(false);
+                PrincipalMDI.btnHospitalizacion.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnLaboratorio.setEnabled(false);
+                PrincipalMDI.btnLaboratorio.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnRayosX.setEnabled(false);
+                PrincipalMDI.btnRayosX.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnConExt.setEnabled(false);
+                PrincipalMDI.btnConExt.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnInvBact.setEnabled(false);
+                PrincipalMDI.btnInvBact.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnAlmacen.setEnabled(false);
+                PrincipalMDI.btnAlmacen.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnPersonal.setEnabled(false);
+                PrincipalMDI.btnPersonal.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnConfiguracion.setEnabled(false);
+                PrincipalMDI.btnConfiguracion.setForeground(new Color(155,155,155));
+                if(filtroModulo==1){
+                  PrincipalMDI.btnAdmCentral.setEnabled(true);
+                  PrincipalMDI.btnAdmCentral.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==2){
+                PrincipalMDI.btnAdmEme.setEnabled(true);
+                 PrincipalMDI.btnAdmEme.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==3){
+                 PrincipalMDI.btnCaja.setEnabled(true);
+                 PrincipalMDI.btnCaja.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==4){
+                PrincipalMDI.btnCostos.setEnabled(true);
+                 PrincipalMDI.btnCostos.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==5){
+                PrincipalMDI.btnHospitalizacion.setEnabled(true);
+                 PrincipalMDI.btnHospitalizacion.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==6){
+                PrincipalMDI.btnLaboratorio.setEnabled(true);
+                 PrincipalMDI.btnLaboratorio.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==7){
+                 PrincipalMDI.btnRayosX.setEnabled(true);
+                 PrincipalMDI.btnRayosX.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==8){
+                 PrincipalMDI.btnConExt.setEnabled(true);
+                 PrincipalMDI.btnConExt.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==9){
+                 PrincipalMDI.btnInvBact.setEnabled(true);
+                 PrincipalMDI.btnInvBact.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==10){
+                 PrincipalMDI.btnAlmacen.setEnabled(true);
+                 PrincipalMDI.btnAlmacen.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==11){
+                 PrincipalMDI.btnPersonal.setEnabled(true);
+                 PrincipalMDI.btnPersonal.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==12){
+                 PrincipalMDI.btnConfiguracion.setEnabled(true);
+                 PrincipalMDI.btnConfiguracion.setForeground(new Color(255,255,255));
+                }
            }
         }
     }
@@ -516,7 +778,16 @@ PrincipalMDI pmdi = new PrincipalMDI();
             }
         }
     }
-           
+           /*
+    String a="sql";
+            int intIndex = a.indexOf("lenguaje sql");
+          if(intIndex == - 1){
+             System.out.println("palabra encontrada");
+          }else{
+             System.out.println("palabra no encontrada"
+             + intIndex);
+          }
+    */
     
     /**
      * @param args the command line arguments
@@ -567,8 +838,11 @@ PrincipalMDI pmdi = new PrincipalMDI();
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHora;
+    private javax.swing.JPanel panelCPT;
+    private javax.swing.JPanel panelCPT1;
     private javax.swing.JPanel panelRecuperar;
     public static javax.swing.JPasswordField txtContra;
     private javax.swing.JTextField txtPregunta;

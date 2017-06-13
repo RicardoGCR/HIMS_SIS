@@ -12,12 +12,15 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import static modelos.admisionEmergencia.AdmisionEmergenciaCabecera.m;
+//import static modelos.admisionEmergencia.AdmisionEmergenciaCabecera.m;
 import static modelos.admisionEmergencia.AdmisionEmergenciaTriaje.m;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
+import vista.ConsultorioEx.HistoriaClinica;
+import vista.admisionEmergencia.FrmFormatoEmergencia;
+import static vista.admisionEmergencia.FrmFormatoEmergencia.lbl2;
 import static vista.admisionEmergencia.FrmListFormatoEmergencia.tbTriaje;
 
 /**
@@ -104,12 +107,11 @@ public class AdmisionEmergenciaTopico {
             columna.setMaxWidth(0);
             columna.setMinWidth(0);
             columna.setPreferredWidth(0);
-            tabla.setRowHeight(0);
             tabla.doLayout();
-        tabla.setRowHeight(25);
+        tabla.setRowHeight(30);
     }
     
-    public void cargarFormatLaboratorio(String nombre,JTable tabla){
+    public void cargarFormatLaboratorio(String nombre,JTable tabla,String formaPago){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
@@ -118,9 +120,10 @@ public class AdmisionEmergenciaTopico {
             JTable p=new JTable(m);
             String fila[]=new String[4];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC CAJA_NOMENCLATURA_CAJA_LISTAR_EXAMENES ?";
+            consulta="EXEC CAJA_NOMENCLATURA_CAJA_LISTAR_EXAMENES ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, nombre);
+            cmd.setString(2, formaPago);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -248,6 +251,11 @@ public class AdmisionEmergenciaTopico {
         tabla.getColumnModel().getColumn(19).setPreferredWidth(500);//anot enf
         tabla.getColumnModel().getColumn(20).setPreferredWidth(100);//evaluacion
         tabla.getColumnModel().getColumn(21).setPreferredWidth(100);//ubicacion de egreso
+        TableColumn columna = tabla.getColumnModel().getColumn(24);
+            columna.setMaxWidth(0);
+            columna.setMinWidth(0);
+            columna.setPreferredWidth(0);
+            tabla.doLayout();
         tabla.setRowHeight(25);
     }
     
@@ -261,10 +269,10 @@ public class AdmisionEmergenciaTopico {
                               "Relato","Conciencia","Hidratación","Nutrición",
                               "Examen Físico","Plan de Trabajo","Anotaciones Médicas",
                               "Anotaciones de Enfermería","Evaluación del Paciente",
-                              "Ubicación al egreso","Prioridad","ID"};
+                              "Ubicación al egreso","Prioridad","ID","","FORMA DE PAGO"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[24];
+            String fila[]=new String[30];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC ADMISION_EMERGENCIA_TOPICO_LISTAR_Y_REPORTE ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -297,6 +305,8 @@ public class AdmisionEmergenciaTopico {
                 fila[21]=r.getString(20);//ubic egreso
                 fila[22]=r.getString(26);//ubic egreso
                 fila[23]=r.getString(27);//ubic egreso
+                fila[24]=r.getString(28);//ubic egreso
+                fila[25]=r.getString(29);//ubic egreso
                     m.addRow(fila);
                     c++;
             }
@@ -496,8 +506,110 @@ public class AdmisionEmergenciaTopico {
         }
     }
     
+    public void historiaClinicaTopico(String id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_LISTAR_HISTORIAL_TOPICO_EMERGENCIA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                HistoriaClinica.txtTopico.setText(r.getString(1)); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: historiaClinicaTopico  " + e.getMessage());
+        }
+    } 
     
+    public void formatoTablaHistorialTopicoDetalles(JTable tabla,String tipo){
+        if(tipo.equals("P") || tipo.equals("D")){
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(40);//
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(300);//
+            TableColumn columna2 = tabla.getColumnModel().getColumn(2);
+            columna2.setMaxWidth(0);
+            columna2.setMinWidth(0);
+            columna2.setPreferredWidth(0);
+            tabla.doLayout();
+        } else {
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(40);//
+            tabla.getColumnModel().getColumn(1).setPreferredWidth(200);//
+            tabla.getColumnModel().getColumn(2).setPreferredWidth(70);//
+        }
+        tabla.setRowHeight(30);
+    }
     
+    public void historiaClinicaTopicoDetalles(String preventa,JTable tabla, String tipo){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Código","Descripción","Estado"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[3];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CONSULTORIO_EXT_LISTAR_HISTORIAL_CONSULTORIO_EMERGENCIA_TOPICO_DETALLES ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, preventa);
+            cmd.setString(2, tipo);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaHistorialTopicoDetalles(tabla,tipo);
+        } catch (Exception e) {
+            System.out.println("Error: historiaClinicaTopicoDetalles: " + e.getMessage());
+        }
+    }
+    
+    public void formadePago(String nhc){
+        String consulta="";
+        try {
+            consulta="EXEC ADMISION_EMERGENCIA_CARGAR_FORMA_PAGO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, nhc);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                FrmFormatoEmergencia.lblIdFP.setText(r.getString(1));
+                FrmFormatoEmergencia.lblFP.setText(r.getString(2));
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: formadePago" + e.getMessage());
+        }
+    }
+    
+    public String topicoID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 TOPICO_ID FROM ADMISION_EMERGENCIA_TOPICO WHERE PC_NOMBRE = HOST_NAME()"
+                    + "ORDER BY TRIAJE_ID DESC";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               FrmFormatoEmergencia.lbl2.setText(rs.getString(1));
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: topicoID: " + ex.getMessage());
+        }
+        return cod;
+    }
     //Constructor
     
     public AdmisionEmergenciaTopico()

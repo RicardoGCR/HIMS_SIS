@@ -331,7 +331,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         
         ventanas();
-         ConsultorioExt.jTabbedPane1.setSelectedIndex(2);
+        ConsultorioExt.jTabbedPane1.setSelectedIndex(2);
         
         
     }//GEN-LAST:event_jLabel11MouseClicked

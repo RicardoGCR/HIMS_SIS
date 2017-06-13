@@ -25,7 +25,9 @@ private String direccion_empre_jerar;
 private String telefono;
 private String cod_empre_jerar_farma;      
 private String nom_usu;  
-
+private String correo;
+private String moneda;
+private String CodF;
         
 Conexion con = new Conexion();  
 
@@ -33,17 +35,20 @@ public boolean Nuevo(){
         boolean resp = false;
         try{
             String sql = "exec Caja_EmpresaJerarquia_INSERTAR "
-                        + "?,?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getCod_empre_jerar());
-            cmd.setString(2, getCod_jerar_forma_pago());
-            cmd.setString(3, getCod_dis());
-            cmd.setString(4, getRepre_empre_jerar());
-            cmd.setString(5, getRuc());
-            cmd.setString(6, getDireccion_empre_jerar());
-            cmd.setString(7, getTelefono());
-            cmd.setString(8, getCod_empre_jerar_farma());
-            cmd.setString(9, getNom_usu());
+//            cmd.setString(1, getCod_empre_jerar());
+            cmd.setString(1, getCod_jerar_forma_pago());
+            cmd.setString(2, getCod_dis());
+            cmd.setString(3, getRepre_empre_jerar());
+            cmd.setString(4, getRuc());
+            cmd.setString(5, getDireccion_empre_jerar());
+            cmd.setString(6, getTelefono());
+            cmd.setString(7, getCod_empre_jerar_farma());
+            cmd.setString(8, getNom_usu());
+            cmd.setString(9, getCorreo());
+            cmd.setString(10, getMoneda());
+            cmd.setString(11, getCodF());
 
             if(!cmd.execute())
             {
@@ -78,7 +83,7 @@ public boolean modificar(){
         boolean resp = false;
         try
         {
-            String sql = "Caja_Empresajerarquia_MODIFICAR ?,?,?,?,?,?,?,?,?";
+            String sql = "Caja_Empresajerarquia_MODIFICAR ?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getCod_empre_jerar());
             cmd.setString(2, getCod_jerar_forma_pago());
@@ -89,6 +94,9 @@ public boolean modificar(){
             cmd.setString(7, getTelefono());
             cmd.setString(8, getCod_empre_jerar_farma());
             cmd.setString(9, getNom_usu());
+            cmd.setString(10, getCorreo());
+            cmd.setString(11, getMoneda());
+            cmd.setString(12, getCodF());
 
             if(!cmd.execute())
             {
@@ -217,6 +225,42 @@ public boolean eliminar(){
 
     public void setCon(Conexion con) {
         this.con = con;
+    }
+
+    /**
+     * @return the correo
+     */
+    public String getCorreo() {
+        return correo;
+    }
+
+    /**
+     * @param correo the correo to set
+     */
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    /**
+     * @return the moneda
+     */
+    public String getMoneda() {
+        return moneda;
+    }
+
+    /**
+     * @param moneda the moneda to set
+     */
+    public void setMoneda(String moneda) {
+        this.moneda = moneda;
+    }
+
+    public String getCodF() {
+        return CodF;
+    }
+
+    public void setCodF(String CodF) {
+        this.CodF = CodF;
     }
     
     

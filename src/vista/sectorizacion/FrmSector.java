@@ -11,6 +11,8 @@ import vista.admisionCentral.FrmNuevaHistoriaC;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,6 +24,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.GregorianCalendar;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -84,6 +87,21 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
                 dispose();
             }
         });
+        cerrar();
+    }
+    
+    public void cerrar (){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e){
+                    dispose();
+                }
+        });
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public DefaultComboBoxModel departamento(){
@@ -380,6 +398,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
             }
         ));
         tbSectorizacion.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbSectorizacion.getTableHeader().setReorderingAllowed(false);
         tbSectorizacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbSectorizacionKeyPressed(evt);
@@ -575,6 +594,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
         btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 1)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
+        btnGuardar.setMnemonic('G');
         btnGuardar.setText("Grabar");
         btnGuardar.setToolTipText("Guardar (Alt + G)");
         btnGuardar.setContentAreaFilled(false);
@@ -699,23 +719,41 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("ID");
 
+        txtID.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtID.setForeground(new java.awt.Color(102, 102, 102));
         txtID.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtID.setEnabled(false);
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Distrito");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Sector");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Tipo dirección");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Dirección");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Provincia");
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Departamento");
 
+        cbxDepartamentoS.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxDepartamentoS.setForeground(new java.awt.Color(102, 102, 102));
         cbxDepartamentoS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbxDepartamentoS.setBorder(null);
         cbxDepartamentoS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -724,7 +762,14 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
                 cbxDepartamentoSItemStateChanged(evt);
             }
         });
+        cbxDepartamentoS.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxDepartamentoSKeyPressed(evt);
+            }
+        });
 
+        cbxProvinciaS.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxProvinciaS.setForeground(new java.awt.Color(102, 102, 102));
         cbxProvinciaS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
         cbxProvinciaS.setBorder(null);
         cbxProvinciaS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -739,6 +784,8 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
             }
         });
 
+        cbxDistrito.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxDistrito.setForeground(new java.awt.Color(102, 102, 102));
         cbxDistrito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
         cbxDistrito.setBorder(null);
         cbxDistrito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -747,36 +794,69 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
                 cbxDistritoItemStateChanged(evt);
             }
         });
+        cbxDistrito.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxDistritoKeyPressed(evt);
+            }
+        });
 
+        cbxSector.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxSector.setForeground(new java.awt.Color(102, 102, 102));
         cbxSector.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
         cbxSector.setBorder(null);
         cbxSector.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbxSector.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxSectorKeyPressed(evt);
+            }
+        });
 
+        cbxTipoDireccion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxTipoDireccion.setForeground(new java.awt.Color(102, 102, 102));
         cbxTipoDireccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Urb", "Calle", "Barrio", "Av", "Psje", "AA.HH.", "Prol" }));
         cbxTipoDireccion.setBorder(null);
         cbxTipoDireccion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbxTipoDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxTipoDireccionKeyPressed(evt);
+            }
+        });
 
-        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        txtDireccion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtDireccion.setForeground(new java.awt.Color(102, 102, 102));
+        txtDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDireccionKeyReleased(evt);
+            }
+        });
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(51, 51, 51));
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Edit-16.png"))); // NOI18N
         jLabel28.setText("Alt + M");
 
-        jLabel41.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(51, 51, 51));
         jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Document-16.png"))); // NOI18N
         jLabel41.setText("Alt + N");
 
-        jLabel42.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(51, 51, 51));
         jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Save-16.png"))); // NOI18N
         jLabel42.setText("Alt + G");
 
-        jLabel43.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(51, 51, 51));
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Eliminar-16.png"))); // NOI18N
         jLabel43.setText("Alt + E");
 
-        jLabel44.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(51, 51, 51));
         jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
         jLabel44.setText("Alt + B");
 
-        jLabel45.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(51, 51, 51));
         jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salir.png"))); // NOI18N
         jLabel45.setText("Salir (ESC)");
 
@@ -904,6 +984,8 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
         btnEliminar.setEnabled(false);
         btnBuscar.setEnabled(true);
         limpiarDatos();
+        cbxDepartamentoS.requestFocus();
+        cbxDepartamentoS.showPopup();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -1039,7 +1121,10 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_cbxDepartamentoSItemStateChanged
 
     private void cbxProvinciaSKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxProvinciaSKeyPressed
-        
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            cbxDistrito.requestFocus();
+            cbxDistrito.showPopup();
+        }
     }//GEN-LAST:event_cbxProvinciaSKeyPressed
 
     private void cbxProvinciaSItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxProvinciaSItemStateChanged
@@ -1185,6 +1270,37 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
             btnEliminar.setEnabled(true);
        }
     }//GEN-LAST:event_tbSectorizacionKeyPressed
+
+    private void txtDireccionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionKeyReleased
+        txtDireccion.setText(txtDireccion.getText().toUpperCase());
+    }//GEN-LAST:event_txtDireccionKeyReleased
+
+    private void cbxDepartamentoSKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxDepartamentoSKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            cbxProvinciaS.requestFocus();
+            cbxProvinciaS.showPopup();
+        }
+    }//GEN-LAST:event_cbxDepartamentoSKeyPressed
+
+    private void cbxDistritoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxDistritoKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            cbxSector.requestFocus();
+            cbxSector.showPopup();
+        }
+    }//GEN-LAST:event_cbxDistritoKeyPressed
+
+    private void cbxSectorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxSectorKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            cbxTipoDireccion.requestFocus();
+            cbxTipoDireccion.showPopup();
+        }
+    }//GEN-LAST:event_cbxSectorKeyPressed
+
+    private void cbxTipoDireccionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxTipoDireccionKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtDireccion.requestFocus();
+        }
+    }//GEN-LAST:event_cbxTipoDireccionKeyPressed
 
     //HORA
     public void run() {

@@ -42,6 +42,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.LABORATORIO.Celda_Checkox;
 import modelos.LABORATORIO.FormatoTabla;
+import modelos.LABORATORIO.FormatoTablaResultados;
 import modelos.LABORATORIO.LAB_Resultado_Insumos;
 import modelos.LABORATORIO.LAB_Resultado_Muestra_Cabecera;
 import modelos.LABORATORIO.LAB_Resultado_Muestra_Detalle;
@@ -100,7 +101,7 @@ DefaultTableModel m,n,muestra;
         
         lbltipo.setVisible(false);
         
-        
+        tb_Detalle.setDefaultRenderer(Object.class,new FormatoTablaResultados());
   
    //salir presionando escape
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
@@ -123,7 +124,7 @@ DefaultTableModel m,n,muestra;
     tb_Detalle.getColumnModel().getColumn(16).setPreferredWidth(105);
     tb_Detalle.getColumnModel().getColumn(17).setPreferredWidth(105);
     tb_Detalle.getColumnModel().getColumn(18).setPreferredWidth(150);
-    tb_Detalle.getColumnModel().getColumn(20).setPreferredWidth(220);
+    tb_Detalle.getColumnModel().getColumn(20).setPreferredWidth(205);
             //Ocultar    
   tb_Detalle.getColumnModel().getColumn(0).setMinWidth(0);
   tb_Detalle.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -347,6 +348,7 @@ public void calcula() {
 
             personal.setAlwaysOnTop(true);
             personal.setMinimumSize(new java.awt.Dimension(852, 504));
+            personal.setResizable(false);
 
             txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
             txtBuscar.setEnabled(false);
@@ -476,7 +478,7 @@ public void calcula() {
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setMinimumSize(new java.awt.Dimension(1253, 579));
+            setMinimumSize(null);
 
             jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
@@ -603,7 +605,7 @@ public void calcula() {
 
             jLabel17.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel17.setText("Fecha de Nac.");
+            jLabel17.setText("Fecha de Nac.     ");
 
             txtFecha.setEditable(false);
             txtFecha.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
@@ -612,7 +614,7 @@ public void calcula() {
 
             jLabel18.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
             jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel18.setText("Sexo");
+            jLabel18.setText("Sexo         ");
 
             txtSexo.setEditable(false);
             txtSexo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
@@ -1337,7 +1339,7 @@ public void calcula() {
                                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel28)
                                 .addComponent(jLabel32))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panelTMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtHoraTM, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
                                 .addComponent(txtFechaTM, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1485,10 +1487,19 @@ public void calcula() {
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelOcultar, javax.swing.GroupLayout.PREFERRED_SIZE, 1265, Short.MAX_VALUE)
+                .addComponent(panelOcultar, javax.swing.GroupLayout.PREFERRED_SIZE, 1254, Short.MAX_VALUE)
+                .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
+                    .addGap(13, 13, 13)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1096, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnInsumos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnGenerar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
+                            .addGap(23, 23, 23))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(panelPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1496,16 +1507,8 @@ public void calcula() {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(panelTM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(panelResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1095, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnInsumos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnGenerar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
-                            .addGap(11, 11, 11))))
-                .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panelResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(0, 7, Short.MAX_VALUE))))
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1573,7 +1576,8 @@ int filtro=0;
            else {
               filtro=0;
               for(int j=0;j<tb_Detalle.getRowCount();j++){
-              if(tb_Detalle.getValueAt(j, 5).toString().equalsIgnoreCase("")){
+              if(tb_Detalle.getValueAt(j, 5).toString().equalsIgnoreCase("")&&
+                      tb_Detalle.getValueAt(j, 2).toString().equalsIgnoreCase("F")){
 //                      ||tb_Detalle.getValueAt(j, 20).toString().equalsIgnoreCase("")){
                   filtro=filtro+1;
               }}
@@ -2224,9 +2228,9 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32
             JOptionPane.showMessageDialog(null, "Error al Exportar el archivo!"+e.getMessage(), "Oops! Error", JOptionPane.ERROR_MESSAGE);
         } catch (JRException ex) {
          Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
-     } catch (IOException ex) {
+     } /*catch (IOException ex) {
         Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    }*/
     }
     
     public void Insumos_cargar(String cod){

@@ -11,6 +11,8 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import static modelos.admisionEmergencia.AdmisionEmergenciaCabecera.m;
 import servicios.Conexion;
+import vista.ConsultorioEx.HistoriaClinica;
+import vista.admisionEmergencia.FrmFormatoEmergencia;
 
 /**
  *
@@ -368,12 +370,54 @@ public class AdmisionEmergenciaTriaje {
         }
     }
     
+    public void historiaClinicaTriaje(String id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_LISTAR_HISTORIAL_EMERGENCIA_TRIAJE ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                HistoriaClinica.txtPA.setText(r.getString(2)); 
+                HistoriaClinica.txtFC.setText(r.getString(3)); 
+                HistoriaClinica.txtFR.setText(r.getString(4)); 
+                HistoriaClinica.txtT.setText(r.getString(5)); 
+                HistoriaClinica.txtPeso.setText(r.getString(6)); 
+                HistoriaClinica.txtTalla.setText(r.getString(7)); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: historiaClinicaTratamiento  " + e.getMessage());
+        }
+    } 
+    
+    public String triajeID()
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT TOP 1 TRIAJE_ID FROM ADMISION_EMERGENCIA_TRIAJE WHERE TRIAJE_NOM_PC = HOST_NAME()"
+                    + "ORDER BY TRIAJE_ID DESC";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               FrmFormatoEmergencia.txtIDTriaje.setText(rs.getString(1));
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: triajeID: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
     public AdmisionEmergenciaTriaje()
     {
         Conexion con = new Conexion();
         cn = con.conectar();
     }
-    
     
     /**
      * @return the cn

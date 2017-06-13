@@ -10,14 +10,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.swing.JEditorPane;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -27,55 +19,32 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
+import vista.ConsultorioEx.HistoriaClinica;
 import vista.hospitalizacion.FrmHospitalizacionEpicrisis;
 import vista.hospitalizacion.FrmHospitalizacionNotaEnfermeria;
 
-/**
- *
- * @author PC02
- */
-@Entity
-@Table(name = "HOSPITALIZACION_NOTA_ENFERMERIA")
-@NamedQueries({
-    @NamedQuery(name = "HospitalizacionNotaEnfermeria.findAll", query = "SELECT h FROM HospitalizacionNotaEnfermeria h")})
 public class HospitalizacionNotaEnfermeria implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "NE_ID")
+
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     private int idPreventa;
     private int actoMedico;
     private int neId;
-    @Column(name = "NE_PA")
     private String nePa;
-    @Column(name = "NE_FR")
     private String neFr;
-    @Column(name = "NE_FC")
     private String neFc;
-    @Column(name = "NE_T")
     private String neT;
-    @Column(name = "NE_PESO")
     private String nePeso;
-    @Column(name = "NE_TALLA")
     private String neTalla;
-    @Column(name = "NE_IDM")
     private String neIdm;
-    @Column(name = "NE_ANOTACIONES")
     private String neAnotaciones;
-    @Column(name = "FECHA_ACTU")
     private String fechaActu;
-    @Column(name = "HORA_ACTU")
     private String horaActu;
-    @Column(name = "NOM_PC")
     private String nomPc;
-    @Column(name = "ESTADO")
     private Character estado;
-    @Column(name = "COD_USU")
     private String codUsu;
-    @OneToMany(mappedBy = "hospitalizacionNotaEnfermeria")
     private Collection<HospitalizacionNotaEnfermeriaProcedimiento> hospitalizacionNotaEnfermeriaProcedimientoCollection;
 
     public boolean mantenimientoHospitalizacionNotaEnfermeria(String tipo)
@@ -229,25 +198,6 @@ public class HospitalizacionNotaEnfermeria implements Serializable {
         }
     }
     
-    public void epi(JTextArea tabla){
-    String consulta="";
-        try {
-            String fila[]=new String[1];
-            //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="EXEC YAMILA ";
-            PreparedStatement cmd = getCn().prepareStatement(consulta);
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-                tabla.setText(r.getString(1)+"\n-----"); // id
-                    m.addRow(fila);
-                    c++;
-            }
-        } catch (Exception e) {
-            System.out.println("Error: listarDiagPresun: " + e.getMessage());
-        }
-    }
-    
     public String notaEnfermeriaID()
     {
         String cod="";
@@ -271,29 +221,85 @@ public class HospitalizacionNotaEnfermeria implements Serializable {
         return cod;
     }   
     
-//    public String epi()
-//    {
-//        String cod="";
-//        try
-//        {
-//            String sql = "SELECT NE_ANOTACIONES \n" +
-//"FROM HOSPITALIZACION_NOTA_ENFERMERIA\n" +
-//"WHERE ID_PREVENTA = 10262\n" +
-//"AND ESTADO = 'A'";
-//            PreparedStatement cmd = getCn().prepareStatement(sql);
-//            ResultSet rs = cmd.executeQuery();
-//            while(rs.next())
-//            {
-//               FrmHospitalizacionEpicrisis.txtProcedTerapeuticos.setText(rs.getString(1) + "\n" + rs.next());
-//               
-//            }
-//        }
-//        catch(Exception ex)
-//        {
-//            System.out.println("epi: " + ex.getMessage());
-//        }
-//        return cod;
-//    }   
+    public String notaEnfermeriaEpicrisis(String id_preventa)
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT FECHA_ACTU + ' - ' + HORA_ACTU  + CHAR(10) +  NE_ANOTACIONES + CHAR(10) + CHAR(10)  AS [text()]\n" +
+"                FROM HOSPITALIZACION_NOTA_ENFERMERIA AS tt\n" +
+"                WHERE ID_PREVENTA = "+id_preventa+"\n" +
+"                ORDER BY FECHA_ACTU DESC ,HORA_ACTU DESC\n" +
+"            FOR XML PATH('')";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            while(rs.next())
+            {
+               FrmHospitalizacionEpicrisis.txtProcedTerapeuticos.setText(rs.getString(1));
+               
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("notaEnfermeriaEpicrisis: " + ex.getMessage());
+        }
+        return cod;
+    }   
+    
+    public void historiaClinicaNotaEnfermeria(String id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_LISTAR_HISTORIAL_NOTA_ENFERMERIA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                HistoriaClinica.txtNotaEnfermeria.setText(r.getString(1)); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: historiaClinicaNotaEnfermeria  " + e.getMessage());
+        }
+    } 
+    
+    public void formatoTablaHistorialProcedimientos(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(100);//
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(80);//
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(250);//
+        tabla.setRowHeight(30);
+    }
+    
+    public void historiaClinicaNotaEnfermeriaProcedimientos(String preventa,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Fecha","CPT","Nomenclatura"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[3];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CONSULTORIO_EXT_LISTAR_HISTORIAL_NOTA_ENFERMERIA_PROCEDIMIENTOS ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, preventa);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); // 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaHistorialProcedimientos(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: historiaClinicaNotaEnfermeriaProcedimientos: " + e.getMessage());
+        }
+    }
     
     public HospitalizacionNotaEnfermeria() {
         Conexion con = new Conexion();

@@ -25,6 +25,7 @@ public class Caja_Preventa {
     DefaultTableModel m;
     private Connection cn;
     private int id_preventa;
+    private int Id_Detalle_p;
     private String id_hc;
     private int CA_ID;
     private int id_per_uni_org;
@@ -64,6 +65,7 @@ public class Caja_Preventa {
     private String elisa_prueba_ra;
     private String elisa_prueba_config;
     private String elisa_consejero;
+    private String Sexo;
 
     private String procedencia;
     
@@ -124,6 +126,56 @@ public class Caja_Preventa {
         catch(Exception ex)
         {
             System.out.println("mantenimientoCajaPreventaHospitalizacion: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+        public boolean CAJA_mantenimientoPreventaHospitalizacion(){
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_HOSPITALIZACION_NUEVO "
+                        + "?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_hc());
+            cmd.setInt(2, getCA_ID());
+            cmd.setString(3, gethOS_Indicaciones());
+            cmd.setString(4, getCod_usu());
+            cmd.setInt(5, getAR_ID());
+            cmd.setInt(6, getACTO_MEDICO());
+            cmd.setString(7, getCod_jerar_forma_pago());
+            cmd.setString(8, getCod_medico());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("mantenimientoCajaPreventaHospitalizacion caja: " + ex.getMessage());
+        }
+        return resp;
+    }
+    public boolean ActualizarGenero(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec CAJA_ACTUALIZAR_GENERO ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_hc());
+            cmd.setString(2, getSexo());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error al actualizar el DNI " + ex.getMessage());
         }
         return resp;
     }
@@ -263,6 +315,74 @@ public class Caja_Preventa {
         }
         return resp;
     }
+    
+    public boolean modificarDetallePreventa(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec Caja_Actualizar_Detalle_Preventa ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_Detalle_p());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+    public boolean modificarPreventaRetorno(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec Caja_Actualizar_Preventa_RETORNO ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+        public boolean modificarPreventaCEX(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec Caja_Actualizar_Preventa_CEX ?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+            cmd.setInt(2, getACTO_MEDICO());
+            cmd.setString(3, getCod_jerar_forma_pago());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error Modificar CEX  PREVENTA MODELO" + ex.getMessage());
+        }
+        return resp;
+    }
+
 
  
     public String Ultima_Emergencia(String ActoMedico){
@@ -351,10 +471,9 @@ public class Caja_Preventa {
         String cod="";
         try
         {
-            String sql = " select SA.AR_ID\n" +
-                        " from SISTEMA_SERVICIO SS, SISTEMA_AREAS SA, SISTEMA_CONFIGURACION_PC_AREA SP\n" +
-                        " WHERE SS.UP_ID in (02)\n" +
-                        " AND SP.SE_ID = SS.SE_ID\n" +
+            String sql = "select SA.AR_ID\n" +
+                        " from SISTEMA_SERVICIO SS, SISTEMA_AREAS SA\n" +
+                        " WHERE SS.UP_ID in (2) \n" +
                         " AND SA.AR_DESC = ?\n" +
                         " AND SA.SE_ID = SS.SE_ID";
             PreparedStatement cmd = getCn().prepareStatement(sql);
@@ -739,6 +858,77 @@ public class Caja_Preventa {
         } catch (Exception e) {
             System.out.println("Error: listarElisa: " + e.getMessage());
         }
+    }
+    
+    public void ListarPreventasCEX(String paciente,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"ID Prev","DNI","Nº H.C","Paciente",
+                "Modulo", "Fecha","Hora","Id_Hc","estado","ID_CPT","CPT","AREA"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[12];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="Caja_Mostrar_Preventas_CEX ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, paciente);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); 
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7); 
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
+                fila[10]=r.getString(11); 
+                fila[11]=r.getString(12);
+
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaCargarPreventaCEX(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar PREVENTA CEX: " + e.getMessage());
+        }
+    }
+    
+    public void formatoTablaCargarPreventaCEX(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setMinWidth(0);
+        tabla.getColumnModel().getColumn(0).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0);  
+        tabla.getColumnModel().getColumn(2).setMinWidth(0);
+        tabla.getColumnModel().getColumn(2).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(3).setMinWidth(0);
+        tabla.getColumnModel().getColumn(3).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(10).setPreferredWidth(500);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(11).setMinWidth(0);
+        tabla.getColumnModel().getColumn(11).setMaxWidth(0); 
+
+        
+        tabla.setRowHeight(45);
     }
     
     public Caja_Preventa()
@@ -1330,5 +1520,23 @@ public class Caja_Preventa {
     public void setElisa_consejero(String elisa_consejero) {
         this.elisa_consejero = elisa_consejero;
     }
+
+    public int getId_Detalle_p() {
+        return Id_Detalle_p;
+    }
+
+    public void setId_Detalle_p(int Id_Detalle_p) {
+        this.Id_Detalle_p = Id_Detalle_p;
+    }
+
+    public String getSexo() {
+        return Sexo;
+    }
+
+    public void setSexo(String Sexo) {
+        this.Sexo = Sexo;
+    }
+    
+    
 
 }

@@ -84,6 +84,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
         txtIdPreventa.setVisible(false);
         txtNeId.setVisible(false);
         lblId.setVisible(false);
+        lblMant.setVisible(false);
     }
     
     public void limpiar(){
@@ -151,6 +152,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
         habilitarDatosCabecera(true);
         habilitarCampos(true);
         btnNuevo.setEnabled(true);
+        txtPA.requestFocus();
     }
     
     public void enviarDatosNotasEnf(){
@@ -202,6 +204,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
 //            formatotbProcedimientos(tablaRecibe);
             dlgBuscarCPT.dispose();
             //btnQuitarDiag.setEnabled(true);
+            txtAnotacionesMedicas.requestFocus();
         } //else
         if(repiteProcedimientos(tablaEnvia,tablaRecibe)==true)
             JOptionPane.showMessageDialog(dlgBuscarCPT, "Diagnóstico ya registrado");
@@ -215,6 +218,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
             formatotbProcedimientos(tablaRecibe);
             dlgBuscarCPT.dispose();
             //btnQuitarDiag.setEnabled(true);
+            txtAnotacionesMedicas.requestFocus();
         }
     }
     
@@ -235,7 +239,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
             hospitalizacion.setNeTalla(txtTalla.getText());
             hospitalizacion.setNeIdm(txtIDM.getText());
             hospitalizacion.setNeAnotaciones(txtAnotacionesMedicas.getText());
-            hospitalizacion.setCodUsu(adEmerCab.codUsuario(lblusu.getText()));
+            hospitalizacion.setCodUsu(adEmerCab.codUsuario(lblUsu.getText()));
             if(hospitalizacion.mantenimientoHospitalizacionNotaEnfermeria(lblMant.getText())==true){
                 hospitalizacion.notaEnfermeriaID();
                 if(lblMant.getText().equals("I")){
@@ -300,7 +304,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                 HospitalizacionNotaEnfermeriaProcedimiento hospitalizacion = new HospitalizacionNotaEnfermeriaProcedimiento();
                 hospitalizacion.setNeId(id);
                 hospitalizacion.setCodNomenCaja(tbProced.getValueAt(i,2).toString());
-                hospitalizacion.setCodUsu(adEmer2.codUsuario(lblusu.getText()));
+                hospitalizacion.setCodUsu(adEmer2.codUsuario(lblUsu.getText()));
                 if(hospitalizacion.mantenimientoHospitalizacionNotaEnfermeriaProcedimiento(lblMant.getText())==true)
                     retorna = true;
             }
@@ -312,7 +316,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
     
     public void validaTurno(String ne_id){
         try {
-            String codUsu = adEmer.codUsuario(lblusu.getText());
+            String codUsu = adEmer.codUsuario(lblUsu.getText());
             PreparedStatement cmd = notaEnfermeria.getCn().prepareStatement("SELECT NE_ID\n" +
                 "FROM HOSPITALIZACION_NOTA_ENFERMERIA\n" +
                 "WHERE COD_USU = '"+codUsu+"'\n" +
@@ -371,7 +375,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                 btnNuevo = new javax.swing.JButton();
                 btnGuardar = new javax.swing.JButton();
                 btnEliminar = new javax.swing.JButton();
-                lblusu = new javax.swing.JLabel();
+                lblUsu = new javax.swing.JLabel();
                 lblMant = new javax.swing.JLabel();
                 jPanel1 = new javax.swing.JPanel();
                 jPanel4 = new javax.swing.JPanel();
@@ -707,8 +711,9 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                 btnBuscarPaciente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnBuscarPaciente.setForeground(new java.awt.Color(255, 255, 255));
                 btnBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-32.png"))); // NOI18N
+                btnBuscarPaciente.setMnemonic('B');
                 btnBuscarPaciente.setText("Buscar");
-                btnBuscarPaciente.setToolTipText("");
+                btnBuscarPaciente.setToolTipText("Buscar Paciente (Alt + B)");
                 btnBuscarPaciente.setContentAreaFilled(false);
                 btnBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 btnBuscarPaciente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -723,7 +728,9 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                 btnNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnNuevo.setForeground(new java.awt.Color(240, 240, 240));
                 btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Documento-32.png"))); // NOI18N
+                btnNuevo.setMnemonic('N');
                 btnNuevo.setText("Nuevo");
+                btnNuevo.setToolTipText("Nuevo Registro (Alt + N)");
                 btnNuevo.setContentAreaFilled(false);
                 btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 btnNuevo.setEnabled(false);
@@ -740,7 +747,9 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                 btnGuardar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnGuardar.setForeground(new java.awt.Color(240, 240, 240));
                 btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
+                btnGuardar.setMnemonic('G');
                 btnGuardar.setText("Guardar");
+                btnGuardar.setToolTipText("Guardar Registro (Alt + G)");
                 btnGuardar.setContentAreaFilled(false);
                 btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 btnGuardar.setEnabled(false);
@@ -757,7 +766,9 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                 btnEliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnEliminar.setForeground(new java.awt.Color(240, 240, 240));
                 btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Basura-32.png"))); // NOI18N
+                btnEliminar.setMnemonic('E');
                 btnEliminar.setText("Eliminar");
+                btnEliminar.setToolTipText("Eliminar Registro (Alt + E)");
                 btnEliminar.setContentAreaFilled(false);
                 btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 btnEliminar.setEnabled(false);
@@ -771,12 +782,12 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                     }
                 });
 
-                lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-                lblusu.setForeground(new java.awt.Color(255, 255, 255));
-                lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
-                lblusu.setText("Silvana");
-                lblusu.setFocusable(false);
-                lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+                lblUsu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+                lblUsu.setForeground(new java.awt.Color(255, 255, 255));
+                lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
+                lblUsu.setText("Silvana");
+                lblUsu.setFocusable(false);
+                lblUsu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
                 lblMant.setText("jLabel1");
 
@@ -786,7 +797,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                     jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -822,7 +833,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblusu))
+                        .addComponent(lblUsu))
                 );
 
                 jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -832,9 +843,9 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                 btnAgregarProcedimiento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                 btnAgregarProcedimiento.setForeground(new java.awt.Color(255, 255, 255));
                 btnAgregarProcedimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Document-32.png"))); // NOI18N
-                btnAgregarProcedimiento.setMnemonic('B');
+                btnAgregarProcedimiento.setMnemonic('P');
                 btnAgregarProcedimiento.setText("Agregar Procedimiento");
-                btnAgregarProcedimiento.setToolTipText("Buscar Paciente (Alt + B)");
+                btnAgregarProcedimiento.setToolTipText("Agregar Procedimiento(Alt + P)");
                 btnAgregarProcedimiento.setBorderPainted(false);
                 btnAgregarProcedimiento.setContentAreaFilled(false);
                 btnAgregarProcedimiento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -851,9 +862,8 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                 jPanel4Layout.setHorizontalGroup(
                     jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(btnAgregarProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnAgregarProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                 );
                 jPanel4Layout.setVerticalGroup(
                     jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -861,6 +871,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                 );
 
                 txtAnotacionesMedicas.setEditable(false);
+                txtAnotacionesMedicas.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                 txtAnotacionesMedicas.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyReleased(java.awt.event.KeyEvent evt) {
                         txtAnotacionesMedicasKeyReleased(evt);
@@ -1253,7 +1264,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                         return false;
                     }
                 };
-                tbProced.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                tbProced.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                 tbProced.setModel(new javax.swing.table.DefaultTableModel(
                     new Object [][] {
 
@@ -1527,9 +1538,8 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
                         .addComponent(pnlCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 29, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
                 );
 
@@ -1677,7 +1687,10 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPacienteActionPerformed
 
     private void txtPacienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPacienteKeyPressed
-
+        if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
+            tbPacientesHospitalizados.getSelectionModel().setSelectionInterval(0,0);
+            tbPacientesHospitalizados.requestFocus();
+        }
     }//GEN-LAST:event_txtPacienteKeyPressed
 
     private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
@@ -1855,7 +1868,7 @@ public class FrmHospitalizacionNotaEnfermeria extends javax.swing.JFrame {
     private javax.swing.JLabel lblPaciente;
     private javax.swing.JLabel lblProcedimientos;
     private javax.swing.JLabel lblServicio;
-    public static javax.swing.JLabel lblusu;
+    public static javax.swing.JLabel lblUsu;
     private javax.swing.JPanel pnlCabecera;
     private javax.swing.JPanel pnlMensaje;
     private javax.swing.JTable tbNotas;

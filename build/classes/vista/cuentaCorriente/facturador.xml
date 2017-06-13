@@ -1,0 +1,384 @@
+<cbc:IssueDate>2011-06-28</cbc:IssueDate>
+<!--Firma Digital-->
+<ext:UBLExtensions>
+<ext:UBLExtension>
+<ext:ExtensionContent>
+<ds:Signature Id="signatureKG">
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-
+20010315#WithComments"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+<ds:Reference URI="">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#envelopedsignature"/>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>+pruib33lOapq6GSw58GgQLR8VGIGqANloj4EqB1cb4=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue>Oatv5xMfFInuGqiX9SoLDTy2yuLf0tTlMFkWtkdw1z/Ss6kiDz+vIgZhgKfIaxp+JbVy57
+GT52f1
+8D6+WMYZ0xOxTK2mojNkJNewwTTXzqOqrrAlObs9YoS5JAQAMi/TwkR4brNniU9tVwyybirHxw0H
+WVzN2bB43yQd9hOlXzRUYpC8/sXw78h7ME3E/zeu882aOFySOnHWB63imBQGcYBV+LIGR/JW8ER+
+0VLMLatdwPVRbrWmz1/NIy5CWp1xWMaM6fC/9SXV0O1Lqopk0UeX2I2yuf05QhmVfjgUu6GnS3m6
+o6zM9J36iDvMVZyj7vbJTwI8SfWjTSNqxXlqPQ==</ds:SignatureValue>
+<ds:KeyInfo>
+<ds:X509Data>
+<ds:X509Certificate>MIIF9TCCBN2gAwIBAgIGAK0oRTg/MA0GCSqGSIb3DQEBCwUAMFkxCzAJBgNVB
+AYTAlRSMUowSAYD
+VQQDDEFNYWxpIE3DvGjDvHIgRWxla3Ryb25payBTZXJ0aWZpa2EgSGl6bWV0IFNhxJ9sYXnEsWPE
+sXPEsSAtIFRlc3QgMTAeFw0wOTEwMjAxMTM3MTJaFw0xNDEwMTkxMTM3MTJaMIGgMRowGAYDVQQL
+DBFHZW5lbCBNw7xkw7xybMO8azEUMBIGA1UEBRMLMTAwMDAwMDAwMDIxbDBqBgNVBAMMY0F5ZM
+Sx
+biBHcm91cCAtIFR1cml6bSDEsHRoYWxhdCDEsGhyYWNhdCBUZWtzdGlsIMSwbsWfYWF0IFBhemFy
+bGFtYSBEYW7EscWfbWFubMSxayDFnmlya2V0bGVyIEd1cnVidTCCASIwDQYJKoZIhvcNAQEBBQAD
+ggEPADCCAQoCggEBAKDt8WamB8ZCGqkLVP0rzY/BHGEXy8lT56m2dK7tswsvZxZYkV2qLGAxRlIY
+m6BR6bhJ7EWxbEbN+JTvyN+GF+hHjDivfslyAyHFkj0SSzv8ZZueMolkGBMchnk+AVt7NLOWDfQ7
+Z4w8eoKVlTnm/Oc0mwNlD/FA7+kF+ujuqIqTS0+ic69/lCfluzI0tzFB9tj9Q6Uy20+MPy9FVUmo
+4CJOTK0Qop/PgXsshX3fdiK8xha27VYDPTIab2ywu9PTqHj5N/d7j+OviISTcTRhIWtkujUrnjxe
+uYE4Md4TPX/J7FhRD7ydoLoRm+CPwXCNXAq9IuJlw1m9mtch0+6pz90CAwEAAaOCAnkwggJ1MB8G
+A1UdIwQYMBaAFDMWVMTfikyw1eUSpUXYmkw7n/hdMB0GA1UdDgQWBBT7OwFR6wLVKsTw6jL5+Hf1
+s/ZDPTAOBgNVHQ8BAf8EBAMCB4AwggEzBgNVHSAEggEqMIIBJjCCASIGC2CGGAECAQEFBwQBMIIB
+ETAqBggrBgEFBQcCARYeaHR0cDovL2RlcG8ua2FtdXNtLmdvdi50ci9pbGtlMIHiBggrBgEFBQcC
+AjCB1R6B0gBCAHUAIABzAGUAcgB0AGkAZgBpAGsAYQAgAGkAbABlACAAaQBsAGcAaQBsAGkAIABz
+AGUAcgB0AGkAZgBpAGsAYQAgAHUAeQBnAHUAbABhAG0AYQAgAGUAcwBhAHMAbABhAHIBMQBuAT
+EA
+IABvAGsAdQBtAGEAawAgAGkA5wBpAG4AIABiAGUAbABpAHIAdABpAGwAZQBuACAAdwBlAGIAIABz
+AGkAdABlAHMAaQBuAGkAIAB6AGkAeQBhAHIAZQB0ACAAZQBkAGkAbgBpAHoALjAMBgNVHRMBAf8E
+AjAAMBYGA1UdJQQPMA0GC2CGGAECAQEFBzIBMEEGA1UdHwQ6MDgwNqA0oDKGMGh0dHA6Ly9kZX
+Bv
+LmthbXVzbS5nb3YudHIva3VydW1zYWwvbW1lc2hzLXQxLmNybDCBggYIKwYBBQUHAQEEdjB0MDwG
+CCsGAQUFBzAChjBodHRwOi8vZGVwby5rYW11c20uZ292LnRyL2t1cnVtc2FsL21tZXNocy10MS5j
+cnQwNAYIKwYBBQUHMAGGKGh0dHA6Ly9jaXNkdXBtbXQxLmt1cnVtc2FsLmthbXVzbS5nb3YudHIw
+DQYJKoZIhvcNAQELBQADggEBAGCcBJ7cEfYc2MaPchbc1yPXku8V8SOWpjg+jrTXBW98dy9HvciW
+iMwtPnC2DRjdsyGv3bxwRZr9wXMRrMNwRjyFe9JPA7bSscEgaXwzDUG5FCvfS/PNT+XCce+VECAx
+6Q3R1ZRSA49fYz6tDB4Ia5HVBXZODmrCs26XisHF6kuS5N/yGg8E7VC1BRr/SmxXeLTdjQYAfo7l
+xCz4dT6wP5TOiBvF+lyWW1bi9nbliXyb/e5HjCp4k/ra9LTskjbY/Ukl5O8G9JEAViZkjvxDX7T0
+yVRHgMGiioIKVMwU6Lrtln607BNurLwED0OeoZ4wBgkBiB5vXofreXrfN2pHZ24=
+</ds:X509Certificate>
+</ds:X509Data>
+</ds:KeyInfo>
+</ds:Signature>
+
+</ext:ExtensionContent>
+</ext:UBLExtension>
+</ext:UBLExtensions>
+ <cac:Signature>
+ <cbc:ID>IDSignKG</cbc:ID>
+ <cac:SignatoryParty>
+ <cac:PartyIdentification>
+ <cbc:ID>20100113612</cbc:ID>
+ </cac:PartyIdentification>
+ <cac:PartyName>
+ <cbc:Name><![CDATA[K&G Laboratorios]]></cbc:Name>
+ </cac:PartyName>
+ </cac:SignatoryParty>
+ <cac:DigitalSignatureAttachment>
+ <cac:ExternalReference>
+ <cbc:URI>#signatureKG</cbc:URI>
+ </cac:ExternalReference>
+ </cac:DigitalSignatureAttachment>
+ </cac:Signature>
+ <!--   Apellidos y nombres, denominación o razón social
+        Nombre Comercial
+        Domicilio fiscal
+        Número de RUC-->
+ <cac:AccountingSupplierParty>
+<cbc:CustomerAssignedAccountID>20100113612</cbc:CustomerAssignedAccountID>
+<cbc:AdditionalAccountID>6</cbc:AdditionalAccountID>
+<cac:Party>
+<cac:PartyName>
+<cbc:Name><![CDATA[K&G Laboratorios]]></cbc:Name>
+</cac:PartyName>
+<cac:PostalAddress>
+<cbc:ID>150114</cbc:ID>
+<cbc:StreetName>CALLE LOS OLIVOS 767</cbc:StreetName>
+<cbc:CitySubdivisionName>URB. SANTA FELICIA</cbc:CitySubdivisionName>
+<cbc:CityName>LIMA</cbc:CityName>
+<cbc:CountrySubentity>LIMA</cbc:CountrySubentity>
+<cbc:District>LA MOLINA</cbc:District>
+<cac:Country>
+<cbc:IdentificationCode>PE</cbc:IdentificationCode>
+</cac:Country>
+</cac:PostalAddress>
+<cac:PartyLegalEntity>
+<cbc:RegistrationName><![CDATA[K&G Asociados S. A.]]></cbc:RegistrationName>
+</cac:PartyLegalEntity>
+</cac:Party>
+</cac:AccountingSupplierParty>
+<!--Tipo de documento (Factura)-->
+<cbc:InvoiceTypeCode>01</cbc:InvoiceTypeCode>
+<!--Numeración, conformada por serie y número correlativo-->
+<cbc:ID>F002-10</cbc:ID>
+<!--Tipo y número de documento de identidad del adquirente o usuario
+Apellidos y nombres, denominación o razón social del adquirente o usuario-->
+ <cac:AccountingCustomerParty>
+<cbc:CustomerAssignedAccountID>20382170114</cbc:CustomerAssignedAccountID>
+<cbc:AdditionalAccountID>6</cbc:AdditionalAccountID>
+<cac:Party>
+<cac:PartyLegalEntity>
+<cbc:RegistrationName><![CDATA[CECI FARMA IMPORT S.R.L.]]></cbc:RegistrationName>
+</cac:PartyLegalEntity>
+</cac:Party>
+</cac:AccountingCustomerParty>
+<!--Unidad de medida por ítem
+Cantidad de unidades por ítem-->
+<cbc:InvoicedQuantity /@unitCode="CS">300.0</cbc:InvoicedQuantity>
+<!--Descripción detallada del servicio prestado, bien vendido o cedido en uso, indicando las características-->
+<cac:InvoiceLine>
+ <cac:Item>
+<cbc:Description><![CDATA[CAPTOPRIL 25mg X 30]]></cbc:Description>
+ …
+</cac:Item>
+</cac:InvoiceLine>
+<!--Valor unitario por ítem-->
+<cac:InvoiceLine>
+ …
+<cac:Price>
+    <cbc:PriceAmount/@currencyID="PEN">678.0</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+<!--15 Precio de venta unitario por item y código-->
+<cac:InvoiceLine>
+ …
+ <cac:PricingReference>
+ <cac:AlternativeConditionPrice>
+<cbc:PriceAmount/@currencyID="PEN">20.50</cbc:PriceAmount>
+ <cbc:PriceTypeCode>01</cbc:PriceTypeCode>
+</cac:AlternativeConditionPrice>
+ </cac:PricingReference>
+ …
+</cac:InvoiceLine>
+
+<!--Afectación al IGV por ítem
+Sistema de ISC por ítem-->
+<cac:InvoiceLine>
+ …
+<cac:TaxTotal>
+<cbc:TaxAmount/@currencyID="PEN">26361.55</cbc:TaxAmount>
+<cac:TaxSubtotal>
+<cbc:TaxAmount/@currencyID="PEN">26361.55</cbc:TaxAmount>
+<cac:TaxCategory>
+<cbc:TaxExemptionReasonCode>10</cbc:TaxExemptionReasonCode>
+<cac:TaxScheme>
+<cbc:ID>1000</cbc:ID>
+<cbc:Name>IGV</cbc:Name>
+<cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+</cac:TaxScheme>
+</cac:TaxCategory>
+</cac:TaxSubtotal>
+</cac:TaxTotal>
+<cac:TaxTotal>
+<cbc:TaxAmount/@currencyID="PEN">8745.0</cbc:TaxAmount>
+<cac:TaxSubtotal>
+<cbc:TaxAmount/@currencyID="PEN">8745.0</cbc:TaxAmount>
+<cac:TaxCategory>
+<cbc:TierRange>02</cbc:TierRange>
+<cac:TaxScheme>
+<cbc:ID>2000</cbc:ID>
+<cbc:Name>ISC</cbc:Name>
+<cbc:TaxTypeCode>EXC</cbc:TaxTypeCode>
+</cac:TaxScheme>
+</cac:TaxCategory>
+</cac:TaxSubtotal>
+</cac:TaxTotal>
+ …
+</cac:InvoiceLine>
+<!--Total valor de venta - operaciones gravadas
+Total valor de venta - operaciones inafectas
+Total valor de venta - operaciones exoneradas
+Total valor de venta - operaciones gratuitas-->
+<ext:UBLExtensions>
+ <ext:UBLExtension>
+<ext:ExtensionContent>
+ <sac:AdditionalInformation>
+ <sac:AdditionalMonetaryTotal>
+ <cbc:ID>1001</cbc:ID>
+<cbc:PayableAmount/@currencyID="PEN">22.50</cbc:PayableAmount>
+ </sac:AdditionalMonetaryTotal>
+ <sac:AdditionalMonetaryTotal>
+ <cbc:ID>1002</cbc:ID>
+<cbc:PayableAmount/@currencyID="PEN">456.78</cbc:PayableAmount>
+ </sac:AdditionalMonetaryTotal>
+ <sac:AdditionalMonetaryTotal>
+ <cbc:ID>1003</cbc:ID>
+<cbc:PayableAmount/@currencyID="PEN">21.99</cbc:PayableAmount>
+ </sac:AdditionalMonetaryTotal>
+ <sac:AdditionalMonetaryTotal>
+ <cbc:ID>1004</cbc:ID>
+<cbc:PayableAmount/@currencyID="PEN">70.00</cbc:PayableAmount>
+ </sac:AdditionalMonetaryTotal>
+ </sac:AdditionalInformation>
+ </ext:ExtensionContent>
+</ext:UBLExtension>
+</ext:UBLExtensions>
+
+<!--Valor de venta por ítem-->
+<cac:InvoiceLine>
+ …
+ <cbc:LineExtensionAmount/@currencyID="PEN">172890.0</cbc:LineExtensionAmount>
+ …
+</cac:InvoiceLine>
+
+<!--Sumatoria IGV
+Sumatoria ISC
+Sumatoria otros tributos-->
+<cac:TaxTotal>
+<cbc:TaxAmount/@currencyID="PEN">8745.0</cbc:TaxAmount>
+<cac:TaxSubtotal>
+<cbc:TaxAmount/@currencyID="PEN">8745.0</cbc:TaxAmount>
+<cac:TaxCategory>
+<cac:TaxScheme>
+<cbc:ID>2000</cbc:ID>
+<cbc:Name>ISC</cbc:Name>
+<cbc:TaxTypeCode>EXC</cbc:TaxTypeCode>
+</cac:TaxScheme>
+</cac:TaxCategory>
+</cac:TaxSubtotal>
+</cac:TaxTotal>
+<cac:TaxTotal>
+<cbc:TaxAmount/@currencyID="PEN">59210.65</cbc:TaxAmount>
+<cac:TaxSubtotal>
+<cbc:TaxAmount/@currencyID="PEN">59210.65</cbc:TaxAmount>
+<cac:TaxCategory>
+<cac:TaxScheme>
+<cbc:ID>1000</cbc:ID>
+<cbc:Name>IGV</cbc:Name>
+<cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+</cac:TaxScheme>
+</cac:TaxCategory>
+</cac:TaxSubtotal>
+</cac:TaxTotal>
+<cac:TaxTotal>
+<cbc:TaxAmount/@currencyID="PEN">39000.0</cbc:TaxAmount>
+<cac:TaxSubtotal>
+<cbc:TaxAmount/@currencyID="PEN">39000.0</cbc:TaxAmount>
+<cac:TaxCategory>
+<cac:TaxScheme>
+<cbc:ID>9999</cbc:ID>
+<cbc:Name>OTROS</cbc:Name>
+<cbc:TaxTypeCode>OTH</cbc:TaxTypeCode>
+</cac:TaxScheme>
+</cac:TaxCategory>
+</cac:TaxSubtotal>
+</cac:TaxTotal>
+
+<!--Sumatoria Otros Cargos-->
+ <cac:LegalMonetaryTotal>
+<cbc:ChargeTotalAmount/@currencyID="PEN">305190.0</cbc: ChargeTotalAmount>
+…
+ </cac:LegalMonetaryTotal>
+<!--Total descuentos-->
+<ext:UBLExtensions>
+<ext:UBLExtension>
+<ext:ExtensionContent>
+ <sac:AdditionalInformation>
+ <sac:AdditionalMonetaryTotal>
+ <cbc:ID>2005</cbc:ID>
+<cbc:PayableAmount/@currencyID="PEN">3456.58</cbc:PayableAmount>
+ </sac:AdditionalMonetaryTotal>
+ </sac:AdditionalInformation>
+ </ext:ExtensionContent>
+</ext:UBLExtension>
+</ext:UBLExtensions>
+<!-- Importe total de la venta, cesión en uso o del servicio prestado-->
+ <cac:LegalMonetaryTotal>
+     <cbc:PayableAmount/@currencyID="PEN">331465.52</cbc:PayableAmount>
+ </cac:LegalMonetaryTotal>
+ 
+ <!--Tipo de moneda en la cual se emite la factura electrónica-->
+<cbc:DocumentCurrencyCode>PEN</cbc:DocumentCurrencyCode>
+
+ <!--Tipo y número de la guía de remisión relacionada con la operación que se factura-->
+<cac:DespatchDocumentReference>
+<cbc:ID>031-002020</cbc:ID>
+<cbc:DocumentTypeCode>09</cbc:DocumentTypeCode>
+</cac:DespatchDocumentReference>
+
+<!--Tipo y número de otro documento y código relacionado con la operación que se factura-->
+<cac:AdditionalDocumentReference>
+<cbc:ID>024099</cbc:ID>
+<cbc:DocumentTypeCode>05</cbc:DocumentTypeCode>
+</cac:AdditionalDocumentReference>
+
+<!--Leyendas-->
+<ext:UBLExtensions>
+ <ext:UBLExtension>
+<ext:ExtensionContent>
+ <sac:AdditionalInformation>
+ <sac:AdditionalProperty>
+ <cbc:ID>1000</cbc:ID>
+<cbc:Value>SON DOSCIENTOS Y 00/100 NUEVOS SOLES</cbc:Value>
+ </sac:AdditionalProperty>
+ <sac:AdditionalProperty>
+ <cbc:ID>2000</cbc:ID>
+<cbc:Value> COMPROBANTE DE PERCEPCION </cbc:Value>
+ </sac:AdditionalProperty>
+</sac:AdditionalInformation>
+ </ext:ExtensionContent>
+</ext:UBLExtension>
+</ext:UBLExtensions>
+
+<!--Importe de la percepción en moneda nacional-->
+<ext:UBLExtensions>
+<ext:UBLExtension>
+<ext:ExtensionContent>
+ <sac:AdditionalInformation>
+ <sac:AdditionalMonetaryTotal>
+ <cbc:ID>2001</cbc:ID>
+ <sac: ReferenceAmount/@currencyID="PEN">25015.81</sac: ReferenceAmount
+<cbc:PayableAmount/@currencyID="PEN">9562.51</cbc:PayableAmount>
+ <sac:TotalAmount/@currencyID="PEN">34578.32 </sac:TotalAmount>
+ </sac:AdditionalMonetaryTotal>
+ </sac:AdditionalInformation>
+ </ext:ExtensionContent>
+</ext:UBLExtension>
+</ext:UBLExtensions>
+
+<!--Número de orden del Ítem-->
+<cac:InvoiceLine>
+<cbc:ID>1</cbc:ID>
+ ….
+ </cac:InvoiceLine>
+
+<!--Código de producto-->
+<cac:InvoiceLine>
+ …
+ <cac:Item>
+ …
+<cac:SellersItemIdentification>
+<cbc:ID>Cap-258963</ cbc:ID>
+</cac:SellersItemIdentification>
+ </cac:Item>
+ …
+</cac:InvoiceLine>
+
+<!--Valor referencial unitario por ítem en operaciones no onerosas-->
+<cac:InvoiceLine>
+ …
+ <cac:PricingReference>
+ <cac:AlternativeConditionPrice>
+<cbc:PriceAmount/@currencyID="PEN">19.30</cbc:PriceAmount>
+ <cbc:PriceTypeCode>02</cbc:PriceTypeCode>
+</cac:AlternativeConditionPrice>
+ </cac:PricingReference>
+ </cac:InvoiceLine>
+<!--36 Versión del UBL-->
+<cbc:UBLVersionID>2.0</cbc:UBLVersionID>
+<!--37 Versión de la estructura del documento-->
+<cbc:CustomizationID>1.0</cbc:CustomizationID>
+<!-- Descuentos Globales-->
+<cac:LegalMonetaryTotal>
+………………
+<cbc:AllowanceTotalAmount currencyID="PEN">7000.00</cbc:AllowanceTotalAmount>
+ …..
+</cac:LegalMonetaryTotal>
+<!-- Descuentos por item-->
+<cac:InvoiceLine>
+….
+<cac:AllowanceCharge>
+<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+<cbc:Amount currencyID="PEN">70.00</cbc:Amount>
+</cac:AllowanceCharge>
+…
+</cac:InvoiceLine>

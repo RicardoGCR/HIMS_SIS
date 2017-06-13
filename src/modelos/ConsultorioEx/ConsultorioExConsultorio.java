@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
@@ -127,6 +128,127 @@ public class ConsultorioExConsultorio {
             formatoTablaConsultorio(tabla);
         } catch (Exception e) {
             System.out.println("Error: listarConsultorios: " + e.getMessage());
+        }
+    }
+    
+    public void formatoTablaListarConsultorioCabecera(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(0);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(20);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(30);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(200);
+//        COLUMNAS OCULTAS
+        TableColumn columna = tabla.getColumnModel().getColumn(0);
+            columna.setMaxWidth(0);
+            columna.setMinWidth(0);
+            columna.setPreferredWidth(0);
+            tabla.doLayout();
+        tabla.setRowHeight(30);
+    }
+    
+    public void inicializarTablaListarConsultorioCabecera(JTable tabla){
+        tabla.setModel(new DefaultTableModel());
+        String titulos[]={"Fecha","Acto Médico","Área"};
+        m=new DefaultTableModel(null,titulos);
+        tabla.setModel(m);
+        TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+        tabla.setRowSorter(elQueOrdena);
+        tabla.setModel(m);
+        formatoTablaListarConsultorioCabecera(tabla);
+    }
+    
+    public void listarConsultorioCabecera(String idHc, JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"","Fecha","Acto Médico","Área"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[4];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC [CONSULTORIO_EXT_LISTAR_CONSULTORIO_CABECERA] ?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, idHc);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaListarConsultorioCabecera(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarConsultorioCabecera: " + e.getMessage());
+        }
+    }
+    
+    public void listarEmergencia(String idHc, JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"","Fecha","Acto Médico","Área"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[4];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC [CONSULTORIO_EXT_LISTAR_HISTORIAL_CAJA_PREVENTA_EMERGENCIA] ?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, idHc);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaListarConsultorioCabecera(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarEmergencia: " + e.getMessage());
+        }
+    }
+    
+    public void listarHospitalizacion(String idHc, JTable tabla){
+    String consulta="";
+        try {
+                tabla.setModel(new DefaultTableModel());
+                String titulos[]={"","Fecha","Acto Médico","Área"};
+                m=new DefaultTableModel(null,titulos);
+                JTable p=new JTable(m);
+                String fila[]=new String[4];
+                //int index = cbxTipoBusqueda.getSelectedIndex();
+                consulta="EXEC [CONSULTORIO_EXT_LISTAR_HISTORIAL_CAJA_PREVENTA_HOSPITALIZACION] ?";
+                PreparedStatement cmd = getCn().prepareStatement(consulta);
+                cmd.setString(1, idHc);
+                ResultSet r= cmd.executeQuery();
+                int c=1;
+                while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaListarConsultorioCabecera(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listarHospitalizacion: " + e.getMessage());
         }
     }
     

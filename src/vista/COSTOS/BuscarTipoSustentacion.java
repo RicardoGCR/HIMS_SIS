@@ -108,7 +108,6 @@ public class BuscarTipoSustentacion extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("SISGESH .::. Búsqueda de Factor de Producción");
         setAlwaysOnTop(true);
         setResizable(false);
 

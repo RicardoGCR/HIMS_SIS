@@ -110,7 +110,6 @@ public void cargarTipoUsuario(){
             btnBuscar = new javax.swing.JButton();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setTitle("SISGESH .::. Búsqueda de Tipo de Usuario");
 
             tb_TipoUsuario.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {

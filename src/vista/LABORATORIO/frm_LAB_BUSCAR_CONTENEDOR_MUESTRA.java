@@ -175,6 +175,11 @@ public void LAB_Contenedor_cargar(){
 
             txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
             txtBuscar.setText("Ingrese el Nombre del Contenedor");
+            txtBuscar.addCaretListener(new javax.swing.event.CaretListener() {
+                public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                    txtBuscarCaretUpdate(evt);
+                }
+            });
             txtBuscar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     txtBuscarActionPerformed(evt);
@@ -183,6 +188,9 @@ public void LAB_Contenedor_cargar(){
             txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {
                     txtBuscarKeyPressed(evt);
+                }
+                public void keyReleased(java.awt.event.KeyEvent evt) {
+                    txtBuscarKeyReleased(evt);
                 }
                 public void keyTyped(java.awt.event.KeyEvent evt) {
                     txtBuscarKeyTyped(evt);
@@ -324,6 +332,14 @@ String consulta="";
             tb_Contenedor.requestFocus();
         }
     }//GEN-LAST:event_txtBuscarKeyPressed
+
+    private void txtBuscarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarCaretUpdate
+      
+    }//GEN-LAST:event_txtBuscarCaretUpdate
+
+    private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarKeyReleased
 
     /**
      * @param args the command line arguments

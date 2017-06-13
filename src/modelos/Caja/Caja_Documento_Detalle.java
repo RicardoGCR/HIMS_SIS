@@ -9,18 +9,24 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
+import vista.Caja.Caja_Pagos;
 /**
  *
  * @author MYS1
  */
 public class Caja_Documento_Detalle {
+DefaultTableModel m;
 private Connection cn;
 private int id_cod_doc_det;
 private String id_documento;  
 private String cod_precio;
 private String nom_consultorio_citas;  
-private Double cantidad_detalle;
+private int cantidad_detalle;
 private Double precio_detalle;
 private Double total_detalle;
 private String fecha_aten;
@@ -110,26 +116,67 @@ Conexion con = new Conexion();
         return cod;
     }
     
+     public String CodPrecio_COD_PRECIO(String precio)
+    {
+        String cod="";
+        try
+        {
+            String sql = "EXEC CAJA_HALLAR_PRECIO_DE_CODPRECIO ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, precio);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_PRECIO DEL CODIGO DEL PRECIO: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+    public String VisibleAdmin(String codigo)
+    {
+        String cod="";
+        try
+        {
+            String sql = "EXEC Caja_Listar_Visible_Admin ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, codigo);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_PRECIO: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
     
 public boolean DetalleVenta(){
         boolean resp = false;
         try{
             String sql = "exec CAJA_INSERTAR_DETALLE_VENTA "
-                        + "?,?,?,?,?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
   
             cmd.setString(1, getId_documento());
             cmd.setString(2, getCod_precio());
             cmd.setString(3, getNom_consultorio_citas());
-            cmd.setDouble(4, getCantidad_detalle());
+            cmd.setInt(4, getCantidad_detalle());
             cmd.setDouble(5, getPrecio_detalle());
             cmd.setDouble(6, getTotal_detalle());
-            cmd.setString(7, getFecha_aten());
-            cmd.setDouble(8, getDescu_exo_detalle());
-            cmd.setString(9, getPersonal_aten());
-            cmd.setString(10, getNum_aten());
-            cmd.setString(11, getTurno_cita());
-            cmd.setString(12, getCod_usu());
+            cmd.setDouble(7, getDescu_exo_detalle());
+            cmd.setString(8, getPersonal_aten());
+            cmd.setString(9, getNum_aten());
+            cmd.setString(10, getTurno_cita());
+            cmd.setString(11, getCod_usu());
 
 
             if(!cmd.execute())
@@ -145,6 +192,131 @@ public boolean DetalleVenta(){
         }
         return resp;
     }
+
+    public boolean MovimientoHC(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_Mantenimiento_Movimiento_HC ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+  
+            cmd.setString(1, getCod_usu());
+            cmd.setString(2, getId_documento());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error  " + ex.getMessage());
+        }
+        return resp;
+    }
+
+
+public void DetalleID(String ap_id){
+        String consulta="";
+        try {
+            consulta="Listar_Detalle_preventa ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, ap_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                
+            /////////Referida
+                
+                Caja_Pagos.lblIdDetalle.setText(r.getString(13));    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: LISTAR ID DETALLE  " + e.getMessage());
+        }
+    }
+public void Detalle(String codigo,JTable tabla){
+//    tabla.getTableHeader().setVisible(false);
+//    tabla.setTableHeader(null);
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"CPT","Cantidad","Precio","Dsct.","SubTotal","Departamento / Área","Fechs Atencion","Medico/Personal","Nº Atencion","Turno","cpt","idd","id_detalle","id_doc"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[14];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="Listar_Detalle_preventa ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, codigo);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); 
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7); 
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
+                fila[10]=r.getString(11); 
+                fila[11]=r.getString(12);
+                fila[12]=r.getString(13); 
+                fila[13]=r.getString(14);
+
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaCPT(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar detalle de venta: " + e.getMessage());
+        }
+    }
+    
+    public void formatoTablaCPT(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(350);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(100);  
+        tabla.getColumnModel().getColumn(1).setMinWidth(0);
+        tabla.getColumnModel().getColumn(1).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(3).setMinWidth(0);
+        tabla.getColumnModel().getColumn(3).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(10).setMinWidth(0);
+        tabla.getColumnModel().getColumn(10).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(8).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(150);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(11).setMinWidth(0);
+        tabla.getColumnModel().getColumn(11).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(12).setMinWidth(0);
+        tabla.getColumnModel().getColumn(12).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(13).setMinWidth(0);
+        tabla.getColumnModel().getColumn(13).setMaxWidth(0);
+
+
+
+        
+        tabla.setRowHeight(40);
+    }
+
+
+
+
+
+
 
 
  public Caja_Documento_Detalle(){
@@ -192,11 +364,11 @@ public boolean DetalleVenta(){
         this.nom_consultorio_citas = nom_consultorio_citas;
     }
 
-    public Double getCantidad_detalle() {
+    public int getCantidad_detalle() {
         return cantidad_detalle;
     }
 
-    public void setCantidad_detalle(Double cantidad_detalle) {
+    public void setCantidad_detalle(int cantidad_detalle) {
         this.cantidad_detalle = cantidad_detalle;
     }
 

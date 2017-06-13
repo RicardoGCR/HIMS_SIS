@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 import modelos.ConsultorioEx.ConsultorioExtRsCcd;
 import modelos.ConsultorioEx.ConsultorioExtRsMonitoreo;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
-import sun.reflect.generics.visitor.Reifier;
+//import sun.reflect.generics.visitor.Reifier;
 
 /**
  *
@@ -138,7 +138,7 @@ private Dimension DimensionBarra = null;
             monitoreo1.setMoPeso(txtPeso.getText());
             monitoreo1.setMoTalla(txtTalla.getText());
             monitoreo1.setId_cie10(Integer.parseInt(lblIdCie10.getText()));
-            monitoreo1.setCodUsu(ad1.codUsuario(RegistroSeguimiento.lblusu.getText()));
+            monitoreo1.setCodUsu(ad1.codUsuario(RegistroSeguimiento.lblUsu.getText()));
             if(monitoreo1.mantenimientoConsultorioExtRsMonitoreo(lblMant.getText())==true){
                 
                 pnlMensaje.setVisible(true);

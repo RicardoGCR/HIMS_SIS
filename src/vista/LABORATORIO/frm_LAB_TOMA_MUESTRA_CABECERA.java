@@ -378,6 +378,7 @@ public void calcula() {
 
                     personal.setAlwaysOnTop(true);
                     personal.setMinimumSize(new java.awt.Dimension(852, 504));
+                    personal.setResizable(false);
 
                     txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
                     txtBuscar.setEnabled(false);
@@ -1285,8 +1286,7 @@ ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar1
                     JOptionPane.showMessageDialog(null, "Datos Guardados");
                     limpiar();
                       dispose();
-                     frm_LAB_TOMA_MUESTRA_INGRESO tmi=new frm_LAB_TOMA_MUESTRA_INGRESO();
-                    tmi.setVisible(true);
+                     
                   }
                   else{
                     JOptionPane.showMessageDialog(this, "El Registro ya ha sido ingresado\nIntente nuevamente");

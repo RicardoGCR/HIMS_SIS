@@ -11,7 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
+import vista.ConsultorioEx.ConsultorioExt;
 import vista.ConsultorioEx.ConsultorioExtTratamiento;
+import vista.ConsultorioEx.HistoriaClinica;
 
 
 /**
@@ -94,6 +96,23 @@ public class ConsultorioExtConsultorioTratamiento implements Serializable {
         }
     }
 
+    public void historiaClinicaTratamiento(String id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXT_LISTAR_HISTORIAL_CONSULTORIO_TRATAMIENTO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                HistoriaClinica.txtTratamiento.setText(r.getString(1)); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: historiaClinicaTratamiento  " + e.getMessage());
+        }
+    } 
+    
     public ConsultorioExtConsultorioTratamiento() {
         Conexion con = new Conexion();
         cn = con.conectar();

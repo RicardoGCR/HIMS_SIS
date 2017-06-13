@@ -80,7 +80,7 @@ Conexion c=new Conexion();
         cbxTipo.removeAllItems();
         try {
             Statement sta=c.conectar().createStatement();
-            ResultSet rs=sta.executeQuery("select tipoUsu_Tipo from TIPO_USUARIO");
+            ResultSet rs=sta.executeQuery("select tipoUsu_Tipo from TIPO_USUARIO ORDER BY tipoUsu_Tipo");
             this.cbxTipo.addItem("Seleccionar...");
             while(rs.next()){
                  this.cbxTipo.addItem(rs.getString("tipoUsu_Tipo"));
@@ -346,7 +346,7 @@ Conexion c=new Conexion();
             }
         });
 
-        jLabel2.setText("Tipo de Usuario:");
+        jLabel2.setText("Módulo:");
 
         cbxTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Auxiliar Tecnico", "Trabajador", " " }));
         cbxTipo.addActionListener(new java.awt.event.ActionListener() {

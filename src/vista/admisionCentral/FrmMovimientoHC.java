@@ -11,7 +11,9 @@ import java.awt.HeadlessException;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -24,6 +26,14 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.print.Doc;
+import javax.print.DocFlavor;
+import javax.print.DocPrintJob;
+import javax.print.PrintException;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.print.SimpleDoc;
+import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -41,6 +51,9 @@ import modelos.admisionCentral.MovimientoHistoriaClinica;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 import tablas.FormTablaMovHCSC;
@@ -73,6 +86,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);//fondo blanco
         setLocationRelativeTo(null);//en el centro
+        chkHoy.setSelected(false);
         //Mostrar fecha
         h1 = new Thread(this);
         h1.start();
@@ -271,6 +285,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         dtFechaFinal1 = new com.toedter.calendar.JDateChooser();
         btnAtajoII = new javax.swing.JButton();
         btnAtajoVI = new javax.swing.JButton();
+        chkHoy = new javax.swing.JCheckBox();
 
         FrmBuscarNHC.setMinimumSize(new java.awt.Dimension(550, 650));
 
@@ -656,7 +671,8 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 return false;
             }
         };
-        tbMovimientoHC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tbMovimientoHC.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tbMovimientoHC.setForeground(new java.awt.Color(51, 51, 51));
         tbMovimientoHC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -844,6 +860,17 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        chkHoy.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        chkHoy.setForeground(new java.awt.Color(51, 51, 51));
+        chkHoy.setText("Pendientes de Hoy");
+        chkHoy.setContentAreaFilled(false);
+        chkHoy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chkHoy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkHoyActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -864,14 +891,6 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 .addGap(6, 6, 6)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(txtConsultorio, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxEstadoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(chkTodosArea)
@@ -886,13 +905,26 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkTodosEstado)))
+                        .addComponent(chkTodosEstado))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(txtConsultorio, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxEstadoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(64, 64, 64)
-                .addComponent(btnAtajoII)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAtajoVI)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(64, 64, 64)
+                        .addComponent(btnAtajoII)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAtajoVI))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(chkHoy)))
                 .addGap(18, 18, 18)
                 .addComponent(lblD))
         );
@@ -901,33 +933,37 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel4)
-                        .addComponent(chkTodosArea)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel5)
-                        .addComponent(chkTodosConsultorio)
-                        .addComponent(jLabel7)
-                        .addComponent(chkTodosTurno)
-                        .addComponent(jLabel8)
-                        .addComponent(chkTodosEstado))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(chkTodosArea)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel5)
+                            .addComponent(chkTodosConsultorio)
+                            .addComponent(jLabel7)
+                            .addComponent(chkTodosTurno)
+                            .addComponent(jLabel8)
+                            .addComponent(chkTodosEstado))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxEstadoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtTurno, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtConsultorio, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtServicio, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(dtFechaFinal1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(dtFechI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbxMovimiento, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addComponent(jLabel9)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblD)
                         .addComponent(btnAtajoII)
                         .addComponent(btnAtajoVI))
-                    .addComponent(jLabel9))
-                .addGap(7, 7, 7)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbxEstadoM)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtTurno, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtConsultorio, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtServicio, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(dtFechaFinal1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(dtFechI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cbxMovimiento, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(chkHoy)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -950,7 +986,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1026,6 +1062,9 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
             chkTodosEstado.setEnabled(true);
             cbxEstadoM.setEnabled(false);
             chkTodosEstado.setSelected(true);
+            chkTodosArea.setSelected(false);
+            chkTodosConsultorio.setSelected(false);
+            chkTodosTurno.setSelected(false);
             btnActualizarEstado.setEnabled(false);
             btnActualizarTabla.setEnabled(false);
             btnDetener.setMnemonic(KeyEvent.VK_C);
@@ -1043,62 +1082,72 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 txtTurno.setEnabled(false);
         } else 
             //Continuar
-        if(lblD.getText().equals("C")){if(cbxMovimiento.getSelectedIndex() == 0 || dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
-                JOptionPane.showMessageDialog(this, "Debe seleccionar un estado de Movimiento \ne ingresar un rango de fechas");
-            } else 
-            if(cbxMovimiento.getSelectedIndex() > 0){
-                if(chkTodosArea.isSelected()==false && txtServicio.getText().equals("") || 
-                   chkTodosConsultorio.isSelected()==false && txtConsultorio.getText().equals("") ||
-                   chkTodosTurno.isSelected()==false && txtTurno.getText().equals("")){
-                    JOptionPane.showMessageDialog(this, "Debe marcar las casillas o ingresar los datos");
-                } else {
-                    String estadoM = cbxMovimiento.getSelectedItem().toString();
-                    String servicio = txtServicio.getText();
-                    String consultorio = txtConsultorio.getText();
-                    String turno = txtTurno.getText();
-                    String estado = "";
-                    String fechI = "";
-                    String fechF = "";
-                    if(chkTodosEstado.isSelected()==false){
-                        if(cbxEstadoM.getSelectedIndex()==0){
-                            estado = "A";
+        if(lblD.getText().equals("C")){
+            if(!chkHoy.isSelected()){
+                if(cbxMovimiento.getSelectedIndex() == 0 || dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
+                    JOptionPane.showMessageDialog(this, "Debe seleccionar un estado de Movimiento \ne ingresar un rango de fechas");
+                } else 
+                if(cbxMovimiento.getSelectedIndex() > 0){
+                    if(chkTodosArea.isSelected()==false && txtServicio.getText().equals("") || 
+                       chkTodosConsultorio.isSelected()==false && txtConsultorio.getText().equals("") ||
+                       chkTodosTurno.isSelected()==false && txtTurno.getText().equals("")){
+                        JOptionPane.showMessageDialog(this, "Debe marcar las casillas o ingresar los datos");
+                    } else {
+                        String estadoM = cbxMovimiento.getSelectedItem().toString();
+                        String servicio = txtServicio.getText();
+                        String consultorio = txtConsultorio.getText();
+                        String turno = txtTurno.getText();
+                        String estado = "";
+                        String fechI = "";
+                        String fechF = "";
+                        if(chkTodosEstado.isSelected()==false){
+                            if(cbxEstadoM.getSelectedIndex()==0){
+                                estado = "A";
+                            } else {
+                                estado = "D";
+                            }
                         } else {
-                            estado = "D";
+                            estado = "";
                         }
-                    } else {
-                        estado = "";
+                        if(dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
+                            fechI = "";
+                            fechF = "";
+                        } else {
+                            fechI = determinarFecha(dtFechI);
+                            fechF = determinarFecha(dtFechaFinal1);
+                        }
+                        if(chkTodosEstado.isSelected()){
+                            estado = "";
+                        }
+                        if(cbxMovimiento.getSelectedIndex()==4){
+                            movHC.mostrar_MovHC(1, tbMovimientoHC,"",fechI,fechF,servicio,estado,consultorio,turno);
+                            //tbMovimientoHC.setDefaultRenderer(Object.class,new FormatoTablaMovHC());
+                        } else {
+                            movHC.mostrar_MovHC(2, tbMovimientoHC,estadoM,fechI,fechF,servicio,estado,consultorio,turno);
+                        }
+                        btnDetener.setMnemonic(KeyEvent.VK_D);
+                        lblD.setText("D");
+                        btnDetener.setIcon(detener);
+                        btnVisualizar.setEnabled(true);
+                        habilitarOpciones(false);
+                        btnActualizarTabla.setEnabled(true);
+                        tbMovimientoHC.setDefaultRenderer(Object.class,new FormatoTablaMovHC());
+                        txtServicio.setEnabled(false);
+                        txtConsultorio.setEnabled(false);
+                        btnActualizarEstado.setEnabled(true);
                     }
-                    if(dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
-                        fechI = "";
-                        fechF = "";
-                    } else {
-                        fechI = determinarFecha(dtFechI);
-                        fechF = determinarFecha(dtFechaFinal1);
-                    }
-                    if(chkTodosEstado.isSelected()){
-                        estado = "";
-                    }
-                    if(cbxMovimiento.getSelectedIndex()==4){
-                        movHC.mostrar_MovHC(1, tbMovimientoHC,"",fechI,fechF,servicio,estado,consultorio,turno);
-                        //tbMovimientoHC.setDefaultRenderer(Object.class,new FormatoTablaMovHC());
-                    } else {
-                        movHC.mostrar_MovHC(2, tbMovimientoHC,estadoM,fechI,fechF,servicio,estado,consultorio,turno);
-                    }
-                    btnDetener.setMnemonic(KeyEvent.VK_D);
-                    lblD.setText("D");
-                    btnDetener.setIcon(detener);
-                    btnVisualizar.setEnabled(true);
-                    habilitarOpciones(false);
-                    btnActualizarTabla.setEnabled(true);
-                    tbMovimientoHC.setDefaultRenderer(Object.class,new FormatoTablaMovHC());
-                    txtServicio.setEnabled(false);
-                    txtConsultorio.setEnabled(false);
-                    btnActualizarEstado.setEnabled(true);
+                }
+            // DESLIZAR CON LAS FLECHAS DENTRO DE LA TABLA
+            tbMovimientoHC.getSelectionModel().setSelectionInterval(0,0);
+            tbMovimientoHC.requestFocus();
+            }else{//SOLO MUESTRA LOS DE HOY
+                if(cbxMovimiento.getSelectedIndex() == 0){
+                    JOptionPane.showMessageDialog(this, "Debe seleccionar un estado de Movimiento");
+                }else{
+                    String estadoM = cbxMovimiento.getSelectedItem().toString();
+                    movHC.mostrar_MovHC(2, tbMovimientoHC,estadoM,"","","","","","");
                 }
             }
-        // DESLIZAR CON LAS FLECHAS DENTRO DE LA TABLA
-        tbMovimientoHC.getSelectionModel().setSelectionInterval(0,0);
-        tbMovimientoHC.requestFocus();
         }
     }//GEN-LAST:event_btnDetenerActionPerformed
 
@@ -1182,39 +1231,43 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_tbMovimientoHCMouseClicked
 
     private void btnActualizarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaActionPerformed
-        String estadoM = cbxMovimiento.getSelectedItem().toString();
-        String servicio = txtServicio.getText();
-        String consultorio = txtConsultorio.getText();
-        String turno = txtTurno.getText();
-                    String estado = "";
-                    String fechI = "";
-                    String fechF = "";
-                    if(chkTodosEstado.isSelected()==false){
-                        if(cbxEstadoM.getSelectedIndex()==0){
-                            estado = "A";
+        if(chkHoy.isSelected()){
+            movHC.mostrar_MovHC(3,tbMovimientoHC,"Pendiente","","","","","","");
+        }else{
+            String estadoM = cbxMovimiento.getSelectedItem().toString();
+            String servicio = txtServicio.getText();
+            String consultorio = txtConsultorio.getText();
+            String turno = txtTurno.getText();
+                        String estado = "";
+                        String fechI = "";
+                        String fechF = "";
+                        if(chkTodosEstado.isSelected()==false){
+                            if(cbxEstadoM.getSelectedIndex()==0){
+                                estado = "A";
+                            } else {
+                                estado = "D";
+                            }
                         } else {
-                            estado = "D";
+                            estado = "";
                         }
-                    } else {
-                        estado = "";
-                    }
-                    if(dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
-                        fechI = "";
-                        fechF = "";
-                    } else {
-                        fechI = determinarFecha(dtFechI);
-                        fechF = determinarFecha(dtFechaFinal1);
-                    }
-                    if(chkTodosEstado.isSelected()){
-                        estado = "";
-                    }
-        if(cbxMovimiento.getSelectedIndex()==4)
-            movHC.mostrar_MovHC(1,tbMovimientoHC,estadoM,fechI,fechF,servicio,estado,consultorio,turno);
-        else
-            movHC.mostrar_MovHC(2,tbMovimientoHC,estadoM,fechI,fechF,servicio,estado,consultorio,turno);
-        // DESLIZAR CON LAS FLECHAS DENTRO DE LA TABLA
-        tbMovimientoHC.getSelectionModel().setSelectionInterval(0,0);
-        tbMovimientoHC.requestFocus();
+                        if(dtFechI.getDate() == null || dtFechaFinal1.getDate() == null){
+                            fechI = "";
+                            fechF = "";
+                        } else {
+                            fechI = determinarFecha(dtFechI);
+                            fechF = determinarFecha(dtFechaFinal1);
+                        }
+                        if(chkTodosEstado.isSelected()){
+                            estado = "";
+                        }
+            if(cbxMovimiento.getSelectedIndex()==4)
+                movHC.mostrar_MovHC(1,tbMovimientoHC,estadoM,fechI,fechF,servicio,estado,consultorio,turno);
+            else
+                movHC.mostrar_MovHC(2,tbMovimientoHC,estadoM,fechI,fechF,servicio,estado,consultorio,turno);
+            // DESLIZAR CON LAS FLECHAS DENTRO DE LA TABLA
+            tbMovimientoHC.getSelectionModel().setSelectionInterval(0,0);
+            tbMovimientoHC.requestFocus();
+        }
     }//GEN-LAST:event_btnActualizarTablaActionPerformed
 
     private void formMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseReleased
@@ -1222,16 +1275,81 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_formMouseReleased
 
     private void btnVisualizarIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarIActionPerformed
-        int fila = tbMovimientoHC.getSelectedRow();
+     int fila = tbMovimientoHC.getSelectedRow();
         try {
             int id = Integer.parseInt(String.valueOf(tbMovimientoHC.getValueAt(fila, 0)));
-            String rutaInforme = "src\\Reportes\\admisionCentral\\movimientoDetalle.jasper";
+            String rutaInforme = "src\\Reportes\\admisionCentral\\report1.jasper";
             Map parametros = new HashMap();
-            parametros.put("id", id);
+//            parametros.put("id", id);
             JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
-            JasperViewer ventanavisor = new JasperViewer(informe, false);
-            ventanavisor.setTitle("Movimiento Historia Clínica a Detalle");
-            ventanavisor.setVisible(true);
+//            JasperViewer ventanavisor = new JasperViewer(informe, false);
+//            ventanavisor.setTitle("Movimiento Historia Clínica a Detalle");
+//            ventanavisor.setVisible(true);
+//            PrintService impresora = "EPSON TM-T88V Receipt";
+             
+            //Archivo que se desea imprimir
+    FileInputStream inputStream = new FileInputStream("src\\Reportes\\admisionCentral\\ticket.jasper");
+ 
+    //Formato de Documento
+    DocFlavor docFormat = DocFlavor.INPUT_STREAM.AUTOSENSE;
+    //Lectura de Documento
+    Doc document = new SimpleDoc(inputStream, docFormat, null);
+ 
+    //Nombre de la impresora
+    String printerName = "EPSON TM-T88V Receipt";
+ 
+    //Inclusion del nombre de impresora y sus atributos
+//    AttributeSet attributeSet = new HashAttributeSet();
+//    attributeSet.add(new PrinterName(printerName, null));
+//    attributeSet = new HashAttributeSet();
+//    //Soporte de color o no
+//    attributeSet.add(ColorSupported.NOT_SUPPORTED);
+ 
+    //Busqueda de la impresora por el nombre asignado en attributeSet
+    PrintService[] services = PrintServiceLookup.lookupPrintServices(null, null);
+    for(int i=0; i < services.length; i++){
+
+            if(services[i].getName().equals(printerName)){
+
+            try {
+            JOptionPane.showMessageDialog(null, "Imprimiendo orden de servicio en " + services[i].getName(), "IMPRESIÓN", JOptionPane.INFORMATION_MESSAGE);
+            FileInputStream fis = new FileInputStream("src\\Reportes\\admisionCentral\\ticket.jasper");
+            Doc pdfDoc = new SimpleDoc(fis, DocFlavor.INPUT_STREAM.AUTOSENSE, null); 
+        
+            DocPrintJob printJob = services[i].createPrintJob();
+            printJob.print(pdfDoc, new HashPrintRequestAttributeSet()); 
+
+            } catch (PrintException e) {
+            JOptionPane.showMessageDialog(null, e);
+            }
+            catch (FileNotFoundException e) {
+            e.printStackTrace();
+            }
+            }
+    }
+
+
+// 
+////    System.out.println("Imprimiendo en : " + services[0].getName());
+// 
+//    DocPrintJob printJob = services[0].createPrintJob();
+//    //Envio a la impresora
+//            try {
+//                printJob.print(document,null);
+//            } catch (Exception e) {
+//            }
+// 
+//    inputStream.close();
+//            
+//            
+  
+            
+//            JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+//                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, informe );
+//                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, services[0].createPrintJob());
+//                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+//                    jrprintServiceExporter.exportReport();
+            JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Error: _btnVisualizarDetalle" + e.toString());
             }
@@ -1381,15 +1499,69 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void chkHoyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkHoyActionPerformed
+        if(chkHoy.isSelected()){//SE ACTIVA BUSQUEDA DE HOY 'PENDIENTES'
+            btnDetener.setEnabled(false);
+            cbxMovimiento.setEnabled(false);
+            dtFechI.setEnabled(false);
+            dtFechaFinal1.setEnabled(false);
+            txtConsultorio.setEnabled(false);
+            txtServicio.setEnabled(false);
+            txtTurno.setEnabled(false);
+            chkTodosArea.setEnabled(false);
+            chkTodosConsultorio.setEnabled(false);
+            chkTodosEstado.setEnabled(false);
+            chkTodosTurno.setEnabled(false);
+            cbxEstadoM.setEnabled(false);
+            btnActualizarTabla.setEnabled(true);
+            btnVisualizar.setEnabled(false);
+        } else {
+            btnVisualizar.setEnabled(true);
+            btnDetener.setEnabled(true);
+            if(lblD.getText().equals("C")){
+                cbxMovimiento.setEnabled(true);
+                dtFechI.setEnabled(true);
+                dtFechaFinal1.setEnabled(true);
+                txtConsultorio.setEnabled(true);
+                txtServicio.setEnabled(true);
+                txtTurno.setEnabled(true);
+                chkTodosArea.setEnabled(true);
+                chkTodosConsultorio.setEnabled(true);
+                chkTodosEstado.setEnabled(true);
+                chkTodosTurno.setEnabled(true);
+                cbxEstadoM.setEnabled(true);
+                btnActualizarTabla.setEnabled(true);
+            } else {
+                movHC.mostrar_MovHC(2,tbMovimientoHC,"Retorno","","","","","","");
+                cbxMovimiento.setEnabled(false);
+                dtFechI.setEnabled(false);
+                dtFechaFinal1.setEnabled(false);
+                txtConsultorio.setEnabled(false);
+                txtServicio.setEnabled(false);
+                txtTurno.setEnabled(false);
+                chkTodosArea.setEnabled(false);
+                chkTodosConsultorio.setEnabled(false);
+                chkTodosEstado.setEnabled(false);
+                chkTodosTurno.setEnabled(false);
+                cbxEstadoM.setEnabled(false);
+                btnActualizarTabla.setEnabled(false);
+            }
+        }
+    }//GEN-LAST:event_chkHoyActionPerformed
     
     public void run() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.       
         Thread ct = Thread.currentThread();
         while (ct == h1) {
             calcula();
-            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+            lblHora.setText(hora + ":" + minutos + " " + ampm);
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10000);
+                // mostrar datos en la tabla tbMvimientoHC
+                if(chkHoy.isSelected()){
+                    movHC.mostrar_MovHC(3,tbMovimientoHC,"Pendiente","","","","","","");
+                }
             } catch (InterruptedException e) {
                 System.out.println(e.toString());
             }
@@ -1443,6 +1615,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
     private javax.swing.JComboBox cbxEstadoM;
     private javax.swing.JComboBox cbxMovimiento;
     private javax.swing.JComboBox cbxTipoBusquedaNHC;
+    private javax.swing.JCheckBox chkHoy;
     private javax.swing.JCheckBox chkTodosArea;
     private javax.swing.JCheckBox chkTodosConsultorio;
     private javax.swing.JCheckBox chkTodosEstado;

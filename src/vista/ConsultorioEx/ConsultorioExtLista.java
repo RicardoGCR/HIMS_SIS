@@ -8,31 +8,43 @@ package vista.ConsultorioEx;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.beans.PropertyVetoException;
+import java.sql.Connection;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
+import javax.swing.table.DefaultTableModel;
 import modelos.ConsultorioEx.ConsultorioEXTriaje;
+import modelos.ConsultorioEx.ConsultorioExConsultorio;
 import modelos.ConsultorioEx.ConsultorioExtConsultorioCabecera;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
+import servicios.Conexion;
 
 
 /**
  *
  * @author MYS1
  */
-public class ConsultorioExtLista extends javax.swing.JInternalFrame {
+public class ConsultorioExtLista extends javax.swing.JInternalFrame implements Runnable{
     ConsultorioExtConsultorioCabecera Consulta = new ConsultorioExtConsultorioCabecera();
 private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
     private Dimension DimensionBarra = null; 
-    /**
-     * Creates new form ConsultorioExtLista
-     */
+    String hora, minutos, segundos, ampm;
+    Calendar calendario;
+    DefaultTableModel m;
+    Connection conexion=null;
+    Conexion c = new Conexion();
+    Thread h1;
     public ConsultorioExtLista() {
         initComponents();
         QuitarLaBarraTitulo();
         listar();
         panelTriaje.setVisible(false);
 //        tbTriaje.setDefaultRenderer(Object.class,new FormatoTablaCEXLISTA());
+        h1 = new Thread(this);
+        h1.start();
+        Calendar cal=Calendar.getInstance(); 
     }
    public void QuitarLaBarraTitulo(){ 
         Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
@@ -43,6 +55,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         
     }
     public void listar(){
+        
              Consulta.TriajeListarReporte(ConsultorioExt.txPaciente.getText(), tbTriaje,"T");
     }
     
@@ -55,7 +68,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             CXRsR.setIdConsultorioEx(0);
             CXRsR.setId_hc(lblIdHC.getText());
             CXRsR.setId_ActoMedico(Integer.parseInt(lblIdActoM.getText()));
-            CXRsR.setCodUsu(adEmerCab.codUsuario(ConsultorioExt.lblusu.getText()));
+            CXRsR.setCodUsu(adEmerCab.codUsuario(ConsultorioExt.lblUsu.getText()));
                 if(CXRsR.mantenimientoConsultorioExtCabecera(lblMant.getText())==true){
                     if (lblMant.getText().equals("I")){
 
@@ -94,7 +107,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                     }  
     } 
    
-   
+    public void abrirHistoriaClinica(){
+        HistoriaClinica hC = new HistoriaClinica();
+        hC.setVisible(true);
+        ConsultorioExConsultorio cabecera = new ConsultorioExConsultorio();
+        cabecera.listarConsultorioCabecera(lblIdHC.getText(), HistoriaClinica.tbIngresosConsultorio);
+        cabecera.listarEmergencia(lblIdHC.getText(), HistoriaClinica.tbIngresosEmergencia);
+        cabecera.listarHospitalizacion(lblIdHC.getText(), HistoriaClinica.tbIngresosHospitalizacion);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -104,6 +124,8 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbTriaje = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -136,6 +158,14 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             jLabel34 = new javax.swing.JLabel();
             lblEDAD = new javax.swing.JLabel();
 
+            jMenuItem1.setText("Historia Clínica");
+            jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jMenuItem1ActionPerformed(evt);
+                }
+            });
+            jPopupMenu1.add(jMenuItem1);
+
             setBorder(javax.swing.BorderFactory.createCompoundBorder());
             setVisible(true);
 
@@ -162,6 +192,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
                 public void mousePressed(java.awt.event.MouseEvent evt) {
                     tbTriajeMousePressed(evt);
                 }
+                public void mouseReleased(java.awt.event.MouseEvent evt) {
+                    tbTriajeMouseReleased(evt);
+                }
             });
             tbTriaje.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -173,6 +206,7 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             jPanel3.setBackground(new java.awt.Color(43, 43, 43));
             jPanel3.setPreferredSize(new java.awt.Dimension(929, 115));
 
+            lblIdActoM.setForeground(new java.awt.Color(255, 255, 255));
             lblIdActoM.setText("0");
 
             lblMant.setText("I");
@@ -408,7 +442,6 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
         
         int fila=tbTriaje.getSelectedRow();
         if(evt.getClickCount()==1){
-            ConsultorioExt.lblHC.setText(String.valueOf(tbTriaje.getValueAt(fila, 3)));
             lblFC.setText(String.valueOf(tbTriaje.getValueAt(fila, 7)));
             lblFR.setText(String.valueOf(tbTriaje.getValueAt(fila, 8)));
             lblPA.setText(String.valueOf(tbTriaje.getValueAt(fila, 9)));
@@ -418,16 +451,17 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
             lblIDM.setText(String.valueOf(tbTriaje.getValueAt(fila, 13)));
             lblIdHC.setText(String.valueOf(tbTriaje.getValueAt(fila, 14)));
             lblEDAD.setText(String.valueOf(tbTriaje.getValueAt(fila, 6)));
+            lblIdActoM.setText(String.valueOf(tbTriaje.getValueAt(fila, 19)));
             ////////////////////////////
             lblIdTriaje.setText(String.valueOf(tbTriaje.getValueAt(fila, 0)));
             //////////////////
-            
             lblNombres.setText(String.valueOf(tbTriaje.getValueAt(fila, 4)));
             lblDNI.setText("DNI   "+String.valueOf(tbTriaje.getValueAt(fila, 2)));
             panelTriaje.setVisible(true);
-
+            HistoriaClinica.lblHC.setText(String.valueOf(tbTriaje.getValueAt(fila, 3)));
         }
         if(evt.getClickCount()==2){
+            abrirHistoriaClinica();
             Guardar( );
             ActualizarTriaje();
            
@@ -468,7 +502,47 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
 
     }//GEN-LAST:event_tbTriajeKeyPressed
 
+    private void tbTriajeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTriajeMouseReleased
+        if(evt.isPopupTrigger()){
+            jPopupMenu1.show(evt.getComponent(),evt.getX(),evt.getY());
+        }
+    }//GEN-LAST:event_tbTriajeMouseReleased
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        abrirHistoriaClinica();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+
+    public void calcula() {
+        Calendar calendario = new GregorianCalendar();
+        java.util.Date fechaHoraActual = new java.util.Date();
+
+        calendario.setTime(fechaHoraActual);
+        ampm = calendario.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
+
+        if (ampm.equals("PM")) {
+            int h = calendario.get(Calendar.HOUR_OF_DAY) - 12;
+            hora = h > 9 ? "" + h : "0" + h;
+        } else {
+            hora = calendario.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendario.get(Calendar.HOUR_OF_DAY) : "0" + calendario.get(Calendar.HOUR_OF_DAY);
+        }
+        minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
+    }
+    
+    public void run() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.       
+        Thread ct = Thread.currentThread();
+        while (ct == h1) {
+//            calcula();
+            try {
+                Thread.sleep(5000);
+                Consulta.TriajeListarReporte(ConsultorioExt.txPaciente.getText(), tbTriaje,"T");
+            } catch (InterruptedException e) {
+            }
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel28;
@@ -480,7 +554,9 @@ private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI(
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JMenuItem jMenuItem1;
     public static javax.swing.JPanel jPanel3;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblDNI;
     private javax.swing.JLabel lblEDAD;

@@ -11,7 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
+import vista.ConsultorioEx.ConsultorioExt;
 import vista.ConsultorioEx.ConsultorioExtMotivo;
+import vista.ConsultorioEx.HistoriaClinica;
 
 
 /**
@@ -98,6 +100,23 @@ public class ConsultorioExtConsultorioMotivo implements Serializable {
         }
     }
 
+    public void historiaClinicaMotivo(String id){
+        String consulta="";
+        try {
+            consulta="CONSULTORIO_EXt_LISTAR_HISTORIAL_CONSULTORIO_MOTIVO ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                HistoriaClinica.txtMotivoConsulta.setText(r.getString(1)); 
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: Consultorios CABECERA LISTAR  " + e.getMessage());
+        }
+    } 
+    
     public ConsultorioExtConsultorioMotivo() {
         Conexion con = new Conexion();
         cn = con.conectar();

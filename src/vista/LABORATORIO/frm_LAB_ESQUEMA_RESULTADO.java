@@ -152,6 +152,11 @@ DefaultTableModel m,n,muestra;
     tb_Esquema.getColumnModel().getColumn(0).setMaxWidth(0);
     tb_Esquema.getColumnModel().getColumn(4).setMinWidth(0);
     tb_Esquema.getColumnModel().getColumn(4).setMaxWidth(0);
+    tb_Esquema.getColumnModel().getColumn(6).setMinWidth(0);
+    tb_Esquema.getColumnModel().getColumn(6).setMaxWidth(0);
+    tb_Esquema.getColumnModel().getColumn(7).setMinWidth(0);
+    tb_Esquema.getColumnModel().getColumn(7).setMaxWidth(0);
+    
     }
     public void refrescartabla(){
         
@@ -190,10 +195,8 @@ DefaultTableModel m,n,muestra;
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             frm_LAB_ESQUEMA_RESULTADO.tb_Esquema.setRowSorter(elQueOrdena);
             frm_LAB_ESQUEMA_RESULTADO.tb_Esquema.setModel(m);
-             frm_LAB_ESQUEMA_RESULTADO.tb_Esquema.getColumnModel().getColumn(0).setMinWidth(0);
-    frm_LAB_ESQUEMA_RESULTADO.tb_Esquema.getColumnModel().getColumn(0).setMaxWidth(0);
-    frm_LAB_ESQUEMA_RESULTADO.tb_Esquema.getColumnModel().getColumn(4).setMinWidth(0);
-    frm_LAB_ESQUEMA_RESULTADO.tb_Esquema.getColumnModel().getColumn(4).setMaxWidth(0);
+            
+            formato_esquema();
     } catch (SQLException ex) {
                    Logger.getLogger(frm_LAB_ESQUEMA_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
                }
@@ -536,7 +539,7 @@ public void calcula() {
                         return canEdit [columnIndex];
                     }
                 });
-                tb_Esquema.setRowHeight(19);
+                tb_Esquema.setRowHeight(20);
                 tb_Esquema.setSelectionBackground(new java.awt.Color(2, 67, 115));
                 tb_Esquema.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -558,6 +561,7 @@ public void calcula() {
                 panelAnalisis.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Análisis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
 
                 jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+                jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel23.setText("Análisis");
 
                 txtAnalisis.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -597,20 +601,23 @@ public void calcula() {
                             .addGroup(panelAnalisisLayout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addComponent(txtUnidadOrganica, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(49, 49, 49)
                         .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelAnalisisLayout.createSequentialGroup()
-                                .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(52, 52, 52)
-                                .addComponent(txtAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelAnalisisLayout.createSequentialGroup()
+                                .addGap(104, 104, 104)
+                                .addComponent(jLabel7)))
+                        .addGap(52, 52, 52)
+                        .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtAnalisis, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                        .addGroup(panelAnalisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelAnalisisLayout.createSequentialGroup()
                                 .addGap(36, 36, 36)
                                 .addComponent(txtAbreviatura, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(panelAnalisisLayout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addComponent(jLabel7)
-                                .addGap(170, 170, 170)
-                                .addComponent(jLabel23)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel17)
                                 .addGap(90, 90, 90))))
@@ -675,6 +682,7 @@ public void calcula() {
                 });
 
                 txtUnidadMedida.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+                txtUnidadMedida.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                 txtUnidadMedida.setEnabled(false);
                 txtUnidadMedida.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyPressed(java.awt.event.KeyEvent evt) {

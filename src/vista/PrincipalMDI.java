@@ -4915,11 +4915,19 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReportCabecera1ActionPerformed
 
     private void btnReporTopico1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporTopico1ActionPerformed
-        // TODO add your handling code here:
+        FrmListFormatoEmergencia frmEmerList = new FrmListFormatoEmergencia();
+        frmEmerList.setVisible(true);
+        String u=PrincipalMDI.lblUsu.getText();
+        frmEmerList.lblUsuUsuario.setText(u);
+        FrmListFormatoEmergencia.tbpReporteEmergencia.setSelectedIndex(2);
     }//GEN-LAST:event_btnReporTopico1ActionPerformed
 
     private void btnReportTriaje1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportTriaje1ActionPerformed
-        // TODO add your handling code here:
+        FrmListFormatoEmergencia frmEmerList = new FrmListFormatoEmergencia();
+        frmEmerList.setVisible(true);
+        String u=PrincipalMDI.lblUsu.getText();
+        frmEmerList.lblUsuUsuario.setText(u);
+        FrmListFormatoEmergencia.tbpReporteEmergencia.setSelectedIndex(1);
     }//GEN-LAST:event_btnReportTriaje1ActionPerformed
 
     private void btnReportFormatEmergencia1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportFormatEmergencia1ActionPerformed

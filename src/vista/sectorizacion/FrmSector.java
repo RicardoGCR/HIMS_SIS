@@ -72,10 +72,7 @@ public class FrmSector extends javax.swing.JFrame implements Runnable{
         habilitarBotones(true);
         habilitarOpciones(false);
         //ICONO DE FORMULARIO
-        try {
-            setIconImage(new ImageIcon(getClass().getResource("../imagenes/iconos/iconSector24x24.png")).getImage());
-        } catch (Exception e) {
-        }
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Edificio-24.png")).getImage());
         //BOTON CERRAR
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
         javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0), "Cancel");

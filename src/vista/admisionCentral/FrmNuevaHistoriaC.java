@@ -1293,7 +1293,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Admisión - Historia Clìnica");
+        setTitle("Admisión .::. Historia Clìnica");
         setMinimumSize(new java.awt.Dimension(855, 722));
         setResizable(false);
 

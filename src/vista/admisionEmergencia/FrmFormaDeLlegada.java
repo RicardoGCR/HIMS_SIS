@@ -41,6 +41,8 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
             }
         });
         cerrar();
+        //ICONO DE FORMULARIO
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Pasajero con equipaje-24.png")).getImage());
     }
     
     public void cerrar (){

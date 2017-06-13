@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e938b02-f83d-471f-95ed-fbb56109a98e">
 	<property name="ireport.zoom" value="1.771561000000001"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="176"/>
+	<property name="ireport.y" value="290"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#666666"/>
@@ -77,29 +77,17 @@ FROM            CAJA_PRECIOS INNER JOIN
 			   left(CDC.total_doc,len(CDC.total_doc)) AS TOTAL,CDC.fecha_actu,
                CDC.hora_actu,AHC.dni,CDC.cod_usu,AHC.id_hc,
 			   (SELECT TOP 1 upper( UE_DESC ) FROM SISTEMA_UNIDAD_EJECUTORA) AS DESCRIP,  (SELECT TOP 1 UE_LOGO  FROM SISTEMA_UNIDAD_EJECUTORA) AS IMAGEN,
-			   PP.ape_pat_per+' '+PP.ape_mat_per+' '+PP.nombres_per AS PERSONAL,
-			   CDD.nom_consultorio_citas,CDD.personal_aten,
-			   CAST('Numero de Atención :' as varchar)+ ' '+CAST(CDD.num_aten as varchar) AS NUMEROA,
-			   CDD.turno_cita,
-			   CPT.descripcion_nomen_tipo,
-			   left(CDD.total_detalle,len(CDD.total_detalle))as PRECIO
-
-
-
+			   PP.ape_pat_per+' '+PP.ape_mat_per+' '+PP.nombres_per AS PERSONAL
 FROM  ADMISION_HISTORIA_CLINICA AHC, CAJA_DOCUMENTO_CABECERA CDC,
- CAJA_ACTO_MEDICO CAM,CAJA_JERARQUIA_FORMA_PAGO CJ ,USUARIO U,PERSONAL_PERSONAL PP,CAJA_DOCUMENTO_DETALLE CDD,CAJA_PRECIOS PR,CAJA_NOMENCLATURA_CAJA CPT
+ CAJA_ACTO_MEDICO CAM,CAJA_JERARQUIA_FORMA_PAGO CJ ,USUARIO U,PERSONAL_PERSONAL PP
 WHERE
 AHC.id_hc = CDC.id_hc AND
 CDC.Id_ActoMedico = CAM.ID_ACTOMEDICO AND
 CJ.cod_jerar_forma_pago=CDC.cod_jerar_forma_pago AND
 U.Usu_Codigo=CDC.cod_usu AND
-PP.cod_per=U.cod_per AND
-CDC.id_documento=CDD.id_documento AND
-PR.cod_precio=CDD.cod_precio AND
-PR.cod_nomen_caja=CPT.cod_nomen_caja
+PP.cod_per=U.cod_per
 
-
-AND  CDC.id_documento =    $P{doc}]]>
+AND  CDC.id_documento=     $P{doc}]]>
 	</queryString>
 	<field name="serie" class="java.lang.String"/>
 	<field name="correlativo" class="java.lang.String"/>
@@ -116,12 +104,6 @@ AND  CDC.id_documento =    $P{doc}]]>
 	<field name="DESCRIP" class="java.lang.String"/>
 	<field name="IMAGEN" class="java.io.InputStream"/>
 	<field name="PERSONAL" class="java.lang.String"/>
-	<field name="nom_consultorio_citas" class="java.lang.String"/>
-	<field name="personal_aten" class="java.lang.String"/>
-	<field name="NUMEROA" class="java.lang.String"/>
-	<field name="turno_cita" class="java.lang.String"/>
-	<field name="descripcion_nomen_tipo" class="java.lang.String"/>
-	<field name="PRECIO" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -365,92 +347,76 @@ AND  CDC.id_documento =    $P{doc}]]>
 		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="189" splitType="Stretch">
+		<band height="118" splitType="Stretch">
 			<staticText>
-				<reportElement x="-5" y="68" width="100" height="20" uuid="f4129061-9f62-4cbb-bf92-e0807f711038"/>
+				<reportElement x="-5" y="32" width="100" height="20" uuid="f4129061-9f62-4cbb-bf92-e0807f711038"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[CAJERO :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="36" y="68" width="162" height="20" uuid="dd96d3ff-9cef-4aef-9025-211197b68ad2"/>
+				<reportElement x="36" y="32" width="162" height="20" uuid="dd96d3ff-9cef-4aef-9025-211197b68ad2"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PERSONAL}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-5" y="83" width="117" height="20" uuid="f5a908b2-5e4e-4bfa-b0cd-4de825960634"/>
+				<reportElement x="-5" y="47" width="117" height="20" uuid="f5a908b2-5e4e-4bfa-b0cd-4de825960634"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[Fecha de Emisión :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="82" y="83" width="100" height="20" uuid="044a2abe-43a4-4686-ae82-91bee8b1f13c"/>
+				<reportElement x="82" y="47" width="100" height="20" uuid="044a2abe-43a4-4686-ae82-91bee8b1f13c"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_actu}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-5" y="95" width="100" height="20" uuid="208f4eda-f792-4eca-bc53-08b4e7cc8d86"/>
+				<reportElement x="-5" y="59" width="100" height="20" uuid="208f4eda-f792-4eca-bc53-08b4e7cc8d86"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[Hora de Emisión :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="77" y="95" width="100" height="20" uuid="c6c76279-c29a-42a9-92f5-fe7299802d7b"/>
+				<reportElement x="77" y="59" width="100" height="20" uuid="c6c76279-c29a-42a9-92f5-fe7299802d7b"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{hora_actu}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-5" y="112" width="200" height="20" uuid="6adb500b-f9a9-41b0-aa1d-6c9836efa2fb"/>
+				<reportElement x="-5" y="76" width="200" height="20" uuid="6adb500b-f9a9-41b0-aa1d-6c9836efa2fb"/>
 				<textElement textAlignment="Center">
 					<font fontName="Lucida Sans Typewriter" size="9"/>
 				</textElement>
 				<text><![CDATA[Gracias por su visita]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-5" y="127" width="200" height="30" uuid="9fa5f130-6bef-4a10-90b4-2f9ba771111c"/>
+				<reportElement x="-5" y="91" width="200" height="27" uuid="9fa5f130-6bef-4a10-90b4-2f9ba771111c"/>
 				<textElement textAlignment="Center">
 					<font fontName="Lucida Sans Typewriter" size="8"/>
 				</textElement>
 				<text><![CDATA[Servicio de Atención - 056-261232]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="26" y="36" width="110" height="20" uuid="029a66d3-7c30-4cfa-b13d-59928fecd94b"/>
+				<reportElement x="26" y="0" width="110" height="20" uuid="029a66d3-7c30-4cfa-b13d-59928fecd94b"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" isBold="true"/>
 				</textElement>
 				<text><![CDATA[IMPORTE TOTAL S/. :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="136" y="36" width="62" height="20" uuid="12696c13-7a6f-4d06-bc3f-3ec8b92cbe33"/>
+				<reportElement x="136" y="0" width="62" height="20" uuid="12696c13-7a6f-4d06-bc3f-3ec8b92cbe33"/>
 				<textElement>
 					<font fontName="Lucida Sans Typewriter" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="48" y="0" width="100" height="20" uuid="9a575c31-08b5-40bd-a59f-373fc1a12c50"/>
-				<textFieldExpression><![CDATA[$F{nom_consultorio_citas}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="48" y="16" width="100" height="20" uuid="0811cb58-b835-46fd-a0ac-5e3147e541f9"/>
-				<textFieldExpression><![CDATA[$F{personal_aten}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="148" y="0" width="100" height="20" uuid="73a27448-19c7-48f2-aaf6-576c774f725a"/>
-				<textFieldExpression><![CDATA[$F{turno_cita}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="148" y="20" width="100" height="20" uuid="266b619e-6aba-4e52-ab4a-765e463437a7"/>
-				<textFieldExpression><![CDATA[$F{NUMEROA}]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>

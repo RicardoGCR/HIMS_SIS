@@ -213,6 +213,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         panelPorcentajes.setVisible(false);
         jPanel1.setVisible(false);
         panelSumaDetalle.setVisible(false);
+        panelIMprimir.setVisible(false);
         cerrar();
 //        panelTurnos.setVisible(false);
         
@@ -246,7 +247,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                     txtEnterEscapeEnter.requestFocus();
                    
                 }
-                if(lblOk.getText()=="ok" && tb_CPT.getRowCount()==0){ 
+                if(txtape.getText().equals("Paciente") && tb_CPT.getRowCount()==0){ 
                    dispose();
                 }
             }
@@ -1456,6 +1457,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
          lblIdDetalle.setText("");
          lblDetalleId.setText("");
          lblMantP.setText("VN");
+        
         lblcodigo.setText(cnn.id());
         lblSinAnulacion.setText(cnn.sinanulacion());
         lblActoMedico.setText(cnn.ActoMedico());
@@ -6238,7 +6240,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGap(0, 0, 0)
                                                                                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
+                                                                                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
                                                                                                         .addGap(0, 0, 0))
                                                                                                 );
 
@@ -6883,6 +6885,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 txtEnterEscapeEnter.setForeground(new java.awt.Color(241, 197, 14));
                                                                                                 txtEnterEscapeEnter.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                                                                                                 txtEnterEscapeEnter.setCaretColor(new java.awt.Color(102, 102, 102));
+                                                                                                txtEnterEscapeEnter.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                        txtEnterEscapeEnterActionPerformed(evt);
+                                                                                                    }
+                                                                                                });
                                                                                                 txtEnterEscapeEnter.addKeyListener(new java.awt.event.KeyAdapter() {
                                                                                                     public void keyPressed(java.awt.event.KeyEvent evt) {
                                                                                                         txtEnterEscapeEnterKeyPressed(evt);
@@ -7061,7 +7068,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGap(0, 0, 0)
                                                                                                         .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
+                                                                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
                                                                                                 );
 
                                                                                                 javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -7452,7 +7459,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addComponent(resumen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
                                                                                                         .addComponent(panelIMprimir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                        .addGap(0, 0, Short.MAX_VALUE)
+                                                                                                        .addGap(0, 0, 0)
                                                                                                         .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                 );
 
@@ -7599,7 +7606,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                     .addGroup(jPanel13Layout.createSequentialGroup()
                                                                                                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+                                                                                                        .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
                                                                                                         .addGap(22, 22, 22))
                                                                                                 );
 
@@ -9263,6 +9270,7 @@ if(tgp==1){
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
 jTabbedPane1.setSelectedIndex(1);
+
         panelMensaje.setVisible(false);
         if(lblOk.getText()=="okk" && this.tb_CPT.getRowCount()==0){ 
               panelEliminar.setVisible(true);
@@ -9355,6 +9363,7 @@ jTabbedPane1.setSelectedIndex(1);
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         if(lblImpresora.getText().equals("copia")){
+            panelIMprimir.setVisible(true);
           nuevaV.reporteVentaLaRxEc(lblCodigoImprimir.getText());  
         }else if(lblImpresora.getText().equals("original")){
             nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
@@ -10432,6 +10441,10 @@ jTabbedPane1.setSelectedIndex(1);
 
         
     }//GEN-LAST:event_eli6ActionPerformed
+
+    private void txtEnterEscapeEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnterEscapeEnterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEnterEscapeEnterActionPerformed
 
     /**
      * @param args the command line arguments

@@ -10,6 +10,8 @@ import java.awt.Color;
 import java.awt.HeadlessException;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -38,6 +40,7 @@ import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -121,9 +124,24 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 dispose();
             }
         });
+        cerrar();
         //ICONO DE FORMULARIO
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/iconMHC24x24.png")).getImage());
         
+    }
+    
+    public void cerrar (){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e){
+                    dispose();
+                }
+        });
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //Calcular hora

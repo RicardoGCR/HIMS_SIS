@@ -8,7 +8,10 @@ package vista.admisionEmergencia;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.admisionEmergencia.AdmisionEmergenciaFormaDeLlegada;
@@ -37,6 +40,21 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
                 dispose();
             }
         });
+        cerrar();
+    }
+    
+    public void cerrar (){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e){
+                    dispose();
+                }
+        });
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public void limpiarDatos(boolean opcion){

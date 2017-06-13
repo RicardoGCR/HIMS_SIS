@@ -21,9 +21,13 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.EC.EC_EXAMEN_CABECERA;
-//import modelos.RX_EC.RX_EC_BUSCAR_EXAMEN_CAJA;
 import modelos.Usuario;
 import servicios.Conexion;
+import static vista.EC.EC_EXAMEN_CAB.btnPersonalRealiza_EC;
+import static vista.EC.EC_EXAMEN_CAB.btnPersonalRegistra_EC;
+import static vista.EC.EC_EXAMEN_CAB.btnPersonalSolicita;
+import static vista.EC.EC_EXAMEN_CAB.tb_examen_det_EC;
+import static vista.EC.EC_EXAMEN_CAB.txtCOD_CABECERA;
 
 /**
  *
@@ -56,6 +60,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         lblFecha_EC.setText(fechaActual());
         
         mostrarArea_EC();
+        seleccion_EC();
+        lblG_EC.setVisible(false);
+        lblFecha_EC.setVisible(false);
+        lblHora_EC.setVisible(false);
+        lblNumeArea_EC.setVisible(false);
         //mostrarPacientes_EC();
     }
 
@@ -114,6 +123,9 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_Examen_EC = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        lblfecha_I_EC = new javax.swing.JLabel();
+        lblG_EC = new javax.swing.JLabel();
+        lblfecha_F_EC = new javax.swing.JLabel();
 
         DETALLE.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         DETALLE.setMinimumSize(new java.awt.Dimension(705, 400));
@@ -405,6 +417,9 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             }
         });
         txtBuscarPaciente_EC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarPaciente_ECKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBuscarPaciente_ECKeyTyped(evt);
             }
@@ -565,6 +580,15 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("EXAMENES DEL DIA");
 
+        lblfecha_I_EC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblfecha_I_EC.setText("  ");
+
+        lblG_EC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblG_EC.setText("-");
+
+        lblfecha_F_EC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblfecha_F_EC.setText(" ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -575,6 +599,12 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblfecha_I_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(lblG_EC)
+                        .addGap(10, 10, 10)
+                        .addComponent(lblfecha_F_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -584,9 +614,15 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addComponent(jLabel3)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblfecha_I_EC)
+                            .addComponent(lblG_EC)
+                            .addComponent(lblfecha_F_EC))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -621,7 +657,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     }//GEN-LAST:event_txtBuscarPaciente_ECKeyTyped
 
     private void cbFecha_ECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFecha_ECActionPerformed
-   
+        seleccion_EC();
     }//GEN-LAST:event_cbFecha_ECActionPerformed
 
     private void cbFecha_ECPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cbFecha_ECPropertyChange
@@ -663,6 +699,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 //                                fecha_fin.setDate(null);
 //                       }else{
                                 buscar_examen_EC();
+                                txtBuscarPaciente_EC.requestFocus();
 //                       }  
 //                }
 //             
@@ -681,7 +718,14 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     }//GEN-LAST:event_EC_BUSCAR_FECHASActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+        try {   
+            EC_BUSCAR_EXAMEN_CAJA R = new EC_BUSCAR_EXAMEN_CAJA();
+            R.setVisible(false);
+            DETALLE.dispose();
+            cargar_tabla_cabecera_OK_EC();
+         
+        } catch (Exception e) {
+        }        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtDocumento_EC_DCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDocumento_EC_DCaretUpdate
@@ -696,9 +740,30 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     private void tb_Examen_ECKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Examen_ECKeyPressed
        char tecla= evt.getKeyChar();
                 if(tecla==KeyEvent.VK_ENTER){  
-                    cargar_tabla_cabecera_ENTER_EC();               
+                    cargar_tabla_cabecera_ENTER_EC();
+                    
+                    if(txtCOD_CABECERA.getText().length()!=0){
+                        btnPersonalRegistra_EC.setEnabled(false);
+                        btnPersonalRealiza_EC.setEnabled(false);
+                        btnPersonalSolicita.setEnabled(false);
+                        tb_examen_det_EC.setEnabled(true);
+                        tb_examen_det_EC.setBackground(Color.white);
+                    }else{
+                        btnPersonalRegistra_EC.requestFocus();
+                    }
+                    
+                    
+                    
         }
     }//GEN-LAST:event_tb_Examen_ECKeyPressed
+
+    private void txtBuscarPaciente_ECKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPaciente_ECKeyPressed
+       char tecla= evt.getKeyChar();
+      if(evt.getExtendedKeyCode()==KeyEvent.VK_DOWN){
+            tb_Examen_EC.getSelectionModel().setSelectionInterval(0, 0);
+            tb_Examen_EC.requestFocus();
+        }
+    }//GEN-LAST:event_txtBuscarPaciente_ECKeyPressed
 
     public void inicializar_tabla_Examenes_EC(){       
         try {
@@ -819,7 +884,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             JTable p=new JTable(m2);
             String fila[]=new String[3];
             Usuario obj=new Usuario();
-            consulta="exec EC_VER_DETALLE_EXAMEN ?";
+            consulta="exec RX_EC_VER_DETALLE_EXAMEN_EC ?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, txtDocumento_EC_D.getText());
             ResultSet r= cmd.executeQuery();
@@ -876,6 +941,36 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
                             String u=lblUsu.getText();
                             EC_EXAMEN_CAB.lblUsu_EC.setText(u);
+                        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "cargar"+e.getMessage());
+        }           
+    }
+    
+    public void cargar_tabla_cabecera_OK_EC(){
+    try{
+                        if( tb_Examen_EC.getRowCount()>0){
+                        int filaselec=tb_Examen_EC.getSelectedRow();
+                            
+                            dispose();
+                            EC_EXAMEN_CAB E=new EC_EXAMEN_CAB();
+                            E.setVisible(true);
+                            EC_EXAMEN_CAB.txtHC.setText(txtHC_EC_D.getText());
+                            EC_EXAMEN_CAB.txtNombreP.setText(txtNombres_EC_D.getText());
+                            EC_EXAMEN_CAB.txtDNI.setText(txtDNI_EC_D.getText());
+                            EC_EXAMEN_CAB.txtFechaNac.setText(lblFechaNaci_EC_D.getText());
+                            EC_EXAMEN_CAB.txtEdad.setText(lblEdad_EC_D.getText());
+                            EC_EXAMEN_CAB.txtGenero.setText(lblGenero_EC_D.getText());
+                            EC_EXAMEN_CAB.txtAM.setText(txtAM_EC_D.getText());
+                            EC_EXAMEN_CAB.txtCodigoDoc_EC.setText(txtDocumento_EC_D.getText());
+//                            RX_EC_EXAMEN_CAB.lblCantidad.setText(lblNumero.getText());
+                            
+                            EC_EXAMEN_CAB.lblIDArea_EC.setText(lblIDArea_EC_D.getText());
+                            EC_EXAMEN_CAB.lblNomA_EC.setText(lblNomAD_EC_D.getText());
+                            
+
+                                  String u=lblUsu.getText();
+                                  EC_EXAMEN_CAB.lblUsu_EC.setText(u);
                         }
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "cargar"+e.getMessage());
@@ -1030,6 +1125,26 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         
     }
     
+    public void seleccion_EC(){
+        if(cbFecha_EC.isSelected()==true){
+            fecha_inicio_EC.setEnabled(true);
+            fecha_fin_EC.setEnabled(true);
+            txtBuscarPaciente_EC.setText("");
+            lblfecha_I_EC.setVisible(true);
+            lblfecha_F_EC.setVisible(true);
+            lblG_EC.setVisible(true);
+        }else{
+            fecha_inicio_EC.setEnabled(false);
+            fecha_fin_EC.setEnabled(false);
+            fecha_inicio_EC.setDate(null);
+            fecha_fin_EC.setDate(null);
+            txtBuscarPaciente_EC.setText("");
+            lblfecha_I_EC.setVisible(false);
+            lblfecha_F_EC.setVisible(false);
+            lblG_EC.setVisible(false);
+        }
+    }       
+    
     public static String fechaActual(){
         Date now = new Date(System.currentTimeMillis());
         SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
@@ -1118,6 +1233,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     private javax.swing.JLabel lblEdad_EC_D;
     private javax.swing.JLabel lblFechaNaci_EC_D;
     private javax.swing.JLabel lblFecha_EC;
+    private javax.swing.JLabel lblG_EC;
     private javax.swing.JLabel lblGenero_EC_D;
     private javax.swing.JLabel lblHora_EC;
     private javax.swing.JLabel lblIDArea_EC_D;
@@ -1127,6 +1243,8 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     private javax.swing.JLabel lblNumero;
     public static javax.swing.JLabel lblUsu;
     private javax.swing.JLabel lblUsuD_EC_D;
+    private javax.swing.JLabel lblfecha_F_EC;
+    private javax.swing.JLabel lblfecha_I_EC;
     private javax.swing.JTable tb_Detalle_EC_D;
     private javax.swing.JTable tb_Examen_EC;
     private javax.swing.JLabel titulo5;

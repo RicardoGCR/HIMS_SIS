@@ -185,7 +185,6 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
 
         PERSONAL_ROL.setAlwaysOnTop(true);
         PERSONAL_ROL.setMinimumSize(new java.awt.Dimension(710, 370));
-        PERSONAL_ROL.setPreferredSize(new java.awt.Dimension(710, 370));
 
         jPanel3.setBackground(new java.awt.Color(34, 113, 179));
 
@@ -1823,11 +1822,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         String consulta="";
         try {
             tb_Personal_rol_todo.setModel(new DefaultTableModel());
-            String titulos[]={"Nº","Cod. Per","Apellido Paterno","Apellido Materno","Nombres","Cargo","Servicio",
-                 "Cod. Servicio"};
+            String titulos[]={"Nº","Cod. Per","Apellido Paterno","Apellido Materno","Nombres","Cargo"};
             m4=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m4);
-            String fila[]=new String[8];
+            String fila[]=new String[6];
 
             RX_EC_EXAMEN obj=new RX_EC_EXAMEN();
                     consulta="exec RX_EC_PERSONAL_BUSCAR_TODO ?";
@@ -1843,8 +1841,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 fila[3]=r.getString(3);
                 fila[4]=r.getString(4);
                 fila[5]=r.getString(5);
-                fila[6]=r.getString(6);
-                fila[7]=r.getString(7);
+                
                 m4.addRow(fila);
                 c++;
             }

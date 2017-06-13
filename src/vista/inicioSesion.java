@@ -166,7 +166,7 @@ String hora, minutos, segundos, ampm;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=6;
-      }else if(cap.equalsIgnoreCase(codAdmin("RAYOS X - ECOGRAFIA"))){//Para editar tipo de usuario
+      }else if(cap.equalsIgnoreCase(codAdmin("RAYOS X"))){//Para editar tipo de usuario
 
         cont1=-1;
         barra.setValue(0);

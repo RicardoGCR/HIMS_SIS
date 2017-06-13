@@ -38,10 +38,13 @@ import modelos.Caja.Caja_SIS_Cabecera;
 import servicios.Conexion;
 import vista.admisionCentral.FrmNuevaHistoriaC;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.HashMap;
 import java.util.Map;
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
+import javax.swing.JFrame;
 import javax.swing.table.JTableHeader;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -210,6 +213,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         panelPorcentajes.setVisible(false);
         jPanel1.setVisible(false);
         panelSumaDetalle.setVisible(false);
+        cerrar();
 //        panelTurnos.setVisible(false);
         
         
@@ -288,6 +292,37 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 //
 //}//Fin de la clase privada ManejadorTecla()
 
+    
+    public void cerrar (){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e){
+                    if(lblOk.getText()=="okk" && tb_CPT.getRowCount()==0){ 
+                    panelEliminar.setVisible(true);   
+                    panelMensaje.setVisible(false);  
+                    tgnuevoEliminar=1;
+                    txtEnterEscapeEnter1.requestFocus();
+                    
+                }  
+  
+                if(lblOk.getText()=="okk" && tb_CPT.getRowCount()!=0  ){
+                    panelAnular.setVisible(true);
+                    panelMensaje.setVisible(false);  
+                    txtEnterEscapeEnter.requestFocus();
+                   
+                }
+                if(lblOk.getText()=="ok" && tb_CPT.getRowCount()==0){ 
+                   dispose();
+                }
+                }
+});
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+      
     private void sumaAbono()
     {
         double total = 0;
@@ -1941,6 +1976,9 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                             jLabel87 = new javax.swing.JLabel();
                                                                                             ChkEdad2 = new javax.swing.JTextField();
                                                                                             jLabel88 = new javax.swing.JLabel();
+                                                                                            panelIMprimir = new javax.swing.JPanel();
+                                                                                            Mensaje7 = new javax.swing.JLabel();
+                                                                                            eli6 = new javax.swing.JButton();
                                                                                             jPanel13 = new javax.swing.JPanel();
                                                                                             jScrollPane12 = new javax.swing.JScrollPane();
                                                                                             tb_ReporteDiario1 = new javax.swing.JTable(){
@@ -5944,7 +5982,6 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                                                                                                 GuardarPapeleta.setAlwaysOnTop(true);
                                                                                                 GuardarPapeleta.setMinimumSize(new java.awt.Dimension(470, 247));
-                                                                                                GuardarPapeleta.setPreferredSize(new java.awt.Dimension(443, 247));
 
                                                                                                 jPanel61.setBackground(new java.awt.Color(0, 153, 102));
                                                                                                 jPanel61.setMinimumSize(new java.awt.Dimension(310, 441));
@@ -6201,7 +6238,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGap(0, 0, 0)
                                                                                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+                                                                                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
                                                                                                         .addGap(0, 0, 0))
                                                                                                 );
 
@@ -7024,7 +7061,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGap(0, 0, 0)
                                                                                                         .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
+                                                                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
                                                                                                 );
 
                                                                                                 javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -7360,19 +7397,63 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                 );
 
+                                                                                                panelIMprimir.setBackground(new java.awt.Color(0, 153, 102));
+
+                                                                                                Mensaje7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+                                                                                                Mensaje7.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                Mensaje7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Imprimir-32.png"))); // NOI18N
+                                                                                                Mensaje7.setText("Imprimiendo una copia del documento");
+
+                                                                                                eli6.setForeground(new java.awt.Color(240, 240, 240));
+                                                                                                eli6.setText("OK");
+                                                                                                eli6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+                                                                                                eli6.setContentAreaFilled(false);
+                                                                                                eli6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                                                                                                eli6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                                                                                                eli6.setIconTextGap(30);
+                                                                                                eli6.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                        eli6ActionPerformed(evt);
+                                                                                                    }
+                                                                                                });
+
+                                                                                                javax.swing.GroupLayout panelIMprimirLayout = new javax.swing.GroupLayout(panelIMprimir);
+                                                                                                panelIMprimir.setLayout(panelIMprimirLayout);
+                                                                                                panelIMprimirLayout.setHorizontalGroup(
+                                                                                                    panelIMprimirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                    .addGroup(panelIMprimirLayout.createSequentialGroup()
+                                                                                                        .addGap(19, 19, 19)
+                                                                                                        .addComponent(Mensaje7)
+                                                                                                        .addGap(46, 46, 46)
+                                                                                                        .addComponent(eli6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                );
+                                                                                                panelIMprimirLayout.setVerticalGroup(
+                                                                                                    panelIMprimirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                    .addGroup(panelIMprimirLayout.createSequentialGroup()
+                                                                                                        .addGap(17, 17, 17)
+                                                                                                        .addGroup(panelIMprimirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                            .addComponent(Mensaje7)
+                                                                                                            .addComponent(eli6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                );
+
                                                                                                 javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
                                                                                                 jPanel5.setLayout(jPanel5Layout);
                                                                                                 jPanel5Layout.setHorizontalGroup(
                                                                                                     jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                     .addComponent(resumen1, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)
                                                                                                     .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)
+                                                                                                    .addComponent(panelIMprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                 );
                                                                                                 jPanel5Layout.setVerticalGroup(
                                                                                                     jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                                                                                         .addComponent(resumen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE))
+                                                                                                        .addComponent(panelIMprimir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addGap(0, 0, Short.MAX_VALUE)
+                                                                                                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                 );
 
                                                                                                 jTabbedPane1.addTab("tab3", jPanel5);
@@ -7518,7 +7599,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                     .addGroup(jPanel13Layout.createSequentialGroup()
                                                                                                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+                                                                                                        .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
                                                                                                         .addGap(22, 22, 22))
                                                                                                 );
 
@@ -8063,7 +8144,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 layout.setVerticalGroup(
                                                                                                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                     .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE)
+                                                                                                    .addComponent(jTabbedPane1)
                                                                                                 );
 
                                                                                                 pack();
@@ -10345,6 +10426,13 @@ jTabbedPane1.setSelectedIndex(1);
         GuardarPapeleta.dispose();  
     }//GEN-LAST:event_btnGuardarDetalleActionPerformed
 
+    private void eli6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eli6ActionPerformed
+      
+            panelIMprimir.setVisible(false);
+
+        
+    }//GEN-LAST:event_eli6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -10416,6 +10504,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JLabel Mensaje4;
     private javax.swing.JLabel Mensaje5;
     private javax.swing.JLabel Mensaje6;
+    private javax.swing.JLabel Mensaje7;
     private javax.swing.JDialog abono;
     private javax.swing.JLabel abonod;
     private javax.swing.JLabel adni;
@@ -10477,6 +10566,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JButton eli3;
     private javax.swing.JButton eli4;
     private javax.swing.JButton eli5;
+    private javax.swing.JButton eli6;
     private javax.swing.JButton eli7;
     private javax.swing.JLabel elimdp;
     private javax.swing.JButton elimma;
@@ -10770,6 +10860,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JPanel panelEliminarHOS;
     private javax.swing.JPanel panelExoneracion;
     private javax.swing.JPanel panelFormaPago;
+    private javax.swing.JPanel panelIMprimir;
     private javax.swing.JPanel panelMensaje;
     private javax.swing.JPanel panelNumeros;
     private javax.swing.JPanel panelOpcionesEmergencia;

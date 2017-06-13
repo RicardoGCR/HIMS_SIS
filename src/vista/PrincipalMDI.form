@@ -934,7 +934,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                       <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="684" max="32767" attributes="0"/>
+                      <EmptySpace pref="709" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1605,16 +1605,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="41" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnguardar8" min="-2" pref="118" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btnguardar8" alignment="1" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -1622,9 +1616,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="37" max="32767" attributes="0"/>
                               <Component id="btnguardar8" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1642,22 +1634,11 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Buscar estimacion"/>
+                        <Property name="text" type="java.lang.String" value="&lt;html&gt;Buscar estimacion &lt;br&gt; de costos&lt;/html&gt;"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel24">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI Light" size="18" style="0"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="de costos"/>
-                      </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel23MouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnguardar8">
                       <Properties>
@@ -1932,7 +1913,7 @@
                               <Component id="jPanel26" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="433" max="32767" attributes="0"/>
+                      <EmptySpace pref="458" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2222,6 +2203,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&lt;html&gt;Movimiento de Historias Cl&#xed;nicas&lt;/html&gt;"/>
+                    <Property name="verticalAlignment" type="int" value="3"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Cursor de Mano"/>
                     </Property>
@@ -2421,7 +2403,7 @@
                           </Group>
                           <Component id="jPanel80" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="416" max="32767" attributes="0"/>
+                      <EmptySpace pref="441" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3753,7 +3735,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       <Component id="jPanel94" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="413" max="32767" attributes="0"/>
+                      <EmptySpace pref="438" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -5471,7 +5453,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="421" max="32767" attributes="0"/>
+                      <EmptySpace pref="446" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -6205,7 +6187,7 @@
                       <Component id="lblusu8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="jPanel45" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="799" max="32767" attributes="0"/>
+                      <EmptySpace pref="824" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -6344,7 +6326,7 @@
                           <Component id="jPanel92" min="-2" max="-2" attributes="0"/>
                           <Component id="jPanel93" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="695" max="32767" attributes="0"/>
+                      <EmptySpace pref="720" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -6685,7 +6667,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1045" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1070" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -6712,7 +6694,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1045" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1070" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -6739,7 +6721,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1045" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1070" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -6766,7 +6748,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1045" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1070" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -6793,7 +6775,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1045" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1070" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>

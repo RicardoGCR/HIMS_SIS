@@ -3,24 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/HIMS/src/vista/PrincipalMDI.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/ConsultorioEx/RegistroSeguimiento.java</file>
-=======
-            <file>file:/D:/PROYECTO%2001/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
->>>>>>> b496d2d4353828426db317f99d9cd2de12aadf14
-            <file>file:/D:/PROYECTO%2001/HIMS/src/vista/EC/EC_BUSCAR_EXAMEN_CAJA.java</file>
-            <file>file:/D:/PROYECTO%2001/HIMS/src/vista/ConsultorioEx/ConsultorioAsignacion.java</file>
-            <file>file:/D:/PROYECTO%2001/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
-            <file>file:/D:/PROYECTO%2001/HIMS/src/vista/RX/RX_EC_BUSCAR_EXAMEN_C.java</file>
-<<<<<<< HEAD
-            <file>file:/D:/PROYECTO%2001/HIMS/src/vista/RX/RX_EC_EXAMEN_CAB.java</file>
-=======
->>>>>>> 4dd9ead44ee4c9189b772ff17ff362f3019eccfa
->>>>>>> b496d2d4353828426db317f99d9cd2de12aadf14
+            <file>file:/E:/pry/HIMS/src/vista/COSTOS/BUSCAR_NOMENCLATURA.java</file>
+            <file>file:/E:/pry/HIMS/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_DETALLE.java</file>
         </group>
     </open-files>
 </project-private>

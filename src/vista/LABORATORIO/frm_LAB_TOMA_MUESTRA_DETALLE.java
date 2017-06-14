@@ -642,7 +642,6 @@ public void calcula() {
                         Unidad_Organica.setAlwaysOnTop(true);
                         Unidad_Organica.setFocusCycleRoot(false);
                         Unidad_Organica.setMinimumSize(new java.awt.Dimension(414, 509));
-                        Unidad_Organica.setPreferredSize(new java.awt.Dimension(414, 509));
                         Unidad_Organica.setResizable(false);
 
                         tb_Unidad_Organica.setModel(new javax.swing.table.DefaultTableModel(
@@ -794,7 +793,7 @@ public void calcula() {
                                 .addComponent(titulo5)
                                 .addGap(483, 483, 483)
                                 .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(26, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         );
                         jpanelLayout.setVerticalGroup(
                             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1433,7 +1432,6 @@ public void calcula() {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
                                 .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addContainerGap())
                         );

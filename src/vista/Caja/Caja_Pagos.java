@@ -324,7 +324,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         }
     }
     
-    public void PacientesHC(){
+    public void CPTNomenclaturas(){
             int fila=tb_CPTBUSCAR.getSelectedRow();
             nomenclaturas.dispose();
             lblIdMedico.setText("");
@@ -376,7 +376,67 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             lblMantP.setText("CP");      
     }
             
-      
+    private void PacientesHC(){
+                    Caja_NuevaVenta CP= new Caja_NuevaVenta();
+            Caja_NuevaVenta CP2= new Caja_NuevaVenta();
+            Caja_NuevaVenta CP3= new Caja_NuevaVenta();
+            Caja_NuevaVenta CPAM= new Caja_NuevaVenta();
+            Caja_NuevaVenta PM= new Caja_NuevaVenta();
+            int fila=tbPacientes.getSelectedRow();
+        
+            bus.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
+            bus3.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
+           PM.Preventamostrar(bus.getText(),tbpreventas);
+           CPAM.Caja_Id_Preventa(bus.getText());
+           CP.ConsultoriosExtPREVENTAListar(lblIdPreventa.getText());
+           CP2.ConsultoriosExtPREVENTAListarCEX(lblIdPreventa.getText());
+           CP3.ConsultoriosACTOMEDICO_EMERGENCIA(lblIdPreventa.getText());
+           CP3.VerificarPreventaHOS_OJO_IMPORTANTE_DE_MOMENTO(lblHc.getText());
+           
+            Abonnos();
+            BHC.dispose();
+            panelDatosGenerales.setVisible(true);
+            panelActoMedico.setVisible(true);
+
+            txtHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
+            lblHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
+            txtape.setText(String.valueOf(tbPacientes.getValueAt(fila, 2)));
+            lblDireccion.setText(String.valueOf(tbPacientes.getValueAt(fila, 3)));    
+            lblDNI.setText(String.valueOf(tbPacientes.getValueAt(fila, 0)));
+            sexo.setText(String.valueOf(tbPacientes.getValueAt(fila, 4)));
+            txtedad.setText(String.valueOf(tbPacientes.getValueAt(fila, 6)));
+            lblHc.setText(String.valueOf(tbPacientes.getValueAt(fila, 7))); 
+           
+  
+           
+          ////////////////////////
+
+	     jLabel36.setText(String.valueOf(tbpreventas.getRowCount()));
+             
+
+             if(this.tbpreventas.getRowCount()!=0  ){
+//              panelPreventa.setVisible(true);
+//              panelPreventa.requestFocus();
+                lblPreventa.setText("SI");
+             }
+              if(this.tbpreventas.getRowCount()==0  ){
+//              panelPreventa.setVisible(false);
+                  lblPreventa.setText("NO");
+             }
+             
+        if(this.ABONOS.getRowCount()!=0  ){
+              panelAbonos.setVisible(true);
+              lblAbonos.setText("Si");
+          }
+            if(this.ABONOS.getRowCount()==0  ){
+             panelAbonos.setVisible(false);
+             lblAbonos.setText("No");
+             txtBuscarCPT.setText("");
+             }
+//            fua.setText(cnn1.idSIS());
+            
+            
+    }  
     private void sumaAbono()
     {
         double total = 0;
@@ -8274,68 +8334,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
     private void tbPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPacientesMouseClicked
        
-        
-        
-       Caja_NuevaVenta CP= new Caja_NuevaVenta();
-       Caja_NuevaVenta CP2= new Caja_NuevaVenta();
-       Caja_NuevaVenta CP3= new Caja_NuevaVenta();
-       Caja_NuevaVenta CPAM= new Caja_NuevaVenta();
-       Caja_NuevaVenta PM= new Caja_NuevaVenta();
-        int fila=tbPacientes.getSelectedRow();
-        
-       bus.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
-       bus3.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
-           PM.Preventamostrar(bus.getText(),tbpreventas);
-           CPAM.Caja_Id_Preventa(bus.getText());
-           CP.ConsultoriosExtPREVENTAListar(lblIdPreventa.getText());
-           CP2.ConsultoriosExtPREVENTAListarCEX(lblIdPreventa.getText());
-           CP3.ConsultoriosACTOMEDICO_EMERGENCIA(lblIdPreventa.getText());
-           CP3.VerificarPreventaHOS_OJO_IMPORTANTE_DE_MOMENTO(lblHc.getText());
-           
-            Abonnos();
         if(evt.getClickCount()==2){
-            BHC.dispose();
-            panelDatosGenerales.setVisible(true);
-            panelActoMedico.setVisible(true);
-
-            txtHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
-            lblHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
-            txtape.setText(String.valueOf(tbPacientes.getValueAt(fila, 2)));
-            lblDireccion.setText(String.valueOf(tbPacientes.getValueAt(fila, 3)));    
-            lblDNI.setText(String.valueOf(tbPacientes.getValueAt(fila, 0)));
-            sexo.setText(String.valueOf(tbPacientes.getValueAt(fila, 4)));
-            txtedad.setText(String.valueOf(tbPacientes.getValueAt(fila, 6)));
-            lblHc.setText(String.valueOf(tbPacientes.getValueAt(fila, 7))); 
-           
-  
-           
-          ////////////////////////
-
-	     jLabel36.setText(String.valueOf(tbpreventas.getRowCount()));
-             
-
-             if(this.tbpreventas.getRowCount()!=0  ){
-//              panelPreventa.setVisible(true);
-//              panelPreventa.requestFocus();
-                lblPreventa.setText("SI");
-             }
-              if(this.tbpreventas.getRowCount()==0  ){
-//              panelPreventa.setVisible(false);
-                  lblPreventa.setText("NO");
-             }
-             
-        if(this.ABONOS.getRowCount()!=0  ){
-              panelAbonos.setVisible(true);
-              lblAbonos.setText("Si");
-          }
-            if(this.ABONOS.getRowCount()==0  ){
-             panelAbonos.setVisible(false);
-             lblAbonos.setText("No");
-             txtBuscarCPT.setText("");
-             }
-//            fua.setText(cnn1.idSIS());
-            
-                   
+            PacientesHC();
         }
         if(lblDNI.getText().equals("        ")) {
                 ActualizarDNI.setVisible(true);
@@ -8353,61 +8353,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
     }//GEN-LAST:event_tbPacientesMouseClicked
 
     private void tbPacientesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPacientesKeyPressed
-        Caja_NuevaVenta CP= new Caja_NuevaVenta();
-        Caja_NuevaVenta CP2= new Caja_NuevaVenta();
-        Caja_NuevaVenta CPAM= new Caja_NuevaVenta();
-        Caja_NuevaVenta PM= new Caja_NuevaVenta();
-        int fila = tbPacientes.getSelectedRow();
-        bus.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
-        bus3.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
-           PM.Preventamostrar(bus.getText(),tbpreventas);
-           CPAM.Caja_Id_Preventa(bus.getText());
-           CP.ConsultoriosExtPREVENTAListar(lblIdPreventa.getText());
-           
-           
-            Abonnos(); 
+
         char teclaPresionada = evt.getKeyChar();
         
         if(teclaPresionada==KeyEvent.VK_ENTER){
-            CP2.ConsultoriosExtPREVENTAListarCEX(lblHc.getText());
-   
-            BHC.dispose();
-            panelDatosGenerales.setVisible(true);
-            panelActoMedico.setVisible(true);
-
-            txtHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
-            lblHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
-            txtape.setText(String.valueOf(tbPacientes.getValueAt(fila, 2)));
-            lblDireccion.setText(String.valueOf(tbPacientes.getValueAt(fila, 3)));    
-            lblDNI.setText(String.valueOf(tbPacientes.getValueAt(fila, 0)));
-            sexo.setText(String.valueOf(tbPacientes.getValueAt(fila, 4)));
-            txtedad.setText(String.valueOf(tbPacientes.getValueAt(fila, 6)));
-            lblHc.setText(String.valueOf(tbPacientes.getValueAt(fila, 7))); 
-
-          ////////////////////////
-
-	     jLabel36.setText(String.valueOf(tbpreventas.getRowCount()));
-             
-            if(this.tbpreventas.getRowCount()!=0  ){
-//              panelPreventa.setVisible(true);
-//              panelPreventa.requestFocus();
-                lblPreventa.setText("SI");
-             }
-              if(this.tbpreventas.getRowCount()==0  ){
-//              panelPreventa.setVisible(false);
-                  lblPreventa.setText("NO");
-             }
-             
-        if(this.ABONOS.getRowCount()!=0  ){
-              panelAbonos.setVisible(true);
-              lblAbonos.setText("Si");
-          }
-            if(this.ABONOS.getRowCount()==0  ){
-             panelAbonos.setVisible(false);
-             lblAbonos.setText("No");
-             txtBuscarCPT.setText("");
-             txtBuscarCPT.requestFocus();
-             }
+            PacientesHC();
             
              if(lblDNI.getText().equals("        ")) {
                 ActualizarDNI.setVisible(true);
@@ -8538,7 +8488,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
        
         if(evt.getClickCount()==2){
                        
-            PacientesHC();
+            CPTNomenclaturas();
            
         }
     }//GEN-LAST:event_tb_CPTBUSCARMouseClicked
@@ -8546,7 +8496,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
     private void tb_CPTBUSCARKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_CPTBUSCARKeyPressed
         char teclaPresionada = evt.getKeyChar();
         if(teclaPresionada==KeyEvent.VK_ENTER){
-            PacientesHC();
+            CPTNomenclaturas();
         }
     }//GEN-LAST:event_tb_CPTBUSCARKeyPressed
   private void suma()

@@ -1104,6 +1104,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         ));
         tb_examen_det_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_examen_det_EC.setRowHeight(25);
+        tb_examen_det_EC.getTableHeader().setReorderingAllowed(false);
         tb_examen_det_EC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tb_examen_det_ECMouseClicked(evt);
@@ -1153,6 +1154,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         ));
         tbCIE10_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbCIE10_EC.setRowHeight(22);
+        tbCIE10_EC.getTableHeader().setReorderingAllowed(false);
         jScrollPane5.setViewportView(tbCIE10_EC);
 
         jLabel15.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N

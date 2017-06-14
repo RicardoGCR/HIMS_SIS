@@ -128,7 +128,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         });
         jPopupMenu1.add(Ver_Resultado);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jpanel.setBackground(new java.awt.Color(34, 113, 179));
 
@@ -173,6 +173,9 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
             }
         });
         txtBuscarPaciente_R.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarPaciente_RKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBuscarPaciente_RKeyTyped(evt);
             }
@@ -304,6 +307,8 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
                 .addGap(5, 5, 5))
         );
 
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
         tb_Examenes_R = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
                 return false; //Disallow the editing of any cell
@@ -320,6 +325,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         tb_Examenes_R.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Examenes_R.setComponentPopupMenu(jPopupMenu1);
         tb_Examenes_R.setRowHeight(25);
+        tb_Examenes_R.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tb_Examenes_R);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
@@ -332,12 +338,9 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
             .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jLabel3)
+                .addContainerGap(706, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,8 +349,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
                 .addGap(8, 8, 8)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE))
         );
 
         pack();
@@ -470,6 +472,10 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
                 JOptionPane.showMessageDialog(null, "Error al Cargar el reporte"+e.getMessage());
             }
     }//GEN-LAST:event_Ver_ResultadoActionPerformed
+
+    private void txtBuscarPaciente_RKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPaciente_RKeyReleased
+        txtBuscarPaciente_R.setText(txtBuscarPaciente_R.getText().toUpperCase());
+    }//GEN-LAST:event_txtBuscarPaciente_RKeyReleased
 
     public void buscar_examen(){
     

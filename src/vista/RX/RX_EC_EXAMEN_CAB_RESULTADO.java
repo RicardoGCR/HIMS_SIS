@@ -697,19 +697,20 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblCod_Personal_Sol, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFP)
-                    .addComponent(jLabel15)
-                    .addComponent(lblFUA)
-                    .addComponent(jLabel23)
+                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblFechaReg)
+                        .addComponent(lblHoraReg)
+                        .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel30))
                     .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel29)
-                        .addComponent(lblNumExamen)
-                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblFechaReg)
-                            .addComponent(lblHoraReg)
-                            .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel30))))
+                        .addComponent(lblNumExamen))
+                    .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblFP)
+                        .addComponent(jLabel15)
+                        .addComponent(lblFUA)
+                        .addComponent(jLabel23)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -1121,7 +1122,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addComponent(jLabel6)
                 .addGap(5, 5, 5)
                 .addComponent(txtFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1175,6 +1176,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         tb_examen_det.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_examen_det.setComponentPopupMenu(jPopupMenu2);
         tb_examen_det.setRowHeight(25);
+        tb_examen_det.getTableHeader().setReorderingAllowed(false);
         tb_examen_det.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tb_examen_detMouseClicked(evt);
@@ -1201,6 +1203,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             }
         ));
         tbCIE10.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tbCIE10.getTableHeader().setReorderingAllowed(false);
         jScrollPane5.setViewportView(tbCIE10);
 
         jLabel14.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
@@ -1328,7 +1331,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1314, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1317, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2022,7 +2025,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     public void inicializar_tabla_cie10(){       
         try {
             
-            String titulosb[]={"ID CIE10","COD ENF","DESCRIPCION"};
+            String titulosb[]={"ID CIE10","Cod. Enf.","Descripción"};
             msb3=new DefaultTableModel(null,titulosb);
             JTable psb=new JTable(msb3);
             String filasb[]=new String[3];
@@ -2413,7 +2416,7 @@ public void guardar_resultado_detalle(){
         String consulta="";
         try {
             tb_CIE10.setModel(new DefaultTableModel());
-            String titulos[]={"ID CIE10","COD ENF","DESCRIPCION"};
+            String titulos[]={"ID CIE10","Cod. Enf.","Descripción"};
             m8=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m8);
             String fila[]=new String[3];
@@ -2458,8 +2461,8 @@ public void guardar_resultado_detalle(){
         DefaultTableModel tabla= new DefaultTableModel();
 
         tabla.addColumn("ID CIE10");
-        tabla.addColumn("COD ENF");
-        tabla.addColumn("DESCRIPCION");
+        tabla.addColumn("Cod Enf.");
+        tabla.addColumn("Descripción");
 
 
         cst=con.prepareCall("{call RX_EC_CIE10_LISTAR}");

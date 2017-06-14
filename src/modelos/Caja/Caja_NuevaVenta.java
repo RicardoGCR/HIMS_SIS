@@ -1006,7 +1006,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         return resp;
     }
      
-     public void listarEmpresa(String Servicio ,JTable tabla){
+    public void listarEmpresa(String Servicio ,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());

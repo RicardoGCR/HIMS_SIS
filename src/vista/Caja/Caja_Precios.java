@@ -222,7 +222,7 @@ Ticket ticket=new Ticket();
 }
     public void LISTARNom(){
     try {
-             String titulos[]={"Nomenclatura","Descripcion",""};
+             String titulos[]={"CPT","Descripcion",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[3];
@@ -347,7 +347,7 @@ Ticket ticket=new Ticket();
         String consulta="";
         try {
             tb_Grupo2.setModel(new DefaultTableModel());
-             String titulos[]={"Nomenclatura","Descripcion",""};
+             String titulos[]={"CPT","Descripcion",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[3];
@@ -572,7 +572,7 @@ Ticket ticket=new Ticket();
                     FormaP.setMinimumSize(new java.awt.Dimension(310, 441));
                     FormaP.setResizable(false);
 
-                    jPanel7.setBackground(new java.awt.Color(0, 153, 153));
+                    jPanel7.setBackground(new java.awt.Color(41, 127, 184));
                     jPanel7.setMinimumSize(new java.awt.Dimension(310, 441));
 
                     jLabel19.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
@@ -698,12 +698,12 @@ Ticket ticket=new Ticket();
                     Nomenclatura.setMinimumSize(new java.awt.Dimension(612, 430));
                     Nomenclatura.setResizable(false);
 
-                    jPanel8.setBackground(new java.awt.Color(0, 153, 153));
+                    jPanel8.setBackground(new java.awt.Color(41, 127, 184));
                     jPanel8.setMinimumSize(new java.awt.Dimension(310, 441));
 
                     jLabel20.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
                     jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-                    jLabel20.setText("Nomenclaturas");
+                    jLabel20.setText("CPT");
 
                     jPanel47.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -753,7 +753,6 @@ Ticket ticket=new Ticket();
                             .addGap(0, 0, Short.MAX_VALUE)
                             .addComponent(T8))
                         .addGroup(jPanel47Layout.createSequentialGroup()
-                            .addGap(0, 0, 0)
                             .addComponent(txtBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, Short.MAX_VALUE))
                     );
@@ -1308,7 +1307,7 @@ Ticket ticket=new Ticket();
                             .addGap(0, 0, 0)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
                             .addContainerGap())
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
                     );
 
                     pack();

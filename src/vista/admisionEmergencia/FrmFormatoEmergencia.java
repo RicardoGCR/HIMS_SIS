@@ -82,6 +82,23 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         btnBuscar.setMnemonic(KeyEvent.VK_F3);
         //ICONO DE FORMULARIO
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+        //ICONO DE FORMULARIO
+        dlgBuscarPac.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+        //ICONO DE FORMULARIO
+        dlgBuscarCPT.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+        //ICONO DE FORMULARIO
+        dlgListaExamnAux.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+        //ICONO DE FORMULARIO
+        dlgListaImpDx.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+        //ICONO DE FORMULARIO
+        dlgModTriaje.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+        //ICONO DE FORMULARIO
+        dlgModemergencia.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+        //ICONO DE FORMULARIO
+        dlgMostrarDatosTopico.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+        dlgMostrarDatosTriajeT.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+         //ICONO DE FORMULARIO
+        dlgMostrarDatosTriajeT.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         conexion = c.conectar();
         //BOTON CERRAR
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(

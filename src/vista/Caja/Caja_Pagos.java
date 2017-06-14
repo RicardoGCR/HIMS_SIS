@@ -323,6 +323,59 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             e.printStackTrace();
         }
     }
+    
+    public void PacientesHC(){
+            int fila=tb_CPTBUSCAR.getSelectedRow();
+            nomenclaturas.dispose();
+            lblIdMedico.setText("");
+            lblServicio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 7)));
+            lblCajaNomenclaturaPrecio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
+            lblServicioArea.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 9)));
+            lblNomenclatura.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
+            Caja_Documento_Detalle cnvd = new Caja_Documento_Detalle();
+            lblVisAdmi.setText(cnvd.VisibleAdmin(lblCajaNomenclaturaPrecio.getText()));
+            
+            if(!lblVisAdmi.getText().equals("N")){
+                
+                if (lblNomenclatura.getText().equals("CN00767         ")){
+                    
+                    Caja_HospitalizacionPreventa chos = new Caja_HospitalizacionPreventa();
+                    chos.setVisible(true);
+                    Caja_HospitalizacionPreventa.lblIDHC.setText(lblHc.getText());
+                    Caja_HospitalizacionPreventa.lblNomPaciente.setText(txtape.getText());
+                    Caja_HospitalizacionPreventa.lblUsuUsuario.setText(lblusu.getText());
+                    Caja_HospitalizacionPreventa.lblGenero.setText(sexo.getText());
+                    Caja_HospitalizacionPreventa.lblActoMedico.setText(lblActoMedico.getText());
+                    Caja_HospitalizacionPreventa.lblJerarFP.setText(lblFP.getText());
+                    
+                }else  if (!lblNomenclatura.getText().equals("CN00767         ")){
+                    Caja_NuevaVenta CNV = new Caja_NuevaVenta();
+                    MedicosConsultorios.setVisible(true);
+                    CNV.listarMedicos1(lblServicio.getText(),tb_medicos1);
+                    txtBuscarMedicos.setText(null);
+                    txtBuscarMedicos.requestFocus();
+                }
+                
+                
+            }else if(lblVisAdmi.getText().equals("N")){
+                if (lblNomenclatura.getText().equals("CN00761         ")){
+                    System.out.println("-----------------ALTA------------------");
+                    GuardarDetalle();
+                    ModificarALTA();
+                    panelNumeros.setVisible(true);
+                    suma();
+                    
+                }else if (!lblNomenclatura.getText().equals("CN00761         ")){
+                    GuardarDetalle();
+                    panelNumeros.setVisible(true);
+                    suma();
+                }
+                
+            }
+                    
+            lblMantP.setText("CP");      
+    }
+            
       
     private void sumaAbono()
     {
@@ -6241,7 +6294,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGap(0, 0, 0)
                                                                                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                                                                                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
                                                                                                         .addGap(0, 0, 0))
                                                                                                 );
 
@@ -7069,7 +7122,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGap(0, 0, 0)
                                                                                                         .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
+                                                                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
                                                                                                 );
 
                                                                                                 javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -7605,7 +7658,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                     .addGroup(jPanel13Layout.createSequentialGroup()
                                                                                                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+                                                                                                        .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
                                                                                                         .addGap(22, 22, 22))
                                                                                                 );
 
@@ -7716,7 +7769,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 });
 
                                                                                                 lbldetalle.setForeground(new java.awt.Color(255, 255, 255));
-                                                                                                lbldetalle.setText("DNI, Acto Meédico");
+                                                                                                lbldetalle.setText("DNI, Acto Médico");
 
                                                                                                 btnLista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                                                                 btnLista.setForeground(new java.awt.Color(240, 240, 240));
@@ -8482,86 +8535,19 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
     }//GEN-LAST:event_txtBuscarCPTActionPerformed
 
     private void tb_CPTBUSCARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_CPTBUSCARMouseClicked
-        int fila=tb_CPTBUSCAR.getSelectedRow();
+       
         if(evt.getClickCount()==2){
-            nomenclaturas.dispose();
-            lblIdMedico.setText("");
-            lblServicio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 7)));
-            lblCajaNomenclaturaPrecio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
-            lblServicioArea.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 9)));
-            lblNomenclatura.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
-            Caja_Documento_Detalle cnvd = new Caja_Documento_Detalle();
-            lblVisAdmi.setText(cnvd.VisibleAdmin(lblCajaNomenclaturaPrecio.getText()));
-            
-            if(!lblVisAdmi.getText().equals("N")){
-                
-                if (lblNomenclatura.getText().equals("CN00767         ")){
-                    
-                    Caja_HospitalizacionPreventa chos = new Caja_HospitalizacionPreventa();
-                    chos.setVisible(true);
-                    Caja_HospitalizacionPreventa.lblIDHC.setText(lblHc.getText());
-                    Caja_HospitalizacionPreventa.lblNomPaciente.setText(txtape.getText());
-                    Caja_HospitalizacionPreventa.lblUsuUsuario.setText(lblusu.getText());
-                    Caja_HospitalizacionPreventa.lblGenero.setText(sexo.getText());
-                    Caja_HospitalizacionPreventa.lblActoMedico.setText(lblActoMedico.getText());
-                    Caja_HospitalizacionPreventa.lblJerarFP.setText(lblFP.getText());
-                    
-                }else  if (!lblNomenclatura.getText().equals("CN00767         ")){
-                    Caja_NuevaVenta CNV = new Caja_NuevaVenta();
-                    MedicosConsultorios.setVisible(true);
-                    CNV.listarMedicos1(lblServicio.getText(),tb_medicos1);
-                    txtBuscarMedicos.setText(null);
-                    txtBuscarMedicos.requestFocus();
-                }
-                
-                
-            }else if(lblVisAdmi.getText().equals("N")){
-                if (lblNomenclatura.getText().equals("CN00761         ")){
-                    System.out.println("-----------------ALTA------------------");
-                    GuardarDetalle();
-                    ModificarALTA();
-                    panelNumeros.setVisible(true);
-                    suma();
-                    
-                }else if (!lblNomenclatura.getText().equals("CN00761         ")){
-                    GuardarDetalle();
-                    panelNumeros.setVisible(true);
-                    suma();
-                }
-                
-            }
-                    
-            lblMantP.setText("CP");                   
-    
+                       
+            PacientesHC();
            
-            }
+        }
     }//GEN-LAST:event_tb_CPTBUSCARMouseClicked
 
     private void tb_CPTBUSCARKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_CPTBUSCARKeyPressed
         char teclaPresionada = evt.getKeyChar();
         if(teclaPresionada==KeyEvent.VK_ENTER){
-            int fila = tb_CPTBUSCAR.getSelectedRow();
-            nomenclaturas.dispose();
-            lblIdMedico.setText("");
-            lblServicio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 7)));
-            lblCajaNomenclaturaPrecio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
-            lblServicioArea.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 9)));
-            
-            Caja_Documento_Detalle cnvd = new Caja_Documento_Detalle();
-            lblVisAdmi.setText(cnvd.VisibleAdmin(lblCajaNomenclaturaPrecio.getText()));
-            
-            if(!lblVisAdmi.getText().equals("N")){
-//                tb_medicos2.setDefaultRenderer(Object.class,new FormatoTablaCajaConsultorio());
-                Caja_NuevaVenta CNV = new Caja_NuevaVenta();
-                MedicosConsultorios.setVisible(true);
-                CNV.listarMedicos1(lblServicio.getText(),tb_medicos1);
-            }else if(lblVisAdmi.getText().equals("N")){
-                GuardarDetalle();
-                panelNumeros.setVisible(true);
-                suma();
-            }
-            lblMantP.setText("CP");        
-            }
+            PacientesHC();
+        }
     }//GEN-LAST:event_tb_CPTBUSCARKeyPressed
   private void suma()
     {

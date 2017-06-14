@@ -459,6 +459,9 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             }
         });
         txtBuscarPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarPacienteKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBuscarPacienteKeyTyped(evt);
             }
@@ -594,6 +597,8 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
         tb_Examenes = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
                 return false; //Disallow the editing of any cell
@@ -614,6 +619,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         tb_Examenes.setComponentPopupMenu(jPopupMenu1);
         tb_Examenes.setRowHeight(25);
         tb_Examenes.setSelectionBackground(new java.awt.Color(34, 113, 179));
+        tb_Examenes.getTableHeader().setReorderingAllowed(false);
         tb_Examenes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tb_ExamenesMouseClicked(evt);
@@ -643,20 +649,17 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblfecha_I, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(lblG)
-                        .addGap(10, 10, 10)
-                        .addComponent(lblfecha_F, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(lblfecha_I, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblG)
+                .addGap(10, 10, 10)
+                .addComponent(lblfecha_F, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(565, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -664,17 +667,13 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                 .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblfecha_I)
-                            .addComponent(lblG)
-                            .addComponent(lblfecha_F))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblfecha_I)
+                        .addComponent(lblG)
+                        .addComponent(lblfecha_F)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -843,6 +842,10 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
     private void cbFechaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cbFechaPropertyChange
         
     }//GEN-LAST:event_cbFechaPropertyChange
+
+    private void txtBuscarPacienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPacienteKeyReleased
+        txtBuscarPaciente.setText(txtBuscarPaciente.getText().toUpperCase());
+    }//GEN-LAST:event_txtBuscarPacienteKeyReleased
 
     public void cargar_tabla_cabecera_OK(){
     try{

@@ -166,7 +166,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         p15 = new javax.swing.JPanel();
         btnPersonal = new javax.swing.JButton();
         p16 = new javax.swing.JPanel();
-        btnRayosX1 = new javax.swing.JButton();
+        btnEcografia = new javax.swing.JButton();
         p17 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -805,21 +805,21 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addGap(0, 37, Short.MAX_VALUE)
         );
 
-        btnRayosX1.setBackground(new java.awt.Color(102, 102, 102));
-        btnRayosX1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        btnRayosX1.setForeground(new java.awt.Color(255, 255, 255));
-        btnRayosX1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/ultrasonido.png"))); // NOI18N
-        btnRayosX1.setText("Ecografia");
-        btnRayosX1.setContentAreaFilled(false);
-        btnRayosX1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRayosX1.setFocusPainted(false);
-        btnRayosX1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnRayosX1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnRayosX1.setIconTextGap(30);
-        btnRayosX1.setVerifyInputWhenFocusTarget(false);
-        btnRayosX1.addActionListener(new java.awt.event.ActionListener() {
+        btnEcografia.setBackground(new java.awt.Color(102, 102, 102));
+        btnEcografia.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        btnEcografia.setForeground(new java.awt.Color(255, 255, 255));
+        btnEcografia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/ultrasonido.png"))); // NOI18N
+        btnEcografia.setText("Ecografia");
+        btnEcografia.setContentAreaFilled(false);
+        btnEcografia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEcografia.setFocusPainted(false);
+        btnEcografia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEcografia.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnEcografia.setIconTextGap(30);
+        btnEcografia.setVerifyInputWhenFocusTarget(false);
+        btnEcografia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRayosX1ActionPerformed(evt);
+                btnEcografiaActionPerformed(evt);
             }
         });
 
@@ -881,7 +881,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(btnRayosX1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEcografia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -926,7 +926,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(p17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRayosX1))
+                    .addComponent(btnEcografia))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(p14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -5426,7 +5426,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(11);
     }//GEN-LAST:event_btnPersonalActionPerformed
 
-    private void btnRayosX1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRayosX1ActionPerformed
+    private void btnEcografiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEcografiaActionPerformed
          p1.setVisible(false);
          p2.setVisible(false);
          p3.setVisible(false);        // TODO add your handling code here:
@@ -5441,7 +5441,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
          p17.setVisible(true);
          
          jTabbedPane1.setSelectedIndex(13);
-    }//GEN-LAST:event_btnRayosX1ActionPerformed
+    }//GEN-LAST:event_btnEcografiaActionPerformed
 
     private void jLabel32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel32MouseClicked
         if(evt.getClickCount()==1){
@@ -5565,6 +5565,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JButton btnContenedor;
     private javax.swing.JButton btnConversion;
     public static javax.swing.JButton btnCostos;
+    public static javax.swing.JButton btnEcografia;
     private javax.swing.JButton btnEntrega;
     private javax.swing.JButton btnEsquema;
     private javax.swing.JButton btnFormatEmergencia1;
@@ -5578,7 +5579,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JButton btnPaciente;
     public static javax.swing.JButton btnPersonal;
     public static javax.swing.JButton btnRayosX;
-    public static javax.swing.JButton btnRayosX1;
     private javax.swing.JButton btnReporTopico1;
     private javax.swing.JButton btnReportCabecera1;
     private javax.swing.JButton btnReportMovinientoHC;

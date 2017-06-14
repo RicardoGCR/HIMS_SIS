@@ -548,7 +548,7 @@
                   <Component id="lblfecha_F" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane2" pref="505" max="32767" attributes="0"/>
+              <Component id="jScrollPane2" pref="506" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -612,14 +612,17 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="titulo5" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                  <Component id="cbFecha" min="-2" pref="19" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="lblFecha" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblHora" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="lblNomArea" min="-2" max="-2" attributes="0"/>
+                                      <Component id="titulo5" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                  <Component id="cbFecha" min="-2" pref="19" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -645,10 +648,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblNomArea" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblNumeArea" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblNumeArea" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="lblUsu" pref="38" max="32767" attributes="0"/>
                       </Group>
@@ -686,6 +686,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/iconos/User-32.png"/>
             </Property>

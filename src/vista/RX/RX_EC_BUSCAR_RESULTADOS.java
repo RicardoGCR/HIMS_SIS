@@ -280,7 +280,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
                         .addComponent(lblFecha_R)
                         .addComponent(lblHora_R))
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(17, 17, 17)
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNomArea)
                             .addComponent(lblNumeArea))))

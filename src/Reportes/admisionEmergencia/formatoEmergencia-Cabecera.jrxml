@@ -67,10 +67,6 @@
 				<reportElement x="4" y="1" width="116" height="62" uuid="484060a8-2dc5-4081-b542-108b166e6bb6"/>
 				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
 			</image>
-			<image>
-				<reportElement x="461" y="1" width="95" height="34" uuid="db96dd7a-086f-430f-baff-2c661db61f68"/>
-				<imageExpression><![CDATA["D:\\pry\\HIMS\\src\\imagenes\\iconos\\logomin.gif"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<detail>

@@ -142,13 +142,13 @@
 	<subDataset name="tbExamenes" uuid="fd9c2b6e-33ac-4cd5-9aa1-e3415680f847">
 		<parameter name="idTop" class="java.lang.String"/>
 		<queryString>
-			<![CDATA[SELECT CN.cod_nomen_caja, CN.descripcion_nomen_tipo
+			<![CDATA[SELECT CN.nomen_caja, CN.descripcion_nomen_tipo
 FROM CAJA_DETALLE_PREVENTA CD, CAJA_PRECIOS CP, CAJA_NOMENCLATURA_CAJA CN
 WHERE CD.cod_precio = CP.cod_precio
 AND CN.cod_nomen_caja = CP.cod_nomen_caja
 AND CD.ID_TOPICO = $P{idTop}]]>
 		</queryString>
-		<field name="cod_nomen_caja" class="java.lang.String"/>
+		<field name="nomen_caja" class="java.lang.String"/>
 		<field name="descripcion_nomen_tipo" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="topico_id" class="java.lang.String">
@@ -368,8 +368,8 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 							<jr:columnFooter style="table 4_CH" height="0" rowSpan="1"/>
 							<jr:detailCell style="table 4_TD" height="13" rowSpan="1">
 								<textField>
-									<reportElement x="2" y="0" width="88" height="13" uuid="b7db25f2-91cc-4aec-9434-9cc757b65832"/>
-									<textFieldExpression><![CDATA[$F{cod_nomen_caja}]]></textFieldExpression>
+									<reportElement x="0" y="0" width="90" height="13" uuid="693a1a71-f992-486f-9860-3f75045329c4"/>
+									<textFieldExpression><![CDATA[$F{nomen_caja}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
@@ -451,10 +451,6 @@ AND CD.ID_TOPICO = $P{idTop}]]>
 			<image>
 				<reportElement x="18" y="3" width="118" height="63" uuid="7ddf39d2-cf65-4321-b054-81340cc1eaf3"/>
 				<imageExpression><![CDATA[$F{UE_LOGO}]]></imageExpression>
-			</image>
-			<image>
-				<reportElement x="456" y="-1" width="74" height="38" uuid="d11b55af-3a90-4778-adc9-58dca9d15613"/>
-				<imageExpression><![CDATA["D:\\pry\\SISGESH\\src\\imagenes\\iconos\\logomin.gif"]]></imageExpression>
 			</image>
 		</band>
 	</title>

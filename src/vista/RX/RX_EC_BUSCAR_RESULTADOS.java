@@ -368,12 +368,12 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblfecha_I_R)
                         .addComponent(lblG_R)
-                        .addComponent(lblfecha_F_R)))
+                        .addComponent(lblfecha_F_R))
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE))
         );
@@ -431,7 +431,11 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
                             //                                mesAC + "-" + anioAC);
                         //                                fecha_fin.setDate(null);
                         //                       }else{
-                        buscar_examen();
+                                buscar_examen();
+                                lblfecha_I_R.setText(diaIN + "/" + mesIN + "/" + anioIN);
+                                lblfecha_F_R.setText(diaFN + "/" + mesFN + "/" + anioFN);
+                                lblG_R.setVisible(true);
+                                txtBuscarPaciente_R.requestFocus();
                         //                       }
                     //                }
                 //
@@ -590,10 +594,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
             
             formatoExamen();
             
-            if(tb_Examenes_R.getRowCount()==0){
-//                lblRegistro.setVisible(true);
-                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
-            }
+            
             
         } catch (Exception e) {
             System.out.println("Error buscar examen: " + e.getMessage());
@@ -718,10 +719,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
                        
             formatoExamen();
             
-            if(tb_Examenes_R.getRowCount()==0){
-//                lblRegistro.setVisible(true);
-                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
-            }
+            
             
         } catch (Exception e) {
             System.out.println("Error mostrar paciente: " + e.getMessage());

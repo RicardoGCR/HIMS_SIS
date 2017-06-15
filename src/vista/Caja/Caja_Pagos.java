@@ -10301,9 +10301,17 @@ jTabbedPane1.setSelectedIndex(1);
             int fila = tb_medicos.getSelectedRow();
             Medicos.dispose();
             lblMedicoId.setText(String.valueOf(tb_medicos.getValueAt(fila, 0)));
+
             if(lblModuloHos.getText().equals("EME"))
 
                 cab1.reporteCabecera(Integer.parseInt(lblIdPreventas.getText()));
+
+            if(lblModuloHos.getText().equals("EME")){
+
+
+                cab1.reporteCabecera(Integer.parseInt(lblIdPreventas.getText()));
+
+
                 GuardarDetalle();
                 ModificarPreventa();
                 cab1.reporteCabecera(Integer.parseInt(lblIdPreventas.getText()));

@@ -2885,7 +2885,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jLabel101.setForeground(new java.awt.Color(255, 255, 255));
         jLabel101.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Monedas-80.png"))); // NOI18N
         jLabel101.setText("Ventas");
-        jLabel101.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel101.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel101MouseClicked(evt);
@@ -4730,11 +4729,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
                         .addComponent(jPanel108, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel109, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-<<<<<<< HEAD
-                .addContainerGap(1210, Short.MAX_VALUE))
-=======
                 .addContainerGap(1235, Short.MAX_VALUE))
->>>>>>> e8145f716c806bc6b727ba07563c3e44f26f6308
         );
 
         jTabbedPane1.addTab("Rx", jPanel14);
@@ -4900,11 +4895,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addComponent(jPanel111, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel112, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                .addContainerGap(1189, Short.MAX_VALUE))
-=======
                 .addContainerGap(1216, Short.MAX_VALUE))
->>>>>>> e8145f716c806bc6b727ba07563c3e44f26f6308
         );
 
         jTabbedPane1.addTab("EC", jPanel17);
@@ -6129,11 +6120,6 @@ public class PrincipalMDI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;
-<<<<<<< HEAD
-    private javax.swing.JPanel jPanel33;
-    private javax.swing.JPanel jPanel35;
-=======
->>>>>>> e8145f716c806bc6b727ba07563c3e44f26f6308
     private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;

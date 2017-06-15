@@ -4076,9 +4076,6 @@
                       <Image iconType="3" name="/imagenes/iconos/icons8-Monedas-80.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Ventas"/>
-                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Cursor de Mano"/>
-                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel101MouseClicked"/>
@@ -6742,11 +6739,7 @@
                               <Component id="jPanel109" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-<<<<<<< HEAD
-                      <EmptySpace pref="1210" max="32767" attributes="0"/>
-=======
                       <EmptySpace pref="1235" max="32767" attributes="0"/>
->>>>>>> e8145f716c806bc6b727ba07563c3e44f26f6308
                   </Group>
               </Group>
             </DimensionLayout>
@@ -7107,11 +7100,7 @@
                       <Component id="jPanel111" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel112" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                      <EmptySpace pref="1189" max="32767" attributes="0"/>
-=======
                       <EmptySpace pref="1216" max="32767" attributes="0"/>
->>>>>>> e8145f716c806bc6b727ba07563c3e44f26f6308
                   </Group>
               </Group>
             </DimensionLayout>

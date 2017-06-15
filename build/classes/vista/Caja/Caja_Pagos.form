@@ -1942,7 +1942,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="panelEliminarEME" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="panelOpcionesEmergencia" min="-2" max="-2" attributes="0"/>
+                                  <Component id="panelOpcionesEmergencia" min="-2" pref="60" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -2112,10 +2112,10 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Mensaje" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                              <Component id="eli" min="-2" pref="29" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="noeli" min="-2" pref="29" max="-2" attributes="0"/>
-                              <EmptySpace pref="54" max="32767" attributes="0"/>
+                              <Component id="eli" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="noeli" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace pref="107" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2204,7 +2204,7 @@
                 <Container class="javax.swing.JPanel" name="panelOpcionesEmergencia">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="db" green="97" red="32" type="rgb"/>
+                      <Color blue="2b" green="2b" red="2b" type="rgb"/>
                     </Property>
                   </Properties>
 
@@ -2223,15 +2223,12 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="btnEliminarEME" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="btnCargarEME" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnCargarEME" pref="60" max="32767" attributes="0"/>
+                                  <Component id="btnEliminarEME" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2255,7 +2252,6 @@
                         </Property>
                         <Property name="horizontalTextPosition" type="int" value="4"/>
                         <Property name="iconTextGap" type="int" value="30"/>
-                        <Property name="verticalAlignment" type="int" value="3"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarEMEActionPerformed"/>
@@ -2279,7 +2275,6 @@
                         </Property>
                         <Property name="horizontalTextPosition" type="int" value="4"/>
                         <Property name="iconTextGap" type="int" value="30"/>
-                        <Property name="verticalAlignment" type="int" value="3"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCargarEMEActionPerformed"/>
@@ -2309,7 +2304,7 @@
                       <Component id="jScrollPane22" alignment="0" max="32767" attributes="0"/>
                       <Component id="jScrollPane23" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="panelOpcionesHOS" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="panelEliminarHOS" max="32767" attributes="0"/>
                       </Group>
@@ -2321,12 +2316,9 @@
                           <Component id="jScrollPane22" min="-2" pref="90" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="jScrollPane23" min="-2" pref="137" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="panelEliminarHOS" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="panelOpcionesHOS" max="32767" attributes="0"/>
+                              <Component id="panelEliminarHOS" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -2493,11 +2485,11 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Component id="Mensaje3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="eli3" min="-2" pref="29" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="noeli3" min="-2" pref="29" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                              <EmptySpace pref="79" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2506,12 +2498,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="Mensaje3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="eli3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                   <Component id="noeli3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="30" max="32767" attributes="0"/>
+                              <EmptySpace pref="18" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="Mensaje3" alignment="0" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -2519,7 +2511,7 @@
                     <Component class="javax.swing.JLabel" name="Mensaje3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="0"/>
+                          <Font name="Segoe UI" size="16" style="0"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2529,6 +2521,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="eli3">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="16" style="0"/>
+                        </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="f0" green="f0" red="f0" type="rgb"/>
                         </Property>
@@ -2553,6 +2548,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="noeli3">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="16" style="0"/>
+                        </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="f0" green="f0" red="f0" type="rgb"/>
                         </Property>
@@ -2577,7 +2575,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="jPanel1">
+                <Container class="javax.swing.JPanel" name="panelOpcionesHOS">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="2b" green="2b" red="2b" type="rgb"/>
@@ -2592,20 +2590,14 @@
                               <Component id="btnCargarHOS" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               <Component id="btnEliminarHOS" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="89" max="32767" attributes="0"/>
+                              <EmptySpace pref="21" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnCargarHOS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnEliminarHOS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="19" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="btnCargarHOS" max="32767" attributes="0"/>
+                          <Component id="btnEliminarHOS" alignment="1" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -2628,7 +2620,6 @@
                         </Property>
                         <Property name="horizontalTextPosition" type="int" value="4"/>
                         <Property name="iconTextGap" type="int" value="30"/>
-                        <Property name="verticalAlignment" type="int" value="3"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCargarHOSActionPerformed"/>
@@ -2643,7 +2634,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/imagenes/iconos/Delete Property Filled-32.png"/>
+                          <Image iconType="3" name="/imagenes/iconos/Basura-32.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Eliminar Registro"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -2652,7 +2643,6 @@
                         </Property>
                         <Property name="horizontalTextPosition" type="int" value="4"/>
                         <Property name="iconTextGap" type="int" value="30"/>
-                        <Property name="verticalAlignment" type="int" value="3"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarHOSActionPerformed"/>
@@ -2679,7 +2669,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane15" alignment="0" pref="844" max="32767" attributes="0"/>
+                      <Component id="jScrollPane15" alignment="0" pref="896" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -10576,12 +10566,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblPorcentaje">
               <Properties>
-                <Property name="text" type="java.lang.String" value="0%"/>
+                <Property name="text" type="java.lang.String" value="0 %"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblUsuPorcentaje">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sin Exoneracion"/>
+                <Property name="text" type="java.lang.String" value="Sin Exoneraci&#xf3;n"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblSerie">

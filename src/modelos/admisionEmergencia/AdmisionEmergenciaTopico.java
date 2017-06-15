@@ -405,6 +405,19 @@ public class AdmisionEmergenciaTopico {
         }
     }
     
+    public void reporteTopicoCompleto(String topico_id) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("topico_id", topico_id);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/admisionEmergencia/formatoEmergencia.jasper"), parametros, con.conectar());          
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Formato de Emergencia - Tópico");
+            ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "reporteTopico:"+e.getMessage());
+        }
+    }
+    
     public void formatoTablaTopicoReporteFinal(JTable tabla){
         tabla.getColumnModel().getColumn(0).setPreferredWidth(0);//id topico
         tabla.getColumnModel().getColumn(1).setPreferredWidth(70);//nhc

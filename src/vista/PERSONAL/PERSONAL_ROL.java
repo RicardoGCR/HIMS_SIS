@@ -92,6 +92,7 @@ DefaultTableModel m, m1, msb;
         jPanel3 = new javax.swing.JPanel();
         lblListado_Edicion = new javax.swing.JLabel();
         lbl_id_per_uni_org = new javax.swing.JLabel();
+        txtAR_ID = new javax.swing.JTextField();
         cargareliminar_Per = new javax.swing.JPanel();
         Mensaje = new javax.swing.JLabel();
         eli = new javax.swing.JButton();
@@ -248,7 +249,6 @@ DefaultTableModel m, m1, msb;
 
         ERROR_BUSCAR_MED.setAlwaysOnTop(true);
         ERROR_BUSCAR_MED.setMinimumSize(new java.awt.Dimension(350, 295));
-        ERROR_BUSCAR_MED.setPreferredSize(new java.awt.Dimension(350, 295));
         ERROR_BUSCAR_MED.setResizable(false);
 
         jPanel7.setBackground(new java.awt.Color(122, 77, 135));
@@ -557,7 +557,9 @@ DefaultTableModel m, m1, msb;
                         .addComponent(lblListado_Edicion))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(243, 243, 243)
-                        .addComponent(lbl_id_per_uni_org)))
+                        .addComponent(lbl_id_per_uni_org)
+                        .addGap(56, 56, 56)
+                        .addComponent(txtAR_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -566,8 +568,10 @@ DefaultTableModel m, m1, msb;
                 .addGap(22, 22, 22)
                 .addComponent(lblListado_Edicion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_id_per_uni_org)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_id_per_uni_org)
+                    .addComponent(txtAR_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         cargareliminar_Per.setBackground(new java.awt.Color(255, 153, 51));
@@ -919,6 +923,7 @@ DefaultTableModel m, m1, msb;
                 
                 txtMedico_UO.setText(String.valueOf(apep + " " + apem + " " + nom));
                 lbl_id_per_uni_org.setText(String.valueOf(tb_Personal_UO.getValueAt(filaselec, 1)));
+                txtAR_ID.setText(String.valueOf(tb_Personal_UO.getValueAt(filaselec, 7)));
                 
                 MEDICOS_UO.dispose();
         }
@@ -935,11 +940,11 @@ DefaultTableModel m, m1, msb;
     }//GEN-LAST:event_noeliActionPerformed
 
     private void txtBuscarMedico_UOKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarMedico_UOKeyTyped
-//        char tecla= evt.getKeyChar();
-//        if(tecla==KeyEvent.VK_ENTER){
-//            tb_Personal_UO.getSelectionModel().setSelectionInterval(0, 0);
-//            tb_Personal_UO.requestFocus();
-//        }
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            tb_Personal_UO.getSelectionModel().setSelectionInterval(0, 0);
+            tb_Personal_UO.requestFocus();
+        }
     }//GEN-LAST:event_txtBuscarMedico_UOKeyTyped
 
     private void txtBuscarMedico_UOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarMedico_UOKeyPressed
@@ -1167,6 +1172,7 @@ DefaultTableModel m, m1, msb;
     public static javax.swing.JLabel lblusu;
     private javax.swing.JButton noeli;
     private javax.swing.JTable tb_Personal_UO;
+    private javax.swing.JTextField txtAR_ID;
     public static javax.swing.JTextField txtBuscarMedico_UO;
     private javax.swing.JTextField txtLimite_Consultas_Per;
     public static javax.swing.JTextField txtMedico_UO;

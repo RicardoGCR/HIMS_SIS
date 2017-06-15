@@ -201,9 +201,6 @@
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[350, 295]"/>
         </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[350, 295]"/>
-        </Property>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
 
@@ -744,6 +741,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
                           <Component id="lbl_id_per_uni_org" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                          <Component id="txtAR_ID" min="-2" pref="61" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -756,8 +755,11 @@
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="lblListado_Edicion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lbl_id_per_uni_org" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="38" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbl_id_per_uni_org" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtAR_ID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -781,6 +783,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="id_per_uni_org"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtAR_ID">
         </Component>
       </SubComponents>
     </Container>

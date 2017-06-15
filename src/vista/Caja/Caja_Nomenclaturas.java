@@ -558,8 +558,8 @@ byte tga;
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel28 = new javax.swing.JPanel();
-        T4 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
+        btnBuscarPaciente3 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_Grupos = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -569,8 +569,8 @@ byte tga;
             jPanel7 = new javax.swing.JPanel();
             jLabel3 = new javax.swing.JLabel();
             jPanel29 = new javax.swing.JPanel();
-            T5 = new javax.swing.JLabel();
             txtBuscar1 = new javax.swing.JTextField();
+            btnBuscarPaciente4 = new javax.swing.JButton();
             jScrollPane4 = new javax.swing.JScrollPane();
             tb_Grupos1 = new javax.swing.JTable(){
                 public boolean isCellEditable(int rowIndex, int colIndex){
@@ -580,8 +580,8 @@ byte tga;
                 jPanel8 = new javax.swing.JPanel();
                 jLabel4 = new javax.swing.JLabel();
                 jPanel30 = new javax.swing.JPanel();
-                T6 = new javax.swing.JLabel();
                 txtBuscar2 = new javax.swing.JTextField();
+                btnBuscarPaciente2 = new javax.swing.JButton();
                 jScrollPane5 = new javax.swing.JScrollPane();
                 tb_Grupos2 = new javax.swing.JTable(){
                     public boolean isCellEditable(int rowIndex, int colIndex){
@@ -653,14 +653,6 @@ byte tga;
 
                         jPanel28.setBackground(new java.awt.Color(255, 255, 255));
 
-                        T4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
-                        T4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                        T4.addMouseListener(new java.awt.event.MouseAdapter() {
-                            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                T4MouseClicked(evt);
-                            }
-                        });
-
                         txtBuscar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         txtBuscar.setBorder(null);
                         txtBuscar.addCaretListener(new javax.swing.event.CaretListener() {
@@ -686,19 +678,24 @@ byte tga;
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0))
+                                .addGap(0, 5, Short.MAX_VALUE))
                         );
                         jPanel28Layout.setVerticalGroup(
                             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
-                                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(T4))
+                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0))
                         );
+
+                        btnBuscarPaciente3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                        btnBuscarPaciente3.setContentAreaFilled(false);
+                        btnBuscarPaciente3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                        btnBuscarPaciente3.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnBuscarPaciente3ActionPerformed(evt);
+                            }
+                        });
 
                         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
                         jPanel6.setLayout(jPanel6Layout);
@@ -708,8 +705,11 @@ byte tga;
                                 .addContainerGap()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
-                                    .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(22, Short.MAX_VALUE))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscarPaciente3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(24, Short.MAX_VALUE))
                         );
                         jPanel6Layout.setVerticalGroup(
                             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -717,11 +717,13 @@ byte tga;
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnBuscarPaciente3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(415, 415, 415))
                         );
 
-                        jScrollPane2.setBorder(null);
+                        jScrollPane2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
                         tb_Grupos.setModel(new javax.swing.table.DefaultTableModel(
                             new Object [][] {
@@ -736,7 +738,7 @@ byte tga;
                         ));
                         tb_Grupos.setGridColor(new java.awt.Color(255, 255, 255));
                         tb_Grupos.setRowHeight(25);
-                        tb_Grupos.setSelectionBackground(new java.awt.Color(50, 151, 219));
+                        tb_Grupos.setSelectionBackground(new java.awt.Color(102, 102, 102));
                         tb_Grupos.getTableHeader().setReorderingAllowed(false);
                         tb_Grupos.addMouseListener(new java.awt.event.MouseAdapter() {
                             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -778,14 +780,6 @@ byte tga;
 
                         jPanel29.setBackground(new java.awt.Color(255, 255, 255));
 
-                        T5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
-                        T5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                        T5.addMouseListener(new java.awt.event.MouseAdapter() {
-                            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                T5MouseClicked(evt);
-                            }
-                        });
-
                         txtBuscar1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         txtBuscar1.setBorder(null);
                         txtBuscar1.addCaretListener(new javax.swing.event.CaretListener() {
@@ -811,19 +805,24 @@ byte tga;
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addComponent(txtBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(T5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0))
+                                .addGap(0, 5, Short.MAX_VALUE))
                         );
                         jPanel29Layout.setVerticalGroup(
                             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
-                                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(T5))
+                                .addComponent(txtBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0))
                         );
+
+                        btnBuscarPaciente4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                        btnBuscarPaciente4.setContentAreaFilled(false);
+                        btnBuscarPaciente4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                        btnBuscarPaciente4.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnBuscarPaciente4ActionPerformed(evt);
+                            }
+                        });
 
                         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
                         jPanel7.setLayout(jPanel7Layout);
@@ -833,8 +832,11 @@ byte tga;
                                 .addContainerGap()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
-                                    .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(312, Short.MAX_VALUE))
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscarPaciente4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(305, Short.MAX_VALUE))
                         );
                         jPanel7Layout.setVerticalGroup(
                             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -842,11 +844,13 @@ byte tga;
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(415, 415, 415))
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnBuscarPaciente4))
+                                .addGap(412, 412, 412))
                         );
 
-                        jScrollPane4.setBorder(null);
+                        jScrollPane4.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
                         tb_Grupos1.setModel(new javax.swing.table.DefaultTableModel(
                             new Object [][] {
@@ -861,7 +865,7 @@ byte tga;
                         ));
                         tb_Grupos1.setGridColor(new java.awt.Color(255, 255, 255));
                         tb_Grupos1.setRowHeight(25);
-                        tb_Grupos1.setSelectionBackground(new java.awt.Color(50, 151, 219));
+                        tb_Grupos1.setSelectionBackground(new java.awt.Color(102, 102, 102));
                         tb_Grupos1.getTableHeader().setReorderingAllowed(false);
                         tb_Grupos1.addMouseListener(new java.awt.event.MouseAdapter() {
                             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -903,14 +907,6 @@ byte tga;
 
                         jPanel30.setBackground(new java.awt.Color(255, 255, 255));
 
-                        T6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
-                        T6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                        T6.addMouseListener(new java.awt.event.MouseAdapter() {
-                            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                T6MouseClicked(evt);
-                            }
-                        });
-
                         txtBuscar2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         txtBuscar2.setBorder(null);
                         txtBuscar2.addCaretListener(new javax.swing.event.CaretListener() {
@@ -936,19 +932,24 @@ byte tga;
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel30Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addComponent(txtBuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(T6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0))
+                                .addGap(0, 5, Short.MAX_VALUE))
                         );
                         jPanel30Layout.setVerticalGroup(
                             jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel30Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
-                                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtBuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(T6))
+                                .addComponent(txtBuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0))
                         );
+
+                        btnBuscarPaciente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                        btnBuscarPaciente2.setContentAreaFilled(false);
+                        btnBuscarPaciente2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                        btnBuscarPaciente2.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnBuscarPaciente2ActionPerformed(evt);
+                            }
+                        });
 
                         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
                         jPanel8.setLayout(jPanel8Layout);
@@ -958,8 +959,11 @@ byte tga;
                                 .addContainerGap()
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
-                                    .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(421, Short.MAX_VALUE))
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscarPaciente2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(387, Short.MAX_VALUE))
                         );
                         jPanel8Layout.setVerticalGroup(
                             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -967,11 +971,13 @@ byte tga;
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnBuscarPaciente2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(410, 410, 410))
                         );
 
-                        jScrollPane5.setBorder(null);
+                        jScrollPane5.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
                         tb_Grupos2.setModel(new javax.swing.table.DefaultTableModel(
                             new Object [][] {
@@ -986,7 +992,7 @@ byte tga;
                         ));
                         tb_Grupos2.setGridColor(new java.awt.Color(255, 255, 255));
                         tb_Grupos2.setRowHeight(25);
-                        tb_Grupos2.setSelectionBackground(new java.awt.Color(50, 151, 219));
+                        tb_Grupos2.setSelectionBackground(new java.awt.Color(102, 102, 102));
                         tb_Grupos2.getTableHeader().setReorderingAllowed(false);
                         tb_Grupos2.addMouseListener(new java.awt.event.MouseAdapter() {
                             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2145,18 +2151,6 @@ jTabbedPane1.setSelectedIndex(0);
         txtnom1.setText(txtnom1.getText().toUpperCase());
     }//GEN-LAST:event_txtnom1KeyReleased
 
-    private void T4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T4MouseClicked
-
-    }//GEN-LAST:event_T4MouseClicked
-
-    private void T5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T5MouseClicked
-
-    }//GEN-LAST:event_T5MouseClicked
-
-    private void T6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T6MouseClicked
-
-    }//GEN-LAST:event_T6MouseClicked
-
     private void buscartodoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodoCaretUpdate
         jLabel33.setText("Listado"); 
         jTabbedPane1.setSelectedIndex(1);
@@ -2264,6 +2258,18 @@ jTabbedPane1.setSelectedIndex(0);
          txtgrupo.setText("");
     }//GEN-LAST:event_btnListaActionPerformed
 
+    private void btnBuscarPaciente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPaciente2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPaciente2ActionPerformed
+
+    private void btnBuscarPaciente3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPaciente3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPaciente3ActionPerformed
+
+    private void btnBuscarPaciente4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPaciente4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPaciente4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2303,14 +2309,14 @@ jTabbedPane1.setSelectedIndex(0);
     private javax.swing.JDialog Cta6;
     private javax.swing.JDialog Grupos;
     private javax.swing.JLabel Mensaje;
-    private javax.swing.JLabel T4;
-    private javax.swing.JLabel T5;
-    private javax.swing.JLabel T6;
     private javax.swing.JDialog Unidad;
     private javax.swing.JButton b;
     private javax.swing.JButton b1;
     private javax.swing.JButton b2;
     private javax.swing.JButton btnBuscarPaciente;
+    private javax.swing.JButton btnBuscarPaciente2;
+    private javax.swing.JButton btnBuscarPaciente3;
+    private javax.swing.JButton btnBuscarPaciente4;
     public static javax.swing.JButton btnLista;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btneditar;

@@ -708,6 +708,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                                 lblfecha_I.setText(diaIN + "/" + mesIN + "/" + anioIN);
                                 lblfecha_F.setText(diaFN + "/" + mesFN + "/" + anioFN);
                                 lblG.setVisible(true);
+                                txtBuscarPaciente.requestFocus();
                                 
 //                       }  
 //                }
@@ -1067,12 +1068,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             this.tb_Examenes.setModel(m);
             
             formatoExamen();
-            
-            if(tb_Examenes.getRowCount()==0){
-//                lblRegistro.setVisible(true);
-                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
-            }
-            
+        
         } catch (Exception e) {
             System.out.println("Error buscar examen: " + e.getMessage());
         }
@@ -1107,11 +1103,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             tb_Examenes.setModel(m2);
                        
             formatoExamen();
-            
-            if(tb_Examenes.getRowCount()==0){
-//                lblRegistro.setVisible(true);
-                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
-            }
+       
             
         } catch (Exception e) {
             System.out.println("Error mostrar paciente: " + e.getMessage());

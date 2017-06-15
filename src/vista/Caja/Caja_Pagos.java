@@ -10302,14 +10302,13 @@ jTabbedPane1.setSelectedIndex(1);
             Medicos.dispose();
             lblMedicoId.setText(String.valueOf(tb_medicos.getValueAt(fila, 0)));
             if(lblModuloHos.getText().equals("EME")){
-<<<<<<< HEAD
-                String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Cabecera.jasper";
-=======
+
+
                 cab1.reporteCabecera(Integer.parseInt(lblIdPreventas.getText()));
->>>>>>> b5692b0bcb78c97bf390f3faef7aee7f8a74dc53
+
                 GuardarDetalle();
                 ModificarPreventa();
-                cab1.reporteCabecera(ruta,Integer.parseInt(lblIdPreventas.getText()));
+                cab1.reporteCabecera(Integer.parseInt(lblIdPreventas.getText()));
                 panelNumeros.setVisible(true);
                 suma();
             }else if(lblModuloHos.getText().equals("HOS")){       

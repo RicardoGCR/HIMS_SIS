@@ -385,14 +385,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             Caja_NuevaVenta PM= new Caja_NuevaVenta();
             int fila=tbPacientes.getSelectedRow();
         
-            bus.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
-            bus3.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
-           PM.Preventamostrar(bus.getText(),tbpreventas);
-           CPAM.Caja_Id_Preventa(bus.getText());
-           CP4.VerificarPreventaHOS_OJO_IMPORTANTE_DE_MOMENTO(lblHc.getText());
-           CP.ConsultoriosExtPREVENTAListar(lblIdPreventa.getText());
-           CP2.ConsultoriosExtPREVENTAListarCEX(lblIdPreventa.getText());
-           CP3.ConsultoriosACTOMEDICO_EMERGENCIA(lblIdPreventa.getText());
+
            
            
             Abonnos();
@@ -409,9 +402,18 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             txtedad.setText(String.valueOf(tbPacientes.getValueAt(fila, 6)));
             lblHc.setText(String.valueOf(tbPacientes.getValueAt(fila, 7))); 
 
-          ////////////////////////
-
-	     jLabel36.setText(String.valueOf(tbpreventas.getRowCount()));
+            ////////////////////////////////////////////////////////////////////
+	    jLabel36.setText(String.valueOf(tbpreventas.getRowCount()));
+            ////////////////////////////////////////////////////////////////////
+            bus.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
+            bus3.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
+            PM.Preventamostrar(bus.getText(),tbpreventas);
+            CPAM.Caja_Id_Preventa(bus.getText());
+            CP4.VerificarPreventaHOS_OJO_IMPORTANTE_DE_MOMENTO(lblHc.getText());
+            CP.ConsultoriosExtPREVENTAListar(lblIdPreventa.getText());
+            CP2.ConsultoriosExtPREVENTAListarCEX(lblIdPreventa.getText());
+            CP3.ConsultoriosACTOMEDICO_EMERGENCIA(lblIdPreventa.getText());
+            ////////////////////////////////////////////////////////////////////
              
 
              if(this.tbpreventas.getRowCount()!=0  ){
@@ -1640,8 +1642,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                     modelo1.removeRow(0);
         }
         
-//         lblActoMedico.setText("");
-//         lblHc.setText("");
+
          lblcodigo.setText("");
          lblIdDetalle.setText("");
          lblDetalleId.setText("");

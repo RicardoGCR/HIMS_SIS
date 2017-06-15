@@ -68,6 +68,8 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         mostrarArea();
         inicializar_tabla_Examenes();
         mostrarPacientes();
+        seleccion();
+        
         //FECHA Y HORA
         h1 = new Thread(this);
         h1.start();
@@ -77,6 +79,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         lblFecha_R.setVisible(false);
         lblHora_R.setVisible(false);
         lblNumeArea.setVisible(false);
+        lblG_R.setVisible(false);
     }
 
     /**
@@ -110,6 +113,9 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_Examenes_R = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        lblfecha_I_R = new javax.swing.JLabel();
+        lblG_R = new javax.swing.JLabel();
+        lblfecha_F_R = new javax.swing.JLabel();
 
         VerExamenes.setText("RESULTADOS");
         VerExamenes.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +134,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         });
         jPopupMenu1.add(Ver_Resultado);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jpanel.setBackground(new java.awt.Color(34, 113, 179));
 
@@ -173,6 +179,9 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
             }
         });
         txtBuscarPaciente_R.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarPaciente_RKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBuscarPaciente_RKeyTyped(evt);
             }
@@ -277,7 +286,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
                         .addComponent(lblFecha_R)
                         .addComponent(lblHora_R))
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(17, 17, 17)
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNomArea)
                             .addComponent(lblNumeArea))))
@@ -304,6 +313,8 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
                 .addGap(5, 5, 5))
         );
 
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
         tb_Examenes_R = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
                 return false; //Disallow the editing of any cell
@@ -319,11 +330,21 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         ));
         tb_Examenes_R.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Examenes_R.setComponentPopupMenu(jPopupMenu1);
-        tb_Examenes_R.setRowHeight(25);
+        tb_Examenes_R.setRowHeight(30);
+        tb_Examenes_R.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tb_Examenes_R);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
         jLabel3.setText("RESULTADOS DEL DIA ");
+
+        lblfecha_I_R.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblfecha_I_R.setText("  ");
+
+        lblG_R.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblG_R.setText("-");
+
+        lblfecha_F_R.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblfecha_F_R.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -332,22 +353,29 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
             .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(lblfecha_I_R, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lblG_R)
+                .addGap(10, 10, 10)
+                .addComponent(lblfecha_F_R, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
-                .addComponent(jLabel3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblfecha_I_R)
+                        .addComponent(lblG_R)
+                        .addComponent(lblfecha_F_R)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE))
         );
 
         pack();
@@ -422,7 +450,7 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
     }//GEN-LAST:event_btnBuscarPActionPerformed
 
     private void cbFecha_RActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFecha_RActionPerformed
-//        seleccion();
+       seleccion();
     }//GEN-LAST:event_cbFecha_RActionPerformed
 
     private void cbFecha_RPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cbFecha_RPropertyChange
@@ -470,6 +498,10 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
                 JOptionPane.showMessageDialog(null, "Error al Cargar el reporte"+e.getMessage());
             }
     }//GEN-LAST:event_Ver_ResultadoActionPerformed
+
+    private void txtBuscarPaciente_RKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarPaciente_RKeyReleased
+        txtBuscarPaciente_R.setText(txtBuscarPaciente_R.getText().toUpperCase());
+    }//GEN-LAST:event_txtBuscarPaciente_RKeyReleased
 
     public void buscar_examen(){
     
@@ -696,6 +728,26 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
         }
         
     }
+    
+    public void seleccion(){
+        if(cbFecha_R.isSelected()==true){
+            fecha_inicio_R.setEnabled(true);
+            fecha_fin_R.setEnabled(true);
+            txtBuscarPaciente_R.setText("");
+            lblfecha_I_R.setVisible(true);
+            lblfecha_F_R.setVisible(true);
+            lblG_R.setVisible(true);
+        }else{
+            fecha_inicio_R.setEnabled(false);
+            fecha_fin_R.setEnabled(false);
+            fecha_inicio_R.setDate(null);
+            fecha_fin_R.setDate(null);
+            txtBuscarPaciente_R.setText("");
+            lblfecha_I_R.setVisible(false);
+            lblfecha_F_R.setVisible(false);
+            lblG_R.setVisible(false);
+        }
+    }
         
     public static String fechaActual(){
         Date now = new Date(System.currentTimeMillis());
@@ -772,10 +824,13 @@ static RX_EC_EXAMEN RC = new RX_EC_EXAMEN();
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPanel jpanel;
     private javax.swing.JLabel lblFecha_R;
+    private javax.swing.JLabel lblG_R;
     private javax.swing.JLabel lblHora_R;
     private javax.swing.JLabel lblNomArea;
     private javax.swing.JLabel lblNumeArea;
     public static javax.swing.JLabel lblUsu;
+    private javax.swing.JLabel lblfecha_F_R;
+    private javax.swing.JLabel lblfecha_I_R;
     private javax.swing.JTable tb_Examenes_R;
     private javax.swing.JLabel titulo5;
     private javax.swing.JTextField txtBuscarPaciente_R;

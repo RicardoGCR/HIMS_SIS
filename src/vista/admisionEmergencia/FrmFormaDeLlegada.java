@@ -8,7 +8,10 @@ package vista.admisionEmergencia;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.admisionEmergencia.AdmisionEmergenciaFormaDeLlegada;
@@ -37,6 +40,23 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
                 dispose();
             }
         });
+        cerrar();
+        //ICONO DE FORMULARIO
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+    }
+    
+    public void cerrar (){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e){
+                    dispose();
+                }
+        });
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public void limpiarDatos(boolean opcion){
@@ -126,6 +146,7 @@ public class FrmFormaDeLlegada extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Admisión Emergencia .::. Forma de Llegada");
         setMinimumSize(new java.awt.Dimension(465, 370));
         setResizable(false);
         getContentPane().setLayout(null);

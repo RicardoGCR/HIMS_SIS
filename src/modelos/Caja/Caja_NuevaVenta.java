@@ -211,7 +211,7 @@ public void ConsultoriosACTOMEDICO_EMERGENCIA(String ap_id){
             }
             //
         } catch (Exception e) {
-            System.out.println("Erro Preventa provicional  " + e.getMessage());
+            System.out.println("Error Preventa provicional  " + e.getMessage());
         }
     }
 
@@ -284,13 +284,14 @@ public boolean ActualizarVenta()
         boolean resp = false;
         try
         {
-            String sql = "exec CAJA_ACTUALIZAR_VENTA_CABECERA ?,?,?,?,?";
+            String sql = "exec CAJA_ACTUALIZAR_VENTA_CABECERA ?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_documento());
             cmd.setDouble(2, getDESCUENTO());
             cmd.setDouble(3, getTOTAL_DOCUUMENTO());
             cmd.setString(4, getUsu_Exoneracion());
             cmd.setString(5, getPorcentaje_Exoneracion());
+            cmd.setInt(6, getId_ActoMedico());
             
             if(!cmd.execute())
             {
@@ -1005,7 +1006,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         return resp;
     }
      
-     public void listarEmpresa(String Servicio ,JTable tabla){
+    public void listarEmpresa(String Servicio ,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());

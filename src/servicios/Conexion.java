@@ -24,11 +24,11 @@ import javax.swing.JOptionPane;
 public class Conexion {
 
 
-    static String servidor="localhost";
-    static String puerto="1433";
-    static String user="sa";
-    static String password="sistemas";
-    static String baseDatos="SISGESH_NET";    
+    static String servidor="";
+    static String puerto="";
+    static String user="";
+    static String password="";
+    static String baseDatos="";    
    
     public void leerTexto(String direccion){
         try {

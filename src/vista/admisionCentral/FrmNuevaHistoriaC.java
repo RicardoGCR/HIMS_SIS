@@ -93,6 +93,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         restringirCampos(8,txtDni);
         restringirCampos(10, txtFechaNac);
         restringirCampos(8, txtCodigo);
+        this.setExtendedState(MAXIMIZED_BOTH);
         h1 = new Thread(this);
         h1.start();
         this.getContentPane().setBackground(Color.WHITE);
@@ -140,7 +141,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         });
         cerrar();
         //ICONO DE FORMULARIO
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/iconNuevoPac24x24.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         
     }
     
@@ -627,7 +628,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     codigo = r.getString("COD_HC");   
                     String codigo2 = String.valueOf(codigo.charAt(0)) + String.valueOf(codigo.charAt(1)) + 
                                      String.valueOf(codigo.charAt(2)) + String.valueOf(codigo.charAt(3)) + String.valueOf(codigo.charAt(4)) + "-" + 
-                                     String.valueOf(codigo.charAt(6)) + String.valueOf(codigo.charAt(7));
+                                     String.valueOf(codigo.charAt(5)) + String.valueOf(codigo.charAt(6));
                     dni = r.getString("dni");
                     if ( txtDni.getText().equals(dni) ){                
                         JOptionPane.showMessageDialog(ReasignarHC, "Este número de DNI ya existe en la \n"
@@ -941,7 +942,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         btnImprimir.setMnemonic('P');
-        btnImprimir.setText("Imprimir");
+        btnImprimir.setText("Imprimir Historia Clínica");
         btnImprimir.setBorderPainted(false);
         btnImprimir.setContentAreaFilled(false);
         btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1293,7 +1294,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Admisión - Historia Clìnica");
+        setTitle("Admisión .::. Historia Clìnica");
         setMinimumSize(new java.awt.Dimension(855, 722));
         setResizable(false);
 
@@ -2742,7 +2743,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             if(txtCodigo.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Debe ingresar un Número de HistoriaClínica");
             } else {
-                String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(5)) + String.valueOf(txtCodigo.getText().charAt(6)); 
+                String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(6)) + String.valueOf(txtCodigo.getText().charAt(7)); 
                 validaCodigo(codigo);
             }
         } 
@@ -2945,7 +2946,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     if(this.cbxTipoBusqueda.getSelectedIndex() == 6){
                         btnImprimir.setText("Imprimir Ficha por Sector");
                     } else {
-                        btnImprimir.setText("Imprimir");
+                        btnImprimir.setText("Imprimir Historia Clínica");
                     }
                 }
             }
@@ -3187,15 +3188,15 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         int fila = tbReasignado.getSelectedRow();
         String codigoObtenido = String.valueOf(tbReasignado.getValueAt(fila, 0));
         String codigo = String.valueOf(codigoObtenido.charAt(0)) + String.valueOf(codigoObtenido.charAt(1)) 
-                + String.valueOf(codigoObtenido.charAt(2)) + String.valueOf(codigoObtenido.charAt(3)) + String.valueOf(codigoObtenido.charAt(5)) + String.valueOf(codigoObtenido.charAt(6)) ;
+                + String.valueOf(codigoObtenido.charAt(2)) + String.valueOf(codigoObtenido.charAt(3)) + String.valueOf(codigoObtenido.charAt(4)) + String.valueOf(codigoObtenido.charAt(6) + String.valueOf(codigoObtenido.charAt(7))) ;
         int reasignar = JOptionPane.showConfirmDialog(ReasignarHC, "¿Desea limpiar todos los campos de \n la Historia Clínica N°" 
-        + codigo + " para ser reasignada?",
+        + codigoObtenido + " para ser reasignada?",
             "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,ieli );
         if(reasignar==0){
             HistoriaClinica hCRe = new HistoriaClinica();
             hCRe.setCod_hc(codigo);
             if(hCRe.reasignarCodHC() == true){
-                JOptionPane.showMessageDialog(ReasignarHC, "La Historia Clínica N° " + codigo + " está lista para "
+                JOptionPane.showMessageDialog(ReasignarHC, "La Historia Clínica N° " + codigoObtenido + " está lista para "
                         + "ser reasignada");
                 mostrarCodHC("");
             }
@@ -3518,11 +3519,12 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                         String codigo = String.valueOf(cod_hc.charAt(0)) + String.valueOf(cod_hc.charAt(1)) + 
                                         String.valueOf(cod_hc.charAt(2)) + String.valueOf(cod_hc.charAt(3)) + String.valueOf(cod_hc.charAt(4)) +
                                         String.valueOf(cod_hc.charAt(6)) + String.valueOf(cod_hc.charAt(7));
-                        String rutaInforme = "src\\Reportes\\admisionCentral\\historiaClinica.jasper";
+//                        String rutaInforme = "/Reportes/admisionCentral/historiaClinica.jasper";
                         Map parametros = new HashMap();
                         parametros.put("cod_hc", cod_hc);
-                        JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
+//                        JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
                         // VER EN EL JASPERREPORT
+                        JasperPrint informe=JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/admisionCentral/historiaClinica.jasper"), parametros,c.conectar());
                         JasperViewer ventanavisor = new JasperViewer(informe, false);
                         ventanavisor.setTitle("Historia Clínica");
                         ventanavisor.setVisible(true);
@@ -3551,10 +3553,9 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                             JOptionPane.showMessageDialog(BuscarHC,"Debe ingresar el sector");
                             txtBuscar.requestFocus();
                         } else {
-                            String rutaInforme = "src\\Reportes\\sectorizacion\\sectorizacion.jasper";
                             Map parametros = new HashMap();
                             parametros.put("SE_COD", sector);
-                            JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
+                            JasperPrint informe=JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/sectorizacion/sectorizacion.jasper"), parametros,c.conectar());
                             JasperViewer ventanavisor = new JasperViewer(informe, false);
                             ventanavisor.setTitle("Sectorización");
                             ventanavisor.setVisible(true);

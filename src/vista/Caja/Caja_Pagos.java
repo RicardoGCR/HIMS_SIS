@@ -38,10 +38,13 @@ import modelos.Caja.Caja_SIS_Cabecera;
 import servicios.Conexion;
 import vista.admisionCentral.FrmNuevaHistoriaC;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.HashMap;
 import java.util.Map;
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
+import javax.swing.JFrame;
 import javax.swing.table.JTableHeader;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -210,6 +213,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         panelPorcentajes.setVisible(false);
         jPanel1.setVisible(false);
         panelSumaDetalle.setVisible(false);
+        panelIMprimir.setVisible(false);
+        cerrar();
 //        panelTurnos.setVisible(false);
         
         
@@ -242,7 +247,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                     txtEnterEscapeEnter.requestFocus();
                    
                 }
-                if(lblOk.getText()=="ok" && tb_CPT.getRowCount()==0){ 
+                if(txtape.getText().equals("Paciente") && tb_CPT.getRowCount()==0){ 
                    dispose();
                 }
             }
@@ -288,6 +293,150 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 //
 //}//Fin de la clase privada ManejadorTecla()
 
+    
+    public void cerrar (){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e){
+                    if(lblOk.getText()=="okk" && tb_CPT.getRowCount()==0){ 
+                    panelEliminar.setVisible(true);   
+                    panelMensaje.setVisible(false);  
+                    tgnuevoEliminar=1;
+                    txtEnterEscapeEnter1.requestFocus();
+                    
+                }  
+  
+                if(lblOk.getText()=="okk" && tb_CPT.getRowCount()!=0  ){
+                    panelAnular.setVisible(true);
+                    panelMensaje.setVisible(false);  
+                    txtEnterEscapeEnter.requestFocus();
+                   
+                }
+                if(txtape.getText().equals("Paciente") && tb_CPT.getRowCount()==0){ 
+                   dispose();
+                }
+                }
+});
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void CPTNomenclaturas(){
+            int fila=tb_CPTBUSCAR.getSelectedRow();
+            nomenclaturas.dispose();
+            lblIdMedico.setText("");
+            lblServicio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 7)));
+            lblCajaNomenclaturaPrecio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
+            lblServicioArea.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 9)));
+            lblNomenclatura.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
+            Caja_Documento_Detalle cnvd = new Caja_Documento_Detalle();
+            lblVisAdmi.setText(cnvd.VisibleAdmin(lblCajaNomenclaturaPrecio.getText()));
+            
+            if(!lblVisAdmi.getText().equals("N")){
+                
+                if (lblNomenclatura.getText().equals("CN00767         ")){
+                    
+                    Caja_HospitalizacionPreventa chos = new Caja_HospitalizacionPreventa();
+                    chos.setVisible(true);
+                    Caja_HospitalizacionPreventa.lblIDHC.setText(lblHc.getText());
+                    Caja_HospitalizacionPreventa.lblNomPaciente.setText(txtape.getText());
+                    Caja_HospitalizacionPreventa.lblUsuUsuario.setText(lblusu.getText());
+                    Caja_HospitalizacionPreventa.lblGenero.setText(sexo.getText());
+                    Caja_HospitalizacionPreventa.lblActoMedico.setText(lblActoMedico.getText());
+                    Caja_HospitalizacionPreventa.lblJerarFP.setText(lblFP.getText());
+                    
+                }else  if (!lblNomenclatura.getText().equals("CN00767         ")){
+                    Caja_NuevaVenta CNV = new Caja_NuevaVenta();
+                    MedicosConsultorios.setVisible(true);
+                    CNV.listarMedicos1(lblServicio.getText(),tb_medicos1);
+                    txtBuscarMedicos.setText(null);
+                    txtBuscarMedicos.requestFocus();
+                }
+                
+                
+            }else if(lblVisAdmi.getText().equals("N")){
+                if (lblNomenclatura.getText().equals("CN00761         ")){
+                    System.out.println("-----------------ALTA------------------");
+                    GuardarDetalle();
+                    ModificarALTA();
+                    panelNumeros.setVisible(true);
+                    suma();
+                    
+                }else if (!lblNomenclatura.getText().equals("CN00761         ")){
+                    GuardarDetalle();
+                    panelNumeros.setVisible(true);
+                    suma();
+                }
+                
+            }
+                    
+            lblMantP.setText("CP");      
+    }
+            
+    private void PacientesHC(){
+            Caja_NuevaVenta CP= new Caja_NuevaVenta();
+            Caja_NuevaVenta CP2= new Caja_NuevaVenta();
+            Caja_NuevaVenta CP3= new Caja_NuevaVenta();
+            Caja_NuevaVenta CP4= new Caja_NuevaVenta();
+            Caja_NuevaVenta CPAM= new Caja_NuevaVenta();
+            Caja_NuevaVenta PM= new Caja_NuevaVenta();
+            int fila=tbPacientes.getSelectedRow();
+        
+            bus.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
+            bus3.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
+           PM.Preventamostrar(bus.getText(),tbpreventas);
+           CPAM.Caja_Id_Preventa(bus.getText());
+           CP4.VerificarPreventaHOS_OJO_IMPORTANTE_DE_MOMENTO(lblHc.getText());
+           CP.ConsultoriosExtPREVENTAListar(lblIdPreventa.getText());
+           CP2.ConsultoriosExtPREVENTAListarCEX(lblIdPreventa.getText());
+           CP3.ConsultoriosACTOMEDICO_EMERGENCIA(lblIdPreventa.getText());
+           
+           
+            Abonnos();
+            BHC.dispose();
+            panelDatosGenerales.setVisible(true);
+            panelActoMedico.setVisible(true);
+
+            txtHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
+            lblHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
+            txtape.setText(String.valueOf(tbPacientes.getValueAt(fila, 2)));
+            lblDireccion.setText(String.valueOf(tbPacientes.getValueAt(fila, 3)));    
+            lblDNI.setText(String.valueOf(tbPacientes.getValueAt(fila, 0)));
+            sexo.setText(String.valueOf(tbPacientes.getValueAt(fila, 4)));
+            txtedad.setText(String.valueOf(tbPacientes.getValueAt(fila, 6)));
+            lblHc.setText(String.valueOf(tbPacientes.getValueAt(fila, 7))); 
+
+          ////////////////////////
+
+	     jLabel36.setText(String.valueOf(tbpreventas.getRowCount()));
+             
+
+             if(this.tbpreventas.getRowCount()!=0  ){
+//              panelPreventa.setVisible(true);
+//              panelPreventa.requestFocus();
+                lblPreventa.setText("SI");
+             }
+              if(this.tbpreventas.getRowCount()==0  ){
+//              panelPreventa.setVisible(false);
+                  lblPreventa.setText("NO");
+             }
+             
+        if(this.ABONOS.getRowCount()!=0  ){
+              panelAbonos.setVisible(true);
+              lblAbonos.setText("Si");
+          }
+            if(this.ABONOS.getRowCount()==0  ){
+             panelAbonos.setVisible(false);
+             lblAbonos.setText("No");
+             txtBuscarCPT.setText("");
+             }
+//            fua.setText(cnn1.idSIS());
+            
+            
+    }  
     private void sumaAbono()
     {
         double total = 0;
@@ -828,6 +977,57 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         CNVVAC.setTOTAL_DOCUUMENTO(Double.parseDouble(txtTotal.getText()));
         CNVVAC.setUsu_Exoneracion(lblUsuPorcentaje.getText());
         CNVVAC.setPorcentaje_Exoneracion(lblPorcentaje.getText());
+        CNVVAC.setId_ActoMedico(Integer.parseInt(lblActoMedico.getText()));
+
+        if(CNVVAC.ActualizarVenta()==true){
+                   System.out.println("CABECERA ACTUALIZADA");
+
+        } else {
+
+                System.out.println("ERROR ACTUALIZAR CAMA");
+
+        }
+                       
+    }
+     
+     public void ActualizarVentaDescuento(){
+  
+        Caja_NuevaVenta CNVVAC = new Caja_NuevaVenta();
+        CNVVAC.setId_documento(lblcodigo.getText());
+        if (lblPorcentaje.getText().equals("25 %")){
+            double desc=0;
+            double total=0;
+            double n =(Double.parseDouble(txtTotal.getText()));
+            desc=n*0.25;
+            total=n-desc;
+            CNVVAC.setDESCUENTO(desc);  
+            CNVVAC.setTOTAL_DOCUUMENTO(total);
+        }else if (lblPorcentaje.getText().equals("50 %")){
+            double desc=0;
+            double total=0;
+            double n =(Double.parseDouble(txtTotal.getText()));
+            desc=n*0.50;
+            total=n-desc;
+            CNVVAC.setDESCUENTO(desc);  
+            CNVVAC.setTOTAL_DOCUUMENTO(total);
+        }else if (lblPorcentaje.getText().equals("75 %")){
+            double desc=0;
+            double total=0;
+            double n =(Double.parseDouble(txtTotal.getText()));
+            desc=n*0.75;
+            total=n-desc;
+            CNVVAC.setDESCUENTO(desc);  
+            CNVVAC.setTOTAL_DOCUUMENTO(total); 
+        }else if (lblPorcentaje.getText().equals("100 %")){
+            double n =(Double.parseDouble(txtTotal.getText()));
+            CNVVAC.setDESCUENTO(n);   
+            CNVVAC.setTOTAL_DOCUUMENTO(0.0);
+        }
+        
+        
+        CNVVAC.setUsu_Exoneracion(lblUsuPorcentaje.getText());
+        CNVVAC.setPorcentaje_Exoneracion(lblPorcentaje.getText());
+        CNVVAC.setId_ActoMedico(Integer.parseInt(lblActoMedico.getText()));
 
         if(CNVVAC.ActualizarVenta()==true){
                    System.out.println("CABECERA ACTUALIZADA");
@@ -910,6 +1110,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                 cno1.setCorrelativo(2);
                 cno1.setId_ActoMedico(Integer.parseInt(lblActoMedico.getText() ));
                 cno1.setId_Cta_Abono(0);
+//                if(cbxTipoDocumento.getSelectedItem().toString().equalsIgnoreCase("FACTURA")){
+                   cno1.setCod_empre_jerar(lblId_EmpresaFP.getText()); 
+//                }else if(!cbxTipoDocumento.getSelectedItem().toString().equalsIgnoreCase("FACTURA")){
+//                   cno1.setCod_empre_jerar(""); 
+//                }
                 cno1.setCod_empre_jerar(lblId_EmpresaFP.getText());
                 cno1.setUsu_Exoneracion(lblUsuPorcentaje.getText());
                 cno1.setPorcentaje_Exoneracion(lblPorcentaje.getText());
@@ -1232,6 +1437,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                         System.out.println("anulado");
                         panelMensaje.setBackground(new Color(0,153,102)); 
                         Mensaje4.setText("Venta Anulada Correctamente");
+                        panelAnular.setVisible(false);
                         lblcodigo.setText("");
                         panelMensaje.setVisible(true);
                         btnCorrectoNo.setText("Ok");
@@ -1239,6 +1445,24 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                         btnCorrectoNo.setVisible(true); 
                         elimma1.setVisible(false);
                         elimma.setVisible(false);
+                        lblCPT.setVisible(false);
+                        panelCPT.setVisible(false);
+                        panelTablaCPT.setVisible(false);
+
+                        lForma.setVisible(false);
+                        panelFormaPago.setVisible(false);
+                        lDoc.setVisible(false);
+                        lblNumeroDoc.setVisible(false);
+                        lTipoDoc.setVisible(false);
+                        cbxTipoDocumento.setVisible(false);
+                        panelAnular.setVisible(false);
+                        panelColorFp.setBackground(new Color(255,255,255)); 
+
+                        panelEliminar.setVisible(false);
+                        NuevaV();
+                        LISTAR();
+                        formatoj();
+                        abono.setVisible(false);
 
                            //btneditar.setEnabled(true);
   
@@ -1296,7 +1520,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                         Caja_Preventa cnop = new Caja_Preventa();
                         cnop.setId_preventa(Integer.parseInt(lblIdPreventaAlta.getText()));
-                        if(cnop.modificarPreventa()==true){
+                        if(cnop.PREVENTA_ALTA()==true){
                                    System.out.println("Preventa Modificada ALTA");
                                    panelPreventa.setVisible(false);
                         } else {
@@ -1416,11 +1640,13 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                     modelo1.removeRow(0);
         }
         
-
+//         lblActoMedico.setText("");
+//         lblHc.setText("");
          lblcodigo.setText("");
          lblIdDetalle.setText("");
          lblDetalleId.setText("");
          lblMantP.setText("VN");
+        
         lblcodigo.setText(cnn.id());
         lblSinAnulacion.setText(cnn.sinanulacion());
         lblActoMedico.setText(cnn.ActoMedico());
@@ -1941,6 +2167,9 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                             jLabel87 = new javax.swing.JLabel();
                                                                                             ChkEdad2 = new javax.swing.JTextField();
                                                                                             jLabel88 = new javax.swing.JLabel();
+                                                                                            panelIMprimir = new javax.swing.JPanel();
+                                                                                            Mensaje7 = new javax.swing.JLabel();
+                                                                                            eli6 = new javax.swing.JButton();
                                                                                             jPanel13 = new javax.swing.JPanel();
                                                                                             jScrollPane12 = new javax.swing.JScrollPane();
                                                                                             tb_ReporteDiario1 = new javax.swing.JTable(){
@@ -4452,7 +4681,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addComponent(jPanel51, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                 );
 
-                                                                                                AsistenciaSocial.setMinimumSize(new java.awt.Dimension(630, 351));
+                                                                                                AsistenciaSocial.setMinimumSize(new java.awt.Dimension(630, 355));
                                                                                                 AsistenciaSocial.setResizable(false);
 
                                                                                                 jPanel20.setBackground(new java.awt.Color(255, 255, 255));
@@ -5944,7 +6173,6 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                                                                                                 GuardarPapeleta.setAlwaysOnTop(true);
                                                                                                 GuardarPapeleta.setMinimumSize(new java.awt.Dimension(470, 247));
-                                                                                                GuardarPapeleta.setPreferredSize(new java.awt.Dimension(443, 247));
 
                                                                                                 jPanel61.setBackground(new java.awt.Color(0, 153, 102));
                                                                                                 jPanel61.setMinimumSize(new java.awt.Dimension(310, 441));
@@ -6082,7 +6310,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         {null, null, null, null}
                                                                                                     },
                                                                                                     new String [] {
-                                                                                                        "Title 1", "Title 2", "Title 3", "Title 4"
+                                                                                                        "CPT", "Precio", "Departamento", "Médico"
                                                                                                     }
                                                                                                 ));
                                                                                                 tb_ReporteDetalle.setGridColor(new java.awt.Color(255, 255, 255));
@@ -6201,7 +6429,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGap(0, 0, 0)
                                                                                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+                                                                                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
                                                                                                         .addGap(0, 0, 0))
                                                                                                 );
 
@@ -6780,7 +7008,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 });
 
                                                                                                 btnbuscar9.setForeground(new java.awt.Color(240, 240, 240));
-                                                                                                btnbuscar9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Error-32.png"))); // NOI18N
+                                                                                                btnbuscar9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Imprimir-32 (1).png"))); // NOI18N
                                                                                                 btnbuscar9.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                                                                                                 btnbuscar9.setContentAreaFilled(false);
                                                                                                 btnbuscar9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -6794,7 +7022,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                                                                                                 jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
                                                                                                 jLabel38.setForeground(new java.awt.Color(102, 102, 102));
-                                                                                                jLabel38.setText("Esta venta tiene varios detalles");
+                                                                                                jLabel38.setText("La venta fue guardada de forma exitosa");
 
                                                                                                 btnTerminiarVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
                                                                                                 btnTerminiarVenta.setForeground(new java.awt.Color(102, 102, 102));
@@ -6846,6 +7074,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 txtEnterEscapeEnter.setForeground(new java.awt.Color(241, 197, 14));
                                                                                                 txtEnterEscapeEnter.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                                                                                                 txtEnterEscapeEnter.setCaretColor(new java.awt.Color(102, 102, 102));
+                                                                                                txtEnterEscapeEnter.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                        txtEnterEscapeEnterActionPerformed(evt);
+                                                                                                    }
+                                                                                                });
                                                                                                 txtEnterEscapeEnter.addKeyListener(new java.awt.event.KeyAdapter() {
                                                                                                     public void keyPressed(java.awt.event.KeyEvent evt) {
                                                                                                         txtEnterEscapeEnterKeyPressed(evt);
@@ -6975,7 +7208,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         {null, null, null, null}
                                                                                                     },
                                                                                                     new String [] {
-                                                                                                        "Título 1", "Título 2", "Título 3", "Título 4"
+                                                                                                        "CPT", "Precio", "Departamento", "Médico"
                                                                                                     }
                                                                                                 ));
                                                                                                 tb_CPT.setGridColor(new java.awt.Color(255, 255, 255));
@@ -7024,7 +7257,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGap(0, 0, 0)
                                                                                                         .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
+                                                                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
                                                                                                 );
 
                                                                                                 javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -7360,19 +7593,61 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                 );
 
+                                                                                                panelIMprimir.setBackground(new java.awt.Color(0, 153, 102));
+
+                                                                                                Mensaje7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+                                                                                                Mensaje7.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                Mensaje7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Imprimir-32.png"))); // NOI18N
+                                                                                                Mensaje7.setText("Imprimiendo una copia del documento");
+                                                                                                Mensaje7.setIconTextGap(20);
+
+                                                                                                eli6.setForeground(new java.awt.Color(240, 240, 240));
+                                                                                                eli6.setText("OK");
+                                                                                                eli6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+                                                                                                eli6.setContentAreaFilled(false);
+                                                                                                eli6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                                                                                                eli6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                                                                                                eli6.setIconTextGap(30);
+                                                                                                eli6.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                        eli6ActionPerformed(evt);
+                                                                                                    }
+                                                                                                });
+
+                                                                                                javax.swing.GroupLayout panelIMprimirLayout = new javax.swing.GroupLayout(panelIMprimir);
+                                                                                                panelIMprimir.setLayout(panelIMprimirLayout);
+                                                                                                panelIMprimirLayout.setHorizontalGroup(
+                                                                                                    panelIMprimirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                    .addGroup(panelIMprimirLayout.createSequentialGroup()
+                                                                                                        .addGap(19, 19, 19)
+                                                                                                        .addComponent(Mensaje7)
+                                                                                                        .addGap(47, 47, 47)
+                                                                                                        .addComponent(eli6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                );
+                                                                                                panelIMprimirLayout.setVerticalGroup(
+                                                                                                    panelIMprimirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIMprimirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                        .addComponent(Mensaje7, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                                                                                                        .addComponent(eli6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                );
+
                                                                                                 javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
                                                                                                 jPanel5.setLayout(jPanel5Layout);
                                                                                                 jPanel5Layout.setHorizontalGroup(
                                                                                                     jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                     .addComponent(resumen1, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)
                                                                                                     .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)
+                                                                                                    .addComponent(panelIMprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                 );
                                                                                                 jPanel5Layout.setVerticalGroup(
                                                                                                     jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                                                                                         .addComponent(resumen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE))
+                                                                                                        .addComponent(panelIMprimir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                        .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
                                                                                                 );
 
                                                                                                 jTabbedPane1.addTab("tab3", jPanel5);
@@ -7517,9 +7792,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                     jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                     .addGroup(jPanel13Layout.createSequentialGroup()
                                                                                                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                        .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
-                                                                                                        .addGap(22, 22, 22))
+                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                        .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE))
                                                                                                 );
 
                                                                                                 jTabbedPane1.addTab("tab4", jPanel13);
@@ -7629,7 +7903,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 });
 
                                                                                                 lbldetalle.setForeground(new java.awt.Color(255, 255, 255));
-                                                                                                lbldetalle.setText("DNI, Acto Meédico");
+                                                                                                lbldetalle.setText("DNI, Acto Médico");
 
                                                                                                 btnLista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                                                                 btnLista.setForeground(new java.awt.Color(240, 240, 240));
@@ -7958,7 +8232,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                                     .addComponent(lblServicioArea))
                                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                                 .addComponent(lblDetalleId)
-                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                                 .addComponent(lblArea)
                                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -7974,8 +8248,10 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                             .addComponent(lblUsuPorcentaje)))
                                                                                                 );
 
+                                                                                                lblCodigoImprimir.setForeground(new java.awt.Color(41, 127, 184));
                                                                                                 lblCodigoImprimir.setText("jLabel75");
 
+                                                                                                lblImpresora.setForeground(new java.awt.Color(41, 127, 184));
                                                                                                 lblImpresora.setText("jLabel99");
 
                                                                                                 javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
@@ -8009,16 +8285,15 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addContainerGap(19, Short.MAX_VALUE))
                                                                                                     .addGroup(jPanel21Layout.createSequentialGroup()
                                                                                                         .addContainerGap()
-                                                                                                        .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                            .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                            .addGroup(jPanel21Layout.createSequentialGroup()
-                                                                                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, Short.MAX_VALUE)
-                                                                                                                .addContainerGap())))
+                                                                                                        .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                                                     .addGroup(jPanel21Layout.createSequentialGroup()
                                                                                                         .addGap(28, 28, 28)
                                                                                                         .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                            .addComponent(lblImpresora)
-                                                                                                            .addComponent(lblCodigoImprimir))
+                                                                                                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                            .addGroup(jPanel21Layout.createSequentialGroup()
+                                                                                                                .addComponent(lblCodigoImprimir)
+                                                                                                                .addGap(18, 18, 18)
+                                                                                                                .addComponent(lblImpresora)))
                                                                                                         .addGap(0, 0, Short.MAX_VALUE))
                                                                                                 );
                                                                                                 jPanel21Layout.setVerticalGroup(
@@ -8040,14 +8315,15 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addComponent(btneliminar)
                                                                                                         .addGap(18, 18, 18)
                                                                                                         .addComponent(btnLista)
-                                                                                                        .addGap(45, 45, 45)
-                                                                                                        .addComponent(lblCodigoImprimir)
                                                                                                         .addGap(18, 18, 18)
-                                                                                                        .addComponent(lblImpresora)
+                                                                                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addGap(13, 13, 13)
+                                                                                                        .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                            .addComponent(lblCodigoImprimir)
+                                                                                                            .addComponent(lblImpresora))
                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                        .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                        .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addContainerGap())
                                                                                                 );
 
                                                                                                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -8063,7 +8339,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 layout.setVerticalGroup(
                                                                                                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                     .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE)
+                                                                                                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
                                                                                                 );
 
                                                                                                 pack();
@@ -8132,68 +8408,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
     private void tbPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPacientesMouseClicked
        
-        
-        
-       Caja_NuevaVenta CP= new Caja_NuevaVenta();
-       Caja_NuevaVenta CP2= new Caja_NuevaVenta();
-       Caja_NuevaVenta CP3= new Caja_NuevaVenta();
-       Caja_NuevaVenta CPAM= new Caja_NuevaVenta();
-       Caja_NuevaVenta PM= new Caja_NuevaVenta();
-        int fila=tbPacientes.getSelectedRow();
-        
-       bus.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
-       bus3.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
-           PM.Preventamostrar(bus.getText(),tbpreventas);
-           CPAM.Caja_Id_Preventa(bus.getText());
-           CP.ConsultoriosExtPREVENTAListar(lblIdPreventa.getText());
-           CP2.ConsultoriosExtPREVENTAListarCEX(lblIdPreventa.getText());
-           CP3.ConsultoriosACTOMEDICO_EMERGENCIA(lblIdPreventa.getText());
-           CP3.VerificarPreventaHOS_OJO_IMPORTANTE_DE_MOMENTO(lblIdPreventa.getText());
-           
-            Abonnos();
         if(evt.getClickCount()==2){
-            BHC.dispose();
-            panelDatosGenerales.setVisible(true);
-            panelActoMedico.setVisible(true);
-
-            txtHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
-            lblHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
-            txtape.setText(String.valueOf(tbPacientes.getValueAt(fila, 2)));
-            lblDireccion.setText(String.valueOf(tbPacientes.getValueAt(fila, 3)));    
-            lblDNI.setText(String.valueOf(tbPacientes.getValueAt(fila, 0)));
-            sexo.setText(String.valueOf(tbPacientes.getValueAt(fila, 4)));
-            txtedad.setText(String.valueOf(tbPacientes.getValueAt(fila, 6)));
-            lblHc.setText(String.valueOf(tbPacientes.getValueAt(fila, 7))); 
-           
-  
-           
-          ////////////////////////
-
-	     jLabel36.setText(String.valueOf(tbpreventas.getRowCount()));
-             
-
-             if(this.tbpreventas.getRowCount()!=0  ){
-//              panelPreventa.setVisible(true);
-//              panelPreventa.requestFocus();
-                lblPreventa.setText("SI");
-             }
-              if(this.tbpreventas.getRowCount()==0  ){
-//              panelPreventa.setVisible(false);
-                  lblPreventa.setText("NO");
-             }
-             
-        if(this.ABONOS.getRowCount()!=0  ){
-              panelAbonos.setVisible(true);
-              lblAbonos.setText("Si");
-          }
-            if(this.ABONOS.getRowCount()==0  ){
-             panelAbonos.setVisible(false);
-             lblAbonos.setText("No");
-             txtBuscarCPT.setText("");
-             }
-//            fua.setText(cnn1.idSIS());
-            
-                   
+            PacientesHC();
         }
         if(lblDNI.getText().equals("        ")) {
                 ActualizarDNI.setVisible(true);
@@ -8211,60 +8427,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
     }//GEN-LAST:event_tbPacientesMouseClicked
 
     private void tbPacientesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPacientesKeyPressed
-        Caja_NuevaVenta CP= new Caja_NuevaVenta();
-        Caja_NuevaVenta CP2= new Caja_NuevaVenta();
-        Caja_NuevaVenta CPAM= new Caja_NuevaVenta();
-        Caja_NuevaVenta PM= new Caja_NuevaVenta();
-        int fila = tbPacientes.getSelectedRow();
-        bus.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
-        bus3.setText(String.valueOf(tbPacientes.getValueAt(fila, 7)));
-           PM.Preventamostrar(bus.getText(),tbpreventas);
-           CPAM.Caja_Id_Preventa(bus.getText());
-           CP.ConsultoriosExtPREVENTAListar(lblIdPreventa.getText());
-           CP2.ConsultoriosExtPREVENTAListarCEX(lblIdPreventa.getText());
-           
-            Abonnos(); 
+
         char teclaPresionada = evt.getKeyChar();
         
         if(teclaPresionada==KeyEvent.VK_ENTER){
-   
-            BHC.dispose();
-            panelDatosGenerales.setVisible(true);
-            panelActoMedico.setVisible(true);
-
-            txtHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
-            lblHC.setText(String.valueOf(tbPacientes.getValueAt(fila, 1)));
-            txtape.setText(String.valueOf(tbPacientes.getValueAt(fila, 2)));
-            lblDireccion.setText(String.valueOf(tbPacientes.getValueAt(fila, 3)));    
-            lblDNI.setText(String.valueOf(tbPacientes.getValueAt(fila, 0)));
-            sexo.setText(String.valueOf(tbPacientes.getValueAt(fila, 4)));
-            txtedad.setText(String.valueOf(tbPacientes.getValueAt(fila, 6)));
-            lblHc.setText(String.valueOf(tbPacientes.getValueAt(fila, 7))); 
-
-          ////////////////////////
-
-	     jLabel36.setText(String.valueOf(tbpreventas.getRowCount()));
-             
-            if(this.tbpreventas.getRowCount()!=0  ){
-//              panelPreventa.setVisible(true);
-//              panelPreventa.requestFocus();
-                lblPreventa.setText("SI");
-             }
-              if(this.tbpreventas.getRowCount()==0  ){
-//              panelPreventa.setVisible(false);
-                  lblPreventa.setText("NO");
-             }
-             
-        if(this.ABONOS.getRowCount()!=0  ){
-              panelAbonos.setVisible(true);
-              lblAbonos.setText("Si");
-          }
-            if(this.ABONOS.getRowCount()==0  ){
-             panelAbonos.setVisible(false);
-             lblAbonos.setText("No");
-             txtBuscarCPT.setText("");
-             txtBuscarCPT.requestFocus();
-             }
+            PacientesHC();
             
              if(lblDNI.getText().equals("        ")) {
                 ActualizarDNI.setVisible(true);
@@ -8392,86 +8559,19 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
     }//GEN-LAST:event_txtBuscarCPTActionPerformed
 
     private void tb_CPTBUSCARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_CPTBUSCARMouseClicked
-        int fila=tb_CPTBUSCAR.getSelectedRow();
+       
         if(evt.getClickCount()==2){
-            nomenclaturas.dispose();
-            lblIdMedico.setText("");
-            lblServicio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 7)));
-            lblCajaNomenclaturaPrecio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
-            lblServicioArea.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 9)));
-            lblNomenclatura.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
-            Caja_Documento_Detalle cnvd = new Caja_Documento_Detalle();
-            lblVisAdmi.setText(cnvd.VisibleAdmin(lblCajaNomenclaturaPrecio.getText()));
-            
-            if(!lblVisAdmi.getText().equals("N")){
-                
-                if (lblNomenclatura.getText().equals("CN00767         ")){
-                    
-                    Caja_HospitalizacionPreventa chos = new Caja_HospitalizacionPreventa();
-                    chos.setVisible(true);
-                    Caja_HospitalizacionPreventa.lblIDHC.setText(lblHc.getText());
-                    Caja_HospitalizacionPreventa.lblNomPaciente.setText(txtape.getText());
-                    Caja_HospitalizacionPreventa.lblUsuUsuario.setText(lblusu.getText());
-                    Caja_HospitalizacionPreventa.lblGenero.setText(sexo.getText());
-                    Caja_HospitalizacionPreventa.lblActoMedico.setText(lblActoMedico.getText());
-                    Caja_HospitalizacionPreventa.lblJerarFP.setText(lblFP.getText());
-                    
-                }else  if (!lblNomenclatura.getText().equals("CN00767         ")){
-                    Caja_NuevaVenta CNV = new Caja_NuevaVenta();
-                    MedicosConsultorios.setVisible(true);
-                    CNV.listarMedicos1(lblServicio.getText(),tb_medicos1);
-                    txtBuscarMedicos.setText(null);
-                    txtBuscarMedicos.requestFocus();
-                }
-                
-                
-            }else if(lblVisAdmi.getText().equals("N")){
-                if (lblNomenclatura.getText().equals("CN00767         ")){
-                    
-                    GuardarDetalle();
-                    ModificarALTA();
-                    panelNumeros.setVisible(true);
-                    suma();
-                    
-                }else  if (!lblNomenclatura.getText().equals("CN00767         ")){
-                    GuardarDetalle();
-                    panelNumeros.setVisible(true);
-                    suma();
-                }
-                
-            }
-                    
-            lblMantP.setText("CP");                   
-    
+                       
+            CPTNomenclaturas();
            
-            }
+        }
     }//GEN-LAST:event_tb_CPTBUSCARMouseClicked
 
     private void tb_CPTBUSCARKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_CPTBUSCARKeyPressed
         char teclaPresionada = evt.getKeyChar();
         if(teclaPresionada==KeyEvent.VK_ENTER){
-            int fila = tb_CPTBUSCAR.getSelectedRow();
-            nomenclaturas.dispose();
-            lblIdMedico.setText("");
-            lblServicio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 7)));
-            lblCajaNomenclaturaPrecio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
-            lblServicioArea.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 9)));
-            
-            Caja_Documento_Detalle cnvd = new Caja_Documento_Detalle();
-            lblVisAdmi.setText(cnvd.VisibleAdmin(lblCajaNomenclaturaPrecio.getText()));
-            
-            if(!lblVisAdmi.getText().equals("N")){
-//                tb_medicos2.setDefaultRenderer(Object.class,new FormatoTablaCajaConsultorio());
-                Caja_NuevaVenta CNV = new Caja_NuevaVenta();
-                MedicosConsultorios.setVisible(true);
-                CNV.listarMedicos1(lblServicio.getText(),tb_medicos1);
-            }else if(lblVisAdmi.getText().equals("N")){
-                GuardarDetalle();
-                panelNumeros.setVisible(true);
-                suma();
-            }
-            lblMantP.setText("CP");        
-            }
+            CPTNomenclaturas();
+        }
     }//GEN-LAST:event_tb_CPTBUSCARKeyPressed
   private void suma()
     {
@@ -8507,7 +8607,12 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         this.txtIGV.setText(String.valueOf(IGV));
         this.txtSubTotal.setText(String.valueOf((subtotal)));
         this.txtDescuento.setText(String.valueOf(descuento));
-        ActualizarVenta();
+        
+        if(lblPorcentaje.getText().equals("0%")){
+            ActualizarVenta(); 
+        }else if(!lblPorcentaje.getText().equals("0%")){
+            ActualizarVentaDescuento();
+        }
     }
     private void btnNuevo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo2ActionPerformed
         // TODO add your handling code here:
@@ -9182,6 +9287,7 @@ if(tgp==1){
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
 jTabbedPane1.setSelectedIndex(1);
+
         panelMensaje.setVisible(false);
         if(lblOk.getText()=="okk" && this.tb_CPT.getRowCount()==0){ 
               panelEliminar.setVisible(true);
@@ -9274,6 +9380,7 @@ jTabbedPane1.setSelectedIndex(1);
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         if(lblImpresora.getText().equals("copia")){
+            panelIMprimir.setVisible(true);
           nuevaV.reporteVentaLaRxEc(lblCodigoImprimir.getText());  
         }else if(lblImpresora.getText().equals("original")){
             nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
@@ -9483,8 +9590,8 @@ jTabbedPane1.setSelectedIndex(1);
         
         
         nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
-        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
-        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+//        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+//        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
         lblCPT.setVisible(false);
         panelCPT.setVisible(false);
         panelTablaCPT.setVisible(false);
@@ -9503,6 +9610,9 @@ jTabbedPane1.setSelectedIndex(1);
 
     private void btnAnularVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnularVentaActionPerformed
         Anular.setVisible(true);
+        btnCorrectoSi.setText("Si");
+        btnCorrectoNo.setVisible(true);
+        lblcod.setText(lblcodigo.getText()); 
     }//GEN-LAST:event_btnAnularVentaActionPerformed
 
     private void tb_CEXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_CEXMouseClicked
@@ -10020,6 +10130,7 @@ jTabbedPane1.setSelectedIndex(1);
         if(evt.getClickCount()==1){
             lblCodigoImprimir.setText(String.valueOf(tb_ReporteDiario.getValueAt(fila, 12)));
             btnImprimir.setEnabled(true);
+            panelIMprimir.setVisible(false);
         }
     }//GEN-LAST:event_tb_ReporteDiarioMouseClicked
 
@@ -10345,6 +10456,17 @@ jTabbedPane1.setSelectedIndex(1);
         GuardarPapeleta.dispose();  
     }//GEN-LAST:event_btnGuardarDetalleActionPerformed
 
+    private void eli6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eli6ActionPerformed
+      
+            panelIMprimir.setVisible(false);
+
+        
+    }//GEN-LAST:event_eli6ActionPerformed
+
+    private void txtEnterEscapeEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnterEscapeEnterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEnterEscapeEnterActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -10416,6 +10538,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JLabel Mensaje4;
     private javax.swing.JLabel Mensaje5;
     private javax.swing.JLabel Mensaje6;
+    private javax.swing.JLabel Mensaje7;
     private javax.swing.JDialog abono;
     private javax.swing.JLabel abonod;
     private javax.swing.JLabel adni;
@@ -10477,6 +10600,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JButton eli3;
     private javax.swing.JButton eli4;
     private javax.swing.JButton eli5;
+    private javax.swing.JButton eli6;
     private javax.swing.JButton eli7;
     private javax.swing.JLabel elimdp;
     private javax.swing.JButton elimma;
@@ -10770,6 +10894,7 @@ jTabbedPane1.setSelectedIndex(1);
     private javax.swing.JPanel panelEliminarHOS;
     private javax.swing.JPanel panelExoneracion;
     private javax.swing.JPanel panelFormaPago;
+    private javax.swing.JPanel panelIMprimir;
     private javax.swing.JPanel panelMensaje;
     private javax.swing.JPanel panelNumeros;
     private javax.swing.JPanel panelOpcionesEmergencia;

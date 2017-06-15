@@ -715,6 +715,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                                 lblfecha_I.setText(diaIN + "/" + mesIN + "/" + anioIN);
                                 lblfecha_F.setText(diaFN + "/" + mesFN + "/" + anioFN);
                                 lblG.setVisible(true);
+                                txtBuscarPaciente.requestFocus();
 //                       }  
 //                }
 //             
@@ -737,6 +738,10 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
     }//GEN-LAST:event_fecha_inicioPropertyChange
 
     private void txtBuscarPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPacienteCaretUpdate
+    if(cbFecha.isSelected()== true && (fecha_inicio.getDate()==null || fecha_fin.getDate()==null)){
+        JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un rango de fechas");
+    }
+        
     if(cbFecha.isSelected()==true){
         buscar_examen();
     }else if(cbFecha.isSelected()==false){
@@ -1073,10 +1078,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             
             formatoExamen();
             
-            if(tb_Examenes.getRowCount()==0){
-//                lblRegistro.setVisible(true);
-                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
-            }
+            
             
         } catch (Exception e) {
             System.out.println("Error buscar examen: " + e.getMessage());
@@ -1113,10 +1115,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                        
             formatoExamen();
             
-            if(tb_Examenes.getRowCount()==0){
-//                lblRegistro.setVisible(true);
-                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
-            }
+            
             
         } catch (Exception e) {
             System.out.println("Error mostrar paciente: " + e.getMessage());

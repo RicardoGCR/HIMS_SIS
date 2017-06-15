@@ -642,6 +642,10 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     }//GEN-LAST:event_fecha_inicio_ECKeyTyped
 
     private void txtBuscarPaciente_ECCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarPaciente_ECCaretUpdate
+    if(cbFecha_EC.isSelected()== true && (fecha_inicio_EC.getDate()==null || fecha_fin_EC.getDate()==null)){
+        JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un rango de fechas");
+    }
+    
     if(cbFecha_EC.isSelected()==true){
         buscar_examen_EC();
     }else if(cbFecha_EC.isSelected()==false){
@@ -700,7 +704,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 //                                fecha_fin.setDate(null);
 //                       }else{
                                 buscar_examen_EC();
+                                lblfecha_I_EC.setText(diaIN + "/" + mesIN + "/" + anioIN);
+                                lblfecha_F_EC.setText(diaFN + "/" + mesFN + "/" + anioFN);
+                                lblG_EC.setVisible(true);
                                 txtBuscarPaciente_EC.requestFocus();
+                                
 //                       }  
 //                }
 //             
@@ -1074,12 +1082,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             
             formatoExamen_EC();
             
-            if(tb_Examen_EC.getRowCount()==0){
-//                lblRegistro.setVisible(true);
-                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
-            }else{
-//                lblRegistro.setVisible(false);
-            }
+            
             
         } catch (Exception e) {
             System.out.println("Error buscar examen: " + e.getMessage());
@@ -1117,12 +1120,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                        
             formatoExamen_EC();
             
-            if(tb_Examen_EC.getRowCount()==0){
-//                lblRegistro.setVisible(true);
-                JOptionPane.showMessageDialog(rootPane, "No se encontraron registros");
-            }else{
-//                lblRegistro.setVisible(false);
-            }
+            
             
         } catch (Exception e) {
             System.out.println("Error mostrar paciente: " + e.getMessage());

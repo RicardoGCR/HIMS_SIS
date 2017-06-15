@@ -613,7 +613,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         ));
         tb_Examenes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Examenes.setComponentPopupMenu(jPopupMenu1);
-        tb_Examenes.setRowHeight(25);
+        tb_Examenes.setRowHeight(30);
         tb_Examenes.setSelectionBackground(new java.awt.Color(34, 113, 179));
         tb_Examenes.getTableHeader().setReorderingAllowed(false);
         tb_Examenes.addMouseListener(new java.awt.event.MouseAdapter() {

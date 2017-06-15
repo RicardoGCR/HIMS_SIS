@@ -429,6 +429,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
 
         lblUsu.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
         lblUsu.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsu.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
         lblUsu.setText("Usuario");
 
@@ -482,6 +483,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
 
         lblNomArea.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblNomArea.setForeground(new java.awt.Color(255, 255, 255));
+        lblNomArea.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNomArea.setText("jLabel3");
 
         lblNumeArea.setForeground(new java.awt.Color(255, 255, 255));
@@ -592,7 +594,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                                         .addComponent(fecha_fin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(btnBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(17, 17, 17)
                         .addComponent(lblNomArea)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -617,7 +619,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         ));
         tb_Examenes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Examenes.setComponentPopupMenu(jPopupMenu1);
-        tb_Examenes.setRowHeight(25);
+        tb_Examenes.setRowHeight(30);
         tb_Examenes.setSelectionBackground(new java.awt.Color(34, 113, 179));
         tb_Examenes.getTableHeader().setReorderingAllowed(false);
         tb_Examenes.addMouseListener(new java.awt.event.MouseAdapter() {

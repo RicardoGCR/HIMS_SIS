@@ -372,7 +372,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         });
         jPopupMenu1.add(detalle);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(900, 600));
         setResizable(false);
 
@@ -435,6 +435,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
         lblNomArea_EC.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblNomArea_EC.setForeground(new java.awt.Color(255, 255, 255));
+        lblNomArea_EC.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNomArea_EC.setText("jLabel3");
 
         lblNumeArea_EC.setForeground(new java.awt.Color(255, 255, 255));
@@ -520,14 +521,14 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
             .addGroup(jpanelLayout.createSequentialGroup()
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titulo5)
-                    .addGroup(jpanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNomArea_EC)
-                            .addComponent(lblNumeArea_EC)))
                     .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblFecha_EC)
-                        .addComponent(lblHora_EC)))
+                        .addComponent(lblHora_EC))
+                    .addGroup(jpanelLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNumeArea_EC)
+                            .addComponent(lblNomArea_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -554,8 +555,6 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                             .addComponent(EC_BUSCAR_FECHAS, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(0, 5, Short.MAX_VALUE))))
         );
-
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
         tb_Examen_EC = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {

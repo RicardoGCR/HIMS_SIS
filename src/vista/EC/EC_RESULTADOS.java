@@ -114,7 +114,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         });
         jPopupMenu1.add(jMenuItem2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jpanel.setBackground(new java.awt.Color(34, 113, 179));
@@ -261,7 +261,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titulo5)
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(17, 17, 17)
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNomArea_EC)
                             .addComponent(lblNumeArea_EC)))
@@ -292,7 +292,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
                                     .addGap(0, 0, 0)
                                     .addComponent(txtBuscarPaciente_EC_R, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(EC_BUSCAR_R, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(0, 5, Short.MAX_VALUE))))
+                        .addGap(0, 14, Short.MAX_VALUE))))
         );
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());

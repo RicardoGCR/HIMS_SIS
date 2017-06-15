@@ -442,7 +442,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        jPanel8.setBackground(new java.awt.Color(101, 166, 136));
+        jPanel8.setBackground(new java.awt.Color(23, 160, 134));
         jPanel8.setPreferredSize(new java.awt.Dimension(500, 65));
 
         titulo5.setBackground(new java.awt.Color(153, 0, 51));

@@ -100,7 +100,7 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
     
     public void imprimirFormatoCompleto(){
         int fila = tbTopico.getSelectedRow();
-        adEmerTo.reporteTopico(String.valueOf(tbTopico.getValueAt(fila, 0)));
+        adEmerTo.reporteTopicoCompleto(String.valueOf(tbTopico.getValueAt(fila, 0)));
     }
     
     public String determinarFecha(JDateChooser calendario){

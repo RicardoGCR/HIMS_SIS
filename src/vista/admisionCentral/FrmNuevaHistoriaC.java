@@ -93,6 +93,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         restringirCampos(8,txtDni);
         restringirCampos(10, txtFechaNac);
         restringirCampos(8, txtCodigo);
+        this.setExtendedState(MAXIMIZED_BOTH);
         h1 = new Thread(this);
         h1.start();
         this.getContentPane().setBackground(Color.WHITE);
@@ -3518,11 +3519,12 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                         String codigo = String.valueOf(cod_hc.charAt(0)) + String.valueOf(cod_hc.charAt(1)) + 
                                         String.valueOf(cod_hc.charAt(2)) + String.valueOf(cod_hc.charAt(3)) + String.valueOf(cod_hc.charAt(4)) +
                                         String.valueOf(cod_hc.charAt(6)) + String.valueOf(cod_hc.charAt(7));
-                        String rutaInforme = "src\\Reportes\\admisionCentral\\historiaClinica.jasper";
+//                        String rutaInforme = "/Reportes/admisionCentral/historiaClinica.jasper";
                         Map parametros = new HashMap();
                         parametros.put("cod_hc", cod_hc);
-                        JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
+//                        JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
                         // VER EN EL JASPERREPORT
+                        JasperPrint informe=JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/admisionCentral/historiaClinica.jasper"), parametros,c.conectar());
                         JasperViewer ventanavisor = new JasperViewer(informe, false);
                         ventanavisor.setTitle("Historia Clínica");
                         ventanavisor.setVisible(true);
@@ -3551,10 +3553,9 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                             JOptionPane.showMessageDialog(BuscarHC,"Debe ingresar el sector");
                             txtBuscar.requestFocus();
                         } else {
-                            String rutaInforme = "src\\Reportes\\sectorizacion\\sectorizacion.jasper";
                             Map parametros = new HashMap();
                             parametros.put("SE_COD", sector);
-                            JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
+                            JasperPrint informe=JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/sectorizacion/sectorizacion.jasper"), parametros,c.conectar());
                             JasperViewer ventanavisor = new JasperViewer(informe, false);
                             ventanavisor.setTitle("Sectorización");
                             ventanavisor.setVisible(true);

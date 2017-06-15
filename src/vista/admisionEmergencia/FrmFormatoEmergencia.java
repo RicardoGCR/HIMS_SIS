@@ -11,8 +11,6 @@ import Atxy2k.CustomTextField.RestrictedTextField;
 import campos.LimitadorDeDocumento;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -82,23 +80,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         btnBuscar.setMnemonic(KeyEvent.VK_F3);
         //ICONO DE FORMULARIO
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
-        //ICONO DE FORMULARIO
-        dlgBuscarPac.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
-        //ICONO DE FORMULARIO
-        dlgBuscarCPT.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
-        //ICONO DE FORMULARIO
-        dlgListaExamnAux.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
-        //ICONO DE FORMULARIO
-        dlgListaImpDx.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
-        //ICONO DE FORMULARIO
-        dlgModTriaje.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
-        //ICONO DE FORMULARIO
-        dlgModemergencia.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
-        //ICONO DE FORMULARIO
-        dlgMostrarDatosTopico.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
-        dlgMostrarDatosTriajeT.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
-         //ICONO DE FORMULARIO
-        dlgMostrarDatosTriajeT.setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         conexion = c.conectar();
         //BOTON CERRAR
         getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).put(
@@ -111,7 +92,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                 dispose();
             }
         });
-        cerrar();
         buscar_HC(1,"A","");
         pnlB.setEnabled(false);
         limpiar();
@@ -180,20 +160,6 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
         lblIdTr.setVisible(false);
         txtNroRegistro.setVisible(false);
         lblIDHCTo.setVisible(false);
-    }
-    
-    public void cerrar (){
-        try {
-            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-            addWindowListener(new WindowAdapter() {
-                public void windowClosing(WindowEvent e){
-                    dispose();
-                }
-        });
-            this.setVisible(true);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
     
     public void habilitarPestanas(int tipo,boolean opcion){
@@ -2857,7 +2823,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
             jTabbedPane3.setBounds(0, 108, 749, 230);
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-            setTitle("Admisión emergencia .::. Formato de Emergencia");
+            setTitle("Admisión emergencia");
             setResizable(false);
             addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -4681,8 +4647,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                                 adEmer.triajeID();
                                 JOptionPane.showMessageDialog(this, "Datos guardados");
                                 //VISUALIZAR REPORTE !!!!!
-                                String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Triaje.jasper";
-                                adEmerCab.reporteTriaje(ruta, txtIDTriaje.getText());
+                                adEmerCab.reporteTriaje(txtIDTriaje.getText());
                                 pnlTriaje.setVisible(false);
                                 btnFiltrarTri.setEnabled(false);
                                 txtIDTriaje.setText("");
@@ -4724,8 +4689,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                 if(lblNewMod.getText().equals("N")){ // NUEVO REGISTRO DE TOPICO
                             if(guardarDatos()== true){
                                 JOptionPane.showMessageDialog(this, "Datos guardados");
-                                String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Topico.jasper";
-                                adEmerTo.reporteTopico(ruta, lbl2.getText());
+                                adEmerTo.reporteTopico(lbl2.getText());
                                 pnlTriaje.setVisible(false);
                                 lbl2.setText("");
                                 limpiarDatosTopico();
@@ -4735,8 +4699,7 @@ public class FrmFormatoEmergencia extends javax.swing.JFrame implements Runnable
                                 habilitarPestanas(4, true);
                             }else{
                                 JOptionPane.showMessageDialog(this, "Datos guardados");
-                                String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Topico.jasper";
-                                adEmerTo.reporteTopico(ruta, lbl2.getText());
+                                adEmerTo.reporteTopico(lbl2.getText());
                                 pnlTriaje.setVisible(false);
                                 lbl2.setText("");
                                 limpiarDatosTopico();

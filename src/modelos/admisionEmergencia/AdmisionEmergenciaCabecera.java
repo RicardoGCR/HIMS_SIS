@@ -376,12 +376,11 @@ public class AdmisionEmergenciaCabecera {
         return fecha;
     }
     
-    public void reporteCabecera(String ruta, int id) {
+    public void reporteCabecera(int id) {
         try {
             Map parametros = new HashMap();
             parametros.put("id", id);
-            String rutaInforme = ruta;
-            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream(rutaInforme), parametros, cn);          
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/admisionEmergencia/formatoEmergencia-Cabecera.jasper"), parametros, con.conectar());          
             JasperViewer ventanavisor = new JasperViewer(informe, false);
             ventanavisor.setTitle("Formato de Emergencia.::.Cabecera");
            ventanavisor.setVisible(true);
@@ -390,12 +389,11 @@ public class AdmisionEmergenciaCabecera {
         }
     }
         
-    public void reporteTriaje(String ruta, String id_triaje) {
+    public void reporteTriaje(String id_triaje) {
         try {
             Map parametros = new HashMap();
             parametros.put("id_triaje", id_triaje);
-            String rutaInforme = ruta;
-            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream(rutaInforme), parametros, cn);          
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/admisionEmergencia/formatoEmergencia-Triaje.jasper"), parametros, con.conectar());          
             JasperViewer ventanavisor = new JasperViewer(informe, false);
             ventanavisor.setTitle("Formato de Emergencia - Triaje");
            ventanavisor.setVisible(true);

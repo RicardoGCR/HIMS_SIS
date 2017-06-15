@@ -2087,7 +2087,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Admisi&#xf3;n emergencia .::. Formato de Emergencia"/>
+    <Property name="title" type="java.lang.String" value="Admisi&#xf3;n emergencia"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>

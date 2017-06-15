@@ -85,26 +85,22 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
     
     public void imprimirTriaje(){
         int fila = tbTriaje.getSelectedRow();
-        String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Triaje.jasper";
-        adEmerCab.reporteTriaje(ruta, String.valueOf(tbTriaje.getValueAt(fila, 0)));
+        adEmerCab.reporteTriaje(String.valueOf(tbTriaje.getValueAt(fila, 0)));
     }
     
     public void imprimirTopico(){
         int fila = tbTopico.getSelectedRow();
-        String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Topico.jasper";
-        adEmerTo.reporteTopico(ruta, String.valueOf(tbTopico.getValueAt(fila, 0)));
+        adEmerTo.reporteTopico(String.valueOf(tbTopico.getValueAt(fila, 0)));
     }
     
     public void imprimirCabecera(){
         int fila = tbCabecera.getSelectedRow();
-        String ruta = "/reportes/admisionEmergencia/formatoEmergencia-Cabecera.jasper";
-        adEmerCab.reporteCabecera(ruta, Integer.parseInt(String.valueOf(tbCabecera.getValueAt(fila, 0))));
+        adEmerCab.reporteCabecera(Integer.parseInt(String.valueOf(tbCabecera.getValueAt(fila, 0))));
     }
     
     public void imprimirFormatoCompleto(){
         int fila = tbTopico.getSelectedRow();
-        String ruta = "/reportes/admisionEmergencia/formatoEmergencia.jasper";
-        adEmerTo.reporteTopico(ruta, String.valueOf(tbTopico.getValueAt(fila, 0)));
+        adEmerTo.reporteTopico(String.valueOf(tbTopico.getValueAt(fila, 0)));
     }
     
     public String determinarFecha(JDateChooser calendario){

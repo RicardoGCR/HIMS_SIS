@@ -10198,6 +10198,33 @@ jTabbedPane1.setSelectedIndex(1);
         char teclaPresionada = evt.getKeyChar();
         AdmisionEmergenciaCabecera cab1 = new AdmisionEmergenciaCabecera();
         if(teclaPresionada==KeyEvent.VK_ENTER){
+
+            Medicos.dispose();
+            int fila = tb_medicos.getSelectedRow();
+            Medicos.dispose();
+            lblMedicoId.setText(String.valueOf(tb_medicos.getValueAt(fila, 0)));
+
+            if(lblModuloHos.getText().equals("EME"))
+
+                cab1.reporteCabecera(Integer.parseInt(lblIdPreventas.getText()));
+
+            if(lblModuloHos.getText().equals("EME")){
+
+
+                cab1.reporteCabecera(Integer.parseInt(lblIdPreventas.getText()));
+
+
+                GuardarDetalle();
+                ModificarPreventa();
+                cab1.reporteCabecera(Integer.parseInt(lblIdPreventas.getText()));
+                panelNumeros.setVisible(true);
+                suma();
+            }else if(lblModuloHos.getText().equals("HOS")){       
+                GuardarDetalle();
+                ModificarPreventa();
+                panelNumeros.setVisible(true);
+                suma();
+            }
             MedicosPreventas();
           
         }

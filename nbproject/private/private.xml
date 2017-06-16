@@ -3,35 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-<<<<<<< HEAD
+            <file>file:/D:/proyecto/HIMS/src/vista/inicioSesion.java</file>
             <file>file:/D:/proyecto/HIMS/src/vista/PrincipalMDI.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/PROYECTO%2004/SISGESH/src/vista/EC/EC_BUSCAR_EXAMEN_CAJA.java</file>
-=======
->>>>>>> 83d269b78c56f5de7093f0e431254e666e56aaa8
-            <file>file:/D:/PROYECTO%2004/SISGESH/src/vista/RX/RX_EC_BUSCAR_EXAMEN_C.java</file>
-            <file>file:/D:/PROYECTO%2004/SISGESH/src/vista/EC/EC_RESULTADOS.java</file>
-<<<<<<< HEAD
-            <file>file:/D:/PROYECTO%2004/SISGESH/src/vista/PERSONAL/PERSONAL_ROL.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Precios.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/PrincipalMDI.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
-=======
-            <file>file:/D:/proyecto/HIMS/src/vista/LABORATORIO/frm_LAB_BUSCAR_RESULTADO.java</file>
-            <file>file:/D:/proyecto/HIMS/src/modelos/admisionEmergencia/AdmisionEmergenciaCabecera.java</file>
-            <file>file:/D:/proyecto/HIMS/src/vista/admisionEmergencia/FrmListFormatoEmergencia.java</file>
-            <file>file:/D:/proyecto/HIMS/src/modelos/admisionEmergencia/AdmisionEmergenciaTopico.java</file>
-            <file>file:/D:/proyecto/HIMS/src/vista/admisionEmergencia/FrmFormatoEmergencia.java</file>
->>>>>>> b5692b0bcb78c97bf390f3faef7aee7f8a74dc53
->>>>>>> 1fb4437c31aa232e6a8e5e1357e198fea8b44cdb
->>>>>>> 0acbb58242bde29bddf5524590d988e81909330a
-=======
->>>>>>> 83d269b78c56f5de7093f0e431254e666e56aaa8
         </group>
     </open-files>
 </project-private>

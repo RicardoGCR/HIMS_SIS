@@ -175,6 +175,11 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         DETALLE.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         DETALLE.setMinimumSize(new java.awt.Dimension(705, 400));
 
+        tb_Detalle = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
         tb_Detalle.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         tb_Detalle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -187,6 +192,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         tb_Detalle.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Detalle.setRowHeight(25);
         tb_Detalle.setSelectionBackground(new java.awt.Color(40, 112, 99));
+        tb_Detalle.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tb_Detalle);
 
         jLabel10.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -379,10 +385,9 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
                         .addComponent(lblUsuD)
                         .addGap(29, 29, 29))
                     .addGroup(DETALLELayout.createSequentialGroup()
-                        .addGroup(DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         DETALLELayout.setVerticalGroup(
             DETALLELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

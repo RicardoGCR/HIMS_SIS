@@ -297,6 +297,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
+        tb_RESULTADOS_EC = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
         tb_RESULTADOS_EC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

@@ -163,20 +163,20 @@ public boolean DetalleVenta(){
         boolean resp = false;
         try{
             String sql = "exec CAJA_INSERTAR_DETALLE_VENTA "
-                        + "?,?,?,?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
   
             cmd.setString(1, getId_documento());
             cmd.setString(2, getCod_precio());
-            cmd.setString(3, getNom_consultorio_citas());
-            cmd.setInt(4, getCantidad_detalle());
-            cmd.setDouble(5, getPrecio_detalle());
-            cmd.setDouble(6, getTotal_detalle());
-            cmd.setDouble(7, getDescu_exo_detalle());
-            cmd.setString(8, getPersonal_aten());
-            cmd.setString(9, getNum_aten());
-            cmd.setString(10, getTurno_cita());
-            cmd.setString(11, getCod_usu());
+//            cmd.setString(3, getNom_consultorio_citas());
+            cmd.setInt(3, getCantidad_detalle());
+            cmd.setDouble(4, getPrecio_detalle());
+            cmd.setDouble(5, getTotal_detalle());
+            cmd.setDouble(6, getDescu_exo_detalle());
+            cmd.setString(7, getPersonal_aten());
+            cmd.setString(8, getNum_aten());
+            cmd.setString(9, getTurno_cita());
+            cmd.setString(10, getCod_usu());
 
 
             if(!cmd.execute())

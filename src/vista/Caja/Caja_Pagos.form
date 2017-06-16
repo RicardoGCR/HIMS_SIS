@@ -7079,9 +7079,9 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="resumen" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" min="-2" pref="148" max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" pref="213" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="jScrollPane7" pref="433" max="32767" attributes="0"/>
+                      <Component id="jScrollPane7" pref="368" max="32767" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -9923,6 +9923,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblVisibleImprimir" min="-2" max="-2" attributes="0"/>
                               <Component id="lblImpresora" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblVisibleImprimirAM" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -9959,6 +9960,8 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblVisibleImprimir" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblVisibleImprimirAM" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="lblusu" min="-2" pref="55" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -10808,6 +10811,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblVisibleImprimir">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel36"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblVisibleImprimirAM">
           <Properties>
             <Property name="text" type="java.lang.String" value="jLabel36"/>
           </Properties>

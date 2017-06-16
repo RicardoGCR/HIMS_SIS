@@ -2298,6 +2298,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 lblCodigoImprimir = new javax.swing.JLabel();
                                                                                                 lblImpresora = new javax.swing.JLabel();
                                                                                                 lblVisibleImprimir = new javax.swing.JLabel();
+                                                                                                lblVisibleImprimirAM = new javax.swing.JLabel();
 
                                                                                                 BHC.setAlwaysOnTop(true);
                                                                                                 BHC.setMinimumSize(new java.awt.Dimension(749, 350));
@@ -6485,9 +6486,9 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                                                                                         .addComponent(resumen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
+                                                                                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
                                                                                                         .addGap(0, 0, 0))
                                                                                                 );
 
@@ -8322,6 +8323,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                                                                                                 lblVisibleImprimir.setText("jLabel36");
 
+                                                                                                lblVisibleImprimirAM.setText("jLabel36");
+
                                                                                                 javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
                                                                                                 jPanel21.setLayout(jPanel21Layout);
                                                                                                 jPanel21Layout.setHorizontalGroup(
@@ -8363,7 +8366,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                                 .addGap(18, 18, 18)
                                                                                                                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                     .addComponent(lblVisibleImprimir)
-                                                                                                                    .addComponent(lblImpresora))))
+                                                                                                                    .addComponent(lblImpresora)
+                                                                                                                    .addComponent(lblVisibleImprimirAM))))
                                                                                                         .addGap(0, 0, Short.MAX_VALUE))
                                                                                                 );
                                                                                                 jPanel21Layout.setVerticalGroup(
@@ -8393,6 +8397,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                             .addComponent(lblImpresora))
                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                         .addComponent(lblVisibleImprimir)
+                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                        .addComponent(lblVisibleImprimirAM)
                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                         .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addContainerGap())
@@ -8433,6 +8439,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             HCI.setText(String.valueOf(tb_BusquedaCabecera.getValueAt(fila, 4)));
             
             bus1.setText(String.valueOf(tb_BusquedaCabecera.getValueAt(fila, 12)));
+            lblVisibleImprimirAM.setText(String.valueOf(tb_BusquedaCabecera.getValueAt(fila, 13)));
             btnImprimir.setEnabled(true);
             Caja_NuevaVenta CNVRCCD = new  Caja_NuevaVenta();
             CNVRCCD.ReporteDiariocajaDetalleCC(bus1.getText(),tb_ReporteDetalle); 
@@ -9490,9 +9497,14 @@ PaginasVentas.setSelectedIndex(1);
             NuevaV();
             
         } else if(lblImpresora.getText().equals("AM")){
-            nuevaV.reporteVentaLaRxEc(bus1.getText());
+            if(lblVisibleImprimirAM.getText().equals("N")){
+                    nuevaV.reporteVentaLaRxEc(bus1.getText());
+                    panelIMprimir.setVisible(true);
+            }else if(!lblVisibleImprimirAM.getText().equals("N")){
+                    nuevaV.reporteVentaConsultas(bus1.getText());
+                    panelIMprimir.setVisible(true);
+            }
         }
-        
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
@@ -10950,6 +10962,7 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel lblUsuPorcentaje;
     private javax.swing.JLabel lblVisAdmi;
     private javax.swing.JLabel lblVisibleImprimir;
+    private javax.swing.JLabel lblVisibleImprimirAM;
     private javax.swing.JLabel lblcod;
     private javax.swing.JLabel lblcodanu;
     private javax.swing.JLabel lblcodigo;

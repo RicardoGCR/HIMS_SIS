@@ -6865,7 +6865,7 @@
           <Group type="102" alignment="1" attributes="0">
               <Component id="jPanel21" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" max="32767" attributes="0"/>
+              <Component id="PaginasVentas" max="32767" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -6873,12 +6873,12 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel21" max="32767" attributes="0"/>
-          <Component id="jTabbedPane1" alignment="0" pref="710" max="32767" attributes="0"/>
+          <Component id="PaginasVentas" alignment="0" pref="710" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+    <Container class="javax.swing.JTabbedPane" name="PaginasVentas">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
@@ -8736,7 +8736,7 @@
                           <Color blue="33" green="33" red="33" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="4">
+                          <Table columnCount="4" rowCount="0">
                             <Column editable="true" title="CPT" type="java.lang.Object"/>
                             <Column editable="true" title="Precio" type="java.lang.Object"/>
                             <Column editable="true" title="Departamento" type="java.lang.Object"/>
@@ -10033,7 +10033,7 @@
                               <Component id="lblServicio" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblPorcentaje" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="lblUsuPorcentaje" min="-2" max="-2" attributes="0"/>
@@ -10051,7 +10051,7 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="lblNumeroFT" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lblTurno" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTurno" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -10114,16 +10114,20 @@
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                       <Component id="lblIdMedico" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblOk" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblMantP" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="panelAbonos" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="lblOk" min="-2" pref="30" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="lblMantP" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="lblMedicoId" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -10153,8 +10157,6 @@
                                       <Component id="lblFormaPago" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="nom" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="panelAbonos" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="AMA" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -10170,34 +10172,28 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtedad" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblServicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblIdPreventas" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="sexo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ca_id" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblOk" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblcodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblHc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblFormaPago" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="nom" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblNumero" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblNumerosAdicional" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblNumeroFuturo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblCAid" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblMedicoId" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblMantP" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblSerie" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblNumDoc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtedad" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblServicio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblIdPreventas" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                  <Component id="panelAbonos" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="sexo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ca_id" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblOk" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblcodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblHc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblFormaPago" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nom" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNumerosAdicional" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNumeroFuturo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCAid" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblMedicoId" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblMantP" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSerie" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNumDoc" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="AMA" min="-2" max="-2" attributes="0"/>
@@ -10230,14 +10226,23 @@
                                   <Component id="lblIdDetalle" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblServicioArea" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lblDetalleId" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="lblArea" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblNomenclatura" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblPreventa" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="lblDetalleId" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="lblArea" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblNomenclatura" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblPreventa" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="panelAbonos" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Component id="lblId_EmpresaFP" max="32767" attributes="0"/>
@@ -10592,7 +10597,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblTurno">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel97"/>
+                <Property name="text" type="java.lang.String" value="  "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblDetalleId">

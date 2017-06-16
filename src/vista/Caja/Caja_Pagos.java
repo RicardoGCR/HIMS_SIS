@@ -6210,6 +6210,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 );
 
                                                                                                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                                                                                                setTitle("Caja");
                                                                                                 setIconImage(getIconImage());
 
                                                                                                 PaginasVentas.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -8085,7 +8086,6 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                         .addComponent(lblNumeroFuturo)
                                                                                                                         .addGap(0, 0, Short.MAX_VALUE)))
-                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                 .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                     .addGroup(PanelDesastreLayout.createSequentialGroup()
                                                                                                                         .addGap(28, 28, 28)

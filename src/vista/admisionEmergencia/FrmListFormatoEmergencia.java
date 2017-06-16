@@ -67,6 +67,7 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
         cerrar();
         //ICONO DE FORMULARIO
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+        txtBuscar.setVisible(false);
     }
     
     public void cerrar (){
@@ -269,7 +270,7 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Buscar-32.png"))); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/continuar.png"))); // NOI18N
         btnBuscar.setMnemonic('B');
         btnBuscar.setText("Iniciar");
         btnBuscar.setToolTipText("Buscar (Alt + B)");
@@ -301,11 +302,11 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(fechai, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(fechaf, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscar))
                     .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -320,16 +321,18 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(titulo5)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblUsuUsuario))
-                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6))
                             .addComponent(fechai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(fechaf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -595,6 +598,8 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscarCaretUpdate
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        ImageIcon continuar=new ImageIcon(this.getClass().getResource("/imagenes/iconos/continuar.png")); 
+        ImageIcon detener=new ImageIcon(this.getClass().getResource("/imagenes/iconos/detener.png")); 
         if(tbpReporteEmergencia.getSelectedIndex()==0){
             if(btnBuscar.getText().equals("Iniciar")){
                 if(fechai.getDate()==null || fechai.getDate()==null){
@@ -602,6 +607,9 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
                 }
                 cp.listarDatosEmergencia(txtBuscar.getText(), determinarFecha(fechai),determinarFecha(fechaf), tbCabecera);
                 btnBuscar.setText("Detener");
+                txtBuscar.setVisible(true);
+                txtBuscar.requestFocus();
+                btnBuscar.setIcon(detener);
                 txtBuscar.setEnabled(true);
                 tbpReporteEmergencia.setEnabledAt(0, true);
                 tbpReporteEmergencia.setEnabledAt(1, false);
@@ -609,6 +617,8 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
             } else {
                 cp.listarDatosEmergencia(txtBuscar.getText(), "","", tbCabecera);
                 btnBuscar.setText("Iniciar");
+                txtBuscar.setVisible(false);
+                btnBuscar.setIcon(continuar);
                 txtBuscar.setEnabled(false);
                 tbpReporteEmergencia.setEnabledAt(0, true);
                 tbpReporteEmergencia.setEnabledAt(1, true);

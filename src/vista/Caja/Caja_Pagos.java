@@ -120,6 +120,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
          
          GuardarPapeleta.setLocationRelativeTo(null);//en el centro
          MedicosPepeleta.setLocationRelativeTo(null);//en el centro
+         AlertaConsulta.setLocationRelativeTo(null);//en el centro
 
          panelMensaje.setVisible(false);
          panelCPT.setVisible(false);
@@ -309,7 +310,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         }  
 
         if(lblOk.getText()=="okk" && tb_CPT.getRowCount()!=0  ){
-                    lblImpresora.getText().equals("original"); 
+                    lblImpresora.setText("original"); 
                     PaginasVentas.setSelectedIndex(1);
                     btnImprimir.setEnabled(true);
                     panelAnular.setVisible(true);
@@ -358,6 +359,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                 
                 
             }else if(lblVisAdmi.getText().equals("N")){
+                lblConsultorio.setText("N");
                 if (lblNomenclatura.getText().equals("CN00761         ")){
                     System.out.println("-----------------ALTA------------------");
                     GuardarDetalle();
@@ -1015,6 +1017,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         CNVVAC.setUsu_Exoneracion(lblUsuPorcentaje.getText());
         CNVVAC.setPorcentaje_Exoneracion(lblPorcentaje.getText());
         CNVVAC.setId_ActoMedico(Integer.parseInt(lblActoMedico.getText()));
+        CNVVAC.setEstadoVisibleAdmision(lblConsultorio.getText());
 
         if(CNVVAC.ActualizarVenta()==true){
                    System.out.println("CABECERA ACTUALIZADA");
@@ -1065,6 +1068,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         CNVVAC.setUsu_Exoneracion(lblUsuPorcentaje.getText());
         CNVVAC.setPorcentaje_Exoneracion(lblPorcentaje.getText());
         CNVVAC.setId_ActoMedico(Integer.parseInt(lblActoMedico.getText()));
+        CNVVAC.setEstadoVisibleAdmision(lblConsultorio.getText());
 
         if(CNVVAC.ActualizarVenta()==true){
                    System.out.println("CABECERA ACTUALIZADA");
@@ -1295,6 +1299,13 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                            tgDetalle=0;
                            Caja_Documento_Detalle IDHC = new Caja_Documento_Detalle();
                            IDHC.DetalleID(lblcodigo.getText());
+                           if(lblConsultorio.getText().equals("S")){
+                               btnBuscarCPT.setEnabled(false);
+                           }else  if(!lblConsultorio.getText().equals("S")){
+                               btnBuscarCPT.setEnabled(true);
+                               
+                           }
+                           
                            
                            if(!lblVisAdmi.getText().equals("N")){
                                Caja_Documento_Detalle MHC = new Caja_Documento_Detalle();
@@ -1677,7 +1688,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                     modelo1.removeRow(0);
         }
         
-
+        lblConsultorio.setText("N");
         lblcodigo.setText("");
         lblIdDetalle.setText("");
         lblDetalleId.setText("");
@@ -2087,6 +2098,12 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                             jLabel104 = new javax.swing.JLabel();
                                                                             jPanel62 = new javax.swing.JPanel();
                                                                             btnGuardarDetalle = new javax.swing.JButton();
+                                                                            AlertaConsulta = new javax.swing.JDialog();
+                                                                            jPanel63 = new javax.swing.JPanel();
+                                                                            jLabel105 = new javax.swing.JLabel();
+                                                                            jLabel106 = new javax.swing.JLabel();
+                                                                            jPanel64 = new javax.swing.JPanel();
+                                                                            btnAlertConsulta = new javax.swing.JButton();
                                                                             PaginasVentas = new javax.swing.JTabbedPane();
                                                                             jPanel2 = new javax.swing.JPanel();
                                                                             jScrollPane3 = new javax.swing.JScrollPane();
@@ -2277,8 +2294,10 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 lblDetalleId = new javax.swing.JLabel();
                                                                                                 lblNomenclatura = new javax.swing.JLabel();
                                                                                                 lblIdPreventaAlta = new javax.swing.JLabel();
+                                                                                                lblConsultorio = new javax.swing.JLabel();
                                                                                                 lblCodigoImprimir = new javax.swing.JLabel();
                                                                                                 lblImpresora = new javax.swing.JLabel();
+                                                                                                lblVisibleImprimir = new javax.swing.JLabel();
 
                                                                                                 BHC.setAlwaysOnTop(true);
                                                                                                 BHC.setMinimumSize(new java.awt.Dimension(749, 350));
@@ -4505,7 +4524,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 jLabel66.setText(":(");
                                                                                                 jLabel66.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-                                                                                                jPanel12.setBackground(new java.awt.Color(50, 151, 219));
+                                                                                                jPanel12.setBackground(new java.awt.Color(43, 43, 43));
 
                                                                                                 jLabel78.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                                                                 jLabel78.setForeground(new java.awt.Color(255, 255, 255));
@@ -5858,7 +5877,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 jLabel98.setForeground(new java.awt.Color(255, 255, 255));
                                                                                                 jLabel98.setText("Ventas de hoy");
 
-                                                                                                jPanel56.setBackground(new java.awt.Color(102, 102, 102));
+                                                                                                jPanel56.setBackground(new java.awt.Color(43, 43, 43));
 
                                                                                                 eli4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                                                                 eli4.setForeground(new java.awt.Color(240, 240, 240));
@@ -6138,7 +6157,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 jLabel104.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-De acuerdo-80.png"))); // NOI18N
                                                                                                 jLabel104.setText("Papeleta Guardada Correctamente");
 
-                                                                                                jPanel62.setBackground(new java.awt.Color(102, 102, 102));
+                                                                                                jPanel62.setBackground(new java.awt.Color(43, 43, 43));
 
                                                                                                 btnGuardarDetalle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                                                                                                 btnGuardarDetalle.setForeground(new java.awt.Color(240, 240, 240));
@@ -6206,6 +6225,92 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                     GuardarPapeletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                     .addGroup(GuardarPapeletaLayout.createSequentialGroup()
                                                                                                         .addComponent(jPanel61, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addGap(0, 0, Short.MAX_VALUE))
+                                                                                                );
+
+                                                                                                AlertaConsulta.setAlwaysOnTop(true);
+                                                                                                AlertaConsulta.setMinimumSize(new java.awt.Dimension(470, 247));
+
+                                                                                                jPanel63.setBackground(new java.awt.Color(241, 197, 14));
+                                                                                                jPanel63.setMinimumSize(new java.awt.Dimension(310, 441));
+
+                                                                                                jLabel105.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+                                                                                                jLabel105.setForeground(new java.awt.Color(51, 51, 51));
+                                                                                                jLabel105.setText("Vendiste una consulta");
+
+                                                                                                jLabel106.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+                                                                                                jLabel106.setForeground(new java.awt.Color(51, 51, 51));
+                                                                                                jLabel106.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Error-80.png"))); // NOI18N
+                                                                                                jLabel106.setText("<html>Para vender otros CPT u otras consultas, <br>Termina la venta</html> ");
+
+                                                                                                jPanel64.setBackground(new java.awt.Color(43, 43, 43));
+
+                                                                                                btnAlertConsulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+                                                                                                btnAlertConsulta.setForeground(new java.awt.Color(240, 240, 240));
+                                                                                                btnAlertConsulta.setText("OK");
+                                                                                                btnAlertConsulta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+                                                                                                btnAlertConsulta.setContentAreaFilled(false);
+                                                                                                btnAlertConsulta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                                                                                                btnAlertConsulta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                                                                                                btnAlertConsulta.setIconTextGap(30);
+                                                                                                btnAlertConsulta.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                        btnAlertConsultaActionPerformed(evt);
+                                                                                                    }
+                                                                                                });
+
+                                                                                                javax.swing.GroupLayout jPanel64Layout = new javax.swing.GroupLayout(jPanel64);
+                                                                                                jPanel64.setLayout(jPanel64Layout);
+                                                                                                jPanel64Layout.setHorizontalGroup(
+                                                                                                    jPanel64Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel64Layout.createSequentialGroup()
+                                                                                                        .addGap(0, 0, Short.MAX_VALUE)
+                                                                                                        .addComponent(btnAlertConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                );
+                                                                                                jPanel64Layout.setVerticalGroup(
+                                                                                                    jPanel64Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel64Layout.createSequentialGroup()
+                                                                                                        .addGap(0, 0, Short.MAX_VALUE)
+                                                                                                        .addComponent(btnAlertConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                );
+
+                                                                                                javax.swing.GroupLayout jPanel63Layout = new javax.swing.GroupLayout(jPanel63);
+                                                                                                jPanel63.setLayout(jPanel63Layout);
+                                                                                                jPanel63Layout.setHorizontalGroup(
+                                                                                                    jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                    .addGroup(jPanel63Layout.createSequentialGroup()
+                                                                                                        .addContainerGap()
+                                                                                                        .addGroup(jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                            .addComponent(jLabel106, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                            .addComponent(jLabel105))
+                                                                                                        .addContainerGap(31, Short.MAX_VALUE))
+                                                                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel63Layout.createSequentialGroup()
+                                                                                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                        .addComponent(jPanel64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addContainerGap())
+                                                                                                );
+                                                                                                jPanel63Layout.setVerticalGroup(
+                                                                                                    jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                    .addGroup(jPanel63Layout.createSequentialGroup()
+                                                                                                        .addContainerGap()
+                                                                                                        .addComponent(jLabel105)
+                                                                                                        .addGap(28, 28, 28)
+                                                                                                        .addComponent(jLabel106, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addGap(18, 18, 18)
+                                                                                                        .addComponent(jPanel64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                );
+
+                                                                                                javax.swing.GroupLayout AlertaConsultaLayout = new javax.swing.GroupLayout(AlertaConsulta.getContentPane());
+                                                                                                AlertaConsulta.getContentPane().setLayout(AlertaConsultaLayout);
+                                                                                                AlertaConsultaLayout.setHorizontalGroup(
+                                                                                                    AlertaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                    .addComponent(jPanel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                );
+                                                                                                AlertaConsultaLayout.setVerticalGroup(
+                                                                                                    AlertaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                    .addGroup(AlertaConsultaLayout.createSequentialGroup()
+                                                                                                        .addComponent(jPanel63, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, Short.MAX_VALUE))
                                                                                                 );
 
@@ -8008,6 +8113,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                                                                                                 lblIdPreventaAlta.setText("jLabel105");
 
+                                                                                                lblConsultorio.setText("N");
+
                                                                                                 javax.swing.GroupLayout PanelDesastreLayout = new javax.swing.GroupLayout(PanelDesastre);
                                                                                                 PanelDesastre.setLayout(PanelDesastreLayout);
                                                                                                 PanelDesastreLayout.setHorizontalGroup(
@@ -8021,7 +8128,9 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                                     .addGroup(PanelDesastreLayout.createSequentialGroup()
                                                                                                                         .addComponent(lblPorcentaje)
                                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                        .addComponent(lblUsuPorcentaje))
+                                                                                                                        .addComponent(lblUsuPorcentaje)
+                                                                                                                        .addGap(18, 18, 18)
+                                                                                                                        .addComponent(lblConsultorio))
                                                                                                                     .addGroup(PanelDesastreLayout.createSequentialGroup()
                                                                                                                         .addComponent(lblContador)
                                                                                                                         .addGap(18, 18, 18)
@@ -8201,14 +8310,17 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                         .addGroup(PanelDesastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                             .addComponent(lblPorcentaje)
-                                                                                                            .addComponent(lblUsuPorcentaje)))
+                                                                                                            .addComponent(lblUsuPorcentaje)
+                                                                                                            .addComponent(lblConsultorio)))
                                                                                                 );
 
                                                                                                 lblCodigoImprimir.setForeground(new java.awt.Color(41, 127, 184));
                                                                                                 lblCodigoImprimir.setText("jLabel75");
 
-                                                                                                lblImpresora.setForeground(new java.awt.Color(41, 127, 184));
+                                                                                                lblImpresora.setForeground(new java.awt.Color(255, 255, 255));
                                                                                                 lblImpresora.setText("jLabel99");
+
+                                                                                                lblVisibleImprimir.setText("jLabel36");
 
                                                                                                 javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
                                                                                                 jPanel21.setLayout(jPanel21Layout);
@@ -8249,7 +8361,9 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                             .addGroup(jPanel21Layout.createSequentialGroup()
                                                                                                                 .addComponent(lblCodigoImprimir)
                                                                                                                 .addGap(18, 18, 18)
-                                                                                                                .addComponent(lblImpresora)))
+                                                                                                                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                    .addComponent(lblVisibleImprimir)
+                                                                                                                    .addComponent(lblImpresora))))
                                                                                                         .addGap(0, 0, Short.MAX_VALUE))
                                                                                                 );
                                                                                                 jPanel21Layout.setVerticalGroup(
@@ -8277,6 +8391,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                             .addComponent(lblCodigoImprimir)
                                                                                                             .addComponent(lblImpresora))
+                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                        .addComponent(lblVisibleImprimir)
                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                         .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addContainerGap())
@@ -9339,12 +9455,26 @@ PaginasVentas.setSelectedIndex(1);
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         if(lblImpresora.getText().equals("copia")){
-            panelIMprimir.setVisible(true);
+            
+            if(lblVisibleImprimir.getText().equals("N")){
+                    nuevaV.reporteVentaLaRxEc(lblCodigoImprimir.getText());
+                    panelIMprimir.setVisible(true);
+            }else if(!lblVisibleImprimir.getText().equals("N")){
+                    nuevaV.reporteVentaConsultas(lblCodigoImprimir.getText());
+                    panelIMprimir.setVisible(true);
+            }
+            
           nuevaV.reporteVentaLaRxEc(lblCodigoImprimir.getText());  
         }else if(lblImpresora.getText().equals("original")){
-            nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
-            nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
-            nuevaV.reporteVentaLaRxEc(lblcodigo.getText()); 
+            if(lblVisAdmi.getText().equals("N")){
+                    nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+          //        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+          //        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+            }else if(!lblVisAdmi.getText().equals("N")){
+                    nuevaV.reporteVentaConsultas(lblcodigo.getText());
+          //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+          //        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+            }
             lblCPT.setVisible(false);
             panelCPT.setVisible(false);
             panelTablaCPT.setVisible(false);
@@ -9541,10 +9671,17 @@ PaginasVentas.setSelectedIndex(1);
 
     private void btnTerminiarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminiarVentaActionPerformed
         
-        
-        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+        if(lblVisAdmi.getText().equals("N")){
+          nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
 //        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
 //        nuevaV.reporteVentaLaRxEc(lblcodigo.getText());
+        }else if(!lblVisAdmi.getText().equals("N")){
+          nuevaV.reporteVentaConsultas(lblcodigo.getText());
+//        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+//        nuevaV.reporteVentaConsultas(lblcodigo.getText());
+        }
+            
+
         lblCPT.setVisible(false);
         panelCPT.setVisible(false);
         panelTablaCPT.setVisible(false);
@@ -9635,9 +9772,18 @@ PaginasVentas.setSelectedIndex(1);
     private void btnCorrectoSiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCorrectoSiKeyPressed
          char teclaPresionada = evt.getKeyChar();
         if(teclaPresionada==KeyEvent.VK_ENTER){
-            nomenclaturas.setVisible(true);
-            txtBuscarCPT.setText("");
-            txtBuscarCPT.requestFocus();
+             if(lblConsultorio.getText().equals("S")){
+                btnBuscarCPT.setEnabled(false);
+                AlertaConsulta.setVisible(true);
+                btnAlertConsulta.requestFocus();
+            }else  if(lblConsultorio.getText().equals("N")){
+                nomenclaturas.setVisible(true);
+                txtBuscarCPT.setText("");
+                txtBuscarCPT.requestFocus();
+
+            }
+            
+            
         }
     }//GEN-LAST:event_btnCorrectoSiKeyPressed
 
@@ -10038,7 +10184,7 @@ PaginasVentas.setSelectedIndex(1);
     }//GEN-LAST:event_txtT6MouseClicked
 
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
- 
+            lblConsultorio.setText("S");
             MedicosConsultorios.dispose();
             GuardarDetalle();
             panelNumeros.setVisible(true);
@@ -10063,6 +10209,7 @@ PaginasVentas.setSelectedIndex(1);
         int fila=tb_ReporteDiario.getSelectedRow();
         if(evt.getClickCount()==1){
             lblCodigoImprimir.setText(String.valueOf(tb_ReporteDiario.getValueAt(fila, 12)));
+            lblVisibleImprimir.setText(String.valueOf(tb_ReporteDiario.getValueAt(fila, 13)));
             btnImprimir.setEnabled(true);
             panelIMprimir.setVisible(false);
         }
@@ -10400,6 +10547,10 @@ PaginasVentas.setSelectedIndex(1);
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEnterEscapeEnterActionPerformed
 
+    private void btnAlertConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsultaActionPerformed
+        AlertaConsulta.dispose();
+    }//GEN-LAST:event_btnAlertConsultaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -10444,6 +10595,7 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel APENOM;
     private javax.swing.JLabel APENOM1;
     private javax.swing.JDialog ActualizarDNI;
+    public static javax.swing.JDialog AlertaConsulta;
     private javax.swing.JDialog Anular;
     private javax.swing.JDialog AsistenciaSocial;
     private javax.swing.JDialog BHC;
@@ -10478,6 +10630,7 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel adni;
     private javax.swing.JLabel adni1;
     private javax.swing.JTable anulacion;
+    private javax.swing.JButton btnAlertConsulta;
     private javax.swing.JButton btnAnularVenta;
     private javax.swing.JButton btnBuscarCPT;
     private javax.swing.JButton btnBuscarFormaPago;
@@ -10544,6 +10697,8 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel jLabel102;
     private javax.swing.JLabel jLabel103;
     private javax.swing.JLabel jLabel104;
+    private javax.swing.JLabel jLabel105;
+    private javax.swing.JLabel jLabel106;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -10698,6 +10853,8 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JPanel jPanel60;
     private javax.swing.JPanel jPanel61;
     private javax.swing.JPanel jPanel62;
+    private javax.swing.JPanel jPanel63;
+    private javax.swing.JPanel jPanel64;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -10740,6 +10897,7 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel lblCantidadPreventa;
     private javax.swing.JLabel lblCitaFutura;
     private javax.swing.JLabel lblCodigoImprimir;
+    private javax.swing.JLabel lblConsultorio;
     private javax.swing.JLabel lblContador;
     private javax.swing.JLabel lblContadorA;
     private javax.swing.JLabel lblContadorF;
@@ -10791,6 +10949,7 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel lblTurno;
     private javax.swing.JLabel lblUsuPorcentaje;
     private javax.swing.JLabel lblVisAdmi;
+    private javax.swing.JLabel lblVisibleImprimir;
     private javax.swing.JLabel lblcod;
     private javax.swing.JLabel lblcodanu;
     private javax.swing.JLabel lblcodigo;

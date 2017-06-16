@@ -632,6 +632,9 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
                 }
                 adEmerTr1.admisionEmergenciaTriajeListarReporte(txtBuscar.getText(), tbTriaje, determinarFecha(fechai),determinarFecha(fechaf));
                 btnBuscar.setText("Detener");
+                txtBuscar.setVisible(true);
+                txtBuscar.requestFocus();
+                btnBuscar.setIcon(detener);
                 txtBuscar.setEnabled(true);
                 tbpReporteEmergencia.setEnabledAt(0, false);
                 tbpReporteEmergencia.setEnabledAt(1, true);
@@ -639,6 +642,8 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
             } else {
                 adEmerTr1.admisionEmergenciaTriajeListarReporte(txtBuscar.getText(), tbTriaje, "","");
                 btnBuscar.setText("Iniciar");
+                txtBuscar.setVisible(false);
+                btnBuscar.setIcon(continuar);
                 txtBuscar.setEnabled(false);
                 tbpReporteEmergencia.setEnabledAt(0, true);
                 tbpReporteEmergencia.setEnabledAt(1, true);
@@ -652,6 +657,9 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
                 }
                 adEmerTo.admisionEmergenciaTopicoReporteFinal(txtBuscar.getText(), tbTopico, determinarFecha(fechai),determinarFecha(fechaf));
                 btnBuscar.setText("Detener");
+                txtBuscar.setVisible(true);
+                txtBuscar.requestFocus();
+                btnBuscar.setIcon(detener);
                 txtBuscar.setEnabled(true);
                 tbpReporteEmergencia.setEnabledAt(0, false);
                 tbpReporteEmergencia.setEnabledAt(1, false);
@@ -659,6 +667,8 @@ public class FrmListFormatoEmergencia extends javax.swing.JFrame {
             } else {
                 adEmerTo.admisionEmergenciaTopicoReporteFinal(txtBuscar.getText(), tbTopico, "","");
                 btnBuscar.setText("Iniciar");
+                txtBuscar.setVisible(false);
+                btnBuscar.setIcon(continuar);
                 txtBuscar.setEnabled(false);
                 tbpReporteEmergencia.setEnabledAt(0, true);
                 tbpReporteEmergencia.setEnabledAt(1, true);

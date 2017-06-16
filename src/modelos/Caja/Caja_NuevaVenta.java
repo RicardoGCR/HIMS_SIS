@@ -901,10 +901,9 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
      
     public void reporteVentaLaRxEc(String id_documento) {
         try {
-            String rutaInforme = "src\\Reportes\\cajaCentral\\report1.jasper";
             Map parametros = new HashMap();
             parametros.put("doc",id_documento);
-            JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, con.conectar());
+           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/report1.jasper"), parametros, con.conectar());   
             JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 Caja_Pagos.ErrorPrint.setVisible(false);

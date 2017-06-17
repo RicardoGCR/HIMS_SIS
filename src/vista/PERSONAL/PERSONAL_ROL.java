@@ -908,23 +908,13 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         txtBuscarMedico_UO.requestFocus();
         txtBuscarMedico_UO.setText("");
         MostrarPersonal_UO();
+        Clear_Tb_TURNOS_UO();
     }//GEN-LAST:event_T3ActionPerformed
 
     private void txtBuscarMedico_UOCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarMedico_UOCaretUpdate
-        
-//        if(tb_Personal_UO.getRowCount()!=0){
+
             BuscarPersonal_UO();
-            
-                
-//        }else{
-////                lblRegistro.setVisible(true);
-////                this.ERROR_BUSCAR_MED.setVisible(true);
-////            JOptionPane.showMessageDialog(MEDICOS_UO, "error");
-//            
-////            MostrarPersonal_UO();
-//            BuscarPersonal_UO();
-//        }
-//        
+
     }//GEN-LAST:event_txtBuscarMedico_UOCaretUpdate
 
     private void T5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T5ActionPerformed
@@ -1301,6 +1291,14 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         }
 
     }
+    
+    private void Clear_Tb_TURNOS_UO(){
+        DefaultTableModel modelo1 = (DefaultTableModel)TB_TURNOS_UO.getModel(); 
+        int b=TB_TURNOS_UO.getRowCount();
+        for(int j=0;j<b;j++){
+                    modelo1.removeRow(0);
+        }
+   }
     
     /**
      * @param args the command line arguments

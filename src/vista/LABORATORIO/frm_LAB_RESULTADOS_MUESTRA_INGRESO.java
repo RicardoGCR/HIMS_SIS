@@ -876,6 +876,7 @@ public void calcula() {
                         );
 
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+                        setTitle("HIMS .::. RESULTADOS");
                         setPreferredSize(new java.awt.Dimension(1067, 658));
 
                         jpanel.setBackground(new java.awt.Color(2, 67, 115));

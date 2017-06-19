@@ -496,7 +496,7 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
     }
     
      public void cargarCostoSustentacion(){
-    try {
+        try {
              String titulos[]={"Codigo","Cod Precio","Codigo CPT","Servicio","Área",
                  "Forma de Pago","Precio","Tiempo(h)","Tiempo(min)","Saldo","Nomenclatura"};
             cs=new DefaultTableModel(null,titulos);

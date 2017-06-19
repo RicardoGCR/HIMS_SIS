@@ -1,5 +1,5 @@
 
-package modelos.cuentaCorriente;
+package modelos.cuentaPorPagar;
 
 import java.io.Serializable;
 import java.sql.Connection;
@@ -12,9 +12,9 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
-import vista.cuentaCorriente.Facturador;
-import static vista.cuentaCorriente.Facturador.lblNroCorrelativo;
-import static vista.cuentaCorriente.Facturador.txtSerie;
+import vista.cuentaPorPagar.Facturador;
+import static vista.cuentaPorPagar.Facturador.lblNroCorrelativo;
+import static vista.cuentaPorPagar.Facturador.txtSerie;
 
 
 public class CuentasPorPagarFacturasCabecera implements Serializable {

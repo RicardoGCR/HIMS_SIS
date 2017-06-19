@@ -1169,7 +1169,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Depreciacion");
+        jLabel13.setText("Depreciación");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
@@ -1303,7 +1303,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jLabel27.setBackground(new java.awt.Color(255, 255, 255));
         jLabel27.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel27.setText("Fatores de Produccion");
+        jLabel27.setText("Factores de Produccion");
         jLabel27.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel27MouseClicked(evt);
@@ -1376,6 +1376,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jLabel23.setBackground(new java.awt.Color(255, 255, 255));
         jLabel23.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel23.setText("<html>Buscar estimacion de costos</html>");
         jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1900,7 +1901,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         lblusu5.setForeground(new java.awt.Color(102, 102, 102));
         lblusu5.setText("Bienvenido al módulo de laboratorio");
 
-        jPanel30.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel30.setBackground(new java.awt.Color(43, 43, 43));
         jPanel30.setForeground(new java.awt.Color(255, 102, 0));
 
         btneditar11.setFont(new java.awt.Font("Segoe UI Light", 0, 26)); // NOI18N
@@ -1921,7 +1922,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel39.setBackground(new java.awt.Color(0, 119, 178));
 
         jLabel41.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel41.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel41.setFont(new java.awt.Font("Segoe UI Light", 0, 19)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText(" Muestras");
         jLabel41.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1965,7 +1966,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel41.setBackground(new java.awt.Color(0, 119, 178));
 
         jLabel52.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel52.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel52.setFont(new java.awt.Font("Segoe UI Light", 0, 19)); // NOI18N
         jLabel52.setForeground(new java.awt.Color(255, 255, 255));
         jLabel52.setText("Esquema de");
         jLabel52.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1976,7 +1977,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         });
 
         jLabel53.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel53.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel53.setFont(new java.awt.Font("Segoe UI Light", 0, 19)); // NOI18N
         jLabel53.setForeground(new java.awt.Color(255, 255, 255));
         jLabel53.setText("Resultados");
         jLabel53.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2024,7 +2025,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel43.setBackground(new java.awt.Color(0, 119, 178));
 
         jLabel55.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel55.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel55.setFont(new java.awt.Font("Segoe UI Light", 0, 19)); // NOI18N
         jLabel55.setForeground(new java.awt.Color(255, 255, 255));
         jLabel55.setText("Valores");
         jLabel55.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2035,7 +2036,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         });
 
         jLabel56.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel56.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel56.setFont(new java.awt.Font("Segoe UI Light", 0, 19)); // NOI18N
         jLabel56.setForeground(new java.awt.Color(255, 255, 255));
         jLabel56.setText("Referenciales");
         jLabel56.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2083,7 +2084,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel32.setBackground(new java.awt.Color(0, 119, 178));
 
         jLabel38.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel38.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel38.setFont(new java.awt.Font("Segoe UI Light", 0, 19)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(255, 255, 255));
         jLabel38.setText(" Unidad de Medida");
         jLabel38.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2129,7 +2130,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel40.setBackground(new java.awt.Color(0, 119, 178));
 
         jLabel46.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel46.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel46.setFont(new java.awt.Font("Segoe UI Light", 0, 19)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(255, 255, 255));
         jLabel46.setText(" Análisis - Examen");
         jLabel46.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2174,7 +2175,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel42.setBackground(new java.awt.Color(0, 119, 178));
 
         jLabel54.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel54.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel54.setFont(new java.awt.Font("Segoe UI Light", 0, 19)); // NOI18N
         jLabel54.setForeground(new java.awt.Color(255, 255, 255));
         jLabel54.setText(" Clasificación");
         jLabel54.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2218,7 +2219,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel44.setBackground(new java.awt.Color(0, 119, 178));
 
         jLabel57.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 19)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(255, 255, 255));
         jLabel57.setText(" Contenedor");
         jLabel57.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2302,11 +2303,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel75.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel75.setBackground(new java.awt.Color(43, 43, 43));
         jPanel75.setForeground(new java.awt.Color(255, 153, 0));
 
         jLabel88.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel88.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel88.setFont(new java.awt.Font("Segoe UI Light", 0, 25)); // NOI18N
         jLabel88.setForeground(new java.awt.Color(255, 255, 255));
         jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel88.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Bacteria Filled-100.png"))); // NOI18N
@@ -2318,7 +2319,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel78.setBackground(new java.awt.Color(0, 119, 178));
 
         jLabel89.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel89.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel89.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
         jLabel89.setForeground(new java.awt.Color(255, 255, 255));
         jLabel89.setText(" Toma de Muestra");
         jLabel89.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2363,7 +2364,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel79.setBackground(new java.awt.Color(0, 119, 178));
 
         jLabel94.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel94.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel94.setFont(new java.awt.Font("Segoe UI Light", 0, 19)); // NOI18N
         jLabel94.setForeground(new java.awt.Color(255, 255, 255));
         jLabel94.setText(" Búsqueda de Toma de M.");
         jLabel94.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2425,11 +2426,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addComponent(jPanel79, javax.swing.GroupLayout.PREFERRED_SIZE, 109, Short.MAX_VALUE))
         );
 
-        jPanel80.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel80.setBackground(new java.awt.Color(43, 43, 43));
         jPanel80.setForeground(new java.awt.Color(255, 153, 0));
 
         jLabel95.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel95.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel95.setFont(new java.awt.Font("Segoe UI Light", 0, 25)); // NOI18N
         jLabel95.setForeground(new java.awt.Color(255, 255, 255));
         jLabel95.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel95.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Microscopio-100.png"))); // NOI18N
@@ -2440,7 +2441,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel81.setBackground(new java.awt.Color(0, 119, 178));
 
         jLabel96.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel96.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel96.setFont(new java.awt.Font("Segoe UI Light", 0, 20)); // NOI18N
         jLabel96.setForeground(new java.awt.Color(255, 255, 255));
         jLabel96.setText(" Resultados");
         jLabel96.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2485,7 +2486,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel82.setBackground(new java.awt.Color(0, 119, 178));
 
         jLabel97.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel97.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel97.setFont(new java.awt.Font("Segoe UI Light", 0, 19)); // NOI18N
         jLabel97.setForeground(new java.awt.Color(255, 255, 255));
         jLabel97.setText(" Búsqueda de Resultados");
         jLabel97.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2529,7 +2530,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         jPanel83.setBackground(new java.awt.Color(0, 119, 178));
 
         jLabel98.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel98.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel98.setFont(new java.awt.Font("Segoe UI Light", 0, 19)); // NOI18N
         jLabel98.setForeground(new java.awt.Color(255, 255, 255));
         jLabel98.setText(" Entrega de Resultados");
         jLabel98.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2593,7 +2594,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
             .addComponent(jLabel95, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel84.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel84.setBackground(new java.awt.Color(43, 43, 43));
         jPanel84.setForeground(new java.awt.Color(255, 153, 0));
 
         jLabel99.setBackground(new java.awt.Color(255, 255, 255));
@@ -2641,11 +2642,11 @@ public class PrincipalMDI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel85.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel85.setBackground(new java.awt.Color(43, 43, 43));
         jPanel85.setForeground(new java.awt.Color(255, 153, 0));
 
         jLabel100.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel100.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel100.setFont(new java.awt.Font("Segoe UI Light", 0, 19)); // NOI18N
         jLabel100.setForeground(new java.awt.Color(255, 255, 255));
         jLabel100.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel100.setText("<html><br>Solicitud de<br>Investigación<br>Bacteriológica</html>");
@@ -4261,7 +4262,7 @@ public class PrincipalMDI extends javax.swing.JFrame {
         lblusu8.setForeground(new java.awt.Color(102, 102, 102));
         lblusu8.setText("Investigación Bacteriológica");
 
-        jPanel45.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel45.setBackground(new java.awt.Color(43, 43, 43));
         jPanel45.setForeground(new java.awt.Color(255, 153, 0));
 
         jLabel58.setBackground(new java.awt.Color(255, 255, 255));

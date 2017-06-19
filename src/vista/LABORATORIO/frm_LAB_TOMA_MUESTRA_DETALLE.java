@@ -523,9 +523,10 @@ public void calcula() {
                         );
 
                         contenedor.setAlwaysOnTop(true);
-                        contenedor.setMinimumSize(new java.awt.Dimension(434, 467));
+                        contenedor.setMinimumSize(new java.awt.Dimension(402, 467));
                         contenedor.setResizable(false);
 
+                        tb_Contenedor.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                         tb_Contenedor.setModel(new javax.swing.table.DefaultTableModel(
                             new Object [][] {
                                 {null, null, null, null},
@@ -590,9 +591,9 @@ public void calcula() {
                         jpanel1Layout.setHorizontalGroup(
                             jpanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel1Layout.createSequentialGroup()
-                                .addGap(142, 142, 142)
+                                .addGap(136, 136, 136)
                                 .addComponent(titulo6)
-                                .addContainerGap(141, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         );
                         jpanel1Layout.setVerticalGroup(
                             jpanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -610,18 +611,19 @@ public void calcula() {
                         contenedorLayout.setHorizontalGroup(
                             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jpanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(contenedorLayout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(contenedorLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorLayout.createSequentialGroup()
                                         .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(txtBuscar1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(txtBuscar1)
+                                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(53, 53, 53)))
-                                .addContainerGap(26, Short.MAX_VALUE))
+                                        .addGap(53, 53, 53))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorLayout.createSequentialGroup()
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap())))
                         );
                         contenedorLayout.setVerticalGroup(
                             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -638,7 +640,7 @@ public void calcula() {
                                 .addContainerGap(47, Short.MAX_VALUE))
                         );
 
-                        Unidad_Organica.setTitle("SISGESH .::. BÚSQUEDA DE UNIDAD ORGÁNICA");
+                        Unidad_Organica.setTitle("HIMS .::. BÚSQUEDA DE UNIDAD ORGÁNICA");
                         Unidad_Organica.setAlwaysOnTop(true);
                         Unidad_Organica.setFocusCycleRoot(false);
                         Unidad_Organica.setMinimumSize(new java.awt.Dimension(414, 509));
@@ -766,8 +768,8 @@ public void calcula() {
                         );
 
                         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                        setMinimumSize(new java.awt.Dimension(916, 674));
-                        setPreferredSize(new java.awt.Dimension(916, 674));
+                        setMinimumSize(new java.awt.Dimension(916, 680));
+                        setPreferredSize(new java.awt.Dimension(916, 680));
 
                         jpanel.setBackground(new java.awt.Color(2, 67, 115));
 

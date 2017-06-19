@@ -70,9 +70,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         lblEdad.setVisible(false);
         lblIDArea.setVisible(false);
         lblNomAD.setVisible(false);
-        lblUsuD.setVisible(false);
-        
-        
+        lblUsuD.setVisible(false);        
         
 //////obtener el nombre de la pc
 //        InetAddress localHost = InetAddress.getLocalHost();
@@ -1028,7 +1026,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         
         String buscar="",servicioArea="";
         buscar = txtBuscarPaciente.getText();
-        servicioArea = lblNumeArea.getText();
+//        servicioArea = lblNumeArea.getText();
         
         
         
@@ -1042,12 +1040,12 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             String fila[]=new String[11];
 
             RX_EC_BUSCAR_EXAMEN_CAJA obj=new RX_EC_BUSCAR_EXAMEN_CAJA();
-            consulta="exec RX_EC_BUSCAR_CAJA_FECHAS_RX_1 ?,?,?,?";
+            consulta="exec RX_EC_BUSCAR_CAJA_FECHAS_RX_1 ?,?,?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setInt(1,fechaI);
             cmd.setInt(2, fechaF);
             cmd.setString(3, buscar);
-            cmd.setString(4, servicioArea);
+//            cmd.setString(4, servicioArea);
             
             ResultSet r= cmd.executeQuery();
             int c=1;

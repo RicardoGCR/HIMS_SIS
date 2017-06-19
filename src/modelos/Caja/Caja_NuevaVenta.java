@@ -64,6 +64,7 @@ private double DESCUENTO;
 private double TOTAL_DOCUUMENTO;
 private int IdDetalle;
 private int dni;
+private String EstadoVisibleAdmision;
 
 
         
@@ -284,7 +285,7 @@ public boolean ActualizarVenta()
         boolean resp = false;
         try
         {
-            String sql = "exec CAJA_ACTUALIZAR_VENTA_CABECERA ?,?,?,?,?,?";
+            String sql = "exec CAJA_ACTUALIZAR_VENTA_CABECERA ?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_documento());
             cmd.setDouble(2, getDESCUENTO());
@@ -292,7 +293,7 @@ public boolean ActualizarVenta()
             cmd.setString(4, getUsu_Exoneracion());
             cmd.setString(5, getPorcentaje_Exoneracion());
             cmd.setInt(6, getId_ActoMedico());
-            
+            cmd.setString(7, getEstadoVisibleAdmision());
             if(!cmd.execute())
             {
                 resp = true;
@@ -910,6 +911,17 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                 
             }
     } 
+    public void reporteVentaConsultas(String id_documento) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("doc",id_documento);
+           JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/TicketConsultorio - copia.jasper"), parametros, con.conectar());   
+            JasperPrintManager.printReport(informe, false);
+            } catch (Exception e) {
+                Caja_Pagos.ErrorPrint.setVisible(false);
+                
+            }
+    } 
     
     public boolean ActualizarDNI(){
         boolean resp = false;
@@ -1068,10 +1080,10 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","DNI","HC","C","Estado","Descuento","Total","Fecha","Hora","Am","ID"};
+            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","Paciente","HC","C","Estado","Descuento","Total","Fecha","Hora","Am","ID","VISIBLE"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[13];
+            String fila[]=new String[14];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC CAJA_CONSULTAR_REPORTE_DIA_PC ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -1092,6 +1104,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                 fila[10]=r.getString(11);
                 fila[11]=r.getString(12);
                 fila[12]=r.getString(13);
+                fila[13]=r.getString(14);
 
                     m.addRow(fila);
                     c++;
@@ -1110,10 +1123,10 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Documento","Nº Documento","Forma de Pago","DNI","HC","C","Estado","Descuento","Total","Fecha","Hora","Am","ID"};
+            String titulos[]={"Documento","Nº Documento","Forma de Pago","DNI","HC","C","Estado","Descuento","Total","Fecha","Hora","Am","ID","VISIBLE"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[13];
+            String fila[]=new String[14];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="exec CAJA_CONSULTAR_ACTOMEDICODNI ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -1134,6 +1147,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                 fila[10]=r.getString(11);
                 fila[11]=r.getString(12);
                 fila[12]=r.getString(13);
+                fila[13]=r.getString(14);
 
                     m.addRow(fila);
                     c++;
@@ -1153,21 +1167,24 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
             tabla.getColumnModel().getColumn(1).setPreferredWidth(200);
             tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
-            tabla.getColumnModel().getColumn(3).setMinWidth(0);
-            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+//            tabla.getColumnModel().getColumn(3).setMinWidth(0);
+//            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(100);
             tabla.getColumnModel().getColumn(4).setMinWidth(0);
             tabla.getColumnModel().getColumn(4).setMaxWidth(0);
             tabla.getColumnModel().getColumn(5).setMinWidth(0);
             tabla.getColumnModel().getColumn(5).setMaxWidth(0);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(200);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(170);
             tabla.getColumnModel().getColumn(7).setPreferredWidth(100);
             tabla.getColumnModel().getColumn(8).setPreferredWidth(100);
-            tabla.getColumnModel().getColumn(9).setPreferredWidth(200);
+            tabla.getColumnModel().getColumn(9).setPreferredWidth(130);
             tabla.getColumnModel().getColumn(10).setPreferredWidth(100);
             tabla.getColumnModel().getColumn(11).setMinWidth(0);
             tabla.getColumnModel().getColumn(11).setMaxWidth(0);
             tabla.getColumnModel().getColumn(12).setMinWidth(0);
             tabla.getColumnModel().getColumn(12).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(13).setMinWidth(0);
+            tabla.getColumnModel().getColumn(13).setMaxWidth(0);
         
 //        tabla.getColumnModel().getColumn(2).setPreferredWidth(50); 
 //        tabla.getColumnModel().getColumn(3).setPreferredWidth(50); 
@@ -1183,7 +1200,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"CPT","Precio","Departamento / Área","Precio","Descuento","Total","Médico/Personal","Nº Atencion","Turno","doc"};
+            String titulos[]={"CPT","Precio","Departamento / Área","Precio Unitario","Descuento","Total","Médico/Personal","Nº Atencion","Turno","doc"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[10];
@@ -1228,8 +1245,12 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(1).setMaxWidth(0);
         tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
         tabla.getColumnModel().getColumn(3).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+//        tabla.getColumnModel().getColumn(4).setPreferredWidth(80);
+//        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(6).setPreferredWidth(220);
         tabla.getColumnModel().getColumn(7).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(8).setPreferredWidth(100);
@@ -1511,6 +1532,14 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
 
     public void setDni(int dni) {
         this.dni = dni;
+    }
+
+    public String getEstadoVisibleAdmision() {
+        return EstadoVisibleAdmision;
+    }
+
+    public void setEstadoVisibleAdmision(String EstadoVisibleAdmision) {
+        this.EstadoVisibleAdmision = EstadoVisibleAdmision;
     }
     
     

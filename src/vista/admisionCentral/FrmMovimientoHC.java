@@ -626,24 +626,38 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                         .addGap(44, 44, 44))))
         );
 
+        jPanel3.setBackground(new java.awt.Color(196, 196, 196));
+
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salir.png"))); // NOI18N
         jLabel13.setText("Salir (ESC)");
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/pdf.png"))); // NOI18N
         jLabel12.setText("Exportar a PDF (Alt+P)");
 
+        lblDetener.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblDetener.setForeground(new java.awt.Color(51, 51, 51));
         lblDetener.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Stop-16.png"))); // NOI18N
         lblDetener.setText("Detener (Alt+D)");
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Edit-16.png"))); // NOI18N
         jLabel11.setText("Actualizar (Alt+E)");
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Actualizar-16.png"))); // NOI18N
         jLabel10.setText("Actualizar (Alt+A)");
 
+        lblContinuar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblContinuar.setForeground(new java.awt.Color(51, 51, 51));
         lblContinuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Play-16.png"))); // NOI18N
         lblContinuar.setText("Continuar (Alt+C)");
 
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Visualizar-16.png"))); // NOI18N
         jLabel16.setText("Visualizar (Alt+V)");
 
@@ -669,8 +683,8 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDetener)
                     .addComponent(lblContinuar)
@@ -679,8 +693,10 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                     .addComponent(jLabel12)
                     .addComponent(jLabel13)
                     .addComponent(jLabel16))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
+
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
         tbMovimientoHC = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -990,13 +1006,14 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 1099, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1006,9 +1023,8 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, 0)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();

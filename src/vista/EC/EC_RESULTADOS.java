@@ -57,7 +57,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         Calendar cal=Calendar.getInstance();          
         lblFecha_EC_R.setText(fechaActual());
         
-        mostrarArea();
+        mostrarArea_EC();
         inicializar_tabla_Examenes_RESULTADO_EC();
         seleccion();
         
@@ -297,6 +297,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
+        tb_RESULTADOS_EC = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
         tb_RESULTADOS_EC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -579,10 +584,10 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         }
     }
     
-    public void mostrarArea(){
+    public void mostrarArea_EC(){
         String consulta="";
         try {
-            consulta="EXEC RX_EC_SERVICIO ";
+            consulta="EXEC RX_EC_SERVICIO_EC ";
             PreparedStatement cmd = EC.getCn().prepareStatement(consulta);        
             ResultSet r= cmd.executeQuery();
             int c=1;

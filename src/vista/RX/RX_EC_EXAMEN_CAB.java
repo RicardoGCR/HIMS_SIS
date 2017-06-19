@@ -266,6 +266,11 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addGap(0, 0, 0))
         );
 
+        tb_Personal_rol = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
         tb_Personal_rol.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         tb_Personal_rol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -280,6 +285,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         ));
         tb_Personal_rol.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Personal_rol.setRowHeight(22);
+        tb_Personal_rol.getTableHeader().setReorderingAllowed(false);
         tb_Personal_rol.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tb_Personal_rolKeyPressed(evt);
@@ -392,6 +398,11 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        tb_Personal_rol_todo = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
         tb_Personal_rol_todo.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         tb_Personal_rol_todo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -406,6 +417,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         ));
         tb_Personal_rol_todo.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Personal_rol_todo.setRowHeight(22);
+        tb_Personal_rol_todo.getTableHeader().setReorderingAllowed(false);
         tb_Personal_rol_todo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tb_Personal_rol_todoKeyPressed(evt);
@@ -501,7 +513,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             .addGroup(jpanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titulo5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addComponent(txtCodigoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1114,11 +1126,11 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
+                .addGap(16, 16, 16)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1151, Short.MAX_VALUE)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
@@ -1180,7 +1192,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1175, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -89,12 +89,16 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                            btnguardar.setEnabled(false);
                            btneditar.setEnabled(true);
                            txtFormaPago.setEnabled(false);
+                           panelAgregar.setVisible(false);
                            if(lblNivel.getText().equals("0")){
                              cnn.LISTARNIVEL0(tbNivel0);  
                            }else if(lblNivel.getText().equals("1")){
                              cnn.LISTARNIVEL1(lblCodigo.getText(),tbNivel1);
+                                  panelNuevoN2.setBackground(new Color(255,255,255)); 
+                                  panelNuevoN3.setBackground(new Color(255,255,255)); 
                            }else if(lblNivel.getText().equals("2")){
                              cnn.LISTARNIVEL2(lblCodigo.getText(),tbNivel2);
+                                  panelNuevoN3.setBackground(new Color(255,255,255)); 
                            }
                            
                            
@@ -132,7 +136,17 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                             btnguardar.setEnabled(false);
                             btneditar.setEnabled(true);
                             txtFormaPago.setEnabled(false);
+                            panelAgregar.setVisible(false);
                             tge=9;
+                            if(lblNivel.getText().equals("0")){
+                             cnn.LISTARNIVEL0(tbNivel0);  
+                           }else if(lblNivel.getText().equals("1")){
+                             cnn.LISTARNIVEL1(lblCodigo.getText(),tbNivel1);
+                        
+                           }else if(lblNivel.getText().equals("2")){
+                             cnn.LISTARNIVEL2(lblCodigo.getText(),tbNivel2);
+        
+                           }
                         } else {
                            
                             cargareliminar.setVisible(true);
@@ -813,18 +827,18 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
          btnguardar.setEnabled(true);
          btneditar.setEnabled(false);
          tg=2;
+         panelAgregar.setVisible(true);
          if(lblNivel.getText().equals("0")){
-             panelAgregar.setVisible(true);
-//                int fila=tbNivel0.getSelectedRow();
-//                Mensaje.setText("Desea Eliminar "+String.valueOf(tbNivel0.getValueAt(fila, 0))+" del nivel "+lblNivel.getText()+"?");
-//                
-//            }else  if(lblNivel.getText().equals("1")){
-//                int fila=tbNivel1.getSelectedRow();
-//                Mensaje.setText("Desea Eliminar "+String.valueOf(tbNivel1.getValueAt(fila, 0))+" del nivel "+lblNivel.getText()+"?");
-//                
-//            }else  if(lblNivel.getText().equals("2")){
-//                int fila=tbNivel2.getSelectedRow();
-//                Mensaje.setText("Desea Eliminar "+String.valueOf(tbNivel2.getValueAt(fila, 0))+" del nivel "+lblNivel.getText()+"?");
+                int fila=tbNivel0.getSelectedRow();
+                txtFormaPago.setText(String.valueOf(tbNivel0.getValueAt(fila, 0)));
+                
+            }else  if(lblNivel.getText().equals("1")){
+                int fila=tbNivel1.getSelectedRow();
+                txtFormaPago.setText(String.valueOf(tbNivel1.getValueAt(fila, 0)));
+                
+            }else  if(lblNivel.getText().equals("2")){
+                int fila=tbNivel2.getSelectedRow();
+                txtFormaPago.setText(String.valueOf(tbNivel2.getValueAt(fila, 0)));
             }
     }//GEN-LAST:event_btneditarActionPerformed
 
@@ -849,15 +863,15 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
             cargareliminar.setBackground(new Color(255,91,70)); 
             if(lblNivel.getText().equals("0")){
                 int fila=tbNivel0.getSelectedRow();
-                Mensaje.setText("Desea Eliminar "+String.valueOf(tbNivel0.getValueAt(fila, 0))+" del nivel "+lblNivel.getText()+"?");
+                Mensaje.setText("Desea Eliminar "+String.valueOf(tbNivel0.getValueAt(fila, 0))+" del Nivel "+lblNivel.getText()+"?");
                 
             }else  if(lblNivel.getText().equals("1")){
                 int fila=tbNivel1.getSelectedRow();
-                Mensaje.setText("Desea Eliminar "+String.valueOf(tbNivel1.getValueAt(fila, 0))+" del nivel "+lblNivel.getText()+"?");
+                Mensaje.setText("Desea Eliminar "+String.valueOf(tbNivel1.getValueAt(fila, 0))+" del Nivel "+lblNivel.getText()+"?");
                 
             }else  if(lblNivel.getText().equals("2")){
                 int fila=tbNivel2.getSelectedRow();
-                Mensaje.setText("Desea Eliminar "+String.valueOf(tbNivel2.getValueAt(fila, 0))+" del nivel "+lblNivel.getText()+"?");
+                Mensaje.setText("Desea Eliminar "+String.valueOf(tbNivel2.getValueAt(fila, 0))+" del Nivel "+lblNivel.getText()+"?");
             }
            
             eli.setText("Si");
@@ -925,6 +939,15 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                     btneliminar.setEnabled(true);
                     btneditar.setEnabled(true);
                     lblNivel.setText("1");
+                    
+                     if (tbNivel1.getRowCount()>0){
+                        int fila1=tbNivel1.getSelectedRow();
+                        lblCodigo.setText(String.valueOf(tbNivel1.getValueAt(fila1, 2))); 
+                    }else if (tbNivel1.getRowCount()==0){
+                        int fila0=tbNivel0.getSelectedRow();
+                        lblCodigo.setText(String.valueOf(tbNivel0.getValueAt(fila0, 1))); 
+//            lblCodigo.setText(String.valueOf(tbNivel1.getValueAt(fila0, 2)));
+        }
         }
     }//GEN-LAST:event_tbNivel1MouseClicked
 
@@ -942,6 +965,13 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                int fila=tbNivel2.getSelectedRow();
                lblCodigoAE.setText(String.valueOf(tbNivel2.getValueAt(fila, 1)));
                lblNivel.setText("2");
+               if (tbNivel2.getRowCount()>0){
+                    int fila2=tbNivel2.getSelectedRow();
+                    lblCodigo.setText(String.valueOf(tbNivel2.getValueAt(fila2, 2))); 
+                }else if (tbNivel2.getRowCount()==0){
+                    int fila0=tbNivel1.getSelectedRow();
+                    lblCodigo.setText(String.valueOf(tbNivel1.getValueAt(fila0, 1))); 
+                }
     }//GEN-LAST:event_tbNivel2MouseClicked
 
     private void tbNivel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbNivel2KeyPressed

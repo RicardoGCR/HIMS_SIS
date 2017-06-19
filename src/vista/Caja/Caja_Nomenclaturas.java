@@ -2154,7 +2154,7 @@ jTabbedPane1.setSelectedIndex(0);
     private void buscartodoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodoCaretUpdate
         jLabel33.setText("Listado"); 
         jTabbedPane1.setSelectedIndex(1);
-         btnNuevo.setEnabled(true);
+        btnNuevo.setEnabled(true);
         btnguardar.setEnabled(false);
         btneditar.setEnabled(false);
         btneliminar.setEnabled(false);

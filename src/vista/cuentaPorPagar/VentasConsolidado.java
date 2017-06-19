@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista.Caja;
+package vista.cuentaPorPagar;
 
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
@@ -14,34 +14,51 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.Caja.Caja_NuevaVenta;
+import modelos.cuentaPorPagar.CuentasPorPagarFacturasCabecera;
+import modelos.cuentaPorPagar.CuentasPorPagarVentasConsolidadoCabecera;
 
 /**
  *
  * @author MYS1
  */
-public class Caja_Consolidacion extends javax.swing.JFrame {
+public class VentasConsolidado extends javax.swing.JFrame {
 DefaultTableModel m;
     /**
      * Creates new form Caja_Consolidacion
      */
-    public Caja_Consolidacion() {
+    public VentasConsolidado() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
         
-        jScrollPane7.setVisible(false);
+        spProcedimientos.setVisible(false);
 
-        jScrollPane8.setVisible(false);
-        jScrollPane10.setVisible(false);
+        spLaboratorio.setVisible(false);
+        spRayos.setVisible(false);
         lblProcedimientos.setVisible(false);
         lblLaboratorio.setVisible(false);
         lblRayos.setVisible(false);
     }
     
+    public void habilitarDatos(boolean opcion){
+        spProcedimientos.setVisible(opcion);
+        spCabecera.setVisible(opcion);
+        spLaboratorio.setVisible(opcion);
+        spRayos.setVisible(opcion);
+        spEcografias.setVisible(opcion);
+        spCabecera.setVisible(opcion);
+        tbProcedimientos.setVisible(opcion);
+        tbCabecera.setVisible(opcion);
+        tbLaboratorio.setVisible(opcion);
+        tbRayos.setVisible(opcion);
+        tbEcografias.setVisible(opcion);
+        tbFarmacia.setVisible(opcion);
+    }
+    
     public void BusquedaDet(){
         String consulta="";
         try {
-            tb_Grupo6.setModel(new DefaultTableModel());
+            tbProcedimientos.setModel(new DefaultTableModel());
          
              String titulos[]={"CPT","Precio","Servicio/Area/Dpto","Cantidad","Precio","Descuento","Total","Medico/Personal","Nº Atencion","Turno","doc"};
             m=new DefaultTableModel(null,titulos);
@@ -67,10 +84,10 @@ DefaultTableModel m;
                 m.addRow(fila);
                 c++;
             }
-            tb_Grupo6.setModel(m);
+            tbProcedimientos.setModel(m);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
-            tb_Grupo6.setRowSorter(elQueOrdena);
-            this.tb_Grupo6.setModel(m);
+            tbProcedimientos.setRowSorter(elQueOrdena);
+            this.tbProcedimientos.setModel(m);
             formatoCuerpo();
         } catch (Exception e) {
             System.out.println("Error CJ : " + e.getMessage());
@@ -80,7 +97,7 @@ DefaultTableModel m;
     public void BusquedaDetLA(){
         String consulta="";
         try {
-            tb_Grupo7.setModel(new DefaultTableModel());
+            tbLaboratorio.setModel(new DefaultTableModel());
          
              String titulos[]={"CPT","Precio","Servicio/Area/Dpto","Cantidad","Precio","Descuento","Total","Medico/Personal","Nº Atencion","Turno","doc"};
             m=new DefaultTableModel(null,titulos);
@@ -106,10 +123,10 @@ DefaultTableModel m;
                 m.addRow(fila);
                 c++;
             }
-            tb_Grupo7.setModel(m);
+            tbLaboratorio.setModel(m);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
-            tb_Grupo7.setRowSorter(elQueOrdena);
-            this.tb_Grupo7.setModel(m);
+            tbLaboratorio.setRowSorter(elQueOrdena);
+            this.tbLaboratorio.setModel(m);
             formatoCuerpoLA();
         } catch (Exception e) {
             System.out.println("Error LA  " + e.getMessage());
@@ -157,38 +174,38 @@ DefaultTableModel m;
     
     public void formatoCuerpo(){
     
-    tb_Grupo6.getColumnModel().getColumn(0).setPreferredWidth(430);
-    tb_Grupo6.getColumnModel().getColumn(1).setMinWidth(0);
-    tb_Grupo6.getColumnModel().getColumn(1).setMaxWidth(0);
-    tb_Grupo6.getColumnModel().getColumn(2).setPreferredWidth(150);
-    tb_Grupo6.getColumnModel().getColumn(3).setPreferredWidth(80);
-    tb_Grupo6.getColumnModel().getColumn(4).setPreferredWidth(80);
-    tb_Grupo6.getColumnModel().getColumn(5).setPreferredWidth(80);
-    tb_Grupo6.getColumnModel().getColumn(6).setPreferredWidth(100);
-    tb_Grupo6.getColumnModel().getColumn(7).setPreferredWidth(220);
-    tb_Grupo6.getColumnModel().getColumn(8).setPreferredWidth(80);
-    tb_Grupo6.getColumnModel().getColumn(9).setPreferredWidth(100);
-    tb_Grupo6.getColumnModel().getColumn(10).setMinWidth(0);
-    tb_Grupo6.getColumnModel().getColumn(10).setMaxWidth(0);
+    tbProcedimientos.getColumnModel().getColumn(0).setPreferredWidth(430);
+    tbProcedimientos.getColumnModel().getColumn(1).setMinWidth(0);
+    tbProcedimientos.getColumnModel().getColumn(1).setMaxWidth(0);
+    tbProcedimientos.getColumnModel().getColumn(2).setPreferredWidth(150);
+    tbProcedimientos.getColumnModel().getColumn(3).setPreferredWidth(80);
+    tbProcedimientos.getColumnModel().getColumn(4).setPreferredWidth(80);
+    tbProcedimientos.getColumnModel().getColumn(5).setPreferredWidth(80);
+    tbProcedimientos.getColumnModel().getColumn(6).setPreferredWidth(100);
+    tbProcedimientos.getColumnModel().getColumn(7).setPreferredWidth(220);
+    tbProcedimientos.getColumnModel().getColumn(8).setPreferredWidth(80);
+    tbProcedimientos.getColumnModel().getColumn(9).setPreferredWidth(100);
+    tbProcedimientos.getColumnModel().getColumn(10).setMinWidth(0);
+    tbProcedimientos.getColumnModel().getColumn(10).setMaxWidth(0);
 
     }
     
     public void formatoCuerpoLA(){
 
     
-    tb_Grupo7.getColumnModel().getColumn(0).setPreferredWidth(430);
-    tb_Grupo7.getColumnModel().getColumn(1).setMinWidth(0);
-    tb_Grupo7.getColumnModel().getColumn(1).setMaxWidth(0);
-    tb_Grupo7.getColumnModel().getColumn(2).setPreferredWidth(150);
-    tb_Grupo7.getColumnModel().getColumn(3).setPreferredWidth(80);
-    tb_Grupo7.getColumnModel().getColumn(4).setPreferredWidth(80);
-    tb_Grupo7.getColumnModel().getColumn(5).setPreferredWidth(80);
-    tb_Grupo7.getColumnModel().getColumn(6).setPreferredWidth(100);
-    tb_Grupo7.getColumnModel().getColumn(7).setPreferredWidth(220);
-    tb_Grupo7.getColumnModel().getColumn(8).setPreferredWidth(80);
-    tb_Grupo7.getColumnModel().getColumn(9).setPreferredWidth(100);
-    tb_Grupo7.getColumnModel().getColumn(10).setMinWidth(0);
-    tb_Grupo7.getColumnModel().getColumn(10).setMaxWidth(0);
+    tbLaboratorio.getColumnModel().getColumn(0).setPreferredWidth(430);
+    tbLaboratorio.getColumnModel().getColumn(1).setMinWidth(0);
+    tbLaboratorio.getColumnModel().getColumn(1).setMaxWidth(0);
+    tbLaboratorio.getColumnModel().getColumn(2).setPreferredWidth(150);
+    tbLaboratorio.getColumnModel().getColumn(3).setPreferredWidth(80);
+    tbLaboratorio.getColumnModel().getColumn(4).setPreferredWidth(80);
+    tbLaboratorio.getColumnModel().getColumn(5).setPreferredWidth(80);
+    tbLaboratorio.getColumnModel().getColumn(6).setPreferredWidth(100);
+    tbLaboratorio.getColumnModel().getColumn(7).setPreferredWidth(220);
+    tbLaboratorio.getColumnModel().getColumn(8).setPreferredWidth(80);
+    tbLaboratorio.getColumnModel().getColumn(9).setPreferredWidth(100);
+    tbLaboratorio.getColumnModel().getColumn(10).setMinWidth(0);
+    tbLaboratorio.getColumnModel().getColumn(10).setMaxWidth(0);
 
 
     }
@@ -211,91 +228,23 @@ DefaultTableModel m;
 
     }
     
-    public void BusquedaGeneral(){
-        String consulta="";
-        try {
-            tb_Encabezado.setModel(new DefaultTableModel());
-         
-             String titulos[]={"Documento","Nº Documento","Forma de Pago","DNI","HC","C","Estado","Descuento","SubTotal","IGV","Total","Fecha","Hora","Am","ID"};
-            m=new DefaultTableModel(null,titulos);
-            JTable p=new JTable(m);
-            String fila[]=new String[15];
-            Caja_NuevaVenta obj=new Caja_NuevaVenta();
-                    consulta="exec CAJA_CONSULTAR_ACTOMEDICODNI_CONSOLIDADO ?";      
-            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1, txPaciente.getText());
-            ResultSet r= cmd.executeQuery();
-            int c=1;
-            while(r.next()){
-            fila[0]=r.getString(1);
-            fila[1]=r.getString(2);
-            fila[2]=r.getString(3);
-            fila[3]=r.getString(4);
-            fila[4]=r.getString(5);
-            fila[5]=r.getString(6);
-            fila[6]=r.getString(7);
-            fila[7]=r.getString(8);
-            fila[8]=r.getString(9);
-            fila[9]=r.getString(10);
-            fila[10]=r.getString(11);
-            fila[11]=r.getString(12);
-            fila[12]=r.getString(13);
-            fila[13]=r.getString(14);
-            fila[14]=r.getString(15);
-                m.addRow(fila);
-                c++;
-            }
-            tb_Encabezado.setModel(m);
-            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
-            tb_Encabezado.setRowSorter(elQueOrdena);
-            this.tb_Encabezado.setModel(m);
-            formatoCabecera();
-        } catch (Exception e) {
-            System.out.println("Error doc: " + e.getMessage());
-        }
-      }
-    public void formatoCabecera(){
-    
-    tb_Encabezado.getColumnModel().getColumn(0).setPreferredWidth(100);
-    tb_Encabezado.getColumnModel().getColumn(1).setPreferredWidth(200);
-    tb_Encabezado.getColumnModel().getColumn(2).setPreferredWidth(100);
-    tb_Encabezado.getColumnModel().getColumn(3).setMinWidth(0);
-    tb_Encabezado.getColumnModel().getColumn(3).setMaxWidth(0);
-    tb_Encabezado.getColumnModel().getColumn(4).setMinWidth(0);
-    tb_Encabezado.getColumnModel().getColumn(4).setMaxWidth(0);
-    tb_Encabezado.getColumnModel().getColumn(5).setMinWidth(0);
-    tb_Encabezado.getColumnModel().getColumn(5).setMaxWidth(0);
-    tb_Encabezado.getColumnModel().getColumn(6).setPreferredWidth(200);
-    tb_Encabezado.getColumnModel().getColumn(7).setPreferredWidth(100);
-    tb_Encabezado.getColumnModel().getColumn(8).setPreferredWidth(100);
-    tb_Encabezado.getColumnModel().getColumn(9).setPreferredWidth(100);
-    tb_Encabezado.getColumnModel().getColumn(10).setPreferredWidth(100);
-    tb_Encabezado.getColumnModel().getColumn(11).setPreferredWidth(200);
-    tb_Encabezado.getColumnModel().getColumn(12).setPreferredWidth(100);
-    tb_Encabezado.getColumnModel().getColumn(13).setMinWidth(0);
-    tb_Encabezado.getColumnModel().getColumn(13).setMaxWidth(0);
-    tb_Encabezado.getColumnModel().getColumn(14).setMinWidth(0);
-    tb_Encabezado.getColumnModel().getColumn(14).setMaxWidth(0);
-
-    }
-    
     
     private void sumaAbono()
     {
         double total = 0;
         //recorrer todas las filas de la segunda columna y va sumando las cantidades
-        for( int i=0 ; i<tb_Encabezado.getRowCount() ; i++)
+        for( int i=0 ; i<tbCabecera.getRowCount() ; i++)
         {
             double numero =0,st=0;
             try{
                 //capturamos valor de celda
-                numero = Double.parseDouble(tb_Encabezado.getValueAt(i, 10).toString() );
+                numero = Double.parseDouble(tbCabecera.getValueAt(i, 10).toString() );
                 
   
             }
             catch (NumberFormatException nfe){ //si existe un error se coloca 0 a la celda
                 numero = 0;
-                tb_Encabezado.setValueAt(0, i, 10);
+                tbCabecera.setValueAt(0, i, 10);
                 System.out.println("error" + nfe.getMessage());
             }
             //se suma al total
@@ -341,35 +290,35 @@ DefaultTableModel m;
                 lblDNI = new javax.swing.JLabel();
                 jLabel4 = new javax.swing.JLabel();
                 lblHC = new javax.swing.JLabel();
-                jScrollPane3 = new javax.swing.JScrollPane();
-                tb_Encabezado = new javax.swing.JTable(){
+                spCabecera = new javax.swing.JScrollPane();
+                tbCabecera = new javax.swing.JTable(){
                     public boolean isCellEditable(int rowIndex, int colIndex){
                         return false; //Disallow the editing of any cell
                     }};
                     jScrollPane1 = new javax.swing.JScrollPane();
                     jPanel3 = new javax.swing.JPanel();
-                    jScrollPane7 = new javax.swing.JScrollPane();
-                    tb_Grupo6 = new javax.swing.JTable(){
+                    spProcedimientos = new javax.swing.JScrollPane();
+                    tbProcedimientos = new javax.swing.JTable(){
                         public boolean isCellEditable(int rowIndex, int colIndex){
                             return false; //Disallow the editing of any cell
                         }};
-                        jScrollPane8 = new javax.swing.JScrollPane();
-                        tb_Grupo7 = new javax.swing.JTable(){
+                        spLaboratorio = new javax.swing.JScrollPane();
+                        tbLaboratorio = new javax.swing.JTable(){
                             public boolean isCellEditable(int rowIndex, int colIndex){
                                 return false; //Disallow the editing of any cell
                             }};
-                            jScrollPane10 = new javax.swing.JScrollPane();
-                            tb_Grupo10 = new javax.swing.JTable(){
+                            spRayos = new javax.swing.JScrollPane();
+                            tbRayos = new javax.swing.JTable(){
                                 public boolean isCellEditable(int rowIndex, int colIndex){
                                     return false; //Disallow the editing of any cell
                                 }};
-                                jScrollPane12 = new javax.swing.JScrollPane();
-                                tb_Grupo11 = new javax.swing.JTable(){
+                                spEcografias = new javax.swing.JScrollPane();
+                                tbEcografias = new javax.swing.JTable(){
                                     public boolean isCellEditable(int rowIndex, int colIndex){
                                         return false; //Disallow the editing of any cell
                                     }};
-                                    jScrollPane13 = new javax.swing.JScrollPane();
-                                    tb_Grupo12 = new javax.swing.JTable(){
+                                    spFarmacia = new javax.swing.JScrollPane();
+                                    tbFarmacia = new javax.swing.JTable(){
                                         public boolean isCellEditable(int rowIndex, int colIndex){
                                             return false; //Disallow the editing of any cell
                                         }};
@@ -428,7 +377,7 @@ DefaultTableModel m;
 
                                         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-                                        jPanel1.setBackground(new java.awt.Color(50, 151, 219));
+                                        jPanel1.setBackground(new java.awt.Color(41, 127, 184));
 
                                         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
                                         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -627,9 +576,9 @@ DefaultTableModel m;
                                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         );
 
-                                        jScrollPane3.setBorder(null);
+                                        spCabecera.setBorder(null);
 
-                                        tb_Encabezado.setModel(new javax.swing.table.DefaultTableModel(
+                                        tbCabecera.setModel(new javax.swing.table.DefaultTableModel(
                                             new Object [][] {
                                                 {null, null, null, null},
                                                 {null, null, null, null},
@@ -640,30 +589,30 @@ DefaultTableModel m;
                                                 "Title 1", "Title 2", "Title 3", "Title 4"
                                             }
                                         ));
-                                        tb_Encabezado.setGridColor(new java.awt.Color(255, 255, 255));
-                                        tb_Encabezado.setRowHeight(25);
-                                        tb_Encabezado.setSelectionBackground(new java.awt.Color(41, 127, 184));
-                                        tb_Encabezado.getTableHeader().setReorderingAllowed(false);
-                                        tb_Encabezado.addMouseListener(new java.awt.event.MouseAdapter() {
+                                        tbCabecera.setGridColor(new java.awt.Color(255, 255, 255));
+                                        tbCabecera.setRowHeight(25);
+                                        tbCabecera.setSelectionBackground(new java.awt.Color(41, 127, 184));
+                                        tbCabecera.getTableHeader().setReorderingAllowed(false);
+                                        tbCabecera.addMouseListener(new java.awt.event.MouseAdapter() {
                                             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                                tb_EncabezadoMouseClicked(evt);
+                                                tbCabeceraMouseClicked(evt);
                                             }
                                             public void mousePressed(java.awt.event.MouseEvent evt) {
-                                                tb_EncabezadoMousePressed(evt);
+                                                tbCabeceraMousePressed(evt);
                                             }
                                         });
-                                        tb_Encabezado.addKeyListener(new java.awt.event.KeyAdapter() {
+                                        tbCabecera.addKeyListener(new java.awt.event.KeyAdapter() {
                                             public void keyPressed(java.awt.event.KeyEvent evt) {
-                                                tb_EncabezadoKeyPressed(evt);
+                                                tbCabeceraKeyPressed(evt);
                                             }
                                         });
-                                        jScrollPane3.setViewportView(tb_Encabezado);
+                                        spCabecera.setViewportView(tbCabecera);
 
                                         jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
-                                        jScrollPane7.setBorder(null);
+                                        spProcedimientos.setBorder(null);
 
-                                        tb_Grupo6.setModel(new javax.swing.table.DefaultTableModel(
+                                        tbProcedimientos.setModel(new javax.swing.table.DefaultTableModel(
                                             new Object [][] {
                                                 {null, null, null, null},
                                                 {null, null, null, null},
@@ -674,28 +623,28 @@ DefaultTableModel m;
                                                 "Title 1", "Title 2", "Title 3", "Title 4"
                                             }
                                         ));
-                                        tb_Grupo6.setGridColor(new java.awt.Color(255, 255, 255));
-                                        tb_Grupo6.setRowHeight(25);
-                                        tb_Grupo6.setSelectionBackground(new java.awt.Color(50, 151, 219));
-                                        tb_Grupo6.getTableHeader().setReorderingAllowed(false);
-                                        tb_Grupo6.addMouseListener(new java.awt.event.MouseAdapter() {
+                                        tbProcedimientos.setGridColor(new java.awt.Color(255, 255, 255));
+                                        tbProcedimientos.setRowHeight(25);
+                                        tbProcedimientos.setSelectionBackground(new java.awt.Color(50, 151, 219));
+                                        tbProcedimientos.getTableHeader().setReorderingAllowed(false);
+                                        tbProcedimientos.addMouseListener(new java.awt.event.MouseAdapter() {
                                             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                                tb_Grupo6MouseClicked(evt);
+                                                tbProcedimientosMouseClicked(evt);
                                             }
                                             public void mousePressed(java.awt.event.MouseEvent evt) {
-                                                tb_Grupo6MousePressed(evt);
+                                                tbProcedimientosMousePressed(evt);
                                             }
                                         });
-                                        tb_Grupo6.addKeyListener(new java.awt.event.KeyAdapter() {
+                                        tbProcedimientos.addKeyListener(new java.awt.event.KeyAdapter() {
                                             public void keyPressed(java.awt.event.KeyEvent evt) {
-                                                tb_Grupo6KeyPressed(evt);
+                                                tbProcedimientosKeyPressed(evt);
                                             }
                                         });
-                                        jScrollPane7.setViewportView(tb_Grupo6);
+                                        spProcedimientos.setViewportView(tbProcedimientos);
 
-                                        jScrollPane8.setBorder(null);
+                                        spLaboratorio.setBorder(null);
 
-                                        tb_Grupo7.setModel(new javax.swing.table.DefaultTableModel(
+                                        tbLaboratorio.setModel(new javax.swing.table.DefaultTableModel(
                                             new Object [][] {
                                                 {null, null, null, null},
                                                 {null, null, null, null},
@@ -706,28 +655,28 @@ DefaultTableModel m;
                                                 "Title 1", "Title 2", "Title 3", "Title 4"
                                             }
                                         ));
-                                        tb_Grupo7.setGridColor(new java.awt.Color(255, 255, 255));
-                                        tb_Grupo7.setRowHeight(25);
-                                        tb_Grupo7.setSelectionBackground(new java.awt.Color(50, 151, 219));
-                                        tb_Grupo7.getTableHeader().setReorderingAllowed(false);
-                                        tb_Grupo7.addMouseListener(new java.awt.event.MouseAdapter() {
+                                        tbLaboratorio.setGridColor(new java.awt.Color(255, 255, 255));
+                                        tbLaboratorio.setRowHeight(25);
+                                        tbLaboratorio.setSelectionBackground(new java.awt.Color(50, 151, 219));
+                                        tbLaboratorio.getTableHeader().setReorderingAllowed(false);
+                                        tbLaboratorio.addMouseListener(new java.awt.event.MouseAdapter() {
                                             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                                tb_Grupo7MouseClicked(evt);
+                                                tbLaboratorioMouseClicked(evt);
                                             }
                                             public void mousePressed(java.awt.event.MouseEvent evt) {
-                                                tb_Grupo7MousePressed(evt);
+                                                tbLaboratorioMousePressed(evt);
                                             }
                                         });
-                                        tb_Grupo7.addKeyListener(new java.awt.event.KeyAdapter() {
+                                        tbLaboratorio.addKeyListener(new java.awt.event.KeyAdapter() {
                                             public void keyPressed(java.awt.event.KeyEvent evt) {
-                                                tb_Grupo7KeyPressed(evt);
+                                                tbLaboratorioKeyPressed(evt);
                                             }
                                         });
-                                        jScrollPane8.setViewportView(tb_Grupo7);
+                                        spLaboratorio.setViewportView(tbLaboratorio);
 
-                                        jScrollPane10.setBorder(null);
+                                        spRayos.setBorder(null);
 
-                                        tb_Grupo10.setModel(new javax.swing.table.DefaultTableModel(
+                                        tbRayos.setModel(new javax.swing.table.DefaultTableModel(
                                             new Object [][] {
                                                 {null, null, null, null},
                                                 {null, null, null, null},
@@ -738,28 +687,28 @@ DefaultTableModel m;
                                                 "Title 1", "Title 2", "Title 3", "Title 4"
                                             }
                                         ));
-                                        tb_Grupo10.setGridColor(new java.awt.Color(255, 255, 255));
-                                        tb_Grupo10.setRowHeight(25);
-                                        tb_Grupo10.setSelectionBackground(new java.awt.Color(50, 151, 219));
-                                        tb_Grupo10.getTableHeader().setReorderingAllowed(false);
-                                        tb_Grupo10.addMouseListener(new java.awt.event.MouseAdapter() {
+                                        tbRayos.setGridColor(new java.awt.Color(255, 255, 255));
+                                        tbRayos.setRowHeight(25);
+                                        tbRayos.setSelectionBackground(new java.awt.Color(50, 151, 219));
+                                        tbRayos.getTableHeader().setReorderingAllowed(false);
+                                        tbRayos.addMouseListener(new java.awt.event.MouseAdapter() {
                                             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                                tb_Grupo10MouseClicked(evt);
+                                                tbRayosMouseClicked(evt);
                                             }
                                             public void mousePressed(java.awt.event.MouseEvent evt) {
-                                                tb_Grupo10MousePressed(evt);
+                                                tbRayosMousePressed(evt);
                                             }
                                         });
-                                        tb_Grupo10.addKeyListener(new java.awt.event.KeyAdapter() {
+                                        tbRayos.addKeyListener(new java.awt.event.KeyAdapter() {
                                             public void keyPressed(java.awt.event.KeyEvent evt) {
-                                                tb_Grupo10KeyPressed(evt);
+                                                tbRayosKeyPressed(evt);
                                             }
                                         });
-                                        jScrollPane10.setViewportView(tb_Grupo10);
+                                        spRayos.setViewportView(tbRayos);
 
-                                        jScrollPane12.setBorder(null);
+                                        spEcografias.setBorder(null);
 
-                                        tb_Grupo11.setModel(new javax.swing.table.DefaultTableModel(
+                                        tbEcografias.setModel(new javax.swing.table.DefaultTableModel(
                                             new Object [][] {
                                                 {null, null, null, null},
                                                 {null, null, null, null},
@@ -770,28 +719,28 @@ DefaultTableModel m;
                                                 "Title 1", "Title 2", "Title 3", "Title 4"
                                             }
                                         ));
-                                        tb_Grupo11.setGridColor(new java.awt.Color(255, 255, 255));
-                                        tb_Grupo11.setRowHeight(25);
-                                        tb_Grupo11.setSelectionBackground(new java.awt.Color(50, 151, 219));
-                                        tb_Grupo11.getTableHeader().setReorderingAllowed(false);
-                                        tb_Grupo11.addMouseListener(new java.awt.event.MouseAdapter() {
+                                        tbEcografias.setGridColor(new java.awt.Color(255, 255, 255));
+                                        tbEcografias.setRowHeight(25);
+                                        tbEcografias.setSelectionBackground(new java.awt.Color(50, 151, 219));
+                                        tbEcografias.getTableHeader().setReorderingAllowed(false);
+                                        tbEcografias.addMouseListener(new java.awt.event.MouseAdapter() {
                                             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                                tb_Grupo11MouseClicked(evt);
+                                                tbEcografiasMouseClicked(evt);
                                             }
                                             public void mousePressed(java.awt.event.MouseEvent evt) {
-                                                tb_Grupo11MousePressed(evt);
+                                                tbEcografiasMousePressed(evt);
                                             }
                                         });
-                                        tb_Grupo11.addKeyListener(new java.awt.event.KeyAdapter() {
+                                        tbEcografias.addKeyListener(new java.awt.event.KeyAdapter() {
                                             public void keyPressed(java.awt.event.KeyEvent evt) {
-                                                tb_Grupo11KeyPressed(evt);
+                                                tbEcografiasKeyPressed(evt);
                                             }
                                         });
-                                        jScrollPane12.setViewportView(tb_Grupo11);
+                                        spEcografias.setViewportView(tbEcografias);
 
-                                        jScrollPane13.setBorder(null);
+                                        spFarmacia.setBorder(null);
 
-                                        tb_Grupo12.setModel(new javax.swing.table.DefaultTableModel(
+                                        tbFarmacia.setModel(new javax.swing.table.DefaultTableModel(
                                             new Object [][] {
                                                 {null, null, null, null},
                                                 {null, null, null, null},
@@ -802,24 +751,24 @@ DefaultTableModel m;
                                                 "Title 1", "Title 2", "Title 3", "Title 4"
                                             }
                                         ));
-                                        tb_Grupo12.setGridColor(new java.awt.Color(255, 255, 255));
-                                        tb_Grupo12.setRowHeight(25);
-                                        tb_Grupo12.setSelectionBackground(new java.awt.Color(50, 151, 219));
-                                        tb_Grupo12.getTableHeader().setReorderingAllowed(false);
-                                        tb_Grupo12.addMouseListener(new java.awt.event.MouseAdapter() {
+                                        tbFarmacia.setGridColor(new java.awt.Color(255, 255, 255));
+                                        tbFarmacia.setRowHeight(25);
+                                        tbFarmacia.setSelectionBackground(new java.awt.Color(50, 151, 219));
+                                        tbFarmacia.getTableHeader().setReorderingAllowed(false);
+                                        tbFarmacia.addMouseListener(new java.awt.event.MouseAdapter() {
                                             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                                tb_Grupo12MouseClicked(evt);
+                                                tbFarmaciaMouseClicked(evt);
                                             }
                                             public void mousePressed(java.awt.event.MouseEvent evt) {
-                                                tb_Grupo12MousePressed(evt);
+                                                tbFarmaciaMousePressed(evt);
                                             }
                                         });
-                                        tb_Grupo12.addKeyListener(new java.awt.event.KeyAdapter() {
+                                        tbFarmacia.addKeyListener(new java.awt.event.KeyAdapter() {
                                             public void keyPressed(java.awt.event.KeyEvent evt) {
-                                                tb_Grupo12KeyPressed(evt);
+                                                tbFarmaciaKeyPressed(evt);
                                             }
                                         });
-                                        jScrollPane13.setViewportView(tb_Grupo12);
+                                        spFarmacia.setViewportView(tbFarmacia);
 
                                         lblProcedimientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/proc.png"))); // NOI18N
 
@@ -846,11 +795,11 @@ DefaultTableModel m;
                                                     .addComponent(lblRayos2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(0, 0, 0)
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
-                                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jScrollPane12)
-                                                    .addComponent(jScrollPane13))
+                                                    .addComponent(spProcedimientos, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
+                                                    .addComponent(spLaboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                                    .addComponent(spRayos, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(spEcografias)
+                                                    .addComponent(spFarmacia))
                                                 .addGap(0, 0, 0))
                                         );
                                         jPanel3Layout.setVerticalGroup(
@@ -859,23 +808,23 @@ DefaultTableModel m;
                                                 .addGap(0, 0, 0)
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addComponent(lblProcedimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                                    .addComponent(spProcedimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                                 .addGap(0, 0, 0)
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addComponent(lblLaboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                                    .addComponent(spLaboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                                 .addGap(0, 0, 0)
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                                    .addComponent(spRayos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                                     .addComponent(lblRayos, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(0, 0, 0)
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addComponent(lblRayos1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                                    .addComponent(spEcografias, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                                 .addGap(0, 0, 0)
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addComponent(lblRayos2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                                    .addComponent(spFarmacia, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                                 .addGap(0, 0, Short.MAX_VALUE))
                                         );
 
@@ -889,11 +838,8 @@ DefaultTableModel m;
                                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(jScrollPane3)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(0, 0, 0)
-                                                        .addComponent(jScrollPane1)
-                                                        .addGap(0, 0, 0))))
+                                                    .addComponent(spCabecera)
+                                                    .addComponent(jScrollPane1)))
                                         );
                                         layout.setVerticalGroup(
                                             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -901,10 +847,9 @@ DefaultTableModel m;
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(0, 0, 0)
-                                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(spCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(0, 0, 0)
-                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
-                                                .addGap(0, 0, 0))
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE))
                                         );
 
                                         pack();
@@ -915,11 +860,10 @@ DefaultTableModel m;
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void txPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txPacienteCaretUpdate
-        
+        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
         if (!txPaciente.getText().equals("")){
-            jScrollPane3.setVisible(true);
-            tb_Encabezado.setVisible(true);
-            BusquedaGeneral();
+            habilitarDatos(true);
+            cabecera1.ventasConsolidadoCabecera(tbCabecera);
             
 //            jScrollPane7.setVisible(true);
 //            jScrollPane8.setVisible(true);
@@ -928,8 +872,8 @@ DefaultTableModel m;
             lblLaboratorio.setVisible(true);
             lblRayos.setVisible(true);
 
-            int fila = tb_Encabezado.getSelectedRow();
-            tb_Encabezado.getSelectionModel().setSelectionInterval (0,0) ;
+            int fila = tbCabecera.getSelectedRow();
+            tbCabecera.getSelectionModel().setSelectionInterval (0,0) ;
    
 //            lblActoMedico.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 13)));
 //            lblApellidos.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
@@ -941,11 +885,8 @@ DefaultTableModel m;
             ////////////////////////////////////////
 
         }if (txPaciente.getText().length()==0){
- 
-            jScrollPane7.setVisible(false);
-            jScrollPane3.setVisible(false);
-            jScrollPane8.setVisible(false);
-            jScrollPane10.setVisible(false);
+            habilitarDatos(false);
+            spFarmacia.setVisible(false);
             lblProcedimientos.setVisible(false);
             lblLaboratorio.setVisible(false);
             lblRayos.setVisible(false);
@@ -956,20 +897,20 @@ DefaultTableModel m;
 
     }//GEN-LAST:event_T3ActionPerformed
 
-    private void tb_EncabezadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_EncabezadoMouseClicked
-        int fila = tb_Encabezado.getSelectedRow();
-        lblActoMedico.setText(String.valueOf(tb_Encabezado.getValueAt(fila, 13)));
-        lblApellidos.setText(String.valueOf(tb_Encabezado.getValueAt(fila, 5)));
-        lblDNI.setText(String.valueOf(tb_Encabezado.getValueAt(fila, 3)));
-        lblHC.setText(String.valueOf(tb_Encabezado.getValueAt(fila, 4)));
-        bus1.setText(String.valueOf(tb_Encabezado.getValueAt(fila, 14)));
+    private void tbCabeceraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCabeceraMouseClicked
+        int fila = tbCabecera.getSelectedRow();
+        lblActoMedico.setText(String.valueOf(tbCabecera.getValueAt(fila, 13)));
+        lblApellidos.setText(String.valueOf(tbCabecera.getValueAt(fila, 5)));
+        lblDNI.setText(String.valueOf(tbCabecera.getValueAt(fila, 3)));
+        lblHC.setText(String.valueOf(tbCabecera.getValueAt(fila, 4)));
+        bus1.setText(String.valueOf(tbCabecera.getValueAt(fila, 14)));
         
         BusquedaDet();
         BusquedaDetLA();
         BusquedaDetRX();
-        jScrollPane7.setVisible(true);
-        jScrollPane8.setVisible(true);
-        jScrollPane10.setVisible(true);
+        spProcedimientos.setVisible(true);
+        spLaboratorio.setVisible(true);
+        spRayos.setVisible(true);
         lblProcedimientos.setVisible(true);
         lblLaboratorio.setVisible(true);
         lblRayos.setVisible(true);
@@ -977,39 +918,39 @@ DefaultTableModel m;
         
         /////////ACTUALIZAR RX
         
-    }//GEN-LAST:event_tb_EncabezadoMouseClicked
+    }//GEN-LAST:event_tbCabeceraMouseClicked
 
-    private void tb_EncabezadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_EncabezadoMousePressed
+    private void tbCabeceraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCabeceraMousePressed
 
-    }//GEN-LAST:event_tb_EncabezadoMousePressed
+    }//GEN-LAST:event_tbCabeceraMousePressed
 
-    private void tb_EncabezadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_EncabezadoKeyPressed
+    private void tbCabeceraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCabeceraKeyPressed
 
-    }//GEN-LAST:event_tb_EncabezadoKeyPressed
+    }//GEN-LAST:event_tbCabeceraKeyPressed
 
-    private void tb_Grupo6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo6MouseClicked
+    private void tbProcedimientosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProcedimientosMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo6MouseClicked
+    }//GEN-LAST:event_tbProcedimientosMouseClicked
 
-    private void tb_Grupo6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo6MousePressed
+    private void tbProcedimientosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProcedimientosMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo6MousePressed
+    }//GEN-LAST:event_tbProcedimientosMousePressed
 
-    private void tb_Grupo6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo6KeyPressed
+    private void tbProcedimientosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbProcedimientosKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo6KeyPressed
+    }//GEN-LAST:event_tbProcedimientosKeyPressed
 
-    private void tb_Grupo7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo7MouseClicked
+    private void tbLaboratorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbLaboratorioMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo7MouseClicked
+    }//GEN-LAST:event_tbLaboratorioMouseClicked
 
-    private void tb_Grupo7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo7MousePressed
+    private void tbLaboratorioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbLaboratorioMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo7MousePressed
+    }//GEN-LAST:event_tbLaboratorioMousePressed
 
-    private void tb_Grupo7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo7KeyPressed
+    private void tbLaboratorioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbLaboratorioKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo7KeyPressed
+    }//GEN-LAST:event_tbLaboratorioKeyPressed
 
     private void tb_Grupo8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo8MouseClicked
         // TODO add your handling code here:
@@ -1023,41 +964,41 @@ DefaultTableModel m;
         // TODO add your handling code here:
     }//GEN-LAST:event_tb_Grupo8KeyPressed
 
-    private void tb_Grupo10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo10MouseClicked
+    private void tbRayosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbRayosMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo10MouseClicked
+    }//GEN-LAST:event_tbRayosMouseClicked
 
-    private void tb_Grupo10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo10MousePressed
+    private void tbRayosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbRayosMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo10MousePressed
+    }//GEN-LAST:event_tbRayosMousePressed
 
-    private void tb_Grupo10KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo10KeyPressed
+    private void tbRayosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbRayosKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo10KeyPressed
+    }//GEN-LAST:event_tbRayosKeyPressed
 
-    private void tb_Grupo11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo11MouseClicked
+    private void tbEcografiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEcografiasMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo11MouseClicked
+    }//GEN-LAST:event_tbEcografiasMouseClicked
 
-    private void tb_Grupo11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo11MousePressed
+    private void tbEcografiasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEcografiasMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo11MousePressed
+    }//GEN-LAST:event_tbEcografiasMousePressed
 
-    private void tb_Grupo11KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo11KeyPressed
+    private void tbEcografiasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbEcografiasKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo11KeyPressed
+    }//GEN-LAST:event_tbEcografiasKeyPressed
 
-    private void tb_Grupo12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo12MouseClicked
+    private void tbFarmaciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFarmaciaMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo12MouseClicked
+    }//GEN-LAST:event_tbFarmaciaMouseClicked
 
-    private void tb_Grupo12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo12MousePressed
+    private void tbFarmaciaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFarmaciaMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo12MousePressed
+    }//GEN-LAST:event_tbFarmaciaMousePressed
 
-    private void tb_Grupo12KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo12KeyPressed
+    private void tbFarmaciaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbFarmaciaKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo12KeyPressed
+    }//GEN-LAST:event_tbFarmaciaKeyPressed
 
     /**
      * @param args the command line arguments
@@ -1076,20 +1017,23 @@ DefaultTableModel m;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Caja_Consolidacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentasConsolidado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Caja_Consolidacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentasConsolidado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Caja_Consolidacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentasConsolidado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Caja_Consolidacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentasConsolidado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Caja_Consolidacion().setVisible(true);
+                new VentasConsolidado().setVisible(true);
             }
         });
     }
@@ -1108,12 +1052,6 @@ DefaultTableModel m;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane13;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel lblActoMedico;
     private javax.swing.JLabel lblApellidos;
@@ -1126,12 +1064,18 @@ DefaultTableModel m;
     private javax.swing.JLabel lblRayos2;
     private javax.swing.JLabel lbldetalle;
     public static javax.swing.JLabel lblusu;
-    private javax.swing.JTable tb_Encabezado;
-    private javax.swing.JTable tb_Grupo10;
-    private javax.swing.JTable tb_Grupo11;
-    private javax.swing.JTable tb_Grupo12;
-    private javax.swing.JTable tb_Grupo6;
-    private javax.swing.JTable tb_Grupo7;
+    private javax.swing.JScrollPane spCabecera;
+    private javax.swing.JScrollPane spEcografias;
+    private javax.swing.JScrollPane spFarmacia;
+    private javax.swing.JScrollPane spLaboratorio;
+    private javax.swing.JScrollPane spProcedimientos;
+    private javax.swing.JScrollPane spRayos;
+    private javax.swing.JTable tbCabecera;
+    private javax.swing.JTable tbEcografias;
+    private javax.swing.JTable tbFarmacia;
+    private javax.swing.JTable tbLaboratorio;
+    private javax.swing.JTable tbProcedimientos;
+    private javax.swing.JTable tbRayos;
     private javax.swing.JTable tb_Grupo8;
     private javax.swing.JTable tb_Grupo9;
     public static javax.swing.JTextField txPaciente;

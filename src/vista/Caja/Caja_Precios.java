@@ -1305,7 +1305,7 @@ Ticket ticket=new Ticket();
                             .addGap(0, 0, 0)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
                             .addContainerGap())
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, Short.MAX_VALUE)
                     );
 
                     pack();

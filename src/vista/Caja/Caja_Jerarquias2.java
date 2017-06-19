@@ -3715,7 +3715,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
     }//GEN-LAST:event_btnNuevo5ActionPerformed
 
     private void btnNuevo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo2ActionPerformed
-          codigo.setText(cnn.idCJ());
+//          codigo.setText(cnn.idCJ());
           
            G21.setVisible(true);
      

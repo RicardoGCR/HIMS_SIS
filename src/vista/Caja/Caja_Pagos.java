@@ -7980,8 +7980,9 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                                                                                                 jPanel21.setBackground(new java.awt.Color(41, 127, 184));
 
+                                                                                                jLabel57.setBackground(new java.awt.Color(255, 255, 255));
                                                                                                 jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
-                                                                                                jLabel57.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                jLabel57.setForeground(new java.awt.Color(51, 204, 0));
                                                                                                 jLabel57.setText("<html>Ventas<span style=\"font-size:'14px'\"><br>Caja Central</br></span></html>");
 
                                                                                                 lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N

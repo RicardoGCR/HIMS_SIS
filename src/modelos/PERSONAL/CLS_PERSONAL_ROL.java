@@ -15,6 +15,7 @@ import servicios.Conexion;
  */
 public class CLS_PERSONAL_ROL {
     private Connection cn;
+    private int COD_ROL;
     private String COD_TUR_UO;
     private int ID_PER_UNI_ORG;
     private String DIA_ROL;
@@ -43,9 +44,9 @@ public class CLS_PERSONAL_ROL {
             cmd.setString(4, getMES_ROL());
             cmd.setString(5, getANIO_ROL());
             cmd.setInt(6, getLIMITE_CONSULTA_DIA());
-            cmd.setString(8, getTOTAL_HORAS());
-            cmd.setDouble(9, getTOTAL_PAGO());
-            cmd.setString(10, getNOM_USU());
+            cmd.setString(7, getTOTAL_HORAS());
+            cmd.setDouble(8, getTOTAL_PAGO());
+            cmd.setString(9, getNOM_USU());
             
             if(!cmd.execute())
             {
@@ -56,7 +57,39 @@ public class CLS_PERSONAL_ROL {
         }
         catch(Exception ex)
         {
-            System.out.println("Error guardar personal rol: " + ex.getMessage());
+            System.out.println("Error guardar personal rol cls: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean PERSONAL_ROL_MODIFICAR(){
+        boolean resp = false;
+        try
+        {
+            String sql = "exec PERSONAL_PERSONAL_ROL_MODIFICAR ?,?,?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setDouble(1, getCOD_ROL());
+            cmd.setString(2, getCOD_TUR_UO());
+            cmd.setInt(3, getID_PER_UNI_ORG());
+            cmd.setString(4, getDIA_ROL());
+            cmd.setString(5, getMES_ROL());
+            cmd.setString(6, getANIO_ROL());
+            cmd.setInt(7, getLIMITE_CONSULTA_DIA());
+            cmd.setString(8, getTOTAL_HORAS());
+            cmd.setDouble(9, getTOTAL_PAGO());
+            cmd.setString(10, getNOM_USU());
+            
+            
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error modificar personal rol cls: " + ex.getMessage());
         }
         return resp;
     }
@@ -139,6 +172,14 @@ public class CLS_PERSONAL_ROL {
 
     public void setNOM_USU(String NOM_USU) {
         this.NOM_USU = NOM_USU;
+    }
+
+    public int getCOD_ROL() {
+        return COD_ROL;
+    }
+
+    public void setCOD_ROL(int COD_ROL) {
+        this.COD_ROL = COD_ROL;
     }
   
 }

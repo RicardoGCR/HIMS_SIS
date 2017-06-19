@@ -504,7 +504,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jpanel" alignment="0" max="32767" attributes="0"/>
-          <Component id="jPanel7" alignment="0" pref="1165" max="32767" attributes="0"/>
+          <Component id="jPanel7" alignment="0" pref="1175" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -531,7 +531,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="titulo5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="6" max="32767" attributes="0"/>
+                  <EmptySpace pref="16" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="txtCodigoDoc" min="-2" pref="142" max="-2" attributes="0"/>
@@ -709,7 +709,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="1" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">

@@ -3,9 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Jerarquia.java</file>
             <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
             <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_Jerarquias.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/proyecto/HIMS/src/vista/Caja/Caja_Pagos.java</file>
+            <file>file:/D:/proyecto/HIMS/src/vista/inicioSesion.java</file>
+            <file>file:/D:/proyecto/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
+=======
+            <file>file:/D:/PROYECTO%2004/SISGESH/src/vista/RX/RX_EC_BUSCAR_EXAMEN_RESULTADO.java</file>
+            <file>file:/D:/PROYECTO%2004/SISGESH/src/vista/PERSONAL/PERSONAL_ROL.java</file>
+            <file>file:/D:/PROYECTO%2004/SISGESH/src/modelos/PERSONAL/CLS_PERSONAL_ROL.java</file>
+>>>>>>> ae0ed3c10f25387b4c1711a4c99e55457e871b88
+>>>>>>> ca628505f43b008a7bbb7b9b6d9bff0f29d9c00c
         </group>
     </open-files>
 </project-private>

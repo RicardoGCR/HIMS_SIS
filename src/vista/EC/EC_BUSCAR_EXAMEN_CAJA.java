@@ -66,6 +66,12 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         lblHora_EC.setVisible(false);
         lblNumeArea_EC.setVisible(false);
         txtBuscarPaciente_EC.requestFocus();
+        lblEdad_EC_D.setVisible(false);
+        lblFechaNaci_EC_D.setVisible(false);
+        lblGenero_EC_D.setVisible(false);
+        lblIDArea_EC_D.setVisible(false);
+        lblUsuD_EC_D.setVisible(false);
+        
         //mostrarPacientes_EC();
     }
 
@@ -131,6 +137,11 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         DETALLE.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         DETALLE.setMinimumSize(new java.awt.Dimension(705, 400));
 
+        tb_Detalle_EC_D = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
         tb_Detalle_EC_D.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         tb_Detalle_EC_D.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -143,6 +154,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
         tb_Detalle_EC_D.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Detalle_EC_D.setRowHeight(25);
         tb_Detalle_EC_D.setSelectionBackground(new java.awt.Color(40, 112, 99));
+        tb_Detalle_EC_D.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tb_Detalle_EC_D);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Light", 1, 23)); // NOI18N
@@ -856,7 +868,7 @@ static EC_EXAMEN_CABECERA EC = new EC_EXAMEN_CABECERA();
     public void mostrarArea_EC(){
         String consulta="";
         try {
-            consulta="EXEC RX_EC_SERVICIO ";
+            consulta="EXEC RX_EC_SERVICIO_EC ";
             PreparedStatement cmd = EC.getCn().prepareStatement(consulta);        
             ResultSet r= cmd.executeQuery();
             int c=1;

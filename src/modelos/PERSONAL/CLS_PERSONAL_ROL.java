@@ -21,7 +21,6 @@ public class CLS_PERSONAL_ROL {
     private String MES_ROL;
     private String ANIO_ROL;
     private int LIMITE_CONSULTA_DIA;
-    private String ENVIO_ROL;
     private String TOTAL_HORAS;
     private double TOTAL_PAGO;
     private String NOM_USU;
@@ -36,15 +35,14 @@ public class CLS_PERSONAL_ROL {
         boolean resp = false;
         try
         {
-            String sql = "exec PERSONAL_PERSONAL_ROL_GUARDAR ?,?,?,?,?,?,?,?,?,?";
+            String sql = "exec PERSONAL_PERSONAL_ROL_GUARDAR ?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getCOD_TUR_UO());
             cmd.setInt(2, getID_PER_UNI_ORG());
             cmd.setString(3, getDIA_ROL());
             cmd.setString(4, getMES_ROL());
             cmd.setString(5, getANIO_ROL());
-            cmd.setInt(6, getLIMITE_CONSULTA_DIA());          
-            cmd.setString(7, getENVIO_ROL());
+            cmd.setInt(6, getLIMITE_CONSULTA_DIA());
             cmd.setString(8, getTOTAL_HORAS());
             cmd.setDouble(9, getTOTAL_PAGO());
             cmd.setString(10, getNOM_USU());
@@ -117,14 +115,6 @@ public class CLS_PERSONAL_ROL {
 
     public void setLIMITE_CONSULTA_DIA(int LIMITE_CONSULTA_DIA) {
         this.LIMITE_CONSULTA_DIA = LIMITE_CONSULTA_DIA;
-    }
-
-    public String getENVIO_ROL() {
-        return ENVIO_ROL;
-    }
-
-    public void setENVIO_ROL(String ENVIO_ROL) {
-        this.ENVIO_ROL = ENVIO_ROL;
     }
 
     public String getTOTAL_HORAS() {

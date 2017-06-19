@@ -62,6 +62,7 @@ DefaultTableModel m,n,resultado;
     public frm_LAB_RESULTADOS_MUESTRA_INGRESO() {
         initComponents();
         c.conectar();
+        this.setExtendedState(MAXIMIZED_BOTH);
          h1 = new Thread(this);
         h1.start();
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/laboratorio.png")).getImage());
@@ -79,7 +80,7 @@ DefaultTableModel m,n,resultado;
         analisis.getContentPane().setBackground(Color.white);
         analisis.setLocationRelativeTo(null);
      
-        panelPacientes.setBackground(Color.white);
+        
          chPacientes.setVisible(false);
         txtPacientes.setVisible(false);
             btnPacientes.setVisible(false);
@@ -97,8 +98,8 @@ DefaultTableModel m,n,resultado;
         lblArea.setVisible(false);
         this.getContentPane().setBackground(Color.white); 
        
-        setLocationRelativeTo(null);//en el centro
-        setResizable(false);//para que no funcione el boton maximizar
+//        setLocationRelativeTo(null);//en el centro
+//        setResizable(false);//para que no funcione el boton maximizar
         buscar_HC.setResizable(false);
         dateDesde.setBackground(Color.white);
         dateHasta.setBackground(Color.white);
@@ -478,8 +479,27 @@ public void calcula() {
                 txtBuscarAnalisis = new javax.swing.JTextField();
                 btnBuscarAnalisis = new javax.swing.JButton();
                 jpanel = new javax.swing.JPanel();
-                titulo5 = new javax.swing.JLabel();
                 lblUsu = new javax.swing.JLabel();
+                jLabel19 = new javax.swing.JLabel();
+                dateDesde = new com.toedter.calendar.JDateChooser();
+                jLabel20 = new javax.swing.JLabel();
+                dateHasta = new com.toedter.calendar.JDateChooser();
+                jLabel21 = new javax.swing.JLabel();
+                cbx = new javax.swing.JComboBox();
+                jLabel57 = new javax.swing.JLabel();
+                panelPacientes = new javax.swing.JPanel();
+                chPacientes = new javax.swing.JCheckBox();
+                txtPacientes = new javax.swing.JTextField();
+                btnPacientes = new javax.swing.JButton();
+                chAnalisis = new javax.swing.JCheckBox();
+                txtAnalisis = new javax.swing.JTextField();
+                btnAnalisis = new javax.swing.JButton();
+                chPersonal = new javax.swing.JCheckBox();
+                txtPersonal = new javax.swing.JTextField();
+                btnPersonal = new javax.swing.JButton();
+                chActoMedico = new javax.swing.JCheckBox();
+                txtActoM = new javax.swing.JTextField();
+                btnBuscar = new javax.swing.JButton();
                 jScrollPane5 = new javax.swing.JScrollPane();
                 tb_TomasRealizadas = new javax.swing.JTable(){
                     public boolean isCellEditable(int rowIndex, int colIndex){
@@ -488,31 +508,10 @@ public void calcula() {
                         }else{
                             return false; //Disallow the editing of any cell
                         }}};
+                        jPanel5 = new javax.swing.JPanel();
+                        lbldia = new javax.swing.JLabel();
                         lblServicio = new javax.swing.JLabel();
                         lblArea = new javax.swing.JLabel();
-                        panelPacientes = new javax.swing.JPanel();
-                        chPacientes = new javax.swing.JCheckBox();
-                        txtPacientes = new javax.swing.JTextField();
-                        btnPacientes = new javax.swing.JButton();
-                        chAnalisis = new javax.swing.JCheckBox();
-                        txtAnalisis = new javax.swing.JTextField();
-                        btnAnalisis = new javax.swing.JButton();
-                        chPersonal = new javax.swing.JCheckBox();
-                        txtPersonal = new javax.swing.JTextField();
-                        btnPersonal = new javax.swing.JButton();
-                        btnBuscar = new javax.swing.JButton();
-                        chActoMedico = new javax.swing.JCheckBox();
-                        txtActoM = new javax.swing.JTextField();
-                        dateDesde = new com.toedter.calendar.JDateChooser();
-                        dateHasta = new com.toedter.calendar.JDateChooser();
-                        jLabel20 = new javax.swing.JLabel();
-                        jLabel21 = new javax.swing.JLabel();
-                        cbx = new javax.swing.JComboBox();
-                        jLabel19 = new javax.swing.JLabel();
-                        lbldia = new javax.swing.JLabel();
-                        jPanel1 = new javax.swing.JPanel();
-                        jLabel3 = new javax.swing.JLabel();
-                        jLabel10 = new javax.swing.JLabel();
 
                         buscar_HC.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                         buscar_HC.setAlwaysOnTop(true);
@@ -774,7 +773,7 @@ public void calcula() {
                             }
                         ));
                         tb_Analisis.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-                        tb_Analisis.setRowHeight(21);
+                        tb_Analisis.setRowHeight(25);
                         tb_Analisis.getTableHeader().setReorderingAllowed(false);
                         tb_Analisis.addKeyListener(new java.awt.event.KeyAdapter() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -881,38 +880,317 @@ public void calcula() {
 
                         jpanel.setBackground(new java.awt.Color(2, 67, 115));
 
-                        titulo5.setBackground(new java.awt.Color(0, 102, 102));
-                        titulo5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
-                        titulo5.setForeground(new java.awt.Color(255, 255, 255));
-                        titulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        titulo5.setText("Resultados");
-                        titulo5.setToolTipText("");
-                        titulo5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-                        lblUsu.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+                        lblUsu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
                         lblUsu.setForeground(new java.awt.Color(255, 255, 255));
                         lblUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
                         lblUsu.setText("Usuario");
+
+                        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+                        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                        jLabel19.setText("Desde");
+
+                        dateDesde.setBackground(new java.awt.Color(2, 67, 115));
+                        dateDesde.setForeground(new java.awt.Color(51, 51, 51));
+                        dateDesde.setDateFormatString("dd/MM/yyyy");
+                        dateDesde.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+                        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+                        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                        jLabel20.setText("Hasta");
+
+                        dateHasta.setBackground(new java.awt.Color(2, 67, 115));
+                        dateHasta.setForeground(new java.awt.Color(51, 51, 51));
+                        dateHasta.setDateFormatString("dd/MM/yyyy");
+                        dateHasta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+                        jLabel21.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+                        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+                        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                        jLabel21.setText("Búsqueda por:");
+
+                        cbx.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+                        cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N° de H.C / DNI", "Análisis ", "Personal- Toma de Muestra", "Acto Médico" }));
+                        cbx.addItemListener(new java.awt.event.ItemListener() {
+                            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                                cbxItemStateChanged(evt);
+                            }
+                        });
+                        cbx.addKeyListener(new java.awt.event.KeyAdapter() {
+                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                cbxKeyPressed(evt);
+                            }
+                        });
+
+                        jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
+                        jLabel57.setForeground(new java.awt.Color(255, 255, 255));
+                        jLabel57.setText("<html>Resultado<span style=\"font-size:'14px'\"><br>Laboratorio</br></span></html>");
+
+                        panelPacientes.setBackground(new java.awt.Color(2, 67, 115));
+
+                        chPacientes.setBackground(new java.awt.Color(2, 67, 115));
+                        chPacientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+                        chPacientes.setForeground(new java.awt.Color(255, 255, 255));
+                        chPacientes.setText("Todos los Pacientes");
+                        chPacientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                        chPacientes.addItemListener(new java.awt.event.ItemListener() {
+                            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                                chPacientesItemStateChanged(evt);
+                            }
+                        });
+
+                        txtPacientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
+                        txtPacientes.setForeground(new java.awt.Color(0, 51, 51));
+                        txtPacientes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                        txtPacientes.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                txtPacientesActionPerformed(evt);
+                            }
+                        });
+                        txtPacientes.addKeyListener(new java.awt.event.KeyAdapter() {
+                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                txtPacientesKeyPressed(evt);
+                            }
+                        });
+
+                        btnPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                        btnPacientes.setBorder(null);
+                        btnPacientes.setContentAreaFilled(false);
+                        btnPacientes.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnPacientesActionPerformed(evt);
+                            }
+                        });
+
+                        chAnalisis.setBackground(new java.awt.Color(2, 67, 115));
+                        chAnalisis.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+                        chAnalisis.setForeground(new java.awt.Color(255, 255, 255));
+                        chAnalisis.setText("Todos los Análisis");
+                        chAnalisis.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                        chAnalisis.addItemListener(new java.awt.event.ItemListener() {
+                            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                                chAnalisisItemStateChanged(evt);
+                            }
+                        });
+
+                        txtAnalisis.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
+                        txtAnalisis.setForeground(new java.awt.Color(0, 51, 51));
+                        txtAnalisis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                        txtAnalisis.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                txtAnalisisActionPerformed(evt);
+                            }
+                        });
+                        txtAnalisis.addKeyListener(new java.awt.event.KeyAdapter() {
+                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                txtAnalisisKeyPressed(evt);
+                            }
+                        });
+
+                        btnAnalisis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                        btnAnalisis.setBorder(null);
+                        btnAnalisis.setContentAreaFilled(false);
+                        btnAnalisis.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnAnalisisActionPerformed(evt);
+                            }
+                        });
+
+                        chPersonal.setBackground(new java.awt.Color(2, 67, 115));
+                        chPersonal.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+                        chPersonal.setForeground(new java.awt.Color(255, 255, 255));
+                        chPersonal.setText("Todo el Personal");
+                        chPersonal.setHideActionText(true);
+                        chPersonal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                        chPersonal.addItemListener(new java.awt.event.ItemListener() {
+                            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                                chPersonalItemStateChanged(evt);
+                            }
+                        });
+
+                        txtPersonal.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
+                        txtPersonal.setForeground(new java.awt.Color(0, 51, 51));
+                        txtPersonal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                        txtPersonal.addKeyListener(new java.awt.event.KeyAdapter() {
+                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                txtPersonalKeyPressed(evt);
+                            }
+                        });
+
+                        btnPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                        btnPersonal.setBorder(null);
+                        btnPersonal.setContentAreaFilled(false);
+                        btnPersonal.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnPersonalActionPerformed(evt);
+                            }
+                        });
+
+                        chActoMedico.setBackground(new java.awt.Color(2, 67, 115));
+                        chActoMedico.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                        chActoMedico.setForeground(new java.awt.Color(255, 255, 255));
+                        chActoMedico.setText("Todos los Actos Médicos");
+                        chActoMedico.setHideActionText(true);
+                        chActoMedico.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                        chActoMedico.addItemListener(new java.awt.event.ItemListener() {
+                            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                                chActoMedicoItemStateChanged(evt);
+                            }
+                        });
+                        chActoMedico.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                chActoMedicoActionPerformed(evt);
+                            }
+                        });
+
+                        txtActoM.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
+                        txtActoM.setForeground(new java.awt.Color(0, 51, 51));
+                        txtActoM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                        txtActoM.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                txtActoMActionPerformed(evt);
+                            }
+                        });
+                        txtActoM.addKeyListener(new java.awt.event.KeyAdapter() {
+                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                txtActoMKeyPressed(evt);
+                            }
+                        });
+
+                        javax.swing.GroupLayout panelPacientesLayout = new javax.swing.GroupLayout(panelPacientes);
+                        panelPacientes.setLayout(panelPacientesLayout);
+                        panelPacientesLayout.setHorizontalGroup(
+                            panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPacientesLayout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(chPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(chAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(chPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(chActoMedico)
+                                    .addGroup(panelPacientesLayout.createSequentialGroup()
+                                        .addComponent(txtAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(btnAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelPacientesLayout.createSequentialGroup()
+                                        .addComponent(txtPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(btnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelPacientesLayout.createSequentialGroup()
+                                        .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtActoM, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                            .addComponent(txtPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
+                                        .addGap(0, 0, 0)
+                                        .addComponent(btnPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        );
+                        panelPacientesLayout.setVerticalGroup(
+                            panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPacientesLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(chPacientes)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, Short.MAX_VALUE)
+                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(chAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtAnalisis, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnAnalisis, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelPacientesLayout.createSequentialGroup()
+                                        .addComponent(txtPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(chActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtActoM, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20))
+                        );
+
+                        btnBuscar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+                        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+                        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-32.png"))); // NOI18N
+                        btnBuscar.setMnemonic('B');
+                        btnBuscar.setText("Buscar");
+                        btnBuscar.setToolTipText("Buscar (Alt-B)");
+                        btnBuscar.setContentAreaFilled(false);
+                        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                        btnBuscar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                        btnBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+                        btnBuscar.setIconTextGap(30);
+                        btnBuscar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+                        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnBuscarActionPerformed(evt);
+                            }
+                        });
 
                         javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
                         jpanel.setLayout(jpanelLayout);
                         jpanelLayout.setHorizontalGroup(
                             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelLayout.createSequentialGroup()
+                            .addGroup(jpanelLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jpanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(dateDesde, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(dateHasta, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(22, 22, 22))
+                                    .addGroup(jpanelLayout.createSequentialGroup()
+                                        .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cbx, javax.swing.GroupLayout.Alignment.LEADING, 0, 241, Short.MAX_VALUE)
+                                            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel57, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 26, Short.MAX_VALUE))
+                                    .addGroup(jpanelLayout.createSequentialGroup()
+                                        .addComponent(panelPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addContainerGap())))
+                            .addGroup(jpanelLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
-                                .addComponent(titulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23))
+                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jpanelLayout.createSequentialGroup()
+                                        .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addContainerGap())
                         );
                         jpanelLayout.setVerticalGroup(
                             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpanelLayout.createSequentialGroup()
-                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(titulo5)
-                                    .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 29, Short.MAX_VALUE))
+                                .addContainerGap()
+                                .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                                    .addComponent(dateDesde, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(dateHasta, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(29, 29, 29)
+                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addComponent(panelPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
                         );
+
+                        jScrollPane5.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
                         tb_TomasRealizadas.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
                         tb_TomasRealizadas.setModel(new javax.swing.table.DefaultTableModel(
@@ -932,7 +1210,7 @@ public void calcula() {
                             }
                         });
                         tb_TomasRealizadas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-                        tb_TomasRealizadas.setRowHeight(24);
+                        tb_TomasRealizadas.setRowHeight(35);
                         tb_TomasRealizadas.setSelectionBackground(new java.awt.Color(2, 67, 115));
                         tb_TomasRealizadas.getTableHeader().setReorderingAllowed(false);
                         tb_TomasRealizadas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -962,305 +1240,65 @@ public void calcula() {
                             tb_TomasRealizadas.getColumnModel().getColumn(14).setResizable(false);
                         }
 
+                        jPanel5.setBackground(new java.awt.Color(43, 43, 43));
+                        jPanel5.setPreferredSize(new java.awt.Dimension(929, 115));
+
+                        lbldia.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+                        lbldia.setForeground(new java.awt.Color(255, 255, 255));
+                        lbldia.setText("Exámenes del día");
+
                         lblServicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         lblServicio.setText("servicio");
 
                         lblArea.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         lblArea.setText("area");
 
-                        chPacientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-                        chPacientes.setText("Todos los Pacientes");
-                        chPacientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-                        chPacientes.addItemListener(new java.awt.event.ItemListener() {
-                            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                                chPacientesItemStateChanged(evt);
-                            }
-                        });
-
-                        txtPacientes.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
-                        txtPacientes.setForeground(new java.awt.Color(0, 51, 51));
-                        txtPacientes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtPacientes.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtPacientesActionPerformed(evt);
-                            }
-                        });
-                        txtPacientes.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtPacientesKeyPressed(evt);
-                            }
-                        });
-
-                        btnPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
-                        btnPacientes.setBorder(null);
-                        btnPacientes.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnPacientesActionPerformed(evt);
-                            }
-                        });
-
-                        chAnalisis.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-                        chAnalisis.setText("Todos los Análisis");
-                        chAnalisis.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-                        chAnalisis.addItemListener(new java.awt.event.ItemListener() {
-                            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                                chAnalisisItemStateChanged(evt);
-                            }
-                        });
-
-                        txtAnalisis.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
-                        txtAnalisis.setForeground(new java.awt.Color(0, 51, 51));
-                        txtAnalisis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtAnalisis.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtAnalisisKeyPressed(evt);
-                            }
-                        });
-
-                        btnAnalisis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
-                        btnAnalisis.setBorder(null);
-                        btnAnalisis.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnAnalisisActionPerformed(evt);
-                            }
-                        });
-
-                        chPersonal.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-                        chPersonal.setText("Todo el Personal");
-                        chPersonal.setHideActionText(true);
-                        chPersonal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-                        chPersonal.addItemListener(new java.awt.event.ItemListener() {
-                            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                                chPersonalItemStateChanged(evt);
-                            }
-                        });
-
-                        txtPersonal.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
-                        txtPersonal.setForeground(new java.awt.Color(0, 51, 51));
-                        txtPersonal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtPersonal.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtPersonalKeyPressed(evt);
-                            }
-                        });
-
-                        btnPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
-                        btnPersonal.setBorder(null);
-                        btnPersonal.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnPersonalActionPerformed(evt);
-                            }
-                        });
-
-                        btnBuscar.setFont(new java.awt.Font("Segoe UI Light", 1, 11)); // NOI18N
-                        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/buscar16x16.png"))); // NOI18N
-                        btnBuscar.setMnemonic('B');
-                        btnBuscar.setText("Buscar");
-                        btnBuscar.setToolTipText("Buscar (Alt-B)");
-                        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnBuscarActionPerformed(evt);
-                            }
-                        });
-
-                        chActoMedico.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-                        chActoMedico.setText("Todos los Actos Médicos");
-                        chActoMedico.setHideActionText(true);
-                        chActoMedico.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-                        chActoMedico.addItemListener(new java.awt.event.ItemListener() {
-                            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                                chActoMedicoItemStateChanged(evt);
-                            }
-                        });
-
-                        txtActoM.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
-                        txtActoM.setForeground(new java.awt.Color(0, 51, 51));
-                        txtActoM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                        txtActoM.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                txtActoMKeyPressed(evt);
-                            }
-                        });
-
-                        javax.swing.GroupLayout panelPacientesLayout = new javax.swing.GroupLayout(panelPacientes);
-                        panelPacientes.setLayout(panelPacientesLayout);
-                        panelPacientesLayout.setHorizontalGroup(
-                            panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPacientesLayout.createSequentialGroup()
-                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(chActoMedico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(chPersonal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(chAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(chPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+                        jPanel5.setLayout(jPanel5Layout);
+                        jPanel5Layout.setHorizontalGroup(
+                            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbldia, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(lblServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblArea, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        );
+                        jPanel5Layout.setVerticalGroup(
+                            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(lbldia, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtAnalisis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPacientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtActoM, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnPacientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnAnalisis, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnPersonal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(btnBuscar)
-                                .addGap(15, 15, 15))
-                        );
-                        panelPacientesLayout.setVerticalGroup(
-                            panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPacientesLayout.createSequentialGroup()
-                                .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(panelPacientesLayout.createSequentialGroup()
-                                        .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(txtPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(chPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(btnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, 0)
-                                        .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnAnalisis, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(txtAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(chAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 0, 0)
-                                        .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(chPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, 0)
-                                        .addGroup(panelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(chActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtActoM, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                        );
-
-                        dateDesde.setDateFormatString("dd-MM-yyyy");
-
-                        dateHasta.setDateFormatString("dd-MM-yyyy");
-
-                        jLabel20.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-                        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel20.setText("Hasta");
-
-                        jLabel21.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-                        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel21.setText("Búsqueda por:");
-
-                        cbx.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-                        cbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "N° de H.C / DNI", "Análisis ", "Personal- Toma de Muestra", "Acto Médico" }));
-                        cbx.addItemListener(new java.awt.event.ItemListener() {
-                            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                                cbxItemStateChanged(evt);
-                            }
-                        });
-                        cbx.addKeyListener(new java.awt.event.KeyAdapter() {
-                            public void keyPressed(java.awt.event.KeyEvent evt) {
-                                cbxKeyPressed(evt);
-                            }
-                        });
-
-                        jLabel19.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-                        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        jLabel19.setText("Desde");
-
-                        lbldia.setFont(new java.awt.Font("Segoe UI Semilight", 1, 13)); // NOI18N
-                        lbldia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        lbldia.setText("Exámenes con Toma de Muestras del Día");
-
-                        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-                        jPanel1.setPreferredSize(new java.awt.Dimension(721, 25));
-
-                        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/salir16x16.png"))); // NOI18N
-                        jLabel3.setText("Salir (Esc)");
-
-                        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Search-16.png"))); // NOI18N
-                        jLabel10.setText("Buscar (Alt+B)");
-
-                        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-                        jPanel1.setLayout(jPanel1Layout);
-                        jPanel1Layout.setHorizontalGroup(
-                            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(850, 850, 850)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                                .addComponent(jLabel3)
-                                .addGap(8, 8, 8))
-                        );
-                        jPanel1Layout.setVerticalGroup(
-                            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblServicio)
+                                    .addComponent(lblArea))
+                                .addContainerGap(42, Short.MAX_VALUE))
                         );
 
                         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                         getContentPane().setLayout(layout);
                         layout.setHorizontalGroup(
                             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dateDesde, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(33, 33, 33)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(dateHasta, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(405, 405, 405))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
+                                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1023, Short.MAX_VALUE)
-                                    .addComponent(lbldia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(101, 101, 101)
-                                        .addComponent(lblServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblArea, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cbx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(84, 84, 84)
-                                        .addComponent(panelPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jScrollPane5))
-                                .addGap(31, 31, 31))
+                                        .addGap(0, 0, 0)
+                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE))))
                         );
                         layout.setVerticalGroup(
                             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(11, 11, 11)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(dateDesde, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(dateHasta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(cbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblArea)
-                                        .addComponent(lblServicio))
-                                    .addComponent(panelPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(lbldia)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(jScrollPane5))
+                            .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         );
 
                         pack();
@@ -2313,6 +2351,18 @@ public void buscar_examenes(){
     private void txtActoMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActoMKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtActoMKeyPressed
+
+    private void txtActoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActoMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtActoMActionPerformed
+
+    private void chActoMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chActoMedicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chActoMedicoActionPerformed
+
+    private void txtAnalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnalisisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAnalisisActionPerformed
     public void enableDatos(){
     tb_TomasRealizadas.setEnabled(true);
     tb_TomasRealizadas.setBackground(Color.white);
@@ -2460,15 +2510,14 @@ public void buscar_examenes(){
     private javax.swing.JCheckBox chPersonal;
     private com.toedter.calendar.JDateChooser dateDesde;
     private com.toedter.calendar.JDateChooser dateHasta;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
+    public static javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2487,7 +2536,6 @@ public void buscar_examenes(){
     private javax.swing.JTable tb_Analisis;
     public static javax.swing.JTable tb_HC;
     public static javax.swing.JTable tb_TomasRealizadas;
-    private javax.swing.JLabel titulo5;
     private javax.swing.JLabel titulo6;
     private javax.swing.JLabel titulo7;
     private javax.swing.JLabel titulo8;

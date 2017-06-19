@@ -1245,8 +1245,12 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(1).setMaxWidth(0);
         tabla.getColumnModel().getColumn(2).setPreferredWidth(150);
         tabla.getColumnModel().getColumn(3).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(4).setPreferredWidth(80);
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+//        tabla.getColumnModel().getColumn(4).setPreferredWidth(80);
+//        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(6).setPreferredWidth(220);
         tabla.getColumnModel().getColumn(7).setPreferredWidth(80);
         tabla.getColumnModel().getColumn(8).setPreferredWidth(100);

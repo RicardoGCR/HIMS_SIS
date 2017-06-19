@@ -9,6 +9,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 /**
  *
@@ -16,6 +20,7 @@ import servicios.Conexion;
  */
 public class Caja_Jerarquias {
 private Connection cn;
+DefaultTableModel m;
 //CUENTA 2
 private String cod_jerar_forma_pago ;
 private String nom_forma_pago ;
@@ -165,6 +170,106 @@ public String codTipo(String tipo)
         }
         return cod;
     }
+        public void LISTARNIVEL0(JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Descripcion","ID"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[2];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec Caja_Jerarquia_RELACION ";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, Servicio);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            FORMATO(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar CABECERA REPORTE" + e.getMessage());
+        }
+    }
+        
+        public void LISTARNIVEL1(String NIVEL0 ,JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Descripcion","ID"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[2];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_LISTAR_NIVEL1 ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, NIVEL0);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            FORMATO(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar NIVEL 1" + e.getMessage());
+        }
+    }
+        public void LISTARNIVEL2(String NIVEL0 ,JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Descripcion","ID"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[2];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_LISTAR_NIVEL2 ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, NIVEL0);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            FORMATO(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar NIVEL 1" + e.getMessage());
+        }
+    }
+      
+      public void FORMATO(JTable tabla){
+
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+
+        tabla.setRowHeight(40);
+        
+    }
+
+
 
 
 

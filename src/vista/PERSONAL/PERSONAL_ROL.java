@@ -908,23 +908,13 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         txtBuscarMedico_UO.requestFocus();
         txtBuscarMedico_UO.setText("");
         MostrarPersonal_UO();
+        Clear_Tb_TURNOS_UO();
     }//GEN-LAST:event_T3ActionPerformed
 
     private void txtBuscarMedico_UOCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarMedico_UOCaretUpdate
-        
-//        if(tb_Personal_UO.getRowCount()!=0){
+
             BuscarPersonal_UO();
-            
-                
-//        }else{
-////                lblRegistro.setVisible(true);
-////                this.ERROR_BUSCAR_MED.setVisible(true);
-////            JOptionPane.showMessageDialog(MEDICOS_UO, "error");
-//            
-////            MostrarPersonal_UO();
-//            BuscarPersonal_UO();
-//        }
-//        
+
     }//GEN-LAST:event_txtBuscarMedico_UOCaretUpdate
 
     private void T5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T5ActionPerformed
@@ -1041,7 +1031,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             
             tb_Personal_UO.setModel(new DefaultTableModel());
             String titulos[]={"Nº","ID UO","Cod. Personal","Apellido Paterno","Apellido Materno","Nombres","Cargo",
-            "SA_ID", "Area", "Servicio", "SE_ID"};
+            "AR_ID", "Area", "Servicio", "SE_ID"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[11];
@@ -1088,7 +1078,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             
             tb_Personal_UO.setModel(new DefaultTableModel());
             String titulos[]={"Nº","ID UO","Cod. Personal","Apellido Paterno","Apellido Materno","Nombres","Cargo",
-            "SA_ID", "Area", "Servicio", "SE_ID"};
+            "AR_ID", "Area", "Servicio", "SE_ID"};
             m1=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m1);
             String fila[]=new String[11];
@@ -1149,7 +1139,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         try {
             
             String titulosb[]={"Nº","ID UO","Cod. Personal","Apellido Paterno","Apellido Materno","Nombres","Cargo",
-            "SA_ID", "Area", "Servicio", "SE_ID"};
+            "AR_ID", "Area", "Servicio", "SE_ID"};
             msb=new DefaultTableModel(null,titulosb);
             JTable psb=new JTable(msb);
             String filasb[]=new String[11];
@@ -1169,10 +1159,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         try {
             
             String titulosb[]={"Nº","Cod. Turno UO","Cod. Turno","Cod. Horarios","Cod. T Turno",
-                "Turno","Hora Inicio", "Hora Fin", "AR_ID"};
+                "Turno","Nomenclatura","Hora Inicio", "Hora Fin", "AR_ID"};
             msb1=new DefaultTableModel(null,titulosb);
             JTable psb=new JTable(msb1);
-            String filasb[]=new String[9];
+            String filasb[]=new String[10];
             TB_TURNOS_UO.setModel(msb1);
             TableRowSorter<TableModel> elQueOrdenasb=new TableRowSorter<TableModel>(msb1);
             TB_TURNOS_UO.setRowSorter(elQueOrdenasb);
@@ -1192,9 +1182,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             TB_TURNOS_UO.getColumnModel().getColumn(3).setPreferredWidth(130);
             TB_TURNOS_UO.getColumnModel().getColumn(4).setPreferredWidth(110);                
             TB_TURNOS_UO.getColumnModel().getColumn(5).setPreferredWidth(110); 
-            TB_TURNOS_UO.getColumnModel().getColumn(6).setPreferredWidth(111); 
-            TB_TURNOS_UO.getColumnModel().getColumn(7).setPreferredWidth(111);
-            TB_TURNOS_UO.getColumnModel().getColumn(8).setPreferredWidth(150);           
+            TB_TURNOS_UO.getColumnModel().getColumn(6).setPreferredWidth(150);
+            TB_TURNOS_UO.getColumnModel().getColumn(7).setPreferredWidth(111); 
+            TB_TURNOS_UO.getColumnModel().getColumn(8).setPreferredWidth(111);
+            TB_TURNOS_UO.getColumnModel().getColumn(9).setPreferredWidth(150);           
             //Ocultar
             TB_TURNOS_UO.getColumnModel().getColumn(2).setMinWidth(0);
             TB_TURNOS_UO.getColumnModel().getColumn(2).setMaxWidth(0);    
@@ -1213,10 +1204,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         String consulta="";
                         TB_TURNOS_UO.setModel(new DefaultTableModel());
                         String titulos[]={"Nº","Cod. Turno UO","Cod. Turno","Cod. Horarios","Cod. T Turno",
-                        "Turno","Hora Inicio", "Hora Fin", "AR_ID"};
+                        "Turno","Nomenclatura","Hora Inicio", "Hora Fin", "AR_ID"};
                         m2=new DefaultTableModel(null,titulos);
                         JTable p=new JTable(m2);
-                        String fila[]=new String[9];
+                        String fila[]=new String[10];
                         Usuario obj=new Usuario();
                         consulta="exec PERSONAL_TURNOS_UO_AR ?";
                         PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
@@ -1233,6 +1224,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                             fila[6]=r.getString(6);
                             fila[7]=r.getString(7);
                             fila[8]=r.getString(8);
+                            fila[9]=r.getString(9);
                             
                             m2.addRow(fila);
                             c++;
@@ -1278,12 +1270,12 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         PR.setMES_ROL(MES + "");
                         PR.setANIO_ROL(ANIO + "");
                         
-                        PR.setLIMITE_CONSULTA_DIA(Integer.parseInt(txtLimite_Consultas_Per.getText()));
-                        if(CB_Envio_ROL.isSelected()){
-                            PR.setENVIO_ROL("S"); 
-                        }else{
-                            PR.setENVIO_ROL("N"); 
-                        }
+//                        PR.setLIMITE_CONSULTA_DIA(Integer.parseInt(txtLimite_Consultas_Per.getText()));
+//                        if(CB_Envio_ROL.isSelected()){
+//                            PR.setENVIO_ROL("S"); 
+//                        }else{
+//                            PR.setENVIO_ROL("N"); 
+//                        }
                         PR.setTOTAL_HORAS(txtTotal_Horas.getText());
                         PR.setTOTAL_PAGO(Double.parseDouble(txtTotal_Pago.getText()));    
                         PR.setNOM_USU(lblusu.getText());
@@ -1301,6 +1293,14 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         }
 
     }
+    
+    private void Clear_Tb_TURNOS_UO(){
+        DefaultTableModel modelo1 = (DefaultTableModel)TB_TURNOS_UO.getModel(); 
+        int b=TB_TURNOS_UO.getRowCount();
+        for(int j=0;j<b;j++){
+                    modelo1.removeRow(0);
+        }
+   }
     
     /**
      * @param args the command line arguments

@@ -91,7 +91,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         txtCOD_CAB_RES.setVisible(false);
         txtCOD_DETALLE_RES.setVisible(false);
         lblPerB.setVisible(false);
-        
+ 
     }
 
     /**
@@ -478,7 +478,6 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
 
         CIE10.setAlwaysOnTop(true);
         CIE10.setMinimumSize(new java.awt.Dimension(470, 500));
-        CIE10.setPreferredSize(new java.awt.Dimension(470, 500));
 
         tb_CIE10_EC = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
@@ -1991,7 +1990,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
     public void mostrarArea_EC(){
         String consulta="";
         try {
-            consulta="EXEC RX_EC_SERVICIO ";
+            consulta="EXEC RX_EC_SERVICIO_EC ";
             PreparedStatement cmd = EXC.getCn().prepareStatement(consulta);        
             ResultSet r= cmd.executeQuery();
             int c=1;
@@ -2014,7 +2013,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
             JTable p=new JTable(m1);
             String fila[]=new String[8];
 
-        String consulta="exec RX_EC_PERSONAL_LISTAR";
+        String consulta="exec RX_EC_PERSONAL_LISTAR_EC";
         ResultSet r;
         
         r=conectar.Listar(consulta);
@@ -2063,7 +2062,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
             String fila[]=new String[8];
 
             EC_EXAMEN_CABECERA obj=new EC_EXAMEN_CABECERA();
-                    consulta="exec RX_EC_PERSONAL_BUSCAR ?";
+                    consulta="exec RX_EC_PERSONAL_BUSCAR_EC ?";
                     
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, txtBuscarPersonal_EC.getText());

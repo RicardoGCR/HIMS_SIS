@@ -37,7 +37,7 @@ Calendar calendario;
 Thread h1;
 ResultSet r;
 CallableStatement cst;
-DefaultTableModel m, m1, msb, msb1, m2, msb2;
+DefaultTableModel m, m1, msb, msb1, m2, msb2, m3;
 static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     /**
      * Creates new form PERSONAL_ROL
@@ -57,6 +57,8 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         inicializar_tabla_Medicos_UO();
         inicializar_tabla_Turnos_UO();
         inicializar_tabla_Personal_ROL();
+        
+        Mostrar_PERSONAL_ROL();
         
         cargareliminar_Per.setVisible(false);
         jTabbedPane1.setEnabledAt(0,false);
@@ -1011,7 +1013,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
         jTabbedPane1.setSelectedIndex(1);
-      
+        Mostrar_PERSONAL_ROL();
 
     }//GEN-LAST:event_btnListaActionPerformed
 
@@ -1305,10 +1307,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(8).setPreferredWidth(111);
               
             //Ocultar
-//            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(0).setMinWidth(0);
-//            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(0).setMaxWidth(0);    
-//            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(1).setMinWidth(0);
-//            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(1).setMaxWidth(0);
+            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(0).setMinWidth(0);
+            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(0).setMaxWidth(0);    
+            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(1).setMinWidth(0);
+            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(1).setMaxWidth(0);
     
     }
     
@@ -1466,6 +1468,92 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
 //               return c;
 //    }
     
+   public void Mostrar_PERSONAL_ROL(){
+        try {
+                     
+            String consulta="";
+            
+            tb_Personal_UO.setModel(new DefaultTableModel());
+            String titulos[]={"Nº","Cod. Rol","ID_PER_UNI_ORG","Cod. Turno UO","Cod. Personal","Apellido Paterno","Apellido Materno","Nombres","Turno",
+            "Día", "Mes", "Año", "Lim. Consulta", "Total Hora", "Total Pago", "Cargo", "Servicio", "Area","AR_ID"};
+            m3=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m3);
+            String fila[]=new String[19];
+            Usuario obj=new Usuario();
+            consulta="exec PERSONAL_PERSONAL_LISTAR_ROL";
+            PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+            
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+
+                fila[0]=String.valueOf(c)+"º";
+                fila[1]=r.getString(1);
+                fila[2]=r.getString(2);
+                fila[3]=r.getString(3);
+                fila[4]=r.getString(4);
+                fila[5]=r.getString(5);
+                fila[6]=r.getString(6);
+                fila[7]=r.getString(7);
+                fila[8]=r.getString(8);
+                fila[9]=r.getString(9);
+                fila[10]=r.getString(10);
+                fila[11]=r.getString(11);
+                fila[12]=r.getString(12);
+                fila[13]=r.getString(13);
+                fila[14]=r.getString(14);
+                fila[15]=r.getString(15);
+                fila[16]=r.getString(16);
+                fila[17]=r.getString(17);
+                fila[18]=r.getString(18);
+                
+                m3.addRow(fila);
+                c++;
+ 
+            }
+            TB_PERSONAL_ROL.setModel(m3);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m3);
+            TB_PERSONAL_ROL.setRowSorter(elQueOrdena);
+            TB_PERSONAL_ROL.setModel(m3);
+                       
+            formatoPersonal_ROL_LISTA();
+            
+        } catch (Exception e) {
+            System.out.println("Error mostrar personal rol: " + e.getMessage());
+        }     
+    }
+   
+    public void formatoPersonal_ROL_LISTA(){        
+            TB_PERSONAL_ROL.getColumnModel().getColumn(0).setPreferredWidth(40);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(1).setPreferredWidth(150); 
+            TB_PERSONAL_ROL.getColumnModel().getColumn(2).setPreferredWidth(150);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(3).setPreferredWidth(150);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(4).setPreferredWidth(130);                
+            TB_PERSONAL_ROL.getColumnModel().getColumn(5).setPreferredWidth(150); 
+            TB_PERSONAL_ROL.getColumnModel().getColumn(6).setPreferredWidth(150);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(7).setPreferredWidth(200); 
+            TB_PERSONAL_ROL.getColumnModel().getColumn(8).setPreferredWidth(100);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(9).setPreferredWidth(100);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(10).setPreferredWidth(100);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(11).setPreferredWidth(100);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(12).setPreferredWidth(150);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(13).setPreferredWidth(100);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(14).setPreferredWidth(100);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(15).setPreferredWidth(200);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(16).setPreferredWidth(200);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(17).setPreferredWidth(200);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(18).setPreferredWidth(100);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(19).setPreferredWidth(100);
+            //Ocultar
+            TB_PERSONAL_ROL.getColumnModel().getColumn(0).setMinWidth(0);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(0).setMaxWidth(0);    
+            TB_PERSONAL_ROL.getColumnModel().getColumn(1).setMinWidth(0);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(1).setMaxWidth(0);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(1).setMinWidth(0);
+            TB_PERSONAL_ROL.getColumnModel().getColumn(1).setMaxWidth(0);
+    
+    }
+   
     /**
      * @param args the command line arguments
      */

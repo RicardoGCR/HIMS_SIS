@@ -3,13 +3,16 @@ package modelos.cuentaPorPagar;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.Caja.Caja_NuevaVenta;
 import servicios.Conexion;
-import static vista.cuentaPorPagar.VentasConsolidado.txPaciente;
+import vista.cuentaPorPagar.VentasConsolidado;
+import static vista.cuentaPorPagar.VentasConsolidado.txtDni;
 
 public class CuentasPorPagarVentasConsolidadoCabecera {
     DefaultTableModel m;
@@ -50,7 +53,7 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
             Caja_NuevaVenta obj=new Caja_NuevaVenta();
                     consulta="CUENTAS_POR_PAGAR_VENTAS_CONSOLIDADO_CABECERA ?";      
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1, txPaciente.getText());
+            cmd.setString(1, txtDni.getText());
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
@@ -82,6 +85,21 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
         }
       }
 
+     public void listarActoMedico(){
+        try {
+            Statement sta=cn.createStatement();
+            ResultSet rs=sta.executeQuery("EXEC CUENTAS_POR_PAGAR_LISTAR_ACTO_MEDICO ''");
+            VentasConsolidado.cbxActoMedico.removeAllItems();
+            VentasConsolidado.cbxActoMedico.addItem("Acto Médico");
+            while(rs.next()){
+//                cbxActoMedico.addItem(rs.getInt("NUM_ACTOMEDICO"));
+            }
+
+            } catch (SQLException e) {
+                System.out.println("error:" + e.getMessage());
+            }
+   }
+    
     /**
      * @return the cn
      */

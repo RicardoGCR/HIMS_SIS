@@ -641,10 +641,7 @@
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel5" alignment="0" pref="880" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="jScrollPane5" pref="880" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jScrollPane5" alignment="0" pref="880" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>

@@ -3,49 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_TOMA_MUESTRA_INGRESO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_RESULTADOS_MUESTRA_INGRESO.java</file>
-            <file>file:/E:/pry/SISGESH/src/vista/LABORATORIO/frm_LAB_ENTREGA_RESULTADO.java</file>
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-            <file>file:/D:/proyecto/HIMS/src/vista/admisionCentral/FrmMovimientoHC.java</file>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <file>file:/D:/PROYECTO%2004/SISGESH/src/vista/PERSONAL/PERSONAL_ROL.java</file>
-=======
-            <file>file:/E:/pry/SISGESH/src/vista/ALMACEN/frm_Asig_Catalogo_Producto.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Jerarquia.java</file>
->>>>>>> 64fa4a25323e5e1ab1bad706c550954f1deea8d1
-            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
-            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
-            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_Jerarquias.java</file>
-<<<<<<< HEAD
-=======
->>>>>>> c39e240356aedb454f5742320c518f2b76d11813
-=======
-<<<<<<< HEAD
-            <file>file:/D:/proyecto/HIMS/src/vista/Caja/Caja_Pagos.java</file>
-            <file>file:/D:/proyecto/HIMS/src/vista/inicioSesion.java</file>
-            <file>file:/D:/proyecto/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
-=======
-            <file>file:/D:/PROYECTO%2004/SISGESH/src/vista/RX/RX_EC_BUSCAR_EXAMEN_RESULTADO.java</file>
-            <file>file:/D:/PROYECTO%2004/SISGESH/src/vista/PERSONAL/PERSONAL_ROL.java</file>
-            <file>file:/D:/PROYECTO%2004/SISGESH/src/modelos/PERSONAL/CLS_PERSONAL_ROL.java</file>
->>>>>>> ae0ed3c10f25387b4c1711a4c99e55457e871b88
->>>>>>> ca628505f43b008a7bbb7b9b6d9bff0f29d9c00c
-<<<<<<< HEAD
-=======
->>>>>>> 6bebeb11b769fd601623275fe59edae5c7e0be7a
->>>>>>> c39e240356aedb454f5742320c518f2b76d11813
->>>>>>> ec954a54a61567625733334233fe36fac6a044c7
->>>>>>> 64fa4a25323e5e1ab1bad706c550954f1deea8d1
->>>>>>> 76a3053e84a5a3a6fb5a9d8e10116ac9c8b5c30c
+            <file>file:/E:/pry/HIMS/src/vista/RX/RX_EC_BUSCAR_EXAMEN_C.java</file>
+            <file>file:/E:/pry/HIMS/src/vista/COSTOS/Costos_Sustentacion_Detalle_Servicio_Basicos.java</file>
+            <file>file:/E:/pry/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
         </group>
     </open-files>
 </project-private>

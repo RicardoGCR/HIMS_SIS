@@ -864,7 +864,10 @@ public class VentasConsolidado extends javax.swing.JFrame {
     }//GEN-LAST:event_tbCabeceraKeyPressed
 
     private void tbProcedimientosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProcedimientosMouseClicked
-        // TODO add your handling code here:
+        if(evt.getClickCount()==1){
+            tbLaboratorio.setCellSelectionEnabled(false);
+            tbProcedimientos.setCellSelectionEnabled(true);
+        }
     }//GEN-LAST:event_tbProcedimientosMouseClicked
 
     private void tbProcedimientosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProcedimientosMousePressed
@@ -876,7 +879,10 @@ public class VentasConsolidado extends javax.swing.JFrame {
     }//GEN-LAST:event_tbProcedimientosKeyPressed
 
     private void tbLaboratorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbLaboratorioMouseClicked
-        // TODO add your handling code here:
+        if(evt.getClickCount()==1){
+            tbProcedimientos.setCellSelectionEnabled(false);
+            tbLaboratorio.setCellSelectionEnabled(true);
+        }
     }//GEN-LAST:event_tbLaboratorioMouseClicked
 
     private void tbLaboratorioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbLaboratorioMousePressed

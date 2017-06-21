@@ -867,6 +867,9 @@ public class VentasConsolidado extends javax.swing.JFrame {
         if(evt.getClickCount()==1){
             tbLaboratorio.setCellSelectionEnabled(false);
             tbProcedimientos.setCellSelectionEnabled(true);
+            tbEcografias.setCellSelectionEnabled(false);
+            tbFarmacia.setCellSelectionEnabled(false);
+            tbRayos.setCellSelectionEnabled(false);
         }
     }//GEN-LAST:event_tbProcedimientosMouseClicked
 
@@ -880,8 +883,11 @@ public class VentasConsolidado extends javax.swing.JFrame {
 
     private void tbLaboratorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbLaboratorioMouseClicked
         if(evt.getClickCount()==1){
-            tbProcedimientos.setCellSelectionEnabled(false);
             tbLaboratorio.setCellSelectionEnabled(true);
+            tbProcedimientos.setCellSelectionEnabled(false);
+            tbEcografias.setCellSelectionEnabled(false);
+            tbFarmacia.setCellSelectionEnabled(false);
+            tbRayos.setCellSelectionEnabled(false);
         }
     }//GEN-LAST:event_tbLaboratorioMouseClicked
 

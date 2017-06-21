@@ -2239,8 +2239,6 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 }};
                                                                                                 jPanel14 = new javax.swing.JPanel();
                                                                                                 jLabel93 = new javax.swing.JLabel();
-                                                                                                jLabel94 = new javax.swing.JLabel();
-                                                                                                jComboBox1 = new javax.swing.JComboBox();
                                                                                                 jLabel95 = new javax.swing.JLabel();
                                                                                                 txtFecha = new com.toedter.calendar.JDateChooser();
                                                                                                 jLabel107 = new javax.swing.JLabel();
@@ -7874,14 +7872,6 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 jLabel93.setForeground(new java.awt.Color(255, 255, 255));
                                                                                                 jLabel93.setText("Reporte ");
 
-                                                                                                jLabel94.setBackground(new java.awt.Color(204, 204, 204));
-                                                                                                jLabel94.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-                                                                                                jLabel94.setForeground(new java.awt.Color(204, 204, 204));
-                                                                                                jLabel94.setText("Cajero");
-
-                                                                                                jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-                                                                                                jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
                                                                                                 jLabel95.setBackground(new java.awt.Color(204, 204, 204));
                                                                                                 jLabel95.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                                                                                                 jLabel95.setForeground(new java.awt.Color(204, 204, 204));
@@ -7920,10 +7910,6 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                             .addComponent(jLabel93, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                             .addGroup(jPanel14Layout.createSequentialGroup()
-                                                                                                                .addComponent(jLabel94)
-                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addGap(30, 30, 30)
                                                                                                                 .addComponent(jLabel95)
                                                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                                 .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -7933,32 +7919,26 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                                 .addComponent(txtFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                 .addGap(18, 18, 18)
                                                                                                                 .addComponent(btnBuscarPaciente8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                                        .addContainerGap(216, Short.MAX_VALUE))
+                                                                                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                                                 );
                                                                                                 jPanel14Layout.setVerticalGroup(
                                                                                                     jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                     .addGroup(jPanel14Layout.createSequentialGroup()
                                                                                                         .addGap(11, 11, 11)
+                                                                                                        .addComponent(jLabel93, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addGap(18, 18, 18)
                                                                                                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                            .addGroup(jPanel14Layout.createSequentialGroup()
-                                                                                                                .addComponent(jLabel93, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                    .addGroup(jPanel14Layout.createSequentialGroup()
-                                                                                                                        .addGap(22, 22, 22)
-                                                                                                                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                                .addComponent(jLabel94)
-                                                                                                                                .addComponent(jLabel95))
-                                                                                                                            .addComponent(jLabel107)))
-                                                                                                                    .addGroup(jPanel14Layout.createSequentialGroup()
-                                                                                                                        .addGap(17, 17, 17)
-                                                                                                                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                                                                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                                                                                                                            .addComponent(txtFecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                                                                                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                .addGroup(jPanel14Layout.createSequentialGroup()
+                                                                                                                    .addGap(5, 5, 5)
+                                                                                                                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                        .addComponent(jLabel95)
+                                                                                                                        .addComponent(jLabel107)))
+                                                                                                                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                             .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                 .addComponent(txtFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                 .addComponent(btnBuscarPaciente8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                                        .addContainerGap(23, Short.MAX_VALUE))
+                                                                                                        .addContainerGap(22, Short.MAX_VALUE))
                                                                                                 );
 
                                                                                                 javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -7982,7 +7962,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                                                                                                 jLabel57.setBackground(new java.awt.Color(255, 255, 255));
                                                                                                 jLabel57.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
-                                                                                                jLabel57.setForeground(new java.awt.Color(51, 204, 0));
+                                                                                                jLabel57.setForeground(new java.awt.Color(255, 255, 255));
                                                                                                 jLabel57.setText("<html>Ventas<span style=\"font-size:'14px'\"><br>Caja Central</br></span></html>");
 
                                                                                                 lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
@@ -10862,7 +10842,6 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel elimdp;
     private javax.swing.JButton elimma;
     private javax.swing.JButton elimma1;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -10965,7 +10944,6 @@ PaginasVentas.setSelectedIndex(1);
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
-    private javax.swing.JLabel jLabel94;
     private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;

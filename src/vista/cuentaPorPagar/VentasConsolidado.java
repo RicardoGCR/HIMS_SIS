@@ -130,8 +130,6 @@ public class VentasConsolidado extends javax.swing.JFrame {
                 }};
                 jPanel1 = new javax.swing.JPanel();
                 jLabel1 = new javax.swing.JLabel();
-                lblusu = new javax.swing.JLabel();
-                btnRefrescar = new javax.swing.JButton();
                 jPanel9 = new javax.swing.JPanel();
                 txtDni = new javax.swing.JTextField();
                 T3 = new javax.swing.JButton();
@@ -245,29 +243,6 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
                                         jLabel1.setText("<html>Consolidado<span style=\"font-size:'15px'\"><br> Cuenta Corriente</br></span></html>");
 
-                                        lblusu.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-                                        lblusu.setForeground(new java.awt.Color(255, 255, 255));
-                                        lblusu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Usuario-40.png"))); // NOI18N
-                                        lblusu.setText("Silvana");
-                                        lblusu.setFocusable(false);
-                                        lblusu.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-                                        btnRefrescar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                                        btnRefrescar.setForeground(new java.awt.Color(240, 240, 240));
-                                        btnRefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Actualizar-32 (1).png"))); // NOI18N
-                                        btnRefrescar.setText("Refrescar");
-                                        btnRefrescar.setContentAreaFilled(false);
-                                        btnRefrescar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                                        btnRefrescar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-                                        btnRefrescar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-                                        btnRefrescar.setIconTextGap(30);
-                                        btnRefrescar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-                                        btnRefrescar.addActionListener(new java.awt.event.ActionListener() {
-                                            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                                btnRefrescarActionPerformed(evt);
-                                            }
-                                        });
-
                                         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
                                         txtDni.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -337,28 +312,19 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                        .addGap(0, 0, Short.MAX_VALUE)
-                                                        .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addGap(237, 237, 237)
+                                                        .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addGap(24, 24, 24)
                                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                .addGap(237, 237, 237)
-                                                                .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                .addGap(24, 24, 24)
-                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                    .addComponent(lbldetalle)
-                                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                                        .addComponent(cbxActoMedico, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                        .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                    .addComponent(lblMensajeActoMedico)))
-                                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                .addContainerGap()
-                                                                .addComponent(btnRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                                .addContainerGap())
+                                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(lbldetalle)
+                                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                                .addComponent(cbxActoMedico, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addComponent(lblMensajeActoMedico))))
+                                                .addContainerGap(19, Short.MAX_VALUE))
                                         );
                                         jPanel1Layout.setVerticalGroup(
                                             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,10 +341,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                                 .addComponent(lblMensajeActoMedico)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(cbxActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(80, 80, 80)
-                                                .addComponent(btnRefrescar)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lblusu))
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         );
 
                                         pnlDatos.setBackground(new java.awt.Color(43, 43, 43));
@@ -738,9 +701,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                                         .addComponent(btnRefrescar1)
                                                         .addComponent(btnRefrescar3, javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addComponent(btnRefrescar4)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDetalleLayout.createSequentialGroup()
-                                                            .addGap(0, 0, 0)
-                                                            .addComponent(btnRefrescar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addComponent(btnRefrescar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addComponent(btnRefrescar5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(0, 0, 0))
                                         );
@@ -823,6 +784,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                             pnlVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(pnlVentasLayout.createSequentialGroup()
                                                 .addComponent(spCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, 0)
                                                 .addComponent(spDetalle, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
                                                 .addGap(0, 0, 0))
                                         );
@@ -832,7 +794,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                         layout.setHorizontalGroup(
                                             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(pnlDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(pnlVentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -848,10 +810,6 @@ public class VentasConsolidado extends javax.swing.JFrame {
 
                                         pack();
                                     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefrescarActionPerformed
-        pnlVentas.setVisible(true);
-    }//GEN-LAST:event_btnRefrescarActionPerformed
 
     private void txtDniCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDniCaretUpdate
         listarActoMedico(txtDni.getText());
@@ -1087,7 +1045,6 @@ public class VentasConsolidado extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton T3;
-    public static javax.swing.JButton btnRefrescar;
     public static javax.swing.JButton btnRefrescar1;
     public static javax.swing.JButton btnRefrescar2;
     public static javax.swing.JButton btnRefrescar3;
@@ -1111,7 +1068,6 @@ public class VentasConsolidado extends javax.swing.JFrame {
     private javax.swing.JLabel lblProcedimientos;
     private javax.swing.JLabel lblRayos;
     private javax.swing.JLabel lbldetalle;
-    public static javax.swing.JLabel lblusu;
     private javax.swing.JPanel pnlDatos;
     private javax.swing.JPanel pnlDetalle;
     private javax.swing.JPanel pnlVentas;

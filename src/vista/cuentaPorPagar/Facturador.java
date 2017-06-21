@@ -66,7 +66,7 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 import static vista.Principal.fechaActual;
 import static vista.admisionEmergencia.FrmFormatoEmergencia.pnlEObservación;
-import static vista.cuentaPorPagar.VentasConsolidado.Facturador;
+import static vista.cuentaPorPagar.VentasConsolidado.Facturado;
 /**
  *
  * @author PC02
@@ -103,7 +103,7 @@ public class Facturador extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent e)
             {
                 dispose();
-                Facturador = false;
+                Facturado = false;
             }
         });
         cerrar();
@@ -115,7 +115,7 @@ public class Facturador extends javax.swing.JFrame {
             addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e){
                     dispose();
-                    Facturador = false;
+                    Facturado = false;
                 }
         });
             this.setVisible(true);

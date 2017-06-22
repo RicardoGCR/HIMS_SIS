@@ -1621,16 +1621,16 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             TB_TURNOS_UO.getColumnModel().getColumn(9).setPreferredWidth(150);
             TB_TURNOS_UO.getColumnModel().getColumn(10).setPreferredWidth(100);
             //Ocultar
-//            TB_TURNOS_UO.getColumnModel().getColumn(2).setMinWidth(0);
-//            TB_TURNOS_UO.getColumnModel().getColumn(2).setMaxWidth(0);    
-//            TB_TURNOS_UO.getColumnModel().getColumn(3).setMinWidth(0);
-//            TB_TURNOS_UO.getColumnModel().getColumn(3).setMaxWidth(0);
-//            TB_TURNOS_UO.getColumnModel().getColumn(4).setMinWidth(0);
-//            TB_TURNOS_UO.getColumnModel().getColumn(4).setMaxWidth(0); 
-//            TB_TURNOS_UO.getColumnModel().getColumn(9).setMinWidth(0);
-//            TB_TURNOS_UO.getColumnModel().getColumn(9).setMaxWidth(0);
-//            TB_TURNOS_UO.getColumnModel().getColumn(10).setMinWidth(0);
-//            TB_TURNOS_UO.getColumnModel().getColumn(10).setMaxWidth(0);
+            TB_TURNOS_UO.getColumnModel().getColumn(2).setMinWidth(0);
+            TB_TURNOS_UO.getColumnModel().getColumn(2).setMaxWidth(0);    
+            TB_TURNOS_UO.getColumnModel().getColumn(3).setMinWidth(0);
+            TB_TURNOS_UO.getColumnModel().getColumn(3).setMaxWidth(0);
+            TB_TURNOS_UO.getColumnModel().getColumn(4).setMinWidth(0);
+            TB_TURNOS_UO.getColumnModel().getColumn(4).setMaxWidth(0); 
+            TB_TURNOS_UO.getColumnModel().getColumn(9).setMinWidth(0);
+            TB_TURNOS_UO.getColumnModel().getColumn(9).setMaxWidth(0);
+            TB_TURNOS_UO.getColumnModel().getColumn(10).setMinWidth(0);
+            TB_TURNOS_UO.getColumnModel().getColumn(10).setMaxWidth(0);
     }
     
     public void formatoPersonal_ROL(){        

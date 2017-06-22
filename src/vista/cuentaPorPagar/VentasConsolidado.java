@@ -31,28 +31,15 @@ DefaultTableModel m;
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
         
-        spProcedimientos.setVisible(false);
-
-        spLaboratorio.setVisible(false);
-        spRayos.setVisible(false);
-        lblProcedimientos.setVisible(false);
-        lblLaboratorio.setVisible(false);
-        lblRayos.setVisible(false);
+       if(tbCabecera.getRowCount()==0){
+                habilitarDatos(false);
+                
+            }
     }
     
     public void habilitarDatos(boolean opcion){
-        spProcedimientos.setVisible(opcion);
+        jScrollPane1.setVisible(opcion);
         spCabecera.setVisible(opcion);
-        spLaboratorio.setVisible(opcion);
-        spRayos.setVisible(opcion);
-        spEcografias.setVisible(opcion);
-        spCabecera.setVisible(opcion);
-        tbProcedimientos.setVisible(opcion);
-        tbCabecera.setVisible(opcion);
-        tbLaboratorio.setVisible(opcion);
-        tbRayos.setVisible(opcion);
-        tbEcografias.setVisible(opcion);
-        tbFarmacia.setVisible(opcion);
     }
     
     public void BusquedaDet(){
@@ -607,6 +594,14 @@ DefaultTableModel m;
                                             }
                                         });
                                         spCabecera.setViewportView(tbCabecera);
+                                        if (tbCabecera.getColumnModel().getColumnCount() > 0) {
+                                            tbCabecera.getColumnModel().getColumn(0).setHeaderValue("Title 1");
+                                            tbCabecera.getColumnModel().getColumn(1).setHeaderValue("Title 2");
+                                            tbCabecera.getColumnModel().getColumn(2).setResizable(false);
+                                            tbCabecera.getColumnModel().getColumn(2).setHeaderValue("Title 3");
+                                            tbCabecera.getColumnModel().getColumn(3).setResizable(false);
+                                            tbCabecera.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+                                        }
 
                                         jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
@@ -862,8 +857,9 @@ DefaultTableModel m;
     private void txPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txPacienteCaretUpdate
         CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
         if (!txPaciente.getText().equals("")){
-            habilitarDatos(true);
+//            habilitarDatos(true);
             cabecera1.ventasConsolidadoCabecera(tbCabecera);
+//            
             
 //            jScrollPane7.setVisible(true);
 //            jScrollPane8.setVisible(true);
@@ -883,6 +879,18 @@ DefaultTableModel m;
 //            bus1.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 14)));
 //            BusquedaDet();
             ////////////////////////////////////////
+            if(tbCabecera.getRowCount()==0){
+                habilitarDatos(false);
+                
+            }else if(tbCabecera.getRowCount()>0){
+             habilitarDatos(true);
+
+//            spFarmacia.setVisible(true);
+//            lblProcedimientos.setVisible(true);
+//            lblLaboratorio.setVisible(true);
+//            lblRayos.setVisible(true);
+                
+            }
 
         }if (txPaciente.getText().length()==0){
             habilitarDatos(false);
@@ -952,18 +960,6 @@ DefaultTableModel m;
         // TODO add your handling code here:
     }//GEN-LAST:event_tbLaboratorioKeyPressed
 
-    private void tb_Grupo8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo8MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo8MouseClicked
-
-    private void tb_Grupo8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo8MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo8MousePressed
-
-    private void tb_Grupo8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo8KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo8KeyPressed
-
     private void tbRayosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbRayosMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tbRayosMouseClicked
@@ -999,6 +995,18 @@ DefaultTableModel m;
     private void tbFarmaciaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbFarmaciaKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_tbFarmaciaKeyPressed
+
+    private void tb_Grupo8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo8KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tb_Grupo8KeyPressed
+
+    private void tb_Grupo8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo8MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tb_Grupo8MousePressed
+
+    private void tb_Grupo8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo8MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tb_Grupo8MouseClicked
 
     /**
      * @param args the command line arguments

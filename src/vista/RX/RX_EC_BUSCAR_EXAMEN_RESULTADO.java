@@ -7,6 +7,7 @@ package vista.RX;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.math.BigDecimal;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.sql.CallableStatement;
@@ -274,7 +275,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        jLabel5.setText("Cod. Doc.:");
+        jLabel5.setText("Cod. Exa.:");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         jLabel6.setText("DNI:");
@@ -624,7 +625,6 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             }
         ));
         tb_Examenes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tb_Examenes.setComponentPopupMenu(jPopupMenu1);
         tb_Examenes.setRowHeight(30);
         tb_Examenes.setSelectionBackground(new java.awt.Color(34, 113, 179));
         tb_Examenes.getTableHeader().setReorderingAllowed(false);
@@ -930,20 +930,35 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             //detalle
             String consulta="";
             tb_Detalle.setModel(new DefaultTableModel());
-            String titulos[]={"Cod. Documento Det.","Cod. Nomenclatura","Descripción Nomenclatura"};
+            String titulos[]={"Cod. Documento Det.","Cod. Nomenclatura","Descripción Nomenclatura",
+                           "Incidencia" ,"Placas Usadas", "Medida","Producto"};
             m5=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m5);
-            String fila[]=new String[3];
+            String fila[]=new String[7];
             Usuario obj=new Usuario();
             consulta="exec RX_EC_VER_DETALLE_EXAMEN ?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, txtDocumento.getText());
             ResultSet r= cmd.executeQuery();
+            int usado = 0;
             while(r.next()){
-            for (int i=0; i<3; i++){
-            fila[i]=r.getString(i+1);
-            }
-                m5.addRow(fila);
+//            for (int i=0; i<7; i++){
+                        fila[0]=r.getString(1);
+                        fila[1]=r.getString(2); 
+                        fila[2]=r.getString(3); 
+                        fila[3]=r.getString(4);
+                        
+                        usado = (r.getInt(5));
+                
+                        BigDecimal bd2 = new BigDecimal(usado);
+
+                        bd2 = bd2.setScale(0, BigDecimal.ROUND_HALF_UP);
+                        
+                        fila[4]="0" + bd2;
+                        fila[5]=r.getString(6); 
+                        fila[6]=r.getString(7);
+//            }
+                        m5.addRow(fila);
             }
             tb_Detalle.setModel(m5);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m5);

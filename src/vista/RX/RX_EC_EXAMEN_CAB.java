@@ -79,6 +79,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         txtPersonalExamen.setEnabled(false);
         txtPersonalRegistraExamen.setEnabled(false);
         visible();
+        btnGuardarCabeceraEx.setEnabled(false);
 //        btnPersonalSolicita.setEnabled(false);
 //        btnGuardarDetalle.setEnabled(false);
                 
@@ -659,12 +660,12 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addGap(25, 25, 25)
                 .addComponent(jLabel4)
                 .addGap(3, 3, 3)
-                .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(3, 3, 3)
-                .addComponent(txtHC, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addComponent(txtHC, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addGap(3, 3, 3)
                 .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -679,8 +680,8 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 .addGap(25, 25, 25)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addComponent(txtFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1231,6 +1232,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                 txtPersonalExamen.setText(String.valueOf(apep + " " + apem + " " + nom));
                 lblCod_Per.setText(String.valueOf(tb_Personal_rol.getValueAt(fila, 1)));
                 btnPersonalSolicita.requestFocus();
+                btnGuardarCabeceraEx.setEnabled(true);
             }else{
                 if(lblPerB.getText().equalsIgnoreCase("B2")){
                     txtPersonalRegistraExamen.setText(String.valueOf(apep + " " + apem + " " + nom));
@@ -1745,10 +1747,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
             tb_examen_det.getColumnModel().getColumn(0).setPreferredWidth(80); 
             tb_examen_det.getColumnModel().getColumn(1).setPreferredWidth(130);
             tb_examen_det.getColumnModel().getColumn(2).setPreferredWidth(350);
-            tb_examen_det.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_examen_det.getColumnModel().getColumn(3).setPreferredWidth(100);
             tb_examen_det.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tb_examen_det.getColumnModel().getColumn(5).setPreferredWidth(150);
-            tb_examen_det.getColumnModel().getColumn(6).setPreferredWidth(250);
+            tb_examen_det.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tb_examen_det.getColumnModel().getColumn(6).setPreferredWidth(300);
             //Ocultar
             tb_examen_det.getColumnModel().getColumn(0).setMinWidth(0);
             tb_examen_det.getColumnModel().getColumn(0).setMaxWidth(0);    
@@ -1787,30 +1789,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         fila[4]="0" + bd2;
                         fila[5]=r.getString(6); 
                         fila[6]=r.getString(7);
-//                        }
-//                        String a = "sql";
-//                        String texto = "lenguaje sql";
-//                        int intIndex = texto.indexOf(a);
 //                      
-//                        String medida="";
-//                        String med1 ="";
-//                        String cadenaDondeBuscar = r.getString(5);
-//                        String loQueQuieroBuscar = "TAMAÑO";
-//                        med1 = loQueQuieroBuscar.substring(0,loQueQuieroBuscar.length());
-//                       
-//                        int lqb = loQueQuieroBuscar.length();
-//                        int a;
-//                        a=Integer.parseInt(med1);
-//                        String[] palabras = loQueQuieroBuscar.split("\\s+");
-//                        for (String palabra : palabras) {
-//                            if (cadenaDondeBuscar.contains(palabra)) {
-//                                System.out.println("Encontrado");
-//                                medida = cadenaDondeBuscar.substring(a,15);
-//                                
-//                                System.out.println("valor" + medida);
-//                                //aquí tu lógica en caso que se haya encontrado...
-//                            }
-//                        }
                         
                           m3.addRow(fila);
                         }

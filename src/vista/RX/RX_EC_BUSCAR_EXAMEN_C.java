@@ -7,6 +7,7 @@ package vista.RX;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.math.BigDecimal;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.sql.CallableStatement;
@@ -189,7 +190,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         ));
         tb_Detalle.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Detalle.setRowHeight(25);
-        tb_Detalle.setSelectionBackground(new java.awt.Color(40, 112, 99));
+        tb_Detalle.setSelectionBackground(new java.awt.Color(34, 113, 179));
         tb_Detalle.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tb_Detalle);
 
@@ -307,6 +308,7 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
         txtHC.setEnabled(false);
 
         txtNombres.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        txtNombres.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNombres.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -924,11 +926,25 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, txtDocumento.getText());
             ResultSet r= cmd.executeQuery();
+            int usado = 0;
             while(r.next()){
-            for (int i=0; i<7; i++){
-            fila[i]=r.getString(i+1);
-            }
-                m5.addRow(fila);
+//            for (int i=0; i<7; i++){
+                        fila[0]=r.getString(1);
+                        fila[1]=r.getString(2); 
+                        fila[2]=r.getString(3); 
+                        fila[3]=r.getString(4);
+                        
+                        usado = (r.getInt(5));
+                
+                        BigDecimal bd2 = new BigDecimal(usado);
+
+                        bd2 = bd2.setScale(0, BigDecimal.ROUND_HALF_UP);
+                        
+                        fila[4]="0" + bd2;
+                        fila[5]=r.getString(6); 
+                        fila[6]=r.getString(7);
+//            }
+                        m5.addRow(fila);
             }
             tb_Detalle.setModel(m5);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m5);
@@ -1212,15 +1228,15 @@ static RX_EC_BUSCAR_EXAMEN_CAJA DT = new RX_EC_BUSCAR_EXAMEN_CAJA();
     public void formatoVerDetalle(){        
                   
             tb_Detalle.getColumnModel().getColumn(0).setPreferredWidth(80); 
-            tb_Detalle.getColumnModel().getColumn(1).setPreferredWidth(100);
-            tb_Detalle.getColumnModel().getColumn(2).setPreferredWidth(350);
-            tb_Detalle.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_Detalle.getColumnModel().getColumn(1).setPreferredWidth(120);
+            tb_Detalle.getColumnModel().getColumn(2).setPreferredWidth(400);
+            tb_Detalle.getColumnModel().getColumn(3).setPreferredWidth(100);
             tb_Detalle.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tb_Detalle.getColumnModel().getColumn(5).setPreferredWidth(150);
-            tb_Detalle.getColumnModel().getColumn(6).setPreferredWidth(250);
+            tb_Detalle.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tb_Detalle.getColumnModel().getColumn(6).setPreferredWidth(300);
             //Ocultar
-//            tb_Detalle.getColumnModel().getColumn(0).setMinWidth(0);
-//            tb_Detalle.getColumnModel().getColumn(0).setMaxWidth(0);    
+            tb_Detalle.getColumnModel().getColumn(0).setMinWidth(0);
+            tb_Detalle.getColumnModel().getColumn(0).setMaxWidth(0);    
                       
     }
     

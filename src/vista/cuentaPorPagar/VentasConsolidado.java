@@ -41,6 +41,18 @@ public class VentasConsolidado extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
+<<<<<<< HEAD
+        
+       if(tbCabecera.getRowCount()==0){
+                habilitarDatos(false);
+                
+            }
+    }
+    
+    public void habilitarDatos(boolean opcion){
+        jScrollPane1.setVisible(opcion);
+        spCabecera.setVisible(opcion);
+=======
         txtDni.requestFocus();
         pnlVentas.setVisible(false);
         cbxActoMedico.setBackground(Color.white);
@@ -62,6 +74,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
             }
         });
         cerrar();
+>>>>>>> 8ab130461fee646e9653f9ee3f176d97ca8775a8
     }
     
     public void cerrar (){
@@ -463,7 +476,51 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         );
 
+<<<<<<< HEAD
+                                        spCabecera.setBorder(null);
+
+                                        tbCabecera.setModel(new javax.swing.table.DefaultTableModel(
+                                            new Object [][] {
+                                                {null, null, null, null},
+                                                {null, null, null, null},
+                                                {null, null, null, null},
+                                                {null, null, null, null}
+                                            },
+                                            new String [] {
+                                                "Title 1", "Title 2", "Title 3", "Title 4"
+                                            }
+                                        ));
+                                        tbCabecera.setGridColor(new java.awt.Color(255, 255, 255));
+                                        tbCabecera.setRowHeight(25);
+                                        tbCabecera.setSelectionBackground(new java.awt.Color(41, 127, 184));
+                                        tbCabecera.getTableHeader().setReorderingAllowed(false);
+                                        tbCabecera.addMouseListener(new java.awt.event.MouseAdapter() {
+                                            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                                tbCabeceraMouseClicked(evt);
+                                            }
+                                            public void mousePressed(java.awt.event.MouseEvent evt) {
+                                                tbCabeceraMousePressed(evt);
+                                            }
+                                        });
+                                        tbCabecera.addKeyListener(new java.awt.event.KeyAdapter() {
+                                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                                tbCabeceraKeyPressed(evt);
+                                            }
+                                        });
+                                        spCabecera.setViewportView(tbCabecera);
+                                        if (tbCabecera.getColumnModel().getColumnCount() > 0) {
+                                            tbCabecera.getColumnModel().getColumn(0).setHeaderValue("Title 1");
+                                            tbCabecera.getColumnModel().getColumn(1).setHeaderValue("Title 2");
+                                            tbCabecera.getColumnModel().getColumn(2).setResizable(false);
+                                            tbCabecera.getColumnModel().getColumn(2).setHeaderValue("Title 3");
+                                            tbCabecera.getColumnModel().getColumn(3).setResizable(false);
+                                            tbCabecera.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+                                        }
+
+                                        jScrollPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+=======
                                         spDetalle.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+>>>>>>> 8ab130461fee646e9653f9ee3f176d97ca8775a8
 
                                         spProcedimientos.setBorder(null);
 
@@ -845,6 +902,58 @@ public class VentasConsolidado extends javax.swing.JFrame {
                                         pack();
                                     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+     
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void txPacienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txPacienteCaretUpdate
+        CuentasPorPagarVentasConsolidadoCabecera cabecera1 = new CuentasPorPagarVentasConsolidadoCabecera();
+        if (!txPaciente.getText().equals("")){
+//            habilitarDatos(true);
+            cabecera1.ventasConsolidadoCabecera(tbCabecera);
+//            
+            
+//            jScrollPane7.setVisible(true);
+//            jScrollPane8.setVisible(true);
+//            jScrollPane10.setVisible(true);
+            lblProcedimientos.setVisible(true);
+            lblLaboratorio.setVisible(true);
+            lblRayos.setVisible(true);
+
+            int fila = tbCabecera.getSelectedRow();
+            tbCabecera.getSelectionModel().setSelectionInterval (0,0) ;
+   
+//            lblActoMedico.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 13)));
+//            lblApellidos.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
+//            lblDNI.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 3)));
+//            lblHC.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 4)));
+//            
+//            bus1.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 14)));
+//            BusquedaDet();
+            ////////////////////////////////////////
+            if(tbCabecera.getRowCount()==0){
+                habilitarDatos(false);
+                
+            }else if(tbCabecera.getRowCount()>0){
+             habilitarDatos(true);
+
+//            spFarmacia.setVisible(true);
+//            lblProcedimientos.setVisible(true);
+//            lblLaboratorio.setVisible(true);
+//            lblRayos.setVisible(true);
+                
+            }
+
+        }if (txPaciente.getText().length()==0){
+            habilitarDatos(false);
+            spFarmacia.setVisible(false);
+            lblProcedimientos.setVisible(false);
+            lblLaboratorio.setVisible(false);
+            lblRayos.setVisible(false);
+        }      
+    }//GEN-LAST:event_txPacienteCaretUpdate
+=======
     private void txtDniCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDniCaretUpdate
         listarActoMedico(txtDni.getText());
         if(cbxActoMedico.getItemCount()!=0){
@@ -872,6 +981,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
             pnlVentas.setVisible(false);
         }
     }//GEN-LAST:event_txtDniCaretUpdate
+>>>>>>> 8ab130461fee646e9653f9ee3f176d97ca8775a8
 
     private void T3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3ActionPerformed
 
@@ -949,18 +1059,6 @@ public class VentasConsolidado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tbLaboratorioKeyPressed
 
-    private void tb_Grupo8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo8MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo8MouseClicked
-
-    private void tb_Grupo8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo8MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo8MousePressed
-
-    private void tb_Grupo8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo8KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tb_Grupo8KeyPressed
-
     private void tbRayosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbRayosMouseClicked
         if(evt.getClickCount()==1){
             tbLaboratorio.setCellSelectionEnabled(false);
@@ -1030,6 +1128,19 @@ public class VentasConsolidado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tbFarmaciaKeyPressed
 
+<<<<<<< HEAD
+    private void tb_Grupo8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Grupo8KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tb_Grupo8KeyPressed
+
+    private void tb_Grupo8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo8MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tb_Grupo8MousePressed
+
+    private void tb_Grupo8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_Grupo8MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tb_Grupo8MouseClicked
+=======
     private void txtActoMedicoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtActoMedicoCaretUpdate
         buscarVentas();
     }//GEN-LAST:event_txtActoMedicoCaretUpdate
@@ -1126,6 +1237,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
         }
         actualizarEstadoFacturacion(tbFarmacia);
     }//GEN-LAST:event_btnFacturarFarmaciaActionPerformed
+>>>>>>> 8ab130461fee646e9653f9ee3f176d97ca8775a8
 
     /**
      * @param args the command line arguments

@@ -1118,6 +1118,51 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
             System.out.println("Error: listar REPORTE CABECERA" + e.getMessage());
         }
     }
+      public void ReporteFechasCajaCabecera(String Usuario,int Desde, int Hasta,String des,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Documento","Serie - Nº Documento","Forma de Pago","Paciente","HC","C","Estado","Descuento","Total","Fecha","Hora","Am","ID","VISIBLE"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[14];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="EXEC CAJA_CONSULTAR_REPORTE_FECHAS_PC ?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Usuario);
+            cmd.setInt(2, Desde);
+            cmd.setInt(3, Hasta);
+            cmd.setString(4, des);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                fila[5]=r.getString(6);
+                fila[6]=r.getString(7);
+                fila[7]=r.getString(8);
+                fila[8]=r.getString(9);
+                fila[9]=r.getString(10);
+                fila[10]=r.getString(11);
+                fila[11]=r.getString(12);
+                fila[12]=r.getString(13);
+                fila[13]=r.getString(14);
+
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoTablaReporteCabecera(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar REPORTE FECHAS" + e.getMessage());
+        }
+    }
       
         public void ReporteDiariocajaCabeceraCC(String Servicio,JTable tabla){
         String consulta="";
@@ -1264,6 +1309,37 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
 //        
   
         tabla.setRowHeight(40);
+    }
+      public void FORMAPAGO(String Servicio,JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={null};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[1];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_BUSCAR_JERARQUIASFP ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Servicio);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                    m.addRow(fila);
+                    c++;
+            }
+            
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            
+//            tabla.setTableHeader(null);
+
+        } catch (Exception e) {
+            System.out.println("Error: listar CABECERA REPORTE" + e.getMessage());
+        }
     }
 
       

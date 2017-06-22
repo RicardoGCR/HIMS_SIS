@@ -269,7 +269,7 @@ public String codTipo(String tipo)
             tabla.getColumnModel().getColumn(1).setMaxWidth(0);
             tabla.getColumnModel().getColumn(2).setMinWidth(0);
             tabla.getColumnModel().getColumn(2).setMaxWidth(0);
-        tabla.setRowHeight(40);
+            tabla.setRowHeight(40);
         
     }
       public void FORMATO0(JTable tabla){

@@ -6699,7 +6699,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGap(0, 0, 0)
                                                                                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
+<<<<<<< HEAD
+                                                                                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+=======
                                                                                                         .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+>>>>>>> c62084ffe5ceed9bb74cbc026fa0c39cfbf256a3
                                                                                                         .addGap(0, 0, 0))
                                                                                                 );
 
@@ -7552,7 +7556,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGap(0, 0, 0)
                                                                                                         .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
+<<<<<<< HEAD
+                                                                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
+=======
                                                                                                         .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+>>>>>>> c62084ffe5ceed9bb74cbc026fa0c39cfbf256a3
                                                                                                 );
 
                                                                                                 javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -7943,7 +7951,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGap(0, 0, 0)
                                                                                                         .addComponent(panelIMprimir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
+                                                                                                        .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE))
+=======
                                                                                                         .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
+>>>>>>> c62084ffe5ceed9bb74cbc026fa0c39cfbf256a3
                                                                                                 );
 
                                                                                                 PaginasVentas.addTab("tab3", jPanel5);
@@ -8188,7 +8200,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                     .addGroup(jPanel13Layout.createSequentialGroup()
                                                                                                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
+<<<<<<< HEAD
+                                                                                                        .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE))
+=======
                                                                                                         .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE))
+>>>>>>> c62084ffe5ceed9bb74cbc026fa0c39cfbf256a3
                                                                                                 );
 
                                                                                                 PaginasVentas.addTab("tab4", jPanel13);

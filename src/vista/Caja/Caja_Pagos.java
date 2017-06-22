@@ -343,6 +343,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             lblCajaNomenclaturaPrecio.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
             lblServicioArea.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 9)));
             lblNomenclatura.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 5)));
+            lblGrupoA.setText(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 10)));
+            
             Caja_Documento_Detalle cnvd = new Caja_Documento_Detalle();
             lblVisAdmi.setText(cnvd.VisibleAdmin(lblCajaNomenclaturaPrecio.getText()));
              //////////////////////////////////////////////DESCUENTOS LA Y EC
@@ -350,6 +352,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                 CDDCD.DESCUENTO_LA_EC(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 8)),tbConsultaDESCUENTO);
             
             if(!lblVisAdmi.getText().equals("N")&& tb_CPT.getRowCount()==0){
+                System.out.println("-----------------------------------------");
+                System.out.println("VENTA VISIBLE EN ADMISION ");
         
                 if (lblNomenclatura.getText().equals("CN00767         ")){
                     
@@ -374,8 +378,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             } if(!lblVisAdmi.getText().equals("N")&& tb_CPT.getRowCount()>0){
                 AlertaRXLACJ.setVisible(true);
                 
-            }else if(lblVisAdmi.getText().equals("N")){
+            }else if(lblVisAdmi.getText().equals("N")&&(!lblGrupoA.getText().equals("LA        ")||(lblGrupoA.getText().equals("EC        ")||(lblGrupoA.getText().equals("RX        "))))){
                 lblConsultorio.setText("N");
+                System.out.println("-----------------------------------------");
+                System.out.println("VENTA NO VISIBLE EN ADMISION DIFERENTE A LA EC Y RX");
+
                 if (lblNomenclatura.getText().equals("CN00761         ")){
                     
                     
@@ -390,12 +397,29 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                     panelNumeros.setVisible(true);
                     suma();
                 }
-                
-               
-                
-                
                 ////////////////////////////////////////////////////////////////
                 
+            } if(lblVisAdmi.getText().equals("N")&&(lblGrupoA.getText().equals("LA        ")||lblGrupoA.getText().equals("EC        ")||lblGrupoA.getText().equals("RX        "))){
+                    lblConsultorio.setText("N");
+                    System.out.println("-----------------------------------------");
+                    System.out.println("VENTA NO VISIBLE EN ADMISION PUEDE SER LA EC Y RX");
+                    CONSULTAR_EXISTENCIAS_LA_EC();
+                    if(lblDescuentoContadorS.getText().equals(lblTotalItems.getText())){
+                        System.out.println("HAY INSUMOS");
+                        GuardarDetalle();
+                        panelNumeros.setVisible(true);
+                        suma();
+                                
+                    }else if(!lblDescuentoContadorS.getText().equals(lblTotalItems.getText())){
+
+                            tgDetalle=0;
+                            panelMensaje.setBackground(new Color(255,91,70));
+                            panelMensaje.setVisible(true);
+                            btnCorrectoNo.setVisible(false);
+                            btnCorrectoSi.setText("OK");
+
+                            Mensaje4.setText("No hay Insumos Suficientes Para vender este CPT");
+                    }
             }
                     
             lblMantP.setText("CP");      
@@ -444,11 +468,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             Caja_NuevaVenta CPAM= new Caja_NuevaVenta();
             Caja_NuevaVenta PM= new Caja_NuevaVenta();
             int fila=tbPacientes.getSelectedRow();
-        
 
-           
-           
-            Abonnos();
+//            Abonnos();
             BHC.dispose();
             panelDatosGenerales.setVisible(true);
             panelActoMedico.setVisible(true);
@@ -562,14 +583,30 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         return listmodel;
     }
     
-    public void DESCONTAR_INICIO(){
-                Caja_Documento_Detalle CDDDESC = new Caja_Documento_Detalle();
 
-                    if(CDDDESC.CAJA_DESCUENTO_INICIO()==true){
-                                System.out.println("SE INICIA EL TEMPRAL");
-                       } else {
-                                System.out.println("OCURRIO UN ERROR AL INICAR EL TEMPRAL");
-                       }      
+    
+     public void CONSULTAR_EXISTENCIAS_LA_EC(){
+        int s=0;
+        int n=0;
+        int total=tbConsultaDESCUENTO.getRowCount();
+    for(int i = 0; i < tbConsultaDESCUENTO.getRowCount(); i++){ 
+        Caja_Documento_Detalle CDDDESCC = new Caja_Documento_Detalle();
+//                CDDDESC.CAJA_DESCUENTO_EC_LA();
+       
+        CDDDESCC.CONSULTAR_DESCUENTOLA_EC_RX(tbConsultaDESCUENTO.getValueAt(i, 2).toString(),tbConsultaDESCUENTO.getValueAt(i, 3).toString());
+        if(lblDescuento.getText().equals("SI")){
+            s=s+1;
+     
+            
+        }else
+             if(lblDescuento.getText().equals("NO")){
+            n=n+1;
+            
+        }
+     }
+        lblDescuentoContadorS.setText(String.valueOf(s));
+        lblDescuentoContadorN.setText(String.valueOf(n));
+        lblTotalItems.setText(String.valueOf(total));
      }
     
     public void DESCONTAR_LA_EC(){
@@ -589,16 +626,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                 System.out.println("OCURRIO UN ERROR AL DESCONTAR");
                        }      
      }}
-    public void DESCONTAR_CONFIRMAR(){
-                Caja_Documento_Detalle CDDDESC = new Caja_Documento_Detalle();
 
-                    if(CDDDESC.CAJA_DESCUENTO_FIN()==true){
-                                System.out.println("SE CONFIRMA EL TEMPRAL");
-                       } else {
-                                System.out.println("OCURRIO UN ERROR AL CONFIRMAR");
-                       }      
-     }
-    
     public void EliminarDetalleVenta(){
       
         try {
@@ -1365,11 +1393,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                            if(lblConsultorio.getText().equals("S")){
                                btnBuscarCPT.setEnabled(false);
                            }else  if(!lblConsultorio.getText().equals("S")){
-                               btnBuscarCPT.setEnabled(true);
-                               
+                               btnBuscarCPT.setEnabled(true); 
                            }
                            ////////////////////////////////////////DESCUENTO
-                            if(tbConsultaDESCUENTO.getRowCount()>0){
+                           
+                            if(lblDescuentoContadorS.getText().equals(lblTotalItems.getText())){
                                 Caja_Documento_Detalle IDD = new Caja_Documento_Detalle();
                                 IDD.UltimoID_LA_EC(lblusu.getText()); 
 //                                DESCONTAR_INICIO();
@@ -1378,8 +1406,10 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
 //                                DESCONTAR_CONFIRMAR();
                                 
-                            }else if(tbConsultaDESCUENTO.getRowCount()==0){
-                                System.out.println("LA CONSULTA DE DESCUENTO NO DEVOLVIO RESULTADOS");
+                            }else if(!lblDescuentoContadorS.getText().equals(lblTotalItems.getText())){
+                                    
+
+                                    System.out.println("No SE HA DESCONTADO NADA");
                             }
                            /////////////////////////////////////////////////////
                            
@@ -1399,6 +1429,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                             panelTablaCPT.setVisible(true);
 
                             btnImprimir.setEnabled(true);
+//                            DefaultTableModel modelo1 = (DefaultTableModel)tbConsultaDESCUENTO.getModel(); 
+//                            int b=tbConsultaDESCUENTO.getRowCount();
+//                            for(int j=0;j<b;j++){
+//                                        modelo1.removeRow(0);
+//                            }
 
                        } else {
                                 panelMensaje.setVisible(true);
@@ -1439,9 +1474,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                            
                            ////////////////////////////////////////DESCUENTO
                             if(tbConsultaDESCUENTO.getRowCount()>0){
-                                DESCONTAR_INICIO();
                                 DESCONTAR_LA_EC();
-                                DESCONTAR_CONFIRMAR();
                                 System.out.println("SE DESCONTARA DEL KARDEX-------------------------");
                             }else if(tbConsultaDESCUENTO.getRowCount()==0){
                                 System.out.println("NO APLICA EL DESCUENTO PARA ESTE CPT");
@@ -2248,6 +2281,11 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                     jScrollPane24 = new javax.swing.JScrollPane();
                                                                                     tbConsultaDESCUENTO = new javax.swing.JTable();
                                                                                     lblID_DETALLE_VENTA = new javax.swing.JLabel();
+                                                                                    lblGrupoA = new javax.swing.JLabel();
+                                                                                    lblDescuento = new javax.swing.JLabel();
+                                                                                    lblDescuentoContadorS = new javax.swing.JLabel();
+                                                                                    lblTotalItems = new javax.swing.JLabel();
+                                                                                    lblDescuentoContadorN = new javax.swing.JLabel();
                                                                                     panelMensaje = new javax.swing.JPanel();
                                                                                     Mensaje4 = new javax.swing.JLabel();
                                                                                     btnCorrectoSi = new javax.swing.JButton();
@@ -6750,6 +6788,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
 
                                                                                                 lblCPT.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
                                                                                                 lblCPT.setForeground(new java.awt.Color(51, 51, 51));
+                                                                                                lblCPT.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                                                                                                 lblCPT.setText("CPT");
 
                                                                                                 panelNumeros.setBackground(new java.awt.Color(214, 217, 223));
@@ -6963,7 +7002,23 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                 });
                                                                                                 jScrollPane24.setViewportView(tbConsultaDESCUENTO);
 
+                                                                                                lblID_DETALLE_VENTA.setForeground(new java.awt.Color(255, 255, 255));
                                                                                                 lblID_DETALLE_VENTA.setText("jLabel36");
+
+                                                                                                lblGrupoA.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                lblGrupoA.setText("jLabel36");
+
+                                                                                                lblDescuento.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                lblDescuento.setText("jLabel36");
+
+                                                                                                lblDescuentoContadorS.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                lblDescuentoContadorS.setText("jLabel36");
+
+                                                                                                lblTotalItems.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                lblTotalItems.setText("jLabel36");
+
+                                                                                                lblDescuentoContadorN.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                                lblDescuentoContadorN.setText("jLabel36");
 
                                                                                                 javax.swing.GroupLayout panelDatosGeneralesLayout = new javax.swing.GroupLayout(panelDatosGenerales);
                                                                                                 panelDatosGenerales.setLayout(panelDatosGeneralesLayout);
@@ -6986,8 +7041,20 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                         .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                        .addComponent(lblID_DETALLE_VENTA)
-                                                                                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                        .addGroup(panelDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                            .addGroup(panelDatosGeneralesLayout.createSequentialGroup()
+                                                                                                                .addGroup(panelDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                    .addComponent(lblID_DETALLE_VENTA)
+                                                                                                                    .addComponent(lblGrupoA)
+                                                                                                                    .addComponent(lblDescuento))
+                                                                                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                            .addGroup(panelDatosGeneralesLayout.createSequentialGroup()
+                                                                                                                .addComponent(lblDescuentoContadorS)
+                                                                                                                .addGap(18, 18, 18)
+                                                                                                                .addComponent(lblDescuentoContadorN)
+                                                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                                .addComponent(lblTotalItems)
+                                                                                                                .addGap(44, 44, 44))))
                                                                                                 );
                                                                                                 panelDatosGeneralesLayout.setVerticalGroup(
                                                                                                     panelDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -7009,10 +7076,19 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                                 .addGroup(panelDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                                                                     .addComponent(jLabel14)
                                                                                                                     .addComponent(lblDireccion))
-                                                                                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                                                                                .addContainerGap(13, Short.MAX_VALUE))))
                                                                                                     .addGroup(panelDatosGeneralesLayout.createSequentialGroup()
                                                                                                         .addGap(20, 20, 20)
                                                                                                         .addComponent(lblID_DETALLE_VENTA)
+                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                        .addComponent(lblGrupoA)
+                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                        .addComponent(lblDescuento)
+                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                        .addGroup(panelDatosGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                            .addComponent(lblDescuentoContadorS)
+                                                                                                            .addComponent(lblTotalItems)
+                                                                                                            .addComponent(lblDescuentoContadorN))
                                                                                                         .addGap(0, 0, Short.MAX_VALUE))
                                                                                                 );
 
@@ -7552,7 +7628,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                         .addGap(0, 0, 0)
                                                                                                         .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                         .addGap(0, 0, 0)
-                                                                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                                                                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
                                                                                                 );
 
                                                                                                 javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -7580,7 +7656,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                                             .addComponent(lDoc)))
                                                                                                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                                                                                                         .addContainerGap()
-                                                                                                                        .addComponent(lblCPT, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                                                                        .addComponent(lblCPT, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                                                                                 .addGap(24, 24, 24)
                                                                                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                     .addComponent(lblNumeroDoc)
@@ -7591,7 +7667,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                             .addGroup(jPanel3Layout.createSequentialGroup()
                                                                                                                 .addGap(9, 9, 9)
                                                                                                                 .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                                        .addGap(0, 0, Short.MAX_VALUE))
+                                                                                                        .addGap(0, 467, Short.MAX_VALUE))
                                                                                                 );
                                                                                                 jPanel3Layout.setVerticalGroup(
                                                                                                     jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -7623,8 +7699,8 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                             .addComponent(panelFormaPago, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                            .addComponent(lblCPT)
-                                                                                                            .addComponent(panelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                            .addComponent(panelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                            .addComponent(lblCPT))
                                                                                                         .addGap(18, 18, 18)
                                                                                                         .addComponent(panelTablaCPT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                                                         .addGap(0, 0, 0)
@@ -10958,7 +11034,7 @@ PaginasVentas.setSelectedIndex(1);
     }//GEN-LAST:event_btnLista2ActionPerformed
 
     private void btnAlertConsulta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta1ActionPerformed
-        // TODO add your handling code here:
+        AlertaRXLACJ.dispose();
     }//GEN-LAST:event_btnAlertConsulta1ActionPerformed
 
     private void txtCPT1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtCPT1CaretUpdate
@@ -11395,12 +11471,16 @@ if(tbFP.getRowCount()==0){
     private javax.swing.JLabel lblDNI;
     private javax.swing.JLabel lblDes;
     private javax.swing.JLabel lblDescripcion;
+    public static javax.swing.JLabel lblDescuento;
+    private javax.swing.JLabel lblDescuentoContadorN;
+    private javax.swing.JLabel lblDescuentoContadorS;
     private javax.swing.JLabel lblDetalleId;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblEstadoPreventa;
     private javax.swing.JLabel lblFP;
     private javax.swing.JLabel lblFormaPago;
     private javax.swing.JLabel lblFua;
+    private javax.swing.JLabel lblGrupoA;
     private javax.swing.JLabel lblHC;
     private javax.swing.JLabel lblHc;
     public static javax.swing.JLabel lblID_DETALLE_VENTA;
@@ -11438,6 +11518,7 @@ if(tbFP.getRowCount()==0){
     public static javax.swing.JLabel lblTotalAnulado;
     public static javax.swing.JLabel lblTotalContado;
     public static javax.swing.JLabel lblTotalDiario;
+    private javax.swing.JLabel lblTotalItems;
     public static javax.swing.JLabel lblTotalPendiente;
     private javax.swing.JLabel lblTurno;
     private javax.swing.JLabel lblUsuPorcentaje;

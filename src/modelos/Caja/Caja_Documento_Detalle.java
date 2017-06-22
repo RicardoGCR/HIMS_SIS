@@ -325,6 +325,25 @@ public void DetalleID(String ap_id){
         }
     }
     
+    public void CONSULTAR_DESCUENTOLA_EC_RX(String ap_id,String ap_id2){
+        String consulta="";
+        try {
+            consulta="CAJA_CONSULTAR_EXISTENCIAS_LA_EC_RX ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, ap_id);
+            cmd.setString(2, ap_id2);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){  
+            /////////Referida
+                Caja_Pagos.lblDescuento.setText(r.getString(1));    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTA DE DESCUENTO EXISTENCIAS " + e.getMessage());
+        }
+    }
+    
 public void Detalle(String codigo,JTable tabla){
 //    tabla.getTableHeader().setVisible(false);
 //    tabla.setTableHeader(null);

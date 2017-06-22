@@ -83,10 +83,9 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         lblA.setVisible(false);
         lblRegistro.setVisible(false);
         lblPerB.setVisible(false);
-//        EP_Descripcion.setEnabled(false);
-//        EP_CONCLUSION.setEnabled(false);
-//        btnBuscarCIE10.setEnabled(false);
-//        btnGuardarDetalleRes.setEnabled(false);
+        EP_Descripcion.setEnabled(false);
+        EP_CONCLUSION.setEnabled(false);
+        btnBuscarCIE10.setEnabled(false);
         
           tb_examen_det.setEnabled(true);
           tb_examen_det.setBackground(Color.lightGray);
@@ -1669,7 +1668,9 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         int filaselec=tb_examen_det.getSelectedRow();
                             
                             txtID_COD_DOC.setText(tb_examen_det.getValueAt(filaselec, 0).toString());
-                            
+                            EP_Descripcion.setEnabled(true);
+                            EP_CONCLUSION.setEnabled(true);
+                            btnBuscarCIE10.setEnabled(true);
                                                     
                         }
                         EP_Descripcion.requestFocus();
@@ -1746,6 +1747,9 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
         if(txtCAB_RESULTADO.getText().equalsIgnoreCase("")){
             guardar_resultado_cabecera();   
             mostrar_VER_DETALLE_RESULTADO();
+            EP_Descripcion.setEnabled(false);
+            EP_CONCLUSION.setEnabled(false);
+            btnBuscarCIE10.setEnabled(false);
 //            mostrar_VER_DETALLE_EC();    
             
        }else{
@@ -1757,6 +1761,9 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         RX_EC_ESTADO_RESULTADO_MODIFICAR();
                         GUARDAR_RESULTADO_DETALLE_RX_CONC();
                         mostrar_VER_DETALLE_RESULTADO();
+                        EP_Descripcion.setEnabled(false);
+                        EP_CONCLUSION.setEnabled(false);
+                        btnBuscarCIE10.setEnabled(false);
                     }
         }
         
@@ -2129,14 +2136,17 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
     public void formatoExamen_detalle(){                    
             tb_examen_det.getColumnModel().getColumn(0).setPreferredWidth(80); 
             tb_examen_det.getColumnModel().getColumn(1).setPreferredWidth(130);
-            tb_examen_det.getColumnModel().getColumn(2).setPreferredWidth(400);
-            tb_examen_det.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_examen_det.getColumnModel().getColumn(2).setPreferredWidth(350);
+            tb_examen_det.getColumnModel().getColumn(3).setPreferredWidth(100);
             tb_examen_det.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tb_examen_det.getColumnModel().getColumn(5).setPreferredWidth(250);
+            tb_examen_det.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tb_examen_det.getColumnModel().getColumn(6).setPreferredWidth(300);
             //Ocultar
             tb_examen_det.getColumnModel().getColumn(0).setMinWidth(0);
             tb_examen_det.getColumnModel().getColumn(0).setMaxWidth(0);    
     }
+    
+    
     
     public void mostrar_VER_DETALLE_RESULTADO(){
         try {
@@ -2145,10 +2155,10 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         String consulta="";
                         tb_examen_det.setModel(new DefaultTableModel());
                         String titulos[]={"Cod. Documento Det.","Cod. Nomenclatura","Descripción Nomenclatura",
-                        "Incidencia","Placas Usadas","Medidas"};
+                        "Incidencia","Placas Usadas","Medida","Producto"};
                         m3=new DefaultTableModel(null,titulos);
                         JTable p=new JTable(m3);
-                        String fila[]=new String[6];
+                        String fila[]=new String[7];
                         Usuario obj=new Usuario();
                         consulta="exec RX_EC_VER_DETALLE_RESULTADO ?";
                         PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
@@ -2169,6 +2179,7 @@ static RX_EC_EXAMEN DT = new RX_EC_EXAMEN();
                         
                         fila[4]="0" + bd2;
                         fila[5]=r.getString(6); 
+                        fila[6]=r.getString(7);
 //                        }
 //                        String a = "sql";
 //                        String texto = "lenguaje sql";

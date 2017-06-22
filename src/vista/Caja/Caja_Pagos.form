@@ -7240,7 +7240,7 @@
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="213" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="jScrollPane7" pref="368" max="32767" attributes="0"/>
+                      <Component id="jScrollPane7" pref="363" max="32767" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -9043,7 +9043,7 @@
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="jPanel36" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="jScrollPane4" pref="31" max="32767" attributes="0"/>
+                          <Component id="jScrollPane4" pref="26" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -9188,7 +9188,7 @@
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="panelIMprimir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane11" pref="515" max="32767" attributes="0"/>
+                      <Component id="jScrollPane11" pref="510" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -9780,7 +9780,7 @@
                   <Group type="102" attributes="0">
                       <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="jScrollPane12" pref="579" max="32767" attributes="0"/>
+                      <Component id="jScrollPane12" pref="574" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

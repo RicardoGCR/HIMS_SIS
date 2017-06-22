@@ -1842,7 +1842,7 @@ DefaultTableModel m , m1, m2, m3, m4, m5;
     }
     
     
-        public DefaultComboBoxModel ServicioConsultaExterna()
+    public DefaultComboBoxModel ServicioConsultaExterna()
     {
         DefaultComboBoxModel  listmodel = new DefaultComboBoxModel ();        
          

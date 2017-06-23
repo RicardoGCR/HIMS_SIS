@@ -421,7 +421,7 @@ public void Detalle(String codigo,JTable tabla){
     }
 
     
-    public void DESCUENTO_LA_EC(String codigo,JTable tabla){
+    public void DESCUENTO_LA_EC(String codigo,String Grupo,JTable tabla){
 //    tabla.getTableHeader().setVisible(false);
 //    tabla.setTableHeader(null);
     String consulta="";
@@ -432,9 +432,10 @@ public void Detalle(String codigo,JTable tabla){
             JTable p=new JTable(m);
             String fila[]=new String[4];
             //int index = cbxTipoBusqueda.getSelectedIndex();
-            consulta="CAJA_CONSULTAR_INSUMOS_LA ?";
+            consulta="CAJA_CONSULTAR_INSUMOS_LA ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
             cmd.setString(1, codigo);
+            cmd.setString(2, Grupo);
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){

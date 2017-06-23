@@ -55,18 +55,20 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
         jTabbedPane1.setEnabledAt(0,false);
         jTabbedPane1.setEnabledAt(1, false);
         cbxMoneda.setBackground(Color.WHITE);
+        cbxTipoDoc.setBackground(Color.WHITE);
         jTabbedPane1.setSelectedIndex(1); 
         cargareliminar.setVisible(false);
         txtcodigo.setVisible(false);
+        btnLista.setVisible(false);
 
     }
     
      public void LISTAR(){
     try {
-        String titulos[]={"Codigo","Forma de Pago","Distrito","Representante","RUC","Direccion","Telefono","","","","Correo","Moneda","Código Fiscal"};
+        String titulos[]={"Codigo","Forma de Pago","Distrito","Representante","Nº Documento","Tipo Documento","Direccion","Telefono","","","","Correo","Moneda","Código Fiscal"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[13];
+            String fila[]=new String[14];
 
             Conexion obj = new Conexion();  
         String consulta="exec Caja_EmpresaJerarquiaFP_LISTAR";
@@ -87,6 +89,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                 fila[10]=r.getString(11);
                 fila[11]=r.getString(12);
                 fila[12]=r.getString(13);
+                fila[13]=r.getString(14);
 
       
                     m.addRow(fila);
@@ -168,10 +171,10 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
         String consulta="";
         try {
             tb_Grupo1.setModel(new DefaultTableModel());
-             String titulos[]={"Codigo","Forma de Pago","Distrito","Representante","RUC","Direccion","Telefono","","","","Correo","Moneda","Código Fiscal"};
+             String titulos[]={"Codigo","Forma de Pago","Distrito","Representante","Nº Documento","Tipo Documento","Direccion","Telefono","","","","Correo","Moneda","Código Fiscal"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[13];
+            String fila[]=new String[14];
 
             Caja_EmpresaJerarquia obj=new Caja_EmpresaJerarquia();
                     consulta="exec Caja_EmpresaJerarquia_BUSCAR ?";
@@ -194,6 +197,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                 fila[10]=r.getString(11);
                 fila[11]=r.getString(12);
                 fila[12]=r.getString(13);
+                fila[13]=r.getString(14);
 
                 m.addRow(fila);
                 c++;
@@ -291,17 +295,18 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
     tb_Grupo1.getColumnModel().getColumn(2).setPreferredWidth(180);
     tb_Grupo1.getColumnModel().getColumn(3).setPreferredWidth(280);
     tb_Grupo1.getColumnModel().getColumn(4).setPreferredWidth(150);
-    tb_Grupo1.getColumnModel().getColumn(5).setPreferredWidth(300);
-    tb_Grupo1.getColumnModel().getColumn(6).setPreferredWidth(150);
-    tb_Grupo1.getColumnModel().getColumn(7).setMinWidth(0);
-    tb_Grupo1.getColumnModel().getColumn(7).setMaxWidth(0);
+    tb_Grupo1.getColumnModel().getColumn(5).setPreferredWidth(150);
+    tb_Grupo1.getColumnModel().getColumn(6).setPreferredWidth(300);
+    tb_Grupo1.getColumnModel().getColumn(7).setPreferredWidth(150);
     tb_Grupo1.getColumnModel().getColumn(8).setMinWidth(0);
     tb_Grupo1.getColumnModel().getColumn(8).setMaxWidth(0);
     tb_Grupo1.getColumnModel().getColumn(9).setMinWidth(0);
     tb_Grupo1.getColumnModel().getColumn(9).setMaxWidth(0);
-    tb_Grupo1.getColumnModel().getColumn(10).setPreferredWidth(100);
-    tb_Grupo1.getColumnModel().getColumn(11).setPreferredWidth(50);
+    tb_Grupo1.getColumnModel().getColumn(10).setMinWidth(0);
+    tb_Grupo1.getColumnModel().getColumn(10).setMaxWidth(0);
+    tb_Grupo1.getColumnModel().getColumn(11).setPreferredWidth(100);
     tb_Grupo1.getColumnModel().getColumn(12).setPreferredWidth(50);
+    tb_Grupo1.getColumnModel().getColumn(13).setPreferredWidth(50);
     tb_Grupo1.setRowHeight(40);
 
 
@@ -347,6 +352,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                 cno1.setCorreo(txtCorreo.getText());//
                 cno1.setMoneda(cbxMoneda.getSelectedItem().toString());//
                 cno1.setCodF(txtCodFiscal.getText());//
+                cno1.setTipo_documento(cbxTipoDoc.getSelectedItem().toString());//
                     if(cno1.Nuevo()==true){
                            cargareliminar.setVisible(true);
                            cargareliminar.setBackground(new Color(0,153,102)); 
@@ -362,6 +368,10 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                            txtruc.setEditable(false);
                            txtdirec.setEditable(false);
                            txttelef.setEditable(false);
+                           cbxMoneda.setEnabled(false);
+                           cbxTipoDoc.setEnabled(false);
+                           txtCorreo.setEditable(false);
+                           txtCodFiscal.setEditable(false);
                            
                        } else {
                             cargareliminar.setVisible(true);
@@ -385,6 +395,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                         cno.setCorreo(txtCorreo.getText());//
                         cno.setMoneda(cbxMoneda.getSelectedItem().toString());//
                         cno.setCodF(txtCodFiscal.getText());//
+                        cno.setTipo_documento(cbxTipoDoc.getSelectedItem().toString());//
                         if(cno.modificar()==true){
                              LISTAR();
                              tge=9;
@@ -399,6 +410,10 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                              txtruc.setEditable(false);
                              txtdirec.setEditable(false);
                              txttelef.setEditable(false);
+                             cbxMoneda.setEnabled(false);
+                             cbxTipoDoc.setEnabled(false);
+                             txtCorreo.setEditable(false);
+                             txtCodFiscal.setEditable(false);
                              jTabbedPane1.setSelectedIndex(1); 
                              
                         } else {
@@ -498,6 +513,8 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                 panelCPT1 = new javax.swing.JPanel();
                 txtdistri = new javax.swing.JTextField();
                 b1 = new javax.swing.JButton();
+                cbxTipoDoc = new javax.swing.JComboBox();
+                jLabel15 = new javax.swing.JLabel();
                 jPanel2 = new javax.swing.JPanel();
                 jScrollPane3 = new javax.swing.JScrollPane();
                 tb_Grupo1 = new javax.swing.JTable(){
@@ -515,6 +532,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                     buscartodo = new javax.swing.JTextField();
                     btnBuscarPaciente = new javax.swing.JButton();
                     lbldetalle = new javax.swing.JLabel();
+                    btnLista = new javax.swing.JButton();
                     jPanel5 = new javax.swing.JPanel();
                     jLabel33 = new javax.swing.JLabel();
                     cargareliminar = new javax.swing.JPanel();
@@ -790,11 +808,16 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
 
                     jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                     jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-                    jLabel9.setText("RUC");
+                    jLabel9.setText("Tipo Documento");
 
                     txtruc.setEditable(false);
                     txtruc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
                     txtruc.setForeground(new java.awt.Color(51, 51, 51));
+                    txtruc.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyTyped(java.awt.event.KeyEvent evt) {
+                            txtrucKeyTyped(evt);
+                        }
+                    });
 
                     jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                     jLabel10.setForeground(new java.awt.Color(51, 51, 51));
@@ -823,7 +846,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                     txtCorreo.setForeground(new java.awt.Color(51, 51, 51));
 
                     cbxMoneda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                    cbxMoneda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PEN", " " }));
+                    cbxMoneda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PEN" }));
                     cbxMoneda.setEnabled(false);
 
                     jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -935,6 +958,14 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     );
 
+                    cbxTipoDoc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                    cbxTipoDoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0 Doc. Trib.NO.DOM.SIN.RUC", "1 DNI", "2 CARNET DE EXTRANJERIA", "3 RUC", "4 PASAPORTE", "5 CED.DIPLOMATICA DE IDENTIDAD" }));
+                    cbxTipoDoc.setEnabled(false);
+
+                    jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                    jLabel15.setForeground(new java.awt.Color(51, 51, 51));
+                    jLabel15.setText("Numero");
+
                     javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
                     jPanel3.setLayout(jPanel3Layout);
                     jPanel3Layout.setHorizontalGroup(
@@ -951,18 +982,23 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                                         .addComponent(jLabel11)
                                         .addComponent(jLabel12)
                                         .addComponent(jLabel13)
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(84, 84, 84)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(42, 42, 42)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                            .addComponent(cbxTipoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel15)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtruc, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txttelef, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtdirec, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtruc, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtrepre, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(panelCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(panelCPT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cbxMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(cbxMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtrepre)
+                                        .addComponent(txtdirec)))
                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                     .addComponent(jLabel14)
                                     .addGap(18, 18, 18)
@@ -975,7 +1011,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                                     .addComponent(nom)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(lbljerar)))
-                            .addContainerGap(292, Short.MAX_VALUE))
+                            .addContainerGap(188, Short.MAX_VALUE))
                     );
                     jPanel3Layout.setVerticalGroup(
                         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -999,7 +1035,9 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                             .addGap(18, 18, 18)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtruc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel9))
+                                .addComponent(jLabel9)
+                                .addComponent(cbxTipoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel15))
                             .addGap(18, 18, 18)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel10)
@@ -1203,28 +1241,46 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                     lbldetalle.setForeground(new java.awt.Color(255, 255, 255));
                     lbldetalle.setText("Empresa o Representante, RUC ");
 
+                    btnLista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+                    btnLista.setForeground(new java.awt.Color(240, 240, 240));
+                    btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Orden de compra-32.png"))); // NOI18N
+                    btnLista.setText("Listado");
+                    btnLista.setContentAreaFilled(false);
+                    btnLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                    btnLista.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                    btnLista.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+                    btnLista.setIconTextGap(30);
+                    btnLista.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+                    btnLista.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                            btnListaActionPerformed(evt);
+                        }
+                    });
+
                     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                     jPanel1.setLayout(jPanel1Layout);
                     jPanel1Layout.setHorizontalGroup(
                         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(24, 24, 24)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lbldetalle)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnguardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btneditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btneliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addContainerGap(19, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(lblusu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addContainerGap())
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(24, 24, 24)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lbldetalle)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnguardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btneditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btneliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addContainerGap(19, Short.MAX_VALUE))
                     );
                     jPanel1Layout.setVerticalGroup(
                         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1246,9 +1302,11 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                             .addComponent(btneditar)
                             .addGap(18, 18, 18)
                             .addComponent(btneliminar)
-                            .addGap(162, 162, 162)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnLista)
+                            .addGap(171, 171, 171)
                             .addComponent(lblusu)
-                            .addGap(0, 0, 0))
+                            .addContainerGap())
                     );
 
                     jPanel5.setBackground(new java.awt.Color(43, 43, 43));
@@ -1340,9 +1398,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTabbedPane1)
                                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(0, 0, 0)
-                                    .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     );
                     layout.setVerticalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1369,23 +1425,27 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
             txtdistri.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 2)));
             txtrepre.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 3)));
             txtruc.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 4)));
-            txtdirec.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
-            txttelef.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 6)));
+            cbxTipoDoc.setSelectedItem(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
+            txtdirec.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 6)));
+            txttelef.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 7)));
             
-            txtCorreo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 10)));
-            cbxMoneda.setSelectedItem(String.valueOf(tb_Grupo1.getValueAt(fila, 11)));
-            txtCodFiscal.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 12)));
+            txtCorreo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 11)));
+            cbxMoneda.setSelectedItem(String.valueOf(tb_Grupo1.getValueAt(fila, 12)));
+            txtCodFiscal.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 13)));
             
-            lbldist.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 8)));
-            lbljerar.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 7)));
+            lbldist.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 9)));
+            lbljerar.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 8)));
         txtrepre.setEditable(false);
         txtruc.setEditable(false);
         txtdirec.setEditable(false);
         txttelef.setEditable(false);
+        txtCorreo.setEditable(false);
+        txtCodFiscal.setEditable(false);       
       
         btnguardar.setEnabled(false);
         btneditar.setEnabled(true);
         btneliminar.setEnabled(true);
+ 
         b.setEnabled(false);
         b1.setEnabled(false);
             
@@ -1397,15 +1457,16 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
             txtdistri.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 2)));
             txtrepre.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 3)));
             txtruc.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 4)));
-            txtdirec.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
-            txttelef.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 6)));
+            cbxTipoDoc.setSelectedItem(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
+            txtdirec.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 6)));
+            txttelef.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 7)));
             
-            txtCorreo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 10)));
-            cbxMoneda.setSelectedItem(String.valueOf(tb_Grupo1.getValueAt(fila, 11)));
-            txtCodFiscal.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 12)));
+            txtCorreo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 11)));
+            cbxMoneda.setSelectedItem(String.valueOf(tb_Grupo1.getValueAt(fila, 12)));
+            txtCodFiscal.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 13)));
             
-            lbldist.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 8)));
-            lbljerar.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 7)));
+            lbldist.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 9)));
+            lbljerar.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 8)));
 
         btnguardar.setEnabled(false);
         btneditar.setEnabled(true);
@@ -1431,19 +1492,23 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
             txtdistri.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 2)));
             txtrepre.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 3)));
             txtruc.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 4)));
-            txtdirec.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
-            txttelef.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 6)));
-            txtCorreo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 10)));
-            cbxMoneda.setSelectedItem(String.valueOf(tb_Grupo1.getValueAt(fila, 11)));
-            txtCodFiscal.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 12)));
+            cbxTipoDoc.setSelectedItem(String.valueOf(tb_Grupo1.getValueAt(fila, 5)));
+            txtdirec.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 6)));
+            txttelef.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 7)));
             
-            lbldist.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 8)));
-            lbljerar.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 7)));
+            txtCorreo.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 11)));
+            cbxMoneda.setSelectedItem(String.valueOf(tb_Grupo1.getValueAt(fila, 12)));
+            txtCodFiscal.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 13)));
+            
+            lbldist.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 9)));
+            lbljerar.setText(String.valueOf(tb_Grupo1.getValueAt(fila, 8)));
             
         txtrepre.setEditable(false);
         txtruc.setEditable(false);
         txtdirec.setEditable(false);
         txttelef.setEditable(false);
+        txtCorreo.setEditable(false);
+        txtCodFiscal.setEditable(false);
       
         btnguardar.setEnabled(false);
         btneditar.setEnabled(true);
@@ -1463,6 +1528,8 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
         txtruc.setEditable(true);
         txtdirec.setEditable(true);
         txttelef.setEditable(true);
+        txtCorreo.setEditable(true);
+        txtCodFiscal.setEditable(true);
       
         btnguardar.setEnabled(true);
         btneditar.setEnabled(false);
@@ -1475,8 +1542,11 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
         txttelef.setText("");
         txtruc.setText("");
         txtdirec.setText("");
+        txtCorreo.setText("");
+        txtCodFiscal.setText("");
         jTabbedPane1.setSelectedIndex(0);  
         cbxMoneda.setEnabled(true);
+        cbxTipoDoc.setEnabled(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
@@ -1488,17 +1558,22 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
         txtruc.setEditable(true);
         txtdirec.setEditable(true);
         txttelef.setEditable(true);
+        txtCorreo.setEditable(false);
+        txtCodFiscal.setEditable(false);
         cbxMoneda.setEnabled(true);
+        cbxTipoDoc.setEnabled(true);
         txtCorreo.setEditable(true);
         txtCodFiscal.setEditable(true);
-        tg=2;       
+        tg=2;     
+        jLabel33.setText("Edición");
+        jTabbedPane1.setSelectedIndex(0);  
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
        if(tg==1){
             Guardar();
-            b.setVisible(false);
-            b1.setVisible(false);
+            b.setEnabled(false);
+            b1.setEnabled(false);
         }else if(tg==2){
            cargareliminar.setVisible(true);
            cargareliminar.setBackground(new Color(255,153,51)); 
@@ -1640,8 +1715,8 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
             btnguardar.setEnabled(false);
             btneditar.setEnabled(true);
             btneliminar.setEnabled(true);
-            b.setVisible(false);
-            b1.setVisible(false);
+            b.setEnabled(false);
+            b1.setEnabled(false);
 
         }
         if (tge==6){
@@ -1668,6 +1743,30 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
         }
 
     }//GEN-LAST:event_noeliActionPerformed
+
+    private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
+        jLabel33.setText("Listado");
+        LISTAR();
+        jTabbedPane1.setSelectedIndex(1);
+        btnNuevo.setEnabled(true);
+        btnguardar.setEnabled(false);
+        btneditar.setEnabled(false);
+        btneliminar.setEnabled(false);
+
+    }//GEN-LAST:event_btnListaActionPerformed
+
+    private void txtrucKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtrucKeyTyped
+          if (txtruc.getText().length()==11){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)){
+            evt.consume();
+            getToolkit().beep();            
+        }   
+    }//GEN-LAST:event_txtrucKeyTyped
 
     /**
      * @param args the command line arguments
@@ -1709,6 +1808,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
     private javax.swing.JButton b;
     private javax.swing.JButton b1;
     private javax.swing.JButton btnBuscarPaciente;
+    public static javax.swing.JButton btnLista;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnbuscar1;
     private javax.swing.JButton btnbuscar2;
@@ -1718,6 +1818,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
     public static javax.swing.JTextField buscartodo;
     private javax.swing.JPanel cargareliminar;
     private javax.swing.JComboBox cbxMoneda;
+    private javax.swing.JComboBox cbxTipoDoc;
     private javax.swing.JDialog distritos;
     private javax.swing.JButton eli;
     private javax.swing.JLabel fp;
@@ -1727,6 +1828,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;

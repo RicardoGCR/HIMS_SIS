@@ -285,7 +285,7 @@ public boolean ActualizarVenta()
         boolean resp = false;
         try
         {
-            String sql = "exec CAJA_ACTUALIZAR_VENTA_CABECERA ?,?,?,?,?,?,?";
+            String sql = "exec CAJA_ACTUALIZAR_VENTA_CABECERA ?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getId_documento());
             cmd.setDouble(2, getDESCUENTO());
@@ -294,6 +294,7 @@ public boolean ActualizarVenta()
             cmd.setString(5, getPorcentaje_Exoneracion());
             cmd.setInt(6, getId_ActoMedico());
             cmd.setString(7, getEstadoVisibleAdmision());
+            cmd.setString(8,getCod_jerar_forma_pago());
             if(!cmd.execute())
             {
                 resp = true;
@@ -736,10 +737,10 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Nomeclatura","Descripcion","Precio","Forma de Pago","Decripcion Forma Pago","","","","","","G"};
+            String titulos[]={"Nomeclatura","Descripcion","Precio","Forma de Pago","Decripcion Forma Pago","","","","",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[11];
+            String fila[]=new String[10];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="exec Caja_NomenclaturaVentaBUSCAR ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -758,7 +759,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                 fila[7]=r.getString(8);
                 fila[8]=r.getString(9);
                 fila[9]=r.getString(10);
-                fila[10]=r.getString(11);
+
                     m.addRow(fila);
                     c++;
             }
@@ -790,8 +791,6 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(8).setMaxWidth(0);
         tabla.getColumnModel().getColumn(9).setMinWidth(0);
         tabla.getColumnModel().getColumn(9).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(10).setMinWidth(0);
-        tabla.getColumnModel().getColumn(10).setMaxWidth(0);
         tabla.setRowHeight(37);
         
     }
@@ -1352,6 +1351,68 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         } catch (Exception e) {
             System.out.println("Error: listar CABECERA REPORTE" + e.getMessage());
         }
+    }
+      
+      
+      /////////////////////////////////////////////PREVENTAS
+      public void CAJA_PREVENTAS_TBC(String Texto,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Fecha","Hora","Médico Solicitante","Forma de Pago","LA Solicitado","","","","","",""};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[11];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_PREVENTAS_TBC ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Texto);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                    fila[5]=r.getString(6); 
+                    fila[6]=r.getString(7); 
+                    fila[7]=r.getString(8); 
+                    fila[8]=r.getString(9); 
+                    fila[9]=r.getString(10);  
+                    fila[10]=r.getString(11); 
+
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoPreventaTBC(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: PREVENTA TBC: " + e.getMessage());
+        }
+    }
+      public void formatoPreventaTBC(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(4).setPreferredWidth(150);
+        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(5).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(6).setMinWidth(0);
+        tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(7).setMinWidth(0);
+        tabla.getColumnModel().getColumn(7).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(10).setMinWidth(0);
+        tabla.getColumnModel().getColumn(10).setMaxWidth(0);
+        tabla.setRowHeight(40);
     }
 
       

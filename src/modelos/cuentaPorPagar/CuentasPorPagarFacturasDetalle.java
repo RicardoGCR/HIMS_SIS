@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.table.DefaultTableModel;
 import servicios.Conexion;
@@ -84,7 +85,7 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
         {
         boolean resp = false;
         try{
-            String sql = "[CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_DETALLE] ?,?,?,?,?,?,?,?,?,?,"
+            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_DETALLE ?,?,?,?,?,?,?,?,?,?,"
                     + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getCpdId());
@@ -126,6 +127,46 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
             System.out.println("Error: mantenimientoCuentasPorPagarFacturasDetalle: " + ex.getMessage());
         }
         return resp;
+    }
+    
+    public String facturaCabeceraId(){
+        String cod="";
+        try
+        {
+            String sql = "CUENTAS_POR_PAGAR_FACTURA_CABECERA_ID";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error facturaCabeceraId: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
+     public String codNomen(String nomenclatura)
+    {
+        String cod="";
+        try
+        {
+            String sql = "SELECT cod_nomen_caja FROM CAJA_NOMENCLATURA_CAJA WHERE nomen_caja = ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, nomenclatura);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error codNomen: " + ex.getMessage());
+        }
+        return cod;
     }
     
     public CuentasPorPagarFacturasDetalle() {

@@ -495,7 +495,6 @@ DefaultTableModel m;
                         lblFechaObtencion = new javax.swing.JLabel();
 
                         buscar_HC.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                        buscar_HC.setTitle("SISGESH.::.Clasificación Examen");
                         buscar_HC.setAlwaysOnTop(true);
                         buscar_HC.setMinimumSize(new java.awt.Dimension(876, 692));
                         buscar_HC.setResizable(false);
@@ -3172,14 +3171,14 @@ DefaultTableModel m;
                 txtTMEspecificar.setText("");
                 lblCodTMEspecificar.setText("");
             }
-        
+            
     }//GEN-LAST:event_txtTMOtroMouseClicked
 
     private void btnPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacienteActionPerformed
   buscar_HC.setVisible(true);
         txtbuscarHC.setText("");
-        LAB_HC_cargar();
-        LAB_HC_formato();      
+//        LAB_HC_cargar();
+//        LAB_HC_formato();      
         lblTipo.setText("1");
     }//GEN-LAST:event_btnPacienteActionPerformed
 

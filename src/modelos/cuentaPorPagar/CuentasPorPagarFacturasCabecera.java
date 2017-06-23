@@ -34,6 +34,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
     private String nom_pc;
     private String estado;
     private String cod_usu;
+    private String codigoEmpresa;
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
@@ -56,7 +57,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
         {
         boolean resp = false;
         try{
-            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_CABECERA ?,?,?,?,?,?,?,?,?,?";
+            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_CABECERA ?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId());
             cmd.setString(2, getSerie());
@@ -68,6 +69,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             cmd.setInt(8, getActoMedico());
             cmd.setString(9, getCod_usu());
             cmd.setString(10, tipo);
+            cmd.setString(11, getCodigoEmpresa());
             if(!cmd.execute())
             {
                 resp = true;
@@ -383,6 +385,20 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
      */
     public void setCorrelativo(String correlativo) {
         this.correlativo = correlativo;
+    }
+
+    /**
+     * @return the codigoEmpresa
+     */
+    public String getCodigoEmpresa() {
+        return codigoEmpresa;
+    }
+
+    /**
+     * @param codigoEmpresa the codigoEmpresa to set
+     */
+    public void setCodigoEmpresa(String codigoEmpresa) {
+        this.codigoEmpresa = codigoEmpresa;
     }
     
 }

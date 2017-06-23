@@ -38,7 +38,6 @@ byte tga;
      */
  Caja_Nomenclatura cnn = new Caja_Nomenclatura();
     public Caja_Nomenclaturas() {
-
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
@@ -48,8 +47,7 @@ byte tga;
          Unidad.getContentPane().setBackground(Color.WHITE); 
          Cta6.setLocationRelativeTo(null);//en el centro
          Cta6.getContentPane().setBackground(Color.WHITE); 
-
-     
+         
                 
         //setResizable(false);//para que no funcione el boton maximizar
         LISTAR();
@@ -162,10 +160,10 @@ byte tga;
         String consulta="";
         try {
             tb_Grupos1.setModel(new DefaultTableModel());
-             String titulos[]={"Área",""};
+             String titulos[]={"Área","","Servicio"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[2];
+            String fila[]=new String[3];
 
             Caja_Nomenclatura obj=new Caja_Nomenclatura();
                     consulta="exec buscarunidad ?";
@@ -178,6 +176,7 @@ byte tga;
            
             fila[0]=r.getString(1);
             fila[1]=r.getString(2);
+            fila[2]=r.getString(3);
 
                 m.addRow(fila);
                 c++;
@@ -297,10 +296,10 @@ byte tga;
 }
     public void LISTAR_Unidad(){
     try {
-             String titulos[]={"Área",""};
+             String titulos[]={"Área","","Servicio"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[2];
+            String fila[]=new String[3];
 
             Conexion obj = new Conexion();  
         String consulta="exec listaruinidad";
@@ -310,6 +309,7 @@ byte tga;
           while(r.next()){
                 fila[0]=r.getString(1);
                 fila[1]=r.getString(2); 
+                fila[2]=r.getString(3); 
 
                     m.addRow(fila);
                     c++;
@@ -374,7 +374,7 @@ byte tga;
     tb_Grupo1.getColumnModel().getColumn(10).setMaxWidth(0); 
     tb_Grupo1.getColumnModel().getColumn(11).setMinWidth(0);
     tb_Grupo1.getColumnModel().getColumn(11).setMaxWidth(0); 
-    tb_Grupo1.setRowHeight(30);
+    tb_Grupo1.setRowHeight(45);
     
 }
     public void formatoventanas(){
@@ -387,15 +387,18 @@ byte tga;
     tb_Grupos2.getColumnModel().getColumn(1).setPreferredWidth(250);
     tb_Grupos2.getColumnModel().getColumn(2).setMinWidth(0);
     tb_Grupos2.getColumnModel().getColumn(2).setMaxWidth(0);
-    tb_Grupos2.setRowHeight(30);
+    tb_Grupos2.setRowHeight(45);
     
 }
     public void formatoventanas1(){
     tb_Grupos1.getColumnModel().getColumn(0).setPreferredWidth(200);
     tb_Grupos1.getColumnModel().getColumn(1).setMinWidth(0);
     tb_Grupos1.getColumnModel().getColumn(1).setMaxWidth(0);
-    tb_Grupos1.setRowHeight(30);
+    tb_Grupos1.getColumnModel().getColumn(2).setPreferredWidth(200);
+    tb_Grupos1.setRowHeight(45);
 }
+    
+    
     
     public void Modificar(){
  
@@ -421,7 +424,7 @@ byte tga;
                 
                        if(cno1.modificarNomenclatura()==true){
                         
-                           cargareliminar.setBackground(new Color(0,153,102)); 
+                                cargareliminar.setBackground(new Color(0,153,102)); 
                                 Mensaje.setText("Datos Actualizados de forma correcta");
                                 eli.setText("OK");
                                 eli.setVisible(true);
@@ -500,7 +503,7 @@ byte tga;
                 
                 
 //                    JOptionPane.showMessageDialog(this, (txtnomenclatura.getText()+txtnom1.getText()));
-                 cno1.setNomen_caja(txtnomenclatura.getText()+txtnom1.getText());   
+                cno1.setNomen_caja(txtnomenclatura.getText()+txtnom1.getText());   
                
                 cno1.setDescripcion_nomen_tipo(txtdes.getText().toUpperCase());
                 cno1.setNom_usu(lblusu.getText());
@@ -517,7 +520,7 @@ byte tga;
                 cno1.setVis_aten("");
        
                     if(cno1.nuevaNomenclatura()==true){
-                           cargareliminar.setVisible(true);
+                                cargareliminar.setVisible(true);
                                 cargareliminar.setBackground(new Color(0,153,102)); 
                                 Mensaje.setText("Datos Guardados de forma correcta");
                                 eli.setText("OK");
@@ -764,7 +767,7 @@ byte tga;
                         );
 
                         Unidad.setAlwaysOnTop(true);
-                        Unidad.setMinimumSize(new java.awt.Dimension(310, 441));
+                        Unidad.setMinimumSize(new java.awt.Dimension(591, 419));
                         Unidad.setResizable(false);
 
                         jPanel7.setBackground(new java.awt.Color(41, 127, 184));
@@ -831,7 +834,7 @@ byte tga;
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(22, Short.MAX_VALUE))
+                                .addContainerGap(312, Short.MAX_VALUE))
                         );
                         jPanel7Layout.setVerticalGroup(
                             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -877,7 +880,7 @@ byte tga;
                         UnidadLayout.setHorizontalGroup(
                             UnidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
                         );
                         UnidadLayout.setVerticalGroup(
                             UnidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1013,7 +1016,7 @@ byte tga;
                                 .addContainerGap())
                         );
 
-                        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
                         setMinimumSize(new java.awt.Dimension(1054, 550));
 
                         jPanel1.setBackground(new java.awt.Color(41, 127, 184));
@@ -1531,6 +1534,7 @@ byte tga;
                         tb_Grupo1.setGridColor(new java.awt.Color(255, 255, 255));
                         tb_Grupo1.setRowHeight(25);
                         tb_Grupo1.setSelectionBackground(new java.awt.Color(50, 151, 219));
+                        tb_Grupo1.getTableHeader().setReorderingAllowed(false);
                         tb_Grupo1.addMouseListener(new java.awt.event.MouseAdapter() {
                             public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 tb_Grupo1MouseClicked(evt);
@@ -1723,9 +1727,9 @@ jTabbedPane1.setSelectedIndex(0);
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
         if(tg==1){
             Guardar();
-              b.setVisible(false);
-         b1.setVisible(false);
-         b2.setVisible(false);
+            b.setVisible(false);
+            b1.setVisible(false);
+            b2.setVisible(false);
         }else if(tg==2){
            cargareliminar.setVisible(true);
            cargareliminar.setBackground(new Color(255,153,51)); 

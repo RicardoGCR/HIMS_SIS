@@ -1206,7 +1206,7 @@ public void calcula() {
 
                         lbldia.setFont(new java.awt.Font("Segoe UI Semilight", 1, 13)); // NOI18N
                         lbldia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        lbldia.setText("Exámenes con Toma de Muestras del Día");
+                        lbldia.setText("Resultados del Día");
 
                         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
                         jPanel1.setPreferredSize(new java.awt.Dimension(721, 25));
@@ -1305,7 +1305,12 @@ public void calcula() {
                     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
-        // TODO add your handling code here:
+       buscar_histClinica();
+    }//GEN-LAST:event_btnBuscar1ActionPerformed
+public void buscar_histClinica(){
+     if(txtbuscarHC.getText().equalsIgnoreCase("")){
+           
+        }else{
         String consulta="";
         try {
             tb_HC.setModel(new DefaultTableModel());
@@ -1344,8 +1349,8 @@ public void calcula() {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-    }//GEN-LAST:event_btnBuscar1ActionPerformed
-
+        }
+}
     private void txtbuscarHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbuscarHCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtbuscarHCActionPerformed
@@ -2445,9 +2450,9 @@ public void buscar_examenes(){
             JOptionPane.showMessageDialog(null, "Error al Exportar el archivo!"+e.getMessage(), "Oops! Error", JOptionPane.ERROR_MESSAGE);
         } catch (JRException ex) {
          Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
-     } catch (IOException ex) {
+     } /*catch (IOException ex) {
         Logger.getLogger(frm_LAB_BUSCAR_RESULTADO.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    }*/
     }
     
     public void enableDatos(){
@@ -2471,7 +2476,16 @@ public void buscar_examenes(){
             calcula();
 //            lblHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
             try {
-                Thread.sleep(1000);
+
+//                 if(lbldia.getText().equalsIgnoreCase("Resultados del Día")){
+//                LAB_BUSCAR_TM_DIA();
+//                }
+                Thread.sleep(16000);
+
+//                 if(lbldia.getText().equalsIgnoreCase("Resultados del Día")){
+//                LAB_BUSCAR_TM_DIA();
+//                }
+                Thread.sleep(9000);
             } catch (InterruptedException e) {
             }
         }

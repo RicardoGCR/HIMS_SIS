@@ -27,28 +27,32 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel8" alignment="0" min="-2" pref="832" max="-2" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jPanel3" max="32767" attributes="0"/>
-                  <Component id="jPanel10" alignment="0" pref="831" max="32767" attributes="0"/>
-                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jPanel3" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel7" min="-2" pref="270" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel9" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jPanel10" alignment="0" pref="807" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel7" min="-2" pref="270" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel9" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="24" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel8" min="-2" pref="852" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -95,7 +99,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <Component id="titulo5" min="-2" pref="383" max="-2" attributes="0"/>
-                  <EmptySpace pref="330" max="32767" attributes="0"/>
+                  <EmptySpace pref="310" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jLabel37" min="-2" pref="32" max="-2" attributes="0"/>
@@ -282,7 +286,7 @@
                   <Component id="cbxActoMedico" min="-2" pref="101" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnBuscar" min="-2" pref="32" max="-2" attributes="0"/>
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -327,6 +331,7 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jdtFechaMouseClicked"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jdtFechaKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -356,6 +361,7 @@
           <Events>
             <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbxBuscarItemStateChanged"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxBuscarActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cbxBuscarKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtBuscar">
@@ -394,6 +400,7 @@
           </Properties>
           <Events>
             <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbxActoMedicoItemStateChanged"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cbxActoMedicoKeyPressed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -423,11 +430,7 @@
                       <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="lblNHC" min="-2" pref="67" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
@@ -438,25 +441,25 @@
                                   <Component id="lblPaciente" min="-2" pref="240" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lblDNI" max="32767" attributes="0"/>
                               <Component id="lblFecNac" min="-2" pref="64" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                                   <Component id="lblGenero" min="-2" pref="37" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                                   <Component id="lblTipoEdad" min="-2" pref="58" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -466,8 +469,12 @@
                               <Component id="lblEdad" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="lblNHC" min="-2" pref="97" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="78" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -485,7 +492,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblActoMedico" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblGenero" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
                               <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -508,15 +515,15 @@
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDNI" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblDNI" min="-2" pref="15" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFecNac" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblFecNac" min="-2" pref="15" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -677,7 +684,7 @@
                   <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="307" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -771,7 +778,7 @@
                               <Component id="lblServicio" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
                               <Component id="lblMedico" alignment="0" min="-2" pref="289" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="109" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -972,7 +979,7 @@
                   <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblSector" min="-2" pref="48" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

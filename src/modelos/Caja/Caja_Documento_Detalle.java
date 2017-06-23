@@ -26,7 +26,7 @@ private int id_cod_doc_det;
 private String id_documento;  
 private String cod_precio;
 private String nom_consultorio_citas;  
-private Double cantidad_detalle;
+private int cantidad_detalle;
 private Double precio_detalle;
 private Double total_detalle;
 private String fecha_aten;
@@ -116,6 +116,27 @@ Conexion con = new Conexion();
         return cod;
     }
     
+     public String CodPrecio_COD_PRECIO(String precio)
+    {
+        String cod="";
+        try
+        {
+            String sql = "EXEC CAJA_HALLAR_PRECIO_DE_CODPRECIO ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, precio);
+            ResultSet rs = cmd.executeQuery();
+            if(rs.next())
+            {
+               cod = rs.getString(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_PRECIO DEL CODIGO DEL PRECIO: " + ex.getMessage());
+        }
+        return cod;
+    }
+    
     public String VisibleAdmin(String codigo)
     {
         String cod="";
@@ -148,7 +169,7 @@ public boolean DetalleVenta(){
             cmd.setString(1, getId_documento());
             cmd.setString(2, getCod_precio());
             cmd.setString(3, getNom_consultorio_citas());
-            cmd.setDouble(4, getCantidad_detalle());
+            cmd.setInt(4, getCantidad_detalle());
             cmd.setDouble(5, getPrecio_detalle());
             cmd.setDouble(6, getTotal_detalle());
             cmd.setDouble(7, getDescu_exo_detalle());
@@ -216,13 +237,15 @@ public void DetalleID(String ap_id){
         }
     }
 public void Detalle(String codigo,JTable tabla){
+//    tabla.getTableHeader().setVisible(false);
+//    tabla.setTableHeader(null);
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"CPT","Cantidad","Precio","Dsct.","SubTotal","Departamento / Área","Atencion","Medico/Personal","Nº Atencion","Turno","cpt","idd","id"};
+            String titulos[]={"CPT","Cantidad","Precio","Dsct.","SubTotal","Departamento / Área","Fechs Atencion","Medico/Personal","Nº Atencion","Turno","cpt","idd","id_detalle","id_doc"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[12];
+            String fila[]=new String[14];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="Listar_Detalle_preventa ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -242,6 +265,8 @@ public void Detalle(String codigo,JTable tabla){
                 fila[9]=r.getString(10);
                 fila[10]=r.getString(11); 
                 fila[11]=r.getString(12);
+                fila[12]=r.getString(13); 
+                fila[13]=r.getString(14);
 
                     m.addRow(fila);
                     c++;
@@ -252,33 +277,35 @@ public void Detalle(String codigo,JTable tabla){
             tabla.setModel(m);
             formatoTablaCPT(tabla);
         } catch (Exception e) {
-            System.out.println("Error: listar PREVENTA CEX: " + e.getMessage());
+            System.out.println("Error: listar detalle de venta: " + e.getMessage());
         }
     }
     
     public void formatoTablaCPT(JTable tabla){
-        tabla.getColumnModel().getColumn(0).setPreferredWidth(300);
-        tabla.getColumnModel().getColumn(2).setPreferredWidth(300);  
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(350);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(100);  
         tabla.getColumnModel().getColumn(1).setMinWidth(0);
         tabla.getColumnModel().getColumn(1).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(3).setMinWidth(0);
         tabla.getColumnModel().getColumn(3).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(4).setMinWidth(0);
         tabla.getColumnModel().getColumn(4).setMaxWidth(0); 
-        tabla.getColumnModel().getColumn(5).setMinWidth(0);
+        tabla.getColumnModel().getColumn(10).setMinWidth(0);
         tabla.getColumnModel().getColumn(10).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(6).setMinWidth(0);
         tabla.getColumnModel().getColumn(6).setMaxWidth(0); 
-        tabla.getColumnModel().getColumn(7).setMinWidth(0);
-        tabla.getColumnModel().getColumn(7).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(7).setPreferredWidth(250);
         tabla.getColumnModel().getColumn(8).setPreferredWidth(50);
-        tabla.getColumnModel().getColumn(5).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(5).setPreferredWidth(150);
         tabla.getColumnModel().getColumn(9).setMinWidth(0);
         tabla.getColumnModel().getColumn(9).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(11).setMinWidth(0);
         tabla.getColumnModel().getColumn(11).setMaxWidth(0);
         tabla.getColumnModel().getColumn(12).setMinWidth(0);
         tabla.getColumnModel().getColumn(12).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(13).setMinWidth(0);
+        tabla.getColumnModel().getColumn(13).setMaxWidth(0);
+
 
 
         
@@ -337,11 +364,11 @@ public void Detalle(String codigo,JTable tabla){
         this.nom_consultorio_citas = nom_consultorio_citas;
     }
 
-    public Double getCantidad_detalle() {
+    public int getCantidad_detalle() {
         return cantidad_detalle;
     }
 
-    public void setCantidad_detalle(Double cantidad_detalle) {
+    public void setCantidad_detalle(int cantidad_detalle) {
         this.cantidad_detalle = cantidad_detalle;
     }
 

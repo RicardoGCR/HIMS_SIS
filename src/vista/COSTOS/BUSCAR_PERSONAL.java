@@ -147,7 +147,6 @@ Conexion cn=new Conexion();
             btnBuscar = new javax.swing.JButton();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            setTitle("SISGESH .::. Búsqueda de Personal");
             setAlwaysOnTop(true);
 
             tbPersonalSueldo.setModel(new javax.swing.table.DefaultTableModel(

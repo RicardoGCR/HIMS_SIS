@@ -383,7 +383,7 @@ public class AdmisionEmergenciaCabecera {
             String rutaInforme = ruta;
             JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream(rutaInforme), parametros, cn);          
             JasperViewer ventanavisor = new JasperViewer(informe, false);
-            ventanavisor.setTitle("Formato de Emergencia - Cabecera");
+            ventanavisor.setTitle("Formato de Emergencia.::.Cabecera");
            ventanavisor.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "error_reporteCabecera:"+e.getMessage());

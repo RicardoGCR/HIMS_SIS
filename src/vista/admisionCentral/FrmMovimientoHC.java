@@ -11,7 +11,9 @@ import java.awt.HeadlessException;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -24,6 +26,14 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.print.Doc;
+import javax.print.DocFlavor;
+import javax.print.DocPrintJob;
+import javax.print.PrintException;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.print.SimpleDoc;
+import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -41,6 +51,9 @@ import modelos.admisionCentral.MovimientoHistoriaClinica;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 import tablas.FormTablaMovHCSC;
@@ -1219,7 +1232,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
 
     private void btnActualizarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaActionPerformed
         if(chkHoy.isSelected()){
-            movHC.mostrar_MovHC(2,tbMovimientoHC,"Pendiente","","","","","","");
+            movHC.mostrar_MovHC(3,tbMovimientoHC,"Pendiente","","","","","","");
         }else{
             String estadoM = cbxMovimiento.getSelectedItem().toString();
             String servicio = txtServicio.getText();
@@ -1262,16 +1275,81 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_formMouseReleased
 
     private void btnVisualizarIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarIActionPerformed
-        int fila = tbMovimientoHC.getSelectedRow();
+     int fila = tbMovimientoHC.getSelectedRow();
         try {
             int id = Integer.parseInt(String.valueOf(tbMovimientoHC.getValueAt(fila, 0)));
-            String rutaInforme = "src\\Reportes\\admisionCentral\\movimientoDetalle.jasper";
+            String rutaInforme = "src\\Reportes\\admisionCentral\\report1.jasper";
             Map parametros = new HashMap();
-            parametros.put("id", id);
+//            parametros.put("id", id);
             JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
-            JasperViewer ventanavisor = new JasperViewer(informe, false);
-            ventanavisor.setTitle("Movimiento Historia Clínica a Detalle");
-            ventanavisor.setVisible(true);
+//            JasperViewer ventanavisor = new JasperViewer(informe, false);
+//            ventanavisor.setTitle("Movimiento Historia Clínica a Detalle");
+//            ventanavisor.setVisible(true);
+//            PrintService impresora = "EPSON TM-T88V Receipt";
+             
+            //Archivo que se desea imprimir
+    FileInputStream inputStream = new FileInputStream("src\\Reportes\\admisionCentral\\ticket.jasper");
+ 
+    //Formato de Documento
+    DocFlavor docFormat = DocFlavor.INPUT_STREAM.AUTOSENSE;
+    //Lectura de Documento
+    Doc document = new SimpleDoc(inputStream, docFormat, null);
+ 
+    //Nombre de la impresora
+    String printerName = "EPSON TM-T88V Receipt";
+ 
+    //Inclusion del nombre de impresora y sus atributos
+//    AttributeSet attributeSet = new HashAttributeSet();
+//    attributeSet.add(new PrinterName(printerName, null));
+//    attributeSet = new HashAttributeSet();
+//    //Soporte de color o no
+//    attributeSet.add(ColorSupported.NOT_SUPPORTED);
+ 
+    //Busqueda de la impresora por el nombre asignado en attributeSet
+    PrintService[] services = PrintServiceLookup.lookupPrintServices(null, null);
+    for(int i=0; i < services.length; i++){
+
+            if(services[i].getName().equals(printerName)){
+
+            try {
+            JOptionPane.showMessageDialog(null, "Imprimiendo orden de servicio en " + services[i].getName(), "IMPRESIÓN", JOptionPane.INFORMATION_MESSAGE);
+            FileInputStream fis = new FileInputStream("src\\Reportes\\admisionCentral\\ticket.jasper");
+            Doc pdfDoc = new SimpleDoc(fis, DocFlavor.INPUT_STREAM.AUTOSENSE, null); 
+        
+            DocPrintJob printJob = services[i].createPrintJob();
+            printJob.print(pdfDoc, new HashPrintRequestAttributeSet()); 
+
+            } catch (PrintException e) {
+            JOptionPane.showMessageDialog(null, e);
+            }
+            catch (FileNotFoundException e) {
+            e.printStackTrace();
+            }
+            }
+    }
+
+
+// 
+////    System.out.println("Imprimiendo en : " + services[0].getName());
+// 
+//    DocPrintJob printJob = services[0].createPrintJob();
+//    //Envio a la impresora
+//            try {
+//                printJob.print(document,null);
+//            } catch (Exception e) {
+//            }
+// 
+//    inputStream.close();
+//            
+//            
+  
+            
+//            JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+//                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, informe );
+//                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, services[0].createPrintJob());
+//                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+//                    jrprintServiceExporter.exportReport();
+            JasperPrintManager.printReport(informe, false);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Error: _btnVisualizarDetalle" + e.toString());
             }
@@ -1482,7 +1560,7 @@ public class FrmMovimientoHC extends javax.swing.JFrame implements Runnable {
                 Thread.sleep(10000);
                 // mostrar datos en la tabla tbMvimientoHC
                 if(chkHoy.isSelected()){
-                    movHC.mostrar_MovHC(2,tbMovimientoHC,"Pendiente","","","","","","");
+                    movHC.mostrar_MovHC(3,tbMovimientoHC,"Pendiente","","","","","","");
                 }
             } catch (InterruptedException e) {
                 System.out.println(e.toString());

@@ -92,7 +92,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         initComponents();
         restringirCampos(8,txtDni);
         restringirCampos(10, txtFechaNac);
-        restringirCampos(7, txtCodigo);
+        restringirCampos(8, txtCodigo);
         h1 = new Thread(this);
         h1.start();
         this.getContentPane().setBackground(Color.WHITE);
@@ -427,15 +427,16 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         char c4 = hC.codHistoriaClinica().charAt(3);
         char c5 = hC.codHistoriaClinica().charAt(4);
         char c6 = hC.codHistoriaClinica().charAt(5);
-        txtCodigo.setText(String.valueOf(c1)+String.valueOf(c2)+String.valueOf(c3)+String.valueOf(c4)
-                + "-" + String.valueOf(c5)+String.valueOf(c6));
+        char c7 = hC.codHistoriaClinica().charAt(6);
+        txtCodigo.setText(String.valueOf(c1)+String.valueOf(c2)+String.valueOf(c3)+String.valueOf(c4)+String.valueOf(c5)
+                + "-" + String.valueOf(c6)+String.valueOf(c7));
     }
     
     public void btnGuardar(){
         try {
         ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/Guardar-32.png")); 
         String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) 
-                + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(5)) + String.valueOf(txtCodigo.getText().charAt(6)) ;
+                + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(6) + String.valueOf(txtCodigo.getText().charAt(7))) ;
 //        if(txtID.getText().equalsIgnoreCase(hC.idHistoriaClinica())){
             if(txtDni.getText().equals("") || txtNombre1.getText().equals("") || txtApellidoPat.getText().equals("") ||
                    txtApellidoPat.getText().equals("") || txtFechaNac.getText().equals("") ||
@@ -463,11 +464,11 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     hC3.setId_hc(txtID.getText());
                     hC3.setCod_hc(codigo);
                     hC3.setDni(txtDni.getText());
-                    hC3.setApe_pat(txtApellidoPat.getText());
-                    hC3.setApe_mat(txtApellidoMat.getText());
-                    hC3.setNombre1(txtNombre1.getText());
-                    hC3.setNombre2(txtNombre2.getText());
-                    hC3.setNombre3(txtNombre3.getText());
+                    hC3.setApe_pat(txtApellidoPat.getText().toUpperCase());
+                    hC3.setApe_mat(txtApellidoMat.getText().toUpperCase());
+                    hC3.setNombre1(txtNombre1.getText().toUpperCase());
+                    hC3.setNombre2(txtNombre2.getText().toUpperCase());
+                    hC3.setNombre3(txtNombre3.getText().toUpperCase());
                     hC3.setFec_nac(txtFechaNac.getText());
                     //GENERO
                     if(rbtMasculino.isSelected()){
@@ -488,16 +489,16 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     hC3.setDis_nac(cbxDistritoNac.getSelectedItem().toString()); 
                     hC3.setPro_nac(cbxProvinciaNac.getSelectedItem().toString());
                     hC3.setDep_nac(cbxDepartamentoNac.getSelectedItem().toString());
-                    hC3.setOcupacion(txtOcupacion.getText());
-                    hC3.setEstado_civil(cbxEstadoCivil.getSelectedItem().toString());
-                    hC3.setGrupo_sang(txtGrupoSan.getText());
-                    hC3.setReligion(txtReligion.getText());
+                    hC3.setOcupacion(txtOcupacion.getText().toUpperCase());
+                    hC3.setEstado_civil(cbxEstadoCivil.getSelectedItem().toString().toUpperCase());
+                    hC3.setGrupo_sang(txtGrupoSan.getText().toUpperCase());
+                    hC3.setReligion(txtReligion.getText().toUpperCase());
                     hC3.setTelefono(txtTelefono.getText());
                     hC3.setCelular(txtCelular.getText());
-                    hC3.setGrado_inst(txtGradoIns.getText());
-                    hC3.setNacionalidad(txtNacionalidad.getText());
-                    hC3.setNom_usu(lblUsuUsuario.getText());
-                    hC3.setRiesgo(txtRiesgo.getText());
+                    hC3.setGrado_inst(txtGradoIns.getText().toUpperCase());
+                    hC3.setNacionalidad(txtNacionalidad.getText().toUpperCase());
+                    hC3.setNom_usu(lblUsuUsuario.getText().toUpperCase());
+                    hC3.setRiesgo(txtRiesgo.getText().toUpperCase());
                     if(!cbxProvincia.getSelectedItem().toString().equals("CHINCHA")){
                         hC3.setSe_cod("Turista");
                         hC3.setTipo_dir_nom("Turista");
@@ -506,21 +507,22 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     } else {
                     hC3.setSe_cod(cbxSector.getSelectedItem().toString());
                     //TIPO_DIR_NOM
-                    hC3.setTipo_dir_nom(cbxTipoDireccion.getSelectedItem().toString());
-                    hC3.setNom_dir(cbxDireccion.getSelectedItem().toString());
-                    hC3.setNum(txtNumero.getText());
+                    hC3.setTipo_dir_nom(cbxTipoDireccion.getSelectedItem().toString().toUpperCase());
+                    hC3.setNom_dir(cbxDireccion.getSelectedItem().toString().toUpperCase());
+                    hC3.setNum(txtNumero.getText().toUpperCase());
                     }
-                    hC3.setLote(txtLote.getText());
+                    hC3.setLote(txtLote.getText().toUpperCase());
                     //REGISTRAR HISTORIA CLINICA
                     if(hC3.nuevaHistoriaClinica()==true){
                             JOptionPane.showMessageDialog(this, "Datos Guardados");
                             String cod_hc = txtCodigo.getText();
                             String codigo3 = String.valueOf(cod_hc.charAt(0)) + String.valueOf(cod_hc.charAt(1)) + 
                                              String.valueOf(cod_hc.charAt(2)) + String.valueOf(cod_hc.charAt(3)) +
-                                             String.valueOf(cod_hc.charAt(5)) + String.valueOf(cod_hc.charAt(6));
+                                             String.valueOf(cod_hc.charAt(4)) + String.valueOf(cod_hc.charAt(6)) + 
+                                             String.valueOf(cod_hc.charAt(7));
                             String rutaInforme = "src\\Reportes\\admisionCentral\\historiaClinica.jasper";
                             Map parametros = new HashMap();
-                            parametros.put("cod_hc", codigo3);
+                            parametros.put("cod_hc", txtID.getText());
                             JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
                             JasperViewer ventanavisor = new JasperViewer(informe, false);
                             ventanavisor.setTitle("Historia Clínica");
@@ -624,8 +626,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 if(existe == true){
                     codigo = r.getString("COD_HC");   
                     String codigo2 = String.valueOf(codigo.charAt(0)) + String.valueOf(codigo.charAt(1)) + 
-                                     String.valueOf(codigo.charAt(2)) + String.valueOf(codigo.charAt(3)) + "-" + 
-                                     String.valueOf(codigo.charAt(4)) + String.valueOf(codigo.charAt(5));
+                                     String.valueOf(codigo.charAt(2)) + String.valueOf(codigo.charAt(3)) + String.valueOf(codigo.charAt(4)) + "-" + 
+                                     String.valueOf(codigo.charAt(6)) + String.valueOf(codigo.charAt(7));
                     dni = r.getString("dni");
                     if ( txtDni.getText().equals(dni) ){                
                         JOptionPane.showMessageDialog(ReasignarHC, "Este número de DNI ya existe en la \n"
@@ -994,16 +996,17 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel37)
-                    .addComponent(cbxTipoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel38)
-                    .addComponent(chkA)
-                    .addComponent(chkT)
-                    .addComponent(chkD)
-                    .addComponent(btnImprimir)
-                    .addComponent(btnBuscarHc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscarHc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel37)
+                        .addComponent(cbxTipoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel38)
+                        .addComponent(chkA)
+                        .addComponent(chkT)
+                        .addComponent(chkD)
+                        .addComponent(btnImprimir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1012,6 +1015,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 return false;
             }
         };
+        tbHistoriaC.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tbHistoriaC.setForeground(new java.awt.Color(102, 102, 102));
         tbHistoriaC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1187,6 +1192,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 return false;
             }
         };
+        tbReasignado.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tbReasignado.setForeground(new java.awt.Color(102, 102, 102));
         tbReasignado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -1486,6 +1493,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("N° de Historia Clínica");
 
+        txtCodigo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtCodigo.setForeground(new java.awt.Color(102, 102, 102));
         txtCodigo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1532,18 +1541,31 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         jLabel7.setText("Tercer Nombre");
 
+        txtApellidoPat.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtApellidoPat.setForeground(new java.awt.Color(102, 102, 102));
         txtApellidoPat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtApellidoPatKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtApellidoPatKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtApellidoPatKeyTyped(evt);
             }
         });
 
+        txtApellidoMat.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtApellidoMat.setForeground(new java.awt.Color(102, 102, 102));
         txtApellidoMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoMatActionPerformed(evt);
             }
         });
         txtApellidoMat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtApellidoMatKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtApellidoMatKeyReleased(evt);
             }
@@ -1552,40 +1574,69 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             }
         });
 
+        txtNombre1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtNombre1.setForeground(new java.awt.Color(102, 102, 102));
         txtNombre1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombre1ActionPerformed(evt);
             }
         });
         txtNombre1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNombre1KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombre1KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombre1KeyTyped(evt);
             }
         });
 
+        txtNombre2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtNombre2.setForeground(new java.awt.Color(102, 102, 102));
         txtNombre2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombre2ActionPerformed(evt);
             }
         });
         txtNombre2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNombre2KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombre2KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombre2KeyTyped(evt);
             }
         });
 
+        txtNombre3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtNombre3.setForeground(new java.awt.Color(102, 102, 102));
         txtNombre3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNombre3KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombre3KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombre3KeyTyped(evt);
             }
         });
 
+        txtDni.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtDni.setForeground(new java.awt.Color(102, 102, 102));
         txtDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDniActionPerformed(evt);
             }
         });
         txtDni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDniKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDniKeyTyped(evt);
             }
@@ -1664,9 +1715,16 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         jLabel8.setText("Fecha de nac.");
 
+        txtFechaNac.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtFechaNac.setForeground(new java.awt.Color(102, 102, 102));
         txtFechaNac.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtFechaNacCaretUpdate(evt);
+            }
+        });
+        txtFechaNac.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtFechaNacKeyPressed(evt);
             }
         });
 
@@ -1689,7 +1747,15 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         jLabel25.setText("Nacionalidad");
 
+        txtNacionalidad.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtNacionalidad.setForeground(new java.awt.Color(102, 102, 102));
         txtNacionalidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNacionalidadKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNacionalidadKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNacionalidadKeyTyped(evt);
             }
@@ -1749,13 +1815,30 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
         jLabel12.setText("Género");
 
         buttonGroup1.add(rbtMasculino);
+        rbtMasculino.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        rbtMasculino.setForeground(new java.awt.Color(102, 102, 102));
         rbtMasculino.setSelected(true);
         rbtMasculino.setText("Masculino");
         rbtMasculino.setEnabled(false);
+        rbtMasculino.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                rbtMasculinoKeyPressed(evt);
+            }
+        });
 
         buttonGroup1.add(rbtFemenino);
+        rbtFemenino.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        rbtFemenino.setForeground(new java.awt.Color(102, 102, 102));
         rbtFemenino.setText("Femenino");
         rbtFemenino.setEnabled(false);
+        rbtFemenino.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                rbtFemeninoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                rbtFemeninoKeyReleased(evt);
+            }
+        });
 
         btnAsignarDistrito.setMnemonic('A');
         btnAsignarDistrito.setContentAreaFilled(false);
@@ -1809,6 +1892,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         jLabel18.setText("Departamento");
 
+        cbxDepartamentoNac.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxDepartamentoNac.setForeground(new java.awt.Color(102, 102, 102));
         cbxDepartamentoNac.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
         cbxDepartamentoNac.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1820,7 +1905,14 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 cbxDepartamentoNacActionPerformed(evt);
             }
         });
+        cbxDepartamentoNac.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxDepartamentoNacKeyPressed(evt);
+            }
+        });
 
+        cbxProvinciaNac.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxProvinciaNac.setForeground(new java.awt.Color(102, 102, 102));
         cbxProvinciaNac.setEnabled(false);
         cbxProvinciaNac.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1832,11 +1924,23 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 cbxProvinciaNacActionPerformed(evt);
             }
         });
+        cbxProvinciaNac.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxProvinciaNacKeyPressed(evt);
+            }
+        });
 
+        cbxDistritoNac.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxDistritoNac.setForeground(new java.awt.Color(102, 102, 102));
         cbxDistritoNac.setEnabled(false);
         cbxDistritoNac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxDistritoNacActionPerformed(evt);
+            }
+        });
+        cbxDistritoNac.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxDistritoNacKeyPressed(evt);
             }
         });
 
@@ -1900,6 +2004,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         jLabel23.setText("Distrito");
 
+        cbxDepartamento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxDepartamento.setForeground(new java.awt.Color(102, 102, 102));
         cbxDepartamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
         cbxDepartamento.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1911,7 +2017,14 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 cbxDepartamentoActionPerformed(evt);
             }
         });
+        cbxDepartamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxDepartamentoKeyPressed(evt);
+            }
+        });
 
+        cbxProvincia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxProvincia.setForeground(new java.awt.Color(102, 102, 102));
         cbxProvincia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
         cbxProvincia.setEnabled(false);
         cbxProvincia.addItemListener(new java.awt.event.ItemListener() {
@@ -1924,7 +2037,14 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 cbxProvinciaActionPerformed(evt);
             }
         });
+        cbxProvincia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxProvinciaKeyPressed(evt);
+            }
+        });
 
+        cbxDistrito.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxDistrito.setForeground(new java.awt.Color(102, 102, 102));
         cbxDistrito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
         cbxDistrito.setEnabled(false);
         cbxDistrito.addItemListener(new java.awt.event.ItemListener() {
@@ -1945,6 +2065,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         jLabel24.setText("Tipo direccón");
 
+        cbxTipoDireccion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxTipoDireccion.setForeground(new java.awt.Color(102, 102, 102));
         cbxTipoDireccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar..." }));
         cbxTipoDireccion.setEnabled(false);
         cbxTipoDireccion.addItemListener(new java.awt.event.ItemListener() {
@@ -1952,10 +2074,20 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 cbxTipoDireccionItemStateChanged(evt);
             }
         });
+        cbxTipoDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxTipoDireccionKeyPressed(evt);
+            }
+        });
 
         jLabel26.setText("Dirección");
 
+        txtNumero.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtNumero.setForeground(new java.awt.Color(102, 102, 102));
         txtNumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNumeroKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNumeroKeyTyped(evt);
             }
@@ -1963,16 +2095,25 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         jLabel36.setText("Sector");
 
+        cbxSector.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxSector.setForeground(new java.awt.Color(102, 102, 102));
         cbxSector.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxSectorItemStateChanged(evt);
             }
         });
 
+        cbxDireccion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxDireccion.setForeground(new java.awt.Color(102, 102, 102));
         cbxDireccion.setEnabled(false);
         cbxDireccion.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxDireccionItemStateChanged(evt);
+            }
+        });
+        cbxDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxDireccionKeyPressed(evt);
             }
         });
 
@@ -1980,7 +2121,12 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         lblLt.setText("Lt");
 
+        txtLote.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtLote.setForeground(new java.awt.Color(102, 102, 102));
         txtLote.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtLoteKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtLoteKeyTyped(evt);
             }
@@ -2086,33 +2232,77 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         jLabel33.setText("Teléfono");
 
+        cbxEstadoCivil.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        cbxEstadoCivil.setForeground(new java.awt.Color(102, 102, 102));
         cbxEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Soltero(a)", "Casado(a)", "Viudo(a)", "Divorciado(a),", "Conviviente" }));
+        cbxEstadoCivil.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxEstadoCivilKeyPressed(evt);
+            }
+        });
 
+        txtReligion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtReligion.setForeground(new java.awt.Color(102, 102, 102));
         txtReligion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtReligionKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtReligionKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtReligionKeyTyped(evt);
             }
         });
 
+        txtGrupoSan.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtGrupoSan.setForeground(new java.awt.Color(102, 102, 102));
         txtGrupoSan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtGrupoSanKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtGrupoSanKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtGrupoSanKeyTyped(evt);
             }
         });
 
+        txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtTelefono.setForeground(new java.awt.Color(102, 102, 102));
         txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTelefonoKeyTyped(evt);
             }
         });
 
+        txtOcupacion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtOcupacion.setForeground(new java.awt.Color(102, 102, 102));
         txtOcupacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtOcupacionKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtOcupacionKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtOcupacionKeyTyped(evt);
             }
         });
 
+        txtGradoIns.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtGradoIns.setForeground(new java.awt.Color(102, 102, 102));
         txtGradoIns.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtGradoInsKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtGradoInsKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtGradoInsKeyTyped(evt);
             }
@@ -2120,13 +2310,29 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
 
         jLabel34.setText("Celular");
 
+        txtCelular.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtCelular.setForeground(new java.awt.Color(102, 102, 102));
         txtCelular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCelularKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCelularKeyTyped(evt);
             }
         });
 
         txtHuella.setEditable(false);
+
+        txtRiesgo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtRiesgo.setForeground(new java.awt.Color(102, 102, 102));
+        txtRiesgo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtRiesgoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtRiesgoKeyReleased(evt);
+            }
+        });
 
         jLabel49.setText("Riesgo:");
 
@@ -2372,22 +2578,22 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     txtCodigo.setEnabled(true);
                     txtCodigo.setEditable(true);
                     limpiar();
-                    txtDni.requestFocus();
+                    txtCodigo.requestFocus();
                 } else
                     ReasignarHC.setVisible(true);
                     ReasignarHC.setLocationRelativeTo(null);//en el centro
                     ReasignarHC.setResizable(false);
                     ReasignarHC.getContentPane().setBackground(Color.WHITE);
                     mostrarCodHC("");
-                    txtDni.requestFocus();
             } else 
             if(btnNuevo.getText().equals("Reasignar")){
                 String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + 
                                 String.valueOf(txtCodigo.getText().charAt(1)) + 
                                 String.valueOf(txtCodigo.getText().charAt(2)) + 
                                 String.valueOf(txtCodigo.getText().charAt(3)) + 
-                                String.valueOf(txtCodigo.getText().charAt(5)) + 
-                                String.valueOf(txtCodigo.getText().charAt(6));
+                                String.valueOf(txtCodigo.getText().charAt(4)) + 
+                                String.valueOf(txtCodigo.getText().charAt(6)) + 
+                                String.valueOf(txtCodigo.getText().charAt(7));
                 HistoriaClinica hC2 = new HistoriaClinica();
                 hC2.setId_hc(txtID.getText());
                 hC2.setDni(txtDni.getText());
@@ -2464,7 +2670,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     String cod_hc = txtCodigo.getText();
                     String codigo3 = String.valueOf(cod_hc.charAt(0)) + String.valueOf(cod_hc.charAt(1)) + 
                                      String.valueOf(cod_hc.charAt(2)) + String.valueOf(cod_hc.charAt(3)) +
-                                     String.valueOf(cod_hc.charAt(5)) + String.valueOf(cod_hc.charAt(6));
+                                     String.valueOf(cod_hc.charAt(4)) + String.valueOf(cod_hc.charAt(6)) + String.valueOf(cod_hc.charAt(7));
                     String rutaInforme = "src\\reportes\\admisionCentral\\historiaClinica.jasper";
                     Map parametros = new HashMap();
                     parametros.put("cod_hc", codigo3);
@@ -2496,9 +2702,10 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                     String codigoGen = String.valueOf(hC.codHistoriaClinica().charAt(0)) + 
                                        String.valueOf(hC.codHistoriaClinica().charAt(1)) + 
                                        String.valueOf(hC.codHistoriaClinica().charAt(2)) + 
-                                       String.valueOf(hC.codHistoriaClinica().charAt(3)) + "-" +
-                                       String.valueOf(hC.codHistoriaClinica().charAt(4)) +  
-                                       String.valueOf(hC.codHistoriaClinica().charAt(5));
+                                       String.valueOf(hC.codHistoriaClinica().charAt(3)) +
+                                       String.valueOf(hC.codHistoriaClinica().charAt(4)) + "-" +
+                                       String.valueOf(hC.codHistoriaClinica().charAt(5)) +  
+                                       String.valueOf(hC.codHistoriaClinica().charAt(6));
                     txtCodigo.setText(codigoGen);
                     }
                     cbxDistritoNac.setEnabled(false);
@@ -2514,8 +2721,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     
     public void validaCodigo(String codigo){
         String codigoMostrar = String.valueOf(codigo.charAt(0)) + String.valueOf(codigo.charAt(1)) + 
-                               String.valueOf(codigo.charAt(2)) + String.valueOf(codigo.charAt(3)) + "-" + 
-                               String.valueOf(codigo.charAt(4)) + String.valueOf(codigo.charAt(5));
+                               String.valueOf(codigo.charAt(2)) + String.valueOf(codigo.charAt(3)) + String.valueOf(codigo.charAt(4)) + "-" + 
+                               String.valueOf(codigo.charAt(5)) + String.valueOf(codigo.charAt(6));
         try {
             PreparedStatement cmd = hC.getCn().prepareStatement("SELECT * FROM ADMISION_HISTORIA_CLINICA WHERE cod_hc ='"+codigo+"'");
             ResultSet res = cmd.executeQuery();
@@ -2535,7 +2742,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             if(txtCodigo.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Debe ingresar un Número de HistoriaClínica");
             } else {
-                String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(5)) + String.valueOf(txtCodigo.getText().charAt(6)) ; 
+                String codigo = String.valueOf(txtCodigo.getText().charAt(0)) + String.valueOf(txtCodigo.getText().charAt(1)) + String.valueOf(txtCodigo.getText().charAt(2)) + String.valueOf(txtCodigo.getText().charAt(3)) + String.valueOf(txtCodigo.getText().charAt(4)) + String.valueOf(txtCodigo.getText().charAt(5)) + String.valueOf(txtCodigo.getText().charAt(6)); 
                 validaCodigo(codigo);
             }
         } 
@@ -3011,9 +3218,10 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             String codigo = String.valueOf(hisC.obtenerCODReasignar().charAt(0))+ 
                             String.valueOf(hisC.obtenerCODReasignar().charAt(1))+
                             String.valueOf(hisC.obtenerCODReasignar().charAt(2))+
-                            String.valueOf(hisC.obtenerCODReasignar().charAt(3))+ "-" +
-                            String.valueOf(hisC.obtenerCODReasignar().charAt(4))+
-                            String.valueOf(hisC.obtenerCODReasignar().charAt(5));
+                            String.valueOf(hisC.obtenerCODReasignar().charAt(3))+
+                            String.valueOf(hisC.obtenerCODReasignar().charAt(4))+ "-" +
+                            String.valueOf(hisC.obtenerCODReasignar().charAt(5))+
+                            String.valueOf(hisC.obtenerCODReasignar().charAt(6));
             FrmNuevaHistoriaC.txtID.setText(hisC.obtenerIDReasignar()); 
             FrmNuevaHistoriaC.txtCodigo.setText(codigo); 
             habilitarOpciones(true);
@@ -3081,7 +3289,7 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_txtApellidoPatKeyTyped
 
     private void txtApellidoMatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoMatKeyReleased
-        // TODO add your handling code here:
+        txtApellidoMat.setText(txtApellidoMat.getText().toUpperCase());
     }//GEN-LAST:event_txtApellidoMatKeyReleased
 
     private void txtApellidoMatKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoMatKeyTyped
@@ -3174,7 +3382,12 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_txtNumeroKeyTyped
 
     private void cbxDistritoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxDistritoKeyPressed
-        // TODO add your handling code here:
+        if(cbxProvincia.getSelectedItem().equals("CHINCHA")){
+            if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+                cbxTipoDireccion.requestFocus();
+                cbxTipoDireccion.showPopup();
+            }
+        }
     }//GEN-LAST:event_cbxDistritoKeyPressed
 
     private void cbxDistritoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDistritoItemStateChanged
@@ -3301,13 +3514,13 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 if(fila == -1){
                     JOptionPane.showMessageDialog(this, "Debe seleccionar una Historia Clínica");
                 } else {
-                        String cod_hc = tbHistoriaC.getValueAt(fila, 0).toString();
+                        String cod_hc = tbHistoriaC.getValueAt(fila, 1).toString();
                         String codigo = String.valueOf(cod_hc.charAt(0)) + String.valueOf(cod_hc.charAt(1)) + 
-                                        String.valueOf(cod_hc.charAt(2)) + String.valueOf(cod_hc.charAt(3)) +
-                                        String.valueOf(cod_hc.charAt(5)) + String.valueOf(cod_hc.charAt(6));
+                                        String.valueOf(cod_hc.charAt(2)) + String.valueOf(cod_hc.charAt(3)) + String.valueOf(cod_hc.charAt(4)) +
+                                        String.valueOf(cod_hc.charAt(6)) + String.valueOf(cod_hc.charAt(7));
                         String rutaInforme = "src\\Reportes\\admisionCentral\\historiaClinica.jasper";
                         Map parametros = new HashMap();
-                        parametros.put("cod_hc", codigo);
+                        parametros.put("cod_hc", cod_hc);
                         JasperPrint informe = JasperFillManager.fillReport(rutaInforme, parametros, c.conectar());
                         // VER EN EL JASPERREPORT
                         JasperViewer ventanavisor = new JasperViewer(informe, false);
@@ -3380,6 +3593,8 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
             {
                 System.out.println("Error_direccion: " + ex.getMessage());
             }
+        
+        
     }//GEN-LAST:event_cbxDireccionItemStateChanged
 
     private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
@@ -3418,6 +3633,228 @@ public class FrmNuevaHistoriaC extends javax.swing.JFrame implements Runnable{
                 buscar_HC(index, estado, txtBuscar.getText());
         }
     }//GEN-LAST:event_btnBuscarHcActionPerformed
+
+    private void txtDniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtApellidoPat.requestFocus();
+        }
+    }//GEN-LAST:event_txtDniKeyPressed
+
+    private void txtApellidoPatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoPatKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtApellidoMat.requestFocus();
+        }
+    }//GEN-LAST:event_txtApellidoPatKeyPressed
+
+    private void txtNombre1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombre1KeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtNombre2.requestFocus();
+        }
+    }//GEN-LAST:event_txtNombre1KeyPressed
+
+    private void txtApellidoMatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoMatKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtNombre1.requestFocus();
+        }
+    }//GEN-LAST:event_txtApellidoMatKeyPressed
+
+    private void txtNombre2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombre2KeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtNombre3.requestFocus();
+        }
+    }//GEN-LAST:event_txtNombre2KeyPressed
+
+    private void txtNombre3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombre3KeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtFechaNac.requestFocus();
+        }
+    }//GEN-LAST:event_txtNombre3KeyPressed
+
+    private void txtFechaNacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaNacKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtNacionalidad.requestFocus();
+        }
+    }//GEN-LAST:event_txtFechaNacKeyPressed
+
+    private void txtNacionalidadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNacionalidadKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            cbxDepartamentoNac.requestFocus();
+            cbxDepartamentoNac.showPopup();
+        }
+    }//GEN-LAST:event_txtNacionalidadKeyPressed
+
+    private void cbxDepartamentoNacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxDepartamentoNacKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            cbxProvinciaNac.requestFocus();
+            cbxProvinciaNac.showPopup();
+        }
+    }//GEN-LAST:event_cbxDepartamentoNacKeyPressed
+
+    private void cbxProvinciaNacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxProvinciaNacKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            cbxDistritoNac.requestFocus();
+            cbxDistritoNac.showPopup();
+        }
+    }//GEN-LAST:event_cbxProvinciaNacKeyPressed
+
+    private void cbxDistritoNacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxDistritoNacKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            cbxDepartamento.requestFocus();
+            cbxDepartamento.showPopup();
+        }
+    }//GEN-LAST:event_cbxDistritoNacKeyPressed
+
+    private void cbxDepartamentoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxDepartamentoKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            cbxProvincia.requestFocus();
+            cbxProvincia.showPopup();
+        }
+    }//GEN-LAST:event_cbxDepartamentoKeyPressed
+
+    private void cbxProvinciaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxProvinciaKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            cbxDistrito.requestFocus();
+            cbxDistrito.showPopup();
+        }
+    }//GEN-LAST:event_cbxProvinciaKeyPressed
+
+    private void cbxTipoDireccionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxTipoDireccionKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            cbxDireccion.requestFocus();
+            cbxDireccion.showPopup();
+        }
+    }//GEN-LAST:event_cbxTipoDireccionKeyPressed
+
+    private void cbxDireccionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxDireccionKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtNumero.requestFocus();
+        }
+    }//GEN-LAST:event_cbxDireccionKeyPressed
+
+    private void txtNumeroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroKeyPressed
+        if(cbxTipoDireccion.getSelectedItem().equals("Urb")){
+            if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+                txtLote.requestFocus();
+            }
+        }else {
+            if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+                rbtMasculino.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_txtNumeroKeyPressed
+
+    private void rbtMasculinoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rbtMasculinoKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            rbtMasculino.setSelected(true);
+            cbxEstadoCivil.requestFocus();
+            cbxEstadoCivil.showPopup();
+        }
+    }//GEN-LAST:event_rbtMasculinoKeyPressed
+
+    private void rbtFemeninoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rbtFemeninoKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            rbtFemenino.setSelected(true);
+            cbxEstadoCivil.requestFocus();
+            cbxEstadoCivil.showPopup();
+        }
+    }//GEN-LAST:event_rbtFemeninoKeyPressed
+
+    private void txtLoteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLoteKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            rbtMasculino.requestFocus();
+        }
+    }//GEN-LAST:event_txtLoteKeyPressed
+
+    private void rbtFemeninoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rbtFemeninoKeyReleased
+      
+    }//GEN-LAST:event_rbtFemeninoKeyReleased
+
+    private void cbxEstadoCivilKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxEstadoCivilKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtReligion.requestFocus();
+        }
+    }//GEN-LAST:event_cbxEstadoCivilKeyPressed
+
+    private void txtReligionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtReligionKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtGrupoSan.requestFocus();
+        }
+    }//GEN-LAST:event_txtReligionKeyPressed
+
+    private void txtGrupoSanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGrupoSanKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtGradoIns.requestFocus();
+        }
+    }//GEN-LAST:event_txtGrupoSanKeyPressed
+
+    private void txtGradoInsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGradoInsKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtRiesgo.requestFocus();
+        }
+    }//GEN-LAST:event_txtGradoInsKeyPressed
+
+    private void txtRiesgoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRiesgoKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtOcupacion.requestFocus();
+        }
+    }//GEN-LAST:event_txtRiesgoKeyPressed
+
+    private void txtOcupacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOcupacionKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtTelefono.requestFocus();
+        }
+    }//GEN-LAST:event_txtOcupacionKeyPressed
+
+    private void txtTelefonoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            txtCelular.requestFocus();
+        }
+    }//GEN-LAST:event_txtTelefonoKeyPressed
+
+    private void txtCelularKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCelularKeyPressed
+        if(evt.getKeyChar()==KeyEvent.VK_ENTER){
+            btnGuardar.doClick();
+        }
+    }//GEN-LAST:event_txtCelularKeyPressed
+
+    private void txtNombre1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombre1KeyReleased
+        txtNombre1.setText(txtNombre1.getText().toUpperCase());
+    }//GEN-LAST:event_txtNombre1KeyReleased
+
+    private void txtNombre2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombre2KeyReleased
+        txtNombre2.setText(txtNombre2.getText().toUpperCase());
+    }//GEN-LAST:event_txtNombre2KeyReleased
+
+    private void txtNombre3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombre3KeyReleased
+        txtNombre3.setText(txtNombre3.getText().toUpperCase());
+    }//GEN-LAST:event_txtNombre3KeyReleased
+
+    private void txtApellidoPatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoPatKeyReleased
+        txtApellidoPat.setText(txtApellidoPat.getText().toUpperCase());
+    }//GEN-LAST:event_txtApellidoPatKeyReleased
+
+    private void txtNacionalidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNacionalidadKeyReleased
+        txtNacionalidad.setText(txtNacionalidad.getText().toUpperCase());
+    }//GEN-LAST:event_txtNacionalidadKeyReleased
+
+    private void txtReligionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtReligionKeyReleased
+    }//GEN-LAST:event_txtReligionKeyReleased
+
+    private void txtGrupoSanKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGrupoSanKeyReleased
+        txtGrupoSan.setText(txtGrupoSan.getText().toUpperCase());
+    }//GEN-LAST:event_txtGrupoSanKeyReleased
+
+    private void txtGradoInsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGradoInsKeyReleased
+        txtGradoIns.setText(txtGradoIns.getText().toUpperCase());
+    }//GEN-LAST:event_txtGradoInsKeyReleased
+
+    private void txtRiesgoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRiesgoKeyReleased
+        txtRiesgo.setText(txtRiesgo.getText().toUpperCase());
+    }//GEN-LAST:event_txtRiesgoKeyReleased
+
+    private void txtOcupacionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOcupacionKeyReleased
+        txtOcupacion.setText(txtOcupacion.getText().toUpperCase());
+    }//GEN-LAST:event_txtOcupacionKeyReleased
     
     //HORA
     public void run() {

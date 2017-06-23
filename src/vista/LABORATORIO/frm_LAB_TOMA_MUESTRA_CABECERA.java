@@ -378,6 +378,7 @@ public void calcula() {
 
                     personal.setAlwaysOnTop(true);
                     personal.setMinimumSize(new java.awt.Dimension(852, 504));
+                    personal.setResizable(false);
 
                     txtBuscar.setForeground(new java.awt.Color(0, 51, 51));
                     txtBuscar.setEnabled(false);

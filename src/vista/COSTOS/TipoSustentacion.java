@@ -113,7 +113,6 @@ public class TipoSustentacion extends javax.swing.JFrame implements Runnable{
         jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("SISGESH .::. Factores de Producción");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));

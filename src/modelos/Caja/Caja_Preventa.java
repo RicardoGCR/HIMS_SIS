@@ -25,6 +25,7 @@ public class Caja_Preventa {
     DefaultTableModel m;
     private Connection cn;
     private int id_preventa;
+    private int Id_Detalle_p;
     private String id_hc;
     private int CA_ID;
     private int id_per_uni_org;
@@ -64,6 +65,7 @@ public class Caja_Preventa {
     private String elisa_prueba_ra;
     private String elisa_prueba_config;
     private String elisa_consejero;
+    private String Sexo;
 
     private String procedencia;
     
@@ -124,6 +126,56 @@ public class Caja_Preventa {
         catch(Exception ex)
         {
             System.out.println("mantenimientoCajaPreventaHospitalizacion: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+        public boolean CAJA_mantenimientoPreventaHospitalizacion(){
+        boolean resp = false;
+        try{
+            String sql = "EXEC CAJA_PREVENTA_MANTENIMIENTO_HOSPITALIZACION_NUEVO "
+                        + "?,?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_hc());
+            cmd.setInt(2, getCA_ID());
+            cmd.setString(3, gethOS_Indicaciones());
+            cmd.setString(4, getCod_usu());
+            cmd.setInt(5, getAR_ID());
+            cmd.setInt(6, getACTO_MEDICO());
+            cmd.setString(7, getCod_jerar_forma_pago());
+            cmd.setString(8, getCod_medico());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("mantenimientoCajaPreventaHospitalizacion caja: " + ex.getMessage());
+        }
+        return resp;
+    }
+    public boolean ActualizarGenero(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec CAJA_ACTUALIZAR_GENERO ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_hc());
+            cmd.setString(2, getSexo());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error al actualizar el DNI " + ex.getMessage());
         }
         return resp;
     }
@@ -264,6 +316,49 @@ public class Caja_Preventa {
         return resp;
     }
     
+    public boolean modificarDetallePreventa(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec Caja_Actualizar_Detalle_Preventa ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_Detalle_p());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+    public boolean modificarPreventaRetorno(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec Caja_Actualizar_Preventa_RETORNO ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+    
         public boolean modificarPreventaCEX(){
         boolean resp = false;
         try
@@ -376,10 +471,9 @@ public class Caja_Preventa {
         String cod="";
         try
         {
-            String sql = " select SA.AR_ID\n" +
-                        " from SISTEMA_SERVICIO SS, SISTEMA_AREAS SA, SISTEMA_CONFIGURACION_PC_AREA SP\n" +
-                        " WHERE SS.UP_ID in (02)\n" +
-                        " AND SP.SE_ID = SS.SE_ID\n" +
+            String sql = "select SA.AR_ID\n" +
+                        " from SISTEMA_SERVICIO SS, SISTEMA_AREAS SA\n" +
+                        " WHERE SS.UP_ID in (2) \n" +
                         " AND SA.AR_DESC = ?\n" +
                         " AND SA.SE_ID = SS.SE_ID";
             PreparedStatement cmd = getCn().prepareStatement(sql);
@@ -1426,5 +1520,23 @@ public class Caja_Preventa {
     public void setElisa_consejero(String elisa_consejero) {
         this.elisa_consejero = elisa_consejero;
     }
+
+    public int getId_Detalle_p() {
+        return Id_Detalle_p;
+    }
+
+    public void setId_Detalle_p(int Id_Detalle_p) {
+        this.Id_Detalle_p = Id_Detalle_p;
+    }
+
+    public String getSexo() {
+        return Sexo;
+    }
+
+    public void setSexo(String Sexo) {
+        this.Sexo = Sexo;
+    }
+    
+    
 
 }

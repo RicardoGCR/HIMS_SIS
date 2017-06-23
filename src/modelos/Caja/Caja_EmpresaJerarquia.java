@@ -28,6 +28,7 @@ private String nom_usu;
 private String correo;
 private String moneda;
 private String CodF;
+private String tipo_documento;
         
 Conexion con = new Conexion();  
 
@@ -35,7 +36,7 @@ public boolean Nuevo(){
         boolean resp = false;
         try{
             String sql = "exec Caja_EmpresaJerarquia_INSERTAR "
-                        + "?,?,?,?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
 //            cmd.setString(1, getCod_empre_jerar());
             cmd.setString(1, getCod_jerar_forma_pago());
@@ -49,6 +50,7 @@ public boolean Nuevo(){
             cmd.setString(9, getCorreo());
             cmd.setString(10, getMoneda());
             cmd.setString(11, getCodF());
+            cmd.setString(12, getTipo_documento());
 
             if(!cmd.execute())
             {
@@ -83,7 +85,7 @@ public boolean modificar(){
         boolean resp = false;
         try
         {
-            String sql = "Caja_Empresajerarquia_MODIFICAR ?,?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "Caja_Empresajerarquia_MODIFICAR ?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, getCod_empre_jerar());
             cmd.setString(2, getCod_jerar_forma_pago());
@@ -97,6 +99,7 @@ public boolean modificar(){
             cmd.setString(10, getCorreo());
             cmd.setString(11, getMoneda());
             cmd.setString(12, getCodF());
+            cmd.setString(13, getTipo_documento());
 
             if(!cmd.execute())
             {
@@ -261,6 +264,14 @@ public boolean eliminar(){
 
     public void setCodF(String CodF) {
         this.CodF = CodF;
+    }
+
+    public String getTipo_documento() {
+        return tipo_documento;
+    }
+
+    public void setTipo_documento(String tipo_documento) {
+        this.tipo_documento = tipo_documento;
     }
     
     

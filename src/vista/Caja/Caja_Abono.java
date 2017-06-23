@@ -1154,7 +1154,7 @@ try {
                                 .addContainerGap())
                         );
 
-                        nomenc.setForeground(new java.awt.Color(255, 255, 255));
+                        nomenc.setForeground(new java.awt.Color(153, 0, 255));
                         nomenc.setText("jLabel14");
 
                         abonodet.setBackground(new java.awt.Color(255, 255, 255));
@@ -1344,12 +1344,11 @@ try {
                                 .addContainerGap()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(868, 868, 868)
+                                        .addGap(576, 576, 576)
+                                        .addComponent(nomenc)
+                                        .addGap(252, 252, 252)
                                         .addComponent(codpago))
                                     .addComponent(jLabel51)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(576, 576, 576)
-                                        .addComponent(nomenc))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
@@ -1368,11 +1367,13 @@ try {
                                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(33, 33, 33)
                                 .addComponent(abonodet, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(codpago)
-                                .addGap(78, 78, 78)
-                                .addComponent(nomenc)
-                                .addGap(49, 49, 49))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(codpago))
+                                    .addComponent(nomenc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(92, 92, 92))
                         );
 
                         jTabbedPane1.addTab("Edicion", jPanel3);

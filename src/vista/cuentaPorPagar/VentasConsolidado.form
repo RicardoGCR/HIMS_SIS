@@ -304,32 +304,23 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lblDNI" pref="218" max="32767" attributes="0"/>
-                                      <Component id="lblHC" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                                  <Component id="txtActoMedico" min="-2" pref="218" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="451" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lblDNI" pref="218" max="32767" attributes="0"/>
+                              <Component id="lblHC" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
+                      <Component id="lblApellidos" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblApellidos" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="lblIdCabecera" min="-2" pref="190" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                          <Component id="txtActoMedico" min="-2" pref="218" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -337,10 +328,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblIdCabecera" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="lblApellidos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="txtActoMedico" max="32767" attributes="0"/>
@@ -430,43 +418,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtActoMedico">
           <Properties>
-<<<<<<< HEAD
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="4">
-                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                <Column editable="true" title="Title 4" type="java.lang.Object"/>
-              </Table>
-            </Property>
-            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-              <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Title 1"/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Title 2"/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                  <Title value="Title 3"/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                  <Title value="Title 4"/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-              </TableColumnModel>
-=======
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="2b" green="2b" red="2b" type="rgb"/>
->>>>>>> 8ab130461fee646e9653f9ee3f176d97ca8775a8
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="0"/>
@@ -488,17 +442,6 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblIdCabecera">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="DOC CABECERA"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -566,12 +509,12 @@
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnFacturarLaboratorio" max="32767" attributes="0"/>
-                                  <Component id="btnFacturarRayos" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="btnFacturarEcografias" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnFacturarProcedimientos" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRefrescar1" max="32767" attributes="0"/>
+                                  <Component id="btnRefrescar3" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnRefrescar4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnRefrescar2" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="btnFacturarFarmacia" min="-2" pref="99" max="-2" attributes="0"/>
+                              <Component id="btnRefrescar5" min="-2" pref="99" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       </Group>
@@ -582,30 +525,30 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lblProcedimientos" min="-2" pref="165" max="-2" attributes="0"/>
-                              <Component id="btnFacturarProcedimientos" min="-2" pref="164" max="-2" attributes="0"/>
+                              <Component id="btnRefrescar2" min="-2" pref="164" max="-2" attributes="0"/>
                               <Component id="spProcedimientos" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lblLaboratorio" min="-2" pref="155" max="-2" attributes="0"/>
                               <Component id="spLaboratorio" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnFacturarLaboratorio" alignment="1" min="-2" pref="155" max="-2" attributes="0"/>
+                              <Component id="btnRefrescar1" alignment="1" min="-2" pref="155" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="spRayos" pref="0" max="32767" attributes="0"/>
                               <Component id="lblRayos" min="-2" pref="174" max="-2" attributes="0"/>
-                              <Component id="btnFacturarRayos" alignment="1" min="-2" pref="171" max="-2" attributes="0"/>
+                              <Component id="btnRefrescar3" alignment="1" min="-2" pref="171" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lblEcografias" min="-2" pref="156" max="-2" attributes="0"/>
-                              <Component id="btnFacturarEcografias" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
+                              <Component id="btnRefrescar4" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
                               <Component id="spEcografias" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lblFarmacia" min="-2" pref="156" max="-2" attributes="0"/>
                               <Component id="spFarmacia" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnFacturarFarmacia" max="32767" attributes="0"/>
+                              <Component id="btnRefrescar5" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -988,7 +931,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnFacturarLaboratorio">
+                <Component class="javax.swing.JButton" name="btnRefrescar1">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -1009,13 +952,13 @@
                     <Property name="verticalTextPosition" type="int" value="3"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFacturarLaboratorioActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefrescar1ActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnFacturarProcedimientos">
+                <Component class="javax.swing.JButton" name="btnRefrescar2">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -1036,13 +979,13 @@
                     <Property name="verticalTextPosition" type="int" value="3"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFacturarProcedimientosActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefrescar2ActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnFacturarRayos">
+                <Component class="javax.swing.JButton" name="btnRefrescar3">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -1063,13 +1006,13 @@
                     <Property name="verticalTextPosition" type="int" value="3"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFacturarRayosActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefrescar3ActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnFacturarEcografias">
+                <Component class="javax.swing.JButton" name="btnRefrescar4">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -1090,13 +1033,13 @@
                     <Property name="verticalTextPosition" type="int" value="3"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFacturarEcografiasActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefrescar4ActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnFacturarFarmacia">
+                <Component class="javax.swing.JButton" name="btnRefrescar5">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -1117,7 +1060,7 @@
                     <Property name="verticalTextPosition" type="int" value="3"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFacturarFarmaciaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefrescar5ActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

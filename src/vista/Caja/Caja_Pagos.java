@@ -349,7 +349,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
             lblVisAdmi.setText(cnvd.VisibleAdmin(lblCajaNomenclaturaPrecio.getText()));
              //////////////////////////////////////////////DESCUENTOS LA Y EC
                 Caja_Documento_Detalle CDDCD = new Caja_Documento_Detalle();
-                CDDCD.DESCUENTO_LA_EC(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 8)),lblGrupoA.getText(),tbConsultaDESCUENTO);
+//                CDDCD.DESCUENTO_LA_EC(String.valueOf(tb_CPTBUSCAR.getValueAt(fila, 8)),lblGrupoA.getText(),tbConsultaDESCUENTO);
             
             if(!lblVisAdmi.getText().equals("N")&& tb_CPT.getRowCount()==0){
                 System.out.println("-----------------------------------------");

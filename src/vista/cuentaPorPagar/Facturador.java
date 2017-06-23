@@ -63,6 +63,7 @@ import javax.xml.transform.stream.StreamResult;
 import modelos.Caja.Caja_NuevaVenta;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.cuentaPorPagar.CuentasPorPagarFacturasCabecera;
+import modelos.cuentaPorPagar.CuentasPorPagarFacturasDetalle;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 import vista.Caja.Caja_Empresa_jerarquia;
@@ -161,6 +162,7 @@ public class Facturador extends javax.swing.JFrame {
         txtTipoDocumento.setText(String.valueOf(tb_Empresa.getValueAt(fila, 4)));
         txtCorreo.setText(String.valueOf(tb_Empresa.getValueAt(fila, 10)));
         lblCodDomicilioFiscal.setText(String.valueOf(tb_Empresa.getValueAt(fila, 12)));
+        lblEmpresa.setText(String.valueOf(tb_Empresa.getValueAt(fila, 0)));
     }
     
     public String fechaActual(){
@@ -258,7 +260,7 @@ public class Facturador extends javax.swing.JFrame {
                         String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) +
                         String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(2)) + "|" +
                         String.valueOf(tbFacturacion.getValueAt(0, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(0, 0))+  "|" + 
-                         "Codigo de producto sunat"+ "|" + 
+                         ""+ "|" + 
                         String.valueOf(tbFacturacion.getValueAt(0, 1))+ "|" + 
                          String.valueOf(tbFacturacion.getValueAt(0, 2)) + "|" + 
                          txtDscto.getText() + "|" +
@@ -271,8 +273,13 @@ public class Facturador extends javax.swing.JFrame {
                     } else {
                         crea.format(String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
                         String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) + "|" +
-                         "Cantidad" + "|" + "Codigo de producto"+ "|" + "Codigo de producto sunat"+ "|" + 
-                        "descripcion"+ "|" + "valor unitario" + "|" + txtDscto.getText() + "|" +
+                         String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) +
+                        String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(2)) + "|" +
+                        String.valueOf(tbFacturacion.getValueAt(0, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(0, 0))+  "|" + 
+                         ""+ "|" + 
+                        String.valueOf(tbFacturacion.getValueAt(0, 1))+ "|" + 
+                         String.valueOf(tbFacturacion.getValueAt(0, 2)) + "|"  + 
+                         txtDscto.getText() + "|" +
                         txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                         String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
                         txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
@@ -322,6 +329,7 @@ public class Facturador extends javax.swing.JFrame {
             jLabel1 = new javax.swing.JLabel();
             lblMant = new javax.swing.JLabel();
             lblId = new javax.swing.JLabel();
+            lblEmpresa = new javax.swing.JLabel();
             jPanel5 = new javax.swing.JPanel();
             jPanel6 = new javax.swing.JPanel();
             jLabel2 = new javax.swing.JLabel();
@@ -757,6 +765,8 @@ public class Facturador extends javax.swing.JFrame {
 
                 lblId.setText("jLabel3");
 
+                lblEmpresa.setText("Empresa");
+
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
                 jPanel1Layout.setHorizontalGroup(
@@ -764,11 +774,13 @@ public class Facturador extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 329, Short.MAX_VALUE)
                         .addComponent(lblMant)
                         .addGap(30, 30, 30)
                         .addComponent(lblId)
-                        .addGap(224, 224, 224)
+                        .addGap(34, 34, 34)
+                        .addComponent(lblEmpresa)
+                        .addGap(156, 156, 156)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -787,7 +799,8 @@ public class Facturador extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblMant)
-                                .addComponent(lblId)))
+                                .addComponent(lblId)
+                                .addComponent(lblEmpresa)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -1038,16 +1051,15 @@ public class Facturador extends javax.swing.JFrame {
                 jPanel12Layout.setVerticalGroup(
                     jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtSerie)
                                     .addComponent(txtSerie1)))
                             .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblNroCorrelativo)))
@@ -1926,15 +1938,6 @@ public class Facturador extends javax.swing.JFrame {
                                     .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
@@ -1950,7 +1953,13 @@ public class Facturador extends javax.swing.JFrame {
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -2975,11 +2984,108 @@ public class Facturador extends javax.swing.JFrame {
                     facturaCabecera.setFechaEmision(lblFechaEmision.getText());
                     facturaCabecera.setTipoMoneda(cbxTipoMoneda.getSelectedItem().toString());
                     facturaCabecera.setDocumento(cbxDocumento.getSelectedItem().toString());
-                    facturaCabecera.setDocumento(cabecera.codUsuario(lblusu.getText()));
+                    facturaCabecera.setCod_usu(cabecera.codUsuario(lblusu.getText()));
+                    facturaCabecera.setCodigoEmpresa(lblEmpresa.getText());
             if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera(lblMant.getText())){
                 crearCabecera();
+                CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
+                lblId.setText(facturaDetalle1.facturaCabeceraId());
+//                crearDetalle();
+                String archivo = txtTipoDocumento.getText() + "-" + 
+                cbxDocumento.getSelectedItem().toString().charAt(0) + 
+                cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
+                txtSerie.getText() + "-" + 
+                lblNroCorrelativo.getText() + ".DET";
+                File crea_archivo = new File(archivo);
+                for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
+                    CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
+                    facturaDetalle.setCpfId(Integer.parseInt(lblId.getText()));
+                    facturaDetalle.setCpdGrav(cbxGravado.getSelectedItem().toString());
+                    facturaDetalle.setCpdCodUnidad(cbxCodUnidad.getSelectedItem().toString());
+                    facturaDetalle.setCpdCantidad(Integer.parseInt(tbFacturacion.getValueAt(i,3).toString()));
+                    facturaDetalle.setNomenclatura(facturaDetalle.codNomen(tbFacturacion.getValueAt(i,0).toString()));
+                    facturaDetalle.setCpdCodProdSunat("");
+                    facturaDetalle.setCpdValorU(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())));
+                    facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble(txtPorcenDscto.getText())));
+                    facturaDetalle.setCpdDscto(BigDecimal.valueOf(Double.parseDouble(txtDscto.getText())));
+                    facturaDetalle.setCpdIgv(BigDecimal.valueOf(Double.parseDouble(txtIGV.getText())));
+                    facturaDetalle.setCpdAfecIgv(cbxAfecIGV.getSelectedItem().toString()); 
+                    facturaDetalle.setCpdIsc(BigDecimal.valueOf(Double.parseDouble(txtISC.getText())));
+                    facturaDetalle.setCpdAfecIsc(cbxAfecISC.getSelectedItem().toString()); 
+                    facturaDetalle.setCpdPrecioVenta(BigDecimal.valueOf(Double.parseDouble(txtPrecioVenta.getText())));
+                    facturaDetalle.setCpdValorVenta(BigDecimal.valueOf(Double.parseDouble(txtValorVenta.getText())));
+                    facturaDetalle.setCpdDsctoGlobal(BigDecimal.valueOf(Double.parseDouble(txtDsctoGlobal.getText())));
+                    facturaDetalle.setCpdSumOtrosCargos(BigDecimal.valueOf(Double.parseDouble(txtOtrosCargos.getText())));
+                    facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(Double.parseDouble(txtMtoIGV.getText())));
+                    facturaDetalle.setCpdTVvInafec(BigDecimal.valueOf(Double.parseDouble(txtValorVentaInafectada.getText())));
+                    facturaDetalle.setCpdTVvGrav(BigDecimal.valueOf(Double.parseDouble(txtValorVentaGravada.getText())));
+                    facturaDetalle.setCpdTDsctos(BigDecimal.valueOf(Double.parseDouble(txtTotalDscto.getText())));
+                    facturaDetalle.setCpdOtrosTribut(BigDecimal.valueOf(Double.parseDouble(txtOtrosTributos.getText())));
+                    facturaDetalle.setCpdSumIsc(BigDecimal.valueOf(Double.parseDouble(txtMtoISC.getText())));
+                    facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
+                    facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(txtImporteTotalVenta.getText())));
+                    facturaDetalle.setCodUsu(cabecera.codUsuario(lblusu.getText()));
+                    if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle(lblMant.getText())){
+                        //
+                        //
+                        
+                    try {
+                        Formatter crea = new Formatter(ubicacion+archivo);
+                        if(crea_archivo.exists()){
+                            JOptionPane.showMessageDialog(rootPane, "El registro ya existe");
+                        } else {
+                            String bloc1 = "";
+                            for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
+                                bloc1 = bloc1 + String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
+                                String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) +
+                                String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(2)) + "|" +
+                                String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
+                                 ""+ "|" + 
+                                String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
+                                 String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|" + 
+                                 txtDscto.getText() + "|" +
+                                txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
+                                String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
+                                txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+                                String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+                                txtPrecioVenta.getText() + "|" + txtValorVenta.getText() + "\r\n";
+                            }
+                            String bloc2 = "";
+                            for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
+                                bloc2 = bloc2 + String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
+                                String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) + "|" +
+                                 String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) +
+                                String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(2)) + "|" +
+                                String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
+                                 ""+ "|" + 
+                                String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
+                                 String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|"  + 
+                                 txtDscto.getText() + "|" +
+                                txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
+                                String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
+                                txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+                                String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+                                txtPrecioVenta.getText() + "|" + txtValorVenta.getText() + "\r\n";
+                            }
+                            if(cbxCodUnidad.getSelectedIndex()==0 || cbxCodUnidad.getSelectedIndex()==4 ||
+                                       cbxCodUnidad.getSelectedIndex()==5 || cbxCodUnidad.getSelectedIndex()==6 ||
+                                       cbxCodUnidad.getSelectedIndex()==7){
+                                crea.format(bloc1);
+                            } else {
+                                crea.format(bloc2);
+                            }
+                            crea.close();
+                            JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
+                        }   
+                    } catch (Exception e) {
+                            JOptionPane.showMessageDialog(this, "No se pudo");
+                    }
+                        //
+                        //
+                    }
             }
-            crearDetalle();
+                
+            }
         } else{
             btnAgregarEmpresa.doClick();
         }
@@ -3177,6 +3283,7 @@ public class Facturador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JLabel lblCodDomicilioFiscal;
+    private javax.swing.JLabel lblEmpresa;
     private javax.swing.JLabel lblFechaEmision;
     private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblMant;

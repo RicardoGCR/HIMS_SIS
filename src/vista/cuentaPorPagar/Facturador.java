@@ -163,6 +163,7 @@ public class Facturador extends javax.swing.JFrame {
         txtCorreo.setText(String.valueOf(tb_Empresa.getValueAt(fila, 10)));
         lblCodDomicilioFiscal.setText(String.valueOf(tb_Empresa.getValueAt(fila, 12)));
         lblEmpresa.setText(String.valueOf(tb_Empresa.getValueAt(fila, 0)));
+        cbxTipoDocumento.setSelectedItem(String.valueOf(tb_Empresa.getValueAt(fila, 13)));
     }
     
     public String fechaActual(){
@@ -313,11 +314,7 @@ public class Facturador extends javax.swing.JFrame {
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false; //Disallow the editing of any cell
             }};
-            jPanel51 = new javax.swing.JPanel();
-            jLabel65 = new javax.swing.JLabel();
-            jLabel66 = new javax.swing.JLabel();
-            jPanel17 = new javax.swing.JPanel();
-            jLabel78 = new javax.swing.JLabel();
+            jLocaleChooser1 = new com.toedter.components.JLocaleChooser();
             jPanel21 = new javax.swing.JPanel();
             jPanel1 = new javax.swing.JPanel();
             jPanel2 = new javax.swing.JPanel();
@@ -454,7 +451,7 @@ public class Facturador extends javax.swing.JFrame {
                 lblusu = new javax.swing.JLabel();
 
                 Empresa.setAlwaysOnTop(true);
-                Empresa.setMinimumSize(new java.awt.Dimension(754, 420));
+                Empresa.setMinimumSize(new java.awt.Dimension(754, 452));
                 Empresa.setResizable(false);
 
                 jPanel48.setBackground(new java.awt.Color(41, 127, 184));
@@ -573,86 +570,22 @@ public class Facturador extends javax.swing.JFrame {
                 });
                 jScrollPane16.setViewportView(tb_Empresa);
 
-                jPanel51.setBackground(new java.awt.Color(255, 255, 255));
-
-                jLabel65.setFont(new java.awt.Font("Segoe UI Light", 0, 36)); // NOI18N
-                jLabel65.setForeground(new java.awt.Color(102, 102, 102));
-                jLabel65.setText("No lo encuentra?");
-
-                jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 80)); // NOI18N
-                jLabel66.setForeground(new java.awt.Color(41, 127, 184));
-                jLabel66.setText(":(");
-                jLabel66.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-
-                jPanel17.setBackground(new java.awt.Color(43, 43, 43));
-
-                jLabel78.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                jLabel78.setForeground(new java.awt.Color(255, 255, 255));
-                jLabel78.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                jLabel78.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Añadir contacto a empresa-50.png"))); // NOI18N
-                jLabel78.setText("Registrar");
-                jLabel78.addMouseListener(new java.awt.event.MouseAdapter() {
-                    public void mouseClicked(java.awt.event.MouseEvent evt) {
-                        jLabel78MouseClicked(evt);
-                    }
-                });
-
-                javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-                jPanel17.setLayout(jPanel17Layout);
-                jPanel17Layout.setHorizontalGroup(
-                    jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel78, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                );
-                jPanel17Layout.setVerticalGroup(
-                    jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(jLabel78, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 39, Short.MAX_VALUE))
-                );
-
-                javax.swing.GroupLayout jPanel51Layout = new javax.swing.GroupLayout(jPanel51);
-                jPanel51.setLayout(jPanel51Layout);
-                jPanel51Layout.setHorizontalGroup(
-                    jPanel51Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel51Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel66)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel65)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                );
-                jPanel51Layout.setVerticalGroup(
-                    jPanel51Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel51Layout.createSequentialGroup()
-                        .addGroup(jPanel51Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel51Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jLabel65))
-                            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                );
-
                 javax.swing.GroupLayout EmpresaLayout = new javax.swing.GroupLayout(Empresa.getContentPane());
                 Empresa.getContentPane().setLayout(EmpresaLayout);
                 EmpresaLayout.setHorizontalGroup(
                     EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmpresaLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 );
                 EmpresaLayout.setVerticalGroup(
                     EmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(EmpresaLayout.createSequentialGroup()
                         .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel51, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
                 );
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1076,7 +1009,7 @@ public class Facturador extends javax.swing.JFrame {
 
                 cbxTipoDocumento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                 cbxTipoDocumento.setForeground(new java.awt.Color(102, 102, 102));
-                cbxTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0 Doc. Trib.NO.DOM.SIN.RUC", "1 DNI", "2 CARNET DE EXTRANJERIA", "3 RUC", "4 PASAPORTE", "5 CED.DIPLOMATICA DE IDENTIDAD" }));
+                cbxTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0 Doc. Trib.NO.DOM.SIN.RUC", "1 DNI", "2 CARNET DE EXTRANJERIA", "6 RUC", "4 PASAPORTE", "5 CED.DIPLOMATICA DE IDENTIDAD" }));
                 cbxTipoDocumento.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                 cbxTipoDocumento.addItemListener(new java.awt.event.ItemListener() {
                     public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -2927,30 +2860,7 @@ public class Facturador extends javax.swing.JFrame {
     }//GEN-LAST:event_txtImporteTotalVentaActionPerformed
 
     private void cbxTipoDocumentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxTipoDocumentoItemStateChanged
-        if(cbxTipoDocumento.getSelectedIndex()==0){
-            LimitadorDeDocumento limitObservacion = new LimitadorDeDocumento(15);
-            txtTipoDocumento.setDocument(limitObservacion);
-        } else
-        if(cbxTipoDocumento.getSelectedIndex()==1){ //DNI
-            LimitadorDeDocumento limitObservacion = new LimitadorDeDocumento(8);
-            txtTipoDocumento.setDocument(limitObservacion);
-        } else
-        if(cbxTipoDocumento.getSelectedIndex()==2){
-            LimitadorDeDocumento limitObservacion = new LimitadorDeDocumento(12);
-            txtTipoDocumento.setDocument(limitObservacion);
-        } else
-        if(cbxTipoDocumento.getSelectedIndex()==3){
-            LimitadorDeDocumento limitObservacion = new LimitadorDeDocumento(11);
-            txtTipoDocumento.setDocument(limitObservacion);
-        } else
-        if(cbxTipoDocumento.getSelectedIndex()==4){
-            LimitadorDeDocumento limitObservacion = new LimitadorDeDocumento(12);
-            txtTipoDocumento.setDocument(limitObservacion);
-        } else
-        if(cbxTipoDocumento.getSelectedIndex()==5){
-            LimitadorDeDocumento limitObservacion = new LimitadorDeDocumento(15);
-            txtTipoDocumento.setDocument(limitObservacion);
-        } 
+        
     }//GEN-LAST:event_cbxTipoDocumentoItemStateChanged
 
     private void cbxDocumentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDocumentoItemStateChanged
@@ -3025,6 +2935,7 @@ public class Facturador extends javax.swing.JFrame {
                     facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
                     facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(txtImporteTotalVenta.getText())));
                     facturaDetalle.setCodUsu(cabecera.codUsuario(lblusu.getText()));
+                    facturaDetalle.setFormaPago(tbFacturacion.getValueAt(i,7).toString());
                     if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle(lblMant.getText())){
                         //
                         //
@@ -3054,8 +2965,6 @@ public class Facturador extends javax.swing.JFrame {
                             for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
                                 bloc2 = bloc2 + String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
                                 String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) + "|" +
-                                 String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) +
-                                String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(2)) + "|" +
                                 String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
                                  ""+ "|" + 
                                 String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
@@ -3100,13 +3009,6 @@ public class Facturador extends javax.swing.JFrame {
         //        CNV.listarMedicos(txtBuscarEmpresa.getText(),lblServicio.getText(),tb_Empresa);
         CNVE.listarEmpresa(txtBuscarEmpresa.getText(),tb_Empresa);
 
-        if (tb_Empresa.getRowCount() == 0){
-            jPanel51.setVisible(true);
-        }
-        if (txtBuscarEmpresa.getText().length()==0){
-            jPanel51.setVisible(true);
-        }
-
     }//GEN-LAST:event_txtBuscarEmpresaCaretUpdate
 
     private void txtBuscarEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarEmpresaActionPerformed
@@ -3136,12 +3038,6 @@ public class Facturador extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_tb_EmpresaKeyPressed
-
-    private void jLabel78MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel78MouseClicked
-        Empresa.dispose();
-        Caja_Empresa_jerarquia CEJ = new Caja_Empresa_jerarquia();
-        CEJ.setVisible(true);
-    }//GEN-LAST:event_jLabel78MouseClicked
 
     private void btnAgregarEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpresaActionPerformed
         Caja_NuevaVenta CNVE = new Caja_NuevaVenta(); 
@@ -3233,12 +3129,10 @@ public class Facturador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private com.toedter.components.JLocaleChooser jLocaleChooser1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -3247,7 +3141,6 @@ public class Facturador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
@@ -3276,7 +3169,6 @@ public class Facturador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel48;
     private javax.swing.JPanel jPanel49;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel51;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;

@@ -196,10 +196,10 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
         String consulta = "";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[] = {"Código CPT", "Nomenclatura", "Valor U.", "Cantidad", "Precio", "Descuento", "Total"};
+            String titulos[] = {"Código CPT", "Nomenclatura", "Valor U.", "Cantidad", "Precio", "Descuento", "Total","Forma de Pago"};
             m = new DefaultTableModel(null, titulos);
             JTable p = new JTable(m);
-            String fila[] = new String[12];
+            String fila[] = new String[9];
             Caja_NuevaVenta obj = new Caja_NuevaVenta();
             consulta = "CUENTAS_POR_PAGAR_LISTADO_POR_FACTURAR ?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
@@ -214,6 +214,7 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
                 fila[4] = r.getString(5);
                 fila[5] = r.getString(6);
                 fila[6] = r.getString(7);
+                fila[7] = r.getString(9);
                 m.addRow(fila);
                 c++;
             }

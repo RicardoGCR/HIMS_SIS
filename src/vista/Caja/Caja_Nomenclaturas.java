@@ -1209,7 +1209,7 @@ byte tga;
                                 .addGap(18, 18, 18)
                                 .addComponent(btnLista)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                         );
 
                         jTabbedPane1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -1699,6 +1699,7 @@ byte tga;
          visible.setEnabled(true);
          btnguardar.setEnabled(true);
          btneditar.setEnabled(false);
+         btneliminar.setEnabled(false);
          b.setVisible(true);
 
          txtnomenclatura.setText("");
@@ -2177,7 +2178,6 @@ jTabbedPane1.setSelectedIndex(0);
          txtdes.setEditable(true);
     
          visible.setEnabled(true);
-         btnguardar.setEnabled(true);
          btneditar.setEnabled(false);
          b.setVisible(true);
 

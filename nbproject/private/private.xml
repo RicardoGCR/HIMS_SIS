@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
-            <file>file:/D:/proyecto/HIMS/src/vista/Caja/Caja_Pagos.java</file>
-            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL_ACTIVIDADES.java</file>
-            <file>file:/D:/proyecto/HIMS/src/vista/Caja/Caja_Nomenclaturas.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/Facturador.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/VentasConsolidado.java</file>
+            <file>file:/D:/pry/HIMS/src/modelos/cuentaPorPagar/CuentasPorPagarVentasConsolidadoCabecera.java</file>
         </group>
     </open-files>
 </project-private>

@@ -64,6 +64,7 @@ import modelos.Caja.Caja_NuevaVenta;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.cuentaPorPagar.CuentasPorPagarFacturasCabecera;
 import modelos.cuentaPorPagar.CuentasPorPagarFacturasDetalle;
+import modelos.cuentaPorPagar.CuentasPorPagarVentasConsolidadoCabecera;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 import vista.Caja.Caja_Empresa_jerarquia;
@@ -197,27 +198,28 @@ public class Facturador extends javax.swing.JFrame {
         return resultado;
     }
     
-    public void crearCabecera(){
+    public boolean crearCabecera(){
+        boolean retorna = false;
         String archivo = txtTipoDocumento.getText() + "-" + 
                 cbxDocumento.getSelectedItem().toString().charAt(0) + 
                 cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
                 txtSerie.getText() + "-" + 
                 lblNroCorrelativo.getText() + ".CAB";
-//        File crea_ubicacion = new File(ubicacion);
         File crea_archivo = new File(archivo);
         if(txtTipoDocumento.getText().equals("")){
-            JOptionPane.showMessageDialog(this,"No hay ID");
+            JOptionPane.showMessageDialog(this,"Ingrese tipo de documento");
         } else {
             try {
                 if(crea_archivo.exists()){
                     JOptionPane.showMessageDialog(rootPane, "El registro ya existe");
+                    retorna = false;
                 } else {
                     Formatter crea = new Formatter(ubicacion+archivo);
                     crea.format(String.valueOf(cbxTipoOperacion.getSelectedItem().toString().charAt(0)) + 
                     String.valueOf(cbxTipoOperacion.getSelectedItem().toString().charAt(1))+
                     "|"+lblFechaEmision.getText()+"|"+
                     lblCodDomicilioFiscal.getText()+"|"+
-                    6/*(cbxTipoDocumento.getSelectedItem().toString()).charAt(0)*/+"|"+
+                    (cbxTipoDocumento.getSelectedItem().toString()).charAt(0)+"|"+
                     txtTipoDocumento.getText()+"|"+
                     txtApeNom.getText() + "|" + 
                     cbxTipoMoneda.getSelectedItem().toString() + "|" + 
@@ -232,11 +234,13 @@ public class Facturador extends javax.swing.JFrame {
                     txtOtrosTributos.getText() + "|" + 
                     txtImporteTotalVenta.getText());
                     crea.close();
+                    retorna = true;
                 }   
             } catch (Exception e) {
-                    JOptionPane.showMessageDialog(this, "No se pudo");
+                    retorna = false;
             }
         }
+        return retorna;
     }   
     
     public void crearDetalle(){
@@ -297,6 +301,61 @@ public class Facturador extends javax.swing.JFrame {
         }
     }   
     
+    
+    public boolean crearDetalles(File crea_archivo, String archivo){
+        boolean retorna = false;
+        try {
+                            Formatter crea = new Formatter(ubicacion+archivo);
+                            if(crea_archivo.exists()){
+                                JOptionPane.showMessageDialog(rootPane, "El registro ya existe");
+                                retorna = false;
+                            } else {
+                                String bloc1 = "";
+                                for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
+                                    bloc1 = bloc1 + String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
+                                    String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) +
+                                    String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(2)) + "|" +
+                                    String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
+                                     ""+ "|" + 
+                                    String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
+                                     String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|" + 
+                                     txtDscto.getText() + "|" +
+                                    txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
+                                    String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
+                                    txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+                                    txtPrecioVenta.getText() + "|" + txtValorVenta.getText() + "\r\n";
+                                }
+                                String bloc2 = "";
+                                for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
+                                    bloc2 = bloc2 + String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
+                                    String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) + "|" +
+                                    String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
+                                     ""+ "|" + 
+                                    String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
+                                     String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|"  + 
+                                     txtDscto.getText() + "|" +
+                                    txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
+                                    String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
+                                    txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+                                    txtPrecioVenta.getText() + "|" + txtValorVenta.getText() + "\r\n";
+                                }
+                                if(cbxCodUnidad.getSelectedIndex()==0 || cbxCodUnidad.getSelectedIndex()==4 ||
+                                           cbxCodUnidad.getSelectedIndex()==5 || cbxCodUnidad.getSelectedIndex()==6 ||
+                                           cbxCodUnidad.getSelectedIndex()==7){
+                                    crea.format(bloc1);
+                                } else {
+                                    crea.format(bloc2);
+                                }
+                                crea.close();
+                                retorna = true;
+                            }   
+                        } catch (Exception e) {
+                                retorna = false;
+                        }
+        return retorna;
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -1009,7 +1068,7 @@ public class Facturador extends javax.swing.JFrame {
 
                 cbxTipoDocumento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                 cbxTipoDocumento.setForeground(new java.awt.Color(102, 102, 102));
-                cbxTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0 Doc. Trib.NO.DOM.SIN.RUC", "1 DNI", "2 CARNET DE EXTRANJERIA", "6 RUC", "4 PASAPORTE", "5 CED.DIPLOMATICA DE IDENTIDAD" }));
+                cbxTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0 Doc. Trib.NO.DOM.SIN.RUC", "1 DNI", "4 CARNET DE EXTRANJERIA", "6 RUC", "7 PASAPORTE", "A CED.DIPLOMATICA DE IDENTIDAD" }));
                 cbxTipoDocumento.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                 cbxTipoDocumento.addItemListener(new java.awt.event.ItemListener() {
                     public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -2885,7 +2944,9 @@ public class Facturador extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTipoDocumentoKeyTyped
 
     private void btnGenerarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDocActionPerformed
+        boolean rpta = false;
         AdmisionEmergenciaCabecera cabecera = new AdmisionEmergenciaCabecera();
+        CuentasPorPagarVentasConsolidadoCabecera cab = new CuentasPorPagarVentasConsolidadoCabecera();
         if(!txtTipoDocumento.getText().equals("")){
                 CuentasPorPagarFacturasCabecera facturaCabecera = new CuentasPorPagarFacturasCabecera();
                     facturaCabecera.setSerie(txtSerie.getText());
@@ -2897,103 +2958,59 @@ public class Facturador extends javax.swing.JFrame {
                     facturaCabecera.setCod_usu(cabecera.codUsuario(lblusu.getText()));
                     facturaCabecera.setCodigoEmpresa(lblEmpresa.getText());
             if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera(lblMant.getText())){
-                crearCabecera();
-                CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
-                lblId.setText(facturaDetalle1.facturaCabeceraId());
-//                crearDetalle();
-                String archivo = txtTipoDocumento.getText() + "-" + 
-                cbxDocumento.getSelectedItem().toString().charAt(0) + 
-                cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
-                txtSerie.getText() + "-" + 
-                lblNroCorrelativo.getText() + ".DET";
-                File crea_archivo = new File(archivo);
-                for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
-                    CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
-                    facturaDetalle.setCpfId(Integer.parseInt(lblId.getText()));
-                    facturaDetalle.setCpdGrav(cbxGravado.getSelectedItem().toString());
-                    facturaDetalle.setCpdCodUnidad(cbxCodUnidad.getSelectedItem().toString());
-                    facturaDetalle.setCpdCantidad(Integer.parseInt(tbFacturacion.getValueAt(i,3).toString()));
-                    facturaDetalle.setNomenclatura(facturaDetalle.codNomen(tbFacturacion.getValueAt(i,0).toString()));
-                    facturaDetalle.setCpdCodProdSunat("");
-                    facturaDetalle.setCpdValorU(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())));
-                    facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble(txtPorcenDscto.getText())));
-                    facturaDetalle.setCpdDscto(BigDecimal.valueOf(Double.parseDouble(txtDscto.getText())));
-                    facturaDetalle.setCpdIgv(BigDecimal.valueOf(Double.parseDouble(txtIGV.getText())));
-                    facturaDetalle.setCpdAfecIgv(cbxAfecIGV.getSelectedItem().toString()); 
-                    facturaDetalle.setCpdIsc(BigDecimal.valueOf(Double.parseDouble(txtISC.getText())));
-                    facturaDetalle.setCpdAfecIsc(cbxAfecISC.getSelectedItem().toString()); 
-                    facturaDetalle.setCpdPrecioVenta(BigDecimal.valueOf(Double.parseDouble(txtPrecioVenta.getText())));
-                    facturaDetalle.setCpdValorVenta(BigDecimal.valueOf(Double.parseDouble(txtValorVenta.getText())));
-                    facturaDetalle.setCpdDsctoGlobal(BigDecimal.valueOf(Double.parseDouble(txtDsctoGlobal.getText())));
-                    facturaDetalle.setCpdSumOtrosCargos(BigDecimal.valueOf(Double.parseDouble(txtOtrosCargos.getText())));
-                    facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(Double.parseDouble(txtMtoIGV.getText())));
-                    facturaDetalle.setCpdTVvInafec(BigDecimal.valueOf(Double.parseDouble(txtValorVentaInafectada.getText())));
-                    facturaDetalle.setCpdTVvGrav(BigDecimal.valueOf(Double.parseDouble(txtValorVentaGravada.getText())));
-                    facturaDetalle.setCpdTDsctos(BigDecimal.valueOf(Double.parseDouble(txtTotalDscto.getText())));
-                    facturaDetalle.setCpdOtrosTribut(BigDecimal.valueOf(Double.parseDouble(txtOtrosTributos.getText())));
-                    facturaDetalle.setCpdSumIsc(BigDecimal.valueOf(Double.parseDouble(txtMtoISC.getText())));
-                    facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
-                    facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(txtImporteTotalVenta.getText())));
-                    facturaDetalle.setCodUsu(cabecera.codUsuario(lblusu.getText()));
-                    facturaDetalle.setFormaPago(tbFacturacion.getValueAt(i,7).toString());
-                    if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle(lblMant.getText())){
-                        //
-                        //
-                        
-                    try {
-                        Formatter crea = new Formatter(ubicacion+archivo);
-                        if(crea_archivo.exists()){
-                            JOptionPane.showMessageDialog(rootPane, "El registro ya existe");
-                        } else {
-                            String bloc1 = "";
-                            for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
-                                bloc1 = bloc1 + String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
-                                String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) +
-                                String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(2)) + "|" +
-                                String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
-                                 ""+ "|" + 
-                                String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
-                                 String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|" + 
-                                 txtDscto.getText() + "|" +
-                                txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
-                                String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
-                                txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
-                                String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
-                                txtPrecioVenta.getText() + "|" + txtValorVenta.getText() + "\r\n";
-                            }
-                            String bloc2 = "";
-                            for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
-                                bloc2 = bloc2 + String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
-                                String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) + "|" +
-                                String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
-                                 ""+ "|" + 
-                                String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
-                                 String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|"  + 
-                                 txtDscto.getText() + "|" +
-                                txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
-                                String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
-                                txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
-                                String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
-                                txtPrecioVenta.getText() + "|" + txtValorVenta.getText() + "\r\n";
-                            }
-                            if(cbxCodUnidad.getSelectedIndex()==0 || cbxCodUnidad.getSelectedIndex()==4 ||
-                                       cbxCodUnidad.getSelectedIndex()==5 || cbxCodUnidad.getSelectedIndex()==6 ||
-                                       cbxCodUnidad.getSelectedIndex()==7){
-                                crea.format(bloc1);
-                            } else {
-                                crea.format(bloc2);
-                            }
-                            crea.close();
-                            JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
-                        }   
-                    } catch (Exception e) {
-                            JOptionPane.showMessageDialog(this, "No se pudo");
-                    }
-                        //
-                        //
-                    }
-            }
-                
+                if(crearCabecera()){
+                    CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
+                    lblId.setText(facturaDetalle1.facturaCabeceraId());
+                    String archivo = txtTipoDocumento.getText() + "-" + 
+                    cbxDocumento.getSelectedItem().toString().charAt(0) + 
+                    cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
+                    txtSerie.getText() + "-" + 
+                    lblNroCorrelativo.getText() + ".DET";
+                    File crea_archivo = new File(archivo);
+                    for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
+                        CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
+                        facturaDetalle.setCpfId(Integer.parseInt(lblId.getText()));
+                        facturaDetalle.setCpdGrav(cbxGravado.getSelectedItem().toString());
+                        facturaDetalle.setCpdCodUnidad(cbxCodUnidad.getSelectedItem().toString());
+                        facturaDetalle.setCpdCantidad(Integer.parseInt(tbFacturacion.getValueAt(i,3).toString()));
+                        facturaDetalle.setNomenclatura(facturaDetalle.codNomen(tbFacturacion.getValueAt(i,0).toString()));
+                        facturaDetalle.setCpdCodProdSunat("");
+                        facturaDetalle.setCpdValorU(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,2).toString())));
+                        facturaDetalle.setCpdDescPorcen(BigDecimal.valueOf(Double.parseDouble(txtPorcenDscto.getText())));
+                        facturaDetalle.setCpdDscto(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,6).toString())));
+                        facturaDetalle.setCpdIgv(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,5).toString())));
+                        facturaDetalle.setCpdAfecIgv(cbxAfecIGV.getSelectedItem().toString()); 
+                        facturaDetalle.setCpdIsc(BigDecimal.valueOf(Double.parseDouble(txtISC.getText())));
+                        facturaDetalle.setCpdAfecIsc(cbxAfecISC.getSelectedItem().toString()); 
+                        facturaDetalle.setCpdPrecioVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,4).toString())));
+                        facturaDetalle.setCpdValorVenta(BigDecimal.valueOf(Double.parseDouble(tbFacturacion.getValueAt(i,7).toString())));
+                        facturaDetalle.setCpdDsctoGlobal(BigDecimal.valueOf(Double.parseDouble(txtDsctoGlobal.getText())));
+                        facturaDetalle.setCpdSumOtrosCargos(BigDecimal.valueOf(Double.parseDouble(txtOtrosCargos.getText())));
+                        facturaDetalle.setCpdSumIgv(BigDecimal.valueOf(Double.parseDouble(txtMtoIGV.getText())));
+                        facturaDetalle.setCpdTVvInafec(BigDecimal.valueOf(Double.parseDouble(txtValorVentaInafectada.getText())));
+                        facturaDetalle.setCpdTVvGrav(BigDecimal.valueOf(Double.parseDouble(txtValorVentaGravada.getText())));
+                        facturaDetalle.setCpdTDsctos(BigDecimal.valueOf(Double.parseDouble(txtTotalDscto.getText())));
+                        facturaDetalle.setCpdOtrosTribut(BigDecimal.valueOf(Double.parseDouble(txtOtrosTributos.getText())));
+                        facturaDetalle.setCpdSumIsc(BigDecimal.valueOf(Double.parseDouble(txtMtoISC.getText())));
+                        facturaDetalle.setCpdTVExonen(BigDecimal.valueOf(Double.parseDouble(txtVentaExonerada.getText())));
+                        facturaDetalle.setCpdImpTotVtas(BigDecimal.valueOf(Double.parseDouble(txtImporteTotalVenta.getText())));
+                        facturaDetalle.setCodUsu(cabecera.codUsuario(lblusu.getText()));
+                        facturaDetalle.setFormaPago(tbFacturacion.getValueAt(i,7).toString());
+                        if(facturaDetalle.mantenimientoCuentasPorPagarFacturasDetalle(lblMant.getText())){
+                            cab.actualizarEstadoFacturacion(tbFacturacion.getValueAt(i,8).toString(), "L");
+                            if(crearDetalles(crea_archivo, archivo)){
+                                rpta = true;
+                            } else
+                                rpta = false;
+                        }
+                }
+                    JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
+                    dispose();
+                    VentasConsolidado.txtDni.requestFocus();
+                    VentasConsolidado.txtDni.setText("");
+                    VentasConsolidado.T3.doClick();
+                    VentasConsolidado.cbxActoMedico.removeAllItems();
+            }//fin if crearCabecera    
             }
         } else{
             btnAgregarEmpresa.doClick();

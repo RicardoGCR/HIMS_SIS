@@ -72,13 +72,14 @@ Conexion c=new Conexion();
         txtNroDocumento.setDocument(limitObservacion);
         lblFechaEmision.setText(fechaActual());
         lblFechaEmisionDebito.setText(fechaActual());
-        
+        lblCorrelativoCreditoF.setText("");
+        lblCorrelativoDebitoF.setText("");
         cbxBuscarDocumento.setBackground(Color.WHITE);
         
         BUSCAR_FACTURA_BOLETA.setLocationRelativeTo(null);
         BUSCAR_FACTURA_BOLETA.getContentPane().setBackground(Color.white);
         
-        serie.generarSerieCorrelativo();
+     
         
         
         //salir presionando escape
@@ -112,7 +113,7 @@ Conexion c=new Conexion();
         cbxTipoDocumentoDebito.setSelectedIndex(0);
         cbxTipoMonedaDebito.setSelectedIndex(0);
         cbxTipoNotaDebito.setSelectedIndex(0);
-        txtActoMedico.setText("");
+     
         txtApeNom.setText("");
         txtCantidad.setText("");
         txtCodProducto.setText("");
@@ -122,10 +123,10 @@ Conexion c=new Conexion();
 //        txtDsctoGlobal.setText("");
         txtIGV.setText("");
         txtImporteTotalVenta.setText("");
-        txtMtoIGV.setText("");
+        txtMtoIGVCredito.setText("");
         txtMtoISC.setText("");
-        txtOtrosCargos.setText("");
-        txtOtrosTributos.setText("");
+        txtOtrosCargosCredito.setText("");
+        txtOtrosTributosCredito.setText("");
         txtPorcenDscto.setText("");
         txtNroDocumento.setText("");
 //        txtTotalDscto.setText("");
@@ -205,10 +206,11 @@ Conexion c=new Conexion();
     }
     
     public void crearCabeceraCredito(){
+        
        String archivo = txtNroDocumento.getText() + "-" + 
                "07" + "-" +
                txtSerie.getText() + "-" + 
-                lblNroCorrelativo.getText()  + ".NOT";
+                lblCorrelativoCreditoF.getText() + ".NOT";
 //        File crea_ubicacion = new File(ubicacion);
         File crea_archivo = new File(archivo);
         if(txtNroDocumento.getText().equals("")){
@@ -231,14 +233,14 @@ Conexion c=new Conexion();
                      txtNroDocumento.getText()+ "|" + 
                    txtApeNom.getText()+ "|" + 
                     cbxTipoMoneda.getSelectedItem().toString() + "|" + 
-                    txtOtrosCargos.getText() + "|" + 
+                    txtOtrosCargosCredito.getText() + "|" + 
                     
                     txtValorVentaGravada.getText() + "|" + 
                     txtValorVentaInafectada.getText() + "|" + 
                     txtVentaExonerada.getText() + "|" + 
-                    txtMtoIGV.getText() + "|" +
+                    txtMtoIGVCredito.getText() + "|" +
                     txtMtoISC.getText()+ "|" + 
-                    txtOtrosTributos.getText() + "|" + 
+                    txtOtrosTributosCredito.getText() + "|" + 
                     txtImporteTotalVenta.getText());
                     crea.close();
                 }   
@@ -248,6 +250,50 @@ Conexion c=new Conexion();
         }
     }   
     
+    public void crearCabeceraDebito(){
+        
+       String archivo = txtNroDocumentoDebito .getText() + "-" + 
+               "08" + "-" +
+               txtSerieDebito.getText() + "-" + 
+                lblCorrelativoDebitoF.getText() + ".NOT";
+//        File crea_ubicacion = new File(ubicacion);
+        File crea_archivo = new File(archivo);
+        if(txtNroDocumentoDebito.getText().equals("")){
+            JOptionPane.showMessageDialog(this,"No hay ID");
+        } else {
+            try {
+                if(crea_archivo.exists()){
+                    JOptionPane.showMessageDialog(rootPane, "El registro ya existe");
+                } else {
+                    Formatter crea = new Formatter(ubicacion+archivo);
+                    crea.format(lblFechaEmisionDebito.getText()+"|"+
+                    String.valueOf(cbxTipoNotaDebito.getSelectedItem().toString().charAt(0)) + 
+                    String.valueOf(cbxTipoNotaDebito.getSelectedItem().toString().charAt(1))+"|"+
+                    txtDescripcionDebito.getText()+ "|" + 
+                    String.valueOf(cbxDocumentoDebito.getSelectedItem().toString().charAt(0)) + 
+                    String.valueOf(cbxDocumentoDebito.getSelectedItem().toString().charAt(1))+"|"+
+                    txtSerieDebito.getText() + "-" + 
+                lblNroCorrelativoDebito.getText() +"|"+
+                     String.valueOf(cbxTipoDocumentoDebito.getSelectedItem().toString().charAt(0)) + "|" + 
+                     txtNroDocumentoDebito.getText()+ "|" + 
+                   txtApeNomDebito.getText()+ "|" + 
+                    cbxTipoMonedaDebito.getSelectedItem().toString() + "|" + 
+                    txtOtrosCargosDebito.getText() + "|" + 
+                    
+                    txtValorVentaGravadaDebito.getText() + "|" + 
+                    txtValorVentaInafectadaDebito.getText() + "|" + 
+                    txtVentaExoneradaDebito.getText() + "|" + 
+                    txtMtoIGVDebito.getText() + "|" +
+                    txtMtoISC.getText()+ "|" + 
+                    txtOtrosTributos1.getText() + "|" + 
+                    txtImporteTotalVentaDebito.getText());
+                    crea.close();
+                }   
+            } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "No se pudo");
+            }
+        }
+    }   
     public void crearDetalle(){
 //        String archivo = txtTipoDocumento.getText() + "-" + 
 //                cbxDocumento.getSelectedItem().toString().charAt(0) + 
@@ -357,10 +403,6 @@ Conexion c=new Conexion();
         jLabel12 = new javax.swing.JLabel();
         panelCPT1 = new javax.swing.JPanel();
         txtApeNom = new javax.swing.JTextField();
-        jPanel17 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        panelCPT3 = new javax.swing.JPanel();
-        txtActoMedico = new javax.swing.JTextField();
         jPanel18 = new javax.swing.JPanel();
         cbxGravado = new javax.swing.JComboBox();
         jPanel19 = new javax.swing.JPanel();
@@ -429,15 +471,15 @@ Conexion c=new Conexion();
             jPanel38 = new javax.swing.JPanel();
             jLabel31 = new javax.swing.JLabel();
             panelCPT17 = new javax.swing.JPanel();
-            txtMtoIGV = new javax.swing.JTextField();
+            txtMtoIGVCredito = new javax.swing.JTextField();
             jPanel37 = new javax.swing.JPanel();
             jLabel30 = new javax.swing.JLabel();
             panelCPT16 = new javax.swing.JPanel();
-            txtOtrosCargos = new javax.swing.JTextField();
+            txtOtrosCargosCredito = new javax.swing.JTextField();
             jPanel42 = new javax.swing.JPanel();
             jLabel35 = new javax.swing.JLabel();
             panelCPT21 = new javax.swing.JPanel();
-            txtOtrosTributos = new javax.swing.JTextField();
+            txtOtrosTributosCredito = new javax.swing.JTextField();
             jPanel46 = new javax.swing.JPanel();
             btnGenerarDoc = new javax.swing.JButton();
             jPanel31 = new javax.swing.JPanel();
@@ -469,7 +511,7 @@ Conexion c=new Conexion();
             jPanel51 = new javax.swing.JPanel();
             jLabel41 = new javax.swing.JLabel();
             panelCPT27 = new javax.swing.JPanel();
-            txtValorVentaGravada1 = new javax.swing.JTextField();
+            lblCorrelativoCreditoF = new javax.swing.JTextField();
             lblIdCredito = new javax.swing.JLabel();
             lblUsu = new javax.swing.JLabel();
             jPanel8 = new javax.swing.JPanel();
@@ -508,7 +550,7 @@ Conexion c=new Conexion();
             jPanel57 = new javax.swing.JPanel();
             jLabel44 = new javax.swing.JLabel();
             panelCPT28 = new javax.swing.JPanel();
-            txtCantidad1 = new javax.swing.JTextField();
+            txtCantidadDebito = new javax.swing.JTextField();
             jPanel58 = new javax.swing.JPanel();
             jLabel45 = new javax.swing.JLabel();
             panelCPT29 = new javax.swing.JPanel();
@@ -524,19 +566,19 @@ Conexion c=new Conexion();
             jPanel61 = new javax.swing.JPanel();
             jLabel48 = new javax.swing.JLabel();
             panelCPT32 = new javax.swing.JPanel();
-            txtValorU1 = new javax.swing.JTextField();
+            txtValorUDebito = new javax.swing.JTextField();
             jPanel62 = new javax.swing.JPanel();
             jLabel49 = new javax.swing.JLabel();
             panelCPT33 = new javax.swing.JPanel();
-            txtPorcenDscto1 = new javax.swing.JTextField();
+            txtPorcenDsctoDebito = new javax.swing.JTextField();
             jPanel63 = new javax.swing.JPanel();
             jLabel50 = new javax.swing.JLabel();
             panelCPT34 = new javax.swing.JPanel();
-            txtDscto1 = new javax.swing.JTextField();
+            txtDsctoDebito = new javax.swing.JTextField();
             jPanel64 = new javax.swing.JPanel();
             jLabel51 = new javax.swing.JLabel();
             panelCPT35 = new javax.swing.JPanel();
-            txtIGV1 = new javax.swing.JTextField();
+            txtIGVDebito = new javax.swing.JTextField();
             jPanel65 = new javax.swing.JPanel();
             jLabel52 = new javax.swing.JLabel();
             cbxAfecIGVDebito = new javax.swing.JComboBox();
@@ -548,19 +590,19 @@ Conexion c=new Conexion();
                 jPanel67 = new javax.swing.JPanel();
                 jLabel53 = new javax.swing.JLabel();
                 panelCPT36 = new javax.swing.JPanel();
-                txtValorVentaGravada2 = new javax.swing.JTextField();
+                txtValorVentaGravadaDebito = new javax.swing.JTextField();
                 jPanel68 = new javax.swing.JPanel();
                 jLabel54 = new javax.swing.JLabel();
                 panelCPT37 = new javax.swing.JPanel();
-                txtImporteTotalVenta1 = new javax.swing.JTextField();
+                txtImporteTotalVentaDebito = new javax.swing.JTextField();
                 jPanel69 = new javax.swing.JPanel();
                 jLabel55 = new javax.swing.JLabel();
                 panelCPT38 = new javax.swing.JPanel();
-                txtValorVentaInafectada1 = new javax.swing.JTextField();
+                txtValorVentaInafectadaDebito = new javax.swing.JTextField();
                 jPanel70 = new javax.swing.JPanel();
                 jLabel56 = new javax.swing.JLabel();
                 panelCPT39 = new javax.swing.JPanel();
-                txtVentaExonerada1 = new javax.swing.JTextField();
+                txtVentaExoneradaDebito = new javax.swing.JTextField();
                 jPanel71 = new javax.swing.JPanel();
                 jLabel57 = new javax.swing.JLabel();
                 panelCPT40 = new javax.swing.JPanel();
@@ -568,11 +610,11 @@ Conexion c=new Conexion();
                 jPanel72 = new javax.swing.JPanel();
                 jLabel58 = new javax.swing.JLabel();
                 panelCPT41 = new javax.swing.JPanel();
-                txtMtoIGV1 = new javax.swing.JTextField();
+                txtMtoIGVDebito = new javax.swing.JTextField();
                 jPanel73 = new javax.swing.JPanel();
                 jLabel59 = new javax.swing.JLabel();
                 panelCPT42 = new javax.swing.JPanel();
-                txtOtrosCargos1 = new javax.swing.JTextField();
+                txtOtrosCargosDebito = new javax.swing.JTextField();
                 jPanel74 = new javax.swing.JPanel();
                 jLabel60 = new javax.swing.JLabel();
                 panelCPT43 = new javax.swing.JPanel();
@@ -587,7 +629,7 @@ Conexion c=new Conexion();
                 jPanel77 = new javax.swing.JPanel();
                 jLabel62 = new javax.swing.JLabel();
                 panelCPT45 = new javax.swing.JPanel();
-                txtApeNom3 = new javax.swing.JTextField();
+                txtDescripcionDebito = new javax.swing.JTextField();
                 jPanel78 = new javax.swing.JPanel();
                 btnGenerarDoc3 = new javax.swing.JButton();
                 jPanel79 = new javax.swing.JPanel();
@@ -604,11 +646,11 @@ Conexion c=new Conexion();
                 jPanel82 = new javax.swing.JPanel();
                 jLabel66 = new javax.swing.JLabel();
                 panelCPT48 = new javax.swing.JPanel();
-                txtValorVenta1 = new javax.swing.JTextField();
+                txtValorVentaDebito = new javax.swing.JTextField();
                 jPanel83 = new javax.swing.JPanel();
                 jLabel67 = new javax.swing.JLabel();
                 panelCPT49 = new javax.swing.JPanel();
-                txtValorVentaGravada3 = new javax.swing.JTextField();
+                lblCorrelativoDebitoF = new javax.swing.JTextField();
                 lblIdDebito = new javax.swing.JLabel();
 
                 jPanel22.setBackground(new java.awt.Color(41, 127, 184));
@@ -1078,8 +1120,8 @@ Conexion c=new Conexion();
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cbxTipoNotaCredito, 0, 0, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxTipoNotaCredito, 0, 255, Short.MAX_VALUE))
                         .addContainerGap())
                 );
                 jPanel6Layout.setVerticalGroup(
@@ -1382,73 +1424,6 @@ Conexion c=new Conexion();
                         .addComponent(jLabel12)
                         .addGap(3, 3, 3)
                         .addComponent(panelCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                );
-
-                jPanel17.setBackground(new java.awt.Color(255, 255, 255));
-                jPanel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-
-                jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-                jLabel14.setForeground(new java.awt.Color(102, 102, 102));
-                jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                jLabel14.setText("Acto Médico");
-
-                panelCPT3.setBackground(new java.awt.Color(255, 255, 255));
-                panelCPT3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-
-                txtActoMedico.setEditable(false);
-                txtActoMedico.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-                txtActoMedico.setForeground(new java.awt.Color(51, 51, 51));
-                txtActoMedico.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtActoMedico.setBorder(null);
-                txtActoMedico.addCaretListener(new javax.swing.event.CaretListener() {
-                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtActoMedicoCaretUpdate(evt);
-                    }
-                });
-                txtActoMedico.addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtActoMedicoActionPerformed(evt);
-                    }
-                });
-                txtActoMedico.addKeyListener(new java.awt.event.KeyAdapter() {
-                    public void keyTyped(java.awt.event.KeyEvent evt) {
-                        txtActoMedicoKeyTyped(evt);
-                    }
-                });
-
-                javax.swing.GroupLayout panelCPT3Layout = new javax.swing.GroupLayout(panelCPT3);
-                panelCPT3.setLayout(panelCPT3Layout);
-                panelCPT3Layout.setHorizontalGroup(
-                    panelCPT3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtActoMedico)
-                );
-                panelCPT3Layout.setVerticalGroup(
-                    panelCPT3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCPT3Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(txtActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                );
-
-                javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-                jPanel17.setLayout(jPanel17Layout);
-                jPanel17Layout.setHorizontalGroup(
-                    jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelCPT3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())
-                );
-                jPanel17Layout.setVerticalGroup(
-                    jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelCPT3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                 );
 
@@ -2410,20 +2385,20 @@ Conexion c=new Conexion();
                 panelCPT17.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtMtoIGV.setEditable(false);
-                txtMtoIGV.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtMtoIGV.setForeground(new java.awt.Color(51, 51, 51));
-                txtMtoIGV.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtMtoIGV.setText("0.00");
-                txtMtoIGV.setBorder(null);
-                txtMtoIGV.addCaretListener(new javax.swing.event.CaretListener() {
+                txtMtoIGVCredito.setEditable(false);
+                txtMtoIGVCredito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                txtMtoIGVCredito.setForeground(new java.awt.Color(51, 51, 51));
+                txtMtoIGVCredito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtMtoIGVCredito.setText("0.00");
+                txtMtoIGVCredito.setBorder(null);
+                txtMtoIGVCredito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtMtoIGVCaretUpdate(evt);
+                        txtMtoIGVCreditoCaretUpdate(evt);
                     }
                 });
-                txtMtoIGV.addActionListener(new java.awt.event.ActionListener() {
+                txtMtoIGVCredito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtMtoIGVActionPerformed(evt);
+                        txtMtoIGVCreditoActionPerformed(evt);
                     }
                 });
 
@@ -2431,13 +2406,13 @@ Conexion c=new Conexion();
                 panelCPT17.setLayout(panelCPT17Layout);
                 panelCPT17Layout.setHorizontalGroup(
                     panelCPT17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtMtoIGV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtMtoIGVCredito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT17Layout.setVerticalGroup(
                     panelCPT17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT17Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtMtoIGV, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMtoIGVCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -2472,20 +2447,20 @@ Conexion c=new Conexion();
                 panelCPT16.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtOtrosCargos.setEditable(false);
-                txtOtrosCargos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtOtrosCargos.setForeground(new java.awt.Color(51, 51, 51));
-                txtOtrosCargos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtOtrosCargos.setText("0.00");
-                txtOtrosCargos.setBorder(null);
-                txtOtrosCargos.addCaretListener(new javax.swing.event.CaretListener() {
+                txtOtrosCargosCredito.setEditable(false);
+                txtOtrosCargosCredito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                txtOtrosCargosCredito.setForeground(new java.awt.Color(51, 51, 51));
+                txtOtrosCargosCredito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtOtrosCargosCredito.setText("0.00");
+                txtOtrosCargosCredito.setBorder(null);
+                txtOtrosCargosCredito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtOtrosCargosCaretUpdate(evt);
+                        txtOtrosCargosCreditoCaretUpdate(evt);
                     }
                 });
-                txtOtrosCargos.addActionListener(new java.awt.event.ActionListener() {
+                txtOtrosCargosCredito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtOtrosCargosActionPerformed(evt);
+                        txtOtrosCargosCreditoActionPerformed(evt);
                     }
                 });
 
@@ -2493,13 +2468,13 @@ Conexion c=new Conexion();
                 panelCPT16.setLayout(panelCPT16Layout);
                 panelCPT16Layout.setHorizontalGroup(
                     panelCPT16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtOtrosCargos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtOtrosCargosCredito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT16Layout.setVerticalGroup(
                     panelCPT16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT16Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtOtrosCargos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOtrosCargosCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -2534,20 +2509,20 @@ Conexion c=new Conexion();
                 panelCPT21.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtOtrosTributos.setEditable(false);
-                txtOtrosTributos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtOtrosTributos.setForeground(new java.awt.Color(51, 51, 51));
-                txtOtrosTributos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtOtrosTributos.setText("0.00");
-                txtOtrosTributos.setBorder(null);
-                txtOtrosTributos.addCaretListener(new javax.swing.event.CaretListener() {
+                txtOtrosTributosCredito.setEditable(false);
+                txtOtrosTributosCredito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                txtOtrosTributosCredito.setForeground(new java.awt.Color(51, 51, 51));
+                txtOtrosTributosCredito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtOtrosTributosCredito.setText("0.00");
+                txtOtrosTributosCredito.setBorder(null);
+                txtOtrosTributosCredito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtOtrosTributosCaretUpdate(evt);
+                        txtOtrosTributosCreditoCaretUpdate(evt);
                     }
                 });
-                txtOtrosTributos.addActionListener(new java.awt.event.ActionListener() {
+                txtOtrosTributosCredito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtOtrosTributosActionPerformed(evt);
+                        txtOtrosTributosCreditoActionPerformed(evt);
                     }
                 });
 
@@ -2555,13 +2530,13 @@ Conexion c=new Conexion();
                 panelCPT21.setLayout(panelCPT21Layout);
                 panelCPT21Layout.setHorizontalGroup(
                     panelCPT21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtOtrosTributos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtOtrosTributosCredito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT21Layout.setVerticalGroup(
                     panelCPT21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT21Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtOtrosTributos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOtrosTributosCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -2607,7 +2582,9 @@ Conexion c=new Conexion();
                 jPanel46.setLayout(jPanel46Layout);
                 jPanel46Layout.setHorizontalGroup(
                     jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGenerarDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel46Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnGenerarDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
                 );
                 jPanel46Layout.setVerticalGroup(
                     jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2625,7 +2602,6 @@ Conexion c=new Conexion();
                 txtSerie.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
                 txtSerie.setForeground(new java.awt.Color(51, 51, 51));
                 txtSerie.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                txtSerie.setText("F001");
 
                 txtSerie1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
                 txtSerie1.setForeground(new java.awt.Color(51, 51, 51));
@@ -2635,7 +2611,6 @@ Conexion c=new Conexion();
                 lblNroCorrelativo.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
                 lblNroCorrelativo.setForeground(new java.awt.Color(51, 51, 51));
                 lblNroCorrelativo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                lblNroCorrelativo.setText("000000003");
 
                 javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
                 jPanel31.setLayout(jPanel31Layout);
@@ -2759,7 +2734,7 @@ Conexion c=new Conexion();
                 jPanel47Layout.setVerticalGroup(
                     jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel47Layout.createSequentialGroup()
-                        .addComponent(btnAgregarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAgregarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                 );
 
@@ -2794,7 +2769,9 @@ Conexion c=new Conexion();
                 panelCPT14.setLayout(panelCPT14Layout);
                 panelCPT14Layout.setHorizontalGroup(
                     panelCPT14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtISC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(panelCPT14Layout.createSequentialGroup()
+                        .addComponent(txtISC, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
                 );
                 panelCPT14Layout.setVerticalGroup(
                     panelCPT14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2811,8 +2788,8 @@ Conexion c=new Conexion();
                     .addGroup(jPanel33Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelCPT14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                            .addComponent(panelCPT14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                 );
                 jPanel33Layout.setVerticalGroup(
@@ -3001,20 +2978,20 @@ Conexion c=new Conexion();
                 panelCPT27.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtValorVentaGravada1.setEditable(false);
-                txtValorVentaGravada1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtValorVentaGravada1.setForeground(new java.awt.Color(51, 51, 51));
-                txtValorVentaGravada1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtValorVentaGravada1.setText("0.00");
-                txtValorVentaGravada1.setBorder(null);
-                txtValorVentaGravada1.addCaretListener(new javax.swing.event.CaretListener() {
+                lblCorrelativoCreditoF.setEditable(false);
+                lblCorrelativoCreditoF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                lblCorrelativoCreditoF.setForeground(new java.awt.Color(51, 51, 51));
+                lblCorrelativoCreditoF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                lblCorrelativoCreditoF.setText("0.00");
+                lblCorrelativoCreditoF.setBorder(null);
+                lblCorrelativoCreditoF.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtValorVentaGravada1CaretUpdate(evt);
+                        lblCorrelativoCreditoFCaretUpdate(evt);
                     }
                 });
-                txtValorVentaGravada1.addActionListener(new java.awt.event.ActionListener() {
+                lblCorrelativoCreditoF.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtValorVentaGravada1ActionPerformed(evt);
+                        lblCorrelativoCreditoFActionPerformed(evt);
                     }
                 });
 
@@ -3022,13 +2999,13 @@ Conexion c=new Conexion();
                 panelCPT27.setLayout(panelCPT27Layout);
                 panelCPT27Layout.setHorizontalGroup(
                     panelCPT27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtValorVentaGravada1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(lblCorrelativoCreditoF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT27Layout.setVerticalGroup(
                     panelCPT27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT27Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtValorVentaGravada1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblCorrelativoCreditoF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -3054,7 +3031,7 @@ Conexion c=new Conexion();
 
                 lblIdCredito.setText("jLabel70");
 
-                lblUsu.setText("jLabel70");
+                lblUsu.setText("Silvana");
 
                 javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
                 jPanel5.setLayout(jPanel5Layout);
@@ -3084,23 +3061,21 @@ Conexion c=new Conexion();
                                     .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(lblUsu)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jPanel51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jPanel46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(36, 36, 36))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGap(20, 20, 20)
-                                        .addComponent(lblUsu)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addGap(36, 36, 36))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jPanel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3146,7 +3121,7 @@ Conexion c=new Conexion();
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGap(158, 158, 158)
+                                        .addGap(110, 110, 110)
                                         .addComponent(lblIdCredito)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3161,8 +3136,7 @@ Conexion c=new Conexion();
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel32, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(jPanel32, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(5, 5, 5)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -3712,18 +3686,18 @@ Conexion c=new Conexion();
                 panelCPT28.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT28.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtCantidad1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-                txtCantidad1.setForeground(new java.awt.Color(51, 51, 51));
-                txtCantidad1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtCantidad1.setBorder(null);
-                txtCantidad1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtCantidadDebito.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+                txtCantidadDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtCantidadDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtCantidadDebito.setBorder(null);
+                txtCantidadDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtCantidad1CaretUpdate(evt);
+                        txtCantidadDebitoCaretUpdate(evt);
                     }
                 });
-                txtCantidad1.addActionListener(new java.awt.event.ActionListener() {
+                txtCantidadDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtCantidad1ActionPerformed(evt);
+                        txtCantidadDebitoActionPerformed(evt);
                     }
                 });
 
@@ -3731,13 +3705,13 @@ Conexion c=new Conexion();
                 panelCPT28.setLayout(panelCPT28Layout);
                 panelCPT28Layout.setHorizontalGroup(
                     panelCPT28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCantidad1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtCantidadDebito, javax.swing.GroupLayout.Alignment.TRAILING)
                 );
                 panelCPT28Layout.setVerticalGroup(
                     panelCPT28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT28Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtCantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCantidadDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -3956,19 +3930,19 @@ Conexion c=new Conexion();
                 panelCPT32.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT32.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtValorU1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-                txtValorU1.setForeground(new java.awt.Color(51, 51, 51));
-                txtValorU1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtValorU1.setText("0.00");
-                txtValorU1.setBorder(null);
-                txtValorU1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtValorUDebito.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+                txtValorUDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtValorUDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtValorUDebito.setText("0.00");
+                txtValorUDebito.setBorder(null);
+                txtValorUDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtValorU1CaretUpdate(evt);
+                        txtValorUDebitoCaretUpdate(evt);
                     }
                 });
-                txtValorU1.addActionListener(new java.awt.event.ActionListener() {
+                txtValorUDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtValorU1ActionPerformed(evt);
+                        txtValorUDebitoActionPerformed(evt);
                     }
                 });
 
@@ -3976,13 +3950,13 @@ Conexion c=new Conexion();
                 panelCPT32.setLayout(panelCPT32Layout);
                 panelCPT32Layout.setHorizontalGroup(
                     panelCPT32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtValorU1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtValorUDebito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT32Layout.setVerticalGroup(
                     panelCPT32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT32Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtValorU1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtValorUDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -4018,20 +3992,20 @@ Conexion c=new Conexion();
                 panelCPT33.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT33.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtPorcenDscto1.setEditable(false);
-                txtPorcenDscto1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-                txtPorcenDscto1.setForeground(new java.awt.Color(51, 51, 51));
-                txtPorcenDscto1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtPorcenDscto1.setText("0.00");
-                txtPorcenDscto1.setBorder(null);
-                txtPorcenDscto1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtPorcenDsctoDebito.setEditable(false);
+                txtPorcenDsctoDebito.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+                txtPorcenDsctoDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtPorcenDsctoDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtPorcenDsctoDebito.setText("0.00");
+                txtPorcenDsctoDebito.setBorder(null);
+                txtPorcenDsctoDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtPorcenDscto1CaretUpdate(evt);
+                        txtPorcenDsctoDebitoCaretUpdate(evt);
                     }
                 });
-                txtPorcenDscto1.addActionListener(new java.awt.event.ActionListener() {
+                txtPorcenDsctoDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtPorcenDscto1ActionPerformed(evt);
+                        txtPorcenDsctoDebitoActionPerformed(evt);
                     }
                 });
 
@@ -4039,13 +4013,13 @@ Conexion c=new Conexion();
                 panelCPT33.setLayout(panelCPT33Layout);
                 panelCPT33Layout.setHorizontalGroup(
                     panelCPT33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPorcenDscto1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtPorcenDsctoDebito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT33Layout.setVerticalGroup(
                     panelCPT33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT33Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtPorcenDscto1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPorcenDsctoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -4081,20 +4055,20 @@ Conexion c=new Conexion();
                 panelCPT34.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT34.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtDscto1.setEditable(false);
-                txtDscto1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-                txtDscto1.setForeground(new java.awt.Color(51, 51, 51));
-                txtDscto1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtDscto1.setText("0.00");
-                txtDscto1.setBorder(null);
-                txtDscto1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtDsctoDebito.setEditable(false);
+                txtDsctoDebito.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+                txtDsctoDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtDsctoDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtDsctoDebito.setText("0.00");
+                txtDsctoDebito.setBorder(null);
+                txtDsctoDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtDscto1CaretUpdate(evt);
+                        txtDsctoDebitoCaretUpdate(evt);
                     }
                 });
-                txtDscto1.addActionListener(new java.awt.event.ActionListener() {
+                txtDsctoDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtDscto1ActionPerformed(evt);
+                        txtDsctoDebitoActionPerformed(evt);
                     }
                 });
 
@@ -4102,13 +4076,13 @@ Conexion c=new Conexion();
                 panelCPT34.setLayout(panelCPT34Layout);
                 panelCPT34Layout.setHorizontalGroup(
                     panelCPT34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDscto1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtDsctoDebito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT34Layout.setVerticalGroup(
                     panelCPT34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT34Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtDscto1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDsctoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -4144,19 +4118,19 @@ Conexion c=new Conexion();
                 panelCPT35.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtIGV1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-                txtIGV1.setForeground(new java.awt.Color(51, 51, 51));
-                txtIGV1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtIGV1.setText("0.00");
-                txtIGV1.setBorder(null);
-                txtIGV1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtIGVDebito.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+                txtIGVDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtIGVDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtIGVDebito.setText("0.00");
+                txtIGVDebito.setBorder(null);
+                txtIGVDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtIGV1CaretUpdate(evt);
+                        txtIGVDebitoCaretUpdate(evt);
                     }
                 });
-                txtIGV1.addActionListener(new java.awt.event.ActionListener() {
+                txtIGVDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtIGV1ActionPerformed(evt);
+                        txtIGVDebitoActionPerformed(evt);
                     }
                 });
 
@@ -4164,13 +4138,13 @@ Conexion c=new Conexion();
                 panelCPT35.setLayout(panelCPT35Layout);
                 panelCPT35Layout.setHorizontalGroup(
                     panelCPT35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtIGV1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtIGVDebito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT35Layout.setVerticalGroup(
                     panelCPT35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT35Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtIGV1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtIGVDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -4280,20 +4254,20 @@ Conexion c=new Conexion();
                 panelCPT36.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT36.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtValorVentaGravada2.setEditable(false);
-                txtValorVentaGravada2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtValorVentaGravada2.setForeground(new java.awt.Color(51, 51, 51));
-                txtValorVentaGravada2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtValorVentaGravada2.setText("0.00");
-                txtValorVentaGravada2.setBorder(null);
-                txtValorVentaGravada2.addCaretListener(new javax.swing.event.CaretListener() {
+                txtValorVentaGravadaDebito.setEditable(false);
+                txtValorVentaGravadaDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                txtValorVentaGravadaDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtValorVentaGravadaDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtValorVentaGravadaDebito.setText("0.00");
+                txtValorVentaGravadaDebito.setBorder(null);
+                txtValorVentaGravadaDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtValorVentaGravada2CaretUpdate(evt);
+                        txtValorVentaGravadaDebitoCaretUpdate(evt);
                     }
                 });
-                txtValorVentaGravada2.addActionListener(new java.awt.event.ActionListener() {
+                txtValorVentaGravadaDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtValorVentaGravada2ActionPerformed(evt);
+                        txtValorVentaGravadaDebitoActionPerformed(evt);
                     }
                 });
 
@@ -4301,13 +4275,13 @@ Conexion c=new Conexion();
                 panelCPT36.setLayout(panelCPT36Layout);
                 panelCPT36Layout.setHorizontalGroup(
                     panelCPT36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtValorVentaGravada2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtValorVentaGravadaDebito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT36Layout.setVerticalGroup(
                     panelCPT36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT36Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtValorVentaGravada2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtValorVentaGravadaDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -4342,20 +4316,20 @@ Conexion c=new Conexion();
                 panelCPT37.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtImporteTotalVenta1.setEditable(false);
-                txtImporteTotalVenta1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtImporteTotalVenta1.setForeground(new java.awt.Color(51, 51, 51));
-                txtImporteTotalVenta1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtImporteTotalVenta1.setText("0.00");
-                txtImporteTotalVenta1.setBorder(null);
-                txtImporteTotalVenta1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtImporteTotalVentaDebito.setEditable(false);
+                txtImporteTotalVentaDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                txtImporteTotalVentaDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtImporteTotalVentaDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtImporteTotalVentaDebito.setText("0.00");
+                txtImporteTotalVentaDebito.setBorder(null);
+                txtImporteTotalVentaDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtImporteTotalVenta1CaretUpdate(evt);
+                        txtImporteTotalVentaDebitoCaretUpdate(evt);
                     }
                 });
-                txtImporteTotalVenta1.addActionListener(new java.awt.event.ActionListener() {
+                txtImporteTotalVentaDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtImporteTotalVenta1ActionPerformed(evt);
+                        txtImporteTotalVentaDebitoActionPerformed(evt);
                     }
                 });
 
@@ -4363,13 +4337,13 @@ Conexion c=new Conexion();
                 panelCPT37.setLayout(panelCPT37Layout);
                 panelCPT37Layout.setHorizontalGroup(
                     panelCPT37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtImporteTotalVenta1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtImporteTotalVentaDebito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT37Layout.setVerticalGroup(
                     panelCPT37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT37Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtImporteTotalVenta1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtImporteTotalVentaDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -4404,20 +4378,20 @@ Conexion c=new Conexion();
                 panelCPT38.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtValorVentaInafectada1.setEditable(false);
-                txtValorVentaInafectada1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtValorVentaInafectada1.setForeground(new java.awt.Color(51, 51, 51));
-                txtValorVentaInafectada1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtValorVentaInafectada1.setText("0.00");
-                txtValorVentaInafectada1.setBorder(null);
-                txtValorVentaInafectada1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtValorVentaInafectadaDebito.setEditable(false);
+                txtValorVentaInafectadaDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                txtValorVentaInafectadaDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtValorVentaInafectadaDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtValorVentaInafectadaDebito.setText("0.00");
+                txtValorVentaInafectadaDebito.setBorder(null);
+                txtValorVentaInafectadaDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtValorVentaInafectada1CaretUpdate(evt);
+                        txtValorVentaInafectadaDebitoCaretUpdate(evt);
                     }
                 });
-                txtValorVentaInafectada1.addActionListener(new java.awt.event.ActionListener() {
+                txtValorVentaInafectadaDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtValorVentaInafectada1ActionPerformed(evt);
+                        txtValorVentaInafectadaDebitoActionPerformed(evt);
                     }
                 });
 
@@ -4425,13 +4399,13 @@ Conexion c=new Conexion();
                 panelCPT38.setLayout(panelCPT38Layout);
                 panelCPT38Layout.setHorizontalGroup(
                     panelCPT38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtValorVentaInafectada1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtValorVentaInafectadaDebito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT38Layout.setVerticalGroup(
                     panelCPT38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT38Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtValorVentaInafectada1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtValorVentaInafectadaDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -4466,20 +4440,20 @@ Conexion c=new Conexion();
                 panelCPT39.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT39.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtVentaExonerada1.setEditable(false);
-                txtVentaExonerada1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtVentaExonerada1.setForeground(new java.awt.Color(51, 51, 51));
-                txtVentaExonerada1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtVentaExonerada1.setText("0.00");
-                txtVentaExonerada1.setBorder(null);
-                txtVentaExonerada1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtVentaExoneradaDebito.setEditable(false);
+                txtVentaExoneradaDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                txtVentaExoneradaDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtVentaExoneradaDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtVentaExoneradaDebito.setText("0.00");
+                txtVentaExoneradaDebito.setBorder(null);
+                txtVentaExoneradaDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtVentaExonerada1CaretUpdate(evt);
+                        txtVentaExoneradaDebitoCaretUpdate(evt);
                     }
                 });
-                txtVentaExonerada1.addActionListener(new java.awt.event.ActionListener() {
+                txtVentaExoneradaDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtVentaExonerada1ActionPerformed(evt);
+                        txtVentaExoneradaDebitoActionPerformed(evt);
                     }
                 });
 
@@ -4487,13 +4461,13 @@ Conexion c=new Conexion();
                 panelCPT39.setLayout(panelCPT39Layout);
                 panelCPT39Layout.setHorizontalGroup(
                     panelCPT39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtVentaExonerada1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtVentaExoneradaDebito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT39Layout.setVerticalGroup(
                     panelCPT39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT39Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtVentaExonerada1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtVentaExoneradaDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -4590,20 +4564,20 @@ Conexion c=new Conexion();
                 panelCPT41.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtMtoIGV1.setEditable(false);
-                txtMtoIGV1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtMtoIGV1.setForeground(new java.awt.Color(51, 51, 51));
-                txtMtoIGV1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtMtoIGV1.setText("0.00");
-                txtMtoIGV1.setBorder(null);
-                txtMtoIGV1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtMtoIGVDebito.setEditable(false);
+                txtMtoIGVDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                txtMtoIGVDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtMtoIGVDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtMtoIGVDebito.setText("0.00");
+                txtMtoIGVDebito.setBorder(null);
+                txtMtoIGVDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtMtoIGV1CaretUpdate(evt);
+                        txtMtoIGVDebitoCaretUpdate(evt);
                     }
                 });
-                txtMtoIGV1.addActionListener(new java.awt.event.ActionListener() {
+                txtMtoIGVDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtMtoIGV1ActionPerformed(evt);
+                        txtMtoIGVDebitoActionPerformed(evt);
                     }
                 });
 
@@ -4611,13 +4585,13 @@ Conexion c=new Conexion();
                 panelCPT41.setLayout(panelCPT41Layout);
                 panelCPT41Layout.setHorizontalGroup(
                     panelCPT41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtMtoIGV1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtMtoIGVDebito, javax.swing.GroupLayout.Alignment.TRAILING)
                 );
                 panelCPT41Layout.setVerticalGroup(
                     panelCPT41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT41Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtMtoIGV1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMtoIGVDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -4652,20 +4626,20 @@ Conexion c=new Conexion();
                 panelCPT42.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtOtrosCargos1.setEditable(false);
-                txtOtrosCargos1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtOtrosCargos1.setForeground(new java.awt.Color(51, 51, 51));
-                txtOtrosCargos1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtOtrosCargos1.setText("0.00");
-                txtOtrosCargos1.setBorder(null);
-                txtOtrosCargos1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtOtrosCargosDebito.setEditable(false);
+                txtOtrosCargosDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                txtOtrosCargosDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtOtrosCargosDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtOtrosCargosDebito.setText("0.00");
+                txtOtrosCargosDebito.setBorder(null);
+                txtOtrosCargosDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtOtrosCargos1CaretUpdate(evt);
+                        txtOtrosCargosDebitoCaretUpdate(evt);
                     }
                 });
-                txtOtrosCargos1.addActionListener(new java.awt.event.ActionListener() {
+                txtOtrosCargosDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtOtrosCargos1ActionPerformed(evt);
+                        txtOtrosCargosDebitoActionPerformed(evt);
                     }
                 });
 
@@ -4673,13 +4647,13 @@ Conexion c=new Conexion();
                 panelCPT42.setLayout(panelCPT42Layout);
                 panelCPT42Layout.setHorizontalGroup(
                     panelCPT42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtOtrosCargos1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtOtrosCargosDebito, javax.swing.GroupLayout.Alignment.TRAILING)
                 );
                 panelCPT42Layout.setVerticalGroup(
                     panelCPT42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT42Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtOtrosCargos1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOtrosCargosDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -4787,11 +4761,11 @@ Conexion c=new Conexion();
                 jPanel75.setLayout(jPanel75Layout);
                 jPanel75Layout.setHorizontalGroup(
                     jPanel75Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGenerarDoc2, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                    .addComponent(btnGenerarDoc2, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
                 );
                 jPanel75Layout.setVerticalGroup(
                     jPanel75Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGenerarDoc2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnGenerarDoc2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                 );
 
                 jPanel76.setBackground(new java.awt.Color(255, 255, 255));
@@ -4860,18 +4834,18 @@ Conexion c=new Conexion();
                 panelCPT45.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT45.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtApeNom3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-                txtApeNom3.setForeground(new java.awt.Color(51, 51, 51));
-                txtApeNom3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtApeNom3.setBorder(null);
-                txtApeNom3.addCaretListener(new javax.swing.event.CaretListener() {
+                txtDescripcionDebito.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+                txtDescripcionDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtDescripcionDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtDescripcionDebito.setBorder(null);
+                txtDescripcionDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtApeNom3CaretUpdate(evt);
+                        txtDescripcionDebitoCaretUpdate(evt);
                     }
                 });
-                txtApeNom3.addActionListener(new java.awt.event.ActionListener() {
+                txtDescripcionDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtApeNom3ActionPerformed(evt);
+                        txtDescripcionDebitoActionPerformed(evt);
                     }
                 });
 
@@ -4879,13 +4853,13 @@ Conexion c=new Conexion();
                 panelCPT45.setLayout(panelCPT45Layout);
                 panelCPT45Layout.setHorizontalGroup(
                     panelCPT45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtApeNom3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtDescripcionDebito, javax.swing.GroupLayout.Alignment.TRAILING)
                 );
                 panelCPT45Layout.setVerticalGroup(
                     panelCPT45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT45Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtApeNom3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDescripcionDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -5120,19 +5094,19 @@ Conexion c=new Conexion();
                 panelCPT48.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT48.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtValorVenta1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-                txtValorVenta1.setForeground(new java.awt.Color(51, 51, 51));
-                txtValorVenta1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtValorVenta1.setText("0.00");
-                txtValorVenta1.setBorder(null);
-                txtValorVenta1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtValorVentaDebito.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+                txtValorVentaDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtValorVentaDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtValorVentaDebito.setText("0.00");
+                txtValorVentaDebito.setBorder(null);
+                txtValorVentaDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtValorVenta1CaretUpdate(evt);
+                        txtValorVentaDebitoCaretUpdate(evt);
                     }
                 });
-                txtValorVenta1.addActionListener(new java.awt.event.ActionListener() {
+                txtValorVentaDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtValorVenta1ActionPerformed(evt);
+                        txtValorVentaDebitoActionPerformed(evt);
                     }
                 });
 
@@ -5140,13 +5114,13 @@ Conexion c=new Conexion();
                 panelCPT48.setLayout(panelCPT48Layout);
                 panelCPT48Layout.setHorizontalGroup(
                     panelCPT48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtValorVenta1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtValorVentaDebito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT48Layout.setVerticalGroup(
                     panelCPT48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT48Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtValorVenta1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtValorVentaDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -5182,20 +5156,20 @@ Conexion c=new Conexion();
                 panelCPT49.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT49.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtValorVentaGravada3.setEditable(false);
-                txtValorVentaGravada3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtValorVentaGravada3.setForeground(new java.awt.Color(51, 51, 51));
-                txtValorVentaGravada3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtValorVentaGravada3.setText("0.00");
-                txtValorVentaGravada3.setBorder(null);
-                txtValorVentaGravada3.addCaretListener(new javax.swing.event.CaretListener() {
+                lblCorrelativoDebitoF.setEditable(false);
+                lblCorrelativoDebitoF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                lblCorrelativoDebitoF.setForeground(new java.awt.Color(51, 51, 51));
+                lblCorrelativoDebitoF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                lblCorrelativoDebitoF.setText("0.00");
+                lblCorrelativoDebitoF.setBorder(null);
+                lblCorrelativoDebitoF.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtValorVentaGravada3CaretUpdate(evt);
+                        lblCorrelativoDebitoFCaretUpdate(evt);
                     }
                 });
-                txtValorVentaGravada3.addActionListener(new java.awt.event.ActionListener() {
+                lblCorrelativoDebitoF.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtValorVentaGravada3ActionPerformed(evt);
+                        lblCorrelativoDebitoFActionPerformed(evt);
                     }
                 });
 
@@ -5203,13 +5177,13 @@ Conexion c=new Conexion();
                 panelCPT49.setLayout(panelCPT49Layout);
                 panelCPT49Layout.setHorizontalGroup(
                     panelCPT49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtValorVentaGravada3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(lblCorrelativoDebitoF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT49Layout.setVerticalGroup(
                     panelCPT49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT49Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtValorVentaGravada3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblCorrelativoDebitoF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -5389,7 +5363,7 @@ Conexion c=new Conexion();
                                     .addComponent(jPanel71, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jPanel70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jPanel68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                                 .addGap(40, 40, 40)
                                 .addComponent(jPanel75, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
@@ -5434,14 +5408,6 @@ Conexion c=new Conexion();
     private void txtApeNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApeNomActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApeNomActionPerformed
-
-    private void txtActoMedicoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtActoMedicoCaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtActoMedicoCaretUpdate
-
-    private void txtActoMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActoMedicoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtActoMedicoActionPerformed
 
     private void cbxGravadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxGravadoActionPerformed
         // TODO add your handling code here:
@@ -5519,21 +5485,21 @@ Conexion c=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxAfecIGVActionPerformed
 
-    private void txtOtrosCargosCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtOtrosCargosCaretUpdate
+    private void txtOtrosCargosCreditoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtOtrosCargosCreditoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtOtrosCargosCaretUpdate
+    }//GEN-LAST:event_txtOtrosCargosCreditoCaretUpdate
 
-    private void txtOtrosCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtrosCargosActionPerformed
+    private void txtOtrosCargosCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtrosCargosCreditoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtOtrosCargosActionPerformed
+    }//GEN-LAST:event_txtOtrosCargosCreditoActionPerformed
 
-    private void txtMtoIGVCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtMtoIGVCaretUpdate
+    private void txtMtoIGVCreditoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtMtoIGVCreditoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMtoIGVCaretUpdate
+    }//GEN-LAST:event_txtMtoIGVCreditoCaretUpdate
 
-    private void txtMtoIGVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMtoIGVActionPerformed
+    private void txtMtoIGVCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMtoIGVCreditoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMtoIGVActionPerformed
+    }//GEN-LAST:event_txtMtoIGVCreditoActionPerformed
 
     private void txtValorVentaGravadaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtValorVentaGravadaCaretUpdate
         // TODO add your handling code here:
@@ -5551,13 +5517,13 @@ Conexion c=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValorVentaInafectadaActionPerformed
 
-    private void txtOtrosTributosCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtOtrosTributosCaretUpdate
+    private void txtOtrosTributosCreditoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtOtrosTributosCreditoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtOtrosTributosCaretUpdate
+    }//GEN-LAST:event_txtOtrosTributosCreditoCaretUpdate
 
-    private void txtOtrosTributosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtrosTributosActionPerformed
+    private void txtOtrosTributosCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtrosTributosCreditoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtOtrosTributosActionPerformed
+    }//GEN-LAST:event_txtOtrosTributosCreditoActionPerformed
 
     private void txtMtoISCCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtMtoISCCaretUpdate
         // TODO add your handling code here:
@@ -5632,33 +5598,27 @@ Conexion c=new Conexion();
         }
     }//GEN-LAST:event_txtNroDocumentoKeyTyped
 
-    private void txtActoMedicoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActoMedicoKeyTyped
-        char tecla;
-        tecla = evt.getKeyChar();
-            if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
-                evt.consume();
-                getToolkit().beep();            
-            }
-    }//GEN-LAST:event_txtActoMedicoKeyTyped
-
     private void btnGenerarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDocActionPerformed
         int estado=0; 
+        String correlativo="";
         AdmisionEmergenciaCabecera cabecera = new AdmisionEmergenciaCabecera();
          if(txtDescripcionSustento.getText().equals("")){
              JOptionPane.showMessageDialog(this, "Describa el Motivo o Sustento de la Nota de Crédito");
          }
              
          else if(!txtNroDocumento.getText().equals("")){
-//                CuentasPorPagarNotaDeCreditoCabecera facturaCabecera = new CuentasPorPagarNotaDeCreditoCabecera();
-//                    facturaCabecera.setSerie(txtSerie.getText());
-//                    facturaCabecera.setCorrelativo(lblNroCorrelativo.getText());
-//                    facturaCabecera.setTipoOperacion(cbxTipoOperacion.getSelectedItem().toString());
-//                    facturaCabecera.setFechaEmision(lblFechaEmision.getText());
-//                    facturaCabecera.setTipoMoneda(cbxTipoMoneda.getSelectedItem().toString());
-//                    facturaCabecera.setDocumento(cbxDocumento.getSelectedItem().toString());
-//                    facturaCabecera.setCod_usu(cabecera.codUsuario(lblusu.getText()));
-//                    facturaCabecera.setCodigoEmpresa(lblEmpresa.getText());
-//            if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera(lblMant.getText())){
+                CuentasPorPagarNotaDeCreditoCabecera facturaCabecera = new CuentasPorPagarNotaDeCreditoCabecera();
+                    facturaCabecera.setIdFactura(Integer.parseInt(lblIdCredito.getText()));
+                    facturaCabecera.setNota_credito(cbxTipoNotaCredito.getSelectedItem().toString());
+                    facturaCabecera.setDescripcion(txtDescripcionSustento.getText());
+                   facturaCabecera.setSerie(txtSerie.getText());
+                   CuentasPorPagarNotaDeCreditoCabecera serief=new CuentasPorPagarNotaDeCreditoCabecera();
+                    lblCorrelativoCreditoF.setText(serief.generarSerieCorrelativo(txtSerie.getText()));
+                    facturaCabecera.setCorrelativo(lblCorrelativoCreditoF.getText());
+                    facturaCabecera.setFechaEmision(lblFechaEmision.getText());
+                    
+                    facturaCabecera.setCod_usu(cabecera.codUsuario(lblUsu.getText()));
+            if(facturaCabecera.mantenimientoCuentasPorPagarNotaCredito()){
                 crearCabeceraCredito();
 //                CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
 //                lblId.setText(facturaDetalle1.facturaCabeceraId());
@@ -5666,7 +5626,7 @@ Conexion c=new Conexion();
                 String archivo = txtNroDocumento.getText() + "-" + 
                 "07"+ "-" +
                 txtSerie.getText() + "-" + 
-                lblNroCorrelativo.getText() + ".DET";
+                lblCorrelativoCreditoF.getText() + ".DET";
                 File crea_archivo = new File(archivo);
                 for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
 //                    CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
@@ -5753,11 +5713,14 @@ Conexion c=new Conexion();
 //                        //
 //                        //
                     }
-//            }
+            }
 //                
 //            }
                 if(estado==1){
                     JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
+                    CuentasPorPagarNotaDeCreditoCabecera est=new CuentasPorPagarNotaDeCreditoCabecera();
+                    est.CuentasPorPagarFacturaEstado(Integer.parseInt(lblIdCredito.getText()),"1");
+                    limpiar();
                 }
         }
         else{
@@ -5816,13 +5779,13 @@ Conexion c=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValorVentaActionPerformed
 
-    private void txtValorVentaGravada1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtValorVentaGravada1CaretUpdate
+    private void lblCorrelativoCreditoFCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_lblCorrelativoCreditoFCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorVentaGravada1CaretUpdate
+    }//GEN-LAST:event_lblCorrelativoCreditoFCaretUpdate
 
-    private void txtValorVentaGravada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorVentaGravada1ActionPerformed
+    private void lblCorrelativoCreditoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblCorrelativoCreditoFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorVentaGravada1ActionPerformed
+    }//GEN-LAST:event_lblCorrelativoCreditoFActionPerformed
 
     private void cbxTipoNotaDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoNotaDebitoActionPerformed
         // TODO add your handling code here:
@@ -5888,13 +5851,13 @@ Conexion c=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxCodUnidadDebitoActionPerformed
 
-    private void txtCantidad1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtCantidad1CaretUpdate
+    private void txtCantidadDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtCantidadDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidad1CaretUpdate
+    }//GEN-LAST:event_txtCantidadDebitoCaretUpdate
 
-    private void txtCantidad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidad1ActionPerformed
+    private void txtCantidadDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidad1ActionPerformed
+    }//GEN-LAST:event_txtCantidadDebitoActionPerformed
 
     private void txtCodProducto1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtCodProducto1CaretUpdate
         // TODO add your handling code here:
@@ -5920,37 +5883,37 @@ Conexion c=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescripcion1ActionPerformed
 
-    private void txtValorU1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtValorU1CaretUpdate
+    private void txtValorUDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtValorUDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorU1CaretUpdate
+    }//GEN-LAST:event_txtValorUDebitoCaretUpdate
 
-    private void txtValorU1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorU1ActionPerformed
+    private void txtValorUDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorUDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorU1ActionPerformed
+    }//GEN-LAST:event_txtValorUDebitoActionPerformed
 
-    private void txtPorcenDscto1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPorcenDscto1CaretUpdate
+    private void txtPorcenDsctoDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtPorcenDsctoDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPorcenDscto1CaretUpdate
+    }//GEN-LAST:event_txtPorcenDsctoDebitoCaretUpdate
 
-    private void txtPorcenDscto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPorcenDscto1ActionPerformed
+    private void txtPorcenDsctoDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPorcenDsctoDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPorcenDscto1ActionPerformed
+    }//GEN-LAST:event_txtPorcenDsctoDebitoActionPerformed
 
-    private void txtDscto1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDscto1CaretUpdate
+    private void txtDsctoDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDsctoDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDscto1CaretUpdate
+    }//GEN-LAST:event_txtDsctoDebitoCaretUpdate
 
-    private void txtDscto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDscto1ActionPerformed
+    private void txtDsctoDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDsctoDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDscto1ActionPerformed
+    }//GEN-LAST:event_txtDsctoDebitoActionPerformed
 
-    private void txtIGV1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtIGV1CaretUpdate
+    private void txtIGVDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtIGVDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIGV1CaretUpdate
+    }//GEN-LAST:event_txtIGVDebitoCaretUpdate
 
-    private void txtIGV1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIGV1ActionPerformed
+    private void txtIGVDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIGVDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIGV1ActionPerformed
+    }//GEN-LAST:event_txtIGVDebitoActionPerformed
 
     private void cbxAfecIGVDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAfecIGVDebitoActionPerformed
         // TODO add your handling code here:
@@ -5968,37 +5931,37 @@ Conexion c=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_tbFacturacionDebitoKeyPressed
 
-    private void txtValorVentaGravada2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtValorVentaGravada2CaretUpdate
+    private void txtValorVentaGravadaDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtValorVentaGravadaDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorVentaGravada2CaretUpdate
+    }//GEN-LAST:event_txtValorVentaGravadaDebitoCaretUpdate
 
-    private void txtValorVentaGravada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorVentaGravada2ActionPerformed
+    private void txtValorVentaGravadaDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorVentaGravadaDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorVentaGravada2ActionPerformed
+    }//GEN-LAST:event_txtValorVentaGravadaDebitoActionPerformed
 
-    private void txtImporteTotalVenta1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtImporteTotalVenta1CaretUpdate
+    private void txtImporteTotalVentaDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtImporteTotalVentaDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtImporteTotalVenta1CaretUpdate
+    }//GEN-LAST:event_txtImporteTotalVentaDebitoCaretUpdate
 
-    private void txtImporteTotalVenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtImporteTotalVenta1ActionPerformed
+    private void txtImporteTotalVentaDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtImporteTotalVentaDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtImporteTotalVenta1ActionPerformed
+    }//GEN-LAST:event_txtImporteTotalVentaDebitoActionPerformed
 
-    private void txtValorVentaInafectada1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtValorVentaInafectada1CaretUpdate
+    private void txtValorVentaInafectadaDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtValorVentaInafectadaDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorVentaInafectada1CaretUpdate
+    }//GEN-LAST:event_txtValorVentaInafectadaDebitoCaretUpdate
 
-    private void txtValorVentaInafectada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorVentaInafectada1ActionPerformed
+    private void txtValorVentaInafectadaDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorVentaInafectadaDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorVentaInafectada1ActionPerformed
+    }//GEN-LAST:event_txtValorVentaInafectadaDebitoActionPerformed
 
-    private void txtVentaExonerada1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVentaExonerada1CaretUpdate
+    private void txtVentaExoneradaDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtVentaExoneradaDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtVentaExonerada1CaretUpdate
+    }//GEN-LAST:event_txtVentaExoneradaDebitoCaretUpdate
 
-    private void txtVentaExonerada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVentaExonerada1ActionPerformed
+    private void txtVentaExoneradaDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVentaExoneradaDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtVentaExonerada1ActionPerformed
+    }//GEN-LAST:event_txtVentaExoneradaDebitoActionPerformed
 
     private void txtMtoISC1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtMtoISC1CaretUpdate
         // TODO add your handling code here:
@@ -6008,21 +5971,21 @@ Conexion c=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMtoISC1ActionPerformed
 
-    private void txtMtoIGV1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtMtoIGV1CaretUpdate
+    private void txtMtoIGVDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtMtoIGVDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMtoIGV1CaretUpdate
+    }//GEN-LAST:event_txtMtoIGVDebitoCaretUpdate
 
-    private void txtMtoIGV1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMtoIGV1ActionPerformed
+    private void txtMtoIGVDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMtoIGVDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMtoIGV1ActionPerformed
+    }//GEN-LAST:event_txtMtoIGVDebitoActionPerformed
 
-    private void txtOtrosCargos1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtOtrosCargos1CaretUpdate
+    private void txtOtrosCargosDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtOtrosCargosDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtOtrosCargos1CaretUpdate
+    }//GEN-LAST:event_txtOtrosCargosDebitoCaretUpdate
 
-    private void txtOtrosCargos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtrosCargos1ActionPerformed
+    private void txtOtrosCargosDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtrosCargosDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtOtrosCargos1ActionPerformed
+    }//GEN-LAST:event_txtOtrosCargosDebitoActionPerformed
 
     private void txtOtrosTributos1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtOtrosTributos1CaretUpdate
         // TODO add your handling code here:
@@ -6033,16 +5996,110 @@ Conexion c=new Conexion();
     }//GEN-LAST:event_txtOtrosTributos1ActionPerformed
 
     private void btnGenerarDoc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDoc2ActionPerformed
-        // TODO add your handling code here:
+          int estado=0; 
+        AdmisionEmergenciaCabecera cabecera = new AdmisionEmergenciaCabecera();
+         if(txtDescripcionDebito.getText().equals("")){
+             JOptionPane.showMessageDialog(this, "Describa el Motivo o Sustento de la Nota de Débito");
+         }
+             
+         else if(!txtNroDocumentoDebito.getText().equals("")){
+                CuentasPorPagarNotaDeCreditoCabecera facturaCabecera = new CuentasPorPagarNotaDeCreditoCabecera();
+                    facturaCabecera.setIdFactura(Integer.parseInt(lblIdDebito.getText()));
+                    facturaCabecera.setNota_credito(cbxTipoNotaDebito.getSelectedItem().toString());
+                    facturaCabecera.setDescripcion(txtDescripcionDebito.getText());
+                   facturaCabecera.setSerie(txtSerieDebito.getText());
+                   CuentasPorPagarNotaDeCreditoCabecera serief=new CuentasPorPagarNotaDeCreditoCabecera();
+                    lblCorrelativoDebitoF.setText(serief.generarSerieCorrelativo(txtSerieDebito.getText()));
+                    facturaCabecera.setCorrelativo(lblCorrelativoDebitoF.getText());
+                    facturaCabecera.setFechaEmision(lblFechaEmisionDebito.getText());
+                    
+                    facturaCabecera.setCod_usu(cabecera.codUsuario(lblUsu.getText()));
+            if(facturaCabecera.mantenimientoCuentasPorPagarNotaCredito()){
+                crearCabeceraDebito();
+//                CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
+//                lblId.setText(facturaDetalle1.facturaCabeceraId());
+////                crearDetalle();
+                String archivo = txtNroDocumentoDebito.getText() + "-" + 
+                "07"+ "-" +
+                txtSerieDebito.getText() + "-" + 
+                lblCorrelativoDebitoF.getText() + ".DET";
+                File crea_archivo = new File(archivo);
+                for (int i = 0; i < tbFacturacionDebito.getRowCount(); i++){      
+                    try {
+                        Formatter crea = new Formatter(ubicacion+archivo);
+                        if(crea_archivo.exists()){
+                            JOptionPane.showMessageDialog(rootPane, "El registro ya existe");
+                        } else {
+                            String bloc1 = "";
+                            for (int c = 0; c < tbFacturacionDebito.getRowCount(); c++){    
+                                bloc1 = bloc1 + String.valueOf(cbxCodUnidadDebito.getSelectedItem().toString().charAt(0))+
+                                String.valueOf(cbxCodUnidadDebito.getSelectedItem().toString().charAt(1)) +
+                                String.valueOf(cbxCodUnidadDebito.getSelectedItem().toString().charAt(2)) + "|" +
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacionDebito.getValueAt(c, 0))+  "|" + 
+                                 ""+ "|" + 
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 1))+ "|" + 
+                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 2)) + "|" + 
+                                 txtDsctoDebito.getText() + "|" +
+                                txtIGVDebito.getText() + "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
+                                String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(1)) + "|" + 
+                                txtISC.getText() + "|" + String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(0)) +
+                                String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(1)) + "|" +
+                                txtPrecioVenta.getText() + "|" + txtValorVentaDebito.getText() + "\r\n";
+                            }
+                            String bloc2 = "";
+                            for (int c = 0; c < tbFacturacionDebito.getRowCount(); c++){    
+                                bloc2 = bloc2 + String.valueOf(cbxCodUnidadDebito.getSelectedItem().toString().charAt(0))+
+                                String.valueOf(cbxCodUnidadDebito.getSelectedItem().toString().charAt(1)) + "|" +
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
+                                 ""+ "|" + 
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 1))+ "|" + 
+                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 2)) + "|"  + 
+                                 txtDsctoDebito.getText() + "|" +
+                                txtIGVDebito.getText() + "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
+                                String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(1)) + "|" + 
+                                txtISC.getText() + "|" + String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(0)) +
+                                String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(1)) + "|" +
+                                txtPrecioVenta.getText() + "|" + txtValorVentaDebito.getText() + "\r\n";
+                            }
+                            if(cbxCodUnidadDebito.getSelectedIndex()==0 || cbxCodUnidadDebito.getSelectedIndex()==4 ||
+                                       cbxCodUnidadDebito.getSelectedIndex()==5 || cbxCodUnidadDebito.getSelectedIndex()==6 ||
+                                       cbxCodUnidadDebito.getSelectedIndex()==7){
+                                crea.format(bloc1);
+                            } else {
+                                crea.format(bloc2);
+                            }
+                            crea.close();
+                            estado=1;
+                            
+                        }   
+                    } catch (Exception e) {
+                            JOptionPane.showMessageDialog(this, "No se pudo");
+                    }
+//                        //
+//                        //
+                    }
+            }
+//                
+//            }
+                if(estado==1){
+                    JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
+                    CuentasPorPagarNotaDeCreditoCabecera est=new CuentasPorPagarNotaDeCreditoCabecera();
+                    est.CuentasPorPagarFacturaEstado(Integer.parseInt(lblIdDebito.getText()),"2");
+                    limpiar();
+                }
+        }
+        else{
+            btnAgregarFactura.doClick();
+        }
     }//GEN-LAST:event_btnGenerarDoc2ActionPerformed
 
-    private void txtApeNom3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtApeNom3CaretUpdate
+    private void txtDescripcionDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDescripcionDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtApeNom3CaretUpdate
+    }//GEN-LAST:event_txtDescripcionDebitoCaretUpdate
 
-    private void txtApeNom3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApeNom3ActionPerformed
+    private void txtDescripcionDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtApeNom3ActionPerformed
+    }//GEN-LAST:event_txtDescripcionDebitoActionPerformed
 
     private void btnGenerarDoc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDoc3ActionPerformed
       BUSCAR_FACTURA_BOLETA.setVisible(true);
@@ -6074,21 +6131,21 @@ Conexion c=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecioVenta1ActionPerformed
 
-    private void txtValorVenta1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtValorVenta1CaretUpdate
+    private void txtValorVentaDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtValorVentaDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorVenta1CaretUpdate
+    }//GEN-LAST:event_txtValorVentaDebitoCaretUpdate
 
-    private void txtValorVenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorVenta1ActionPerformed
+    private void txtValorVentaDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorVentaDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorVenta1ActionPerformed
+    }//GEN-LAST:event_txtValorVentaDebitoActionPerformed
 
-    private void txtValorVentaGravada3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtValorVentaGravada3CaretUpdate
+    private void lblCorrelativoDebitoFCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_lblCorrelativoDebitoFCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorVentaGravada3CaretUpdate
+    }//GEN-LAST:event_lblCorrelativoDebitoFCaretUpdate
 
-    private void txtValorVentaGravada3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorVentaGravada3ActionPerformed
+    private void lblCorrelativoDebitoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblCorrelativoDebitoFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorVentaGravada3ActionPerformed
+    }//GEN-LAST:event_lblCorrelativoDebitoFActionPerformed
 
     private void lblLineDebMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLineDebMouseClicked
      tab.setSelectedIndex(1);
@@ -6306,7 +6363,6 @@ Conexion c=new Conexion();
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -6380,7 +6436,6 @@ Conexion c=new Conexion();
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
@@ -6456,6 +6511,8 @@ Conexion c=new Conexion();
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jpanel;
+    public static javax.swing.JTextField lblCorrelativoCreditoF;
+    public static javax.swing.JTextField lblCorrelativoDebitoF;
     private javax.swing.JLabel lblCredito;
     private javax.swing.JLabel lblDebito;
     private javax.swing.JLabel lblEstado;
@@ -6490,7 +6547,6 @@ Conexion c=new Conexion();
     private javax.swing.JPanel panelCPT27;
     private javax.swing.JPanel panelCPT28;
     private javax.swing.JPanel panelCPT29;
-    private javax.swing.JPanel panelCPT3;
     private javax.swing.JPanel panelCPT30;
     private javax.swing.JPanel panelCPT31;
     private javax.swing.JPanel panelCPT32;
@@ -6524,41 +6580,40 @@ Conexion c=new Conexion();
     private javax.swing.JTable tbFacturacionDebito;
     private javax.swing.JTable tb_Factura_Boleta;
     private javax.swing.JLabel titulo5;
-    public static javax.swing.JTextField txtActoMedico;
     public static javax.swing.JTextField txtActoMedico1;
     public static javax.swing.JTextField txtApeNom;
-    public static javax.swing.JTextField txtApeNom3;
     public static javax.swing.JTextField txtApeNomDebito;
     public static javax.swing.JTextField txtBuscarDocumento;
     public static javax.swing.JTextField txtCantidad;
-    public static javax.swing.JTextField txtCantidad1;
+    public static javax.swing.JTextField txtCantidadDebito;
     public static javax.swing.JTextField txtCodProducto;
     public static javax.swing.JTextField txtCodProducto1;
     public static javax.swing.JTextField txtCodProductoSunat;
     public static javax.swing.JTextField txtCodProductoSunat1;
     public static javax.swing.JTextField txtDescripcion;
     public static javax.swing.JTextField txtDescripcion1;
+    public static javax.swing.JTextField txtDescripcionDebito;
     public static javax.swing.JTextField txtDescripcionSustento;
     public static javax.swing.JTextField txtDscto;
-    public static javax.swing.JTextField txtDscto1;
+    public static javax.swing.JTextField txtDsctoDebito;
     public static javax.swing.JTextField txtIGV;
-    public static javax.swing.JTextField txtIGV1;
+    public static javax.swing.JTextField txtIGVDebito;
     public static javax.swing.JTextField txtISC;
     public static javax.swing.JTextField txtISC1;
     public static javax.swing.JTextField txtImporteTotalVenta;
-    public static javax.swing.JTextField txtImporteTotalVenta1;
-    public static javax.swing.JTextField txtMtoIGV;
-    public static javax.swing.JTextField txtMtoIGV1;
+    public static javax.swing.JTextField txtImporteTotalVentaDebito;
+    public static javax.swing.JTextField txtMtoIGVCredito;
+    public static javax.swing.JTextField txtMtoIGVDebito;
     public static javax.swing.JTextField txtMtoISC;
     public static javax.swing.JTextField txtMtoISC1;
     public static javax.swing.JTextField txtNroDocumento;
     public static javax.swing.JTextField txtNroDocumentoDebito;
-    public static javax.swing.JTextField txtOtrosCargos;
-    public static javax.swing.JTextField txtOtrosCargos1;
-    public static javax.swing.JTextField txtOtrosTributos;
+    public static javax.swing.JTextField txtOtrosCargosCredito;
+    public static javax.swing.JTextField txtOtrosCargosDebito;
     public static javax.swing.JTextField txtOtrosTributos1;
+    public static javax.swing.JTextField txtOtrosTributosCredito;
     public static javax.swing.JTextField txtPorcenDscto;
-    public static javax.swing.JTextField txtPorcenDscto1;
+    public static javax.swing.JTextField txtPorcenDsctoDebito;
     public static javax.swing.JTextField txtPrecioVenta;
     public static javax.swing.JTextField txtPrecioVenta1;
     public static javax.swing.JLabel txtSerie;
@@ -6566,16 +6621,14 @@ Conexion c=new Conexion();
     public static javax.swing.JLabel txtSerie3;
     public static javax.swing.JLabel txtSerieDebito;
     public static javax.swing.JTextField txtValorU;
-    public static javax.swing.JTextField txtValorU1;
+    public static javax.swing.JTextField txtValorUDebito;
     public static javax.swing.JTextField txtValorVenta;
-    public static javax.swing.JTextField txtValorVenta1;
+    public static javax.swing.JTextField txtValorVentaDebito;
     public static javax.swing.JTextField txtValorVentaGravada;
-    public static javax.swing.JTextField txtValorVentaGravada1;
-    public static javax.swing.JTextField txtValorVentaGravada2;
-    public static javax.swing.JTextField txtValorVentaGravada3;
+    public static javax.swing.JTextField txtValorVentaGravadaDebito;
     public static javax.swing.JTextField txtValorVentaInafectada;
-    public static javax.swing.JTextField txtValorVentaInafectada1;
+    public static javax.swing.JTextField txtValorVentaInafectadaDebito;
     public static javax.swing.JTextField txtVentaExonerada;
-    public static javax.swing.JTextField txtVentaExonerada1;
+    public static javax.swing.JTextField txtVentaExoneradaDebito;
     // End of variables declaration//GEN-END:variables
 }

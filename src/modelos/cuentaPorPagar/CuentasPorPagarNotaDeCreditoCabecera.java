@@ -24,7 +24,7 @@ public class CuentasPorPagarNotaDeCreditoCabecera {
             ResultSet r;
             r=con.Listar(consulta);
         if(r.next()){
-               NotasCreditoDebito.txtSerieCorrelativo.setText(r.getString(1));
+               NotasCreditoDebito.txtSerieCorrelativo.setText(r.getString(0)+r.getString(1));
               
         }
         }catch(Exception ex){

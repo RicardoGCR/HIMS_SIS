@@ -1022,10 +1022,10 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Codigo","Forma de Pago","Distrito","Representante","RUC","Direccion","Telefono","","","","","",""};
+            String titulos[]={"Codigo","Forma de Pago","Distrito","Representante","RUC","Direccion","Telefono","","","","","","",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[13];
+            String fila[]=new String[14];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC Caja_EmpresaJerarquia_LISTAR ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -1046,6 +1046,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                 fila[10]=r.getString(11);
                 fila[11]=r.getString(12);
                 fila[12]=r.getString(13);
+                fila[13]=r.getString(14);
 
                     m.addRow(fila);
                     c++;
@@ -1082,6 +1083,8 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(11).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(12).setMinWidth(0);
         tabla.getColumnModel().getColumn(12).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(13).setMinWidth(0);
+        tabla.getColumnModel().getColumn(13).setMaxWidth(0); 
 //        
   
         tabla.setRowHeight(40);

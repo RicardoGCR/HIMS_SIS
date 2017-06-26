@@ -39,7 +39,7 @@ DefaultTableModel m;
 Conexion c=new Conexion();
 
     String barra = File.separator;
-    String ubicacion = "D:\\SUNAT\\DATA\\";
+    String ubicacion = "C:\\sunat_archivos\\sfs\\DATA\\";
      CuentasPorPagarNotaDeCreditoCabecera serie = new CuentasPorPagarNotaDeCreditoCabecera();
     public NotasCreditoDebito() {
         initComponents();
@@ -207,7 +207,8 @@ Conexion c=new Conexion();
     public void crearCabeceraCredito(){
        String archivo = txtNroDocumento.getText() + "-" + 
                "07" + "-" +
-                txtSerieCorrelativo.getText() + ".NOT";
+               txtSerie.getText() + "-" + 
+                lblNroCorrelativo.getText()  + ".NOT";
 //        File crea_ubicacion = new File(ubicacion);
         File crea_archivo = new File(archivo);
         if(txtNroDocumento.getText().equals("")){
@@ -224,10 +225,11 @@ Conexion c=new Conexion();
                     txtDescripcionSustento.getText()+ "|" + 
                     String.valueOf(cbxDocumento.getSelectedItem().toString().charAt(0)) + 
                     String.valueOf(cbxDocumento.getSelectedItem().toString().charAt(1))+"|"+
-                    txtSerieCorrelativo.getText()+"|"+
+                    txtSerie.getText() + "-" + 
+                lblNroCorrelativo.getText() +"|"+
                      String.valueOf(cbxTipoDocumento.getSelectedItem().toString().charAt(0)) + "|" + 
                      txtNroDocumento.getText()+ "|" + 
-                   
+                   txtApeNom.getText()+ "|" + 
                     cbxTipoMoneda.getSelectedItem().toString() + "|" + 
                     txtOtrosCargos.getText() + "|" + 
                     
@@ -440,8 +442,9 @@ Conexion c=new Conexion();
             btnGenerarDoc = new javax.swing.JButton();
             jPanel31 = new javax.swing.JPanel();
             jLabel25 = new javax.swing.JLabel();
-            panelCPT12 = new javax.swing.JPanel();
-            txtSerieCorrelativo = new javax.swing.JTextField();
+            txtSerie = new javax.swing.JLabel();
+            txtSerie1 = new javax.swing.JLabel();
+            lblNroCorrelativo = new javax.swing.JLabel();
             jPanel32 = new javax.swing.JPanel();
             jLabel26 = new javax.swing.JLabel();
             panelCPT13 = new javax.swing.JPanel();
@@ -578,8 +581,9 @@ Conexion c=new Conexion();
                 btnGenerarDoc2 = new javax.swing.JButton();
                 jPanel76 = new javax.swing.JPanel();
                 jLabel61 = new javax.swing.JLabel();
-                panelCPT44 = new javax.swing.JPanel();
-                txtSerieCorreDebito = new javax.swing.JTextField();
+                txtSerieDebito = new javax.swing.JLabel();
+                txtSerie3 = new javax.swing.JLabel();
+                lblNroCorrelativoDebito = new javax.swing.JLabel();
                 jPanel77 = new javax.swing.JPanel();
                 jLabel62 = new javax.swing.JLabel();
                 panelCPT45 = new javax.swing.JPanel();
@@ -774,6 +778,7 @@ Conexion c=new Conexion();
                     }
                 ));
                 tb_Factura_Boleta.setRowHeight(25);
+                tb_Factura_Boleta.getTableHeader().setReorderingAllowed(false);
                 tb_Factura_Boleta.addKeyListener(new java.awt.event.KeyAdapter() {
                     public void keyPressed(java.awt.event.KeyEvent evt) {
                         tb_Factura_BoletaKeyPressed(evt);
@@ -2617,43 +2622,20 @@ Conexion c=new Conexion();
                 jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel25.setText("Serie-Nro de Documento que modifica");
 
-                panelCPT12.setBackground(new java.awt.Color(255, 255, 255));
-                panelCPT12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+                txtSerie.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+                txtSerie.setForeground(new java.awt.Color(51, 51, 51));
+                txtSerie.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                txtSerie.setText("F001");
 
-                txtSerieCorrelativo.setEditable(false);
-                txtSerieCorrelativo.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-                txtSerieCorrelativo.setForeground(new java.awt.Color(51, 51, 51));
-                txtSerieCorrelativo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtSerieCorrelativo.setBorder(null);
-                txtSerieCorrelativo.addCaretListener(new javax.swing.event.CaretListener() {
-                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtSerieCorrelativoCaretUpdate(evt);
-                    }
-                });
-                txtSerieCorrelativo.addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtSerieCorrelativoActionPerformed(evt);
-                    }
-                });
-                txtSerieCorrelativo.addKeyListener(new java.awt.event.KeyAdapter() {
-                    public void keyTyped(java.awt.event.KeyEvent evt) {
-                        txtSerieCorrelativoKeyTyped(evt);
-                    }
-                });
+                txtSerie1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+                txtSerie1.setForeground(new java.awt.Color(51, 51, 51));
+                txtSerie1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                txtSerie1.setText("-");
 
-                javax.swing.GroupLayout panelCPT12Layout = new javax.swing.GroupLayout(panelCPT12);
-                panelCPT12.setLayout(panelCPT12Layout);
-                panelCPT12Layout.setHorizontalGroup(
-                    panelCPT12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSerieCorrelativo)
-                );
-                panelCPT12Layout.setVerticalGroup(
-                    panelCPT12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCPT12Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(txtSerieCorrelativo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                );
+                lblNroCorrelativo.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+                lblNroCorrelativo.setForeground(new java.awt.Color(51, 51, 51));
+                lblNroCorrelativo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                lblNroCorrelativo.setText("000000003");
 
                 javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
                 jPanel31.setLayout(jPanel31Layout);
@@ -2661,10 +2643,17 @@ Conexion c=new Conexion();
                     jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel31Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(panelCPT12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel31Layout.createSequentialGroup()
+                                .addComponent(jLabel25)
+                                .addGap(0, 25, Short.MAX_VALUE))
+                            .addGroup(jPanel31Layout.createSequentialGroup()
+                                .addComponent(txtSerie, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtSerie1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblNroCorrelativo, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))
+                        .addContainerGap())
                 );
                 jPanel31Layout.setVerticalGroup(
                     jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2672,7 +2661,13 @@ Conexion c=new Conexion();
                         .addContainerGap()
                         .addComponent(jLabel25)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelCPT12, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel31Layout.createSequentialGroup()
+                                .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtSerie)
+                                    .addComponent(txtSerie1))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(lblNroCorrelativo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                 );
 
@@ -4807,44 +4802,20 @@ Conexion c=new Conexion();
                 jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel61.setText("Serie-Nro de Documento que modifica");
 
-                panelCPT44.setBackground(new java.awt.Color(255, 255, 255));
-                panelCPT44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-                panelCPT44.setEnabled(false);
+                txtSerieDebito.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+                txtSerieDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtSerieDebito.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                txtSerieDebito.setText("F001");
 
-                txtSerieCorreDebito.setEditable(false);
-                txtSerieCorreDebito.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-                txtSerieCorreDebito.setForeground(new java.awt.Color(51, 51, 51));
-                txtSerieCorreDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtSerieCorreDebito.setBorder(null);
-                txtSerieCorreDebito.addCaretListener(new javax.swing.event.CaretListener() {
-                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtSerieCorreDebitoCaretUpdate(evt);
-                    }
-                });
-                txtSerieCorreDebito.addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtSerieCorreDebitoActionPerformed(evt);
-                    }
-                });
-                txtSerieCorreDebito.addKeyListener(new java.awt.event.KeyAdapter() {
-                    public void keyTyped(java.awt.event.KeyEvent evt) {
-                        txtSerieCorreDebitoKeyTyped(evt);
-                    }
-                });
+                txtSerie3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+                txtSerie3.setForeground(new java.awt.Color(51, 51, 51));
+                txtSerie3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                txtSerie3.setText("-");
 
-                javax.swing.GroupLayout panelCPT44Layout = new javax.swing.GroupLayout(panelCPT44);
-                panelCPT44.setLayout(panelCPT44Layout);
-                panelCPT44Layout.setHorizontalGroup(
-                    panelCPT44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSerieCorreDebito)
-                );
-                panelCPT44Layout.setVerticalGroup(
-                    panelCPT44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCPT44Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(txtSerieCorreDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                );
+                lblNroCorrelativoDebito.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+                lblNroCorrelativoDebito.setForeground(new java.awt.Color(51, 51, 51));
+                lblNroCorrelativoDebito.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                lblNroCorrelativoDebito.setText("000000003");
 
                 javax.swing.GroupLayout jPanel76Layout = new javax.swing.GroupLayout(jPanel76);
                 jPanel76.setLayout(jPanel76Layout);
@@ -4852,10 +4823,17 @@ Conexion c=new Conexion();
                     jPanel76Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel76Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel76Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(panelCPT44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel61, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel76Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel76Layout.createSequentialGroup()
+                                .addComponent(jLabel61)
+                                .addGap(0, 25, Short.MAX_VALUE))
+                            .addGroup(jPanel76Layout.createSequentialGroup()
+                                .addComponent(txtSerieDebito, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtSerie3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblNroCorrelativoDebito, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))
+                        .addContainerGap())
                 );
                 jPanel76Layout.setVerticalGroup(
                     jPanel76Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4863,8 +4841,12 @@ Conexion c=new Conexion();
                         .addContainerGap()
                         .addComponent(jLabel61)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelCPT44, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addGroup(jPanel76Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel76Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtSerieDebito)
+                                .addComponent(txtSerie3))
+                            .addComponent(lblNroCorrelativoDebito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(19, 19, 19))
                 );
 
                 jPanel77.setBackground(new java.awt.Color(255, 255, 255));
@@ -5660,7 +5642,8 @@ Conexion c=new Conexion();
     }//GEN-LAST:event_txtActoMedicoKeyTyped
 
     private void btnGenerarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDocActionPerformed
-         AdmisionEmergenciaCabecera cabecera = new AdmisionEmergenciaCabecera();
+        int estado=0; 
+        AdmisionEmergenciaCabecera cabecera = new AdmisionEmergenciaCabecera();
          if(txtDescripcionSustento.getText().equals("")){
              JOptionPane.showMessageDialog(this, "Describa el Motivo o Sustento de la Nota de Crédito");
          }
@@ -5681,8 +5664,9 @@ Conexion c=new Conexion();
 //                lblId.setText(facturaDetalle1.facturaCabeceraId());
 ////                crearDetalle();
                 String archivo = txtNroDocumento.getText() + "-" + 
-                "7"+ "-" +
-                txtSerieCorrelativo.getText()  + ".DET";
+                "07"+ "-" +
+                txtSerie.getText() + "-" + 
+                lblNroCorrelativo.getText() + ".DET";
                 File crea_archivo = new File(archivo);
                 for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
 //                    CuentasPorPagarFacturasDetalle facturaDetalle = new CuentasPorPagarFacturasDetalle();
@@ -5741,8 +5725,6 @@ Conexion c=new Conexion();
                             for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
                                 bloc2 = bloc2 + String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
                                 String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) + "|" +
-                                 String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) +
-                                String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(2)) + "|" +
                                 String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
                                  ""+ "|" + 
                                 String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
@@ -5762,7 +5744,8 @@ Conexion c=new Conexion();
                                 crea.format(bloc2);
                             }
                             crea.close();
-                            JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
+                            estado=1;
+                            
                         }   
                     } catch (Exception e) {
                             JOptionPane.showMessageDialog(this, "No se pudo");
@@ -5773,6 +5756,9 @@ Conexion c=new Conexion();
 //            }
 //                
 //            }
+                if(estado==1){
+                    JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
+                }
         }
         else{
             btnAgregarFactura.doClick();
@@ -5782,18 +5768,6 @@ Conexion c=new Conexion();
     private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
         limpiar();
     }//GEN-LAST:event_btnGuardar1ActionPerformed
-
-    private void txtSerieCorrelativoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtSerieCorrelativoCaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSerieCorrelativoCaretUpdate
-
-    private void txtSerieCorrelativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSerieCorrelativoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSerieCorrelativoActionPerformed
-
-    private void txtSerieCorrelativoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSerieCorrelativoKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSerieCorrelativoKeyTyped
 
     private void txtDescripcionSustentoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDescripcionSustentoCaretUpdate
         // TODO add your handling code here:
@@ -6062,18 +6036,6 @@ Conexion c=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGenerarDoc2ActionPerformed
 
-    private void txtSerieCorreDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtSerieCorreDebitoCaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSerieCorreDebitoCaretUpdate
-
-    private void txtSerieCorreDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSerieCorreDebitoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSerieCorreDebitoActionPerformed
-
-    private void txtSerieCorreDebitoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSerieCorreDebitoKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSerieCorreDebitoKeyTyped
-
     private void txtApeNom3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtApeNom3CaretUpdate
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApeNom3CaretUpdate
@@ -6193,7 +6155,8 @@ Conexion c=new Conexion();
                 lblIdCredito.setText(tb_Factura_Boleta.getValueAt(filaselec, 0).toString());
                 lblFechaEmision.setText(tb_Factura_Boleta.getValueAt(filaselec, 1).toString());
                 cbxDocumento.setSelectedItem(tb_Factura_Boleta.getValueAt(filaselec, 2).toString());
-                txtSerieCorrelativo.setText(tb_Factura_Boleta.getValueAt(filaselec, 3).toString()+'-'+tb_Factura_Boleta.getValueAt(filaselec, 4).toString());
+                txtSerie.setText(tb_Factura_Boleta.getValueAt(filaselec, 3).toString());
+                lblNroCorrelativo.setText(tb_Factura_Boleta.getValueAt(filaselec, 4).toString());
                 cbxTipoDocumento.setSelectedItem(tb_Factura_Boleta.getValueAt(filaselec, 5).toString());
                 txtNroDocumento.setText(tb_Factura_Boleta.getValueAt(filaselec, 6).toString());
                 txtApeNom.setText(tb_Factura_Boleta.getValueAt(filaselec, 7).toString());
@@ -6203,7 +6166,8 @@ Conexion c=new Conexion();
                 lblIdDebito.setText(tb_Factura_Boleta.getValueAt(filaselec, 0).toString());
                 lblFechaEmisionDebito.setText(tb_Factura_Boleta.getValueAt(filaselec, 1).toString());
                 cbxDocumentoDebito.setSelectedItem(tb_Factura_Boleta.getValueAt(filaselec, 2).toString());
-                txtSerieCorreDebito.setText(tb_Factura_Boleta.getValueAt(filaselec, 3).toString()+'-'+tb_Factura_Boleta.getValueAt(filaselec, 4).toString());
+                txtSerieDebito.setText(tb_Factura_Boleta.getValueAt(filaselec, 3).toString());
+                lblNroCorrelativoDebito.setText(tb_Factura_Boleta.getValueAt(filaselec, 4).toString());
                 cbxTipoDocumentoDebito.setSelectedItem(tb_Factura_Boleta.getValueAt(filaselec, 5).toString());
                 txtNroDocumentoDebito.setText(tb_Factura_Boleta.getValueAt(filaselec, 6).toString());
                 txtApeNomDebito.setText(tb_Factura_Boleta.getValueAt(filaselec, 7).toString());
@@ -6501,12 +6465,13 @@ Conexion c=new Conexion();
     private javax.swing.JLabel lblIdDebito;
     private javax.swing.JLabel lblLineCre;
     private javax.swing.JLabel lblLineDeb;
+    public static javax.swing.JLabel lblNroCorrelativo;
+    public static javax.swing.JLabel lblNroCorrelativoDebito;
     private javax.swing.JLabel lblUsu;
     private javax.swing.JPanel panelCPT;
     private javax.swing.JPanel panelCPT1;
     private javax.swing.JPanel panelCPT10;
     private javax.swing.JPanel panelCPT11;
-    private javax.swing.JPanel panelCPT12;
     private javax.swing.JPanel panelCPT13;
     private javax.swing.JPanel panelCPT14;
     private javax.swing.JPanel panelCPT15;
@@ -6541,7 +6506,6 @@ Conexion c=new Conexion();
     private javax.swing.JPanel panelCPT41;
     private javax.swing.JPanel panelCPT42;
     private javax.swing.JPanel panelCPT43;
-    private javax.swing.JPanel panelCPT44;
     private javax.swing.JPanel panelCPT45;
     private javax.swing.JPanel panelCPT46;
     private javax.swing.JPanel panelCPT47;
@@ -6597,8 +6561,10 @@ Conexion c=new Conexion();
     public static javax.swing.JTextField txtPorcenDscto1;
     public static javax.swing.JTextField txtPrecioVenta;
     public static javax.swing.JTextField txtPrecioVenta1;
-    public static javax.swing.JTextField txtSerieCorreDebito;
-    public static javax.swing.JTextField txtSerieCorrelativo;
+    public static javax.swing.JLabel txtSerie;
+    public static javax.swing.JLabel txtSerie1;
+    public static javax.swing.JLabel txtSerie3;
+    public static javax.swing.JLabel txtSerieDebito;
     public static javax.swing.JTextField txtValorU;
     public static javax.swing.JTextField txtValorU1;
     public static javax.swing.JTextField txtValorVenta;

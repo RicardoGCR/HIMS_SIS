@@ -448,21 +448,21 @@ public class Costos_Sustentacion extends javax.swing.JFrame implements Runnable 
     tbResumenCostos.getColumnModel().getColumn(0).setPreferredWidth(200);
     tbResumenCostos.getColumnModel().getColumn(1).setPreferredWidth(120);
     
- 
-    txtTotalPersonal.setText("0.00");
-        txtTotalInsumos.setText("0.00");
-        txtTotalSBasicos.setText("0.00");
-        txtSumatoriaEnergiaBA.setText("0.00");
-        txtSumatoriaAguaBA.setText("0.00");
-        txtTotalHerramienta.setText("0.00");
-        txtTotalInfraes.setText("0.00");
-        txtTotalSAdminis.setText("0.00");
-        txtTotalSGenerales.setText("0.00");
-        txtTotalSIntermedios.setText("0.00");
-        txtPrecio1.setText("0.00");
-        txtPrecioTotal.setText("0.00");
-        txtGanancia.setText("0.00");
-        txtGananciaPerdida.setText("0.00");
+// 
+//    txtTotalPersonal.setText("0.00");
+//        txtTotalInsumos.setText("0.00");
+//        txtTotalSBasicos.setText("0.00");
+//        txtSumatoriaEnergiaBA.setText("0.00");
+//        txtSumatoriaAguaBA.setText("0.00");
+//        txtTotalHerramienta.setText("0.00");
+//        txtTotalInfraes.setText("0.00");
+//        txtTotalSAdminis.setText("0.00");
+//        txtTotalSGenerales.setText("0.00");
+//        txtTotalSIntermedios.setText("0.00");
+//        txtPrecio1.setText("0.00");
+//        txtPrecioTotal.setText("0.00");
+//        txtGanancia.setText("0.00");
+//        txtGananciaPerdida.setText("0.00");
      }
      
 

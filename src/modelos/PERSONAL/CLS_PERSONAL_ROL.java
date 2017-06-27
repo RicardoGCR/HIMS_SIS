@@ -7,6 +7,7 @@ package modelos.PERSONAL;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import servicios.Conexion;
 
 /**
@@ -113,6 +114,25 @@ public class CLS_PERSONAL_ROL {
             System.out.println("Error: " + ex.getMessage());
         }
         return resp;
+    }
+    
+    public String PERSONAL_COD_ROL()
+    {
+        Conexion cn=new Conexion();
+        String cod="";
+        try{
+        String consulta="EXEC PERSONAL_PERSONAL_COD_ROL";
+        ResultSet r;
+        r=cn.Listar(consulta);
+        if(r.next())
+            {
+               cod = r.getString(1);
+            }
+        }catch(Exception ex)
+        {
+            System.out.println("Error COD ROL: " + ex.getMessage());
+        }
+        return cod;
     }
 
     public Connection getCn() {

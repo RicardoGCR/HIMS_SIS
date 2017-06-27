@@ -162,13 +162,14 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
         }
     }
 
-    public boolean actualizarEstadoFacturacion(String id)
+    public boolean actualizarEstadoFacturacion(String id,String estado)
         {
         boolean resp = false;
         try{
-            String sql = "CUENTAS_POR_PAGAR_ACTUALIZAR_ESTADO_FACTURACION ?";
+            String sql = "CUENTAS_POR_PAGAR_ACTUALIZAR_ESTADO_FACTURACION ?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, id);
+            cmd.setString(2, estado);
             if(!cmd.execute())
             {
                 resp = true;
@@ -190,16 +191,20 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
         tabla.getColumnModel().getColumn(4).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(5).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(6).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0);
     }
 
     public void listarPorFacturar(JTable tabla, String id) {
         String consulta = "";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[] = {"Código CPT", "Nomenclatura", "Valor U.", "Cantidad", "Precio", "Descuento", "Total"};
+            String titulos[] = {"Código CPT", "Nomenclatura", "Valor U.", "Cantidad", "Precio", "IGV", "Dscto","Total","ID","FP"};
             m = new DefaultTableModel(null, titulos);
             JTable p = new JTable(m);
-            String fila[] = new String[12];
+            String fila[] = new String[10];
             Caja_NuevaVenta obj = new Caja_NuevaVenta();
             consulta = "CUENTAS_POR_PAGAR_LISTADO_POR_FACTURAR ?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
@@ -214,6 +219,9 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
                 fila[4] = r.getString(5);
                 fila[5] = r.getString(6);
                 fila[6] = r.getString(7);
+                fila[7] = r.getString(8);
+                fila[8] = r.getString(9);
+                fila[9] = r.getString(10);
                 m.addRow(fila);
                 c++;
             }

@@ -367,8 +367,9 @@ public class BUSCAR_ESTIMACION_COSTOS extends javax.swing.JFrame {
             
             Costos_Sustentacion c=new Costos_Sustentacion();
             c.setVisible(true);
-            dispose();
+            
             mostrarCabecerayDetalle();
+            dispose();
             btnBuscarCPT.setEnabled(false);
             btnGrabar.setEnabled(false);
             btnModificar.setEnabled(true);

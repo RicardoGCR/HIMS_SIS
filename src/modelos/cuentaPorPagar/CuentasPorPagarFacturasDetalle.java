@@ -77,6 +77,7 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
     private Character estado;
 
     private String codUsu;
+    private String formaPago;
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
@@ -86,7 +87,7 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
         boolean resp = false;
         try{
             String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_DETALLE ?,?,?,?,?,?,?,?,?,?,"
-                    + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+                    + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getCpdId());
             cmd.setInt(2, getCpfId());
@@ -116,6 +117,7 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
             cmd.setBigDecimal(26, getCpdImpTotVtas());
             cmd.setString(27, getCodUsu());
             cmd.setString(28, tipo);
+            cmd.setString(29, getFormaPago());
             if(!cmd.execute())
             {
                 resp = true;
@@ -455,6 +457,20 @@ public class CuentasPorPagarFacturasDetalle implements Serializable {
      */
     public void setNomenclatura(String nomenclatura) {
         this.nomenclatura = nomenclatura;
+    }
+
+    /**
+     * @return the formaPago
+     */
+    public String getFormaPago() {
+        return formaPago;
+    }
+
+    /**
+     * @param formaPago the formaPago to set
+     */
+    public void setFormaPago(String formaPago) {
+        this.formaPago = formaPago;
     }
     
 }

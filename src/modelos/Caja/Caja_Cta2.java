@@ -34,7 +34,6 @@ public boolean NuevaCTA2()
             cmd.setString(3, getCuenta_2());
             cmd.setString(4, getDescripcion());
             cmd.setString(5, getNom_usu());
-
             if(!cmd.execute())
             {
                 resp = true;
@@ -87,6 +86,27 @@ public boolean modificarCta2(){
         catch(Exception ex)
         {
           System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
+public boolean eliminarCTA2(){
+        boolean resp = false;
+        try
+        {
+            String sql = "EXEC Caja_Cta2_ELIMINAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_cuenta2());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_eliminar: " + ex.getMessage());
         }
         return resp;
     }

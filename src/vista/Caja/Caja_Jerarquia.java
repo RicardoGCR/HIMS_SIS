@@ -217,7 +217,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                     eli = new javax.swing.JButton();
                     noeli = new javax.swing.JButton();
 
-                    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                    setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
                     jPanel1.setBackground(new java.awt.Color(41, 127, 184));
 
@@ -771,7 +771,6 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                         .addComponent(panelNuevoN3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(0, 0, 0)
                                     .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addContainerGap())))
                     );

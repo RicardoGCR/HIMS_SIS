@@ -91,6 +91,28 @@ public boolean modificarCta6(){
         return resp;
     }
 
+public boolean eliminarCTA6(){
+        boolean resp = false;
+        try
+        {
+            String sql = "EXEC Caja_Cta6_ELIMINAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_cuenta6());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_eliminar: " + ex.getMessage());
+        }
+        return resp;
+    }
+
  public Caja_Cta6(){
         Conexion con = new Conexion();
         cn = con.conectar();

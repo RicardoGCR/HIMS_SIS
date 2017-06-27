@@ -245,7 +245,7 @@ Conexion c=new Conexion();
                     crea.close();
                 }   
             } catch (Exception e) {
-                    JOptionPane.showMessageDialog(this, "No se pudo");
+                    JOptionPane.showMessageDialog(this, "No se pudo"+e.getMessage());
             }
         }
     }   
@@ -284,8 +284,8 @@ Conexion c=new Conexion();
                     txtValorVentaInafectadaDebito.getText() + "|" + 
                     txtVentaExoneradaDebito.getText() + "|" + 
                     txtMtoIGVDebito.getText() + "|" +
-                    txtMtoISC.getText()+ "|" + 
-                    txtOtrosTributos1.getText() + "|" + 
+                    txtMtoISCDebito.getText()+ "|" + 
+                    txtOtrosTributosDebito.getText() + "|" + 
                     txtImporteTotalVentaDebito.getText());
                     crea.close();
                 }   
@@ -538,10 +538,6 @@ Conexion c=new Conexion();
             jLabel34 = new javax.swing.JLabel();
             panelCPT15 = new javax.swing.JPanel();
             txtApeNomDebito = new javax.swing.JTextField();
-            jPanel54 = new javax.swing.JPanel();
-            jLabel42 = new javax.swing.JLabel();
-            panelCPT20 = new javax.swing.JPanel();
-            txtActoMedico1 = new javax.swing.JTextField();
             jPanel55 = new javax.swing.JPanel();
             cbxGravadoDebito = new javax.swing.JComboBox();
             jPanel56 = new javax.swing.JPanel();
@@ -606,7 +602,7 @@ Conexion c=new Conexion();
                 jPanel71 = new javax.swing.JPanel();
                 jLabel57 = new javax.swing.JLabel();
                 panelCPT40 = new javax.swing.JPanel();
-                txtMtoISC1 = new javax.swing.JTextField();
+                txtMtoISCDebito = new javax.swing.JTextField();
                 jPanel72 = new javax.swing.JPanel();
                 jLabel58 = new javax.swing.JLabel();
                 panelCPT41 = new javax.swing.JPanel();
@@ -618,7 +614,7 @@ Conexion c=new Conexion();
                 jPanel74 = new javax.swing.JPanel();
                 jLabel60 = new javax.swing.JLabel();
                 panelCPT43 = new javax.swing.JPanel();
-                txtOtrosTributos1 = new javax.swing.JTextField();
+                txtOtrosTributosDebito = new javax.swing.JTextField();
                 jPanel75 = new javax.swing.JPanel();
                 btnGenerarDoc2 = new javax.swing.JButton();
                 jPanel76 = new javax.swing.JPanel();
@@ -635,7 +631,7 @@ Conexion c=new Conexion();
                 jPanel79 = new javax.swing.JPanel();
                 jLabel63 = new javax.swing.JLabel();
                 panelCPT46 = new javax.swing.JPanel();
-                txtISC1 = new javax.swing.JTextField();
+                txtISCDebito = new javax.swing.JTextField();
                 jPanel80 = new javax.swing.JPanel();
                 jLabel64 = new javax.swing.JLabel();
                 cbxAfecISCDebito = new javax.swing.JComboBox();
@@ -3373,7 +3369,7 @@ Conexion c=new Conexion();
 
                 cbxTipoDocumentoDebito.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
                 cbxTipoDocumentoDebito.setForeground(new java.awt.Color(102, 102, 102));
-                cbxTipoDocumentoDebito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0 Doc. Trib.NO.DOM.SIN.RUC", "1 DNI", "2 CARNET DE EXTRANJERIA", "3 RUC", "4 PASAPORTE", "5 CED.DIPLOMATICA DE IDENTIDAD" }));
+                cbxTipoDocumentoDebito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0 Doc. Trib.NO.DOM.SIN.RUC", "1 DNI", "4 CARNET DE EXTRANJERIA", "6 RUC", "7 PASAPORTE", "A CED.DIPLOMATICA DE IDENTIDAD" }));
                 cbxTipoDocumentoDebito.setBorder(javax.swing.BorderFactory.createCompoundBorder());
                 cbxTipoDocumentoDebito.setEnabled(false);
                 cbxTipoDocumentoDebito.addItemListener(new java.awt.event.ItemListener() {
@@ -3403,9 +3399,9 @@ Conexion c=new Conexion();
                     .addGroup(jPanel41Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(1, 1, 1)
                         .addComponent(cbxTipoDocumentoDebito)
-                        .addGap(6, 6, 6))
+                        .addContainerGap())
                 );
 
                 jPanel52.setBackground(new java.awt.Color(255, 255, 255));
@@ -3536,73 +3532,6 @@ Conexion c=new Conexion();
                         .addComponent(jLabel34)
                         .addGap(3, 3, 3)
                         .addComponent(panelCPT15, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                );
-
-                jPanel54.setBackground(new java.awt.Color(255, 255, 255));
-                jPanel54.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-
-                jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-                jLabel42.setForeground(new java.awt.Color(102, 102, 102));
-                jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                jLabel42.setText("Acto Médico");
-
-                panelCPT20.setBackground(new java.awt.Color(255, 255, 255));
-                panelCPT20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-
-                txtActoMedico1.setEditable(false);
-                txtActoMedico1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-                txtActoMedico1.setForeground(new java.awt.Color(51, 51, 51));
-                txtActoMedico1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtActoMedico1.setBorder(null);
-                txtActoMedico1.addCaretListener(new javax.swing.event.CaretListener() {
-                    public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtActoMedico1CaretUpdate(evt);
-                    }
-                });
-                txtActoMedico1.addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtActoMedico1ActionPerformed(evt);
-                    }
-                });
-                txtActoMedico1.addKeyListener(new java.awt.event.KeyAdapter() {
-                    public void keyTyped(java.awt.event.KeyEvent evt) {
-                        txtActoMedico1KeyTyped(evt);
-                    }
-                });
-
-                javax.swing.GroupLayout panelCPT20Layout = new javax.swing.GroupLayout(panelCPT20);
-                panelCPT20.setLayout(panelCPT20Layout);
-                panelCPT20Layout.setHorizontalGroup(
-                    panelCPT20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtActoMedico1)
-                );
-                panelCPT20Layout.setVerticalGroup(
-                    panelCPT20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCPT20Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(txtActoMedico1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                );
-
-                javax.swing.GroupLayout jPanel54Layout = new javax.swing.GroupLayout(jPanel54);
-                jPanel54.setLayout(jPanel54Layout);
-                jPanel54Layout.setHorizontalGroup(
-                    jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel54Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelCPT20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())
-                );
-                jPanel54Layout.setVerticalGroup(
-                    jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel54Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel42)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelCPT20, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                 );
 
@@ -4502,20 +4431,20 @@ Conexion c=new Conexion();
                 panelCPT40.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT40.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtMtoISC1.setEditable(false);
-                txtMtoISC1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtMtoISC1.setForeground(new java.awt.Color(51, 51, 51));
-                txtMtoISC1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtMtoISC1.setText("0.00");
-                txtMtoISC1.setBorder(null);
-                txtMtoISC1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtMtoISCDebito.setEditable(false);
+                txtMtoISCDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                txtMtoISCDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtMtoISCDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtMtoISCDebito.setText("0.00");
+                txtMtoISCDebito.setBorder(null);
+                txtMtoISCDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtMtoISC1CaretUpdate(evt);
+                        txtMtoISCDebitoCaretUpdate(evt);
                     }
                 });
-                txtMtoISC1.addActionListener(new java.awt.event.ActionListener() {
+                txtMtoISCDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtMtoISC1ActionPerformed(evt);
+                        txtMtoISCDebitoActionPerformed(evt);
                     }
                 });
 
@@ -4523,13 +4452,13 @@ Conexion c=new Conexion();
                 panelCPT40.setLayout(panelCPT40Layout);
                 panelCPT40Layout.setHorizontalGroup(
                     panelCPT40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtMtoISC1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtMtoISCDebito, javax.swing.GroupLayout.Alignment.TRAILING)
                 );
                 panelCPT40Layout.setVerticalGroup(
                     panelCPT40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT40Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtMtoISC1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMtoISCDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -4688,20 +4617,20 @@ Conexion c=new Conexion();
                 panelCPT43.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtOtrosTributos1.setEditable(false);
-                txtOtrosTributos1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-                txtOtrosTributos1.setForeground(new java.awt.Color(51, 51, 51));
-                txtOtrosTributos1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtOtrosTributos1.setText("0.00");
-                txtOtrosTributos1.setBorder(null);
-                txtOtrosTributos1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtOtrosTributosDebito.setEditable(false);
+                txtOtrosTributosDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+                txtOtrosTributosDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtOtrosTributosDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtOtrosTributosDebito.setText("0.00");
+                txtOtrosTributosDebito.setBorder(null);
+                txtOtrosTributosDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtOtrosTributos1CaretUpdate(evt);
+                        txtOtrosTributosDebitoCaretUpdate(evt);
                     }
                 });
-                txtOtrosTributos1.addActionListener(new java.awt.event.ActionListener() {
+                txtOtrosTributosDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtOtrosTributos1ActionPerformed(evt);
+                        txtOtrosTributosDebitoActionPerformed(evt);
                     }
                 });
 
@@ -4709,13 +4638,13 @@ Conexion c=new Conexion();
                 panelCPT43.setLayout(panelCPT43Layout);
                 panelCPT43Layout.setHorizontalGroup(
                     panelCPT43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtOtrosTributos1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtOtrosTributosDebito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT43Layout.setVerticalGroup(
                     panelCPT43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT43Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtOtrosTributos1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOtrosTributosDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -4929,19 +4858,19 @@ Conexion c=new Conexion();
                 panelCPT46.setBackground(new java.awt.Color(255, 255, 255));
                 panelCPT46.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-                txtISC1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-                txtISC1.setForeground(new java.awt.Color(51, 51, 51));
-                txtISC1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-                txtISC1.setText("0.00");
-                txtISC1.setBorder(null);
-                txtISC1.addCaretListener(new javax.swing.event.CaretListener() {
+                txtISCDebito.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+                txtISCDebito.setForeground(new java.awt.Color(51, 51, 51));
+                txtISCDebito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                txtISCDebito.setText("0.00");
+                txtISCDebito.setBorder(null);
+                txtISCDebito.addCaretListener(new javax.swing.event.CaretListener() {
                     public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                        txtISC1CaretUpdate(evt);
+                        txtISCDebitoCaretUpdate(evt);
                     }
                 });
-                txtISC1.addActionListener(new java.awt.event.ActionListener() {
+                txtISCDebito.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        txtISC1ActionPerformed(evt);
+                        txtISCDebitoActionPerformed(evt);
                     }
                 });
 
@@ -4949,13 +4878,13 @@ Conexion c=new Conexion();
                 panelCPT46.setLayout(panelCPT46Layout);
                 panelCPT46Layout.setHorizontalGroup(
                     panelCPT46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtISC1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtISCDebito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 );
                 panelCPT46Layout.setVerticalGroup(
                     panelCPT46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCPT46Layout.createSequentialGroup()
                         .addGap(0, 0, 0)
-                        .addComponent(txtISC1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtISCDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
@@ -5255,8 +5184,7 @@ Conexion c=new Conexion();
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel8Layout.createSequentialGroup()
                                         .addComponent(jPanel77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jPanel54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(102, 102, 102))
                                     .addGroup(jPanel8Layout.createSequentialGroup()
                                         .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -5310,8 +5238,7 @@ Conexion c=new Conexion();
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel77, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jPanel54, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(jPanel77, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(5, 5, 5)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -5708,7 +5635,7 @@ Conexion c=new Conexion();
                             
                         }   
                     } catch (Exception e) {
-                            JOptionPane.showMessageDialog(this, "No se pudo");
+                            JOptionPane.showMessageDialog(this, "No se pudo"+e.getMessage());
                     }
 //                        //
 //                        //
@@ -5831,18 +5758,6 @@ Conexion c=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApeNomDebitoActionPerformed
 
-    private void txtActoMedico1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtActoMedico1CaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtActoMedico1CaretUpdate
-
-    private void txtActoMedico1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActoMedico1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtActoMedico1ActionPerformed
-
-    private void txtActoMedico1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActoMedico1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtActoMedico1KeyTyped
-
     private void cbxGravadoDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxGravadoDebitoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxGravadoDebitoActionPerformed
@@ -5963,13 +5878,13 @@ Conexion c=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVentaExoneradaDebitoActionPerformed
 
-    private void txtMtoISC1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtMtoISC1CaretUpdate
+    private void txtMtoISCDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtMtoISCDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMtoISC1CaretUpdate
+    }//GEN-LAST:event_txtMtoISCDebitoCaretUpdate
 
-    private void txtMtoISC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMtoISC1ActionPerformed
+    private void txtMtoISCDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMtoISCDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMtoISC1ActionPerformed
+    }//GEN-LAST:event_txtMtoISCDebitoActionPerformed
 
     private void txtMtoIGVDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtMtoIGVDebitoCaretUpdate
         // TODO add your handling code here:
@@ -5987,13 +5902,13 @@ Conexion c=new Conexion();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtOtrosCargosDebitoActionPerformed
 
-    private void txtOtrosTributos1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtOtrosTributos1CaretUpdate
+    private void txtOtrosTributosDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtOtrosTributosDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtOtrosTributos1CaretUpdate
+    }//GEN-LAST:event_txtOtrosTributosDebitoCaretUpdate
 
-    private void txtOtrosTributos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtrosTributos1ActionPerformed
+    private void txtOtrosTributosDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtrosTributosDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtOtrosTributos1ActionPerformed
+    }//GEN-LAST:event_txtOtrosTributosDebitoActionPerformed
 
     private void btnGenerarDoc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDoc2ActionPerformed
           int estado=0; 
@@ -6020,7 +5935,7 @@ Conexion c=new Conexion();
 //                lblId.setText(facturaDetalle1.facturaCabeceraId());
 ////                crearDetalle();
                 String archivo = txtNroDocumentoDebito.getText() + "-" + 
-                "07"+ "-" +
+                "08"+ "-" +
                 txtSerieDebito.getText() + "-" + 
                 lblCorrelativoDebitoF.getText() + ".DET";
                 File crea_archivo = new File(archivo);
@@ -6042,24 +5957,24 @@ Conexion c=new Conexion();
                                  txtDsctoDebito.getText() + "|" +
                                 txtIGVDebito.getText() + "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(1)) + "|" + 
-                                txtISC.getText() + "|" + String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(0)) +
+                                txtISCDebito.getText() + "|" + String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(1)) + "|" +
-                                txtPrecioVenta.getText() + "|" + txtValorVentaDebito.getText() + "\r\n";
+                                txtPrecioVenta1.getText() + "|" + txtValorVentaDebito.getText() + "\r\n";
                             }
                             String bloc2 = "";
                             for (int c = 0; c < tbFacturacionDebito.getRowCount(); c++){    
                                 bloc2 = bloc2 + String.valueOf(cbxCodUnidadDebito.getSelectedItem().toString().charAt(0))+
                                 String.valueOf(cbxCodUnidadDebito.getSelectedItem().toString().charAt(1)) + "|" +
-                                String.valueOf(tbFacturacionDebito.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
+                                String.valueOf(tbFacturacionDebito.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacionDebito.getValueAt(c, 0))+  "|" + 
                                  ""+ "|" + 
                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 1))+ "|" + 
                                  String.valueOf(tbFacturacionDebito.getValueAt(c, 2)) + "|"  + 
                                  txtDsctoDebito.getText() + "|" +
                                 txtIGVDebito.getText() + "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(1)) + "|" + 
-                                txtISC.getText() + "|" + String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(0)) +
+                                txtISCDebito.getText() + "|" + String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(1)) + "|" +
-                                txtPrecioVenta.getText() + "|" + txtValorVentaDebito.getText() + "\r\n";
+                                txtPrecioVenta1.getText() + "|" + txtValorVentaDebito.getText() + "\r\n";
                             }
                             if(cbxCodUnidadDebito.getSelectedIndex()==0 || cbxCodUnidadDebito.getSelectedIndex()==4 ||
                                        cbxCodUnidadDebito.getSelectedIndex()==5 || cbxCodUnidadDebito.getSelectedIndex()==6 ||
@@ -6073,7 +5988,7 @@ Conexion c=new Conexion();
                             
                         }   
                     } catch (Exception e) {
-                            JOptionPane.showMessageDialog(this, "No se pudo");
+                            JOptionPane.showMessageDialog(this, "No se pudo"+e.getMessage());
                     }
 //                        //
 //                        //
@@ -6111,13 +6026,13 @@ Conexion c=new Conexion();
             tb_Factura_Boleta.requestFocus();
     }//GEN-LAST:event_btnGenerarDoc3ActionPerformed
 
-    private void txtISC1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtISC1CaretUpdate
+    private void txtISCDebitoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtISCDebitoCaretUpdate
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtISC1CaretUpdate
+    }//GEN-LAST:event_txtISCDebitoCaretUpdate
 
-    private void txtISC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtISC1ActionPerformed
+    private void txtISCDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtISCDebitoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtISC1ActionPerformed
+    }//GEN-LAST:event_txtISCDebitoActionPerformed
 
     private void cbxAfecISCDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAfecISCDebitoActionPerformed
         // TODO add your handling code here:
@@ -6202,7 +6117,6 @@ Conexion c=new Conexion();
     private void tb_Factura_BoletaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_Factura_BoletaKeyPressed
         char tecla = evt.getKeyChar();
         if (tecla == KeyEvent.VK_ENTER) {
-           
             try{
                 if(tb_Factura_Boleta.getRowCount()>0){
                 BUSCAR_FACTURA_BOLETA.setVisible(false);
@@ -6217,6 +6131,8 @@ Conexion c=new Conexion();
                 cbxTipoDocumento.setSelectedItem(tb_Factura_Boleta.getValueAt(filaselec, 5).toString());
                 txtNroDocumento.setText(tb_Factura_Boleta.getValueAt(filaselec, 6).toString());
                 txtApeNom.setText(tb_Factura_Boleta.getValueAt(filaselec, 7).toString());
+                CuentasPorPagarNotaDeCreditoCabecera cor=new CuentasPorPagarNotaDeCreditoCabecera();
+                lblCorrelativoCreditoF.setText(cor.generarSerieCorrelativo(tb_Factura_Boleta.getValueAt(filaselec, 3).toString()));
                 mostrarFacturacionDetalle(tbFacturacion);
                 }
                 else if(lblEstado.getText().equalsIgnoreCase("2")){
@@ -6228,8 +6144,13 @@ Conexion c=new Conexion();
                 cbxTipoDocumentoDebito.setSelectedItem(tb_Factura_Boleta.getValueAt(filaselec, 5).toString());
                 txtNroDocumentoDebito.setText(tb_Factura_Boleta.getValueAt(filaselec, 6).toString());
                 txtApeNomDebito.setText(tb_Factura_Boleta.getValueAt(filaselec, 7).toString());
+                CuentasPorPagarNotaDeCreditoCabecera cord=new CuentasPorPagarNotaDeCreditoCabecera();
+                lblCorrelativoDebitoF.setText(cord.generarSerieCorrelativo(tb_Factura_Boleta.getValueAt(filaselec, 3).toString()));
+                
                 mostrarFacturacionDetalle(tbFacturacionDebito);
                 }
+                
+                
             }} catch (Exception ex) {
                 System.out.println("Error: " + ex.getMessage());
             }
@@ -6393,7 +6314,6 @@ Conexion c=new Conexion();
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
@@ -6474,7 +6394,6 @@ Conexion c=new Conexion();
     private javax.swing.JPanel jPanel51;
     private javax.swing.JPanel jPanel52;
     private javax.swing.JPanel jPanel53;
-    private javax.swing.JPanel jPanel54;
     private javax.swing.JPanel jPanel55;
     private javax.swing.JPanel jPanel56;
     private javax.swing.JPanel jPanel57;
@@ -6537,7 +6456,6 @@ Conexion c=new Conexion();
     private javax.swing.JPanel panelCPT18;
     private javax.swing.JPanel panelCPT19;
     private javax.swing.JPanel panelCPT2;
-    private javax.swing.JPanel panelCPT20;
     private javax.swing.JPanel panelCPT21;
     private javax.swing.JPanel panelCPT22;
     private javax.swing.JPanel panelCPT23;
@@ -6580,7 +6498,6 @@ Conexion c=new Conexion();
     private javax.swing.JTable tbFacturacionDebito;
     private javax.swing.JTable tb_Factura_Boleta;
     private javax.swing.JLabel titulo5;
-    public static javax.swing.JTextField txtActoMedico1;
     public static javax.swing.JTextField txtApeNom;
     public static javax.swing.JTextField txtApeNomDebito;
     public static javax.swing.JTextField txtBuscarDocumento;
@@ -6599,19 +6516,19 @@ Conexion c=new Conexion();
     public static javax.swing.JTextField txtIGV;
     public static javax.swing.JTextField txtIGVDebito;
     public static javax.swing.JTextField txtISC;
-    public static javax.swing.JTextField txtISC1;
+    public static javax.swing.JTextField txtISCDebito;
     public static javax.swing.JTextField txtImporteTotalVenta;
     public static javax.swing.JTextField txtImporteTotalVentaDebito;
     public static javax.swing.JTextField txtMtoIGVCredito;
     public static javax.swing.JTextField txtMtoIGVDebito;
     public static javax.swing.JTextField txtMtoISC;
-    public static javax.swing.JTextField txtMtoISC1;
+    public static javax.swing.JTextField txtMtoISCDebito;
     public static javax.swing.JTextField txtNroDocumento;
     public static javax.swing.JTextField txtNroDocumentoDebito;
     public static javax.swing.JTextField txtOtrosCargosCredito;
     public static javax.swing.JTextField txtOtrosCargosDebito;
-    public static javax.swing.JTextField txtOtrosTributos1;
     public static javax.swing.JTextField txtOtrosTributosCredito;
+    public static javax.swing.JTextField txtOtrosTributosDebito;
     public static javax.swing.JTextField txtPorcenDscto;
     public static javax.swing.JTextField txtPorcenDsctoDebito;
     public static javax.swing.JTextField txtPrecioVenta;

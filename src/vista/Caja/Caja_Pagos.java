@@ -84,7 +84,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
      */
     public Caja_Pagos() {
         initComponents();
-       
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
          PaginasVentas.setSelectedIndex(1);
@@ -259,14 +259,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
        this.CBXANULAR.setModel(anular());
 
     }
-    @Override
-    public Image getIconImage() {
-        Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("imagenes/iconos/Caja fuerte-96.png"));
-
-
-        return retValue;
-    }
+    
 
 //private class ManejadorTecla implements KeyListener{
 //public void keyPressed(KeyEvent e) {
@@ -1191,7 +1184,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
         CNVVAC.setId_ActoMedico(Integer.parseInt(lblActoMedico.getText()));
         CNVVAC.setEstadoVisibleAdmision(lblConsultorio.getText());
 
-        if(CNVVAC.ActualizarVenta()==true){
+        if(CNVVAC.ActualizarVentaEx()==true){
                    System.out.println("CABECERA ACTUALIZADA");
 
         } else {
@@ -6903,7 +6896,7 @@ Caja_NuevaVenta nuevaV = new Caja_NuevaVenta();
                                                                                                     ));
                                                                                                     tb_ReporteDetalle.setGridColor(new java.awt.Color(255, 255, 255));
                                                                                                     tb_ReporteDetalle.setRowHeight(25);
-                                                                                                    tb_ReporteDetalle.setSelectionBackground(new java.awt.Color(23, 160, 134));
+                                                                                                    tb_ReporteDetalle.setSelectionBackground(new java.awt.Color(102, 102, 102));
                                                                                                     tb_ReporteDetalle.getTableHeader().setReorderingAllowed(false);
                                                                                                     tb_ReporteDetalle.addMouseListener(new java.awt.event.MouseAdapter() {
                                                                                                         public void mouseClicked(java.awt.event.MouseEvent evt) {

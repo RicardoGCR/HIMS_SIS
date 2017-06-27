@@ -24,6 +24,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -53,6 +54,7 @@ DefaultTableModel m;
         setLocationRelativeTo(null);
         Unidad.setLocationRelativeTo(null);
         jPanel73.setVisible(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         
    
 //      setLayout(new FlowLayout());

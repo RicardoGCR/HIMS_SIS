@@ -737,10 +737,10 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Nomeclatura","Descripcion","Precio","Forma de Pago","Decripcion Forma Pago","","","","",""};
+            String titulos[]={"Nomeclatura","Descripcion","Precio","Forma de Pago","Decripcion Forma Pago","","","","","",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[10];
+            String fila[]=new String[11];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="exec Caja_NomenclaturaVentaBUSCAR ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -759,6 +759,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                 fila[7]=r.getString(8);
                 fila[8]=r.getString(9);
                 fila[9]=r.getString(10);
+                fila[10]=r.getString(11);
 
                     m.addRow(fila);
                     c++;
@@ -791,6 +792,8 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(8).setMaxWidth(0);
         tabla.getColumnModel().getColumn(9).setMinWidth(0);
         tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(10).setMinWidth(0);
+        tabla.getColumnModel().getColumn(10).setMaxWidth(0);
         tabla.setRowHeight(37);
         
     }

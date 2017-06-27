@@ -533,7 +533,7 @@ byte tga;
                                 tge=1;
                            LISTAR();
                        } else {
-                          cargareliminar.setVisible(true);
+                           cargareliminar.setVisible(true);
                            cargareliminar.setBackground(new Color(255,91,70)); 
                            Mensaje.setText("Ocurrió un error, Verifique");
                            eli.setVisible(false);
@@ -1715,7 +1715,7 @@ byte tga;
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-jTabbedPane1.setSelectedIndex(0);
+ jTabbedPane1.setSelectedIndex(0);
         txtnomenclatura.setEditable(true);
          txtdes.setEditable(true);
           txtnom2.setEditable(true);
@@ -2102,9 +2102,9 @@ jTabbedPane1.setSelectedIndex(0);
             btnguardar.setEnabled(false);
             btneditar.setEnabled(true);
             btneliminar.setEnabled(true);
-               b.setVisible(false);
-         b1.setVisible(false);
-         b2.setVisible(false);
+            b.setVisible(false);
+            b1.setVisible(false);
+            b2.setVisible(false);
 
 
         }

@@ -90,6 +90,8 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         
 //        P_ACTIVIDAD.setVisible(false);
 //        TB_TURNOS_UO.setDefaultRenderer(Object.class,new CLS_FORMATO());
+        btn_GUARDAR_ROL.setVisible(false);
+          
         
     }
 
@@ -174,6 +176,9 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             jPanel8 = new javax.swing.JPanel();
             jButton1 = new javax.swing.JButton();
             TXT_COD_ROL_GUARDAR = new javax.swing.JTextField();
+            btn_GUARDAR_ROL = new javax.swing.JButton();
+            lblCOD_UO = new javax.swing.JTextField();
+            LBL_UNIDAD_ORGANICA = new javax.swing.JLabel();
             cargareliminar_Per = new javax.swing.JPanel();
             Mensaje = new javax.swing.JLabel();
             eli = new javax.swing.JButton();
@@ -926,9 +931,9 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                             .addComponent(btneliminar)
                             .addGap(18, 18, 18)
                             .addComponent(btnLista)
-                            .addGap(112, 112, 112)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap())
+                            .addGap(24, 24, 24))
                     );
 
                     jPanel3.setBackground(new java.awt.Color(43, 43, 43));
@@ -1039,6 +1044,27 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                             .addComponent(TXT_COD_ROL_GUARDAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     );
 
+                    btn_GUARDAR_ROL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+                    btn_GUARDAR_ROL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Guardar-32.png"))); // NOI18N
+                    btn_GUARDAR_ROL.setMnemonic('G');
+                    btn_GUARDAR_ROL.setToolTipText("Guardar (Alt-G)");
+                    btn_GUARDAR_ROL.setContentAreaFilled(false);
+                    btn_GUARDAR_ROL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                    btn_GUARDAR_ROL.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                            btn_GUARDAR_ROLActionPerformed(evt);
+                        }
+                    });
+
+                    lblCOD_UO.addCaretListener(new javax.swing.event.CaretListener() {
+                        public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                            lblCOD_UOCaretUpdate(evt);
+                        }
+                    });
+
+                    LBL_UNIDAD_ORGANICA.setForeground(new java.awt.Color(255, 255, 255));
+                    LBL_UNIDAD_ORGANICA.setText("jLabel19");
+
                     javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
                     jPanel3.setLayout(jPanel3Layout);
                     jPanel3Layout.setHorizontalGroup(
@@ -1050,8 +1076,17 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                                     .addComponent(P_FECHAS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtUO, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btn_GUARDAR_ROL, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtUO, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(53, 53, 53))
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                            .addGap(102, 102, 102)
+                                            .addComponent(LBL_UNIDAD_ORGANICA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addContainerGap())))
                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                     .addComponent(lblListado_Edicion)
                                     .addGap(232, 232, 232)
@@ -1061,31 +1096,36 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                                     .addGap(33, 33, 33)
                                     .addComponent(txtNOMBRE, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtCOD_ROL, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(53, 53, 53))
+                                    .addComponent(txtCOD_ROL, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lblCOD_UO)
+                                    .addContainerGap())))
                     );
                     jPanel3Layout.setVerticalGroup(
                         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addGap(22, 22, 22)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lbl_id_per_uni_org)
-                                        .addComponent(txtAR_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtNOMBRE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtCOD_ROL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 29, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblListado_Edicion)
-                                    .addGap(21, 21, 21)))
+                            .addContainerGap(14, Short.MAX_VALUE)
+                            .addComponent(lblListado_Edicion)
+                            .addGap(1, 1, 1)
+                            .addComponent(LBL_UNIDAD_ORGANICA)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(P_FECHAS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtUO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(18, 18, 18))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(22, 22, 22)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lbl_id_per_uni_org)
+                                .addComponent(txtAR_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNOMBRE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCOD_ROL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblCOD_UO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_GUARDAR_ROL)
+                            .addContainerGap())
                     );
 
                     cargareliminar_Per.setBackground(new java.awt.Color(255, 153, 51));
@@ -1252,6 +1292,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
 
                     txtLimite_Consultas_Per.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                     txtLimite_Consultas_Per.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                    txtLimite_Consultas_Per.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyTyped(java.awt.event.KeyEvent evt) {
+                            txtLimite_Consultas_PerKeyTyped(evt);
+                        }
+                    });
 
                     jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                     jLabel9.setText("Total Horas:");
@@ -1265,6 +1310,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
 
                     txtTotal_Pago.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                     txtTotal_Pago.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                    txtTotal_Pago.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyTyped(java.awt.event.KeyEvent evt) {
+                            txtTotal_PagoKeyTyped(evt);
+                        }
+                    });
 
                     btnAgregar_ROL.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
                     btnAgregar_ROL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/mas.png"))); // NOI18N
@@ -1486,7 +1536,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                             .addComponent(cargareliminar_Per, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, 0)
                             .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addContainerGap(17, Short.MAX_VALUE))
                     );
 
                     pack();
@@ -1550,6 +1600,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         cb_Rango_fecha.setSelected(false);
         P_FECHAS.setVisible(false);
         btnBuscarP.setEnabled(true);
+        D_FECHA.setDate(null);
+        txtLimite_Consultas_Per.setText("");
+        txtTotal_Horas.setText("");
+        txtTotal_Pago.setText("");
   
     }//GEN-LAST:event_btnNuevoActionPerformed
 
@@ -1571,14 +1625,15 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             if(lblGM.getText().equalsIgnoreCase("G")){
                 lblGM.setText("M");
                 btnAgregar_ROL.setText("MODIFICAR ROL");
-                TB_TURNOS_UO.setEnabled(true);
-                TB_TURNOS_UO.setBackground(Color.white);
                 btnBuscarP.setEnabled(false);
-                D_FECHA.setEnabled(true);
-                txtLimite_Consultas_Per.setEditable(true);
-                txtTotal_Horas.setEditable(true);
-                txtTotal_Pago.setEditable(true);
-                btnAgregar_ROL.setEnabled(true);
+                
+//                TB_TURNOS_UO.setEnabled(true);
+//                TB_TURNOS_UO.setBackground(Color.white);
+//                D_FECHA.setEnabled(true);
+//                txtLimite_Consultas_Per.setEditable(true);
+//                txtTotal_Horas.setEditable(true);
+//                txtTotal_Pago.setEditable(true);
+//                btnAgregar_ROL.setEnabled(true);
             }
         }
             
@@ -1624,6 +1679,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         Mostrar_PERSONAL_ROL();
         Clear_Tb_TURNOS_UO();
         Clear_TB_TURNOS_PERSONAL_ROL();
+        txtBuscarMedico_ROL.requestFocus();
     }//GEN-LAST:event_btnListaActionPerformed
 
     private void txtBuscarMedico_UOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarMedico_UOActionPerformed
@@ -1727,6 +1783,12 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             TXT_HORA_INICIO.setText(TB_TURNOS_UO.getValueAt(filaselec, 7).toString());
             TXT_HORA_FIN.setText(TB_TURNOS_UO.getValueAt(filaselec, 8).toString());
             
+            if(lblGM.getText().equalsIgnoreCase("M")){
+                lblCOD_UO.setText(TB_TURNOS_UO.getValueAt(filaselec, 1).toString());
+                LBL_UNIDAD_ORGANICA.setText(TB_TURNOS_UO.getValueAt(filaselec, 1).toString());
+            }
+            
+            
         }
      
     }//GEN-LAST:event_TB_TURNOS_UOMouseClicked
@@ -1745,6 +1807,15 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
        if(evt.getClickCount()==1){
            if(lblGM.getText().equalsIgnoreCase("M")){
                cargar_tb_personal_rol_tb_UO();
+                TB_TURNOS_UO.setEnabled(true);
+                TB_TURNOS_UO.setBackground(Color.white);
+                D_FECHA.setEnabled(true);
+                txtLimite_Consultas_Per.setEditable(true);
+                
+                txtTotal_Pago.setEditable(true);
+                btnAgregar_ROL.setEnabled(false);
+                
+                    
            }else{
                if(lblGM.getText().equalsIgnoreCase("E")){
                    if( TB_TURNOS_PERSONAL_ROL.getRowCount()>0){
@@ -1804,7 +1875,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     btnBuscarP.setEnabled(false);
                     D_FECHA.setEnabled(false);
                     txtLimite_Consultas_Per.setEditable(false);
-                    txtTotal_Horas.setEditable(false);
+//                    txtTotal_Horas.setEditable(false);
                     txtTotal_Pago.setEditable(false);
                     btnAgregar_ROL.setEnabled(false);
 //                    TB_TURNOS_PERSONAL_ROL.getSelectionModel().setSelectionInterval(0, 0);
@@ -1916,8 +1987,19 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     ROL_ACTIVIDAD.dispose();
 //                    Clear_TB_ACTIVIDADES();
                     Clear_TB_ROL_ACTIVIDAD();
+                    
                     btnBuscarP.setEnabled(false);
+                    TB_TURNOS_UO.getSelectionModel().setSelectionInterval(0, 0);
+                    TB_TURNOS_UO.requestFocus();
+                    D_FECHA.setDate(null);
+                    txtLimite_Consultas_Per.setText("");
+                    txtTotal_Horas.setText("");
+                    txtTotal_Pago.setText("");
                 }
+                
+            }
+        }else{
+            if(lblGM.getText().equalsIgnoreCase("M")){
                 
             }
         }        
@@ -1976,6 +2058,81 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
            cb_HORA_FIN.requestFocus(true);
        }
     }//GEN-LAST:event_cb_HORA_INICIOKeyPressed
+
+    private void txtTotal_PagoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTotal_PagoKeyTyped
+        //permite escribir solo numeros y un punto decimal
+        try {
+            
+        char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)&&tecla !='.'){
+            evt.consume();            
+        }
+        if(tecla =='.' && txtTotal_Pago.getText().contains(".")){
+            evt.consume();            
+        }
+    
+    } catch (Exception e) {
+    }
+    }//GEN-LAST:event_txtTotal_PagoKeyTyped
+
+    private void txtLimite_Consultas_PerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLimite_Consultas_PerKeyTyped
+        //permite escribir solo numeros
+        try {        
+
+            char tecla;
+            tecla = evt.getKeyChar();
+            if(!Character.isDigit(tecla)&&tecla !=KeyEvent.VK_SPACE&&tecla!=KeyEvent.VK_BACK_SPACE){
+                evt.consume();
+                getToolkit().beep();            
+            }
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_txtLimite_Consultas_PerKeyTyped
+
+    private void btn_GUARDAR_ROLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GUARDAR_ROLActionPerformed
+        try {
+                    int filaselec=TB_TURNOS_PERSONAL_ROL.getSelectedRow();
+                    ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
+        
+                    int MODIFICAR = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea MODIFICAR los datos?",
+                        "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                    if(MODIFICAR == 0 ){
+                        
+//                        if(CB_Envio_ROL.isSelected()){
+//                            PR.setENVIO_ROL("S"); 
+//                        }else{
+//                            PR.setENVIO_ROL("N"); 
+//                        }
+                        
+                            modificar_TB_PERSONAL_ROL();
+                            
+                                        
+
+                                            DefaultTableModel modelo = (DefaultTableModel)TB_TURNOS_PERSONAL_ROL.getModel();
+
+                                            modelo.removeRow(filaselec);
+
+                             Agregar_Personal_ROL();
+                            
+                            JOptionPane.showMessageDialog(null, "Datos Modificados");                                                         
+                       
+                        }
+                                
+        } catch (Exception e) {
+            System.out.println("error al modificar" + e.getMessage());
+        }
+                    
+    }//GEN-LAST:event_btn_GUARDAR_ROLActionPerformed
+
+    private void lblCOD_UOCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_lblCOD_UOCaretUpdate
+       if(txtUO.getText().equalsIgnoreCase(lblCOD_UO.getText())){
+                        btn_GUARDAR_ROL.setVisible(true);
+                    }else{
+                        btn_GUARDAR_ROL.setVisible(false);
+                    }
+    }//GEN-LAST:event_lblCOD_UOCaretUpdate
 
     public void seleccion(){
         if(cb_Rango_fecha.isSelected()==true){
@@ -2252,14 +2409,14 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(10).setPreferredWidth(100);
               
 //            //Ocultar
-            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(0).setMinWidth(0);
-            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(0).setMaxWidth(0);    
-            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(1).setMinWidth(0);
-            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(1).setMaxWidth(0);
-            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(9).setMinWidth(0);
-            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(9).setMaxWidth(0);
-            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(10).setMinWidth(0);
-            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(10).setMaxWidth(0);
+//            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(0).setMinWidth(0);
+//            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(0).setMaxWidth(0);    
+//            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(1).setMinWidth(0);
+//            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(1).setMaxWidth(0);
+//            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(9).setMinWidth(0);
+//            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(9).setMaxWidth(0);
+//            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(10).setMinWidth(0);
+//            TB_TURNOS_PERSONAL_ROL.getColumnModel().getColumn(10).setMaxWidth(0);
     
     }
     
@@ -2415,7 +2572,45 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         try {
 
             int filaselec=TB_TURNOS_UO.getSelectedRow();
+            
+            CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL(); 
+            PR.setCOD_TUR_UO(TB_TURNOS_UO.getValueAt(filaselec, 1).toString());
+            PR.setID_PER_UNI_ORG(Integer.parseInt(lbl_id_per_uni_org.getText()));
 
+                String DIA = new SimpleDateFormat("dd").format(D_FECHA.getDate());
+                String MES = new SimpleDateFormat("MM").format(D_FECHA.getDate());
+                String ANIO = new SimpleDateFormat("yyy").format(D_FECHA.getDate());
+
+            PR.setDIA_ROL(DIA);
+            PR.setMES_ROL(MES);
+            PR.setANIO_ROL(ANIO);
+
+            PR.setLIMITE_CONSULTA_DIA(Integer.parseInt(txtLimite_Consultas_Per.getText()));
+            PR.setTOTAL_HORAS(txtTotal_Horas.getText());
+            PR.setTOTAL_PAGO(Double.parseDouble(txtTotal_Pago.getText()));
+            PR.setNOM_USU(lblusu.getText());
+
+            PR.PERSONAL_ROL_GUARDAR();
+
+            TXT_COD_ROL_GUARDAR.setText(PR.PERSONAL_COD_ROL());
+
+                if(TB_ROL_ACTIVIDAD.getRowCount()!=0){
+
+                GUARDAR_TB_ROL_ACTIVIDADES();
+
+                }
+
+        } catch (Exception e) {
+            System.out.println("error guardar personal rol y actividades" + e.getMessage());
+        }
+    }
+    
+    public void guardar_TB_PERSONAL_ROL_MODIF(){
+     
+        try {1
+
+            int filaselec=TB_TURNOS_UO.getSelectedRow();
+            
             CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL(); 
             PR.setCOD_TUR_UO(TB_TURNOS_UO.getValueAt(filaselec, 1).toString());
             PR.setID_PER_UNI_ORG(Integer.parseInt(lbl_id_per_uni_org.getText()));
@@ -2529,7 +2724,8 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
  
         Object [] fila=new Object[11]; 
 
-        
+        if(lblGM.getText().equalsIgnoreCase("G")){
+            
         if(D_FECHA.getDate()==null || txtLimite_Consultas_Per.getText().equalsIgnoreCase("") || 
                 txtTotal_Horas.getText().equalsIgnoreCase("") || txtTotal_Pago.getText().equalsIgnoreCase("")){
             
@@ -2564,7 +2760,32 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
             modelo.addRow(fila); 
             TB_TURNOS_PERSONAL_ROL.setModel(modelo);
         }
+        } 
+        if(lblGM.getText().equalsIgnoreCase("M")){
+           
+            int filaselec=TB_TURNOS_UO.getSelectedRow();
+            int c =1;
+            String DIA = new SimpleDateFormat("dd").format(D_FECHA.getDate());
+            String MES = new SimpleDateFormat("MM").format(D_FECHA.getDate());
+            String ANIO = new SimpleDateFormat("yyy").format(D_FECHA.getDate());
+
             
+            fila[0]=TB_TURNOS_UO.getValueAt(filaselec, 1).toString();
+            fila[1]=lbl_id_per_uni_org.getText();
+            fila[2]=TB_TURNOS_UO.getValueAt(filaselec, 6).toString();
+            fila[3]=DIA; 
+            fila[4]=MES; 
+            fila[5]=ANIO; 
+            fila[6]=txtLimite_Consultas_Per.getText(); 
+            fila[7]=txtTotal_Horas.getText(); 
+            fila[8]=txtTotal_Pago.getText();
+            fila[9]=txtMedico_UO.getText();
+            fila[10]=txtCOD_ROL.getText();
+            
+            modelo.addRow(fila); 
+            TB_TURNOS_PERSONAL_ROL.setModel(modelo);
+         
+        }
 
         
         } catch (Exception e) {
@@ -2910,6 +3131,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                                 if(txtUO.getText().equalsIgnoreCase(TB_TURNOS_UO.getValueAt(i, 1).toString())){
                                 
                                     TB_TURNOS_UO.getSelectionModel().setSelectionInterval(i,i);
+                                    lblCOD_UO.setText(TB_TURNOS_PERSONAL_ROL.getValueAt(filaselec, 0).toString());
                                   
                                 }
                             }
@@ -2924,7 +3146,13 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                             
                             D_FECHA.setDate(d);
                             txtLimite_Consultas_Per.setText(TB_TURNOS_PERSONAL_ROL.getValueAt(filaselec, 6).toString());
-                            txtTotal_Horas.setText(TB_TURNOS_PERSONAL_ROL.getValueAt(filaselec, 7).toString());
+                            
+                            String total1 = TB_TURNOS_PERSONAL_ROL.getValueAt(filaselec, 7).toString();
+           
+                            String d1 = total1.substring(0, 2);
+            
+                            txtTotal_Horas.setText(d1);
+                            
                             txtTotal_Pago.setText(TB_TURNOS_PERSONAL_ROL.getValueAt(filaselec, 8).toString());
                             txtCOD_ROL.setText(TB_TURNOS_PERSONAL_ROL.getValueAt(filaselec, 10).toString());
                             
@@ -3218,6 +3446,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     private com.toedter.calendar.JDateChooser D_FECHA_INICIO;
     private javax.swing.JDialog ERROR_BUSCAR_MED;
     private javax.swing.JLabel LBL_TOTAL_HORA;
+    private javax.swing.JLabel LBL_UNIDAD_ORGANICA;
     private javax.swing.JDialog MEDICOS_UO;
     private javax.swing.JLabel Mensaje;
     private javax.swing.JPanel P_ACTIVIDAD;
@@ -3244,6 +3473,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     public static javax.swing.JButton btnLista;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btn_BUSCAR_ACTIVIDAD;
+    public static javax.swing.JButton btn_GUARDAR_ROL;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;
     public static javax.swing.JButton btnguardar_ACTIVIDAD_ROL;
@@ -3294,6 +3524,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField lblCOD_UO;
     private javax.swing.JLabel lblGM;
     private javax.swing.JLabel lblListado_Edicion;
     private javax.swing.JLabel lbl_id_per_uni_org;

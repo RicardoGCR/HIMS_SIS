@@ -58,6 +58,26 @@ public class CLS_PERSONAL_ROL_ACTIVIDADES {
         return resp;
     }
    
+    public boolean eliminarActividad_modif()
+    {
+        boolean resp = false;
+        try{
+            String sql = "exec PERSONAL_MODIFICAR_ACTIVIDAD ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCOD_ROL());
+            if(!cmd.execute()){
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();  
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error eliminar actividad modif: " + ex.getMessage());
+        }
+        return resp;
+    }
+   
     public Connection getCn() {
         return cn;
     }

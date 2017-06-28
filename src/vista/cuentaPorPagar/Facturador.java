@@ -80,6 +80,8 @@ public class Facturador extends javax.swing.JFrame {
     String barra = File.separator;
     String ubicacion = "C:\\sunat_archivos\\sfs\\DATA\\";
     CuentasPorPagarFacturasCabecera cuentasCab1 = new CuentasPorPagarFacturasCabecera();
+    double sumatoriaIGV = 0.00;
+    double sumatoriaTotal = 0.00;
     public Facturador() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -93,7 +95,7 @@ public class Facturador extends javax.swing.JFrame {
         cbxTipoMoneda.setBackground(Color.WHITE);
         cbxAfecIGV.setBackground(Color.WHITE);
         cbxAfecISC.setBackground(Color.WHITE);
-        cuentasCab1.generarSerieCorrelativo();
+        cuentasCab1.generarSerieCorrelativo("F");
         LimitadorDeDocumento limitObservacion = new LimitadorDeDocumento(15);
         txtTipoDocumento.setDocument(limitObservacion);
         lblFechaEmision.setText(fechaActual());
@@ -301,59 +303,59 @@ public class Facturador extends javax.swing.JFrame {
         }
     }   
     
-    
     public boolean crearDetalles(File crea_archivo, String archivo){
         boolean retorna = false;
         try {
-                            Formatter crea = new Formatter(ubicacion+archivo);
-                            if(crea_archivo.exists()){
-                                JOptionPane.showMessageDialog(rootPane, "El registro ya existe");
-                                retorna = false;
-                            } else {
-                                String bloc1 = "";
-                                for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
-                                    bloc1 = bloc1 + String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
-                                    String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) +
-                                    String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(2)) + "|" +
-                                    String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
-                                     ""+ "|" + 
-                                    String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
-                                     String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|" + 
-                                     txtDscto.getText() + "|" +
-                                    txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
-                                    String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
-                                    txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
-                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
-                                    txtPrecioVenta.getText() + "|" + txtValorVenta.getText() + "\r\n";
-                                }
-                                String bloc2 = "";
-                                for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
-                                    bloc2 = bloc2 + String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
-                                    String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) + "|" +
-                                    String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
-                                     ""+ "|" + 
-                                    String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
-                                     String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|"  + 
-                                     txtDscto.getText() + "|" +
-                                    txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
-                                    String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
-                                    txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
-                                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
-                                    txtPrecioVenta.getText() + "|" + txtValorVenta.getText() + "\r\n";
-                                }
-                                if(cbxCodUnidad.getSelectedIndex()==0 || cbxCodUnidad.getSelectedIndex()==4 ||
-                                           cbxCodUnidad.getSelectedIndex()==5 || cbxCodUnidad.getSelectedIndex()==6 ||
-                                           cbxCodUnidad.getSelectedIndex()==7){
-                                    crea.format(bloc1);
-                                } else {
-                                    crea.format(bloc2);
-                                }
-                                crea.close();
-                                retorna = true;
-                            }   
-                        } catch (Exception e) {
-                                retorna = false;
-                        }
+            Formatter crea = new Formatter(ubicacion+archivo);
+            if(crea_archivo.exists()){
+                JOptionPane.showMessageDialog(rootPane, "El registro ya existe");
+                retorna = false;
+            } else {
+                String bloc1 = "";
+                for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
+                    bloc1 = bloc1 + String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
+                    String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) +
+                    String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(2)) + "|" +
+                    String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
+                     ""+ "|" + 
+                    String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
+                     String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|" + 
+                     txtDscto.getText() + "|" +
+                    txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
+                    String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
+                    txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+                    txtPrecioVenta.getText() + "|" + txtValorVenta.getText() + "\r\n";
+                }
+                String bloc2 = "";
+                for (int c = 0; c < tbFacturacion.getRowCount(); c++){    
+                    bloc2 = bloc2 + String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(0))+
+                    String.valueOf(cbxCodUnidad.getSelectedItem().toString().charAt(1)) + "|" +
+                    String.valueOf(tbFacturacion.getValueAt(c, 3)) + "|" + String.valueOf(tbFacturacion.getValueAt(c, 0))+  "|" + 
+                     ""+ "|" + 
+                    String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
+                     String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|"  + 
+                     txtDscto.getText() + "|" +
+                    txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
+                    String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
+                    txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
+                    String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
+                    txtPrecioVenta.getText() + "|" + txtValorVenta.getText() + "\r\n";
+                }
+                if(cbxCodUnidad.getSelectedIndex()==0 || cbxCodUnidad.getSelectedIndex()==4 ||
+                           cbxCodUnidad.getSelectedIndex()==5 || cbxCodUnidad.getSelectedIndex()==6 ||
+                           cbxCodUnidad.getSelectedIndex()==7){
+                    crea.format(bloc1);
+                } else {
+                    crea.format(bloc2);
+                }
+                crea.close();
+                retorna = true;
+            }   
+        } catch (Exception e) {
+            System.out.println("Error crear detalle: " + e.getMessage());
+                retorna = false;
+        }
         return retorna;
     }
     
@@ -462,9 +464,9 @@ public class Facturador extends javax.swing.JFrame {
             btnAgregarEmpresa = new javax.swing.JButton();
             tablaS = new javax.swing.JScrollPane();
             tbFacturacion = new javax.swing.JTable(){
-                public boolean isCellEditable(int rowIndex, int colIndex){
+                /*public boolean isCellEditable(int rowIndex, int colIndex){
                     return false; //Disallow the editing of any cell
-                }};
+                }*/};
                 jPanel36 = new javax.swing.JPanel();
                 jLabel29 = new javax.swing.JLabel();
                 panelCPT15 = new javax.swing.JPanel();
@@ -675,6 +677,11 @@ public class Facturador extends javax.swing.JFrame {
                 btnGuardar.setDefaultCapable(false);
                 btnGuardar.setFocusPainted(false);
                 btnGuardar.setFocusable(false);
+                btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        btnGuardarActionPerformed(evt);
+                    }
+                });
 
                 javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
                 jPanel2.setLayout(jPanel2Layout);
@@ -2925,10 +2932,9 @@ public class Facturador extends javax.swing.JFrame {
     private void cbxDocumentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxDocumentoItemStateChanged
         CuentasPorPagarFacturasCabecera cuentasCab = new CuentasPorPagarFacturasCabecera();
         if(cbxDocumento.getSelectedIndex()==0){
-            cuentasCab.generarSerieCorrelativo();
+            cuentasCab.generarSerieCorrelativo("F");
         } else{
-            txtSerie.setText("");
-            lblNroCorrelativo.setText("");
+            cuentasCab.generarSerieCorrelativo("B");
         }
     }//GEN-LAST:event_cbxDocumentoItemStateChanged
 
@@ -2957,6 +2963,16 @@ public class Facturador extends javax.swing.JFrame {
                     facturaCabecera.setDocumento(cbxDocumento.getSelectedItem().toString());
                     facturaCabecera.setCod_usu(cabecera.codUsuario(lblusu.getText()));
                     facturaCabecera.setCodigoEmpresa(lblEmpresa.getText());
+                    facturaCabecera.setDsctoGlobal(Double.parseDouble(txtDsctoGlobal.getText()));
+                    facturaCabecera.setOtrosCargos(Double.parseDouble(txtOtrosCargos.getText()));
+                    facturaCabecera.setTotalDscto(Double.parseDouble(txtTotalDscto.getText()));
+                    facturaCabecera.setValorVGravada(Double.parseDouble(txtValorVentaGravada.getText()));
+                    facturaCabecera.setValorVInafectada(Double.parseDouble(txtValorVentaInafectada.getText()));
+                    facturaCabecera.setVentaExonerada(Double.parseDouble(txtVentaExonerada.getText()));
+                    facturaCabecera.setMontoIgv(Double.parseDouble(txtMtoIGV.getText()));
+                    facturaCabecera.setMontoIsc(Double.parseDouble(txtMtoISC.getText()));
+                    facturaCabecera.setOtrosTributos(Double.parseDouble(txtOtrosTributos.getText()));
+                    facturaCabecera.setImportaTotalVta(Double.parseDouble(txtImporteTotalVenta.getText()));
             if(facturaCabecera.mantenimientoCuentasPorPagarFacturasCabecera(lblMant.getText())){
                 if(crearCabecera()){
                     CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
@@ -3004,12 +3020,16 @@ public class Facturador extends javax.swing.JFrame {
                                 rpta = false;
                         }
                 }
+                    if(rpta==true){
                     JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
                     dispose();
                     VentasConsolidado.txtDni.requestFocus();
                     VentasConsolidado.txtDni.setText("");
                     VentasConsolidado.T3.doClick();
                     VentasConsolidado.cbxActoMedico.removeAllItems();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Error al crear la factura");
+                    }
             }//fin if crearCabecera    
             }
         } else{
@@ -3065,6 +3085,17 @@ public class Facturador extends javax.swing.JFrame {
          Empresa.setVisible(true); 
     }//GEN-LAST:event_btnAgregarEmpresaActionPerformed
 
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        sumatoriaIGV = 0.00;
+//        sumatoriaTotal = 0.00;
+        for (int i = 0; i < tbFacturacion.getRowCount(); i++){      
+            sumatoriaIGV = sumatoriaIGV + Double.parseDouble(tbFacturacion.getValueAt(i,5).toString());     
+//            sumatoriaTotal = sumatoriaTotal + Double.parseDouble(tbFacturacion.getValueAt(i,7).toString());       
+        }
+        txtMtoIGV.setText(String.valueOf(Math.rint(sumatoriaIGV*100)/100));
+//        txtImporteTotalVenta.setText(String.valueOf(Math.rint(sumatoriaTotal*100)/100));
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3105,7 +3136,7 @@ public class Facturador extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarEmpresa;
     private javax.swing.JButton btnBuscarPaciente5;
     private javax.swing.JButton btnGenerarDoc;
-    private javax.swing.JButton btnGuardar;
+    public static javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btnGuardar2;
     private javax.swing.JComboBox cbxAfecIGV;

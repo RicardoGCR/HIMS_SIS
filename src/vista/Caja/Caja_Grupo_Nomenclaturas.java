@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -53,6 +54,7 @@ Caja_Grupo cnn = new Caja_Grupo();
         txtav.setEnabled(false);
         txtgp.setEnabled(false);
         cargareliminar.setVisible(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         
     }
 
@@ -625,7 +627,7 @@ Caja_Grupo cnn = new Caja_Grupo();
 
             jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
             jLabel52.setForeground(new java.awt.Color(51, 51, 51));
-            jLabel52.setText("Grupos Registrados");
+            jLabel52.setText(" Grupos Registrados");
 
             jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
             jLabel47.setForeground(new java.awt.Color(51, 51, 51));

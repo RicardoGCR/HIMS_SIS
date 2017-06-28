@@ -52,7 +52,7 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
         this.setResizable(false);//deshabilita boton maximizar
         this.getContentPane().setBackground(Color.WHITE);//color blanco del formulario
         conexion = c.conectar();
-        
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         cbxServicio.setModel(servicios());
         cbxServicio.setBackground(Color.white);
         cbxAreas.setBackground(Color.white);

@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -69,6 +70,7 @@ byte tga;
          jTabbedPane1.setEnabledAt(0,false);
          jTabbedPane1.setEnabledAt(1, false);
          btnLista.setVisible(false);
+         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
     
     }
     public void Buscar(){

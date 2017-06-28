@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -93,6 +94,7 @@ Caja_Cta6 cn6 = new Caja_Cta6();
         txtcodGD.setVisible(false);
         txtcodE.setVisible(false);
         txtcodEd.setVisible(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
         
  
  

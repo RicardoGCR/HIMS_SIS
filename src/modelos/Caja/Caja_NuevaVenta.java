@@ -308,6 +308,33 @@ public boolean ActualizarVenta()
         }
         return resp;
     }
+public boolean ActualizarVentaEx()
+        {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec CAJA_ACTUALIZAR_VENTA_CABECERA_DESCUENTO ?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_documento());
+            cmd.setDouble(2, getDESCUENTO());
+            cmd.setDouble(3, getTOTAL_DOCUUMENTO());
+            cmd.setString(4, getUsu_Exoneracion());
+            cmd.setString(5, getPorcentaje_Exoneracion());
+            cmd.setInt(6, getId_ActoMedico());
+            cmd.setString(7, getEstadoVisibleAdmision());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
 
 public boolean Nuevo()
         {

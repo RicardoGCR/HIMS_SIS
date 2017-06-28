@@ -649,7 +649,7 @@ DefaultTableModel m;
             lblARID.setText("jLabel1");
 
             jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-            jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+            jLabel1.setForeground(new java.awt.Color(41, 127, 184));
             jLabel1.setText("Este Nº de terminal ya se encuentra consignado.");
 
             javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

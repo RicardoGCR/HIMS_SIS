@@ -113,6 +113,29 @@ private int AR_ID;
         }
         return resp;
     }
+    
+    public int VerificarNumero(String nombre){
+        int resultado=0;
+        try
+        {
+            String sql = "select * from SISTEMA_CONFIGURACION_PC_AREA where PA_MODULO ='CC' AND NRO_PC=?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, nombre);
+            ResultSet rs = cmd.executeQuery();
+            for (int i=0; rs.next (); i++)
+            {
+               resultado++;
+            }
+            
+            cmd.close();
+            //getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error verificacion repetidos: " + ex.getMessage());
+        }
+        return resultado;
+    }
      
      public Caja_PC_Registro(){
         Conexion con = new Conexion();

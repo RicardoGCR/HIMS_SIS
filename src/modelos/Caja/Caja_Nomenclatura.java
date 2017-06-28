@@ -210,8 +210,7 @@ public boolean nuevaNomenclatura(){
     }
     
     
-public int CPT_verif(String nombre)
-    {
+public int CPT_verif(String nombre){
         int resultado=0;
         try
         {

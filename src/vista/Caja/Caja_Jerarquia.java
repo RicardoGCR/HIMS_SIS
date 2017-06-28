@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -46,9 +47,9 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
 //         LISTAR();
 //         formato();
         panelAgregar.setVisible(false);
-        panelNuevoN1.setBackground(new Color(255,255,255)); 
-        panelNuevoN2.setBackground(new Color(255,255,255)); 
-        panelNuevoN3.setBackground(new Color(255,255,255)); 
+        panelNuevoN1.setBackground(new Color(240,240,240)); 
+        panelNuevoN2.setBackground(new Color(240,240,240)); 
+        panelNuevoN3.setBackground(new Color(240,240,240)); 
 //        panelNivel1.setVisible(false);
 //        panelNivel2.setVisible(false);
 //        jScrollPane5.setVisible(false);
@@ -57,6 +58,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
         btneditar.setEnabled(false);
         btneliminar.setEnabled(false);
         cargareliminar.setVisible(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
     }
   
     
@@ -94,11 +96,11 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                              cnn.LISTARNIVEL0(tbNivel0);  
                            }else if(lblNivel.getText().equals("1")){
                              cnn.LISTARNIVEL1(lblCodigo.getText(),tbNivel1);
-                                  panelNuevoN2.setBackground(new Color(255,255,255)); 
-                                  panelNuevoN3.setBackground(new Color(255,255,255)); 
+                                  panelNuevoN2.setBackground(new Color(240,240,240)); 
+                                  panelNuevoN3.setBackground(new Color(240,240,240)); 
                            }else if(lblNivel.getText().equals("2")){
                              cnn.LISTARNIVEL2(lblCodigo.getText(),tbNivel2);
-                                  panelNuevoN3.setBackground(new Color(255,255,255)); 
+                                  panelNuevoN3.setBackground(new Color(240,240,240)); 
                            }
                            
                            
@@ -217,7 +219,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                     eli = new javax.swing.JButton();
                     noeli = new javax.swing.JButton();
 
-                    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                    setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
                     jPanel1.setBackground(new java.awt.Color(41, 127, 184));
 
@@ -513,6 +515,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                     codpago.setForeground(new java.awt.Color(255, 255, 255));
                     codpago.setText("jLabel8");
 
+                    lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
                     lblCodigo.setText("CODIGO");
 
                     lblNivel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -523,6 +526,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                     jLabel2.setForeground(new java.awt.Color(51, 51, 51));
                     jLabel2.setText("Agregar al Nivel");
 
+                    lblCodigoAE.setForeground(new java.awt.Color(255, 255, 255));
                     lblCodigoAE.setText("jLabel4");
 
                     javax.swing.GroupLayout panelAgregarLayout = new javax.swing.GroupLayout(panelAgregar);
@@ -771,7 +775,6 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                         .addComponent(panelNuevoN3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(0, 0, 0)
                                     .addComponent(cargareliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addContainerGap())))
                     );
@@ -888,6 +891,7 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
             cno1.LISTARNIVEL1(String.valueOf(tbNivel0.getValueAt(fila, 1)),tbNivel1);
             lblCodigoAE.setText(String.valueOf(tbNivel0.getValueAt(fila, 1)));
             panelNuevoN1.setBackground(new Color(43,43,43)); 
+            btnNuevo.setEnabled(true);
             panelNivel1.setVisible(true);
             jScrollPane5.setVisible(true);
             DefaultTableModel modelo1 = (DefaultTableModel)tbNivel2.getModel(); 
@@ -896,9 +900,11 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
                         modelo1.removeRow(0);
             }
             if(tbNivel1.getRowCount()==0){
-              panelNuevoN2.setBackground(new Color(43,43,43));   
+              panelNuevoN2.setBackground(new Color(43,43,43)); 
+              btnNuevo1.setEnabled(true);
             }else if(tbNivel1.getRowCount()>0){
-              panelNuevoN2.setBackground(new Color(255,255,255));   
+              panelNuevoN2.setBackground(new Color(240,240,240)); 
+              btnNuevo1.setEnabled(false);
             }
             
              
@@ -906,7 +912,9 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
             panelAgregar.setVisible(false);
             
             panelNuevoN1.setBackground(new Color(43,43,43)); 
-            panelNuevoN3.setBackground(new Color(255,255,255)); 
+            btnNuevo.setEnabled(true);
+            panelNuevoN3.setBackground(new Color(240,240,240)); 
+            btnNuevo2.setEnabled(false);
             btneliminar.setEnabled(true);
             btneditar.setEnabled(true);
             lblNivel.setText("0");
@@ -926,16 +934,22 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
             lblCodigoAE.setText(String.valueOf(tbNivel1.getValueAt(fila, 1)));
             
              if(tbNivel2.getRowCount()==0){
-              panelNuevoN3.setBackground(new Color(43,43,43));   
+              panelNuevoN3.setBackground(new Color(43,43,43));  
+              btnNuevo2.setEnabled(true);
+
             }else if(tbNivel2.getRowCount()>0){
-              panelNuevoN3.setBackground(new Color(255,255,255));   
+              panelNuevoN3.setBackground(new Color(240,240,240));  
+              btnNuevo2.setEnabled(false);
+       
             }
              
                     panelNuevoN2.setBackground(new Color(43,43,43)); 
+                    btnNuevo1.setEnabled(true);
                     panelNivel2.setVisible(true);
                     jScrollPane6.setVisible(true);
                     panelAgregar.setVisible(false);
-                    panelNuevoN1.setBackground(new Color(255,255,255)); 
+                    panelNuevoN1.setBackground(new Color(240,240,240)); 
+                    btnNuevo.setEnabled(false);
                     btneliminar.setEnabled(true);
                     btneditar.setEnabled(true);
                     lblNivel.setText("1");
@@ -957,9 +971,12 @@ Caja_Jerarquias cnn = new Caja_Jerarquias();
 
     private void tbNivel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbNivel2MouseClicked
                panelNuevoN3.setBackground(new Color(43,43,43)); 
+               btnNuevo2.setEnabled(true);
                panelAgregar.setVisible(false);
                panelNuevoN2.setBackground(new Color(43,43,43)); 
-               panelNuevoN1.setBackground(new Color(255,255,255)); 
+               btnNuevo1.setEnabled(true);
+               panelNuevoN1.setBackground(new Color(240,240,240)); 
+               btnNuevo.setEnabled(false);
                btneliminar.setEnabled(true);
                btneditar.setEnabled(true);
                int fila=tbNivel2.getSelectedRow();

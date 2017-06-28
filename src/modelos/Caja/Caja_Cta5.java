@@ -89,6 +89,27 @@ public boolean modificarCta5(){
         }
         return resp;
     }
+public boolean eliminarCTA5(){
+        boolean resp = false;
+        try
+        {
+            String sql = "EXEC Caja_Cta5_ELIMINAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_cuenta5());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_eliminar: " + ex.getMessage());
+        }
+        return resp;
+    }
 
  public Caja_Cta5(){
         Conexion con = new Conexion();

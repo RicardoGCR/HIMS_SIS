@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -69,6 +70,7 @@ byte tga;
          jTabbedPane1.setEnabledAt(0,false);
          jTabbedPane1.setEnabledAt(1, false);
          btnLista.setVisible(false);
+         setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
     
     }
     public void Buscar(){
@@ -533,7 +535,7 @@ byte tga;
                                 tge=1;
                            LISTAR();
                        } else {
-                          cargareliminar.setVisible(true);
+                           cargareliminar.setVisible(true);
                            cargareliminar.setBackground(new Color(255,91,70)); 
                            Mensaje.setText("Ocurrió un error, Verifique");
                            eli.setVisible(false);
@@ -1715,7 +1717,7 @@ byte tga;
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-jTabbedPane1.setSelectedIndex(0);
+ jTabbedPane1.setSelectedIndex(0);
         txtnomenclatura.setEditable(true);
          txtdes.setEditable(true);
           txtnom2.setEditable(true);
@@ -2102,9 +2104,9 @@ jTabbedPane1.setSelectedIndex(0);
             btnguardar.setEnabled(false);
             btneditar.setEnabled(true);
             btneliminar.setEnabled(true);
-               b.setVisible(false);
-         b1.setVisible(false);
-         b2.setVisible(false);
+            b.setVisible(false);
+            b1.setVisible(false);
+            b2.setVisible(false);
 
 
         }

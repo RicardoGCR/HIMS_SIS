@@ -90,6 +90,27 @@ public boolean modificarCta4(){
         }
         return resp;
     }
+public boolean eliminarCTA4(){
+        boolean resp = false;
+        try
+        {
+            String sql = "EXEC Caja_Cta4_ELIMINAR ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_cuenta4());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_eliminar: " + ex.getMessage());
+        }
+        return resp;
+    }
 
  public Caja_Cta4(){
         Conexion con = new Conexion();

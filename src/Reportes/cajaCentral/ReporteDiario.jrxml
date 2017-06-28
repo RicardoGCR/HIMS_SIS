@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteDiario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="116460bc-b7e4-4692-82f2-1112038e3efc">
+	<property name="ireport.zoom" value="1.7715610000000015"/>
+	<property name="ireport.x" value="298"/>
+	<property name="ireport.y" value="297"/>
+	<parameter name="USUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[DECLARE @USUARIO VARCHAR(70)
+SET @USUARIO = ( SELECT Usu_Codigo FROM USUARIO where Usu_Usuario =$P{USUARIO})
+SELECT        CAJA_TIPO_DOCUMENTO.tipo_documento, RTRIM(CAJA_DOCUMENTO_CABECERA.serie_documento)+'-'+CAJA_DOCUMENTO_CABECERA.num_documento as 'DOCUMENTO',
+			  CAJA_JERARQUIA_FORMA_PAGO.nom_forma_pago,ADMISION_HISTORIA_CLINICA.dni,
+						 RTRIM(CAJA_MOTIVO_ANULACION_1.descripcion_anulacion) as 'estado anu',
+						 left(CAJA_DOCUMENTO_CABECERA.descuento,len(CAJA_DOCUMENTO_CABECERA.descuento)) as 'DESC',
+						 --CAJA_DOCUMENTO_CABECERA.sub_total_doc,
+                         --CAJA_DOCUMENTO_CABECERA.igv_doc,
+						 left(CAJA_DOCUMENTO_CABECERA.total_doc,len(CAJA_DOCUMENTO_CABECERA.total_doc)) AS 'TOTAL',
+						 CAJA_DOCUMENTO_CABECERA.fecha_actu,
+                         CAJA_DOCUMENTO_CABECERA.hora_actu,CAJA_DOCUMENTO_CABECERA.Id_ActoMedico,CAJA_DOCUMENTO_CABECERA.id_documento,
+						 (SELECT TOP 1 upper( UE_DESC ) FROM SISTEMA_UNIDAD_EJECUTORA) AS DESCRIP,  (SELECT TOP 1 UE_LOGO  FROM SISTEMA_UNIDAD_EJECUTORA) AS IMAGEN,
+						 (SELECT Usu_Usuario FROM USUARIO where Usu_Codigo =@USUARIO) as 'Alias',
+						 (select PERSONAL_PERSONAL.ape_pat_per+' '+PERSONAL_PERSONAL.ape_mat_per+' '+PERSONAL_PERSONAL.nombres_per from PERSONAL_PERSONAL, USUARIO where PERSONAL_PERSONAL.cod_per=USUARIO.cod_per and USUARIO.Usu_Codigo=@USUARIO)as cajero,(select CONVERT(VARCHAR(10),GETDATE(),103))as hoy,(SELECT
+						sum (CAJA_DOCUMENTO_CABECERA.total_doc) AS 'TOTAL'
+
+
+
+FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
+                         CAJA_MOTIVO_ANULACION ON CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION.cod_motiv_anu INNER JOIN
+                         ADMISION_HISTORIA_CLINICA ON CAJA_DOCUMENTO_CABECERA.id_hc = ADMISION_HISTORIA_CLINICA.id_hc INNER JOIN
+                         CAJA_MOTIVO_ANULACION AS CAJA_MOTIVO_ANULACION_1 ON
+                         CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION_1.cod_motiv_anu INNER JOIN
+                         CAJA_TIPO_DOCUMENTO ON CAJA_DOCUMENTO_CABECERA.cod_tipo_documento = CAJA_TIPO_DOCUMENTO.cod_tipo_documento INNER JOIN
+                         CAJA_JERARQUIA_FORMA_PAGO ON CAJA_DOCUMENTO_CABECERA.cod_jerar_forma_pago = CAJA_JERARQUIA_FORMA_PAGO.cod_jerar_forma_pago
+						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
+						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
+						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu='MA001')as suma,(SELECT
+						count (CAJA_DOCUMENTO_CABECERA.total_doc) AS 'TOTAL'
+
+
+
+FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
+                         CAJA_MOTIVO_ANULACION ON CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION.cod_motiv_anu INNER JOIN
+                         ADMISION_HISTORIA_CLINICA ON CAJA_DOCUMENTO_CABECERA.id_hc = ADMISION_HISTORIA_CLINICA.id_hc INNER JOIN
+                         CAJA_MOTIVO_ANULACION AS CAJA_MOTIVO_ANULACION_1 ON
+                         CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION_1.cod_motiv_anu INNER JOIN
+                         CAJA_TIPO_DOCUMENTO ON CAJA_DOCUMENTO_CABECERA.cod_tipo_documento = CAJA_TIPO_DOCUMENTO.cod_tipo_documento INNER JOIN
+                         CAJA_JERARQUIA_FORMA_PAGO ON CAJA_DOCUMENTO_CABECERA.cod_jerar_forma_pago = CAJA_JERARQUIA_FORMA_PAGO.cod_jerar_forma_pago
+						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
+						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
+						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO)
+	as cantidad,(SELECT
+						sum (CAJA_DOCUMENTO_CABECERA.total_doc) AS 'TOTAL'
+
+
+
+FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
+                         CAJA_MOTIVO_ANULACION ON CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION.cod_motiv_anu INNER JOIN
+                         ADMISION_HISTORIA_CLINICA ON CAJA_DOCUMENTO_CABECERA.id_hc = ADMISION_HISTORIA_CLINICA.id_hc INNER JOIN
+                         CAJA_MOTIVO_ANULACION AS CAJA_MOTIVO_ANULACION_1 ON
+                         CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION_1.cod_motiv_anu INNER JOIN
+                         CAJA_TIPO_DOCUMENTO ON CAJA_DOCUMENTO_CABECERA.cod_tipo_documento = CAJA_TIPO_DOCUMENTO.cod_tipo_documento INNER JOIN
+                         CAJA_JERARQUIA_FORMA_PAGO ON CAJA_DOCUMENTO_CABECERA.cod_jerar_forma_pago = CAJA_JERARQUIA_FORMA_PAGO.cod_jerar_forma_pago
+						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
+						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
+						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu!='MA001')as sumaAnulado,(SELECT
+						sum (CAJA_DOCUMENTO_CABECERA.total_doc) AS 'TOTAL'
+
+
+
+FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
+                         CAJA_MOTIVO_ANULACION ON CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION.cod_motiv_anu INNER JOIN
+                         ADMISION_HISTORIA_CLINICA ON CAJA_DOCUMENTO_CABECERA.id_hc = ADMISION_HISTORIA_CLINICA.id_hc INNER JOIN
+                         CAJA_MOTIVO_ANULACION AS CAJA_MOTIVO_ANULACION_1 ON
+                         CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION_1.cod_motiv_anu INNER JOIN
+                         CAJA_TIPO_DOCUMENTO ON CAJA_DOCUMENTO_CABECERA.cod_tipo_documento = CAJA_TIPO_DOCUMENTO.cod_tipo_documento INNER JOIN
+                         CAJA_JERARQUIA_FORMA_PAGO ON CAJA_DOCUMENTO_CABECERA.cod_jerar_forma_pago = CAJA_JERARQUIA_FORMA_PAGO.cod_jerar_forma_pago
+						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
+						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
+						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_JERARQUIA_FORMA_PAGO.nom_forma_pago IN('CONTADO' ,'EXONERACION') AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu='MA001')as CONTADO,
+						 (SELECT sum (CAJA_DOCUMENTO_CABECERA.total_doc) AS 'TOTAL'
+
+
+
+FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
+                         CAJA_MOTIVO_ANULACION ON CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION.cod_motiv_anu INNER JOIN
+                         ADMISION_HISTORIA_CLINICA ON CAJA_DOCUMENTO_CABECERA.id_hc = ADMISION_HISTORIA_CLINICA.id_hc INNER JOIN
+                         CAJA_MOTIVO_ANULACION AS CAJA_MOTIVO_ANULACION_1 ON
+                         CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION_1.cod_motiv_anu INNER JOIN
+                         CAJA_TIPO_DOCUMENTO ON CAJA_DOCUMENTO_CABECERA.cod_tipo_documento = CAJA_TIPO_DOCUMENTO.cod_tipo_documento INNER JOIN
+                         CAJA_JERARQUIA_FORMA_PAGO ON CAJA_DOCUMENTO_CABECERA.cod_jerar_forma_pago = CAJA_JERARQUIA_FORMA_PAGO.cod_jerar_forma_pago
+						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
+						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
+						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_JERARQUIA_FORMA_PAGO.nom_forma_pago!='CONTADO' AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu='MA001')as OTROS,
+						 ( select HOST_NAME())as PC, (SELECT NRO_PC FROM SISTEMA_CONFIGURACION_PC_AREA WHERE NOM_PC=HOST_NAME()) AS NRO
+
+
+FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
+                         CAJA_MOTIVO_ANULACION ON CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION.cod_motiv_anu INNER JOIN
+                         ADMISION_HISTORIA_CLINICA ON CAJA_DOCUMENTO_CABECERA.id_hc = ADMISION_HISTORIA_CLINICA.id_hc INNER JOIN
+                         CAJA_MOTIVO_ANULACION AS CAJA_MOTIVO_ANULACION_1 ON
+                         CAJA_DOCUMENTO_CABECERA.cod_motiv_anu = CAJA_MOTIVO_ANULACION_1.cod_motiv_anu INNER JOIN
+                         CAJA_TIPO_DOCUMENTO ON CAJA_DOCUMENTO_CABECERA.cod_tipo_documento = CAJA_TIPO_DOCUMENTO.cod_tipo_documento INNER JOIN
+                         CAJA_JERARQUIA_FORMA_PAGO ON CAJA_DOCUMENTO_CABECERA.cod_jerar_forma_pago = CAJA_JERARQUIA_FORMA_PAGO.cod_jerar_forma_pago
+						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
+						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
+						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO
+						 ORDER BY CAJA_DOCUMENTO_CABECERA.hora_actu]]>
+	</queryString>
+	<field name="tipo_documento" class="java.lang.String"/>
+	<field name="DOCUMENTO" class="java.lang.String"/>
+	<field name="nom_forma_pago" class="java.lang.String"/>
+	<field name="dni" class="java.lang.String"/>
+	<field name="estado anu" class="java.lang.String"/>
+	<field name="DESC" class="java.lang.String"/>
+	<field name="TOTAL" class="java.lang.String"/>
+	<field name="fecha_actu" class="java.lang.String"/>
+	<field name="hora_actu" class="java.lang.String"/>
+	<field name="Id_ActoMedico" class="java.lang.Long"/>
+	<field name="id_documento" class="java.lang.String"/>
+	<field name="DESCRIP" class="java.lang.String"/>
+	<field name="IMAGEN" class="java.io.InputStream"/>
+	<field name="Alias" class="java.lang.String"/>
+	<field name="cajero" class="java.lang.String"/>
+	<field name="hoy" class="java.lang.String"/>
+	<field name="suma" class="java.math.BigDecimal"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="sumaAnulado" class="java.math.BigDecimal"/>
+	<field name="CONTADO" class="java.math.BigDecimal"/>
+	<field name="OTROS" class="java.math.BigDecimal"/>
+	<field name="PC" class="java.lang.String"/>
+	<field name="NRO" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<image>
+				<reportElement x="485" y="0" width="70" height="50" uuid="9e1a49e0-7549-4e46-94ca-a44a190cfdc0"/>
+				<imageExpression><![CDATA[$F{IMAGEN}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="0" width="462" height="50" uuid="35a65178-0a96-4514-918b-89c8680a2a82"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="50" width="40" height="20" forecolor="#333333" uuid="ba865081-a55c-4085-8c41-330791425dfe"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cajero]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="50" width="424" height="20" uuid="61848341-d236-4ec0-9ae3-d77fe9816e86"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cajero}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="68" width="40" height="19" forecolor="#333333" uuid="5a28467e-414d-4959-b3be-9d0ae8978b86"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuario]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="67" width="100" height="20" uuid="bcfd6058-4a98-42f4-9c6c-b6b209e31844"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Alias}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="84" width="40" height="14" forecolor="#333333" uuid="50da897a-1588-4e20-94b4-e9a9a4256b93"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="84" width="100" height="14" uuid="5b85a549-7dab-43ff-8866-8b5d8f815e9f"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hoy}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="128" y="68" width="98" height="19" forecolor="#333333" uuid="91c89e8e-071e-41dc-863d-4890b69bb818"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estación de Trabajo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="234" y="67" width="100" height="20" uuid="2fb84716-551f-4730-a54d-95c6ff2ddee7"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PC}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="128" y="85" width="100" height="13" forecolor="#333333" uuid="4b075dde-2524-4b3f-9749-1ede6f32d0b5"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº de Terminal]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="234" y="85" width="100" height="13" uuid="cd8cb812-a303-4072-9cb8-4e48e7e6fe1c"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NRO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="138" height="20" uuid="cce4ef48-7e70-4b92-bf53-617b6cd9eb44"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Caja Reporte Diario]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="978fa1ae-5170-4f13-b470-1154e0395f51"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Serie - Correlativo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="2" width="100" height="20" uuid="a725cfce-fb83-431f-91c2-4f27eb1540b7"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Forma de Pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="2" width="100" height="20" uuid="7851196a-90db-4bb0-bfc1-3b5d9a27e3e1"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="2" width="100" height="20" uuid="180304c4-7683-4354-a781-3f7f9efbb7b6"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Dscto.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="2" width="100" height="20" uuid="17c03f41-37d7-48c7-9043-b230f5330972"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="485" y="2" width="100" height="20" uuid="8066c948-4cc1-4319-8499-ecdaffac1b36"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="0" width="98" height="20" uuid="2e2310f5-ba1f-4a18-8c11-f26566ca8599"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="0" width="122" height="10" uuid="a7f590a0-673a-4488-b942-b069a3a054b5"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DOCUMENTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="0" width="92" height="10" uuid="d1014119-1024-41a5-a2e4-26f4f3c9fbbb"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom_forma_pago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="216" y="0" width="58" height="10" uuid="c29a0661-3e5d-488b-ae62-dc664c1a0c4c"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dni}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="485" y="0" width="70" height="10" uuid="061fb45c-3b79-4602-b214-2534a0cef92a"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hora_actu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="0" width="45" height="10" uuid="073c452a-0535-4c71-a6a8-fc04b05e2e1d"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="0" width="52" height="10" uuid="47b90d8f-cc37-4232-ac0f-cea18195bd20"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="274" y="0" width="100" height="10" uuid="b5ed5284-67f0-4a04-8c55-60cfc0ef2b70"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estado anu}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="527" y="0" width="28" height="20" uuid="f1f53906-d7b7-46d8-b89f-9a1854ab955b"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="94" splitType="Stretch">
+			<textField>
+				<reportElement x="272" y="38" width="100" height="20" uuid="c4ac5adc-1d3a-4391-95d4-e41bcb7d39fc"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{suma}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="258" y="26" width="100" height="20" uuid="0f6c2f71-7fc7-477c-a1aa-24502ee0a110"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" forecolor="#333333" uuid="f1477a02-8f3d-4860-a354-f0d7e2365ce8"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="1" width="98" height="20" uuid="8067ea8c-524f-40d6-a7e5-5c9907955e56"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Resumen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="26" width="120" height="20" uuid="4157a28a-a1f3-4272-91fd-a78b743479ee"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Cantidad de Documentos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="38" width="136" height="20" uuid="c2f3481a-f60b-4742-b77b-3b75a468edbd"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Suma Total Sin Anulación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="50" width="138" height="20" uuid="c73b9d2a-801d-4f8f-9a44-d2c7f106ecec"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Total de Documento Anulados]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="272" y="50" width="100" height="20" uuid="28301294-8932-4183-bcec-6a771224ba47"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sumaAnulado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="63" width="174" height="20" uuid="a3987d6b-9ffb-4313-9e8f-a6219583252c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Total de Documentos por Contado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="76" width="220" height="18" uuid="4c456c0f-8ae3-47e9-9a49-0ebe4eb78d0a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Total de Documentos por Otras Forma de Pago]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="272" y="63" width="100" height="20" uuid="2166e5da-d486-4881-a9fc-80c86fdf8036"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CONTADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="76" width="100" height="18" uuid="e90d6724-5c75-4576-8606-db72cfb300a5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OTROS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="258" y="63" width="14" height="20" uuid="cbda9374-715c-45c6-ae7e-8c4268d477f2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[S/.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="38" width="14" height="20" uuid="17a1786d-adcf-428d-a1c2-72ee36e34c18"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[S/.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="50" width="14" height="20" uuid="215428da-c6cf-4502-a2e9-9a4ebbca2b11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[S/.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="76" width="14" height="18" uuid="fa34ff89-7950-4745-9a77-ddeeae810b45"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[S/.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="408" y="76" width="147" height="14" uuid="1fd493be-bb1c-466b-a866-ceaa0fc69c88"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cajero}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="408" y="75" width="147" height="1" uuid="d6e3b7ed-4cec-4668-9e79-0c56b9f8c946"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

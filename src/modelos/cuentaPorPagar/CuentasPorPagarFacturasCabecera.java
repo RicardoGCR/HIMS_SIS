@@ -35,13 +35,23 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
     private String estado;
     private String cod_usu;
     private String codigoEmpresa;
+    private double dsctoGlobal;
+    private double otrosCargos;
+    private double totalDscto;
+    private double valorVGravada;
+    private double valorVInafectada;
+    private double ventaExonerada;
+    private double montoIgv;
+    private double montoIsc;
+    private double otrosTributos;
+    private double importaTotalVta;
     DefaultTableModel m;
     Conexion con = new Conexion();
     private Connection cn;
     
-    public void generarSerieCorrelativo(){
+    public void generarSerieCorrelativo(String documento){
         try {
-            String consulta = "exec CUENTAS_POR_PAGAR_GENERAR_SERIE_CORRELATIVO";
+            String consulta = "exec CUENTAS_POR_PAGAR_GENERAR_SERIE_CORRELATIVO '"+documento+"'";
             ResultSet r;
             r=con.Listar(consulta);
         if(r.next()){
@@ -57,7 +67,7 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
         {
         boolean resp = false;
         try{
-            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_CABECERA ?,?,?,?,?,?,?,?,?,?,?";
+            String sql = "CUENTAS_POR_PAGAR_MANTENIMIENTO_FACTURAS_CABECERA ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setInt(1, getId());
             cmd.setString(2, getSerie());
@@ -70,6 +80,16 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
             cmd.setString(9, getCod_usu());
             cmd.setString(10, tipo);
             cmd.setString(11, getCodigoEmpresa());
+            cmd.setDouble(12, getDsctoGlobal());
+            cmd.setDouble(13, getOtrosCargos());
+            cmd.setDouble(14, getTotalDscto());
+            cmd.setDouble(15, getValorVGravada());
+            cmd.setDouble(16, getValorVInafectada());
+            cmd.setDouble(17, getVentaExonerada());
+            cmd.setDouble(18, getMontoIgv());
+            cmd.setDouble(19, getMontoIsc());
+            cmd.setDouble(20, getOtrosTributos());
+            cmd.setDouble(21, getImportaTotalVta());
             if(!cmd.execute())
             {
                 resp = true;
@@ -399,6 +419,146 @@ public class CuentasPorPagarFacturasCabecera implements Serializable {
      */
     public void setCodigoEmpresa(String codigoEmpresa) {
         this.codigoEmpresa = codigoEmpresa;
+    }
+
+    /**
+     * @return the dsctoGlobal
+     */
+    public double getDsctoGlobal() {
+        return dsctoGlobal;
+    }
+
+    /**
+     * @param dsctoGlobal the dsctoGlobal to set
+     */
+    public void setDsctoGlobal(double dsctoGlobal) {
+        this.dsctoGlobal = dsctoGlobal;
+    }
+
+    /**
+     * @return the otrosCargos
+     */
+    public double getOtrosCargos() {
+        return otrosCargos;
+    }
+
+    /**
+     * @param otrosCargos the otrosCargos to set
+     */
+    public void setOtrosCargos(double otrosCargos) {
+        this.otrosCargos = otrosCargos;
+    }
+
+    /**
+     * @return the totalDscto
+     */
+    public double getTotalDscto() {
+        return totalDscto;
+    }
+
+    /**
+     * @param totalDscto the totalDscto to set
+     */
+    public void setTotalDscto(double totalDscto) {
+        this.totalDscto = totalDscto;
+    }
+
+    /**
+     * @return the valorVGravada
+     */
+    public double getValorVGravada() {
+        return valorVGravada;
+    }
+
+    /**
+     * @param valorVGravada the valorVGravada to set
+     */
+    public void setValorVGravada(double valorVGravada) {
+        this.valorVGravada = valorVGravada;
+    }
+
+    /**
+     * @return the valorVInafectada
+     */
+    public double getValorVInafectada() {
+        return valorVInafectada;
+    }
+
+    /**
+     * @param valorVInafectada the valorVInafectada to set
+     */
+    public void setValorVInafectada(double valorVInafectada) {
+        this.valorVInafectada = valorVInafectada;
+    }
+
+    /**
+     * @return the ventaExonerada
+     */
+    public double getVentaExonerada() {
+        return ventaExonerada;
+    }
+
+    /**
+     * @param ventaExonerada the ventaExonerada to set
+     */
+    public void setVentaExonerada(double ventaExonerada) {
+        this.ventaExonerada = ventaExonerada;
+    }
+
+    /**
+     * @return the montoIgv
+     */
+    public double getMontoIgv() {
+        return montoIgv;
+    }
+
+    /**
+     * @param montoIgv the montoIgv to set
+     */
+    public void setMontoIgv(double montoIgv) {
+        this.montoIgv = montoIgv;
+    }
+
+    /**
+     * @return the montoIsc
+     */
+    public double getMontoIsc() {
+        return montoIsc;
+    }
+
+    /**
+     * @param montoIsc the montoIsc to set
+     */
+    public void setMontoIsc(double montoIsc) {
+        this.montoIsc = montoIsc;
+    }
+
+    /**
+     * @return the otrosTributos
+     */
+    public double getOtrosTributos() {
+        return otrosTributos;
+    }
+
+    /**
+     * @param otrosTributos the otrosTributos to set
+     */
+    public void setOtrosTributos(double otrosTributos) {
+        this.otrosTributos = otrosTributos;
+    }
+
+    /**
+     * @return the importaTotalVta
+     */
+    public double getImportaTotalVta() {
+        return importaTotalVta;
+    }
+
+    /**
+     * @param importaTotalVta the importaTotalVta to set
+     */
+    public void setImportaTotalVta(double importaTotalVta) {
+        this.importaTotalVta = importaTotalVta;
     }
     
 }

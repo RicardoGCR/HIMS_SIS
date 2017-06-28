@@ -143,7 +143,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
 //                cabecera1.calcularPrecioVenta(txtActoMedico.getText());
 
                 cabecera1.calcularPrecioVenta(lblDNI.getText());
-
+                Facturador.btnGuardar.doClick();
             } else {
                JOptionPane.showMessageDialog(null,"No se puedo generar esta factura");
             }
@@ -1183,8 +1183,6 @@ public class VentasConsolidado extends javax.swing.JFrame {
                 lblHC.setForeground(new Color(204,204,204));
                 txtActoMedico.setForeground(new Color(204,204,204));
                 txtActoMedico.setVisible(true);
-                cbxActoMedico.showPopup();
-                cbxActoMedico.requestFocus();
             } else {
                 cbxActoMedico.setVisible(false);
                 lblMensajeActoMedico.setVisible(false);
@@ -1212,6 +1210,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
                 txtActoMedico.setForeground(Color.BLACK);
                 txtActoMedico.setVisible(false);
                 pnlVentas.setVisible(false);
+                cbxActoMedico.removeAllItems();
         }
     }//GEN-LAST:event_T3ActionPerformed
 
@@ -1376,6 +1375,7 @@ public class VentasConsolidado extends javax.swing.JFrame {
         try {
             txtActoMedico.setText(cbxActoMedico.getSelectedItem().toString());
         } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_cbxActoMedicoItemStateChanged
 

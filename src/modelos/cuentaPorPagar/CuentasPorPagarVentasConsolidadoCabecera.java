@@ -244,9 +244,7 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                Facturador.txtPrecioVenta.setText(r.getString(1)); 
-                Facturador.txtIGV.setText(r.getString(2)); 
-                Facturador.txtValorVenta.setText(r.getString(3)); 
+                Facturador.txtImporteTotalVenta.setText(r.getString(1)); 
             }
             //
         } catch (Exception e) {

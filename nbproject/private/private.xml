@@ -4,13 +4,20 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/D:/pry/HIMS/src/modelos/cuentaPorPagar/CuentasPorPagarNotaDeCreditoCabecera.java</file>
             <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/NotasCreditoDebito.java</file>
 =======
 <<<<<<< HEAD
+=======
+            <file>file:/D:/pry/HIMS/src/vista/ConsultorioEx/ConsultorioExt.java</file>
+>>>>>>> e0db4265e11d59df2b066a1243ca5d4754bb293d
             <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
+            <file>file:/D:/pry/HIMS/src/modelos/ConsultorioEx/ConsultorioExtEsnitss.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/ConsultorioEx/RegistroEmbarazo.java</file>
             <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
             <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Transaccion.java</file>
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
             <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/NotasCreditoDebito.java</file>
@@ -29,6 +36,8 @@
 >>>>>>> 27900dae1d6598982a30d8dc11e5aa001d509e37
 >>>>>>> 34aa0e868bcb9f56d331c4a7b196001a6cc2accc
 >>>>>>> 0045d062a943db73bdb989e0de0e448fb18e577e
+=======
+>>>>>>> e0db4265e11d59df2b066a1243ca5d4754bb293d
         </group>
     </open-files>
 </project-private>

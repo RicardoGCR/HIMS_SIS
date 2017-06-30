@@ -49,6 +49,24 @@ public class CuentasPorPagarNotaDeCreditoCabecera {
         }
         return cor;
     }
+    
+    public String generarSerieCorrelativoDebito(String serie){
+        String cor="";
+        try {
+             
+            String sql = "exec CUENTAS_POR_PAGAR_NOTA_DEBITO_GENERAR_Serie_Correlativo ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, serie);
+            ResultSet r = cmd.executeQuery();
+        if(r.next()){          
+            cor=r.getString(1);
+        }
+        }catch(Exception ex){
+            System.out.println("Error: generarSerieCorrelativo - " + ex.getMessage());
+        }
+        return cor;
+    }
+    
     public boolean mantenimientoCuentasPorPagarNotaCredito()
         {
         boolean resp = false;
@@ -70,6 +88,31 @@ public class CuentasPorPagarNotaDeCreditoCabecera {
         catch(Exception ex)
         {
             System.out.println("Error: mantenimientoCuentasPorPagarFacturasCabecera: " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean mantenimientoCuentasPorPagarNotaDebito()
+        {
+        boolean resp = false;
+        try{
+            String sql = "sp_CUENTAS_POR_PAGAR_NOTA_DEBITO  ?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getIdFactura());
+            cmd.setString(2, getNota_credito());
+            cmd.setString(3, getDescripcion());
+            cmd.setString(4, getSerie());
+            cmd.setString(5, getCorrelativo());
+            cmd.setString(6, getCod_usu());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: mantenimientoCuentasPorPagarNotaDebito: " + ex.getMessage());
         }
         return resp;
     }

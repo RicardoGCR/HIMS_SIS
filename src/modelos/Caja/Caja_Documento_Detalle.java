@@ -80,14 +80,15 @@ Conexion con = new Conexion();
         }
         return cod;
     }
-    public String CodPrecio(String precio)
+    public String CodPrecio(String precio ,String FP)
     {
         String cod="";
         try
         {
-            String sql = "EXEC Caja_NomenclaturaVentaBUSCAR_PREVENTA ?";
+            String sql = "EXEC Caja_NomenclaturaVentaBUSCAR_PREVENTA ?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, precio);
+            cmd.setString(2, FP);
             ResultSet rs = cmd.executeQuery();
             if(rs.next())
             {
@@ -101,14 +102,15 @@ Conexion con = new Conexion();
         return cod;
     }
     
-    public String CodPrecio1(String precio)
+    public String CodPrecio1(String precio, String FP)
     {
         String cod="";
         try
         {
-            String sql = "EXEC Caja_NomenclaturaVentaBUSCAR_PREVENTA1 ?";
+            String sql = "EXEC Caja_NomenclaturaVentaBUSCAR_PREVENTA1 ?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, precio);
+            cmd.setString(2, FP);
             ResultSet rs = cmd.executeQuery();
             if(rs.next())
             {

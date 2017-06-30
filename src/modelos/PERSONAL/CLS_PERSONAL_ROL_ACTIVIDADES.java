@@ -73,7 +73,29 @@ public class CLS_PERSONAL_ROL_ACTIVIDADES {
         }
         catch(Exception ex)
         {
-            System.out.println("Error eliminar actividad modif: " + ex.getMessage());
+            System.out.println("Error eliminar PERSONAL_ROL_ACTIVIDAD : " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean PERSONAL_ROL_ACTIVIDADES_ELIMINAR()
+    {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec PERSONAL_PERSONAL_ROL_ELIMINAR_ACTIVIDAD ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getCOD_ROL());
+            if(!cmd.execute()){
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
         }
         return resp;
     }

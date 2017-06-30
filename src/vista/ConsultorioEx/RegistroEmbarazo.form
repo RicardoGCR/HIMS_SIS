@@ -36,6 +36,14 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
           </Properties>
+<<<<<<< HEAD
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="0" y="0" width="-1" height="260"/>
+            </Constraint>
+          </Constraints>
+=======
+>>>>>>> e0db4265e11d59df2b066a1243ca5d4754bb293d
 
           <Layout>
             <DimensionLayout dim="0">
@@ -79,7 +87,11 @@
                       <Component id="btnRegistrosExistentes" min="-2" pref="68" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnAtras" min="-2" pref="68" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                      <EmptySpace max="32767" attributes="0"/>
+=======
                       <EmptySpace pref="42" max="32767" attributes="0"/>
+>>>>>>> e0db4265e11d59df2b066a1243ca5d4754bb293d
                   </Group>
               </Group>
             </DimensionLayout>

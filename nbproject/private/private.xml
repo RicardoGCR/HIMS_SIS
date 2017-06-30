@@ -5,10 +5,14 @@
         <group>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/D:/pry/HIMS/src/modelos/cuentaPorPagar/CuentasPorPagarNotaDeCreditoCabecera.java</file>
             <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/NotasCreditoDebito.java</file>
 =======
 <<<<<<< HEAD
+=======
+            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
+>>>>>>> 356b07ea02dc78aeaeb142fc2cee0b487b1b85f4
 =======
             <file>file:/D:/pry/HIMS/src/vista/ConsultorioEx/ConsultorioExt.java</file>
 >>>>>>> e0db4265e11d59df2b066a1243ca5d4754bb293d
@@ -17,6 +21,7 @@
             <file>file:/D:/pry/HIMS/src/vista/ConsultorioEx/RegistroEmbarazo.java</file>
             <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
             <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Transaccion.java</file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -37,6 +42,8 @@
 >>>>>>> 34aa0e868bcb9f56d331c4a7b196001a6cc2accc
 >>>>>>> 0045d062a943db73bdb989e0de0e448fb18e577e
 =======
+=======
+>>>>>>> 356b07ea02dc78aeaeb142fc2cee0b487b1b85f4
 >>>>>>> e0db4265e11d59df2b066a1243ca5d4754bb293d
         </group>
     </open-files>

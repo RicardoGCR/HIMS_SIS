@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteDiario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="116460bc-b7e4-4692-82f2-1112038e3efc">
-	<property name="ireport.zoom" value="1.7715610000000015"/>
-	<property name="ireport.x" value="298"/>
-	<property name="ireport.y" value="297"/>
+	<property name="ireport.zoom" value="2.1435888100000047"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="563"/>
 	<parameter name="USUARIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -21,7 +21,7 @@ SELECT        CAJA_TIPO_DOCUMENTO.tipo_documento, RTRIM(CAJA_DOCUMENTO_CABECERA.
 						 (SELECT TOP 1 upper( UE_DESC ) FROM SISTEMA_UNIDAD_EJECUTORA) AS DESCRIP,  (SELECT TOP 1 UE_LOGO  FROM SISTEMA_UNIDAD_EJECUTORA) AS IMAGEN,
 						 (SELECT Usu_Usuario FROM USUARIO where Usu_Codigo =@USUARIO) as 'Alias',
 						 (select PERSONAL_PERSONAL.ape_pat_per+' '+PERSONAL_PERSONAL.ape_mat_per+' '+PERSONAL_PERSONAL.nombres_per from PERSONAL_PERSONAL, USUARIO where PERSONAL_PERSONAL.cod_per=USUARIO.cod_per and USUARIO.Usu_Codigo=@USUARIO)as cajero,(select CONVERT(VARCHAR(10),GETDATE(),103))as hoy,(SELECT
-						sum (CAJA_DOCUMENTO_CABECERA.total_doc) AS 'TOTAL'
+						ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (6,2)),2)AS 'TOTAL'
 
 
 
@@ -50,7 +50,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO)
 	as cantidad,(SELECT
-						sum (CAJA_DOCUMENTO_CABECERA.total_doc) AS 'TOTAL'
+						ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (6,2)),2)AS 'TOTAL'
 
 
 
@@ -64,7 +64,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu!='MA001')as sumaAnulado,(SELECT
-						sum (CAJA_DOCUMENTO_CABECERA.total_doc) AS 'TOTAL'
+						ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (6,2)),2)AS 'TOTAL'
 
 
 
@@ -78,7 +78,7 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 						 WHERE CAJA_DOCUMENTO_CABECERA.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
 						 ADMISION_HISTORIA_CLINICA.estado_hc='A'AND
 						 CAJA_DOCUMENTO_CABECERA.cod_usu=@USUARIO AND CAJA_JERARQUIA_FORMA_PAGO.nom_forma_pago IN('CONTADO' ,'EXONERACION') AND CAJA_DOCUMENTO_CABECERA.cod_motiv_anu='MA001')as CONTADO,
-						 (SELECT sum (CAJA_DOCUMENTO_CABECERA.total_doc) AS 'TOTAL'
+						 (SELECT ROUND(CAST ((sum (CAJA_DOCUMENTO_CABECERA.total_doc)) AS decimal (6,2)),2)AS 'TOTAL'
 
 
 
@@ -134,15 +134,15 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="100" splitType="Stretch">
+		<band height="103" splitType="Stretch">
 			<image>
 				<reportElement x="485" y="0" width="70" height="50" uuid="9e1a49e0-7549-4e46-94ca-a44a190cfdc0"/>
 				<imageExpression><![CDATA[$F{IMAGEN}]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="0" y="0" width="462" height="50" uuid="35a65178-0a96-4514-918b-89c8680a2a82"/>
+				<reportElement x="0" y="0" width="412" height="50" uuid="35a65178-0a96-4514-918b-89c8680a2a82"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Segoe UI" size="22"/>
+					<font fontName="Segoe UI" size="20"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DESCRIP}]]></textFieldExpression>
 			</textField>
@@ -161,14 +161,14 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 				<textFieldExpression><![CDATA[$F{cajero}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="68" width="40" height="19" forecolor="#333333" uuid="5a28467e-414d-4959-b3be-9d0ae8978b86"/>
+				<reportElement x="0" y="68" width="40" height="16" forecolor="#333333" uuid="5a28467e-414d-4959-b3be-9d0ae8978b86"/>
 				<textElement>
 					<font fontName="SansSerif" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Usuario]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="40" y="67" width="100" height="20" uuid="bcfd6058-4a98-42f4-9c6c-b6b209e31844"/>
+				<reportElement x="40" y="68" width="84" height="16" uuid="bcfd6058-4a98-42f4-9c6c-b6b209e31844"/>
 				<textElement>
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
@@ -182,35 +182,35 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 				<text><![CDATA[Fecha]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="40" y="84" width="100" height="14" uuid="5b85a549-7dab-43ff-8866-8b5d8f815e9f"/>
+				<reportElement x="40" y="84" width="84" height="14" uuid="5b85a549-7dab-43ff-8866-8b5d8f815e9f"/>
 				<textElement>
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{hoy}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="128" y="68" width="98" height="19" forecolor="#333333" uuid="91c89e8e-071e-41dc-863d-4890b69bb818"/>
+				<reportElement x="128" y="68" width="98" height="16" forecolor="#333333" uuid="91c89e8e-071e-41dc-863d-4890b69bb818"/>
 				<textElement>
 					<font fontName="SansSerif" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Estación de Trabajo]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="234" y="67" width="100" height="20" uuid="2fb84716-551f-4730-a54d-95c6ff2ddee7"/>
+				<reportElement x="234" y="68" width="100" height="16" uuid="2fb84716-551f-4730-a54d-95c6ff2ddee7"/>
 				<textElement>
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PC}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="128" y="85" width="100" height="13" forecolor="#333333" uuid="4b075dde-2524-4b3f-9749-1ede6f32d0b5"/>
+				<reportElement x="128" y="84" width="100" height="14" forecolor="#333333" uuid="4b075dde-2524-4b3f-9749-1ede6f32d0b5"/>
 				<textElement>
 					<font fontName="SansSerif" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nº de Terminal]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="234" y="85" width="100" height="13" uuid="cd8cb812-a303-4072-9cb8-4e48e7e6fe1c"/>
+				<reportElement x="234" y="84" width="100" height="16" uuid="cd8cb812-a303-4072-9cb8-4e48e7e6fe1c"/>
 				<textElement>
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
@@ -221,11 +221,11 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 	<pageHeader>
 		<band height="22" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="138" height="20" uuid="cce4ef48-7e70-4b92-bf53-617b6cd9eb44"/>
+				<reportElement x="0" y="0" width="234" height="20" uuid="cce4ef48-7e70-4b92-bf53-617b6cd9eb44"/>
 				<textElement>
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Caja Reporte Diario]]></text>
+				<text><![CDATA[Detalle de movimientos]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -347,16 +347,16 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="94" splitType="Stretch">
+		<band height="156" splitType="Stretch">
 			<textField>
-				<reportElement x="272" y="38" width="100" height="20" uuid="c4ac5adc-1d3a-4391-95d4-e41bcb7d39fc"/>
+				<reportElement x="196" y="38" width="100" height="20" uuid="c4ac5adc-1d3a-4391-95d4-e41bcb7d39fc"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{suma}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="258" y="26" width="100" height="20" uuid="0f6c2f71-7fc7-477c-a1aa-24502ee0a110"/>
+				<reportElement x="182" y="26" width="100" height="20" uuid="0f6c2f71-7fc7-477c-a1aa-24502ee0a110"/>
 				<textElement verticalAlignment="Top">
 					<font size="8"/>
 				</textElement>
@@ -366,105 +366,132 @@ FROM            CAJA_DOCUMENTO_CABECERA INNER JOIN
 				<reportElement x="0" y="0" width="555" height="1" forecolor="#333333" uuid="f1477a02-8f3d-4860-a354-f0d7e2365ce8"/>
 			</line>
 			<staticText>
-				<reportElement x="2" y="1" width="98" height="20" uuid="8067ea8c-524f-40d6-a7e5-5c9907955e56"/>
+				<reportElement x="0" y="6" width="98" height="20" uuid="8067ea8c-524f-40d6-a7e5-5c9907955e56"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Resumen]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="26" width="120" height="20" uuid="4157a28a-a1f3-4272-91fd-a78b743479ee"/>
+				<reportElement x="0" y="26" width="120" height="20" uuid="4157a28a-a1f3-4272-91fd-a78b743479ee"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Cantidad de Documentos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="38" width="136" height="20" uuid="c2f3481a-f60b-4742-b77b-3b75a468edbd"/>
+				<reportElement x="0" y="38" width="136" height="20" uuid="c2f3481a-f60b-4742-b77b-3b75a468edbd"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Suma Total Sin Anulación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="50" width="138" height="20" uuid="c73b9d2a-801d-4f8f-9a44-d2c7f106ecec"/>
+				<reportElement x="0" y="50" width="138" height="20" uuid="c73b9d2a-801d-4f8f-9a44-d2c7f106ecec"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Total de Documento Anulados]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="272" y="50" width="100" height="20" uuid="28301294-8932-4183-bcec-6a771224ba47"/>
+				<reportElement x="196" y="50" width="100" height="20" uuid="28301294-8932-4183-bcec-6a771224ba47"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{sumaAnulado}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="2" y="63" width="174" height="20" uuid="a3987d6b-9ffb-4313-9e8f-a6219583252c"/>
+				<reportElement x="0" y="63" width="174" height="20" uuid="a3987d6b-9ffb-4313-9e8f-a6219583252c"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Total de Documentos por Contado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="76" width="220" height="18" uuid="4c456c0f-8ae3-47e9-9a49-0ebe4eb78d0a"/>
+				<reportElement x="0" y="76" width="220" height="18" uuid="4c456c0f-8ae3-47e9-9a49-0ebe4eb78d0a"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Total de Documentos por Otras Forma de Pago]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="272" y="63" width="100" height="20" uuid="2166e5da-d486-4881-a9fc-80c86fdf8036"/>
+				<reportElement x="196" y="63" width="100" height="20" uuid="2166e5da-d486-4881-a9fc-80c86fdf8036"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CONTADO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="272" y="76" width="100" height="18" uuid="e90d6724-5c75-4576-8606-db72cfb300a5"/>
+				<reportElement x="196" y="76" width="100" height="18" uuid="e90d6724-5c75-4576-8606-db72cfb300a5"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{OTROS}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="258" y="63" width="14" height="20" uuid="cbda9374-715c-45c6-ae7e-8c4268d477f2"/>
+				<reportElement x="182" y="63" width="14" height="20" uuid="cbda9374-715c-45c6-ae7e-8c4268d477f2"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[S/.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="258" y="38" width="14" height="20" uuid="17a1786d-adcf-428d-a1c2-72ee36e34c18"/>
+				<reportElement x="182" y="38" width="14" height="20" uuid="17a1786d-adcf-428d-a1c2-72ee36e34c18"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[S/.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="258" y="50" width="14" height="20" uuid="215428da-c6cf-4502-a2e9-9a4ebbca2b11"/>
+				<reportElement x="182" y="50" width="14" height="20" uuid="215428da-c6cf-4502-a2e9-9a4ebbca2b11"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[S/.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="258" y="76" width="14" height="18" uuid="fa34ff89-7950-4745-9a77-ddeeae810b45"/>
+				<reportElement x="182" y="76" width="14" height="18" uuid="fa34ff89-7950-4745-9a77-ddeeae810b45"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[S/.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="408" y="76" width="147" height="14" uuid="1fd493be-bb1c-466b-a866-ceaa0fc69c88"/>
+				<reportElement x="408" y="111" width="147" height="14" uuid="1fd493be-bb1c-466b-a866-ceaa0fc69c88"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cajero}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="408" y="75" width="147" height="1" uuid="d6e3b7ed-4cec-4668-9e79-0c56b9f8c946"/>
+				<reportElement x="408" y="110" width="147" height="1" uuid="d6e3b7ed-4cec-4668-9e79-0c56b9f8c946"/>
+			</line>
+			<staticText>
+				<reportElement x="408" y="124" width="147" height="11" uuid="b33929de-e7fe-4f8b-bf2e-c479bf16ae9b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Cajero]]></text>
+			</staticText>
+			<line>
+				<reportElement x="282" y="109" width="100" height="1" uuid="c432e1d9-3bfa-43d3-b10a-883841082dd4"/>
+			</line>
+			<staticText>
+				<reportElement x="282" y="110" width="100" height="20" uuid="da9e5221-7a3c-43a4-850e-bb476dd781d3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Recaudador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="141" width="100" height="15" uuid="3002a206-032f-4d82-910b-7ca49bc713dd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nota]]></text>
+			</staticText>
+			<line>
+				<reportElement x="28" y="155" width="286" height="1" uuid="09b386e0-3ac0-4081-a7fe-278c64f2ab0b"/>
 			</line>
 		</band>
 	</summary>

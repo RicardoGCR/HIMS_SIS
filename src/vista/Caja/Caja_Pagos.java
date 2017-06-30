@@ -1,6 +1,5 @@
 
 package vista.Caja;
-
 import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Font;
@@ -218,6 +217,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
         panelIMprimir.setVisible(false);
         panelOpcionesHOS.setVisible(false);
         btnBuscarReporte.setVisible(false);
+//        btnBuscarReporte1.setVisible(false);
         
         panelOpcionesTBC.setVisible(false);
         panelEliminarTBC.setVisible(false);
@@ -8576,9 +8576,7 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                     .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                         .addComponent(lblDes)
-                                                                                                                        .addGroup(jPanel14Layout.createSequentialGroup()
-                                                                                                                            .addComponent(panelCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                            .addGap(3, 3, 3)))
+                                                                                                                        .addComponent(panelCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                                     .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                                                                         .addGroup(jPanel14Layout.createSequentialGroup()
                                                                                                                             .addGap(143, 143, 143)
@@ -8612,15 +8610,12 @@ Caja_NuevaVenta nuevaR = new Caja_NuevaVenta();
                                                                                                                             .addComponent(dateDesde, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                                         .addComponent(jLabel110)
                                                                                                                         .addComponent(panelCPT1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                            .addComponent(btnBuscarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                            .addComponent(btnBuscarReporte1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                                                                        .addComponent(btnBuscarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                        .addComponent(btnBuscarReporte1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                                     .addComponent(lblDes))
                                                                                                                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                                    .addGroup(jPanel14Layout.createSequentialGroup()
-                                                                                                                        .addGap(5, 5, 5)
-                                                                                                                        .addComponent(jLabel107))
+                                                                                                                    .addComponent(jLabel107)
                                                                                                                     .addComponent(dateHasta, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                                                                             .addGap(21, 21, 21))
                                                                                                     );
@@ -11477,16 +11472,19 @@ PaginasVentas.setSelectedIndex(1);
 if(tbFP.getRowCount()==0){
             panelColorFP.setBackground(new Color(232,76,61));
             btnBuscarReporte.setVisible(false);
+//            btnBuscarReporte1.setVisible(false);
             lblDes.setText("Sin Resultados");
         }else if(tbFP.getRowCount()==1){
            CARETFT();
             lblDes.setText("Encontado");
             btnBuscarReporte.setVisible(true);
+//            btnBuscarReporte1.setVisible(false);
         }else if(tbFP.getRowCount()>1){
        
             lblDes.setText("Afine más su busqueda");
             panelColorFP.setBackground(new Color(243,156,17));
             btnBuscarReporte.setVisible(false);
+//            btnBuscarReporte1.setVisible(false);
         }
     }//GEN-LAST:event_btnBuscarCPT1ActionPerformed
 

@@ -202,7 +202,7 @@ public class Facturador extends javax.swing.JFrame {
     
     public boolean crearCabecera(){
         boolean retorna = false;
-        String archivo = txtTipoDocumento.getText() + "-" + 
+        String archivo = "20410275768" + "-" + 
                 cbxDocumento.getSelectedItem().toString().charAt(0) + 
                 cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
                 txtSerie.getText() + "-" + 
@@ -246,7 +246,7 @@ public class Facturador extends javax.swing.JFrame {
     }   
     
     public void crearDetalle(){
-        String archivo = txtTipoDocumento.getText() + "-" + 
+        String archivo = "20410275768" + "-" + 
                 cbxDocumento.getSelectedItem().toString().charAt(0) + 
                 cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
                 txtSerie.getText() + "-" + 
@@ -2977,7 +2977,7 @@ public class Facturador extends javax.swing.JFrame {
                 if(crearCabecera()){
                     CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
                     lblId.setText(facturaDetalle1.facturaCabeceraId());
-                    String archivo = txtTipoDocumento.getText() + "-" + 
+                    String archivo = "20410275768" + "-" + 
                     cbxDocumento.getSelectedItem().toString().charAt(0) + 
                     cbxDocumento.getSelectedItem().toString().charAt(1) + "-" +
                     txtSerie.getText() + "-" + 

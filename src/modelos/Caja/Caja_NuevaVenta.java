@@ -25,6 +25,7 @@ import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 import vista.Caja.Caja_Pagos;
+import static vista.Caja.Caja_Pagos.lblTotalDiario;
 /**
  *
  * @author MYS1
@@ -96,8 +97,7 @@ public void SumaTotalReporte(String total){
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                    
-                Caja_Pagos.lblTotalDiario.setText("S/.  "+r.getString(1));    
+                Caja_Pagos.lblTotalDiario.setText("S/.  "+r.getString(1));     
             }
             //
         } catch (Exception e) {
@@ -155,6 +155,33 @@ public void SumaANULADOReporte(String anulado){
             //
         } catch (Exception e) {
             System.out.println("Error: SUMA ANULADO  " + e.getMessage());
+        }
+    }
+public void ReporteDiario(String USUARIO) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("USUARIO", USUARIO);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/ReporteDiario.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Reporte Diario");
+           ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
+        }
+    }
+
+public void ReporteFechas(String USUARIO,int F1,int F2) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("USUARIO", USUARIO);
+            parametros.put("F1", F1);
+            parametros.put("F2", F2);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/ReporteFechas.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Reporte");
+           ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporte Fechas:"+e.getMessage());
         }
     }
 
@@ -416,6 +443,28 @@ public boolean Nuevo()
         }
         return resp;
     }
+     public boolean EliminarKARDEX_LA(){
+        boolean resp = false;
+        try
+        {
+            String sql = "EXEC CAJA_ELIMINAR_DESCUENTO_KARDEX_LA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getIdDetalle());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_eliminar KARDEX LA: " + ex.getMessage());
+        }
+        return resp;
+    }
+     
      
 
  public String codUsuario(String nombreUsuario)

@@ -1730,10 +1730,8 @@ Conexion c=new Conexion();
                         .addContainerGap()
                         .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel18)
-                            .addGroup(jPanel24Layout.createSequentialGroup()
-                                .addComponent(panelCPT6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addContainerGap(5, Short.MAX_VALUE))
+                            .addComponent(panelCPT6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel24Layout.setVerticalGroup(
                     jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2082,7 +2080,7 @@ Conexion c=new Conexion();
                     .addGroup(jPanel30Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbxAfecIGV, 0, 367, Short.MAX_VALUE)
+                            .addComponent(cbxAfecIGV, 0, 362, Short.MAX_VALUE)
                             .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                 );
@@ -3254,9 +3252,8 @@ Conexion c=new Conexion();
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jPanel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jPanel43, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                        .addComponent(jPanel42, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jPanel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jPanel42, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jPanel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(20, 20, 20))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
@@ -5248,16 +5245,14 @@ Conexion c=new Conexion();
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel8Layout.createSequentialGroup()
-                                        .addComponent(jPanel77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(102, 102, 102))
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
                                         .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jPanel41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jPanel52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jPanel53, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(jPanel53, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jPanel77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jPanel55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -5671,8 +5666,8 @@ Conexion c=new Conexion();
                                  ""+ "|" + 
                                 String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
                                  String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|" + 
-                                 txtDscto.getText() + "|" +
-                                txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
+                                 String.valueOf(tbFacturacion.getValueAt(c, 6))+ "|" +
+                               String.valueOf(tbFacturacion.getValueAt(c, 5))+ "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
                                 txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
@@ -5686,8 +5681,8 @@ Conexion c=new Conexion();
                                  ""+ "|" + 
                                 String.valueOf(tbFacturacion.getValueAt(c, 1))+ "|" + 
                                  String.valueOf(tbFacturacion.getValueAt(c, 2)) + "|"  + 
-                                 txtDscto.getText() + "|" +
-                                txtIGV.getText() + "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
+                                 String.valueOf(tbFacturacion.getValueAt(c, 6))+ "|" +
+                               String.valueOf(tbFacturacion.getValueAt(c, 5))+ "|" + String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecIGV.getSelectedItem().toString().charAt(1)) + "|" + 
                                 txtISC.getText() + "|" + String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecISC.getSelectedItem().toString().charAt(1)) + "|" +
@@ -6024,8 +6019,8 @@ Conexion c=new Conexion();
                                  ""+ "|" + 
                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 1))+ "|" + 
                                  String.valueOf(tbFacturacionDebito.getValueAt(c, 2)) + "|" + 
-                                 txtDsctoDebito.getText() + "|" +
-                                txtIGVDebito.getText() + "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
+                                  String.valueOf(tbFacturacion.getValueAt(c, 6)) + "|" +
+                                 String.valueOf(tbFacturacion.getValueAt(c, 5))+ "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(1)) + "|" + 
                                 txtISCDebito.getText() + "|" + String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(1)) + "|" +
@@ -6039,8 +6034,8 @@ Conexion c=new Conexion();
                                  ""+ "|" + 
                                 String.valueOf(tbFacturacionDebito.getValueAt(c, 1))+ "|" + 
                                  String.valueOf(tbFacturacionDebito.getValueAt(c, 2)) + "|"  + 
-                                 txtDsctoDebito.getText() + "|" +
-                                txtIGVDebito.getText() + "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
+                                  String.valueOf(tbFacturacion.getValueAt(c, 6)) + "|" +
+                                 String.valueOf(tbFacturacion.getValueAt(c, 5))+ "|" + String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecIGVDebito.getSelectedItem().toString().charAt(1)) + "|" + 
                                 txtISCDebito.getText() + "|" + String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(0)) +
                                 String.valueOf(cbxAfecISCDebito.getSelectedItem().toString().charAt(1)) + "|" +

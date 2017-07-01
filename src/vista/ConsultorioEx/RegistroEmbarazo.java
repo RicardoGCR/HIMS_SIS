@@ -506,9 +506,18 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     .addComponent(btnRegistrosExistentes, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+
+            BuscarMadres.getContentPane().add(jPanel28);
+            jPanel28.setBounds(0, 0, 178, 260);
+
+=======
                     .addContainerGap(42, Short.MAX_VALUE))
             );
 
+>>>>>>> e0db4265e11d59df2b066a1243ca5d4754bb293d
             jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
             jPanel22.setBackground(new java.awt.Color(255, 255, 255));

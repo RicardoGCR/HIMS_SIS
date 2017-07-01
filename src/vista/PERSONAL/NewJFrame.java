@@ -26,7 +26,7 @@ public class NewJFrame extends javax.swing.JFrame {
      */
     public NewJFrame() throws ParseException {
         initComponents();
-        
+        this.setLocationRelativeTo(null);
 //        DateFormat hora1 = new SimpleDateFormat("HH:mm:ss"); 
 //        DateFormat hora2 = new SimpleDateFormat("HH:mm:ss"); 
 //        
@@ -89,19 +89,32 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fecha = new javax.swing.JComboBox();
+        fecha1 = new javax.swing.JComboBox();
+        fecha2 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fecha.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "08:00:00", "09:30:00", "10:00:00" }));
-        fecha.addItemListener(new java.awt.event.ItemListener() {
+        fecha1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "08:20:00", "09:30:00", "10:00:00", "10:30:00", "11:50:00", "11:10:00", "13:20:00", "14:10:00", "15:59:00", "16:01:00", "17:01:00", "18:01:00", "17:02:00", "18:05:00", "18:37:00", "19:01:00", "19:49:00", "20:16:00", "21:30:00", "22:10:00", "22:50:00", "23:15:00", "23:59:00", "18:46:00" }));
+        fecha1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                fechaItemStateChanged(evt);
+                fecha1ItemStateChanged(evt);
             }
         });
-        fecha.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        fecha1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                fechaPropertyChange(evt);
+                fecha1PropertyChange(evt);
+            }
+        });
+
+        fecha2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "08:20:00", "09:30:00", "10:00:00", "10:30:00", "11:50:00", "11:10:00", "13:20:00", "14:10:00", "15:59:00", "16:01:00", "17:01:00", "18:01:00", "17:02:00", "18:05:00", "18:37:00", "19:01:00", "19:49:00", "20:16:00", "21:30:00", "22:10:00", "22:50:00", "23:15:00", "23:59:00", "22:00:00", "18:30:00", "18:31:00", "00:00:00", "00:48:00", "00:57:00", "01:46:00", "03:00:00", "08:50:00" }));
+        fecha2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                fecha2ItemStateChanged(evt);
+            }
+        });
+        fecha2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                fecha2PropertyChange(evt);
             }
         });
 
@@ -110,36 +123,106 @@ public class NewJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addGap(71, 71, 71)
+                .addComponent(fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(194, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fechaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fechaPropertyChange
+    private void fecha1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha1PropertyChange
         
         
-    }//GEN-LAST:event_fechaPropertyChange
+    }//GEN-LAST:event_fecha1PropertyChange
 
-    private void fechaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fechaItemStateChanged
-        String h = fecha.getSelectedItem().toString();
+    private void fecha1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fecha1ItemStateChanged
+
         
-        String a = h.substring(0, 2);
-        String b = h.substring(3, 5);
-        String c = h.substring(6, 8);
+    }//GEN-LAST:event_fecha1ItemStateChanged
+
+    private void fecha2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fecha2ItemStateChanged
+        String h = fecha1.getSelectedItem().toString();
+        String h2 = fecha2.getSelectedItem().toString();
         
-        JOptionPane.showMessageDialog(rootPane,"hora " + a + " " + b + " " + c );
+        int a = Integer.parseInt(h.substring(0, 2));
+        int b = Integer.parseInt(h.substring(3, 5));
+        int c = Integer.parseInt(h.substring(6, 8));
         
-    }//GEN-LAST:event_fechaItemStateChanged
+        int a1 = Integer.parseInt(h2.substring(0, 2));
+        int b1 = Integer.parseInt(h2.substring(3, 5));
+        int c1 = Integer.parseInt(h2.substring(6, 8));
+        
+        int hora =0, minuto=0, segundo =0;
+        
+        if(a < a1 && b < b1){
+            hora = a1 - a;
+            minuto = b1 - b;
+        }
+        if(a == a1 && b < b1){
+            hora = 00;
+            minuto = b1 - b;
+        }
+        if(a < a1 && b == b1){
+            hora = a1 - a;
+            minuto = 00;
+        }
+        if(a < a1 && b > b1){
+            hora = (a1 - a) - 1;
+            int m=0;
+            m = 60 - b;
+            minuto = m + b1;
+        }
+        
+        //// PASAR DIA
+        if(a1==00 && b1==00){
+            hora = (24 - a) -1;
+            minuto = 60 - b;
+        }
+        if(a1==00 && b1 > 0){
+            int q=0, w=0, q1=0,w1=0;
+            q = (24 - a) -1;
+            w = 60 - b;
+            q1 = 00;
+            w1 = b1;
+            hora = q + q1 ;
+            minuto = w + w1;
+            
+            if(minuto > 60){
+            hora = hora + 1;
+            minuto = minuto - 60;
+        }
+        }
+        
+        String horaf = "", minutof ="";
+        if(hora < 10){
+            horaf = ("0" + hora);
+        }else{
+            horaf = String.valueOf(hora);
+        }
+        if(minuto < 10){
+            minutof = ("0" + minuto);
+        }else{
+            minutof = String.valueOf(minuto);
+        }
+
+        System.out.println("hora: " + horaf + " " + minutof + " " + segundo);
+    }//GEN-LAST:event_fecha2ItemStateChanged
+
+    private void fecha2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fecha2PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fecha2PropertyChange
 
     
     public void hora(){
@@ -208,6 +291,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox fecha;
+    private javax.swing.JComboBox fecha1;
+    private javax.swing.JComboBox fecha2;
     // End of variables declaration//GEN-END:variables
 }

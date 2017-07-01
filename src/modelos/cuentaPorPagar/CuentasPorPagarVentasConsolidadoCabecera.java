@@ -89,7 +89,7 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
 
     public void formatoVentasConsolidadoDetalles(JTable tabla) {
         tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(800);
         tabla.getColumnModel().getColumn(2).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(3).setMinWidth(0);
         tabla.getColumnModel().getColumn(3).setMaxWidth(0);
@@ -97,7 +97,7 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
         tabla.getColumnModel().getColumn(4).setMaxWidth(0);
         tabla.getColumnModel().getColumn(5).setMinWidth(0);
         tabla.getColumnModel().getColumn(5).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(7).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(8).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(9).setPreferredWidth(100);
@@ -155,6 +155,20 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
             VentasConsolidado.cbxActoMedico.addItem("Acto Médico");
             while (rs.next()) {
                 VentasConsolidado.cbxActoMedico.addItem(rs.getInt("NUM_ACTOMEDICO"));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("error:" + e.getMessage());
+        }
+    }
+    
+    public void datosHC(String dni) {
+        try {
+            Statement sta = cn.createStatement();
+            ResultSet rs = sta.executeQuery("EXEC CUENTAS_POR_PAGAR_DATOS_HC '" + dni + "'");
+            while (rs.next()) {
+                VentasConsolidado.lblDNI.setText(rs.getString(2));
+                VentasConsolidado.lblHC.setText(rs.getString(1));
             }
 
         } catch (SQLException e) {

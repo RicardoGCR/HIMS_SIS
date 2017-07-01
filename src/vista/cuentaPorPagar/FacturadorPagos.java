@@ -75,14 +75,14 @@ import static vista.cuentaPorPagar.VentasConsolidado.Facturado;
  *
  * @author PC02
  */
-public class Facturador extends javax.swing.JFrame {
+public class FacturadorPagos extends javax.swing.JFrame {
 
     String barra = File.separator;
     String ubicacion = "C:\\sunat_archivos\\sfs\\DATA\\";
     CuentasPorPagarFacturasCabecera cuentasCab1 = new CuentasPorPagarFacturasCabecera();
     double sumatoriaIGV = 0.00;
     double sumatoriaTotal = 0.00;
-    public Facturador() {
+    public FacturadorPagos() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.WHITE);
@@ -3055,20 +3055,21 @@ public class Facturador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Facturador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FacturadorPagos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Facturador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FacturadorPagos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Facturador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FacturadorPagos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Facturador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FacturadorPagos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Facturador().setVisible(true);
+                new FacturadorPagos().setVisible(true);
             }
         });
     }

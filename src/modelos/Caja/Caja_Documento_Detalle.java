@@ -37,6 +37,12 @@ private String turno_cita;
 private String cod_usu;  
 private int Id_Preventa;
 private int ACTO_MEDICO;
+
+private int id_cod_det;
+private String cod_produc;
+private int cantidad;
+private String nom_usu;
+
 Conexion con = new Conexion();  
 
    public String idDet(){//muestra el codigo
@@ -163,20 +169,20 @@ public boolean DetalleVenta(){
         boolean resp = false;
         try{
             String sql = "exec CAJA_INSERTAR_DETALLE_VENTA "
-                        + "?,?,?,?,?,?,?,?,?,?,?";
+                        + "?,?,?,?,?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
   
             cmd.setString(1, getId_documento());
             cmd.setString(2, getCod_precio());
-            cmd.setString(3, getNom_consultorio_citas());
-            cmd.setInt(4, getCantidad_detalle());
-            cmd.setDouble(5, getPrecio_detalle());
-            cmd.setDouble(6, getTotal_detalle());
-            cmd.setDouble(7, getDescu_exo_detalle());
-            cmd.setString(8, getPersonal_aten());
-            cmd.setString(9, getNum_aten());
-            cmd.setString(10, getTurno_cita());
-            cmd.setString(11, getCod_usu());
+//            cmd.setString(3, getNom_consultorio_citas());
+            cmd.setInt(3, getCantidad_detalle());
+            cmd.setDouble(4, getPrecio_detalle());
+            cmd.setDouble(5, getTotal_detalle());
+            cmd.setDouble(6, getDescu_exo_detalle());
+            cmd.setString(7, getPersonal_aten());
+            cmd.setString(8, getNum_aten());
+            cmd.setString(9, getTurno_cita());
+            cmd.setString(10, getCod_usu());
 
 
             if(!cmd.execute())
@@ -192,6 +198,69 @@ public boolean DetalleVenta(){
         }
         return resp;
     }
+    public boolean CAJA_DESCUENTO_INICIO(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_INICIAR_TEMPRAL ";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error  " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean CAJA_DESCUENTO_EC_LA(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_DESCUENTO_LA_EC ?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+  
+            cmd.setInt(1, getId_cod_det());
+            cmd.setString(2, getCod_produc());
+            cmd.setInt(3, getCantidad());
+            cmd.setString(4, getNom_usu());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error  DESCONTAR " + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean CAJA_DESCUENTO_FIN(){
+        boolean resp = false;
+        try{
+            String sql = "exec CAJA_CONFIRMA_TEMPORAL ";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error  " + ex.getMessage());
+        }
+        return resp;
+    }
+
 
     public boolean MovimientoHC(){
         boolean resp = false;
@@ -233,9 +302,48 @@ public void DetalleID(String ap_id){
             }
             //
         } catch (Exception e) {
+            System.out.println("Error: LISTAR ID DETALLE PREVENTA " + e.getMessage());
+        }
+    }
+
+    public void UltimoID_LA_EC(String ap_id){
+        String consulta="";
+        try {
+            consulta="CAJA_BUSCAR_ULTIMA_VENTA_LA_EC ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, ap_id);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                
+                
+                Caja_Pagos.lblID_DETALLE_VENTA.setText(r.getString(1));    
+            }
+            //
+        } catch (Exception e) {
             System.out.println("Error: LISTAR ID DETALLE  " + e.getMessage());
         }
     }
+    
+    public void CONSULTAR_DESCUENTOLA_EC_RX(String ap_id,String ap_id2){
+        String consulta="";
+        try {
+            consulta="CAJA_CONSULTAR_EXISTENCIAS_LA_EC_RX ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, ap_id);
+            cmd.setString(2, ap_id2);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){  
+            /////////Referida
+                Caja_Pagos.lblDescuento.setText(r.getString(1));    
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTA DE DESCUENTO EXISTENCIAS " + e.getMessage());
+        }
+    }
+    
 public void Detalle(String codigo,JTable tabla){
 //    tabla.getTableHeader().setVisible(false);
 //    tabla.setTableHeader(null);
@@ -312,6 +420,41 @@ public void Detalle(String codigo,JTable tabla){
         tabla.setRowHeight(40);
     }
 
+    
+    public void DESCUENTO_LA_EC(String codigo,String Grupo,JTable tabla){
+//    tabla.getTableHeader().setVisible(false);
+//    tabla.setTableHeader(null);
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"PRODUC","PRODUC REF","COD","CANTIDAD"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[4];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="CAJA_CONSULTAR_INSUMOS_LA ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, codigo);
+            cmd.setString(2, Grupo);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1); 
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4); 
+
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+        } catch (Exception e) {
+            System.out.println("Error: CONSULTAR INSUMOS ----: " + e.getMessage());
+        }
+    }
 
 
 
@@ -461,6 +604,40 @@ public void Detalle(String codigo,JTable tabla){
     public void setCon(Conexion con) {
         this.con = con;
     }
+
+    public int getId_cod_det() {
+        return id_cod_det;
+    }
+
+    public void setId_cod_det(int id_cod_det) {
+        this.id_cod_det = id_cod_det;
+    }
+
+    public String getCod_produc() {
+        return cod_produc;
+    }
+
+    public void setCod_produc(String cod_produc) {
+        this.cod_produc = cod_produc;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getNom_usu() {
+        return nom_usu;
+    }
+
+    public void setNom_usu(String nom_usu) {
+        this.nom_usu = nom_usu;
+    }
+    
+    
  
  
 }

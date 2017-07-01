@@ -93,11 +93,11 @@ Conexion conectar=new Conexion();
     }
      
      public void formato(){
-       tbNomenclatura.getColumnModel().getColumn(0).setPreferredWidth(150);
-       tbNomenclatura.getColumnModel().getColumn(1).setPreferredWidth(150);
-       tbNomenclatura.getColumnModel().getColumn(2).setPreferredWidth(100);
-       tbNomenclatura.getColumnModel().getColumn(3).setPreferredWidth(150);
-       tbNomenclatura.getColumnModel().getColumn(4).setPreferredWidth(150);
+       tbNomenclatura.getColumnModel().getColumn(0).setPreferredWidth(135);
+       tbNomenclatura.getColumnModel().getColumn(1).setPreferredWidth(130);
+       tbNomenclatura.getColumnModel().getColumn(2).setPreferredWidth(60);
+       tbNomenclatura.getColumnModel().getColumn(3).setPreferredWidth(90);
+       tbNomenclatura.getColumnModel().getColumn(4).setPreferredWidth(145);
        tbNomenclatura.getColumnModel().getColumn(5).setPreferredWidth(150);
        tbNomenclatura.getColumnModel().getColumn(6).setPreferredWidth(200);
     }
@@ -196,11 +196,11 @@ Conexion conectar=new Conexion();
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(199, 199, 199)
+                .addGap(289, 289, 289)
                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(284, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane3)
@@ -215,9 +215,8 @@ Conexion conectar=new Conexion();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getAccessibleContext().setAccessibleName("BÚSQUEDA DE NOMENCLATURA");

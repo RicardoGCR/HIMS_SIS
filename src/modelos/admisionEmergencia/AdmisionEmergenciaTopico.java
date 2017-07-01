@@ -392,12 +392,24 @@ public class AdmisionEmergenciaTopico {
         return id;
     }
     
-    public void reporteTopico(String ruta, String topico_id) {
+    public void reporteTopico(String topico_id) {
         try {
             Map parametros = new HashMap();
             parametros.put("topico_id", topico_id);
-            String rutaInforme = ruta;
-            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream(rutaInforme), parametros, cn);          
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/admisionEmergencia/formatoEmergencia-Topico.jasper"), parametros, con.conectar());          
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Formato de Emergencia - Tópico");
+            ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "reporteTopico:"+e.getMessage());
+        }
+    }
+    
+    public void reporteTopicoCompleto(String topico_id) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("topico_id", topico_id);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/admisionEmergencia/formatoEmergencia.jasper"), parametros, con.conectar());          
             JasperViewer ventanavisor = new JasperViewer(informe, false);
             ventanavisor.setTitle("Formato de Emergencia - Tópico");
             ventanavisor.setVisible(true);

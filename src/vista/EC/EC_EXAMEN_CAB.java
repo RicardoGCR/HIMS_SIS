@@ -84,7 +84,14 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         txtCOD_CABECERA.setVisible(false);
         lblIDArea_EC.setVisible(false);
         
-        
+        lblCod_Per_Registra.setVisible(false);
+        lblCod_Per_realiza.setVisible(false);
+        txtCod_doc_det_EC.setVisible(false);
+        txtId_Preventa.setVisible(false);
+        txtCOD_CAB_RES.setVisible(false);
+        txtCOD_DETALLE_RES.setVisible(false);
+        lblPerB.setVisible(false);
+ 
     }
 
     /**
@@ -139,6 +146,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         lblFP_EC = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         lblFUA_EC = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtHC = new javax.swing.JTextField();
@@ -187,6 +195,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         EP_Descripcion_EC = new javax.swing.JEditorPane();
+        jButton1 = new javax.swing.JButton();
         txtCod_doc_det_EC = new javax.swing.JTextField();
         txtId_Preventa = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -259,7 +268,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, Short.MAX_VALUE)
                         .addComponent(lblPerB, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(191, 191, 191))))
         );
@@ -279,6 +288,11 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                 .addGap(0, 0, 0))
         );
 
+        tb_Personal_rol_EC = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
         tb_Personal_rol_EC.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         tb_Personal_rol_EC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -293,6 +307,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         ));
         tb_Personal_rol_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Personal_rol_EC.setRowHeight(22);
+        tb_Personal_rol_EC.getTableHeader().setReorderingAllowed(false);
         tb_Personal_rol_EC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tb_Personal_rol_ECKeyPressed(evt);
@@ -312,15 +327,13 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         PERSONAL_ROLLayout.setHorizontalGroup(
             PERSONAL_ROLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(PERSONAL_ROLLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PERSONAL_ROLLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PERSONAL_ROLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 664, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PERSONAL_ROLLayout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblA)))
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblA)
                 .addContainerGap())
+            .addComponent(jScrollPane2)
         );
         PERSONAL_ROLLayout.setVerticalGroup(
             PERSONAL_ROLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,10 +344,10 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                     .addComponent(lblA)
                     .addComponent(jLabel11))
                 .addGap(0, 0, 0)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))
         );
 
+        PERSONAL_ROL_TODO.setAlwaysOnTop(true);
         PERSONAL_ROL_TODO.setMinimumSize(new java.awt.Dimension(692, 360));
 
         jPanel10.setBackground(new java.awt.Color(34, 113, 179));
@@ -388,7 +401,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                         .addComponent(btnBuscarPersonal_TODO, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(389, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -404,6 +417,11 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        tb_Personal_rol_todo_EC = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
         tb_Personal_rol_todo_EC.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
         tb_Personal_rol_todo_EC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -418,6 +436,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         ));
         tb_Personal_rol_todo_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_Personal_rol_todo_EC.setRowHeight(22);
+        tb_Personal_rol_todo_EC.getTableHeader().setReorderingAllowed(false);
         tb_Personal_rol_todo_EC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tb_Personal_rol_todo_ECKeyPressed(evt);
@@ -439,13 +458,11 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
             .addComponent(jPanel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PERSONAL_ROL_TODOLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PERSONAL_ROL_TODOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PERSONAL_ROL_TODOLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblAL)))
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAL)
                 .addContainerGap())
+            .addComponent(jScrollPane4)
         );
         PERSONAL_ROL_TODOLayout.setVerticalGroup(
             PERSONAL_ROL_TODOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -456,12 +473,17 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                     .addComponent(lblAL)
                     .addComponent(jLabel13))
                 .addGap(0, 0, 0)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
         );
 
-        CIE10.setMinimumSize(new java.awt.Dimension(480, 350));
+        CIE10.setAlwaysOnTop(true);
+        CIE10.setMinimumSize(new java.awt.Dimension(470, 500));
 
+        tb_CIE10_EC = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
         tb_CIE10_EC.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         tb_CIE10_EC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -476,6 +498,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         ));
         tb_CIE10_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_CIE10_EC.setRowHeight(22);
+        tb_CIE10_EC.getTableHeader().setReorderingAllowed(false);
         tb_CIE10_EC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tb_CIE10_ECKeyPressed(evt);
@@ -487,6 +510,14 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         txt_CIE10_EC.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txt_CIE10_ECCaretUpdate(evt);
+            }
+        });
+        txt_CIE10_EC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_CIE10_ECKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_CIE10_ECKeyTyped(evt);
             }
         });
 
@@ -510,7 +541,6 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
             .addGroup(CIE10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CIE10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
                     .addGroup(CIE10Layout.createSequentialGroup()
                         .addGroup(CIE10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel22)
@@ -518,12 +548,13 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                                 .addComponent(txt_CIE10_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 123, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CIE10Layout.createSequentialGroup()
                         .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblRegistro_EC)))
                 .addContainerGap())
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         CIE10Layout.setVerticalGroup(
             CIE10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -538,8 +569,8 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                 .addGroup(CIE10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRegistro_EC)
                     .addComponent(jLabel24))
-                .addGap(3, 3, 3)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -587,6 +618,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
 
         lblUsu_EC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblUsu_EC.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsu_EC.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblUsu_EC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/User-32.png"))); // NOI18N
         lblUsu_EC.setText("Usuario");
 
@@ -607,6 +639,10 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         lblFUA_EC.setForeground(new java.awt.Color(255, 255, 255));
         lblFUA_EC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFUA_EC.setText("----");
+
+        jLabel28.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setText("Fecha y Hora del Examen:");
 
         javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
         jpanel.setLayout(jpanelLayout);
@@ -635,17 +671,18 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblIDArea_EC)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(142, 142, 142)
                         .addComponent(lblNomA_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9))
+                        .addContainerGap())
                     .addGroup(jpanelLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel28)
+                        .addGap(18, 18, 18)
                         .addComponent(lblFechaReg_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
                         .addComponent(lblHoraReg_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(353, 353, 353)
-                        .addComponent(lblUsu_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGap(110, 110, 110)
+                        .addComponent(lblUsu_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jpanelLayout.setVerticalGroup(
             jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -663,19 +700,19 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                             .addComponent(jLabel23)
                             .addComponent(lblFUA_EC)
                             .addComponent(jLabel27)
-                            .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblFechaReg_EC)
-                                .addComponent(lblHoraReg_EC))))
+                            .addComponent(lblFechaReg_EC)
+                            .addComponent(lblHoraReg_EC)
+                            .addComponent(jLabel28))
+                        .addGap(2, 17, Short.MAX_VALUE))
                     .addGroup(jpanelLayout.createSequentialGroup()
                         .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblNomA_EC)
                                 .addComponent(lblIDArea_EC))
                             .addComponent(lblCod_Personal_Sol_EC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
+                        .addGap(18, 18, 18)
                         .addComponent(lblUsu_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(0, 3, Short.MAX_VALUE))
+                        .addGap(0, 13, Short.MAX_VALUE))))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -1016,17 +1053,21 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(0, 36, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(txtPersonalSolicita_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPersonalSolicita, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblHospi, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)))
+                        .addGap(8, 8, 8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(txtPersonalSolicita_EC)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(443, 443, 443)))
+                        .addComponent(btnPersonalSolicita, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
@@ -1088,6 +1129,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         ));
         tb_examen_det_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tb_examen_det_EC.setRowHeight(25);
+        tb_examen_det_EC.getTableHeader().setReorderingAllowed(false);
         tb_examen_det_EC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tb_examen_det_ECMouseClicked(evt);
@@ -1127,6 +1169,12 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         jLabel14.setForeground(new java.awt.Color(34, 113, 179));
         jLabel14.setText("SE OBSERVA:");
 
+        tbCIE10_EC = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
+        tbCIE10_EC.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
         tbCIE10_EC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1136,7 +1184,8 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
             }
         ));
         tbCIE10_EC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        tbCIE10_EC.setRowHeight(22);
+        tbCIE10_EC.setRowHeight(25);
+        tbCIE10_EC.getTableHeader().setReorderingAllowed(false);
         jScrollPane5.setViewportView(tbCIE10_EC);
 
         jLabel15.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
@@ -1164,31 +1213,43 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
 
         jScrollPane3.setViewportView(EP_Descripcion_EC);
 
+        jButton1.setFont(new java.awt.Font("Trebuchet MS", 0, 10)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/menos16x16.png"))); // NOI18N
+        jButton1.setText("QUITAR");
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel15Layout.createSequentialGroup()
                                 .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnBuscarCIE10))
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                                .addGap(141, 141, 141)
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscarCIE10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel21)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 658, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1200,22 +1261,25 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                 .addGap(0, 0, 0)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel15Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
+                                .addGap(13, 13, 13)
                                 .addComponent(jLabel16))
                             .addGroup(jPanel15Layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel15Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscarCIE10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnBuscarCIE10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1)))
                         .addGap(0, 0, 0)
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane9)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane3))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1283,36 +1347,38 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 1, Short.MAX_VALUE)))
+                .addGap(10, 10, 10))
+            .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel9))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
                         .addComponent(txtCod_doc_det_EC, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(444, 444, 444)
                         .addComponent(txtId_Preventa, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
                         .addComponent(txtCOD_CAB_RES, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
-                        .addComponent(txtCOD_DETALLE_RES, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(10, 10, 10))
-            .addComponent(jpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9)
+                        .addComponent(txtCOD_DETALLE_RES, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -1324,7 +1390,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1332,7 +1398,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCod_doc_det_EC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1620,6 +1686,9 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
 
     private void btnBuscarCIE10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCIE10ActionPerformed
         CIE10.setVisible(true);
+        tb_CIE10_EC.getSelectionModel().setSelectionInterval(0, 0);
+        txt_CIE10_EC.requestFocus();
+        txt_CIE10_EC.setText("");
     }//GEN-LAST:event_btnBuscarCIE10ActionPerformed
 
     private void tb_CIE10_ECKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_CIE10_ECKeyPressed
@@ -1721,6 +1790,39 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
 //            }
 //        }
     }//GEN-LAST:event_tb_examen_det_ECKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
+            int filaselec=tbCIE10_EC.getSelectedRow();
+            if( filaselec>=0){
+                int eliminar = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea QUITAR el servicio ?",
+                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if(eliminar == 0 ){
+
+                    DefaultTableModel modelo = (DefaultTableModel)tbCIE10_EC.getModel();
+
+                    modelo.removeRow(filaselec);
+
+                }
+            }else{
+                JOptionPane.showMessageDialog(this, "Seleccione el registro a Eliminar");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Selecione el Detalle a eliminar");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txt_CIE10_ECKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CIE10_ECKeyTyped
+        char tecla= evt.getKeyChar();
+        if(tecla==KeyEvent.VK_ENTER){
+            tb_CIE10_EC.getSelectionModel().setSelectionInterval(0, 0);
+            tb_CIE10_EC.requestFocus();
+        }
+    }//GEN-LAST:event_txt_CIE10_ECKeyTyped
+
+    private void txt_CIE10_ECKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CIE10_ECKeyReleased
+        txt_CIE10_EC.setText(txt_CIE10_EC.getText().toUpperCase());
+    }//GEN-LAST:event_txt_CIE10_ECKeyReleased
 
     public void GUARDAR_RESULTADO_CABECERA_EC(){
         ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/guardar16x16.png"));
@@ -1888,7 +1990,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
     public void mostrarArea_EC(){
         String consulta="";
         try {
-            consulta="EXEC RX_EC_SERVICIO ";
+            consulta="EXEC RX_EC_SERVICIO_EC ";
             PreparedStatement cmd = EXC.getCn().prepareStatement(consulta);        
             ResultSet r= cmd.executeQuery();
             int c=1;
@@ -1911,7 +2013,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
             JTable p=new JTable(m1);
             String fila[]=new String[8];
 
-        String consulta="exec RX_EC_PERSONAL_LISTAR";
+        String consulta="exec RX_EC_PERSONAL_LISTAR_EC";
         ResultSet r;
         
         r=conectar.Listar(consulta);
@@ -1960,7 +2062,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
             String fila[]=new String[8];
 
             EC_EXAMEN_CABECERA obj=new EC_EXAMEN_CABECERA();
-                    consulta="exec RX_EC_PERSONAL_BUSCAR ?";
+                    consulta="exec RX_EC_PERSONAL_BUSCAR_EC ?";
                     
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
             cmd.setString(1, txtBuscarPersonal_EC.getText());
@@ -2411,6 +2513,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
     public static javax.swing.JButton btnPersonalRegistra_EC;
     public static javax.swing.JButton btnPersonalSolicita;
     private javax.swing.JButton btnRegresarRes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2432,6 +2535,7 @@ static EC_EXAMEN_CABECERA EXC = new EC_EXAMEN_CABECERA();
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

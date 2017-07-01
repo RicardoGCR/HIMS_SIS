@@ -315,6 +315,49 @@ public class Caja_Preventa {
         }
         return resp;
     }
+    public boolean modificarPreventaTBC(){
+        boolean resp = false;
+        try
+        {
+            String sql = "Exec Caja_Actualizar_Preventa_TBC ?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+            cmd.setInt(2, getACTO_MEDICO());
+            cmd.setString(3, getCod_jerar_forma_pago());
+
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+          System.out.println("Error TBC MODIFICAR" + ex.getMessage());
+        }
+        return resp;
+    }
+    
+    public boolean PREVENTA_ALTA(){
+        boolean resp = false;
+        try {
+            String sql = "Exec Caja_Actualizar_Preventa_ALTA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getId_preventa());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error " + ex.getMessage());
+        }
+        return resp;
+    }
     
     public boolean modificarDetallePreventa(){
         boolean resp = false;

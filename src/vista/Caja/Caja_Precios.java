@@ -222,7 +222,7 @@ Ticket ticket=new Ticket();
 }
     public void LISTARNom(){
     try {
-             String titulos[]={"Nomenclatura","Descripcion",""};
+             String titulos[]={"CPT","Descripcion",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[3];
@@ -347,7 +347,7 @@ Ticket ticket=new Ticket();
         String consulta="";
         try {
             tb_Grupo2.setModel(new DefaultTableModel());
-             String titulos[]={"Nomenclatura","Descripcion",""};
+             String titulos[]={"CPT","Descripcion",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
             String fila[]=new String[3];
@@ -514,8 +514,8 @@ Ticket ticket=new Ticket();
         jPanel7 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jPanel48 = new javax.swing.JPanel();
-        T9 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
+        btnBuscarPaciente4 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_Grupo = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -525,8 +525,8 @@ Ticket ticket=new Ticket();
             jPanel8 = new javax.swing.JPanel();
             jLabel20 = new javax.swing.JLabel();
             jPanel47 = new javax.swing.JPanel();
-            T8 = new javax.swing.JLabel();
             txtBuscar1 = new javax.swing.JTextField();
+            btnBuscarPaciente5 = new javax.swing.JButton();
             jScrollPane4 = new javax.swing.JScrollPane();
             tb_Grupo2 = new javax.swing.JTable(){
                 public boolean isCellEditable(int rowIndex, int colIndex){
@@ -572,7 +572,7 @@ Ticket ticket=new Ticket();
                     FormaP.setMinimumSize(new java.awt.Dimension(310, 441));
                     FormaP.setResizable(false);
 
-                    jPanel7.setBackground(new java.awt.Color(0, 153, 153));
+                    jPanel7.setBackground(new java.awt.Color(41, 127, 184));
                     jPanel7.setMinimumSize(new java.awt.Dimension(310, 441));
 
                     jLabel19.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
@@ -580,14 +580,6 @@ Ticket ticket=new Ticket();
                     jLabel19.setText("Forma de Pago");
 
                     jPanel48.setBackground(new java.awt.Color(255, 255, 255));
-
-                    T9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
-                    T9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                    T9.addMouseListener(new java.awt.event.MouseAdapter() {
-                        public void mouseClicked(java.awt.event.MouseEvent evt) {
-                            T9MouseClicked(evt);
-                        }
-                    });
 
                     txtBuscar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                     txtBuscar.setBorder(null);
@@ -617,18 +609,23 @@ Ticket ticket=new Ticket();
                         .addGroup(jPanel48Layout.createSequentialGroup()
                             .addGap(1, 1, 1)
                             .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(T9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, Short.MAX_VALUE))
+                            .addGap(0, 5, Short.MAX_VALUE))
                     );
                     jPanel48Layout.setVerticalGroup(
                         jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel48Layout.createSequentialGroup()
                             .addGap(0, 0, Short.MAX_VALUE)
-                            .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(T9)))
+                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     );
+
+                    btnBuscarPaciente4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                    btnBuscarPaciente4.setContentAreaFilled(false);
+                    btnBuscarPaciente4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                    btnBuscarPaciente4.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                            btnBuscarPaciente4ActionPerformed(evt);
+                        }
+                    });
 
                     javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
                     jPanel7.setLayout(jPanel7Layout);
@@ -638,20 +635,25 @@ Ticket ticket=new Ticket();
                             .addContainerGap()
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel19)
-                                .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel7Layout.createSequentialGroup()
+                                    .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnBuscarPaciente4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addContainerGap(24, Short.MAX_VALUE))
                     );
                     jPanel7Layout.setVerticalGroup(
                         jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addContainerGap(25, Short.MAX_VALUE)
                             .addComponent(jLabel19)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnBuscarPaciente4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jPanel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(334, 334, 334))
                     );
 
-                    jScrollPane2.setBorder(null);
+                    jScrollPane2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
                     tb_Grupo.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
@@ -666,7 +668,7 @@ Ticket ticket=new Ticket();
                     ));
                     tb_Grupo.setGridColor(new java.awt.Color(255, 255, 255));
                     tb_Grupo.setRowHeight(25);
-                    tb_Grupo.setSelectionBackground(new java.awt.Color(0, 153, 153));
+                    tb_Grupo.setSelectionBackground(new java.awt.Color(102, 102, 102));
                     tb_Grupo.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                             tb_GrupoMouseClicked(evt);
@@ -698,22 +700,14 @@ Ticket ticket=new Ticket();
                     Nomenclatura.setMinimumSize(new java.awt.Dimension(612, 430));
                     Nomenclatura.setResizable(false);
 
-                    jPanel8.setBackground(new java.awt.Color(0, 153, 153));
+                    jPanel8.setBackground(new java.awt.Color(41, 127, 184));
                     jPanel8.setMinimumSize(new java.awt.Dimension(310, 441));
 
                     jLabel20.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
                     jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-                    jLabel20.setText("Nomenclaturas");
+                    jLabel20.setText("CPT");
 
                     jPanel47.setBackground(new java.awt.Color(255, 255, 255));
-
-                    T8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
-                    T8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                    T8.addMouseListener(new java.awt.event.MouseAdapter() {
-                        public void mouseClicked(java.awt.event.MouseEvent evt) {
-                            T8MouseClicked(evt);
-                        }
-                    });
 
                     txtBuscar1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                     txtBuscar1.setBorder(null);
@@ -743,20 +737,18 @@ Ticket ticket=new Ticket();
                         .addGroup(jPanel47Layout.createSequentialGroup()
                             .addGap(1, 1, 1)
                             .addComponent(txtBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(T8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, Short.MAX_VALUE))
+                            .addGap(0, 5, Short.MAX_VALUE))
                     );
                     jPanel47Layout.setVerticalGroup(
                         jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel47Layout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
-                            .addComponent(T8))
                         .addGroup(jPanel47Layout.createSequentialGroup()
-                            .addGap(0, 0, 0)
                             .addComponent(txtBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, Short.MAX_VALUE))
                     );
+
+                    btnBuscarPaciente5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-27.png"))); // NOI18N
+                    btnBuscarPaciente5.setContentAreaFilled(false);
+                    btnBuscarPaciente5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
                     javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
                     jPanel8.setLayout(jPanel8Layout);
@@ -766,8 +758,11 @@ Ticket ticket=new Ticket();
                             .addContainerGap()
                             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel20)
-                                .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel8Layout.createSequentialGroup()
+                                    .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnBuscarPaciente5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addContainerGap(299, Short.MAX_VALUE))
                     );
                     jPanel8Layout.setVerticalGroup(
                         jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -775,11 +770,13 @@ Ticket ticket=new Ticket();
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel20)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnBuscarPaciente5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jPanel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(348, 348, 348))
                     );
 
-                    jScrollPane4.setBorder(null);
+                    jScrollPane4.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
                     tb_Grupo2.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
@@ -794,7 +791,7 @@ Ticket ticket=new Ticket();
                     ));
                     tb_Grupo2.setGridColor(new java.awt.Color(255, 255, 255));
                     tb_Grupo2.setRowHeight(25);
-                    tb_Grupo2.setSelectionBackground(new java.awt.Color(0, 153, 153));
+                    tb_Grupo2.setSelectionBackground(new java.awt.Color(102, 102, 102));
                     tb_Grupo2.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                             tb_Grupo2MouseClicked(evt);
@@ -1559,14 +1556,6 @@ Ticket ticket=new Ticket();
                                 
     }//GEN-LAST:event_noeliActionPerformed
 
-    private void T8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T8MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T8MouseClicked
-
-    private void T9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T9MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T9MouseClicked
-
     private void txtBuscar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscar1KeyPressed
             char teclaPresionada = evt.getKeyChar();
         if(teclaPresionada==KeyEvent.VK_ENTER){
@@ -1651,6 +1640,10 @@ Ticket ticket=new Ticket();
         Nomenclatura.setVisible(true);
     }//GEN-LAST:event_b1ActionPerformed
 
+    private void btnBuscarPaciente4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPaciente4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPaciente4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1691,11 +1684,11 @@ Ticket ticket=new Ticket();
     private javax.swing.JLabel Mensaje;
     public static javax.swing.JTextField Nomen;
     private javax.swing.JDialog Nomenclatura;
-    private javax.swing.JLabel T8;
-    private javax.swing.JLabel T9;
     private javax.swing.JButton b;
     private javax.swing.JButton b1;
     private javax.swing.JButton btnBuscarPaciente;
+    private javax.swing.JButton btnBuscarPaciente4;
+    private javax.swing.JButton btnBuscarPaciente5;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btneliminar;

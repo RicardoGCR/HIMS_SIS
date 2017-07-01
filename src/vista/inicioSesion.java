@@ -72,6 +72,8 @@ String hora, minutos, segundos, ampm;
 //        barra.setBackground(new Color(155,155,155));
         barra.setForeground(new Color(0,0,0));
 //       setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/hospital32x32.png")).getImage());
+        //ICONO DE FORMULARIO
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
     }
 
     public void calcula() {
@@ -174,7 +176,7 @@ String hora, minutos, segundos, ampm;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=7;
-      }else if(cap.equalsIgnoreCase(codAdmin("CONSULTORIOS EXTERNOS"))){//Para editar tipo de usuario
+      }else if(cap.equalsIgnoreCase(codAdmin("ECOGRAFIA"))){//Para editar tipo de usuario
 
         cont1=-1;
         barra.setValue(0);
@@ -182,7 +184,7 @@ String hora, minutos, segundos, ampm;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=8;
-      }else if(cap.equalsIgnoreCase(codAdmin("INVESTIGACION BACTEREOLOGICA"))){//Para editar tipo de usuario
+      }else if(cap.equalsIgnoreCase(codAdmin("CONSULTORIOS EXTERNOS"))){//Para editar tipo de usuario
 
         cont1=-1;
         barra.setValue(0);
@@ -190,7 +192,7 @@ String hora, minutos, segundos, ampm;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=9;
-      }else if(cap.equalsIgnoreCase(codAdmin("ALMACEN"))){//Para editar tipo de usuario
+      }else if(cap.equalsIgnoreCase(codAdmin("INVESTIGACION BACTEREOLOGICA"))){//Para editar tipo de usuario
 
         cont1=-1;
         barra.setValue(0);
@@ -198,7 +200,7 @@ String hora, minutos, segundos, ampm;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=10;
-      }else if(cap.equalsIgnoreCase(codAdmin("PERSONAL"))){//Para editar tipo de usuario
+      }else if(cap.equalsIgnoreCase(codAdmin("ALMACEN"))){//Para editar tipo de usuario
 
         cont1=-1;
         barra.setValue(0);
@@ -206,7 +208,7 @@ String hora, minutos, segundos, ampm;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=11;
-      }else if(cap.equalsIgnoreCase(codAdmin("CONFIGURACION"))){//Para editar tipo de usuario
+      }else if(cap.equalsIgnoreCase(codAdmin("PERSONAL"))){//Para editar tipo de usuario
 
         cont1=-1;
         barra.setValue(0);
@@ -214,6 +216,14 @@ String hora, minutos, segundos, ampm;
         tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
         activar1();
         filtroModulo=12;
+      }else if(cap.equalsIgnoreCase(codAdmin("CONFIGURACION"))){//Para editar tipo de usuario
+
+        cont1=-1;
+        barra.setValue(0);
+        barra.setStringPainted(true);
+        tiempo1=new Timer(TWO_SECOND1, new TimerListener1());
+        activar1();
+        filtroModulo=13;
       }else{
           JOptionPane.showMessageDialog(this, "NO PERTENECE A NINGÚN MÓDULO DEL SISTEMA");
       }
@@ -294,7 +304,7 @@ String hora, minutos, segundos, ampm;
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(43, 43, 43));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -380,19 +390,19 @@ String hora, minutos, segundos, ampm;
         );
 
         lblFecha.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        lblFecha.setForeground(new java.awt.Color(102, 102, 102));
+        lblFecha.setForeground(new java.awt.Color(43, 43, 43));
         lblFecha.setText("00/00/00");
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setForeground(new java.awt.Color(43, 43, 43));
         jLabel2.setText("Fecha");
 
         jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setForeground(new java.awt.Color(43, 43, 43));
         jLabel5.setText("Hora");
 
         lblHora.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        lblHora.setForeground(new java.awt.Color(102, 102, 102));
+        lblHora.setForeground(new java.awt.Color(43, 43, 43));
         lblHora.setText("00:00:00");
 
         panelCPT.setBackground(new java.awt.Color(255, 255, 255));
@@ -702,6 +712,8 @@ String hora, minutos, segundos, ampm;
                 PrincipalMDI.btnLaboratorio.setForeground(new Color(155,155,155));
                 PrincipalMDI.btnRayosX.setEnabled(false);
                 PrincipalMDI.btnRayosX.setForeground(new Color(155,155,155));
+                PrincipalMDI.btnEcografia.setEnabled(false);
+                PrincipalMDI.btnEcografia.setForeground(new Color(155,155,155));
                 PrincipalMDI.btnConExt.setEnabled(false);
                 PrincipalMDI.btnConExt.setForeground(new Color(155,155,155));
                 PrincipalMDI.btnInvBact.setEnabled(false);
@@ -734,18 +746,21 @@ String hora, minutos, segundos, ampm;
                  PrincipalMDI.btnRayosX.setEnabled(true);
                  PrincipalMDI.btnRayosX.setForeground(new Color(255,255,255));
                 }else if(filtroModulo==8){
+                 PrincipalMDI.btnEcografia.setEnabled(true);
+                 PrincipalMDI.btnEcografia.setForeground(new Color(255,255,255));
+                }else if(filtroModulo==9){
                  PrincipalMDI.btnConExt.setEnabled(true);
                  PrincipalMDI.btnConExt.setForeground(new Color(255,255,255));
-                }else if(filtroModulo==9){
+                }else if(filtroModulo==10){
                  PrincipalMDI.btnInvBact.setEnabled(true);
                  PrincipalMDI.btnInvBact.setForeground(new Color(255,255,255));
-                }else if(filtroModulo==10){
+                }else if(filtroModulo==11){
                  PrincipalMDI.btnAlmacen.setEnabled(true);
                  PrincipalMDI.btnAlmacen.setForeground(new Color(255,255,255));
-                }else if(filtroModulo==11){
+                }else if(filtroModulo==12){
                  PrincipalMDI.btnPersonal.setEnabled(true);
                  PrincipalMDI.btnPersonal.setForeground(new Color(255,255,255));
-                }else if(filtroModulo==12){
+                }else if(filtroModulo==13){
                  PrincipalMDI.btnConfiguracion.setEnabled(true);
                  PrincipalMDI.btnConfiguracion.setForeground(new Color(255,255,255));
                 }

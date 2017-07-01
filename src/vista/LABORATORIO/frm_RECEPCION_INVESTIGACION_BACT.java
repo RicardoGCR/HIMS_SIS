@@ -493,7 +493,6 @@ DefaultTableModel m;
                         lblFechaObtencion = new javax.swing.JLabel();
 
                         buscar_HC.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                        buscar_HC.setTitle("SISGESH.::.Clasificación Examen");
                         buscar_HC.setAlwaysOnTop(true);
                         buscar_HC.setMinimumSize(new java.awt.Dimension(876, 692));
                         buscar_HC.setResizable(false);

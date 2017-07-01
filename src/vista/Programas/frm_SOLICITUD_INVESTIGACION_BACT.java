@@ -78,32 +78,32 @@ DefaultTableModel m;
              ,"Distrito","Provincia","Departamento"};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[14];
-
-            LAB_Clasificacion_Examen obj=new LAB_Clasificacion_Examen();
-        String consulta="exec sp_BuscarHC ?";
-        
-        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
-            cmd.setString(1, "");
-        ResultSet r=cmd.executeQuery();
-        int c=1;
-        while(r.next()){
-            fila[0]=String.valueOf(c)+"º";
-            fila[1]=r.getString(1);
-            fila[2]=r.getString(2);
-            fila[3]=r.getString(3);
-            fila[4]=r.getString(4);
-            fila[5]=r.getString(5);
-            fila[6]=r.getString(6);
-            fila[7]=r.getString(7);
-            fila[8]=r.getString(8);
-            fila[9]=r.getString(9);
-            fila[10]=r.getString(10);
-            fila[11]=r.getString(11);
-            fila[12]=r.getString(12);
-                m.addRow(fila);
-                c++;
-            }
+//            String fila[]=new String[14];
+//
+//            LAB_Clasificacion_Examen obj=new LAB_Clasificacion_Examen();
+//        String consulta="exec sp_BuscarHC ?";
+//        
+//        PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
+//            cmd.setString(1, "");
+//        ResultSet r=cmd.executeQuery();
+//        int c=1;
+//        while(r.next()){
+//            fila[0]=String.valueOf(c)+"º";
+//            fila[1]=r.getString(1);
+//            fila[2]=r.getString(2);
+//            fila[3]=r.getString(3);
+//            fila[4]=r.getString(4);
+//            fila[5]=r.getString(5);
+//            fila[6]=r.getString(6);
+//            fila[7]=r.getString(7);
+//            fila[8]=r.getString(8);
+//            fila[9]=r.getString(9);
+//            fila[10]=r.getString(10);
+//            fila[11]=r.getString(11);
+//            fila[12]=r.getString(12);
+//                m.addRow(fila);
+//                c++;
+//            }
             tb_HC.setModel(m);
             TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
             tb_HC.setRowSorter(elQueOrdena);
@@ -495,7 +495,6 @@ DefaultTableModel m;
                         lblFechaObtencion = new javax.swing.JLabel();
 
                         buscar_HC.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                        buscar_HC.setTitle("SISGESH.::.Clasificación Examen");
                         buscar_HC.setAlwaysOnTop(true);
                         buscar_HC.setMinimumSize(new java.awt.Dimension(876, 692));
                         buscar_HC.setResizable(false);
@@ -3172,7 +3171,7 @@ DefaultTableModel m;
                 txtTMEspecificar.setText("");
                 lblCodTMEspecificar.setText("");
             }
-        
+            
     }//GEN-LAST:event_txtTMOtroMouseClicked
 
     private void btnPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacienteActionPerformed

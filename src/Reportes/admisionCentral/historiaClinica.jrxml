@@ -12,7 +12,7 @@
 	<field name="COD_HC" class="java.lang.String"/>
 	<field name="PACIENTE" class="java.lang.String"/>
 	<field name="SEXO" class="java.lang.String"/>
-	<field name="FEC_NAC" class="java.sql.Date"/>
+	<field name="FEC_NAC" class="java.lang.String"/>
 	<field name="OCUPACION" class="java.lang.String"/>
 	<field name="ESTADO_CIVIL" class="java.lang.String"/>
 	<field name="EDAD" class="java.lang.String"/>

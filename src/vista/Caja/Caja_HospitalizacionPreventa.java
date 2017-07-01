@@ -1414,10 +1414,9 @@ public class Caja_HospitalizacionPreventa extends javax.swing.JFrame {
 
     private void btnNuevo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo4ActionPerformed
         Modificar();
-         cbxServicio.setVisible(true);    
-         cbxServicio.showPopup();
-         cbxServicio.requestFocus(true);
-
+        cbxServicio.setVisible(true);    
+        cbxServicio.showPopup();
+        cbxServicio.requestFocus(true);
     }//GEN-LAST:event_btnNuevo4ActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked

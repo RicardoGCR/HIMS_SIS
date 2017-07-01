@@ -22,12 +22,14 @@ import javax.swing.JOptionPane;
  * @author Profe
  */
 public class Conexion {
-    
-     static String servidor="";
-     static String puerto="";
-     static String user="";
-     static String password="";
-     static String baseDatos="";
+
+
+    static String servidor="";
+    static String puerto="";
+    static String user="";
+    static String password="";
+    static String baseDatos="";    
+   
     public void leerTexto(String direccion){
         try {
             BufferedReader bf = new BufferedReader(new FileReader(direccion));

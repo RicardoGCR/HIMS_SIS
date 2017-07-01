@@ -9,6 +9,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import servicios.Conexion;
 /**
  *
@@ -16,6 +20,7 @@ import servicios.Conexion;
  */
 public class Caja_Jerarquias {
 private Connection cn;
+DefaultTableModel m;
 //CUENTA 2
 private String cod_jerar_forma_pago ;
 private String nom_forma_pago ;
@@ -30,15 +35,15 @@ public boolean NuevaJerarquia()
         {
         boolean resp = false;
         try{
-            String sql = "EXEC Caja_jerarquia_INSERTAR ?,?,?,?,?,?,?";
+            String sql = "EXEC Caja_jerarquia_INSERTAR ?,?,?,?,?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
-            cmd.setString(1, getCod_jerar_forma_pago());
-            cmd.setString(2, getNom_forma_pago());
-            cmd.setString(3, getDescri_forma_pago());
-            cmd.setString(4, getRelacion_forma_pago());
-            cmd.setString(5, getNivel_forma_pago());
-            cmd.setString(6, getTipo_estado_pago());
-            cmd.setString(7, getNom_usu());
+//            cmd.setString(1, getCod_jerar_forma_pago());
+            cmd.setString(1, getNom_forma_pago());
+            cmd.setString(2, getDescri_forma_pago());
+            cmd.setString(3, getRelacion_forma_pago());
+            cmd.setString(4, getNivel_forma_pago());
+            cmd.setString(5, getTipo_estado_pago());
+            cmd.setString(6, getNom_usu());
 
             if(!cmd.execute())
             {
@@ -55,20 +60,20 @@ public boolean NuevaJerarquia()
     }
     
     
-public String idCJ(){//muestra el codigo
-        String id = "";
-        try {
-            String consulta = "exec Caja_jerarquia_ID";
-            ResultSet r;
-            r=con.Listar(consulta);
-        if(r.next()){
-               id = r.getString(1);
-        }
-        }catch(Exception ex){
-            System.out.println("Error " + ex.getMessage());
-        }
-        return id;
-    }
+//public String idCJ(){//muestra el codigo
+//        String id = "";
+//        try {
+//            String consulta = "exec Caja_jerarquia_ID";
+//            ResultSet r;
+//            r=con.Listar(consulta);
+//        if(r.next()){
+//               id = r.getString(1);
+//        }
+//        }catch(Exception ex){
+//            System.out.println("Error " + ex.getMessage());
+//        }
+//        return id;
+//    }
 
 public boolean Caja_Jerarquia_MODIFICAR(){
         boolean resp = false;
@@ -165,6 +170,118 @@ public String codTipo(String tipo)
         }
         return cod;
     }
+        public void LISTARNIVEL0(JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Descripcion","ID"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[2];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec Caja_Jerarquia_RELACION ";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+//            cmd.setString(1, Servicio);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena = new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            FORMATO0(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar NIVEL 0 " + e.getMessage());
+        }
+    }
+        
+        public void LISTARNIVEL1(String NIVEL0 ,JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Descripcion","ID","R"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[3];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_LISTAR_NIVEL1 ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, NIVEL0);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            FORMATO(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar NIVEL 1" + e.getMessage());
+        }
+    }
+        public void LISTARNIVEL2(String NIVEL0 ,JTable tabla){
+        String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Descripcion","ID","R"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[3];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec Caja_Jerarquia_NIVEL12 ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, NIVEL0);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            FORMATO(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: listar NIVEL2" + e.getMessage());
+        }
+    }
+        
+      
+      public void FORMATO(JTable tabla){
+
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(2).setMinWidth(0);
+            tabla.getColumnModel().getColumn(2).setMaxWidth(0);
+            tabla.setRowHeight(40);
+        
+    }
+      public void FORMATO0(JTable tabla){
+
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tabla.getColumnModel().getColumn(1).setMinWidth(0);
+            tabla.getColumnModel().getColumn(1).setMaxWidth(0);
+        tabla.setRowHeight(40);
+        
+    }
+
+
 
 
 

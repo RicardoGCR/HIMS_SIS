@@ -11,6 +11,8 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,6 +24,7 @@ import java.util.GregorianCalendar;
 import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -74,13 +77,27 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
                 dispose();
             }
         });
+        cerrar();
         txtBuscar.setVisible(false);
         btnBuscar.setVisible(false);
         cbxActoMedico.setVisible(false);
         conexion = c.conectar();
         //ICONO DE FORMULARIO
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/iconSegHC24x24.png")).getImage());
-        
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
+    }
+    
+    public void cerrar (){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e){
+                    dispose();
+                }
+        });
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
    public void seguimientoHC(String fecha, String nhc, String dni, int acto_medico){
@@ -363,7 +380,7 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
         lblMovimiento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Admisión - Seguimiento Historia Clínica");
+        setTitle("Admisión .::. Seguimiento Historia Clínica");
         setType(java.awt.Window.Type.POPUP);
 
         jPanel8.setBackground(new java.awt.Color(101, 166, 136));
@@ -665,12 +682,13 @@ public class FrmSeguimientoHC extends javax.swing.JFrame implements Runnable{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(lblActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
-                            .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel38))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel6)
+                                .addComponent(lblActoMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel38)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)

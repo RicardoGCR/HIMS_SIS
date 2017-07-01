@@ -28,11 +28,11 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="289" max="-2" attributes="0"/>
               <Component id="txtBuscar" min="-2" pref="217" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnBuscar" min="-2" pref="32" max="-2" attributes="0"/>
-              <EmptySpace pref="176" max="32767" attributes="0"/>
+              <EmptySpace pref="284" max="32767" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -51,9 +51,8 @@
                   <Component id="txtBuscar" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
                   <Component id="btnBuscar" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="32767" attributes="0"/>
-              <Component id="jScrollPane3" min="-2" pref="352" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane3" min="-2" pref="273" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

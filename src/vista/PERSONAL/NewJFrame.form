@@ -49,7 +49,7 @@
     <Component class="javax.swing.JComboBox" name="fecha1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="24">
+          <StringArray count="25">
             <StringItem index="0" value="Seleccionar..."/>
             <StringItem index="1" value="08:20:00"/>
             <StringItem index="2" value="09:30:00"/>
@@ -74,6 +74,7 @@
             <StringItem index="21" value="22:50:00"/>
             <StringItem index="22" value="23:15:00"/>
             <StringItem index="23" value="23:59:00"/>
+            <StringItem index="24" value="18:46:00"/>
           </StringArray>
         </Property>
       </Properties>
@@ -85,7 +86,7 @@
     <Component class="javax.swing.JComboBox" name="fecha2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="27">
+          <StringArray count="33">
             <StringItem index="0" value="Seleccionar..."/>
             <StringItem index="1" value="08:20:00"/>
             <StringItem index="2" value="09:30:00"/>
@@ -113,6 +114,12 @@
             <StringItem index="24" value="22:00:00"/>
             <StringItem index="25" value="18:30:00"/>
             <StringItem index="26" value="18:31:00"/>
+            <StringItem index="27" value="00:00:00"/>
+            <StringItem index="28" value="00:48:00"/>
+            <StringItem index="29" value="00:57:00"/>
+            <StringItem index="30" value="01:46:00"/>
+            <StringItem index="31" value="03:00:00"/>
+            <StringItem index="32" value="08:50:00"/>
           </StringArray>
         </Property>
       </Properties>

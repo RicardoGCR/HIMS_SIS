@@ -224,7 +224,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         public boolean isCellEditable(int rowIndex, int colIndex){
                             return false; //Disallow the editing of any cell
                         }};
-                        jButton2 = new javax.swing.JButton();
+                        BTN_QUITAR = new javax.swing.JButton();
                         jPanel5 = new javax.swing.JPanel();
                         jPanel6 = new javax.swing.JPanel();
                         jScrollPane2 = new javax.swing.JScrollPane();
@@ -691,7 +691,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         jScrollPane7.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
                         TB_ACTIVIDADES_LISTA.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-                        TB_ACTIVIDADES_LISTA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+                        TB_ACTIVIDADES_LISTA.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
                         TB_ACTIVIDADES_LISTA.setForeground(new java.awt.Color(51, 51, 51));
                         TB_ACTIVIDADES_LISTA.setModel(new javax.swing.table.DefaultTableModel(
                             new Object [][] {
@@ -1285,6 +1285,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                                 btnBuscarPActionPerformed(evt);
                             }
                         });
+                        btnBuscarP.addKeyListener(new java.awt.event.KeyAdapter() {
+                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                btnBuscarPKeyPressed(evt);
+                            }
+                        });
 
                         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
                         jPanel9.setLayout(jPanel9Layout);
@@ -1355,6 +1360,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         D_FECHA.setBackground(new java.awt.Color(255, 255, 255));
                         D_FECHA.setDateFormatString("dd-MM-yyyy");
                         D_FECHA.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+                        D_FECHA.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+                            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                                D_FECHAPropertyChange(evt);
+                            }
+                        });
 
                         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         jLabel8.setText("Límite Consultas Diarias:");
@@ -1362,6 +1372,9 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         txtLimite_Consultas_Per.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         txtLimite_Consultas_Per.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtLimite_Consultas_Per.addKeyListener(new java.awt.event.KeyAdapter() {
+                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                txtLimite_Consultas_PerKeyPressed(evt);
+                            }
                             public void keyTyped(java.awt.event.KeyEvent evt) {
                                 txtLimite_Consultas_PerKeyTyped(evt);
                             }
@@ -1380,6 +1393,9 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         txtTotal_Pago.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         txtTotal_Pago.setHorizontalAlignment(javax.swing.JTextField.CENTER);
                         txtTotal_Pago.addKeyListener(new java.awt.event.KeyAdapter() {
+                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                txtTotal_PagoKeyPressed(evt);
+                            }
                             public void keyTyped(java.awt.event.KeyEvent evt) {
                                 txtTotal_PagoKeyTyped(evt);
                             }
@@ -1394,6 +1410,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         btnAgregar_ROL.addActionListener(new java.awt.event.ActionListener() {
                             public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 btnAgregar_ROLActionPerformed(evt);
+                            }
+                        });
+                        btnAgregar_ROL.addKeyListener(new java.awt.event.KeyAdapter() {
+                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                btnAgregar_ROLKeyPressed(evt);
                             }
                         });
 
@@ -1427,11 +1448,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         });
                         jScrollPane4.setViewportView(TB_TURNOS_PERSONAL_ROL);
 
-                        jButton2.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-                        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Menos-16.png"))); // NOI18N
-                        jButton2.setText("QUITAR ROL");
-                        jButton2.setContentAreaFilled(false);
-                        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                        BTN_QUITAR.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+                        BTN_QUITAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Menos-16.png"))); // NOI18N
+                        BTN_QUITAR.setText("QUITAR ROL");
+                        BTN_QUITAR.setContentAreaFilled(false);
+                        BTN_QUITAR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
                         javax.swing.GroupLayout P_ROLLayout = new javax.swing.GroupLayout(P_ROL);
                         P_ROL.setLayout(P_ROLLayout);
@@ -1457,7 +1478,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnAgregar_ROL, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)
+                                .addComponent(BTN_QUITAR)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jScrollPane4)
                         );
@@ -1476,7 +1497,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtTotal_Pago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btnAgregar_ROL)
-                                        .addComponent(jButton2)))
+                                        .addComponent(BTN_QUITAR)))
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                                 .addContainerGap())
@@ -1636,7 +1657,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     }//GEN-LAST:event_T5ActionPerformed
 
     private void txtBuscarMedico_ROLCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscarMedico_ROLCaretUpdate
-
+//    jTabbedPane1.setSelectedIndex(1);
     if(cb_Rango_fecha.isSelected()== true && (D_FECHA_INICIO.getDate()==null || D_FECHA_FIN.getDate()==null)){
         JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un rango de fechas");
         txtBuscarMedico_ROL.setText("");
@@ -1673,7 +1694,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         txtLimite_Consultas_Per.setText("");
         txtTotal_Horas.setText("");
         txtTotal_Pago.setText("");
-  
+        txtBuscarMedico_ROL.setEditable(false);
+        btneditar.setEnabled(false);
+        btneliminar.setEnabled(false);
+        btnBuscarP.requestFocus();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
@@ -1752,6 +1776,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
         Mostrar_PERSONAL_ROL();
         Clear_Tb_TURNOS_UO();
         Clear_TB_TURNOS_PERSONAL_ROL();
+        txtBuscarMedico_ROL.setEditable(true);
         txtBuscarMedico_ROL.requestFocus();
         btn_GUARDAR_ROL.setEnabled(false);
         
@@ -1784,6 +1809,10 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                     txtAR_ID.setText(String.valueOf(tb_Personal_UO.getValueAt(filaselec, 7)));
 
                     MEDICOS_UO.dispose();
+                    
+                    TB_TURNOS_UO.getSelectionModel().setSelectionInterval(0, 0);
+                    TB_TURNOS_UO.requestFocus();
+        
             }
         }
         if(TB_TURNOS_UO.getRowCount()==0){
@@ -1871,7 +1900,27 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     }//GEN-LAST:event_TB_TURNOS_UOMouseClicked
 
     private void TB_TURNOS_UOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TB_TURNOS_UOKeyPressed
-        
+//        char teclaPresionada = evt.getKeyChar();
+//        if(teclaPresionada==KeyEvent.VK_ENTER){
+//            P_ROL.setVisible(true);
+//            int filaselec=TB_TURNOS_UO.getSelectedRow();
+//            String total = TB_TURNOS_UO.getValueAt(filaselec, 10).toString();
+//           
+//            String d = total.substring(0, 2);
+//            
+//            txtTotal_Horas.setText(d);
+//            TXT_HORA_INICIO.setText(TB_TURNOS_UO.getValueAt(filaselec, 7).toString());
+//            TXT_HORA_FIN.setText(TB_TURNOS_UO.getValueAt(filaselec, 8).toString());
+//            LBL_PASAR_DIA.setText(TB_TURNOS_UO.getValueAt(filaselec, 11).toString());
+//            
+//            if(lblGM.getText().equalsIgnoreCase("M")){
+//                lblCOD_UO.setText(TB_TURNOS_UO.getValueAt(filaselec, 1).toString());
+//                LBL_UNIDAD_ORGANICA.setText(TB_TURNOS_UO.getValueAt(filaselec, 1).toString());
+//            }
+//            
+//            TB_TURNOS_UO.getSelectionModel().setSelectionInterval(filaselec,filaselec);
+//
+//        }
         
     }//GEN-LAST:event_TB_TURNOS_UOKeyPressed
 
@@ -1881,7 +1930,8 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     }//GEN-LAST:event_txtAR_IDCaretUpdate
 
     private void TB_TURNOS_PERSONAL_ROLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TB_TURNOS_PERSONAL_ROLMouseClicked
-       if(evt.getClickCount()==1){          
+       if(evt.getClickCount()==1){
+          
            if(lblGM.getText().equalsIgnoreCase("M")){
                if(LBL_UNIDAD_ORGANICA.getText().length()<10){
                     cargar_tb_personal_rol_tb_UO();
@@ -2027,6 +2077,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
 //                  btnPersonalRegistra.requestFocus();
                     btneditar.setEnabled(true);
                     btneliminar.setEnabled(true);
+                    txtBuscarMedico_ROL.setEditable(false);
         }
     }//GEN-LAST:event_TB_PERSONAL_ROLKeyPressed
 
@@ -2352,6 +2403,43 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     private void cb_HORA_FINMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cb_HORA_FINMouseClicked
         //        restar_horas();
     }//GEN-LAST:event_cb_HORA_FINMouseClicked
+
+    private void btnBuscarPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnBuscarPKeyPressed
+        char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){  
+                    btnBuscarP.doClick();
+                    
+        }
+    }//GEN-LAST:event_btnBuscarPKeyPressed
+
+    private void D_FECHAPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_D_FECHAPropertyChange
+        txtLimite_Consultas_Per.requestFocus();
+    }//GEN-LAST:event_D_FECHAPropertyChange
+
+    private void txtLimite_Consultas_PerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLimite_Consultas_PerKeyPressed
+        char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){  
+                    txtTotal_Pago.requestFocus();
+                    
+        }
+    }//GEN-LAST:event_txtLimite_Consultas_PerKeyPressed
+
+    private void txtTotal_PagoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTotal_PagoKeyPressed
+        char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){  
+                    btnAgregar_ROL.requestFocus();
+                    
+        }
+    }//GEN-LAST:event_txtTotal_PagoKeyPressed
+
+    private void btnAgregar_ROLKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAgregar_ROLKeyPressed
+        char tecla= evt.getKeyChar();
+                if(tecla==KeyEvent.VK_ENTER){  
+                    btnAgregar_ROL.doClick();
+                    TB_TURNOS_PERSONAL_ROL.getSelectionModel().setSelectionInterval(0, 0);
+                    TB_TURNOS_PERSONAL_ROL.requestFocus();
+        }
+    }//GEN-LAST:event_btnAgregar_ROLKeyPressed
 
     public void CANTIDAD_HORAS_LIBRES_RESTA(){
         String L = LBL_TOTAL_HORA.getText();
@@ -3922,58 +4010,66 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     }
     
     public void CANTIDAD_HORAS_TOTAL(){
-        String C = TXT_HORA_INICIO.getText();
-        String C1 = TXT_HORA_FIN.getText();
-        
-        int a = Integer.parseInt(C.substring(0, 2));
-        int b = Integer.parseInt(C.substring(3, 5));
-        int c = Integer.parseInt(C.substring(6, 8));
-        
-        int a1 = Integer.parseInt(C1.substring(0, 2));
-        int b1 = Integer.parseInt(C1.substring(3, 5));
-        int c1 = Integer.parseInt(C1.substring(6, 8));
-        
-        int hora =0, minuto=0, segundo =0;
-        
-        if(a < a1 && b < b1){
-            hora = a1 - a;
-            minuto = b1 - b;
-        }
-        
-        if(a == a1 && b < b1){
-            hora = 00;
-            minuto = b1 - b;
-        }
-        
-        if(a < a1 && b == b1){
-            hora = a1 - a;
-            minuto = 00;
-        }
-        
-        if(a < a1 && b > b1){
-            hora = (a1 - a) - 1;
-            int m=0;
-            m = 60 - b;
-            minuto = m + b1;
-        }
+//        if(LBL_TOTAL_HORA.getText().equalsIgnoreCase("N")){
+            String C = TXT_HORA_INICIO.getText();
+            String C1 = TXT_HORA_FIN.getText();
 
-        String horaf = "", minutof ="";
+            int a = Integer.parseInt(C.substring(0, 2));
+            int b = Integer.parseInt(C.substring(3, 5));
+            int c = Integer.parseInt(C.substring(6, 8));
+
+            int a1 = Integer.parseInt(C1.substring(0, 2));
+            int b1 = Integer.parseInt(C1.substring(3, 5));
+            int c1 = Integer.parseInt(C1.substring(6, 8));
+
+            int hora =0, minuto=0, segundo =0;
+
+            if(a < a1 && b < b1){
+                hora = a1 - a;
+                minuto = b1 - b;
+            }
+
+            if(a == a1 && b < b1){
+                hora = 00;
+                minuto = b1 - b;
+            }
+
+            if(a < a1 && b == b1){
+                hora = a1 - a;
+                minuto = 00;
+            }
+
+            if(a < a1 && b > b1){
+                hora = (a1 - a) - 1;
+                int m=0;
+                m = 60 - b;
+                minuto = m + b1;
+            }
+
+            String horaf = "", minutof ="";
+
+            if(hora < 10){
+                horaf = ("0" + hora);
+            }else{
+                horaf = String.valueOf(hora);
+            }
+
+            if(minuto < 10){
+                minutof = ("0" + minuto);
+            }else{
+                minutof = String.valueOf(minuto);
+            }
+
+            LBL_CANTIDAD_HORAS_TOTAL.setText(horaf + ":" + minutof + ":" + segundo + "0");
+//        }else{
+//            if(LBL_PASAR_DIA.getText().equalsIgnoreCase("S")){
+//                
+//            }
+//        }
         
-        if(hora < 10){
-            horaf = ("0" + hora);
-        }else{
-            horaf = String.valueOf(hora);
-        }
-        
-        if(minuto < 10){
-            minutof = ("0" + minuto);
-        }else{
-            minutof = String.valueOf(minuto);
-        }
-        
-        LBL_CANTIDAD_HORAS_TOTAL.setText(horaf + ":" + minutof + ":" + segundo + "0");
 //        System.out.println("hora: " + hora + " " + minuto + " " + segundo);
     }
+
     
     /**
      * @param args the command line arguments
@@ -4011,6 +4107,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTN_QUITAR;
     private com.toedter.calendar.JDateChooser D_FECHA;
     private com.toedter.calendar.JDateChooser D_FECHA_FIN;
     private com.toedter.calendar.JDateChooser D_FECHA_INICIO;
@@ -4054,7 +4151,6 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
     private javax.swing.JCheckBox cb_Rango_fecha;
     private javax.swing.JButton eli;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

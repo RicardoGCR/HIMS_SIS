@@ -94,7 +94,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fecha1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "08:20:00", "09:30:00", "10:00:00", "10:30:00", "11:50:00", "11:10:00", "13:20:00", "14:10:00", "15:59:00", "16:01:00", "17:01:00", "18:01:00", "17:02:00", "18:05:00", "18:37:00", "19:01:00", "19:49:00", "20:16:00", "21:30:00", "22:10:00", "22:50:00", "23:15:00", "23:59:00" }));
+        fecha1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "08:20:00", "09:30:00", "10:00:00", "10:30:00", "11:50:00", "11:10:00", "13:20:00", "14:10:00", "15:59:00", "16:01:00", "17:01:00", "18:01:00", "17:02:00", "18:05:00", "18:37:00", "19:01:00", "19:49:00", "20:16:00", "21:30:00", "22:10:00", "22:50:00", "23:15:00", "23:59:00", "18:46:00" }));
         fecha1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 fecha1ItemStateChanged(evt);
@@ -106,7 +106,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        fecha2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "08:20:00", "09:30:00", "10:00:00", "10:30:00", "11:50:00", "11:10:00", "13:20:00", "14:10:00", "15:59:00", "16:01:00", "17:01:00", "18:01:00", "17:02:00", "18:05:00", "18:37:00", "19:01:00", "19:49:00", "20:16:00", "21:30:00", "22:10:00", "22:50:00", "23:15:00", "23:59:00", "22:00:00", "18:30:00", "18:31:00" }));
+        fecha2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "08:20:00", "09:30:00", "10:00:00", "10:30:00", "11:50:00", "11:10:00", "13:20:00", "14:10:00", "15:59:00", "16:01:00", "17:01:00", "18:01:00", "17:02:00", "18:05:00", "18:37:00", "19:01:00", "19:49:00", "20:16:00", "21:30:00", "22:10:00", "22:50:00", "23:15:00", "23:59:00", "22:00:00", "18:30:00", "18:31:00", "00:00:00", "00:48:00", "00:57:00", "01:46:00", "03:00:00", "08:50:00" }));
         fecha2.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 fecha2ItemStateChanged(evt);
@@ -184,9 +184,27 @@ public class NewJFrame extends javax.swing.JFrame {
             m = 60 - b;
             minuto = m + b1;
         }
-//        if(a < a1 && b > b1){
-//            hora = 
-//        }
+        
+        //// PASAR DIA
+        if(a1==00 && b1==00){
+            hora = (24 - a) -1;
+            minuto = 60 - b;
+        }
+        if(a1==00 && b1 > 0){
+            int q=0, w=0, q1=0,w1=0;
+            q = (24 - a) -1;
+            w = 60 - b;
+            q1 = 00;
+            w1 = b1;
+            hora = q + q1 ;
+            minuto = w + w1;
+            
+            if(minuto > 60){
+            hora = hora + 1;
+            minuto = minuto - 60;
+        }
+        }
+        
         String horaf = "", minutof ="";
         if(hora < 10){
             horaf = ("0" + hora);
@@ -198,6 +216,7 @@ public class NewJFrame extends javax.swing.JFrame {
         }else{
             minutof = String.valueOf(minuto);
         }
+
         System.out.println("hora: " + horaf + " " + minutof + " " + segundo);
     }//GEN-LAST:event_fecha2ItemStateChanged
 

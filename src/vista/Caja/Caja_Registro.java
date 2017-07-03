@@ -6,6 +6,7 @@
 package vista.Caja;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
 import javax.print.attribute.Attribute;
@@ -151,11 +152,7 @@ DefaultTableModel m;
 }
     
     public void Guardar(){
-        Caja_PC_Registro cn = new Caja_PC_Registro();
-            if(cn.VerificarNumero(txtNRO.getText())>0){
-                jLabel1.setForeground(new Color(255,255,255));
-               
-            }else{
+        
                 Caja_PC_Registro cno1 = new Caja_PC_Registro();
                 cno1.setAR_ID(Integer.parseInt(lblARID.getText()) );//
                 cno1.setNOM_USU(lblUsuario.getText());//
@@ -166,7 +163,7 @@ DefaultTableModel m;
                         lblDes.setText("La configuración del terminal se guardó de forma correcta.");
                         panelMenu.setVisible(true);
                         jPanel73.setVisible(false);
-                         jLabel1.setForeground(new Color(41,127,184));
+                         
                     }else{
                         lblMensaje.setText("Algo salió mal");
                         lblDes.setText("<HTML>"+"Verifique que la configuración sea la correcta,"+"<BR>"+"Puede que el Nº de PC este repetido"+"</HTML>");
@@ -174,7 +171,7 @@ DefaultTableModel m;
                         jPanel73.setVisible(true);
     }
                         
-    }}
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -538,6 +535,11 @@ DefaultTableModel m;
             txtNRO.addCaretListener(new javax.swing.event.CaretListener() {
                 public void caretUpdate(javax.swing.event.CaretEvent evt) {
                     txtNROCaretUpdate(evt);
+                }
+            });
+            txtNRO.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    txtNROKeyTyped(evt);
                 }
             });
 
@@ -1155,7 +1157,15 @@ DefaultTableModel m;
     }//GEN-LAST:event_btnAlertConsulta1ActionPerformed
 
     private void btnAlertConsulta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta2ActionPerformed
-        jTabbedPane1.setSelectedIndex(2);
+       Caja_PC_Registro cn = new Caja_PC_Registro();
+        if(cn.VerificarNumero(txtNRO.getText())>0){
+                jLabel1.setForeground(new Color(255,255,255));
+               
+            }else{
+            jLabel1.setForeground(new Color(41,127,184));
+            jTabbedPane1.setSelectedIndex(2);
+        }
+        
     }//GEN-LAST:event_btnAlertConsulta2ActionPerformed
 
     private void btnAlertConsulta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta3ActionPerformed
@@ -1243,6 +1253,19 @@ DefaultTableModel m;
     private void btnAlertConsulta8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertConsulta8ActionPerformed
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_btnAlertConsulta8ActionPerformed
+
+    private void txtNROKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNROKeyTyped
+        if (txtNRO.getText().length()==1){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        char tecla;
+        tecla = evt.getKeyChar();
+        if(!Character.isDigit(tecla)){
+            evt.consume();
+            getToolkit().beep();            
+        }    
+    }//GEN-LAST:event_txtNROKeyTyped
 
     /**
      * @param args the command line arguments

@@ -2,6 +2,62 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
+            <file>file:/D:/proyecto/HIMS/src/modelos/PERSONAL/CLS_PERSONAL_ROL_ACTIVIDADES.java</file>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <file>file:/D:/pry/HIMS/src/modelos/cuentaPorPagar/CuentasPorPagarNotaDeCreditoCabecera.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/NotasCreditoDebito.java</file>
+=======
+<<<<<<< HEAD
+=======
+            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
+>>>>>>> 356b07ea02dc78aeaeb142fc2cee0b487b1b85f4
+=======
+            <file>file:/D:/pry/HIMS/src/vista/ConsultorioEx/ConsultorioExt.java</file>
+>>>>>>> e0db4265e11d59df2b066a1243ca5d4754bb293d
+>>>>>>> 6878ef632926779499d76504dc43022204e04a0c
+            <file>file:/D:/pry/HIMS/src/modelos/Caja/Caja_NuevaVenta.java</file>
+            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Pagos.java</file>
+<<<<<<< HEAD
+=======
+            <file>file:/D:/pry/HIMS/src/vista/Caja/Caja_Transaccion.java</file>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <file>file:/D:/pry/HIMS/src/vista/cuentaPorPagar/NotasCreditoDebito.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/PERSONAL_ROL.java</file>
+            <file>file:/D:/proyecto/HIMS/src/vista/RX/RX_EC_EXAMEN_CAB.java</file>
+            <file>file:/D:/proyecto/HIMS/src/vista/PERSONAL/NewJFrame.java</file>
+=======
+            <file>file:/E:/pry/SISGESH/src/vista/Caja/Caja_Pagos.java</file>
+            <file>file:/E:/pry/SISGESH/src/modelos/cuentaPorPagar/CuentasPorPagarVentasConsolidadoCabecera.java</file>
+            <file>file:/E:/pry/SISGESH/src/vista/cuentaPorPagar/Facturador.java</file>
+            <file>file:/E:/pry/SISGESH/src/modelos/cuentaPorPagar/CuentasPorPagarNotaDeCreditoCabecera.java</file>
+            <file>file:/E:/pry/SISGESH/src/vista/cuentaPorPagar/VentasConsolidado.java</file>
+>>>>>>> 61caa8e90c135350bf289ccf2a509c90c21426a6
+>>>>>>> 27900dae1d6598982a30d8dc11e5aa001d509e37
+>>>>>>> 34aa0e868bcb9f56d331c4a7b196001a6cc2accc
+>>>>>>> 0045d062a943db73bdb989e0de0e448fb18e577e
+=======
+=======
+>>>>>>> 356b07ea02dc78aeaeb142fc2cee0b487b1b85f4
+>>>>>>> e0db4265e11d59df2b066a1243ca5d4754bb293d
+>>>>>>> a51bc410739f4579d83ad383d6f6a82d22999f3d
+>>>>>>> 6878ef632926779499d76504dc43022204e04a0c
+        </group>
+>>>>>>> de41d9a246a0fecb724bbcd7b11c3ac4182fdee4
     </open-files>
 </project-private>

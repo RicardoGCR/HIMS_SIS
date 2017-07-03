@@ -4045,12 +4045,14 @@ Caja_Cta6 cn6 = new Caja_Cta6();
                                                 }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        PaginasCuentas.setSelectedIndex(0);
+
         btnguardar.setEnabled(false);
         btneditar.setEnabled(false);
         btneliminar.setEnabled(false);
         lblDescripcion.setText("Agregar una Nueva Cuenta");
         lblBusqueda.setText("0");
+        buscartodo.setText("");
+        PaginasCuentas.setSelectedIndex(0);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
@@ -5169,14 +5171,14 @@ Caja_Cta6 cn6 = new Caja_Cta6();
         jLabel22.setVisible(false);
         jLabel20.setVisible(false);
         }
-        if (buscartodo.getText().length()==0){
-            lblDescripcion.setText("Busqueda de cuentas, 1 - 6");
-            PaginasCuentas.setSelectedIndex(7);
-            jLabel22.setVisible(false);
-            jLabel20.setVisible(false);
-            
-            
-        }  
+//        if (buscartodo.getText().length()==0){
+//            lblDescripcion.setText("Busqueda de cuentas, 1 - 6");
+//            PaginasCuentas.setSelectedIndex(7);
+//            jLabel22.setVisible(false);
+//            jLabel20.setVisible(false);
+//            
+//            
+//        }  
             int ct1=tb_Cta1.getRowCount();
             int ct2=tb_Cta2.getRowCount();
             int ct3=tb_Cta3.getRowCount();

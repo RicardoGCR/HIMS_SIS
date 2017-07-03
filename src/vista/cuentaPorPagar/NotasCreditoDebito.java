@@ -273,7 +273,7 @@ Conexion c=new Conexion();
     
     public void crearCabeceraCredito(){
         
-       String archivo = txtNroDocumento.getText() + "-" + 
+       String archivo = "20410275768" + "-" + 
                "07" + "-" +
                txtSerie.getText() + "-" + 
                 lblCorrelativoCreditoF.getText() + ".NOT";
@@ -5597,7 +5597,6 @@ Conexion c=new Conexion();
          if(txtDescripcionSustento.getText().equals("")){
              JOptionPane.showMessageDialog(this, "Describa el Motivo o Sustento de la Nota de Crédito");
          }
-             
          else if(!txtNroDocumento.getText().equals("")){
                 CuentasPorPagarNotaDeCreditoCabecera facturaCabecera = new CuentasPorPagarNotaDeCreditoCabecera();
                     facturaCabecera.setIdFactura(Integer.parseInt(lblIdCredito.getText()));
@@ -5615,7 +5614,7 @@ Conexion c=new Conexion();
 //                CuentasPorPagarFacturasDetalle facturaDetalle1 = new CuentasPorPagarFacturasDetalle();
 //                lblId.setText(facturaDetalle1.facturaCabeceraId());
 ////                crearDetalle();
-                String archivo = txtNroDocumento.getText() + "-" + 
+                String archivo = "20410275768" + "-" + 
                 "07"+ "-" +
                 txtSerie.getText() + "-" + 
                 lblCorrelativoCreditoF.getText() + ".DET";

@@ -347,7 +347,6 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             BuscarMadres.setAlwaysOnTop(true);
             BuscarMadres.setMinimumSize(new java.awt.Dimension(855, 422));
             BuscarMadres.setResizable(false);
-            BuscarMadres.getContentPane().setLayout(null);
 
             jPanel28.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -483,15 +482,13 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                 .addGroup(jPanel28Layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel28Layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(btnAtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(jPanel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel28Layout.createSequentialGroup()
                             .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnRegistrosExistentes))
-                            .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(btnRegistrosExistentes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(btnAtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addContainerGap())
             );
             jPanel28Layout.setVerticalGroup(
@@ -507,14 +504,20 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                     .addComponent(btnNuevoEmbarazo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(btnRegistrosExistentes, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGap(18, 18, 18)
                     .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(22, Short.MAX_VALUE))
+<<<<<<< HEAD
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
             BuscarMadres.getContentPane().add(jPanel28);
-            jPanel28.setBounds(0, 0, 0, 370);
+            jPanel28.setBounds(0, 0, 178, 260);
 
+=======
+                    .addContainerGap(42, Short.MAX_VALUE))
+            );
+
+>>>>>>> e0db4265e11d59df2b066a1243ca5d4754bb293d
             jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
             jPanel22.setBackground(new java.awt.Color(255, 255, 255));
@@ -558,8 +561,8 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
             jPanel22Layout.setHorizontalGroup(
                 jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
-                    .addGap(0, 0, 0)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE))
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE))
             );
             jPanel22Layout.setVerticalGroup(
                 jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -656,9 +659,9 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                             .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel12)
                                 .addComponent(jLabel13))
-                            .addContainerGap(525, Short.MAX_VALUE))
+                            .addContainerGap(452, Short.MAX_VALUE))
                         .addComponent(jScrollPane1)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
                     );
                     jPanel23Layout.setVerticalGroup(
                         jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -676,8 +679,21 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
 
                     jTabbedPane2.addTab("tab2", jPanel23);
 
-                    BuscarMadres.getContentPane().add(jTabbedPane2);
-                    jTabbedPane2.setBounds(132, 0, 730, 370);
+                    javax.swing.GroupLayout BuscarMadresLayout = new javax.swing.GroupLayout(BuscarMadres.getContentPane());
+                    BuscarMadres.getContentPane().setLayout(BuscarMadresLayout);
+                    BuscarMadresLayout.setHorizontalGroup(
+                        BuscarMadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(BuscarMadresLayout.createSequentialGroup()
+                            .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(27, 27, 27)
+                            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap())
+                    );
+                    BuscarMadresLayout.setVerticalGroup(
+                        BuscarMadresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    );
 
                     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
                     setMinimumSize(new java.awt.Dimension(1282, 707));
@@ -1891,7 +1907,7 @@ public class RegistroEmbarazo extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(pnlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE))
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                             .addContainerGap())
                     );
 

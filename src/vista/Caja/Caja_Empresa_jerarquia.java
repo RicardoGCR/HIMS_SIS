@@ -11,6 +11,7 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -60,6 +61,7 @@ Caja_EmpresaJerarquia cnn = new Caja_EmpresaJerarquia();
         cargareliminar.setVisible(false);
         txtcodigo.setVisible(false);
         btnLista.setVisible(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconos/icons8-Tarea del sistema-24.png")).getImage());
 
     }
     

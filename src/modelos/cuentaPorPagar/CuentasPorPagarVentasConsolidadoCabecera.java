@@ -89,7 +89,7 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
 
     public void formatoVentasConsolidadoDetalles(JTable tabla) {
         tabla.getColumnModel().getColumn(0).setPreferredWidth(100);
-        tabla.getColumnModel().getColumn(1).setPreferredWidth(300);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(800);
         tabla.getColumnModel().getColumn(2).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(3).setMinWidth(0);
         tabla.getColumnModel().getColumn(3).setMaxWidth(0);
@@ -97,7 +97,7 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
         tabla.getColumnModel().getColumn(4).setMaxWidth(0);
         tabla.getColumnModel().getColumn(5).setMinWidth(0);
         tabla.getColumnModel().getColumn(5).setMaxWidth(0);
-        tabla.getColumnModel().getColumn(6).setPreferredWidth(200);
+        tabla.getColumnModel().getColumn(6).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(7).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(8).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(9).setPreferredWidth(100);
@@ -161,14 +161,29 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
             System.out.println("error:" + e.getMessage());
         }
     }
+    
+    public void datosHC(String dni) {
+        try {
+            Statement sta = cn.createStatement();
+            ResultSet rs = sta.executeQuery("EXEC CUENTAS_POR_PAGAR_DATOS_HC '" + dni + "'");
+            while (rs.next()) {
+                VentasConsolidado.lblDNI.setText(rs.getString(2));
+                VentasConsolidado.lblHC.setText(rs.getString(1));
+            }
 
-    public boolean actualizarEstadoFacturacion(String id)
+        } catch (SQLException e) {
+            System.out.println("error:" + e.getMessage());
+        }
+    }
+
+    public boolean actualizarEstadoFacturacion(String id,String estado)
         {
         boolean resp = false;
         try{
-            String sql = "CUENTAS_POR_PAGAR_ACTUALIZAR_ESTADO_FACTURACION ?";
+            String sql = "CUENTAS_POR_PAGAR_ACTUALIZAR_ESTADO_FACTURACION ?,?";
             PreparedStatement cmd = getCn().prepareStatement(sql);
             cmd.setString(1, id);
+            cmd.setString(2, estado);
             if(!cmd.execute())
             {
                 resp = true;
@@ -190,16 +205,20 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
         tabla.getColumnModel().getColumn(4).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(5).setPreferredWidth(50);
         tabla.getColumnModel().getColumn(6).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(8).setMinWidth(0);
+        tabla.getColumnModel().getColumn(8).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(9).setMinWidth(0);
+        tabla.getColumnModel().getColumn(9).setMaxWidth(0);
     }
 
     public void listarPorFacturar(JTable tabla, String id) {
         String consulta = "";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[] = {"Código CPT", "Nomenclatura", "Valor U.", "Cantidad", "Precio", "Descuento", "Total"};
+            String titulos[] = {"Código CPT", "Nomenclatura", "Valor U.", "Cantidad", "Precio", "IGV", "Dscto","Total","ID","FP"};
             m = new DefaultTableModel(null, titulos);
             JTable p = new JTable(m);
-            String fila[] = new String[12];
+            String fila[] = new String[10];
             Caja_NuevaVenta obj = new Caja_NuevaVenta();
             consulta = "CUENTAS_POR_PAGAR_LISTADO_POR_FACTURAR ?";
             PreparedStatement cmd = obj.getCn().prepareStatement(consulta);
@@ -214,6 +233,9 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
                 fila[4] = r.getString(5);
                 fila[5] = r.getString(6);
                 fila[6] = r.getString(7);
+                fila[7] = r.getString(8);
+                fila[8] = r.getString(9);
+                fila[9] = r.getString(10);
                 m.addRow(fila);
                 c++;
             }
@@ -236,9 +258,7 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                Facturador.txtPrecioVenta.setText(r.getString(1)); 
-                Facturador.txtIGV.setText(r.getString(2)); 
-                Facturador.txtValorVenta.setText(r.getString(3)); 
+                Facturador.txtImporteTotalVenta.setText(r.getString(1)); 
             }
             //
         } catch (Exception e) {

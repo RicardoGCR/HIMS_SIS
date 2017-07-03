@@ -25,6 +25,7 @@ import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 import vista.Caja.Caja_Pagos;
+import static vista.Caja.Caja_Pagos.lblTotalDiario;
 /**
  *
  * @author MYS1
@@ -96,8 +97,7 @@ public void SumaTotalReporte(String total){
             ResultSet r= cmd.executeQuery();
             int c=1;
             while(r.next()){
-                    
-                Caja_Pagos.lblTotalDiario.setText("S/.  "+r.getString(1));    
+                Caja_Pagos.lblTotalDiario.setText("S/.  "+r.getString(1));     
             }
             //
         } catch (Exception e) {
@@ -155,6 +155,33 @@ public void SumaANULADOReporte(String anulado){
             //
         } catch (Exception e) {
             System.out.println("Error: SUMA ANULADO  " + e.getMessage());
+        }
+    }
+public void ReporteDiario(String USUARIO) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("USUARIO", USUARIO);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/ReporteDiario.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Reporte Diario");
+           ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporteDiario:"+e.getMessage());
+        }
+    }
+
+public void ReporteFechas(String USUARIO,int F1,int F2) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("USUARIO", USUARIO);
+            parametros.put("F1", F1);
+            parametros.put("F2", F2);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cajaCentral/ReporteFechas.jasper"), parametros, con.conectar()); 
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Reporte");
+           ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error_reporte Fechas:"+e.getMessage());
         }
     }
 
@@ -308,6 +335,33 @@ public boolean ActualizarVenta()
         }
         return resp;
     }
+public boolean ActualizarVentaEx()
+        {
+        boolean resp = false;
+        try
+        {
+            String sql = "exec CAJA_ACTUALIZAR_VENTA_CABECERA_DESCUENTO ?,?,?,?,?,?,?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setString(1, getId_documento());
+            cmd.setDouble(2, getDESCUENTO());
+            cmd.setDouble(3, getTOTAL_DOCUUMENTO());
+            cmd.setString(4, getUsu_Exoneracion());
+            cmd.setString(5, getPorcentaje_Exoneracion());
+            cmd.setInt(6, getId_ActoMedico());
+            cmd.setString(7, getEstadoVisibleAdmision());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return resp;
+    }
 
 public boolean Nuevo()
         {
@@ -389,6 +443,28 @@ public boolean Nuevo()
         }
         return resp;
     }
+     public boolean EliminarKARDEX_LA(){
+        boolean resp = false;
+        try
+        {
+            String sql = "EXEC CAJA_ELIMINAR_DESCUENTO_KARDEX_LA ?";
+            PreparedStatement cmd = getCn().prepareStatement(sql);
+            cmd.setInt(1, getIdDetalle());
+            if(!cmd.execute())
+            {
+                resp = true;
+            }
+            cmd.close();
+            getCn().close();
+          
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error_eliminar KARDEX LA: " + ex.getMessage());
+        }
+        return resp;
+    }
+     
      
 
  public String codUsuario(String nombreUsuario)
@@ -698,6 +774,39 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         }
     }
     
+    public void PreventaFR(String parametro,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+                String titulos[]={"FORMA PAGO","DNI","Apellidos y Nombres","Fecha","Id"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[5];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_PREVENTAS_FARMACIA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, parametro);;
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            System.out.println("SI HAY");
+        } catch (Exception e) {
+            System.out.println("Error: listar PREVENTAS FR: " + e.getMessage());
+        }
+    }
+    
     
     public void ListarAsistentaSocial(JTable tabla){
     String consulta="";
@@ -737,10 +846,10 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Nomeclatura","Descripcion","Precio","Forma de Pago","Decripcion Forma Pago","","","","",""};
+            String titulos[]={"Nomeclatura","Descripcion","Precio","Forma de Pago","Decripcion Forma Pago","","","","","",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[10];
+            String fila[]=new String[11];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="exec Caja_NomenclaturaVentaBUSCAR ?,?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -759,6 +868,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                 fila[7]=r.getString(8);
                 fila[8]=r.getString(9);
                 fila[9]=r.getString(10);
+                fila[10]=r.getString(11);
 
                     m.addRow(fila);
                     c++;
@@ -791,6 +901,8 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(8).setMaxWidth(0);
         tabla.getColumnModel().getColumn(9).setMinWidth(0);
         tabla.getColumnModel().getColumn(9).setMaxWidth(0);
+        tabla.getColumnModel().getColumn(10).setMinWidth(0);
+        tabla.getColumnModel().getColumn(10).setMaxWidth(0);
         tabla.setRowHeight(37);
         
     }
@@ -1022,10 +1134,10 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
     String consulta="";
         try {
             tabla.setModel(new DefaultTableModel());
-            String titulos[]={"Codigo","Forma de Pago","Distrito","Representante","RUC","Direccion","Telefono","","","","","",""};
+            String titulos[]={"Codigo","Forma de Pago","Distrito","Representante","RUC","Direccion","Telefono","","","","","","",""};
             m=new DefaultTableModel(null,titulos);
             JTable p=new JTable(m);
-            String fila[]=new String[13];
+            String fila[]=new String[14];
             //int index = cbxTipoBusqueda.getSelectedIndex();
             consulta="EXEC Caja_EmpresaJerarquia_LISTAR ?";
             PreparedStatement cmd = getCn().prepareStatement(consulta);
@@ -1046,6 +1158,7 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
                 fila[10]=r.getString(11);
                 fila[11]=r.getString(12);
                 fila[12]=r.getString(13);
+                fila[13]=r.getString(14);
 
                     m.addRow(fila);
                     c++;
@@ -1082,6 +1195,8 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(11).setMaxWidth(0); 
         tabla.getColumnModel().getColumn(12).setMinWidth(0);
         tabla.getColumnModel().getColumn(12).setMaxWidth(0); 
+        tabla.getColumnModel().getColumn(13).setMinWidth(0);
+        tabla.getColumnModel().getColumn(13).setMaxWidth(0); 
 //        
   
         tabla.setRowHeight(40);
@@ -1412,6 +1527,48 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(9).setMaxWidth(0);
         tabla.getColumnModel().getColumn(10).setMinWidth(0);
         tabla.getColumnModel().getColumn(10).setMaxWidth(0);
+        tabla.setRowHeight(40);
+    }
+      ////////////////////FR
+      public void CAJA_PREVENTAS_FR(String Texto,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Forma Pago","DNI","Paciente","Fecha","id"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[5];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_PREVENTAS_FARMACIA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Texto);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoPreventaFR(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: PREVENTA FR: " + e.getMessage());
+        }
+    }
+      public void formatoPreventaFR(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
         tabla.setRowHeight(40);
     }
 

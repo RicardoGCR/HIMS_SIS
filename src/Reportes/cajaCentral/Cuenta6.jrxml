@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cuenta6" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3fcdfbbe-eef0-47c6-b691-8372cc5f796a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[DECLARE @USUARIO VARCHAR(70)
+SET @USUARIO = ( SELECT Usu_Codigo FROM USUARIO where Usu_Usuario ='SILVANA')
+select CDD.id_cod_doc_det,CDC.id_documento,RTRIM(CDC.serie_documento)+'-'+CDC.num_documento as 'DOCUMENTO',CNC.nomen_caja,CNC.descripcion_nomen_tipo, cc6.cuenta_6, cc6.descripcion_6
+from CAJA_DOCUMENTO_DETALLE CDD,CAJA_PRECIOS CP,CAJA_NOMENCLATURA_CAJA CNC,CAJA_CUENTA_6 CC6, CAJA_DOCUMENTO_CABECERA CDC,ADMISION_HISTORIA_CLINICA HC
+WHERE CDC.id_documento=CDD.id_documento AND
+CDD.cod_precio=CP.cod_precio AND
+CP.cod_nomen_caja=CNC.cod_nomen_caja AND
+CNC.id_cuenta6=CC6.id_cuenta6 AND
+CDC.id_hc=HC.id_hc AND
+CDC.fecha_actu = CONVERT(VARCHAR(10),GETDATE(),103)AND
+						 HC.estado_hc='A'AND
+						 CDC.cod_usu=@USUARIO
+						 order by cc6.descripcion_6]]>
+	</queryString>
+	<field name="id_cod_doc_det" class="java.lang.Long"/>
+	<field name="id_documento" class="java.lang.String"/>
+	<field name="DOCUMENTO" class="java.lang.String"/>
+	<field name="nomen_caja" class="java.lang.String"/>
+	<field name="descripcion_nomen_tipo" class="java.lang.String"/>
+	<field name="cuenta_6" class="java.lang.String"/>
+	<field name="descripcion_6" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="0" width="100" height="20" uuid="c06221eb-6dc8-4056-8683-e0da6c95c4f4"/>
+				<textFieldExpression><![CDATA[$F{descripcion_6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="322" height="20" uuid="97c0ff94-19d1-487d-89c0-d7ed47cf349a"/>
+				<textFieldExpression><![CDATA[$F{cuenta_6}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="160" y="0" width="100" height="20" uuid="50e5dd74-654e-4b85-804a-395dcc1f521c"/>
+				<textFieldExpression><![CDATA[$F{nomen_caja}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="0" width="140" height="20" uuid="cc27f29c-75bb-429a-9084-990ab1220b59"/>
+				<textFieldExpression><![CDATA[$F{DOCUMENTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="273" y="0" width="282" height="20" uuid="63d89b64-56a0-4977-85ac-daacdc28027d"/>
+				<textFieldExpression><![CDATA[$F{descripcion_nomen_tipo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

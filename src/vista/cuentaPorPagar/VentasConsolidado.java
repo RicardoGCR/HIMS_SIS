@@ -1470,8 +1470,8 @@ public class VentasConsolidado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFacturarLaboratorioActionPerformed
 
     private void btnFacturarProcedimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarProcedimientosActionPerformed
-             if(Facturado==false){
-             Facturador fac=  new Facturador();
+         if(Facturado==false){
+            Facturador fac=  new Facturador();
             fac.setVisible(true);
             Facturado= true;
         } else {

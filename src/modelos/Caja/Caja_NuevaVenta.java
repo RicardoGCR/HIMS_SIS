@@ -774,6 +774,39 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         }
     }
     
+    public void PreventaFR(String parametro,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+                String titulos[]={"FORMA PAGO","DNI","Apellidos y Nombres","Fecha","Id"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[5];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_PREVENTAS_FARMACIA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, parametro);;
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                fila[0]=r.getString(1);
+                fila[1]=r.getString(2);
+                fila[2]=r.getString(3);
+                fila[3]=r.getString(4);
+                fila[4]=r.getString(5);
+                    m.addRow(fila);
+                    c++;
+            }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            System.out.println("SI HAY");
+        } catch (Exception e) {
+            System.out.println("Error: listar PREVENTAS FR: " + e.getMessage());
+        }
+    }
+    
     
     public void ListarAsistentaSocial(JTable tabla){
     String consulta="";
@@ -1494,6 +1527,48 @@ public void listarMedicosPapeleta(String Servicio,JTable tabla){
         tabla.getColumnModel().getColumn(9).setMaxWidth(0);
         tabla.getColumnModel().getColumn(10).setMinWidth(0);
         tabla.getColumnModel().getColumn(10).setMaxWidth(0);
+        tabla.setRowHeight(40);
+    }
+      ////////////////////FR
+      public void CAJA_PREVENTAS_FR(String Texto,JTable tabla){
+    String consulta="";
+        try {
+            tabla.setModel(new DefaultTableModel());
+            String titulos[]={"Forma Pago","DNI","Paciente","Fecha","id"};
+            m=new DefaultTableModel(null,titulos);
+            JTable p=new JTable(m);
+            String fila[]=new String[5];
+            //int index = cbxTipoBusqueda.getSelectedIndex();
+            consulta="exec CAJA_PREVENTAS_FARMACIA ?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, Texto);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+                    fila[0]=r.getString(1); 
+                    fila[1]=r.getString(2); 
+                    fila[2]=r.getString(3); 
+                    fila[3]=r.getString(4); 
+                    fila[4]=r.getString(5); 
+                        m.addRow(fila);
+                        c++;
+                }
+            tabla.setModel(m);
+            TableRowSorter<TableModel> elQueOrdena=new TableRowSorter<TableModel>(m);
+            tabla.setRowSorter(elQueOrdena);
+            tabla.setModel(m);
+            formatoPreventaFR(tabla);
+        } catch (Exception e) {
+            System.out.println("Error: PREVENTA FR: " + e.getMessage());
+        }
+    }
+      public void formatoPreventaFR(JTable tabla){
+        tabla.getColumnModel().getColumn(0).setPreferredWidth(70);
+        tabla.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tabla.getColumnModel().getColumn(2).setPreferredWidth(250);
+        tabla.getColumnModel().getColumn(3).setPreferredWidth(100);
+        tabla.getColumnModel().getColumn(4).setMinWidth(0);
+        tabla.getColumnModel().getColumn(4).setMaxWidth(0);
         tabla.setRowHeight(40);
     }
 

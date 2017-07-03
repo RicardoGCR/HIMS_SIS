@@ -1618,7 +1618,7 @@ Ticket ticket=new Ticket();
 
     private void buscartodoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_buscartodoCaretUpdate
         btnNuevo.setEnabled(true);
-        btnguardar.setEnabled(true);
+        btnguardar.setEnabled(false);
         btneditar.setEnabled(false);
         btneliminar.setEnabled(false);
         Buscar();

@@ -808,13 +808,14 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                                             .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, P_ROL1Layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
-                                        .addGroup(P_ROL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(TXT_HORA_INICIO)
-                                            .addComponent(jLabel19)
-                                            .addComponent(TXT_HORA_FIN)
+                                        .addGroup(P_ROL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(P_ROL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(jLabel20)
-                                                .addComponent(txtHoras_Libres)))
+                                                .addComponent(txtHoras_Libres))
+                                            .addGroup(P_ROL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(TXT_HORA_INICIO)
+                                                .addComponent(jLabel19)
+                                                .addComponent(TXT_HORA_FIN)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1038,7 +1039,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                                 .addComponent(btneliminar)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnLista)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblusu, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(24, 24, 24))
                         );
@@ -1056,6 +1057,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         txtAR_ID.addCaretListener(new javax.swing.event.CaretListener() {
                             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                                 txtAR_IDCaretUpdate(evt);
+                            }
+                        });
+                        txtAR_ID.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                txtAR_IDActionPerformed(evt);
                             }
                         });
 
@@ -1319,6 +1325,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                                 txtMedico_UOCaretUpdate(evt);
                             }
                         });
+                        txtMedico_UO.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                txtMedico_UOActionPerformed(evt);
+                            }
+                        });
 
                         btnBuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconos/Búsqueda-25.png"))); // NOI18N
                         btnBuscarP.setToolTipText("");
@@ -1415,6 +1426,11 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
 
                         txtLimite_Consultas_Per.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         txtLimite_Consultas_Per.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                        txtLimite_Consultas_Per.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                txtLimite_Consultas_PerActionPerformed(evt);
+                            }
+                        });
                         txtLimite_Consultas_Per.addKeyListener(new java.awt.event.KeyAdapter() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 txtLimite_Consultas_PerKeyPressed(evt);
@@ -1430,12 +1446,22 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                         txtTotal_Horas.setEditable(false);
                         txtTotal_Horas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         txtTotal_Horas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                        txtTotal_Horas.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                txtTotal_HorasActionPerformed(evt);
+                            }
+                        });
 
                         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         jLabel10.setText("Total Pago:");
 
                         txtTotal_Pago.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
                         txtTotal_Pago.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+                        txtTotal_Pago.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                txtTotal_PagoActionPerformed(evt);
+                            }
+                        });
                         txtTotal_Pago.addKeyListener(new java.awt.event.KeyAdapter() {
                             public void keyPressed(java.awt.event.KeyEvent evt) {
                                 txtTotal_PagoKeyPressed(evt);
@@ -1667,7 +1693,7 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
                                 .addGap(0, 0, 0)
                                 .addComponent(cargareliminar_Per, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                .addComponent(jTabbedPane1))
                         );
 
                         pack();
@@ -2522,6 +2548,26 @@ static CLS_PERSONAL_ROL PR = new CLS_PERSONAL_ROL();
 //                    TB_TURNOS_PERSONAL_ROL.requestFocus();
         }
     }//GEN-LAST:event_btn_AGREGAR_ACTIVIDADESKeyPressed
+
+    private void txtAR_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAR_IDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAR_IDActionPerformed
+
+    private void txtMedico_UOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedico_UOActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMedico_UOActionPerformed
+
+    private void txtLimite_Consultas_PerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLimite_Consultas_PerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLimite_Consultas_PerActionPerformed
+
+    private void txtTotal_HorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotal_HorasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTotal_HorasActionPerformed
+
+    private void txtTotal_PagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotal_PagoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTotal_PagoActionPerformed
 
     public void CANTIDAD_HORAS_LIBRES_RESTA(){
         String L = LBL_TOTAL_HORA.getText();

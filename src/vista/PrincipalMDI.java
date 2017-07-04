@@ -9,6 +9,8 @@ package vista;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.UnknownHostException;
 import java.sql.ResultSet;
 import java.util.logging.Level;
@@ -5948,7 +5950,14 @@ public class PrincipalMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLaboratorio1ActionPerformed
 
     private void btnLaboratorio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaboratorio2ActionPerformed
-        // TODO add your handling code here:
+        Runtime aplicacion = Runtime.getRuntime(); 
+        try{aplicacion.exec("cmd.exe /K start C:\\SUNAT\\iniciarSistema.bat"); }
+        catch(Exception e){System.out.println(e);}
+        
+        
+        Runtime aplicacion2 = Runtime.getRuntime(); 
+        try{aplicacion2.exec("cmd.exe /K start C:\\SUNAT\\abrirBandeja.bat"); }
+        catch(Exception e){System.out.println(e);}
     }//GEN-LAST:event_btnLaboratorio2ActionPerformed
 
 

@@ -1,5 +1,6 @@
 package modelos.cuentaPorPagar;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -263,6 +264,36 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
             //
         } catch (Exception e) {
             System.out.println("Error: calcularPrecioVenta:  " + e.getMessage());
+        }
+    } 
+    
+    public void calculoValorVenta(String dni,String tipo){
+        String consulta="";
+        try {
+            consulta="CUENTAS_POR_PAGAR_TOTAL_VENTAS_GRAVADAS ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, dni);
+            cmd.setString(2, tipo);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            double redondeo,ventaInafectada;
+            while(r.next()){
+            if(tipo.equalsIgnoreCase("5")){
+                redondeo = Double.parseDouble(r.getString(1));
+                BigDecimal bdVentaGravada  = new BigDecimal(redondeo);
+                bdVentaGravada = bdVentaGravada.setScale(2, BigDecimal.ROUND_HALF_UP);
+                Facturador.txtValorVentaGravada.setText(bdVentaGravada.toString()); 
+            }
+            if(tipo.equalsIgnoreCase("T")){
+                redondeo = Double.parseDouble(r.getString(1));
+                BigDecimal bdVentaGravada  = new BigDecimal(redondeo);
+                bdVentaGravada = bdVentaGravada.setScale(2, BigDecimal.ROUND_HALF_UP);
+                Facturador.txtValorVentaInafectada.setText(bdVentaGravada.toString()); 
+            }
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: calculoValorVenta:  " + e.getMessage());
         }
     } 
     

@@ -266,6 +266,29 @@ public class CuentasPorPagarVentasConsolidadoCabecera {
         }
     } 
     
+    public void calculoValorVenta(String dni,String tipo){
+        String consulta="";
+        try {
+            consulta="CUENTAS_POR_PAGAR_TOTAL_VENTAS_GRAVADAS ?,?";
+            PreparedStatement cmd = getCn().prepareStatement(consulta);
+            cmd.setString(1, dni);
+            cmd.setString(2, tipo);
+            ResultSet r= cmd.executeQuery();
+            int c=1;
+            while(r.next()){
+            if(tipo.equalsIgnoreCase("5")){
+                Facturador.txtValorVentaGravada.setText(r.getString(1)); 
+            }
+            if(tipo.equalsIgnoreCase("T")){
+                Facturador.txtValorVentaInafectada.setText(r.getString(1)); 
+            }
+            }
+            //
+        } catch (Exception e) {
+            System.out.println("Error: calculoValorVenta:  " + e.getMessage());
+        }
+    } 
+    
     public CuentasPorPagarVentasConsolidadoCabecera() {
         Conexion con = new Conexion();
         cn = con.conectar();

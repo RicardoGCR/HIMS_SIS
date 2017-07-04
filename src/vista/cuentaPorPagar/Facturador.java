@@ -2638,7 +2638,7 @@ public class Facturador extends javax.swing.JFrame {
     }//GEN-LAST:event_txtValorVentaGravadaActionPerformed
 
     private void txtValorVentaInafectadaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtValorVentaInafectadaCaretUpdate
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtValorVentaInafectadaCaretUpdate
 
     private void txtValorVentaInafectadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorVentaInafectadaActionPerformed

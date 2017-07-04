@@ -46,7 +46,7 @@ public class FacturadorPagos extends javax.swing.JFrame {
             }
         });
         cerrar();
-        agregarFacturas();
+//        agregarFacturas();
         rpta.listarFacturasAceptadas(tbFacturacion, "");
     }
 

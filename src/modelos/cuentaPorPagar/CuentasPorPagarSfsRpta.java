@@ -9,12 +9,18 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.xml.bind.annotation.XmlRootElement;
 import modelos.Caja.Caja_NuevaVenta;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 import servicios.Conexion;
 public class CuentasPorPagarSfsRpta implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -168,6 +174,19 @@ public class CuentasPorPagarSfsRpta implements Serializable {
         tabla.getColumnModel().getColumn(6).setPreferredWidth(100);
         tabla.getColumnModel().getColumn(7).setPreferredWidth(70);
         tabla.setRowHeight(35);
+    }
+    
+    public void reporteFactura(String idFactura) {
+        try {
+            Map parametros = new HashMap();
+            parametros.put("FACTURA", idFactura);
+            JasperPrint informe = JasperFillManager.fillReport(getClass().getResourceAsStream("/Reportes/cuentasPorPagar/reporteFactura.jasper"), parametros, con.conectar());          
+            JasperViewer ventanavisor = new JasperViewer(informe, false);
+            ventanavisor.setTitle("Factura Electrónica .::. " + idFactura );
+            ventanavisor.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "reporteFactura:"+e.getMessage());
+        }
     }
     
     public CuentasPorPagarSfsRpta() {

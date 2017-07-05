@@ -1616,8 +1616,8 @@ int filtro=0;
                   if(meGuardar.LAB_Resultado_Muestra_Cab_guardar()){
                       Lab_guardar_detalleySub();
                       Lab_guardar_Insumos();
-                      
-                      
+                      JOptionPane.showMessageDialog(null, "Espere un momento, documento exportandose!", "Importante!", JOptionPane.INFORMATION_MESSAGE);
+
                       LAB_Resultado_Muestra_Cabecera mc=new LAB_Resultado_Muestra_Cabecera();
                       mc.LAB_Resultado_Caja_Estado(Integer.parseInt( lblid_cod_doc_det.getText()));
                       

@@ -36,6 +36,7 @@ import java.util.Formatter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.xml.crypto.MarshalException;
@@ -64,6 +65,7 @@ import modelos.Caja.Caja_NuevaVenta;
 import modelos.admisionEmergencia.AdmisionEmergenciaCabecera;
 import modelos.cuentaPorPagar.CuentasPorPagarFacturasCabecera;
 import modelos.cuentaPorPagar.CuentasPorPagarFacturasDetalle;
+import modelos.cuentaPorPagar.CuentasPorPagarSfsRpta;
 import modelos.cuentaPorPagar.CuentasPorPagarVentasConsolidadoCabecera;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -82,6 +84,7 @@ public class Facturador extends javax.swing.JFrame {
     CuentasPorPagarFacturasCabecera cuentasCab1 = new CuentasPorPagarFacturasCabecera();
     double sumatoriaIGV = 0.00;
     double sumatoriaTotal = 0.00;
+    ImageIcon i=new ImageIcon(this.getClass().getResource("/imagenes/iconos/alerta32x32.png")); 
     public Facturador() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -2788,6 +2791,13 @@ public class Facturador extends javax.swing.JFrame {
                 }
                     if(rpta==true){
                     JOptionPane.showMessageDialog(this, "Factura Electrónica Generada");
+                    int guardar = JOptionPane.showConfirmDialog(this, "¿Imprimir Factura Electrónica?",
+                                    "Atención", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,i);
+                    if(guardar == 0){ // SELECCION SI
+                        CuentasPorPagarFacturasCabecera cab3 = new CuentasPorPagarFacturasCabecera();
+                        CuentasPorPagarSfsRpta rpta2 = new CuentasPorPagarSfsRpta();
+                        rpta2.reporteFactura(cab3.idFactura());
+                    }
                     dispose();
                     VentasConsolidado.txtDni.requestFocus();
                     VentasConsolidado.txtDni.setText("");

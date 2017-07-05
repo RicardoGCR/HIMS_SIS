@@ -151,6 +151,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblEstado">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="b8" green="7f" red="29" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel70"/>
               </Properties>
             </Component>
@@ -337,6 +340,9 @@
               <Events>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tb_Factura_BoletaKeyPressed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable(){&#xa;public boolean isCellEditable(int rowIndex, int colIndex){&#xa;return false; //Disallow the editing of any cell&#xa;}}"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
